@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quiénes Somos? - Proyecto Celene</title>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-medio: #f06292;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo-luz: #fff9c4;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.6;
+        }
+
+        .hand-drawn { font-family: 'Handlee', cursive; }
+
+        /* Animaciones */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        /* Header */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: var(--pc-rosa-pastell);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            box-shadow: 10px 10px 0px var(--pc-negro);
+        }
+
+        h1 { font-size: 2.8rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; }
+
+        /* Misión y Visión */
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            border: 3px solid var(--pc-negro);
+            padding: 30px;
+            border-radius: 15px;
+            background: white;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: scale(1.02); }
+
+        .card h2 {
+            font-size: 1.8rem;
+            color: var(--pc-rosa-medio);
+            margin-bottom: 15px;
+            border-bottom: 2px dashed var(--pc-negro);
+            display: inline-block;
+        }
+
+        /* Valores */
+        .values-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .values-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .value-tag {
+            background: var(--pc-blanco);
+            border: 2px solid var(--pc-negro);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 3px 3px 0px var(--pc-rosa-medio);
+        }
+
+        /* El Equipo - Grid Interactivo */
+        .team-section {
+            margin-top: 60px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .member-card {
+            text-align: center;
+            padding: 25px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            background: var(--pc-blanco);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            background: var(--pc-rosa-pastell);
+            box-shadow: 8px 8px 0px var(--pc-negro);
+        }
+
+        .member-avatar {
+            width: 110px;
+            height: 110px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background: #eee;
+            overflow: hidden;
+        }
+        
+        .member-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+        .member-name { font-weight: 800; font-size: 1.3rem; color: var(--pc-rosa-fuerte); margin-bottom: 5px; }
+        .member-role { font-size: 0.95rem; color: var(--pc-rosa-medio); font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .member-desc { font-size: 0.9rem; line-height: 1.4; color: var(--pc-negro); }
+
+        @media (min-width: 600px) {
+            .mv-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+                <nav class="main-nav" style="margin-bottom: 25px; text-align: center;">
+                    <a href="inicio.html">Inicio</a> |
+                    <a href="quienes-somos.html">¿Quiénes Somos?</a> |
+                    <a href="nuestra-historia.html">Nuestra Historia</a> |
+                    <a href="reseña.html">Reseñas</a> |
+                    <a href="servicios.html">Servicios</a> |
+                    <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
+                </nav>
+        
+        <!-- HEADER -->
+        <header class="hero fade-in">
+            <h1 class="hand-drawn">¿Quiénes Somos?</h1>
+            <p>Conoce al equipo que trabaja día a día para que ninguna mujer luche sola.</p>
+        </header>
+
+        <!-- MISIÓN Y VISIÓN -->
+        <div class="mv-grid">
+            <div class="card fade-in">
+                <h2 class="hand-drawn">Nuestra Misión</h2>
+                <p>Brindar apoyo integral a las mujeres para la detección temprana del cáncer de mama, garantizando acceso a estudios, medicamentos, tratamientos y educación en salud, con calidez humana y sin fines de lucro.</p>
+            </div>
+            <div class="card fade-in">
+                <h2 class="hand-drawn">Nuestra Visión</h2>
+                <p>Ser una fundación reconocida por su impacto en la salud femenina, su transparencia y su compromiso comunitario, ayudando a que ninguna mujer deje de atenderse por falta de recursos.</p>
+            </div>
+        </div>
+
+        <!-- VALORES -->
+        <section class="values-section fade-in">
+            <h2 class="hand-drawn" style="font-size: 2rem;">Nuestro Corazón</h2>
+            <div class="values-container">
+                <span class="value-tag">Solidaridad</span>
+                <span class="value-tag">Respeto</span>
+                <span class="value-tag">Confianza</span>
+                <span class="value-tag">Educación</span>
+                <span class="value-tag">Prevención</span>
+                <span class="value-tag">Transparencia</span>
+                <span class="value-tag">Amor por la vida</span>
+            </div>
+        </section>
+
+        <!-- EQUIPO -->
+        <section class="team-section">
+            <h2 class="hand-drawn fade-in" style="text-align: center; font-size: 2.2rem; margin-bottom: 30px;">Los Humanos detrás de la Promesa</h2>
+            
+            <div class="team-grid">
+                <!-- Francisco Sandoval -->
+                <div class="member-card fade-in">
+                    <div class="member-avatar">
+                        <img src="https://via.placeholder.com/150?text=Francisco" alt="Francisco Sandoval">
+                    </div>
+                    <p class="member-name hand-drawn">Francisco Sandoval</p>
+                    <p class="member-role">Fundador y Presidente</p>
+                    <p class="member-desc">El alma y motor de Proyecto Celene. Tras la partida de su hermana Selene, transformó el duelo en una misión incansable que hoy salva vidas en Rosarito y Nayarit, liderando con amor y visión la futura Clínica de Especialidades.</p>
+                </div>
+
+                <!-- Leticia Díaz -->
+                <div class="member-card fade-in">
+                    <div class="member-avatar">
+                        <img src="https://via.placeholder.com/150?text=Leticia" alt="Leticia Díaz">
+                    </div>
+                    <p class="member-name hand-drawn">Leticia Díaz</p>
+                    <p class="member-role">Subdirectora</p>
+                    <p class="member-desc">Guerrera sobreviviente que conoce de primera mano el camino de la lucha contra el cáncer. Su experiencia se traduce en una empatía profunda, guiando a nuestras pacientes con la fuerza y esperanza que solo una guerrera puede transmitir.</p>
+                </div>
+
+                <!-- Dr. Carlos Donato -->
+                <div class="member-card fade-in">
+                    <div class="member-avatar">
+                        <img src="https://via.placeholder.com/150?text=Dr.+Carlos" alt="Dr. Carlos Donato">
+                    </div>
+                    <p class="member-name hand-drawn">Dr. Carlos Donato</p>
+                    <p class="member-role">Médico General y Director de Redes</p>
+                    <p class="member-desc">Encargado de la salud integral de nuestra comunidad y el vínculo digital de la fundación. Combina la calidez de la medicina general con la gestión de nuestras redes sociales, asegurando que la información de prevención llegue a cada rincón.</p>
+                </div>
+
+                <!-- Dr. Mario Minor -->
+                <div class="member-card fade-in">
+                    <div class="member-avatar">
+                        <img src="https://via.placeholder.com/150?text=Dr.+Mario" alt="Dr. Mario Minor">
+                    </div>
+                    <p class="member-name hand-drawn">Dr. Mario Minor</p>
+                    <p class="member-role">Médico Especialista</p>
+                    <p class="member-desc">Su ojo clínico y especialización son fundamentales para Proyecto Celene. Se encarga de la revisión de estudios diagnósticos y la canalización de casos críticos, garantizando que nuestras pacientes reciban la atención técnica y precisa que necesitan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PIE DE PAGINA -->
+        <div class="fade-in" style="margin-top: 60px; text-align: center; padding: 40px; background-color: var(--pc-gris); border: 2px dashed #ccc; border-radius: 20px;">
+            <p class="hand-drawn" style="font-size: 1.3rem; color: var(--pc-rosa-fuerte);">"18 años después, nuestra promesa sigue más viva que nunca. Todo lo hacemos por amor a ellas."</p>
+        </div>
+
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

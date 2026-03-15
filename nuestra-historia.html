@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia - Proyecto Celene</title>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-medio: #f06292;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-gris: #f8f9fa;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hand-drawn { font-family: 'Handlee', cursive; }
+
+        /* Estilos de Animación */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Contenedor Principal */
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+
+        /* Header Especial 18 Aniversario */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--pc-rosa-pastell) 0%, var(--pc-blanco) 100%);
+            border-bottom: 3px solid var(--pc-negro);
+            border-radius: 0 0 50px 50px;
+        }
+
+        .header-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+
+        .badge-18 {
+            display: inline-block;
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            border: 2px solid var(--pc-negro);
+            transform: rotate(-3deg);
+        }
+
+        h1 { font-size: 2.2rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; }
+
+        /* Secciones de Historia */
+        .section { margin-bottom: 60px; position: relative; }
+
+        .image-box {
+            width: 100%;
+            height: 280px;
+            background: var(--pc-gris);
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .image-box img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            /* Se asegura de que la imagen se vea bien y centrada sin deformarse */
+            object-position: center; 
+        }
+
+        /* Ajuste específico para imágenes que necesitan verse completas como los volantes */
+        .image-box.contain-img img {
+            object-fit: contain;
+            background-color: var(--pc-blanco);
+            padding: 10px;
+        }
+
+        /* Ajuste para imágenes verticales largas (como recortes de periódico) */
+        .image-box.auto-height {
+            height: auto;
+            background-color: var(--pc-blanco);
+        }
+        .image-box.auto-height img {
+            height: auto;
+            max-height: 800px;
+            object-fit: contain;
+        }
+
+        .image-tag {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: var(--pc-blanco);
+            padding: 2px 10px;
+            border: 2px solid var(--pc-negro);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .content-card {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 8px 8px 0px var(--pc-rosa-pastell);
+            position: relative;
+        }
+
+        .phase-title {
+            font-size: 1.4rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quote-box {
+            background: #fff9c4;
+            padding: 20px;
+            border: 2px dashed var(--pc-negro);
+            margin: 20px 0;
+            font-family: 'Handlee', cursive;
+            font-size: 1.2rem;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        /* Footer / CTA */
+        .footer-cta {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-rosa-pastell);
+            border: 3px solid var(--pc-negro);
+            border-radius: 30px;
+            margin-top: 40px;
+        }
+
+        .btn-wa {
+            display: inline-block;
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            margin-top: 20px;
+            border: 2px solid var(--pc-negro);
+            box-shadow: 4px 4px 0 var(--pc-negro);
+            transition: all 0.2s;
+        }
+        .btn-wa:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--pc-negro); }
+
+        /* Timeline Dots */
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--pc-rosa-fuerte);
+            border: 3px solid var(--pc-negro);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        .floating { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <!-- Se agregó el logo circular flotante al inicio -->
+        <img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Logo Proyecto Celene" class="header-logo floating">
+        <div class="badge-18">¡CELEBRAMOS 18 AÑOS!</div>
+        <h1 class="hand-drawn">La Crónica de una Promesa</h1>
+        <p>Por amor a ellas, desde el primer día.</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- FASE 1 -->
+        <div class="section fade-in">
+            <div class="timeline-dot"></div>
+            <div class="phase-title hand-drawn">🌻 2007: El Origen</div>
+            <div class="content-card">
+                <p>Todo comenzó con una herida profunda. Selene Sandoval, enfermera y partera, recibió la noticia: cáncer en etapa 4. En la penumbra de una habitación en 2008, ella miró a su hermano Francisco y le entregó la misión de su vida:</p>
+                <div class="quote-box">"Haz algo por ellas, así como lo estás haciendo conmigo."</div>
+                <div class="image-box auto-height">
+                    <!-- Foto de Francisco en el periódico -->
+                    <img src="https://i.ibb.co/0yFKKSty/sr-francisco-en-primera-plana-periodico.jpg" alt="Sr. Francisco en primera plana de periódico">
+                    <div class="image-tag">La Promesa Pública</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 2 -->
+        <div class="section fade-in">
+            <div class="timeline-dot"></div>
+            <div class="phase-title hand-drawn">✍️ Los Inicios</div>
+            <div class="content-card">
+                <p>Sin dinero ni infraestructura, Francisco empezó con volantes escritos a mano. Su primer "consultorio" fue su propio escritorio en el Ayuntamiento de Rosarito. Entre sellos y expedientes, se realizó la primera revisión.</p>
+                <p>En octubre de 2008, bajo una lluvia gélida, más de 500 mujeres llegaron a la explanada. <strong>Rosarito estaba despertando.</strong></p>
+                <!-- Usando clase contain-img para que el volante no se recorte -->
+                <div class="image-box contain-img">
+                    <!-- Foto de los primeros volantes -->
+                    <img src="https://i.ibb.co/vvH65TQB/primeros-volantes-de-pc.jpg" alt="Primeros volantes de Proyecto Celene">
+                    <div class="image-tag">Los Primeros Volantes</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 3 -->
+        <div class="section fade-in">
+            <div class="timeline-dot"></div>
+            <div class="phase-title hand-drawn">🎀 Más que Medicina</div>
+            <div class="content-card">
+                <p>Entendimos que el cáncer arrebata la identidad. Por eso creamos el banco de pelucas y prótesis: para devolver la dignidad.</p>
+                <p>Como Doña Martha, quien temía al viaje a Mexicali. Nosotros transformamos ese viaje de terror en un trayecto con café, canciones de Rocío Dúrcal y esperanza. <strong>Nadie lucha sola.</strong></p>
+                <div class="image-box">
+                    <!-- Foto de plática con mujeres -->
+                    <img src="https://i.ibb.co/CK74ghcn/sr-francisco-dando-platica-a-mujeres-sobre-el-cancer-de-mama.jpg" alt="Sr Francisco dando plática a mujeres sobre el cáncer de mama">
+                    <div class="image-tag">Acompañamiento</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 4 -->
+        <div class="section fade-in">
+            <div class="timeline-dot"></div>
+            <div class="phase-title hand-drawn">🛡️ Resiliencia 2025</div>
+            <div class="content-card">
+                <p>En 2025 enfrentamos nuestra noche más oscura: nos quedamos sin clínica. Pero las puertas cerradas no nos detuvieron. Gracias a la comunidad, hoy estamos instalados en nuestra sede en la <strong>Colonia Lienzo Charro</strong> en Rosarito.</p>
+                <p>Sin apoyos gubernamentales, cada peso de recuperación de $150 es el combustible que nos mantiene de pie.</p>
+                <div class="image-box">
+                    <!-- Foto del Lienzo Charro -->
+                    <img src="https://i.ibb.co/ch92w1jv/lienzo-charro.jpg" alt="Sede en Lienzo Charro">
+                    <div class="image-tag">Nuestra Casa: Lienzo Charro</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 5 -->
+        <div class="section fade-in">
+            <div class="timeline-dot"></div>
+            <div class="phase-title hand-drawn">🚀 El Futuro</div>
+            <div class="content-card">
+                <p>La promesa cruzó fronteras. Hoy contamos con varios módulos en <strong>Nayarit</strong>, volviendo a las raíces de Selene, y nuestro corazón en <strong>Rosarito</strong>.</p>
+                <p>Nuestra gran visión: La Clínica de Especialidades con Rayos X y quirófanos propios. Porque 1 de cada 8 mujeres enfrentará esta batalla. ¿A cuál de ellas dejarías desprotegida?</p>
+                <div class="image-box">
+                    <!-- Foto de Sede Nayarit -->
+                    <img src="https://i.ibb.co/Q7P0XdWq/nayarit.jpg" alt="Módulo en Nayarit">
+                    <div class="image-tag">Expansión a Nayarit</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer-cta fade-in">
+            <h2 class="hand-drawn">¿Te unes a la lucha?</h2>
+            <p>En Proyecto Celene, todo lo hacemos por amor a ellas. Necesitamos tu ayuda para seguir salvando vidas.</p>
+            <a href="https://proyectocelene.org/unete" class="btn-wa" target="_blank">¡Quiero Ayudar! 🌸</a>
+        </div>
+
+    </div>
+
+    <script>
+        // Observador de Scroll para animaciones
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
