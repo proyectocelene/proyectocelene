@@ -1,9 +1,86 @@
 
-<nav class="main-nav" style="margin-bottom: 25px; text-align: center;">
-	<a href="inicio.html">Inicio</a> |
-	<a href="quienes-somos.html">¿Quiénes Somos?</a> |
-	<a href="nuestra-historia.html">Nuestra Historia</a> |
-	<a href="reseña.html">Reseñas</a> |
-	<a href="servicios.html">Servicios</a> |
-	<a href="farmacia-solidaria.html">Farmacia Solidaria</a>
-</nav>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Inicio - Proyecto Celene</title>
+	<link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--pc-rosa-pastell: #fce4ec;
+			--pc-rosa-medio: #f06292;
+			--pc-rosa-fuerte: #d81b60;
+			--pc-rosa-oscuro: #ad1457;
+			--pc-negro: #333333;
+			--pc-blanco: #ffffff;
+			--pc-amarillo: #fff9c4;
+			--pc-verde-wa: #25d366;
+			--pc-verde-wa-oscuro: #1b9c4b;
+			--pc-azul-suave: #e3f2fd;
+			--pc-gris-suave: #f9f9f9;
+		}
+		* { box-sizing: border-box; margin: 0; padding: 0; }
+		body { font-family: 'Nunito', sans-serif; background: var(--pc-blanco); color: var(--pc-negro); line-height: 1.5; overflow-x: hidden; }
+		.hand-drawn { font-family: 'Handlee', cursive; }
+		.container { max-width: 1100px; margin: 0 auto; padding: 15px; }
+		.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+		.fade-in.visible { opacity: 1; transform: translateY(0); }
+		.float-subtle { animation: float 4s ease-in-out infinite; }
+		@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+		.btn { display: inline-block; text-align: center; padding: 15px 20px; border-radius: 50px; border: 4px solid var(--pc-negro); font-weight: 800; text-decoration: none; font-size: 1.1rem; cursor: pointer; position: relative; top: 0; transition: all 0.1s; font-family: 'Nunito', sans-serif; width: 100%; max-width: 350px; margin-bottom: 15px; }
+		.btn:active { top: 6px; box-shadow: 0 0px 0 transparent !important; }
+		.btn:disabled { opacity: 0.7; cursor: not-allowed; }
+		.btn-primario { background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 6px 0 var(--pc-negro); }
+		.btn-secundario { background: var(--pc-amarillo); color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); }
+		.btn-wa { background: var(--pc-verde-wa); color: white; border-color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); }
+		.btn-llamar { background: var(--pc-azul-suave); color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); }
+		.btn-social { background: white; color: var(--pc-negro); border: 3px solid var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); width: auto; padding: 10px 20px; font-size: 1rem; }
+		.hero-section { text-align: center; padding: 40px 20px; background: var(--pc-blanco); border: 4px solid var(--pc-negro); border-radius: 25px; margin-bottom: 40px; box-shadow: 10px 10px 0px var(--pc-rosa-pastell); position: relative; }
+		.hero-logo { max-width: 100%; width: 280px; height: auto; margin: 0 auto 20px; display: block; border-radius: 15px; }
+		.hero-title { font-size: 3.5rem; color: var(--pc-rosa-fuerte); margin-bottom: 0px; line-height: 1.1; }
+		.hero-location { font-size: 2rem; color: var(--pc-negro); margin-bottom: 15px; }
+		.hero-subtitle { font-size: 1.3rem; color: #555; font-weight: 800; margin-bottom: 30px; font-style: italic; text-transform: uppercase; }
+		.hero-buttons { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+		.main-nav {margin-bottom: 25px; text-align: center; font-size: 1.15rem; font-weight: 700;}
+		.main-nav a { color: var(--pc-rosa-oscuro); text-decoration: none; margin: 0 8px; padding: 6px 14px; border-radius: 20px; transition: background 0.2s, color 0.2s; display: inline-block; }
+		.main-nav a:hover, .main-nav a:focus { background: var(--pc-rosa-medio); color: white; }
+		@media (min-width: 768px) { .hero-buttons { flex-direction: row; justify-content: center; gap: 20px; flex-wrap: wrap; } .btn { margin-bottom: 0; } }
+		@media (max-width: 600px) { .hero-title { font-size: 2.5rem; } .hero-location { font-size: 1.6rem; } }
+	</style>
+</head>
+<body>
+<div class="container">
+	<nav class="main-nav">
+		<a href="inicio.html">Inicio</a>
+		<a href="quienes-somos.html">¿Quiénes Somos?</a>
+		<a href="nuestra-historia.html">Nuestra Historia</a>
+		<a href="reseña.html">Reseñas</a>
+		<a href="servicios.html">Servicios</a>
+		<a href="farmacia-solidaria.html">Farmacia Solidaria</a>
+	</nav>
+	<header class="hero-section fade-in">
+		<img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Proyecto Celene Logo" class="hero-logo float-subtle">
+		<h1 class="hand-drawn hero-title">PROYECTO CELENE A.C.</h1>
+		<h2 class="hand-drawn hero-location">ROSARITO, B.C.</h2>
+		<p class="hero-subtitle">ÚNETE A LA LUCHA CONTRA EL CÁNCER DE MAMA</p>
+		<div class="hero-buttons">
+			<a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20agendar%20una%20Mastografía%20Gratis" class="btn btn-primario" target="_blank">Agendar Mastografía Gratis 🎗️</a>
+			<a href="https://www.proyectocelene.org/clinica-virtual" class="btn btn-wa">Orientación Médica Gratuita 💬</a>
+		</div>
+	</header>
+	<section class="welcome-section fade-in">
+		<h2>Bienvenidos a Proyecto Celene</h2>
+		<p>Somos una fundación dedicada a la prevención, detección y apoyo integral en la lucha contra el cáncer de mama en Rosarito, B.C. Descubre nuestros servicios, historia y cómo puedes sumarte a nuestra causa.</p>
+	</section>
+</div>
+<script>
+// Animación fade-in para elementos
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.fade-in').forEach(function(el) {
+	setTimeout(function() { el.classList.add('visible'); }, 200);
+  });
+});
+</script>
+</body>
+</html>
