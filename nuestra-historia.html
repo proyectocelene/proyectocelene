@@ -188,9 +188,37 @@
             100% { transform: translateY(0); }
         }
         .floating { animation: float 3s ease-in-out infinite; }
+
+        /* NAVEGACIÓN PRINCIPAL */
+        .main-nav {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+            margin: 20px auto; padding: 15px; background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro); border-radius: 20px;
+            box-shadow: 6px 6px 0px var(--pc-rosa-pastell);
+            max-width: 90%;
+        }
+        .main-nav a {
+            text-decoration: none; color: var(--pc-negro); font-weight: 800;
+            font-size: 1.05rem; padding: 8px 15px; border-radius: 15px;
+            transition: all 0.2s; border: 2px solid transparent;
+        }
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte); color: var(--pc-blanco);
+            border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
+
+    <nav class="main-nav">
+        <a href="inicio.html">Inicio</a>
+        <a href="quienes-somos.html">¿Quiénes Somos?</a>
+        <a href="nuestra-historia.html">Nuestra Historia</a>
+        <a href="resena.html">Reseñas</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
+    </nav>
 
     <header class="header">
         <!-- Se agregó el logo circular flotante al inicio -->
@@ -282,7 +310,7 @@
         <div class="footer-cta fade-in">
             <h2 class="hand-drawn">¿Te unes a la lucha?</h2>
             <p>En Proyecto Celene, todo lo hacemos por amor a ellas. Necesitamos tu ayuda para seguir salvando vidas.</p>
-            <a href="https://proyectocelene.org/unete" class="btn-wa" target="_blank">¡Quiero Ayudar! 🌸</a>
+            <a href="unete.html" class="btn-wa" target="_blank">¡Quiero Ayudar! 🌸</a>
         </div>
 
     </div>

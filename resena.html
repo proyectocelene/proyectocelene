@@ -116,18 +116,36 @@
             .star { font-size: 2.5rem; }
             .btn-google { font-size: 1.2rem; padding: 15px; }
         }
+
+        /* NAVEGACIÓN PRINCIPAL */
+        .main-nav {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+            margin-bottom: 30px; padding: 15px; background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro); border-radius: 20px;
+            box-shadow: 6px 6px 0px var(--pc-rosa-pastell);
+        }
+        .main-nav a {
+            text-decoration: none; color: var(--pc-negro); font-weight: 800;
+            font-size: 1.05rem; padding: 8px 15px; border-radius: 15px;
+            transition: all 0.2s; border: 2px solid transparent;
+        }
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte); color: var(--pc-blanco);
+            border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
 
-        <nav class="main-nav" style="margin-bottom: 25px; text-align: center;">
-            <a href="inicio.html">Inicio</a> |
-            <a href="quienes-somos.html">¿Quiénes Somos?</a> |
-            <a href="nuestra-historia.html">Nuestra Historia</a> |
-            <a href="reseña.html">Reseñas</a> |
-            <a href="servicios.html">Servicios</a> |
+        <nav class="main-nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="quienes-somos.html">¿Quiénes Somos?</a>
+            <a href="nuestra-historia.html">Nuestra Historia</a>
+            <a href="resena.html">Reseñas</a>
+            <a href="servicios.html">Servicios</a>
             <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
         </nav>
 

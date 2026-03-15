@@ -150,18 +150,36 @@
             .welcome-section h2 { font-size: 1.8rem; }
             .contact-info h2 { font-size: 2.2rem; }
         }
+
+        /* NAVEGACIÓN PRINCIPAL */
+        .main-nav {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+            margin-bottom: 30px; padding: 15px; background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro); border-radius: 20px;
+            box-shadow: 6px 6px 0px var(--pc-rosa-pastell);
+        }
+        .main-nav a {
+            text-decoration: none; color: var(--pc-negro); font-weight: 800;
+            font-size: 1.05rem; padding: 8px 15px; border-radius: 15px;
+            transition: all 0.2s; border: 2px solid transparent;
+        }
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte); color: var(--pc-blanco);
+            border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
 
-        <nav class="main-nav" style="margin-bottom: 25px; text-align: center;">
-            <a href="inicio.html">Inicio</a> |
-            <a href="quienes-somos.html">¿Quiénes Somos?</a> |
-            <a href="nuestra-historia.html">Nuestra Historia</a> |
-            <a href="reseña.html">Reseñas</a> |
-            <a href="servicios.html">Servicios</a> |
+        <nav class="main-nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="quienes-somos.html">¿Quiénes Somos?</a>
+            <a href="nuestra-historia.html">Nuestra Historia</a>
+            <a href="resena.html">Reseñas</a>
+            <a href="servicios.html">Servicios</a>
             <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
         </nav>
 
@@ -177,8 +195,8 @@
         <div class="hero-buttons">
             <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20agendar%20una%20Mastografía%20Gratis" class="btn btn-primario" target="_blank">Agendar Mastografía Gratis 🎗️</a>
             <!-- Botón cambiado al estilo verde de WhatsApp -->
-            <a href="https://www.proyectocelene.org/clinica-virtual" class="btn btn-wa">Orientación Médica Gratuita 💬</a>
-            <a href="/servicios" class="btn btn-secundario">Ver Todos los Servicios 📋</a>
+            <a href="clinica-virtual.html" class="btn btn-wa">Orientación Médica Gratuita 💬</a>
+            <a href="servicios.html" class="btn btn-secundario">Ver Todos los Servicios 📋</a>
         </div>
     </header>
 
@@ -199,7 +217,7 @@
             <img src="https://i.ibb.co/whkTFwLf/MAMOGRAFIA.jpg" alt="Mastografía Gratis" class="service-img">
             <h3 class="hand-drawn">Mastografías Sin Costo</h3>
             <p>Estudios gratuitos para mujeres de 40 años o más (o 35 con antecedentes familiares). Solo requieres traer copias de tu INE y CURP.</p>
-            <a href="/servicios">Saber más ➔</a>
+            <a href="servicios.html">Saber más ➔</a>
         </div>
 
         <!-- Bloque 2: Consulta General -->
@@ -207,7 +225,7 @@
             <img src="https://i.ibb.co/zhSRq5hX/CONSULTA-GENERAL.jpg" alt="Consulta Médica General" class="service-img">
             <h3 class="hand-drawn">Consulta Médica</h3>
             <p>Atención profesional empática, tanto presencial como virtual, con una cuota de recuperación accesible de solo $150 pesos.</p>
-            <a href="/servicios">Saber más ➔</a>
+            <a href="servicios.html">Saber más ➔</a>
         </div>
 
         <!-- Bloque 3: Salud Sexual e ITS -->
@@ -215,7 +233,7 @@
             <img src="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg" alt="Salud Sexual e ITS" class="service-img">
             <h3 class="hand-drawn">Salud Sexual e ITS</h3>
             <p>Pruebas de VIH gratuitas, confidenciales y seguras. Además, contamos con paquetes de detección (ITS) para tu total tranquilidad.</p>
-            <a href="/servicios">Saber más ➔</a>
+            <a href="servicios.html">Saber más ➔</a>
         </div>
 
         <!-- Bloque 4: Farmacia Solidaria -->
@@ -223,7 +241,7 @@
             <img src="https://i.ibb.co/JjwF3cQm/FARMACIA-SOLIDARIA.jpg" alt="Farmacia Solidaria" class="service-img">
             <h3 class="hand-drawn">Farmacia Solidaria</h3>
             <p>Acceso a medicamentos donados mediante cooperaciones simbólicas. Ayudamos a sostener nuestra labor sin dejar a nadie atrás.</p>
-            <a href="/farmacia-solidaria">Ir a la Farmacia ➔</a>
+            <a href="farmacia-solidaria.html">Ir a la Farmacia ➔</a>
         </div>
 
         <!-- Bloque 5: Clínica Virtual -->
@@ -231,7 +249,7 @@
             <img src="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg" alt="Clínica Virtual" class="service-img">
             <h3 class="hand-drawn">Clínica Virtual</h3>
             <p>Tu espacio de salud a distancia sin costo. Recibe Orientación Médica Gratuita, resuelve dudas rápidas, y accede a cuestionarios e indicaciones médicas desde tu celular.</p>
-            <a href="/clinica-virtual">Visitar Clínica Virtual ➔</a>
+            <a href="clinica-virtual.html">Visitar Clínica Virtual ➔</a>
         </div>
 
         <!-- Bloque 6: Recursos Educativos -->
@@ -239,7 +257,7 @@
             <img src="https://i.ibb.co/Q7rXQMZd/EDUCACION.jpg" alt="Recursos Educativos" class="service-img">
             <h3 class="hand-drawn">Recursos Educativos</h3>
             <p>Aprende a cuidar tu cuerpo. Encuentra manuales, infografías y herramientas de prevención sobre autoexploración, salud sexual y bienestar integral.</p>
-            <a href="/recursos-educativos">Explorar Recursos ➔</a>
+            <a href="recursos-educativos.html">Explorar Recursos ➔</a>
         </div>
     </div>
 
