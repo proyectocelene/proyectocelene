@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Inyección de Puntos Gatillo - Proyecto Celene</title>
+    <link rel="icon" href="imagenes/logo pc circulo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&family=Shrikhand&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-medio: #f06292;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-rosa-oscuro: #ad1457;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-verde-wa: #25d366;
+            --pc-verde-wa-oscuro: #1b9c4b;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            background-color: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.6;
+        }
+
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .retro-banner-font { font-family: 'Shrikhand', cursive; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            background: var(--pc-blanco);
+            border-bottom: 4px solid var(--pc-negro);
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--pc-negro);
+        }
+
+        .logo img {
+            width: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            font-family: 'Shrikhand', cursive;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links li a:hover, .nav-links li a.active {
+            background: var(--pc-rosa-pastell);
+            transform: translateY(-2px);
+        }
+        
+        .menu-toggle { display: none; }
+
+        /* --- Botones --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--pc-negro);
+            border: 4px solid var(--pc-negro);
+            border-radius: 50px;
+            position: relative;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primario {
+            background-color: var(--pc-rosa-fuerte);
+            color: var(--pc-blanco);
+            box-shadow: 6px 6px 0px var(--pc-negro);
+        }
+
+        .btn:active {
+            top: 6px;
+            left: 6px;
+            box-shadow: 0 0 0 transparent !important;
+        }
+
+        .btn-wa {
+            background-color: var(--pc-verde-wa);
+            box-shadow: 6px 6px 0px var(--pc-negro);
+            color: var(--pc-blanco);
+        }
+
+        .btn-wa:hover {
+            background-color: var(--pc-verde-wa-oscuro);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--pc-verde-wa);
+            color: var(--pc-blanco);
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--pc-negro);
+        }
+
+        /* --- Secciones y Tarjetas --- */
+        .hero-section {
+            background: var(--pc-azul-suave);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 25px;
+            border: 4px solid var(--pc-negro);
+            margin-top: 30px;
+        }
+
+        .hero-section h1 {
+            font-family: 'Handlee', cursive;
+            font-size: 3.5em;
+            margin: 0;
+            color: var(--pc-rosa-fuerte);
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 15px auto 0;
+        }
+
+        .content-section {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            font-family: 'Handlee', cursive;
+            font-size: 2.8em;
+            color: var(--pc-rosa-fuerte);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .info-card {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 8px 8px 0px var(--pc-rosa-pastell);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 12px 12px 0px var(--pc-rosa-medio);
+        }
+
+        .info-card h3 {
+            font-family: 'Handlee', cursive;
+            font-size: 1.8em;
+            color: var(--pc-rosa-fuerte);
+            margin-top: 0;
+        }
+
+        .info-card ul {
+            padding-left: 20px;
+        }
+
+        .info-card li {
+            margin-bottom: 10px;
+        }
+        
+        .questionnaire-section {
+            background: var(--pc-amarillo);
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 10px 10px 0px var(--pc-negro);
+        }
+        
+        .questionnaire-section .form-check {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            user-select: none;
+        }
+
+        .questionnaire-section .form-check input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 5px;
+        }
+
+        .form-check:hover input ~ .checkmark {
+            background-color: var(--pc-rosa-pastell);
+        }
+
+        .form-check input:checked ~ .checkmark {
+            background-color: var(--pc-rosa-fuerte);
+        }
+        
+        #quiz-result {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            border: 3px solid var(--pc-negro);
+            display: none; /* Initially hidden */
+        }
+        
+        .result-good {
+             background-color: var(--pc-azul-suave);
+        }
+        
+        .result-bad {
+            background-color: var(--pc-rosa-pastell);
+        }
+
+        .cta-banner {
+            background: var(--pc-rosa-oscuro);
+            color: var(--pc-blanco);
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: 25px;
+            border: 4px solid var(--pc-negro);
+            margin-top: 60px;
+        }
+        
+        .cta-banner h2 {
+            font-family: 'Shrikhand', cursive;
+            font-size: 2.5em;
+            margin-top: 0;
+        }
+        
+        .cta-banner p {
+            font-size: 1.5em;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--pc-rosa-oscuro);
+            color: var(--pc-blanco);
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+            border-top: 5px solid var(--pc-negro);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Shrikhand', cursive;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--pc-amarillo);
+        }
+        
+        .footer-col a {
+            color: var(--pc-blanco);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px solid var(--pc-rosa-fuerte);
+            margin-top: 20px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background: var(--pc-blanco);
+                border-bottom: 3px solid var(--pc-negro);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { width: 100%; text-align: center; }
+            .menu-toggle { display: block; /* Implement hamburger icon here */ }
+            
+            .hero-section h1 { font-size: 2.5em; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="imagenes/logo pc circulo.png" alt="Logo Proyecto Celene">
+                <span class="logo-text">Proyecto Celene</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="nuestra-historia.html">Nuestra Historia</a></li>
+                <li><a href="modulos.html">Nuestros Módulos</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="recursos-educativos.html">Recursos</a></li>
+                <li><a href="unete-a-nuestro-equipo.html">Únete</a></li>
+                <li><a href="patrocinadores.html">Patrocinadores</a></li>
+            </ul>
+            <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <section class="hero-section">
+            <h1 class="fade-in">Guía Médica: Inyección de Puntos Gatillo</h1>
+            <p class="fade-in">Entiende qué son esos "nudos" musculares y cómo un procedimiento rápido y seguro puede devolverte tu calidad de vida.</p>
+        </section>
+
+        <section id="guia" class="content-section">
+            <h2 class="section-title">🧐 ¿Qué son realmente esos "Nudos"?</h2>
+            <div class="guide-grid">
+                <div class="info-card">
+                    <h3>El Origen del Dolor</h3>
+                    <p>Científicamente los llamamos <strong>Puntos Gatillo Miofasciales</strong>. Son áreas donde las fibras musculares se han quedado "atrapadas" en una contracción constante. Esto crea una zona sin oxígeno y con acumulación de desechos, generando un ciclo de dolor que el cuerpo no puede romper por sí solo.</p>
+                </div>
+                <div class="info-card">
+                    <h3>¿Por qué aparecen?</h3>
+                    <ul>
+                        <li><strong>Posturas prolongadas:</strong> Horas frente a la computadora o el celular.</li>
+                        <li><strong>Estrés emocional:</strong> Tensión acumulada en hombros y mandíbula.</li>
+                        <li><strong>Microtraumas:</strong> Movimientos repetitivos o esfuerzos repentinos.</li>
+                        <li><strong>Sedentarismo:</strong> Músculos débiles que se fatigan y se anudan fácilmente.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="mapa-dolor" class="content-section">
+            <h2 class="section-title">🔍 El Mapa del Dolor Referido</h2>
+            <p style="text-align: center; max-width: 800px; margin: -20px auto 40px;">Lo más sorprendente de los puntos gatillo es el <strong>dolor referido</strong>: el nudo está en un lugar, pero el dolor "viaja" a otro.</p>
+            <div class="guide-grid">
+                <div class="info-card">
+                    <h3>Cuello y Hombros</h3>
+                    <p>Causan cefaleas tensionales (dolor detrás de los ojos), mareos y pesadez constante.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Espalda Baja</h3>
+                    <p>Generan rigidez al despertar y dolor que se corre hacia la cadera o glúteos.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Glúteos (Falsa Ciática)</h3>
+                    <p>El nudo presiona el nervio ciático, enviando hormigueo o dolor que baja por la pierna.</p>
+                </div>
+                 <div class="info-card">
+                    <h3>Entre Omóplatos</h3>
+                    <p>Puedes sentir un "picahielo" que incluso dificulta respirar profundo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cuestionario" class="questionnaire-section">
+            <h2 class="section-title" style="color: var(--pc-negro);">¿Es para ti este procedimiento?</h2>
+            <p style="text-align:center; margin-top: -20px; font-weight: 600;">Marca las casillas que apliquen a tu situación. Este cuestionario es orientativo y no reemplaza una valoración médica profesional.</p>
+            
+            <div id="quiz-form">
+                <label class="form-check">¿Sufres de dolor muscular crónico que no mejora?
+                    <input type="checkbox" name="symptom" value="positive">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="form-check">¿Sientes "nudos" o "bolitas" dolorosas al tocar tus músculos?
+                    <input type="checkbox" name="symptom" value="positive">
+                    <span class="checkmark"></span>
+                </label>
+                 <label class="form-check">¿Tu dolor de cabeza parece originarse en el cuello?
+                    <input type="checkbox" name="symptom" value="positive">
+                    <span class="checkmark"></span>
+                </label>
+                <hr style="border: 0; border-top: 2px solid var(--pc-negro); margin: 20px 0;">
+                <p style="font-weight: 800;">Contraindicaciones: Marca si tienes alguna de estas condiciones.</p>
+                <label class="form-check">¿Tienes alergia a los anestésicos locales (como la lidocaína)?
+                    <input type="checkbox" name="symptom" value="negative">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="form-check">¿Tienes una infección activa en la piel en el área del dolor?
+                    <input type="checkbox" name="symptom" value="negative">
+                    <span class="checkmark"></span>
+                </label>
+                 <label class="form-check">¿Estás tomando anticoagulantes o tienes un trastorno de coagulación?
+                    <input type="checkbox" name="symptom" value="negative">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            
+            <div id="quiz-result">
+                <p id="quiz-result-text"></p>
+            </div>
+        </section>
+
+        <section id="procedimiento" class="content-section">
+             <h2 class="section-title">💉 El Procedimiento: ¿Cómo funciona?</h2>
+             <p style="text-align: center; max-width: 800px; margin: -20px auto 40px;">Es un procedimiento rápido, seguro y muy tolerable realizado por nuestro personal médico.</p>
+             <div class="guide-grid">
+                <div class="info-card">
+                    <h3>1. Localización y Limpieza</h3>
+                    <p>El médico identifica el punto exacto mediante palpación y desinfectamos la zona con cuidado.</p>
+                </div>
+                <div class="info-card">
+                    <h3>2. Inserción y Efecto</h3>
+                    <p>Usamos una aguja muy fina para depositar una pequeña dosis de anestésico local o solución salina.</p>
+                    <ul>
+                        <li><strong>Efecto Mecánico:</strong> La aguja "desata" el nudo físicamente.</li>
+                        <li><strong>Efecto Químico:</strong> El anestésico "apaga" el dolor y relaja el músculo.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>3. ¿Qué esperar?</h3>
+                     <p>El alivio es casi inmediato. Es normal sentir la zona sensible por 24-48 horas. Recomendamos estiramientos suaves y calor local para una recuperación óptima.</p>
+                </div>
+             </div>
+        </section>
+
+        <section class="cta-banner">
+            <h2 class="retro-banner-font">¿Listo para dejar atrás el dolor?</h2>
+            <p>💰 Cuota de recuperación: $300 pesos.</p>
+            <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20agendar%20una%20cita%20para%20Inyección%20de%20Puntos%20Gatillo." class="btn btn-wa" target="_blank">📲 Agenda tu Cita por WhatsApp</a>
+        </section>
+
+    </main>
+    
+    <a href="https://wa.me/526611044050?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20servicios." class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 .2c57.1 0 109.7 21.8 149.4 61.5l-1.3-2.1c41.1 43.1 63.3 100.9 63.3 162.2 0 105.9-86.2 192.2-192.2 192.2h-.1c-32.3 0-63.8-8.1-92.4-23.4l-6.5-4-69.8 18.3L71 359.2l-4.5-6.8c-19.1-29.1-29.4-63.1-29.4-98.3 0-105.9 86.2-192.2 192.2-192.2zM223.9 104.4l-.1 0c-15.9 0-31.5 3.1-46.2 9.2-14.7 6.1-28.1 14.6-39.7 25.3-11.6 10.7-21.2 23.5-28.3 37.8-7.1 14.3-10.7 29.7-10.7 45.4s3.6 31.1 10.7 45.4c7.1 14.3 16.7 27.1 28.3 37.8 11.6 10.7 25 19.2 39.7 25.3 14.7 6.1 30.3 9.2 46.2 9.2 61.9 0 112.4-50.5 112.4-112.4S285.8 104.4 223.9 104.4z"/></svg>
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Proyecto Celene</h4>
+                <p>Tu salud es nuestra causa. Una fundación dedicada a la memoria y obra de Celene Sandoval.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <a href="inicio.html">Inicio</a>
+                <a href="quienes-somos.html">Quiénes Somos</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="unete-a-nuestro-equipo.html">Únete al Equipo</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>📍 Calle Gral. Guadalupe Victoria, Col. Lienzo Charro, Rosarito.</p>
+                <p>📲 WhatsApp: 661 104 4050</p>
+                <p>📧 director@proyectocelene.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Proyecto Celene. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const quizForm = document.getElementById('quiz-form');
+            const quizResult = document.getElementById('quiz-result');
+            const quizResultText = document.getElementById('quiz-result-text');
+
+            quizForm.addEventListener('change', function() {
+                const checked = quizForm.querySelectorAll('input[type="checkbox"]:checked');
+                let positivePoints = 0;
+                let negativePoints = 0;
+
+                checked.forEach(checkbox => {
+                    if (checkbox.value === 'positive') {
+                        positivePoints++;
+                    } else if (checkbox.value === 'negative') {
+                        negativePoints++;
+                    }
+                });
+
+                quizResult.style.display = 'block';
+
+                if (negativePoints > 0) {
+                    quizResultText.innerHTML = '<strong>Posible Contraindicación:</strong> Has marcado una o más condiciones que podrían ser una contraindicación. Es fundamental que lo discutas con nuestro equipo médico antes de agendar. ¡Contáctanos para orientarte!';
+                    quizResult.className = 'result-bad';
+                } else if (positivePoints > 0) {
+                    quizResultText.innerHTML = '<strong>Eres un buen candidato:</strong> Basado en tus respuestas, este procedimiento podría ser muy beneficioso para ti. Te recomendamos agendar una valoración médica para confirmarlo.';
+                     quizResult.className = 'result-good';
+                } else {
+                    quizResult.style.display = 'none';
+                    quizResultText.innerHTML = '';
+                }
+            });
+            
+            // --- Fade-in Animation ---
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.5,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('appear');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+        
+        // --- Mobile Menu ---
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+    </script>
+</body>
+</html>

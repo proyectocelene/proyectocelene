@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilo Vintage 50s y 60s - Proyecto Celene</title>
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pop-orange: #FF5938;
+            --pop-yellow: #FFD23F;
+            --pop-blue: #118AB2;
+            --pop-pink: #EF476F;
+            --pop-bg: #F4F1EA; 
+            --pop-dark: #2D232E;
+            --pc-blanco: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--pop-bg);
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.06"/></svg>');
+            color: var(--pop-dark); 
+            line-height: 1.5; padding-bottom: 50px; overflow-x: hidden;
+        }
+
+        .font-groovy { font-family: 'Shrikhand', cursive; font-weight: normal; letter-spacing: 1px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        /* NAVEGACIÓN PRINCIPAL */
+        .main-nav {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+            margin-bottom: 30px; padding: 15px; background: var(--pop-yellow);
+            border: 3px solid var(--pop-dark); border-radius: 50px;
+            box-shadow: 4px 4px 0px var(--pop-dark);
+        }
+        .main-nav a {
+            text-decoration: none; color: var(--pop-dark); font-weight: 800;
+            font-size: 1.05rem; padding: 8px 15px; border-radius: 15px;
+            transition: all 0.2s; border: 2px solid transparent;
+        }
+        .main-nav a:hover { background: var(--pop-pink); color: var(--pc-blanco); border-color: var(--pop-dark); box-shadow: 3px 3px 0 var(--pop-dark); }
+
+        /* HERO */
+        .hero {
+            background: var(--pop-blue); color: white; border: 4px solid var(--pop-dark);
+            border-radius: 50px 15px 50px 15px; padding: 50px 30px; text-align: center;
+            box-shadow: 12px 12px 0px var(--pop-dark); margin-bottom: 50px;
+        }
+        .hero h1 { font-size: 3.5rem; color: var(--pop-pink); text-shadow: 3px 3px 0px var(--pop-yellow); margin-bottom: 15px; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; font-weight: 600; max-width: 700px; margin: 0 auto; }
+
+        /* SECCIONES DE MODA */
+        .fashion-section {
+            background: var(--pc-blanco); border: 4px solid var(--pop-dark);
+            border-radius: 20px; padding: 40px; margin-bottom: 40px;
+            position: relative; box-shadow: 8px 8px 0px var(--pop-orange);
+        }
+        .fashion-section.men { box-shadow: 8px 8px 0px var(--pop-blue); }
+        
+        .fashion-section h2 { font-size: 2.5rem; color: var(--pop-dark); margin-bottom: 20px; border-bottom: 4px dashed var(--pop-yellow); padding-bottom: 10px; display: inline-block; }
+        
+        .fashion-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px;
+        }
+        
+        .tip-card {
+            background: var(--pop-bg); border: 2px solid var(--pop-dark); padding: 20px;
+            border-radius: 15px; text-align: left;
+        }
+        .tip-card h3 { color: var(--pop-pink); font-size: 1.4rem; margin-bottom: 10px; font-family: 'Shrikhand', cursive; }
+        .tip-card.men-tip h3 { color: var(--pop-blue); }
+        .tip-card p { font-size: 1.05rem; color: #444; font-weight: 600; }
+
+        /* GALERIA DE INSPIRACION (PLACEHOLDERS) */
+        .moodboard {
+            display: flex; gap: 15px; overflow-x: auto; padding-bottom: 15px; margin-top: 30px;
+        }
+        .moodboard img {
+            width: 200px; height: 250px; object-fit: cover; border: 3px solid var(--pop-dark);
+            border-radius: 10px; flex-shrink: 0; box-shadow: 4px 4px 0px var(--pop-dark);
+        }
+
+        .btn-action {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            background: var(--pop-yellow); border: 3px solid var(--pop-dark); color: var(--pop-dark);
+            padding: 15px 35px; font-weight: 900; font-size: 1.2rem; border-radius: 50px;
+            cursor: pointer; transition: transform 0.2s; text-decoration: none; font-family: 'Inter', sans-serif;
+            box-shadow: 6px 6px 0px var(--pop-dark); margin-top: 20px;
+        }
+        .btn-action:hover { transform: translateY(-3px); box-shadow: 9px 9px 0px var(--pop-dark); background: var(--pop-orange); color: white; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav class="main-nav">
+        <a href="inicio.html">Inicio</a>
+        <a href="quienes-somos.html">¿Quiénes Somos?</a>
+        <a href="nuestra-historia.html">Nuestra Historia</a>
+        <a href="modulos.html">Nuestros Módulos</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="resena.html">Reseñas</a>
+        <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
+        <a href="unete-a-nuestro-equipo.html">Únete al Equipo</a>
+        <a href="aniversario.html">Volver al Aniversario</a>
+    </nav>
+
+    <div class="hero">
+        <h1 class="font-groovy">Guía de Estilo: 50s y 60s 👗🎙️</h1>
+        <p>¿No sabes qué ponerte para nuestra Noche de Gala? ¡No te preocupes! Aquí te dejamos la guía definitiva para lucir espectacular, al estilo de las décadas más glamurosas y rebeldes de la historia.</p>
+    </div>
+
+    <!-- MUJERES -->
+    <div class="fashion-section">
+        <h2 class="font-groovy">Moda Femenina 🎀</h2>
+        <p style="font-size: 1.1rem; font-weight: 600;">Desde la elegancia de Marilyn Monroe hasta la rebeldía chic de Audrey Hepburn. Aquí están las claves:</p>
+        
+        <div class="fashion-grid">
+            <div class="tip-card">
+                <h3>1. Silueta de Reloj de Arena</h3>
+                <p>Usa vestidos ajustados en la cintura con faldas amplias (corte circular) o faldas tipo lápiz ajustadas hasta la rodilla.</p>
+            </div>
+            <div class="tip-card">
+                <h3>2. Estampados Divertidos</h3>
+                <p>¡Los lunares (polka dots) son los reyes! También funcionan muy bien las rayas, los cuadros vichy y colores pastel o rojo brillante.</p>
+            </div>
+            <div class="tip-card">
+                <h3>3. Maquillaje y Peinado</h3>
+                <p>El delineado "Cat Eye" negro bien marcado, labios rojos intensos y peinados con volumen, ondas suaves o diademas en el cabello.</p>
+            </div>
+        </div>
+
+        <!-- Moodboard Mujeres -->
+        <div class="moodboard">
+            <img src="https://images.unsplash.com/photo-1610484826967-09c5720778c7?auto=format&fit=crop&w=400&q=80" alt="Inspiración Mujer 1">
+            <img src="https://images.unsplash.com/photo-1596455607563-ad6193f76b19?auto=format&fit=crop&w=400&q=80" alt="Inspiración Mujer 2">
+            <img src="https://images.unsplash.com/photo-1549471013-3364d7220b75?auto=format&fit=crop&w=400&q=80" alt="Inspiración Mujer 3">
+        </div>
+    </div>
+
+    <!-- HOMBRES -->
+    <div class="fashion-section men">
+        <h2 class="font-groovy" style="border-color: var(--pop-blue);">Moda Masculina 🕶️</h2>
+        <p style="font-size: 1.1rem; font-weight: 600;">Puedes elegir entre el estilo elegante "Mad Men" o el estilo rebelde rockabilly tipo "Vaselina".</p>
+        
+        <div class="fashion-grid">
+            <div class="tip-card men-tip">
+                <h3>1. El Estilo Elegante</h3>
+                <p>Trajes sastre de corte ajustado, corbatas delgadas, sombreros fedora y tirantes. Los colores sobrios como gris, azul marino o negro son ideales.</p>
+            </div>
+            <div class="tip-card men-tip">
+                <h3>2. El Chico Rebelde (Greaser)</h3>
+                <p>Pantalones de mezclilla ajustados (dobladillo hacia afuera), camiseta blanca básica fajada y la clásica chamarra de cuero negra.</p>
+            </div>
+            <div class="tip-card men-tip">
+                <h3>3. Peinado Inconfundible</h3>
+                <p>Mucho gel o pomada. El peinado "Pompadour" (copete alto) hacia atrás es el sello definitivo de la época para el hombre.</p>
+            </div>
+        </div>
+
+        <!-- Moodboard Hombres -->
+        <div class="moodboard">
+            <img src="https://images.unsplash.com/photo-1512354734891-628469d76c9b?auto=format&fit=crop&w=400&q=80" alt="Inspiración Hombre 1">
+            <img src="https://images.unsplash.com/photo-1550246140-5119ae4790b8?auto=format&fit=crop&w=400&q=80" alt="Inspiración Hombre 2">
+            <img src="https://images.unsplash.com/photo-1620002093551-78c66e2c3fb6?auto=format&fit=crop&w=400&q=80" alt="Inspiración Hombre 3">
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; background: var(--pc-blanco); border: 4px dashed var(--pop-dark); padding: 30px; border-radius: 20px;">
+        <h2 class="font-groovy" style="color: var(--pop-orange); margin-bottom: 15px;">¿Ya tienes tu atuendo en mente?</h2>
+        <p style="font-size: 1.2rem; font-weight: 800; margin-bottom: 20px;">¡No te quedes sin lugar en este evento histórico!</p>
+        <a href="aniversario.html#comprar" class="btn-action">🎟️ Comprar Boletos de Gala</a>
+    </div>
+
+</div>
+
+</body>
+</html>

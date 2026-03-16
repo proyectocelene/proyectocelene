@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - Proyecto Celene</title>
+    <meta name="description" content="Catálogo de servicios médicos de Proyecto Celene. Ofrecemos mastografías, consultas, papanicolaou, salud sexual, laboratorios y más con cuotas de recuperación accesibles.">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectoselene.org/servicios.html">
+    <meta property="og:title" content="Catálogo de Servicios - Proyecto Celene A.C.">
+    <meta property="og:description" content="Explora nuestros servicios: mastografías, consultas, papanicolaou, salud sexual, laboratorios y más, con cuotas accesibles y un trato humano.">
+    <meta property="og:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectoselene.org/servicios.html">
+    <meta property="twitter:title" content="Catálogo de Servicios - Proyecto Celene A.C.">
+    <meta property="twitter:description" content="Explora nuestros servicios: mastografías, consultas, papanicolaou, salud sexual, laboratorios y más, con cuotas accesibles y un trato humano.">
+    <meta property="twitter:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -147,6 +164,7 @@
             <a href="inicio.html">Inicio</a>
             <a href="quienes-somos.html">¿Quiénes Somos?</a>
             <a href="nuestra-historia.html">Nuestra Historia</a>
+            <a href="modulos.html">Nuestros Módulos</a>
             <a href="resena.html">Reseñas</a>
             <a href="servicios.html">Servicios</a>
             <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
@@ -679,6 +697,17 @@
             </div>
         </div>
 
+        <div class="service-card category-card" data-cat="proc" data-keywords="nudos dolor muscular espalda cuello gatillo trigger points inyeccion alivio tpi">
+            <span class="cat-tag">Procedimientos</span>
+            <h3 class="service-title">Inyección de Puntos Gatillo</h3>
+            <p class="service-preview">Dile adiós a los molestos "nudos" en la espalda y cuello. Alivio casi instantáneo del dolor muscular severo y tensional.</p>
+            <div class="price-text">Cuota: $300 m.n.</div>
+            <div class="btn-group">
+                <button class="btn btn-more" onclick="openInfo('puntos_gatillo')">Detalles</button>
+                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20la%20inyección%20de%20puntos%20gatillo" class="btn btn-wa" target="_blank">Agendar</a>
+            </div>
+        </div>
+
         <div class="service-card category-card" data-cat="proc" data-keywords="curacion heridas limpiar herida">
             <span class="cat-tag">Procedimientos</span>
             <h3 class="service-title">Curación de Heridas</h3>
@@ -1147,6 +1176,15 @@
             reqs: "Cuota de Recuperación: $40 m.n. Por seguridad, DEBES TRAER TU RECETA MÉDICA.",
             waMsg: "Aplicación de Inyección"
         },
+        puntos_gatillo: {
+            title: "Inyección de Puntos Gatillo (TPI)",
+            desc: "Eliminamos esos dolorosos 'nudos' musculares atrapados en tu cuello, espalda o glúteos aplicando una dosis microscópica de anestésico local directamente en el punto de tensión.",
+            why: "El dolor crónico es agotador. Esta inyección obliga al músculo a soltarse (reset mecánico y químico), bloquea el dolor al instante y permite que la sangre y el oxígeno vuelvan a la zona para sanar.",
+            include: ["Valoración médica para mapear el dolor.", "Material estéril (aguja muy fina y segura).", "Aplicación de anestésico local (lidocaína).", "Recomendaciones de estiramientos."],
+            reqs: "Cuota de Recuperación: $300 m.n. (Por sesión).",
+            waMsg: "Cita para Inyección de Puntos Gatillo",
+            eduLink: "puntos-gatillo.html" // Enlace a su subpágina educativa específica
+        },
         curacion: {
             title: "Curación de Heridas",
             desc: "Lavado y aseo profundo de raspones, heridas post-quirúrgicas o lesiones de pie diabético.",
@@ -1302,6 +1340,11 @@
 
         bodyHtml += `<h4 style="margin-top:20px; color:var(--pc-rosa-fuerte);">Inversión en tu Salud</h4><p style="font-size:1.05rem; font-weight:800; color:var(--pc-negro); background:var(--pc-amarillo); padding:10px; border-radius:10px; border:2px dashed var(--pc-negro); text-align:center;">${info.reqs}</p>`;
         
+        // Agregar botón de guía educativa si el servicio lo tiene configurado
+        if(info.eduLink) {
+            bodyHtml += `<div style="text-align: center; margin-top: 20px;"><a href="${info.eduLink}" class="btn" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); width: 100%; box-shadow: 0 4px 0 var(--pc-negro); display: block;">📖 Leer Guía Educativa</a></div>`;
+        }
+
         document.getElementById('modalBody').innerHTML = bodyHtml;
         document.getElementById('modalWaBtn').href = `https://wa.me/526611044050?text=Hola,%20Proyecto%20Celene.%20Me%20interesa%20información%20sobre:%20${encodeURIComponent(info.waMsg)}`;
         

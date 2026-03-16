@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Quiénes Somos? - Proyecto Celene</title>
+    <meta name="description" content="Conoce al equipo de Proyecto Celene. Nuestra misión, visión y los valores que nos impulsan a luchar día a día para que ninguna mujer enfrente el cáncer de mama sola.">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectoselene.org/quienes-somos.html">
+    <meta property="og:title" content="¿Quiénes Somos? - Proyecto Celene A.C.">
+    <meta property="og:description" content="Conoce al equipo, la misión y la visión detrás de nuestra lucha contra el cáncer de mama en Rosarito.">
+    <meta property="og:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectoselene.org/quienes-somos.html">
+    <meta property="twitter:title" content="¿Quiénes Somos? - Proyecto Celene A.C.">
+    <meta property="twitter:description" content="Conoce al equipo, la misión y la visión detrás de nuestra lucha contra el cáncer de mama en Rosarito.">
+    <meta property="twitter:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -13,6 +30,7 @@
             --pc-negro: #333333;
             --pc-blanco: #ffffff;
             --pc-amarillo-luz: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,7 +48,7 @@
         .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
 
         /* Header */
         .hero {
@@ -45,6 +63,7 @@
         }
 
         h1 { font-size: 2.8rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; }
+        .hero-desc { font-size: 1.15rem; font-weight: 600; max-width: 800px; margin: 15px auto 0; color: #444; }
 
         /* Misión y Visión */
         .mv-grid {
@@ -76,25 +95,23 @@
         /* Valores */
         .values-section {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
-        .values-container {
+        .values-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 12px;
-            margin-top: 20px;
+            gap: 20px;
+            margin-top: 30px;
         }
 
-        .value-tag {
-            background: var(--pc-blanco);
-            border: 2px solid var(--pc-negro);
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 3px 3px 0px var(--pc-rosa-medio);
+        .value-card {
+            background: var(--pc-amarillo-luz); border: 3px solid var(--pc-negro); padding: 20px; border-radius: 15px;
+            box-shadow: 6px 6px 0px var(--pc-rosa-pastell); flex: 1 1 250px; text-align: left;
+        }
+        .value-card h4 { color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; font-size: 1.5rem; margin-bottom: 5px; }
+        .value-card p { font-size: 0.95rem; color: #444; font-weight: 600; }
         }
 
         /* El Equipo - Grid Interactivo */
@@ -142,6 +159,143 @@
         .member-role { font-size: 0.95rem; color: var(--pc-rosa-medio); font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
         .member-desc { font-size: 0.9rem; line-height: 1.4; color: var(--pc-negro); }
 
+        /* Secciones Institucionales */
+        .institutional-section { margin-top: 60px; }
+        
+        /* Organigrama Visual */
+        .tree {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            padding: 20px 0 40px 0;
+        }
+        .tree ul {
+            padding-top: 20px;
+            position: relative;
+            transition: all 0.5s;
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .tree li {
+            float: left;
+            text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 20px 10px 0 10px;
+            transition: all 0.5s;
+        }
+        .tree li::before, .tree li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            border-top: 3px solid var(--pc-negro);
+            width: 50%;
+            height: 20px;
+        }
+        .tree li::after {
+            right: auto;
+            left: 50%;
+            border-left: 3px solid var(--pc-negro);
+        }
+        .tree li:only-child::after, .tree li:only-child::before {
+            display: none;
+        }
+        .tree li:only-child {
+            padding-top: 0;
+        }
+        .tree li:first-child::before, .tree li:last-child::after {
+            border: 0 none;
+        }
+        .tree li:last-child::before {
+            border-right: 3px solid var(--pc-negro);
+            border-radius: 0 10px 0 0;
+        }
+        .tree li:first-child::after {
+            border-radius: 10px 0 0 0;
+        }
+        .tree ul ul::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-left: 3px solid var(--pc-negro);
+            width: 0;
+            height: 20px;
+            transform: translateX(-50%);
+        }
+        .org-node {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 15px 10px;
+            width: 170px;
+            display: inline-block;
+            box-shadow: 4px 4px 0 var(--pc-rosa-pastell);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .org-node:hover {
+            transform: translateY(-5px);
+            box-shadow: 6px 6px 0 var(--pc-rosa-medio);
+            background: var(--pc-amarillo-luz);
+        }
+        .org-node img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--pc-negro);
+            margin-bottom: 10px;
+            background: var(--pc-gris-suave);
+        }
+        .org-role {
+            font-family: 'Handlee', cursive;
+            color: var(--pc-rosa-fuerte);
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+        .org-name {
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: var(--pc-negro);
+            line-height: 1.2;
+        }
+        @media (max-width: 950px) {
+            .tree { justify-content: flex-start; }
+        }
+        .org-img { width: 100%; border: 4px solid var(--pc-negro); border-radius: 15px; box-shadow: 8px 8px 0 var(--pc-rosa-medio); }
+
+        /* Plan de Acción */
+        .plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px; margin-bottom: 50px; }
+        .plan-card { border: 3px solid var(--pc-negro); padding: 25px; border-radius: 15px; background: var(--pc-azul-suave); position: relative; }
+        .plan-card h4 { font-family: 'Handlee', cursive; font-size: 1.4rem; color: var(--pc-negro); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .plan-card .step-num { background: var(--pc-rosa-fuerte); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; border: 2px solid var(--pc-negro); font-family: 'Nunito', sans-serif; flex-shrink: 0; }
+        .plan-card p { font-size: 0.95rem; color: #444; font-weight: 600; }
+
+        /* Legalidad */
+        .legal-box { background: var(--pc-blanco); border: 4px solid var(--pc-negro); padding: 40px; border-radius: 20px; box-shadow: 10px 10px 0px var(--pc-amarillo-luz); margin-bottom: 60px; }
+        .legal-box h2 { color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 15px; }
+        .legal-list { list-style: none; margin-top: 20px; }
+        .legal-list li { margin-bottom: 15px; display: flex; gap: 15px; align-items: flex-start; font-size: 1rem; color: #444; }
+        .legal-list .icon { background: var(--pc-gris-suave); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid var(--pc-negro); font-size: 1.2rem; flex-shrink: 0; }
+        
+        .trust-quote { background: var(--pc-negro); color: white; padding: 20px; border-radius: 15px; text-align: center; font-style: italic; margin-top: 25px; font-weight: 800; border: 2px dashed var(--pc-amarillo-luz); }
+
+        /* Frase de Cierre y CTA */
+        .closing-banner { background: var(--pc-rosa-pastell); padding: 60px 30px; border-radius: 30px; text-align: center; border: 4px dashed var(--pc-negro); margin-bottom: 40px; }
+        .closing-banner h2 { font-family: 'Handlee', cursive; font-size: clamp(2rem, 5vw, 2.8rem); color: var(--pc-rosa-fuerte); font-style: italic; line-height: 1.3; text-shadow: 2px 2px 0px white; }
+        
+        .btn-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
+        .btn { padding: 15px 30px; border: 3px solid var(--pc-negro); border-radius: 50px; font-weight: 900; text-decoration: none; transition: all 0.2s; position: relative; top: 0; box-shadow: 4px 4px 0px var(--pc-negro); font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+        .btn:active { top: 4px; box-shadow: 0px 0px 0px var(--pc-negro); }
+        .btn-rosa { background: var(--pc-rosa-fuerte); color: white; }
+        .btn-blanco { background: white; color: var(--pc-negro); }
+
         @media (min-width: 600px) {
             .mv-grid { grid-template-columns: 1fr 1fr; }
         }
@@ -173,93 +327,231 @@
             <a href="inicio.html">Inicio</a>
             <a href="quienes-somos.html">¿Quiénes Somos?</a>
             <a href="nuestra-historia.html">Nuestra Historia</a>
+            <a href="modulos.html">Nuestros Módulos</a>
             <a href="resena.html">Reseñas</a>
             <a href="servicios.html">Servicios</a>
             <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
+            <a href="unete-a-nuestro-equipo.html">Únete al Equipo</a>
         </nav>
         
         <!-- HEADER -->
         <header class="hero fade-in">
             <h1 class="hand-drawn">¿Quiénes Somos?</h1>
-            <p>Conoce al equipo que trabaja día a día para que ninguna mujer luche sola.</p>
+            <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--pc-negro);">Conoce al equipo que trabaja día a día para que ninguna mujer luche sola.</h2>
+            <p class="hero-desc">Nacimos de una promesa familiar y nos convertimos en el escudo de miles de mujeres. En <strong>Proyecto Celene A.C.</strong>, somos una comunidad de médicos, sobrevivientes y voluntarios unidos por un solo propósito: defender la vida.</p>
         </header>
 
         <!-- MISIÓN Y VISIÓN -->
         <div class="mv-grid">
             <div class="card fade-in">
-                <h2 class="hand-drawn">Nuestra Misión</h2>
-                <p>Brindar apoyo integral a las mujeres para la detección temprana del cáncer de mama, garantizando acceso a estudios, medicamentos, tratamientos y educación en salud, con calidez humana y sin fines de lucro.</p>
+                <h2 class="hand-drawn">🎯 Nuestra Misión</h2>
+                <p>Brindar apoyo integral a las mujeres para la detección temprana del cáncer de mama, garantizando acceso a estudios, medicamentos, tratamientos y educación en salud, siempre con profunda calidez humana y sin fines de lucro.</p>
             </div>
             <div class="card fade-in">
-                <h2 class="hand-drawn">Nuestra Visión</h2>
-                <p>Ser una fundación reconocida por su impacto en la salud femenina, su transparencia y su compromiso comunitario, ayudando a que ninguna mujer deje de atenderse por falta de recursos.</p>
+                <h2 class="hand-drawn">👁️ Nuestra Visión</h2>
+                <p>Ser la fundación de referencia en el noroeste de México por nuestro impacto en la salud femenina, nuestra total transparencia y nuestro compromiso comunitario, asegurando que ninguna mujer deje de atenderse por falta de recursos.</p>
             </div>
         </div>
 
         <!-- VALORES -->
         <section class="values-section fade-in">
-            <h2 class="hand-drawn" style="font-size: 2rem;">Nuestro Corazón</h2>
-            <div class="values-container">
-                <span class="value-tag">Solidaridad</span>
-                <span class="value-tag">Respeto</span>
-                <span class="value-tag">Confianza</span>
-                <span class="value-tag">Educación</span>
-                <span class="value-tag">Prevención</span>
-                <span class="value-tag">Transparencia</span>
-                <span class="value-tag">Amor por la vida</span>
+            <h2 class="hand-drawn" style="font-size: 2.5rem; color: var(--pc-rosa-fuerte);">💖 Nuestro Corazón</h2>
+            <p style="font-size: 1.1rem; font-weight: 600; color: #555;">No solo somos una clínica, somos una familia. Nuestro actuar diario se rige por estos principios:</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <h4>Solidaridad</h4>
+                    <p>Hacemos propio el dolor ajeno para transformarlo en ayuda y acción.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Respeto</h4>
+                    <p>Tratamos a cada paciente con la dignidad y absoluta discreción que merece.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Confianza</h4>
+                    <p>Somos un espacio seguro donde te escuchamos sin juicios ni barreras.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Prevención</h4>
+                    <p>Creemos que la educación y la información oportuna son la mejor medicina.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Transparencia</h4>
+                    <p>Cada donativo y esfuerzo se refleja directamente en la salud de nuestras pacientes.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Amor por la vida</h4>
+                    <p>Celebramos la esperanza, la resiliencia y las sonrisas en cada paso del tratamiento.</p>
+                </div>
             </div>
         </section>
 
         <!-- EQUIPO -->
         <section class="team-section">
-            <h2 class="hand-drawn fade-in" style="text-align: center; font-size: 2.2rem; margin-bottom: 30px;">Los Humanos detrás de la Promesa</h2>
+            <h2 class="hand-drawn fade-in" style="text-align: center; font-size: 2.5rem; margin-bottom: 10px;">🦸‍♀️🦸‍♂️ Los Humanos detrás de la Promesa</h2>
+            <p class="fade-in" style="text-align: center; font-size: 1.1rem; font-weight: 600; margin-bottom: 30px; color: #555;">Conoce a los líderes que hacen posible esta Alianza Rosa:</p>
             
             <div class="team-grid">
                 <!-- Francisco Sandoval -->
                 <div class="member-card fade-in">
                     <div class="member-avatar">
-                        <img src="https://via.placeholder.com/150?text=Francisco" alt="Francisco Sandoval">
+                        <img src="https://i.ibb.co/1tMrgm7n/foto-del-fundador-francisco-sandoval-deras.jpg" alt="Francisco Sandoval">
                     </div>
                     <p class="member-name hand-drawn">Francisco Sandoval</p>
                     <p class="member-role">Fundador y Presidente</p>
-                    <p class="member-desc">El alma y motor de Proyecto Celene. Tras la partida de su hermana Selene, transformó el duelo en una misión incansable que hoy salva vidas en Rosarito y Nayarit, liderando con amor y visión la futura Clínica de Especialidades.</p>
+                    <p class="member-desc">El alma y motor de Proyecto Celene. Tras la partida de su hermana Selene, transformó el duelo personal en una misión incansable. Hoy, lidera con amor y visión la futura Clínica de Especialidades, salvando vidas y expandiendo la esperanza desde Rosarito hasta Nayarit.</p>
                 </div>
 
                 <!-- Leticia Díaz -->
                 <div class="member-card fade-in">
                     <div class="member-avatar">
-                        <img src="https://via.placeholder.com/150?text=Leticia" alt="Leticia Díaz">
+                        <!-- Placeholder sugerido para cambiar por foto con uniforme/listón rosa -->
+                        <img src="https://via.placeholder.com/150/fce4ec/d81b60?text=Leticia+D%C3%ADaz" alt="Leticia Díaz">
                     </div>
                     <p class="member-name hand-drawn">Leticia Díaz</p>
                     <p class="member-role">Subdirectora</p>
-                    <p class="member-desc">Guerrera sobreviviente que conoce de primera mano el camino de la lucha contra el cáncer. Su experiencia se traduce en una empatía profunda, guiando a nuestras pacientes con la fuerza y esperanza que solo una guerrera puede transmitir.</p>
+                    <p class="member-desc">Guerrera sobreviviente que conoce de primera mano el camino de la lucha contra el cáncer. Su experiencia personal se traduce en una empatía profunda, guiando a nuestras pacientes con la fuerza, comprensión y esperanza que solo una verdadera guerrera puede transmitir.</p>
                 </div>
 
                 <!-- Dr. Carlos Donato -->
                 <div class="member-card fade-in">
                     <div class="member-avatar">
-                        <img src="https://via.placeholder.com/150?text=Dr.+Carlos" alt="Dr. Carlos Donato">
+                        <!-- Placeholder sugerido para cambiar por foto con bata médica -->
+                        <img src="https://via.placeholder.com/150/e3f2fd/118AB2?text=Dr.+Donato" alt="Dr. Carlos Donato">
                     </div>
                     <p class="member-name hand-drawn">Dr. Carlos Donato</p>
-                    <p class="member-role">Médico General y Director de Redes</p>
-                    <p class="member-desc">Encargado de la salud integral de nuestra comunidad y el vínculo digital de la fundación. Combina la calidez de la medicina general con la gestión de nuestras redes sociales, asegurando que la información de prevención llegue a cada rincón.</p>
+                    <p class="member-role">Médico General y Director Operativo</p>
+                    <p class="member-desc">El encargado de la salud integral de nuestra comunidad y el vínculo digital de la fundación. Combina la excelencia y calidez de la medicina general con la gestión estratégica de nuestras redes sociales, asegurando que el mensaje de prevención llegue a cada rincón.</p>
                 </div>
 
                 <!-- Dr. Mario Minor -->
                 <div class="member-card fade-in">
                     <div class="member-avatar">
-                        <img src="https://via.placeholder.com/150?text=Dr.+Mario" alt="Dr. Mario Minor">
+                        <!-- Placeholder sugerido para cambiar por foto con bata médica -->
+                        <img src="https://via.placeholder.com/150/e3f2fd/118AB2?text=Dr.+Minor" alt="Dr. Mario Minor">
                     </div>
                     <p class="member-name hand-drawn">Dr. Mario Minor</p>
                     <p class="member-role">Médico Especialista</p>
-                    <p class="member-desc">Su ojo clínico y especialización son fundamentales para Proyecto Celene. Se encarga de la revisión de estudios diagnósticos y la canalización de casos críticos, garantizando que nuestras pacientes reciban la atención técnica y precisa que necesitan.</p>
+                    <p class="member-desc">Su ojo clínico y alta especialización son el pilar médico de Proyecto Celene. Se encarga de la revisión minuciosa de estudios diagnósticos y la canalización exacta de casos críticos, garantizando que nuestras pacientes reciban la atención técnica, rápida y precisa que necesitan para vencer la enfermedad.</p>
                 </div>
             </div>
         </section>
 
-        <!-- PIE DE PAGINA -->
-        <div class="fade-in" style="margin-top: 60px; text-align: center; padding: 40px; background-color: var(--pc-gris); border: 2px dashed #ccc; border-radius: 20px;">
-            <p class="hand-drawn" style="font-size: 1.3rem; color: var(--pc-rosa-fuerte);">"18 años después, nuestra promesa sigue más viva que nunca. Todo lo hacemos por amor a ellas."</p>
+        <!-- SECCIONES INSTITUCIONALES -->
+        <section class="institutional-section fade-in">
+            
+            <!-- Organigrama -->
+            <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 20px;">Nuestra Estructura y Organigrama 🏛️</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 25px;">Para garantizar que cada donativo y esfuerzo llegue a quien más lo necesita, operamos bajo una estructura formal y organizada. Nuestro equipo directivo y operativo está compuesto por profesionales comprometidos con nuestra misión:</p>
+            
+            <div class="tree fade-in">
+                <ul>
+                    <li>
+                        <div class="org-node">
+                            <img src="https://i.ibb.co/1tMrgm7n/foto-del-fundador-francisco-sandoval-deras.jpg" alt="Francisco Sandoval">
+                            <div class="org-role">Presidente / Fundador</div>
+                            <div class="org-name">Francisco Sandoval Deras</div>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="org-node">
+                                    <!-- Reemplazar con foto real -->
+                                    <img src="https://via.placeholder.com/150/fce4ec/d81b60?text=LD" alt="Eva Leticia Díaz">
+                                    <div class="org-role">Vicepresidenta</div>
+                                    <div class="org-name">Eva Leticia Díaz Deras</div>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="org-node">
+                                            <img src="https://via.placeholder.com/150/e3f2fd/118AB2?text=NS" alt="Norma Salazar">
+                                            <div class="org-role">Secretario</div>
+                                            <div class="org-name">Norma Salazar Corvera</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="org-node">
+                                            <img src="https://via.placeholder.com/150/fff9c4/333333?text=$" alt="Tesorería">
+                                            <div class="org-role">Tesorería</div>
+                                            <div class="org-name">C.P. Hilda Monarrez<br>C.P. Aurora Aguilar</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="org-node">
+                                            <img src="https://via.placeholder.com/150/e3f2fd/118AB2?text=LS" alt="Luis Fernando Serrano">
+                                            <div class="org-role">Área Jurídica</div>
+                                            <div class="org-name">Luis Fernando Serrano G.</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="org-node">
+                                            <img src="https://via.placeholder.com/150/fce4ec/d81b60?text=EV" alt="Eventos">
+                                            <div class="org-role">Coord. de Eventos</div>
+                                            <div class="org-name">Cruz M. Morales<br>Lic. Hugo Sánchez</div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="org-node">
+                                            <img src="https://via.placeholder.com/150/fff9c4/333333?text=IS" alt="Isaac Santana">
+                                            <div class="org-role">Auxiliar General</div>
+                                            <div class="org-name">Isaac Santana Reynoso</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; margin-bottom: 50px;" class="fade-in">
+                <img src="https://i.ibb.co/mVV4W6hT/foto-de-colaboradores-de-proyectocelene.jpg" alt="Equipo de colaboradores de Proyecto Celene" class="org-img" style="max-width: 800px; margin: 0 auto;">
+            </div>
+
+            <!-- Plan de Acción Estratégico -->
+            <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 10px;">Nuestro Plan de Acción Estratégico 🗺️</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 10px;">No solo reaccionamos ante la enfermedad, actuamos antes de que avance. Nuestro modelo de intervención comunitaria se sostiene en los siguientes pilares:</p>
+            
+            <div class="plan-grid">
+                <div class="plan-card">
+                    <h4><span class="step-num">1</span> Educación y Concientización</h4>
+                    <p>Creación de una cultura de prevención mediante la entrega de folletos, trípticos y la impartición de pláticas sobre la correcta autoexploración mamaria en las comunidades y espacios públicos.</p>
+                </div>
+                <div class="plan-card">
+                    <h4><span class="step-num">2</span> Detección Oportuna</h4>
+                    <p>Otorgamiento de consultas médicas de manera gratuita y canalización mediante vales para mastografías y estudios de papanicolaou con nuestras clínicas aliadas.</p>
+                </div>
+                <div class="plan-card">
+                    <h4><span class="step-num">3</span> Atención Integral</h4>
+                    <p>Operación de módulos de salud (en Baja California y Nayarit) que ofrecen consultas y vinculación con especialistas para asegurar que los pacientes detectados no abandonen su tratamiento.</p>
+                </div>
+            </div>
+
+            <!-- Legalidad y Transparencia -->
+            <div class="legal-box">
+                <h2 class="hand-drawn">Legalidad y Transparencia: Nuestro Sustento Oficial ⚖️</h2>
+                <p style="font-size: 1.1rem; font-weight: 600;">Sabemos que la confianza es el pilar de la filantropía. <strong>Proyecto Celene Rosarito A.C.</strong> es una organización de la sociedad civil con fines no lucrativos, legalmente constituida y reconocida por los tres niveles de gobierno.</p>
+                
+                <ul class="legal-list">
+                    <li><span class="icon">📜</span> <div><strong>Constitución Legal:</strong> Registrados formalmente el 8 de octubre de 2014 ante la Notaría Pública No. 1 de Playas de Rosarito, B.C., a cargo del Lic. Luis A. Durazo Bazúa (Escritura No. 25,110, Volumen 324).</div></li>
+                    <li><span class="icon">🏢</span> <div><strong>Registro Fiscal:</strong> Contamos con el Registro Federal de Contribuyentes (RFC) <strong>PCR141008SS0</strong> bajo el régimen de Personas Morales con Fines no Lucrativos.</div></li>
+                    <li><span class="icon">✅</span> <div><strong>Cumplimiento Absoluto:</strong> Nuestra Asociación mantiene una Opinión de Cumplimiento de Obligaciones Fiscales en sentido POSITIVO ante el SAT, garantizando a nuestros donantes que operamos con total rectitud financiera.</div></li>
+                </ul>
+
+                <div class="trust-quote">
+                    "No somos solo buenas intenciones; somos una institución sólida, transparente y estructurada para hacer que cada recurso se convierta en esperanza y vida."
+                </div>
+            </div>
+
+        </section>
+
+        <!-- FRASE DE CIERRE Y CTA -->
+        <div class="closing-banner fade-in">
+            <h2>"18 años después, nuestra promesa sigue más viva que nunca. Todo lo hacemos por amor a ellas."</h2>
+            
+            <div class="btn-group">
+                <a href="unete-a-nuestro-equipo.html" class="btn btn-rosa">👉 Únete como Voluntario</a>
+                <a href="nuestra-historia.html" class="btn btn-blanco">📖 Conoce nuestra Historia Completa</a>
+            </div>
         </div>
 
     </div>

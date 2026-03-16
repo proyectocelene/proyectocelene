@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Aliados - Proyecto Celene</title>
+    <link rel="icon" href="https://i.ibb.co/w6T9mJ4/logo-pc-circulo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&family=Shrikhand&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- SISTEMA DE DISEÑO: NEO-BRUTALISMO AMIGABLE / RETRO-POP --- */
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-medio: #f06292;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-rosa-oscuro: #ad1457;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-verde-wa: #25d366;
+            --pc-verde-wa-oscuro: #1b9c4b;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        /* --- RESET Y BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 5rem;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+        
+        h1, h2, h3 { font-weight: 800; line-height: 1.2; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .retro-banner-font { font-family: 'Shrikhand', cursive; }
+
+        /* --- ANIMACIONES --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @keyframes float-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        .float-subtle { animation: float-subtle 6s ease-in-out infinite; }
+        
+        /* --- NAVEGACIÓN --- */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 4px solid var(--pc-negro);
+        }
+        .main-nav a {
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--pc-negro);
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            border: 3px solid transparent;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .main-nav a:hover, .main-nav a.active {
+            background-color: var(--pc-amarillo);
+            border-color: var(--pc-negro);
+        }
+
+        /* --- BOTONES (ESTILO FÍSICO 3D) --- */
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--pc-negro);
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            box-shadow: 6px 6px 0px var(--pc-negro);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.1s ease-out;
+            top: 0;
+            left: 0;
+        }
+        .btn:active {
+            top: 6px;
+            left: 6px;
+            box-shadow: 0 0 0 transparent !important;
+        }
+        .btn-primario { background-color: var(--pc-rosa-fuerte); color: var(--pc-blanco); }
+        .btn-secundario { background-color: var(--pc-amarillo); }
+        .btn-wa { background-color: var(--pc-verde-wa); color: var(--pc-blanco); }
+        .btn-wa:hover { background-color: var(--pc-verde-wa-oscuro); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: var(--pc-azul-suave);
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            margin-bottom: 4rem;
+            box-shadow: 10px 10px 0px var(--pc-rosa-pastell);
+        }
+        .hero h1 {
+            font-family: 'Shrikhand', cursive;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 1rem;
+        }
+        .hero p { font-size: 1.25rem; max-width: 750px; margin: 0 auto; font-weight: 600;}
+
+        /* --- TÍTULOS DE SECCIÓN --- */
+        .section-title-wrapper { text-align: center; margin: 4rem 0 2rem; }
+        .section-title {
+            display: inline-block;
+            font-family: 'Shrikhand', cursive;
+            background-color: var(--pc-amarillo);
+            color: var(--pc-negro);
+            padding: 1rem 2rem;
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px 20px 0 0;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            transform: rotate(-2deg);
+            box-shadow: 8px -8px 0 var(--pc-rosa-medio);
+        }
+
+        /* --- TARJETAS DE PATROCINADORES --- */
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        .sponsor-card {
+            background-color: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 8px 8px 0px var(--pc-rosa-pastell);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .sponsor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 12px 12px 0px var(--pc-rosa-medio);
+        }
+        .sponsor-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px dashed var(--pc-rosa-pastell);
+            padding-bottom: 1rem;
+        }
+        .sponsor-logo {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            background-color: var(--pc-gris-suave);
+        }
+        .sponsor-card h3 {
+            font-size: 1.75rem;
+            color: var(--pc-rosa-fuerte);
+        }
+        .sponsor-testimonial {
+            font-style: italic;
+            color: #555;
+            margin: 0 0 1rem 0;
+            padding: 1rem;
+            background-color: var(--pc-gris-suave);
+            border-left: 5px solid var(--pc-rosa-medio);
+            border-radius: 8px;
+        }
+        .win-win-box {
+            background: var(--pc-azul-suave);
+            border: 2px solid var(--pc-negro);
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        .win-win-box strong {
+            font-family: 'Handlee', cursive;
+            font-size: 1.5rem;
+            color: var(--pc-rosa-fuerte);
+        }
+        .details-toggle {
+            background: none;
+            border: none;
+            color: var(--pc-rosa-fuerte);
+            font-weight: 800;
+            cursor: pointer;
+            padding: 0.5rem;
+            text-decoration: underline;
+            font-size: 1rem;
+        }
+        .sponsor-details {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: var(--pc-amarillo);
+            border: 2px solid var(--pc-negro);
+            border-radius: 10px;
+        }
+
+        /* --- ALIANZA PLATA --- */
+        .silver-allies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .silver-ally-badge {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 4px 4px 0px var(--pc-rosa-pastell);
+            transition: all 0.2s;
+        }
+        .silver-ally-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 6px 6px 0px var(--pc-rosa-medio);
+        }
+        
+        /* --- CTA FINAL --- */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: var(--pc-amarillo);
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            margin-top: 5rem;
+            box-shadow: 12px 12px 0px var(--pc-negro);
+        }
+        .cta-section h2 {
+            font-family: 'Shrikhand', cursive;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+        .cta-section p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; }
+        .cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+
+        /* --- FOOTER --- */
+        .main-footer {
+            margin-top: 4rem;
+            padding: 2rem 1rem;
+            background-color: var(--pc-rosa-oscuro);
+            color: var(--pc-blanco);
+            text-align: center;
+            border-top: 6px solid var(--pc-negro);
+        }
+        .main-footer p { margin-bottom: 0.5rem; }
+        .main-footer a { color: var(--pc-amarillo); font-weight: 800; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .sponsors-grid { grid-template-columns: 1fr; }
+            .modal-content { width: 95%; }
+        }
+
+        /* --- MODAL DE PATROCINIO --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.visible {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            background-color: var(--pc-blanco);
+            padding: 2rem;
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 10px 10px 0 var(--pc-rosa-fuerte);
+            width: 90%;
+            max-width: 550px;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            font-weight: 800;
+            cursor: pointer;
+            color: var(--pc-negro);
+        }
+        .modal-content h2 {
+            font-family: 'Shrikhand', cursive;
+            color: var(--pc-rosa-fuerte);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            border: 3px solid var(--pc-negro);
+            border-radius: 10px;
+            background-color: var(--pc-gris-suave);
+        }
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .modal-buttons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <nav class="main-nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="quienes-somos.html">Quiénes Somos</a>
+            <a href="nuestra-historia.html">Nuestra Historia</a>
+            <a href="modulos.html">Nuestros Módulos</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="nuestros-aliados.html" class="active">Nuestros Aliados</a>
+            <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
+            <a href="unete-a-nuestro-equipo.html">Únete al Equipo</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="hero fade-in">
+            <h1 class="float-subtle">🏆 El Club de los Héroes</h1>
+            <p>Ellos son los negocios, médicos y ciudadanos valientes que, con su apoyo, hacen posible nuestra misión. Su generosidad no es un gasto, es una inversión en la comunidad que nos fortalece a todos. <strong>Gracias a ustedes, salvamos vidas.</strong></p>
+        </section>
+
+        <!-- === ALIANZA PLATINO === -->
+        <section id="platino" class="fade-in">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Alianza Platino</h2>
+            </div>
+            <div class="sponsors-grid">
+                <div class="sponsor-card">
+                    <div class="sponsor-card-header">
+                        <div class="sponsor-logo">🏢</div>
+                        <h3>Pabellón Rosarito Grand</h3>
+                    </div>
+                    <p class="sponsor-testimonial">"Asociarnos con Proyecto Celene no solo unió a nuestro equipo, sino que nos trajo clientes que valoran nuestro compromiso social." – Gerente de Pabellón Rosarito</p>
+                    <div class="win-win-box">
+                        <strong>El Ganar-Ganar 🤝</strong>
+                        Su plaza se convirtió en el corazón de nuestros eventos masivos, posicionándose como el centro comercial #1 en responsabilidad social de Rosarito.
+                    </div>
+                    <button class="details-toggle" data-target="details-pabellon">Ver más detalles ▼</button>
+                    <div class="sponsor-details" id="details-pabellon">
+                        <strong>Relación Comercial:</strong> Pabellón Rosarito nos cede su estacionamiento y áreas comunes para la Carrera Anual 5K "Corre por Ellas" y la Feria de la Salud, sin costo alguno. A cambio, su marca es la principal en toda la publicidad del evento, que llega a más de 10,000 personas.
+                    </div>
+                </div>
+                <div class="sponsor-card">
+                     <div class="sponsor-card-header">
+                        <div class="sponsor-logo">🔬</div>
+                        <h3>Diagnóstico por Imagen</h3>
+                    </div>
+                    <p class="sponsor-testimonial">"Ser el brazo de diagnóstico de Proyecto Celene nos dio un propósito mayor. Cada estudio es una vida que ayudamos a proteger." – Dr. Responsable</p>
+                    <div class="win-win-box">
+                        <strong>El Ganar-Ganar 🤝</strong>
+                        Consolidaron su prestigio ético y aseguraron un flujo constante de pacientes, convirtiéndose en la clínica de referencia para la salud de la mujer en la región.
+                    </div>
+                    <button class="details-toggle" data-target="details-diagnostico">Ver más detalles ▼</button>
+                    <div class="sponsor-details" id="details-diagnostico">
+                        <strong>Relación Comercial:</strong> Gracias a su apoyo, este año <strong>más de 150 mujeres</strong> de bajos recursos accedieron a mastografías a un costo simbólico. Esto vincula su donación directamente con vidas salvadas, un mensaje que resuena profundamente.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === ALIANZA ORO === -->
+        <section id="oro" class="fade-in">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Alianza Oro</h2>
+            </div>
+            <div class="sponsors-grid">
+                <div class="sponsor-card">
+                    <div class="sponsor-card-header">
+                        <div class="sponsor-logo">🖨️</div>
+                        <h3>Imprenta Romo</h3>
+                    </div>
+                    <p class="sponsor-testimonial">"Ver nuestro logo en las campañas de Celene nos llena de orgullo. Es publicidad que se siente bien." – Fundador de Imprenta Romo.</p>
+                     <div class="win-win-box">
+                        <strong>El Ganar-Ganar 🤝</strong>
+                        Su logotipo brilló ante miles de asistentes y su personal femenino recibió vales de mastografía, demostrando que cuidan tanto a la comunidad como a su equipo.
+                    </div>
+                    <button class="details-toggle" data-target="details-romo">Ver más detalles ▼</button>
+                    <div class="sponsor-details" id="details-romo">
+                        <strong>Relación Comercial:</strong> Imprimen nuestras lonas y folletos a precio de costo. A cambio, les damos visibilidad en eventos y redes, y les ofrecemos pláticas de prevención para sus empleadas, un beneficio tangible de RH.
+                    </div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="sponsor-card-header">
+                        <div class="sponsor-logo">💐</div>
+                        <h3>Florería Yago</h3>
+                    </div>
+                    <p class="sponsor-testimonial">"Cada flor que donamos es un mensaje de esperanza. Los clientes que llegan por esa razón son los más leales." – Dueña de Florería Yago</p>
+                     <div class="win-win-box">
+                        <strong>El Ganar-Ganar 🤝</strong>
+                        Crearon un vínculo emocional con la comunidad. Las pacientes y sus familias ahora son sus clientes más fieles, asociando su marca con momentos de alegría y superación.
+                    </div>
+                     <button class="details-toggle" data-target="details-yago">Ver más detalles ▼</button>
+                    <div class="sponsor-details" id="details-yago">
+                        <strong>Relación Comercial:</strong> Donan arreglos florales para el Día de las Madres y eventos de ánimo para pacientes. Mostramos su marca en nuestras redes sociales, generando contenido emotivo que llega a miles de seguidores.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- === ALIANZA PLATA Y BRONCE === -->
+        <section id="plata" class="fade-in">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Alianza Plata y Colaboradores</h2>
+            </div>
+            <p style="text-align:center; max-width: 800px; margin: -1rem auto 2rem auto; font-size: 1.1rem;">¡Y un aplauso enorme para todos los negocios y profesionales que se suman con donativos, servicios y su valioso tiempo! Cada uno de ustedes es una pieza clave.</p>
+            <div class="silver-allies-list">
+                <div class="silver-ally-badge">Rosarito Óptica Shop 👓</div>
+                <div class="silver-ally-badge">Laboratorios San Ángel & Oropeza 🧪</div>
+                <div class="silver-ally-badge">Refacciones del Valle ⚙️</div>
+                <div class="silver-ally-badge">Funeraria Santana 🕊️</div>
+                <div class="silver-ally-badge">Fotografía Martínez 📸</div>
+                <div class="silver-ally-badge">Mexmold 🏭</div>
+                <div class="silver-ally-badge">Distribuidores Médicos de Rosarito 🏥</div>
+                <div class="silver-ally-badge">Laboratorio Klein 🧪</div>
+                <div class="silver-ally-badge">Médicos Especialistas Voluntarios 👨‍⚕️</div>
+                <div class="silver-ally-badge">Ayuntamiento de Playas de Rosarito 🏛️</div>
+                <div class="silver-ally-badge">Conchita Romo (¡Nuestra heroína de espacios!) 🦸‍♀️</div>
+            </div>
+        </section>
+
+        <!-- === CTA FINAL === -->
+        <section class="cta-section fade-in">
+            <h2 class="float-subtle">¡Haz que tu empresa brille aquí! 🌟</h2>
+            <p>Ser parte de la Alianza Rosa es la mejor inversión para el corazón de tu marca. Posiciónate como una empresa líder en responsabilidad social en Playas de Rosarito y conecta profundamente con nuestra comunidad.</p>
+            <div class="cta-buttons">
+                <button id="open-modal-btn" class="btn btn-wa">Únete por WhatsApp</button>
+                <a href="#plan-proximamente" class="btn btn-secundario">Descargar Plan de Patrocinios</a>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Contenedor del Modal -->
+    <div id="sponsorship-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close-btn" class="modal-close-btn">&times;</button>
+            <h2>¡Únete a la Alianza Rosa!</h2>
+            <form id="sponsorship-form">
+                <div class="form-group">
+                    <label for="company-name">Nombre de tu Empresa:</label>
+                    <input type="text" id="company-name" name="company-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-name">Tu Nombre:</label>
+                    <input type="text" id="contact-name" name="contact-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="support-type">Forma de Apoyo Propuesta:</label>
+                    <select id="support-type" name="support-type">
+                        <option value="Donativo Económico">Donativo Económico</option>
+                        <option value="Patrocinio de Evento">Patrocinio de Evento</option>
+                        <option value="Servicios en Especie">Servicios en Especie</option>
+                        <option value="Voluntariado Corporativo">Voluntariado Corporativo</option>
+                        <option value="Otro">Otro (describir abajo)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje Adicional:</label>
+                    <textarea id="message" name="message" placeholder="Danos más detalles de tu propuesta o déjanos un teléfono de contacto."></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn btn-primario">Enviar por WhatsApp</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <p><strong>Proyecto Celene A.C.</strong></p>
+        <p>Tu lucha es mi lucha. Juntos por la detección oportuna del cáncer.</p>
+        <p><a href="tel:6611044050">Tel: 661-104-4050</a> | <a href="mailto:proyectocelene@gmail.com">proyectocelene@gmail.com</a></p>
+    </footer>
+
+<script>
+    // --- ANIMACIÓN DE APARICIÓN AL HACER SCROLL ---
+    const fadeInElements = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    fadeInElements.forEach(el => {
+        observer.observe(el);
+    });
+
+    // --- FUNCIONALIDAD DE LOS BOTONES "VER MÁS" ---
+    const detailToggles = document.querySelectorAll('.details-toggle');
+
+    detailToggles.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+            const isVisible = targetElement.style.display === 'block';
+
+            if (isVisible) {
+                targetElement.style.display = 'none';
+                button.textContent = 'Ver más detalles ▼';
+            } else {
+                targetElement.style.display = 'block';
+                button.textContent = 'Ocultar detalles ▲';
+            }
+        });
+    });
+
+    // --- LÓGICA DEL MODAL DE PATROCINIO ---
+    const modalOverlay = document.getElementById('sponsorship-modal');
+    const openModalBtn = document.getElementById('open-modal-btn');
+    const closeModalBtn = document.getElementById('modal-close-btn');
+    const sponsorshipForm = document.getElementById('sponsorship-form');
+
+    openModalBtn.addEventListener('click', () => {
+        modalOverlay.classList.add('visible');
+    });
+
+    const closeModal = () => {
+        modalOverlay.classList.remove('visible');
+    };
+
+    closeModalBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (event) => {
+        if (event.target === modalOverlay) {
+            closeModal();
+        }
+    });
+
+    sponsorshipForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const companyName = document.getElementById('company-name').value;
+        const contactName = document.getElementById('contact-name').value;
+        const supportType = document.getElementById('support-type').value;
+        const message = document.getElementById('message').value;
+
+        let whatsAppMessage = `¡Hola Proyecto Celene! 👋 Me gustaría unir mi empresa a la Alianza Rosa.\n\n`;
+        whatsAppMessage += `*Empresa:* ${companyName}\n`;
+        whatsAppMessage += `*Mi Nombre:* ${contactName}\n`;
+        whatsAppMessage += `*Propongo Apoyar con:* ${supportType}\n`;
+        if (message) {
+            whatsAppMessage += `*Mensaje Adicional:* ${message}\n`;
+        }
+        whatsAppMessage += `\n¡Espero su contacto!`;
+
+        const phoneNumber = '5216611044050';
+        const encodedMessage = encodeURIComponent(whatsAppMessage);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        window.open(whatsappUrl, '_blank');
+        closeModal();
+    });
+</script>
+
+</body>
+</html>

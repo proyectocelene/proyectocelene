@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Social - Proyecto Celene</title>
+    <link rel="icon" href="https://i.ibb.co/w6T9mJ4/logo-pc-circulo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&family=Shrikhand&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-medio: #f06292;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-rosa-oscuro: #ad1457;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-verde-wa: #25d366;
+            --pc-verde-wa-oscuro: #1b9c4b;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--pc-gris-suave);
+            color: var(--pc-negro);
+            line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        
+        /* --- NAVEGACIÓN --- */
+        .main-nav {
+            display: flex; justify-content: center; flex-wrap: wrap;
+            padding: 1rem 0; margin-bottom: 2rem; border-bottom: 4px solid var(--pc-negro);
+        }
+        .main-nav a {
+            font-weight: 800; text-decoration: none; color: var(--pc-negro);
+            padding: 0.5rem 1rem; margin: 0.25rem; border: 3px solid transparent;
+            border-radius: 50px; transition: all 0.3s ease;
+        }
+        .main-nav a:hover {
+            background-color: var(--pc-amarillo);
+            border-color: var(--pc-negro);
+        }
+
+        /* --- ESTILOS GENERALES Y TARJETAS --- */
+        .page-header {
+            text-align: center; padding: 4rem 2rem;
+            background-color: var(--pc-azul-suave); border: 4px solid var(--pc-negro);
+            border-radius: 25px; margin-bottom: 3rem;
+            box-shadow: 12px 12px 0px var(--pc-negro);
+        }
+        .page-header h1 {
+            font-family: 'Shrikhand', cursive;
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            color: var(--pc-rosa-fuerte);
+        }
+        .section-title {
+            font-family: 'Shrikhand', cursive; text-align: center;
+            font-size: clamp(2rem, 6vw, 2.8rem); margin: 3rem 0 2rem 0;
+            color: var(--pc-negro);
+        }
+        .card {
+            background-color: var(--pc-blanco); border: 3px solid var(--pc-negro);
+            border-radius: 20px; padding: 1.5rem;
+            box-shadow: 8px 8px 0px var(--pc-rosa-pastell);
+            margin-bottom: 2rem;
+        }
+        .card h3 {
+            font-family: 'Handlee', cursive;
+            font-size: 1.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 1rem;
+        }
+
+        /* --- INFO INSTITUCIONAL --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .info-item {
+            background-color: var(--pc-amarillo);
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 1rem;
+        }
+        .info-item strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--pc-rosa-fuerte);
+        }
+
+        /* --- ACORDEÓN --- */
+        .accordion-item {
+            border: 3px solid var(--pc-negro); border-radius: 15px;
+            margin-bottom: 1rem; overflow: hidden;
+            box-shadow: 6px 6px 0 var(--pc-rosa-medio);
+        }
+        .accordion-header {
+            display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; padding: 1rem 1.5rem; background-color: var(--pc-blanco);
+            width: 100%; border: none; font-size: 1.25rem; font-weight: 800; text-align: left;
+        }
+        .accordion-header::after { content: '▼'; font-size: 1.5rem; transition: transform 0.3s; }
+        .accordion-item.active .accordion-header::after { transform: rotate(180deg); }
+        .accordion-content {
+            padding: 0 1.5rem 1.5rem; background-color: var(--pc-blanco);
+            display: none;
+        }
+        .accordion-content ul {
+            list-style-position: inside;
+            padding-left: 0.5rem;
+        }
+
+        /* --- CTA FINAL --- */
+        .final-cta {
+            background-color: var(--pc-rosa-fuerte);
+            color: var(--pc-blanco);
+            text-align: center;
+            padding: 3rem 1.5rem;
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            margin-top: 4rem;
+            box-shadow: 12px 12px 0px var(--pc-negro);
+        }
+        .final-cta h2 { font-family: 'Shrikhand', cursive; font-size: 2.5rem; }
+        .final-cta p { font-size: 1.1rem; margin: 1rem auto; max-width: 600px; }
+        .final-cta a {
+            color: var(--pc-rosa-fuerte);
+            background-color: var(--pc-amarillo);
+            font-weight: 800;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 3px solid var(--pc-negro);
+            display: inline-block;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <nav class="main-nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="quienes-somos.html">Quiénes Somos</a>
+            <a href="nuestra-historia.html">Nuestra Historia</a>
+            <a href="modulos.html">Nuestros Módulos</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="unete-a-nuestro-equipo.html">Voluntariado</a>
+            <a href="nuestros-aliados.html">Nuestros Aliados</a>
+            <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
+            <a href="servicio-social.html" class="active">Servicio Social</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="page-header">
+            <h1>Servicio Social y Prácticas</h1>
+            <p>Un Espacio para Crecer y Servir a la Comunidad</p>
+        </section>
+
+        <section class="card">
+            <h3>Construye tu Futuro Ayudando a los Demás</h3>
+            <p>En Proyecto Celene, creemos que la formación profesional va de la mano con el compromiso social. Ofrecemos un espacio dinámico y humano donde estudiantes de todos los niveles pueden aplicar sus conocimientos, desarrollar nuevas habilidades y generar un impacto real en la salud de nuestra comunidad. Únete a nosotros y transforma tus horas de servicio en una experiencia que definirá tu carrera.</p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Programas por Nivel Educativo</h2>
+            <div class="accordion">
+
+                <!-- PREPARATORIA -->
+                <div class="accordion-item"><button class="accordion-header">🌱 Servicio Social de Preparatoria</button><div class="accordion-content">
+                    <h4>Objetivo del Programa:</h4>
+                    <p>Fomentar la conciencia social y el primer contacto con el mundo laboral en un ambiente de apoyo comunitario. Aprenderás habilidades de organización, comunicación y trabajo en equipo.</p>
+                    <h4>Áreas de Desarrollo:</h4>
+                    <ul>
+                        <li><strong>Apoyo en Eventos:</strong> Logística en carreras, ferias de salud y campañas de recaudación.</li>
+                        <li><strong>Atención Comunitaria:</strong> Asistencia en la recepción, orientación inicial a visitantes y organización de material informativo.</li>
+                        <li><strong>Difusión:</strong> Creación de contenido para redes sociales (Tiktok, Instagram) y distribución de material preventivo en la comunidad.</li>
+                    </ul>
+                    <h4>Requisitos:</h4>
+                    <p>Ser estudiante activo de preparatoria, tener una actitud proactiva y muchas ganas de aprender. Nosotros te capacitamos.</p>
+                </div></div>
+
+                <!-- UNIVERSIDAD -->
+                <div class="accordion-item"><button class="accordion-header">🎓 Prácticas Profesionales de Universidad (Licenciatura)</button><div class="accordion-content">
+                    <h4>Objetivo del Programa:</h4>
+                    <p>Aplicar los conocimientos teóricos de tu carrera en proyectos concretos que tienen un impacto directo en nuestra operación y en los pacientes que servimos.</p>
+                    <h4>Áreas de Desarrollo por Carrera:</h4>
+                    <ul>
+                        <li><strong>Medicina y Enfermería:</strong> Participación en la consulta externa, toma de signos vitales, seguimiento de pacientes y jornadas de salud.</li>
+                        <li><strong>Psicología:</strong> Co-terapia, talleres de salud mental, y apoyo en el programa "Teléfono Rosa" (línea de ayuda).</li>
+                        <li><strong>Comunicación y Marketing:</strong> Gestión de redes sociales, creación de campañas de salud pública y relaciones con medios.</li>
+                        <li><strong>Administración y Contabilidad:</strong> Gestión de la Farmacia Solidaria, control de donativos y optimización de recursos.</li>
+                         <li><strong>Diseño Gráfico:</strong> Creación de infografías, carteles y material visual para campañas de prevención.</li>
+                    </ul>
+                     <h4>Requisitos:</h4>
+                    <p>Ser estudiante de licenciatura. Se requiere carta de presentación de tu universidad y entrevista con el director de área.</p>
+                </div></div>
+                
+                <!-- SERVICIO SOCIAL PROFESIONAL -->
+                <div class="accordion-item"><button class="accordion-header">🩺 Servicio Social Profesional (Área de la Salud)</button><div class="accordion-content">
+                    <h4>Objetivo del Programa:</h4>
+                    <p>Cumplir con la etapa de servicio social obligatoria para licenciaturas del área de la salud (Medicina, Enfermería) en un entorno que combina la atención clínica con un profundo sentido de comunidad y empatía.</p>
+                    <h4>Responsabilidades Clave:</h4>
+                    <ul>
+                        <li>Manejo de consulta de primer nivel bajo supervisión.</li>
+                        <li>Desarrollo y liderazgo de un proyecto de salud comunitaria en una de nuestras áreas de necesidad.</li>
+                        <li>Participación activa en el diagnóstico, tratamiento y seguimiento de pacientes con enfermedades crónicas.</li>
+                        <li>Capacitación a voluntarios y estudiantes de niveles inferiores.</li>
+                    </ul>
+                     <h4>Requisitos:</h4>
+                    <p>Ser pasante de Medicina o Enfermería. Plaza sujeta a disponibilidad y al cumplimiento de los requisitos de la secretaría de salud y la universidad correspondiente.</p>
+                </div></div>
+
+                <!-- MAESTRÍA Y POSGRADO -->
+                <div class="accordion-item"><button class="accordion-header">🔬 Estancias de Maestría y Posgrado</button><div class="accordion-content">
+                    <h4>Objetivo del Programa:</h4>
+                    <p>Ofrecer un campo de estudio para proyectos de investigación o intervención social de alto impacto, enfocados en la salud pública y la gestión de ONGs.</p>
+                    <h4>Líneas de Investigación y Proyectos:</h4>
+                    <ul>
+                        <li>Análisis epidemiológico de la prevalencia de cáncer de mama en la región.</li>
+                        <li>Estudio de impacto de nuestras campañas de prevención.</li>
+                        <li>Desarrollo de modelos de sostenibilidad para organizaciones sin fines de lucro en el sector salud.</li>
+                        <li>Investigación sobre barreras de acceso a la salud en comunidades vulnerables.</li>
+                    </ul>
+                     <h4>Requisitos:</h4>
+                    <p>Ser estudiante activo de maestría o posgrado. Se requiere la presentación de un anteproyecto y una entrevista directa con el Director de la fundación.</p>
+                </div></div>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <h2>¿Interesado en Unirte?</h2>
+            <p>Todo gran viaje comienza con un primer paso. Envía tu carta de intención o solicita una reunión informativa con nosotros.</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                 <a href="mailto:contacto@proyectocelene.org">📧 Escribir a Contacto General</a>
+                 <a href="mailto:director@proyectocelene.org" style="background-color: var(--pc-blanco); color: var(--pc-negro);">🧑‍💼 Contactar al Director</a>
+            </div>
+        </section>
+
+    </main>
+    
+<script>
+    // --- LÓGICA DEL ACORDEÓN ---
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        header.addEventListener('click', () => {
+            // Opcional: Cerrar otros acordeones abiertos
+            accordionItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.accordion-content').style.display = 'none';
+                }
+            });
+            // Alternar el actual
+            const isActive = item.classList.toggle('active');
+            item.querySelector('.accordion-content').style.display = isActive ? 'block' : 'none';
+        });
+    });
+</script>
+
+</body>
+</html>

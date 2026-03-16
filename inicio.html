@@ -4,7 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Proyecto Celene</title>
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Fundación en Rosarito, B.C. dedicada a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad.">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectoselene.org/">
+    <meta property="og:title" content="Proyecto Celene A.C. - Lucha Contra el Cáncer de Mama">
+    <meta property="og:description" content="Fundación en Rosarito, B.C. dedicada a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad.">
+    <meta property="og:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectoselene.org/">
+    <meta property="twitter:title" content="Proyecto Celene A.C. - Lucha Contra el Cáncer de Mama">
+    <meta property="twitter:description" content="Fundación en Rosarito, B.C. dedicada a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad.">
+    <meta property="twitter:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&family=Shrikhand&display=swap" rel="stylesheet">
     <style>
         :root {
             --pc-rosa-pastell: #fce4ec;
@@ -48,6 +65,36 @@
         .btn-llamar { background: var(--pc-azul-suave); color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); }
         .btn-social { background: white; color: var(--pc-negro); border: 3px solid var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); width: auto; padding: 10px 20px; font-size: 1rem; }
 
+        /* BANNER 60s MAGAZINE (18 ANIVERSARIO) */
+        .retro-banner {
+            display: block;
+            background: #FFD23F;
+            color: #2D232E;
+            text-align: center;
+            padding: 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            border: 4px solid #2D232E;
+            box-shadow: 6px 6px 0px #2D232E;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .retro-banner:hover {
+            transform: translateY(-4px);
+            box-shadow: 10px 10px 0px #EF476F;
+        }
+        .retro-banner-content {
+            font-size: 1.25rem; font-weight: normal; font-family: 'Shrikhand', cursive; letter-spacing: 1px;
+        }
+        .retro-badge {
+            background: #EF476F; color: white; padding: 4px 12px; font-family: 'Nunito', sans-serif; font-weight: 900;
+            border-radius: 20px; font-size: 0.9rem; margin-right: 10px;
+            border: 2px solid var(--pc-negro); text-shadow: none;
+            display: inline-block; transform: rotate(-5deg);
+        }
+
         /* ================= SECCIÓN 1: BANNER HERO ================= */
         .hero-section {
             text-align: center; padding: 40px 20px; background: var(--pc-blanco);
@@ -57,7 +104,7 @@
         .hero-logo { max-width: 100%; width: 280px; height: auto; margin: 0 auto 20px; display: block; border-radius: 15px; }
         .hero-title { font-size: 3.5rem; color: var(--pc-rosa-fuerte); margin-bottom: 0px; line-height: 1.1; }
         .hero-location { font-size: 2rem; color: var(--pc-negro); margin-bottom: 15px; }
-        .hero-subtitle { font-size: 1.3rem; color: #555; font-weight: 800; margin-bottom: 30px; font-style: italic; text-transform: uppercase; }
+        .hero-subtitle { font-size: 1.3rem; color: #555; font-weight: 800; margin-bottom: 30px; font-style: italic; }
         .hero-buttons { display: flex; flex-direction: column; align-items: center; gap: 5px; }
 
         /* ================= SECCIÓN 2: BIENVENIDA ================= */
@@ -178,25 +225,37 @@
             <a href="inicio.html">Inicio</a>
             <a href="quienes-somos.html">¿Quiénes Somos?</a>
             <a href="nuestra-historia.html">Nuestra Historia</a>
+            <a href="modulos.html">Nuestros Módulos</a>
             <a href="resena.html">Reseñas</a>
             <a href="servicios.html">Servicios</a>
             <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
+            <a href="unete-a-nuestro-equipo.html">Únete al Equipo</a>
         </nav>
 
     <!-- ================= SECCIÓN 1: BANNER PRINCIPAL ================= -->
     <header class="hero-section fade-in">
+
+        <!-- BANNER 18 ANIVERSARIO -->
+        <a href="aniversario.html" class="retro-banner float-subtle">
+            <div class="retro-banner-content">
+                <span class="retro-badge">¡NUEVO!</span>
+                🎉 NOCHE DE GALA VINTAGE 50s-60s. ¡HAZ CLIC AQUÍ! 👗🎙️
+            </div>
+        </a>
+
         <!-- Logo de la Fundación (Actualizado) -->
         <img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Proyecto Celene Logo" class="hero-logo float-subtle">
         
-        <h1 class="hand-drawn hero-title">PROYECTO CELENE A.C.</h1>
-        <h2 class="hand-drawn hero-location">ROSARITO, B.C.</h2>
-        <p class="hero-subtitle">ÚNETE A LA LUCHA CONTRA EL CÁNCER DE MAMA</p>
+        <h1 class="hand-drawn hero-title">Proyecto Celene A.C.</h1>
+        <h2 class="hand-drawn hero-location">Rosarito, B.C.</h2>
+        <p class="hero-subtitle">Únete a la lucha contra el cáncer de mama 🎗️</p>
         
         <div class="hero-buttons">
             <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20agendar%20una%20Mastografía%20Gratis" class="btn btn-primario" target="_blank">Agendar Mastografía Gratis 🎗️</a>
             <!-- Botón cambiado al estilo verde de WhatsApp -->
             <a href="clinica-virtual.html" class="btn btn-wa">Orientación Médica Gratuita 💬</a>
             <a href="servicios.html" class="btn btn-secundario">Ver Todos los Servicios 📋</a>
+            <a href="recursos-educativos.html" class="btn btn-llamar">Recursos Educativos 📖</a>
         </div>
     </header>
 
