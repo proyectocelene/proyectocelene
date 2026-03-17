@@ -242,20 +242,13 @@
             transform: translateY(-2px);
         }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 
 <div class="container">
 
-        <nav class="main-nav">
-            <a href="inicio.html">Inicio</a>
-            <a href="quienes-somos.html">Nosotros</a>
-            <a href="consultorio-comunitario.html">Consultorio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="farmacia-solidaria.html">Farmacia</a>
-            <a href="unete-a-nuestro-equipo.html">Únete / Apoya</a>
-            <a href="mapa-sitio.html" style="background: #fff9c4; border-color: #333333; color: #333333;">🔍 Buscar</a>
-        </nav>
+        <div id="navbar-container" class="main-nav"></div>
 
     <!-- ================= SECCIÓN 1: BANNER PRINCIPAL ================= -->
     <header class="hero-section fade-in">
@@ -264,7 +257,7 @@
         <a href="aniversario.html" class="retro-banner float-subtle">
             <div class="retro-banner-content">
                 <span class="retro-badge">¡NUEVO!</span>
-                🎉 NOCHE DE GALA VINTAGE 50s-60s. ¡HAZ CLIC AQUÍ! 👗🎙️
+                <span aria-hidden='true'>🎉</span> NOCHE DE GALA VINTAGE 50s-60s. ¡HAZ CLIC AQUÍ! <span aria-hidden='true'>👗</span><span aria-hidden='true'>🎙️</span>
             </div>
         </a>
 
@@ -277,21 +270,21 @@
         
         <h1 class="hand-drawn hero-title">PROYECTO CELENE A.C.</h1>
         <h2 class="hand-drawn hero-location">ROSARITO, B.C.</h2>
-        <p class="hero-subtitle">Únete a la lucha contra el cáncer de mama 🎗️</p>
+        <p class="hero-subtitle">Únete a la lucha contra el cáncer de mama <span aria-hidden='true'>🎗️</span></p>
         
         <div class="hero-buttons">
-            <a href="mastografia-gratuita.html" class="btn btn-primario">Agendar Mastografía Gratis 🎗️</a>
+            <a href="mastografia-gratuita.html" class="btn btn-primario">Agendar Mastografía Gratis <span aria-hidden='true'>🎗️</span></a>
             <!-- Botón cambiado al estilo verde de WhatsApp -->
-            <a href="orientacion-medica-gratuita.html" class="btn btn-wa">Orientación Médica Gratuita 💬</a>
-            <a href="servicios.html" class="btn btn-secundario">Ver Todos los Servicios 📋</a>
-            <a href="recursos-educativos.html" class="btn btn-llamar">Recursos Educativos 📖</a>
+            <a href="orientacion-medica-gratuita.html" class="btn btn-wa">Orientación Médica Gratuita <span aria-hidden='true'>💬</span></a>
+            <a href="servicios.html" class="btn btn-secundario">Ver Todos los Servicios <span aria-hidden='true'>📋</span></a>
+            <a href="recursos-educativos.html" class="btn btn-llamar">Recursos Educativos <span aria-hidden='true'>📖</span></a>
         </div>
     </header>
 
     <!-- ================= SECCIÓN 2: BIENVENIDA E IMPACTO ================= -->
     <section class="welcome-section fade-in">
         <h2 class="hand-drawn">Tu salud es nuestra misión</h2>
-        <p>Somos una fundación médica y comunitaria sin fines de lucro en Rosarito, B.C. Nos dedicamos a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad. 🌸</p>
+        <p>Somos una fundación médica y comunitaria sin fines de lucro en Rosarito, B.C. Nos dedicamos a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad. <span aria-hidden='true'>🌸</span></p>
     </section>
 
     <!-- ================= SECCIÓN 3: SERVICIOS DESTACADOS ================= -->
@@ -313,7 +306,7 @@
             <img src="https://i.ibb.co/zhSRq5hX/CONSULTA-GENERAL.jpg" alt="Consulta Médica General" class="service-img">
             <h3 class="hand-drawn">Consulta Médica</h3>
             <p>Atención profesional empática, tanto presencial como virtual, con una cuota de recuperación accesible de solo $150 pesos.</p>
-            <a href="servicios.html">Saber más ➔</a>
+            <a href="consulta-general.html">Saber más ➔</a>
         </div>
 
         <!-- Bloque 3: Salud Sexual e ITS -->
@@ -321,7 +314,7 @@
             <img src="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg" alt="Salud Sexual e ITS" class="service-img">
             <h3 class="hand-drawn">Salud Sexual e ITS</h3>
             <p>Pruebas de VIH gratuitas, confidenciales y seguras. Además, contamos con paquetes de detección (ITS) para tu total tranquilidad.</p>
-            <a href="servicios.html">Saber más ➔</a>
+            <a href="salud-sexual.html">Saber más ➔</a>
         </div>
 
         <!-- Bloque 4: Farmacia Solidaria -->
@@ -351,16 +344,16 @@
 
     <!-- ================= SECCIÓN 4: SISTEMA DE CITAS ================= -->
     <section class="appointments-section fade-in">
-        <h2 class="hand-drawn">Agenda tu Cita en Línea 📅</h2>
-        <p>🌸 Bienvenidos al sistema de citas de Proyecto Celene. <strong>Puedes acudir presencialmente SIN CITA de Lunes a Domingo de 9:00 am a 4:00 pm</strong>, o consultar los horarios disponibles y agendar tu espacio:</p>
+        <h2 class="hand-drawn">Agenda tu Cita en Línea <span aria-hidden='true'>📅</span></h2>
+        <p><span aria-hidden='true'>🌸</span> Bienvenidos al sistema de citas de Proyecto Celene. <strong>Puedes acudir presencialmente SIN CITA de Lunes a Domingo de 9:00 am a 4:00 pm</strong>, o consultar los horarios disponibles y agendar tu espacio:</p>
         
         <div class="appt-grid">
             <div class="appt-card">
-                <h4>🩺 Consulta Médica ($150)</h4>
+                <h4><span aria-hidden='true'>🩺</span> Consulta Médica ($150)</h4>
                 <p>Para quienes necesitan un diagnóstico detallado, recetas médicas oficiales o abrir expediente. Puede ser <strong>presencial o virtual</strong>.</p>
             </div>
             <div class="appt-card">
-                <h4>💬 Orientación Médica Gratuita</h4>
+                <h4><span aria-hidden='true'>💬</span> Orientación Médica Gratuita</h4>
                 <p>Servicio virtual sin costo para resolver dudas rápidas sobre síntomas o revisar estudios previos. <br><br><em>*Por normativa legal, esta orientación NO incluye recetas médicas ni apertura de expediente.</em></p>
             </div>
         </div>
@@ -387,29 +380,77 @@
         </div>
     </section>
 
+    <!-- ================= SECCIÓN MAPA DEL SITIO ================= -->
+    <section class="sitemap-section fade-in" style="background: var(--pc-gris-suave); border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 40px 25px; margin-bottom: 50px;">
+        <h2 class="hand-drawn" style="text-align: center; color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 15px;">🔍 ¿Qué buscas? ¡Encuéntralo aquí!</h2>
+        <p style="text-align: center; font-weight: 600; margin-bottom: 30px; font-size: 1.1rem;">Explora todas nuestras secciones para no perderte de ningún servicio o evento.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+            <!-- Categoría 1 -->
+            <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-rosa-pastell);">
+                <h3 style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;"><span aria-hidden='true'>🏥</span> Atención Médica</h3>
+                <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
+                    <li>➔ <a href="mastografia-gratuita.html" style="color: var(--pc-rosa-fuerte); text-decoration: none;">Mastografía Gratuita</a></li>
+                    <li>➔ <a href="consulta-general.html" style="color: var(--pc-negro); text-decoration: none;">Consulta General</a></li>
+                    <li>➔ <a href="salud-sexual.html" style="color: var(--pc-negro); text-decoration: none;">Salud Sexual e ITS</a></li>
+                    <li>➔ <a href="fisioterapeuta-lupita.html" style="color: var(--pc-negro); text-decoration: none;">Fisioterapia - Lupita</a></li>
+                    <li>➔ <a href="sobador-tony.html" style="color: var(--pc-negro); text-decoration: none;">Puntos Gatillo - Tony</a></li>
+                    <li>➔ <a href="servicios.html" style="color: var(--pc-negro); text-decoration: none;">Ver Todos...</a></li>
+                </ul>
+            </div>
+            <!-- Categoría 2 -->
+            <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-azul-suave);">
+                <h3 style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;"><span aria-hidden='true'>💊</span> Farmacia y Apoyo</h3>
+                <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
+                    <li>➔ <a href="farmacia-solidaria.html" style="color: var(--pc-negro); text-decoration: none;">Farmacia Solidaria</a></li>
+                    <li>➔ <a href="orientacion-medica-gratuita.html" style="color: var(--pc-negro); text-decoration: none;">Orientación Virtual</a></li>
+                    <li>➔ <a href="recursos-educativos.html" style="color: var(--pc-negro); text-decoration: none;">Recursos Educativos</a></li>
+                </ul>
+            </div>
+            <!-- Categoría 3 -->
+            <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-amarillo);">
+                <h3 style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;"><span aria-hidden='true'>📚</span> Conócenos</h3>
+                <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
+                    <li>➔ <a href="quienes-somos.html" style="color: var(--pc-negro); text-decoration: none;">Nuestro Equipo</a></li>
+                    <li>➔ <a href="nuestra-historia.html" style="color: var(--pc-negro); text-decoration: none;">Nuestra Historia</a></li>
+                    <li>➔ <a href="nuestros-aliados.html" style="color: var(--pc-negro); text-decoration: none;">Nuestros Aliados</a></li>
+                </ul>
+            </div>
+            <!-- Categoría 4 -->
+            <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 #25d366;">
+                <h3 style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;"><span aria-hidden='true'>🤝</span> Participa</h3>
+                <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
+                    <li>➔ <a href="aniversario.html" style="color: var(--pc-rosa-fuerte); text-decoration: none;">18° Aniversario Gala</a></li>
+                    <li>➔ <a href="unete-a-nuestro-equipo.html" style="color: var(--pc-negro); text-decoration: none;">Únete / Donar</a></li>
+                    <li>➔ <a href="servicio-social.html" style="color: var(--pc-negro); text-decoration: none;">Servicio Social</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <!-- ================= SECCIÓN 5: UBICACIÓN, CONTACTO Y RESEÑAS ================= -->
     <div class="footer-wrapper fade-in">
         <div class="contact-grid">
             <div class="contact-info">
                 <h2 class="hand-drawn">Proyecto Celene A.C.</h2>
                 <h3>Playas de Rosarito, Baja California</h3>
-                <p class="slogan">Únete a la lucha contra el cáncer de mama 🎗️</p>
+                <p class="slogan">Únete a la lucha contra el cáncer de mama <span aria-hidden='true'>🎗️</span></p>
                 
-                <p><span class="icon">📍</span> <span>Calle Gral. Guadalupe Victoria, Col. Lienzo Charro, Rosarito, B.C.<br><small>(A un costado del Lienzo Charro)</small></span></p>
-                <p><span class="icon">⏰</span> <span><strong>Horario:</strong> Lunes a Domingo de 9:00 AM a 5:00 PM.</span></p>
+                <p><span class="icon"><span aria-hidden='true'>📍</span></span> <span>Calle Gral. Guadalupe Victoria, Col. Lienzo Charro, Rosarito, B.C.<br><small>(A un costado del Lienzo Charro)</small></span></p>
+                <p><span class="icon"><span aria-hidden='true'>⏰</span></span> <span><strong>Horario:</strong> Lunes a Domingo de 9:00 AM a 5:00 PM.</span></p>
                 
                 <p style="font-size: 0.95rem; line-height: 1.5; margin-top: 20px; font-weight: 600;">
-                    💬 Si te interesa platicarnos de tu caso, mándanos un WhatsApp al 661 104 4050 o llámanos a la línea telefónica. ¡Estamos para servirte!
+                    <span aria-hidden='true'>💬</span> Si te interesa platicarnos de tu caso, mándanos un WhatsApp al 661 104 4050 o llámanos a la línea telefónica. ¡Estamos para servirte!
                 </p>
 
                 <div class="social-links">
-                    <a href="tel:6611044050" class="btn btn-llamar" style="margin-bottom:0;">Llamar 📞</a>
-                    <a href="https://wa.me/526611044050" class="btn btn-wa" style="margin-bottom:0;" target="_blank">WhatsApp 💬</a>
+                    <a href="tel:6611044050" class="btn btn-llamar" style="margin-bottom:0;">Llamar <span aria-hidden='true'>📞</span></a>
+                    <a href="https://wa.me/526611044050" class="btn btn-wa" style="margin-bottom:0;" target="_blank">WhatsApp <span aria-hidden='true'>💬</span></a>
                 </div>
 
                 <div class="social-links" style="margin-top: 15px;">
-                    <a href="https://www.facebook.com/proyectocelene.rosarito/" class="btn btn-social" target="_blank">👍 Facebook</a>
-                    <a href="https://www.instagram.com/proyectocelene" class="btn btn-social" target="_blank">📸 Instagram</a>
+                    <a href="https://www.facebook.com/proyectocelene.rosarito/" class="btn btn-social" target="_blank"><span aria-hidden='true'>👍</span> Facebook</a>
+                    <a href="https://www.instagram.com/proyectocelene" class="btn btn-social" target="_blank"><span aria-hidden='true'>📸</span> Instagram</a>
                 </div>
             </div>
 
@@ -429,34 +470,14 @@
             <h4 class="hand-drawn">¿Te hemos ayudado?</h4>
             <div class="stars">★★★★★</div>
             <p style="font-size: 1rem; margin-bottom: 20px; font-weight: 600;">Proporciona a las pacientes un vínculo de confianza dejando tu opinión en Google.</p>
-            <a href="https://g.page/r/CSyqpg-XraHKEBM/review" class="btn btn-primario" target="_blank" style="margin-bottom:0; font-size:1.2rem;">Dejar una Reseña 🌟</a>
+            <a href="https://g.page/r/CSyqpg-XraHKEBM/review" class="btn btn-primario" target="_blank" style="margin-bottom:0; font-size:1.2rem;">Dejar una Reseña <span aria-hidden='true'>🌟</span></a>
         </div>
     </div>
 
 </div>
 
-<script>
-    // Intersection Observer para las animaciones de aparición al hacer scroll (Fade In)
-    document.addEventListener("DOMContentLoaded", function() {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); 
-                }
-            });
-        }, observerOptions);
 
-        const fadeElements = document.querySelectorAll('.fade-in');
-        fadeElements.forEach(el => observer.observe(el));
-    });
-</script>
-
+<script src="js/global.js"></script>
 </body>
 </html>

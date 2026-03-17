@@ -48,13 +48,14 @@
             margin-top: 30px; font-size: 0.95rem; color: #e65100;
         }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
     <div class="container">
-        <nav class="main-nav"><a href="inicio.html">Inicio</a><a href="consultorio-comunitario.html">Consultorio</a><a href="servicios.html">Servicios</a></nav>
+        <div id="navbar-container" class="main-nav"></div>
         <header class="header">
             <img src="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg" alt="Orientación Médica">
-            <h1 class="hand-drawn">Orientación Médica Gratuita 💬</h1>
+            <h1 class="hand-drawn">Orientación Médica Gratuita <span aria-hidden='true'>💬</span></h1>
             <p style="font-weight:600; font-size:1.1rem;">Resuelve dudas rápidas, conoce a qué especialista acudir o recibe información preventiva.</p>
         </header>
         <div class="content-box">
@@ -62,10 +63,10 @@
             <p>A veces solo necesitas que un profesional te escuche y te indique qué paso debes tomar. A través de este servicio gratuito, nuestro equipo médico evalúa tus síntomas iniciales para orientarte.</p>
             
             <ul style="margin-top: 20px;">
-                <li>✅ Dudas rápidas sobre síntomas leves o medicamentos.</li>
-                <li>✅ Saber con qué especialista acudir según lo que sientes.</li>
-                <li>✅ Revisar resultados o estudios (como mastografías o laboratorios).</li>
-                <li>✅ Asesoría en control de peso y educación en salud sexual (ITS).</li>
+                <li><span aria-hidden='true'>✅</span> Dudas rápidas sobre síntomas leves o medicamentos.</li>
+                <li><span aria-hidden='true'>✅</span> Saber con qué especialista acudir según lo que sientes.</li>
+                <li><span aria-hidden='true'>✅</span> Revisar resultados o estudios (como mastografías o laboratorios).</li>
+                <li><span aria-hidden='true'>✅</span> Asesoría en control de peso y educación en salud sexual (ITS).</li>
             </ul>
 
             <div class="warning-box">
@@ -84,7 +85,7 @@
             <h2 class="hand-drawn" style="text-align: center; margin-top: 30px;">Accede al Servicio</h2>
             <p style="text-align: center; font-weight: 600; margin-bottom: 20px;">Puedes <strong>acudir presencialmente sin cita de Lunes a Domingo de 9:00 am a 4:00 pm</strong>, o agendar tu llamada / videollamada usando las opciones de abajo:</p>
 
-            <button onclick="openModal('modalOrientacion')" class="btn">Iniciar Orientación por Mensaje 💬</button>
+            <button onclick="openModal('modalOrientacion')" class="btn">Iniciar Orientación por Mensaje <span aria-hidden='true'>💬</span></button>
             
             <!-- Botón Calendario Google -->
             <div style="text-align: center; margin-top: 15px; display: flex; justify-content: center;">
@@ -97,7 +98,7 @@
                     calendar.schedulingButton.load({
                       url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
                       color: '#fff9c4', /* Amarillo */
-                      label: '📅 Consultar horarios para Cita Virtual',
+                      label: '<span aria-hidden='true'>📅</span> Consultar horarios para Cita Virtual',
                       target,
                     });
                   });
@@ -117,7 +118,7 @@
     <div id="modalOrientacion" class="modal" onclick="closeOnOutside(event, 'modalOrientacion')">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modalOrientacion')">✕</span>
-            <h3 class="modal-title hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Ficha de Orientación 🩺</h3>
+            <h3 class="modal-title hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Ficha de Orientación <span aria-hidden='true'>🩺</span></h3>
             <p style="margin-bottom:20px; font-weight: 600; color: #555;">Ayúdanos con esta información para que nuestro equipo médico entienda tu caso antes de contactarte.</p>
             
             <input type="text" id="ori_nombre" placeholder="Nombre completo del paciente">
@@ -133,7 +134,7 @@
             <input type="text" id="ori_enfermedades" placeholder="¿Padeces alguna enfermedad? (Ej. Diabetes)">
             <input type="text" id="ori_medicamentos" placeholder="¿Tomas algún medicamento actualmente?">
             
-            <button onclick="sendWa()" class="btn" style="width:100%; margin-top: 10px;">Enviar a WhatsApp 💬</button>
+            <button onclick="sendWa()" class="btn" style="width:100%; margin-top: 10px;">Enviar a WhatsApp <span aria-hidden='true'>💬</span></button>
         </div>
     </div>
 
@@ -150,11 +151,12 @@
             let enf = document.getElementById('ori_enfermedades').value || 'Ninguna';
             let med = document.getElementById('ori_medicamentos').value || 'Ninguno';
 
-            let msg = `*FICHA DE ORIENTACIÓN MÉDICA*\n\n👤 *Paciente:* ${nombre}\n🎂 *Edad:* ${edad} | *Sexo:* ${sexo}\n\n💬 *Motivo de Orientación:*\n${motivo}\n\n🩺 *Enfermedades previas:* ${enf}\n💊 *Medicamentos actuales:* ${med}\n\nSolicito apoyo con orientación médica gratuita, por favor.`;
+            let msg = `*FICHA DE ORIENTACIÓN MÉDICA*\n\n👤 *Paciente:* ${nombre}\n🎂 *Edad:* ${edad} | *Sexo:* ${sexo}\n\n<span aria-hidden='true'>💬</span> *Motivo de Orientación:*\n${motivo}\n\n<span aria-hidden='true'>🩺</span> *Enfermedades previas:* ${enf}\n<span aria-hidden='true'>💊</span> *Medicamentos actuales:* ${med}\n\nSolicito apoyo con orientación médica gratuita, por favor.`;
             
             window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
             closeModal('modalOrientacion');
         }
     </script>
+<script src="js/global.js"></script>
 </body>
 </html>

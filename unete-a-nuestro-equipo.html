@@ -26,20 +26,13 @@
         .btn { display:block; text-align:center; padding:15px; border-radius:50px; border:4px solid var(--pc-negro); font-weight:800; text-decoration:none; font-size:1.2rem; background:#25d366; color:white; box-shadow:0 6px 0 #1b9c4b; margin:20px auto 0; max-width:400px; transition:0.1s; }
         .btn:active { top:6px; box-shadow:0 0 0 transparent; }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
     <div class="container">
-        <nav class="main-nav">
-            <a href="inicio.html">Inicio</a>
-            <a href="quienes-somos.html">Nosotros</a>
-            <a href="consultorio-comunitario.html">Consultorio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="farmacia-solidaria.html">Farmacia</a>
-            <a href="unete-a-nuestro-equipo.html">Únete / Apoya</a>
-            <a href="mapa-sitio.html" style="background:#fff9c4; border-color:#333; color:#333;">🔍 Buscar</a>
-        </nav>
+        <div id="navbar-container" class="main-nav"></div>
         <header class="header">
-            <h1 class="hand-drawn">Únete al Equipo Celene 🤝</h1>
+            <h1 class="hand-drawn">Únete al Equipo Celene <span aria-hidden='true'>🤝</span></h1>
             <p style="font-weight:600; font-size:1.1rem;">Existen muchas formas de ayudar. Elige la que mejor se adapte a ti y transforma vidas en Rosarito.</p>
         </header>
         
@@ -47,7 +40,7 @@
             <div class="support-card">
                 <h2 class="hand-drawn">🙋‍♀️ Voluntariado Libre</h2>
                 <p>¿Tienes un par de horas libres? Necesitamos manos para nuestras jornadas, organización de eventos y apoyo comunitario.</p>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20ser%20voluntario%20en%20Proyecto%20Celene" class="btn" target="_blank">Quiero ser Voluntario 💬</a>
+                <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20ser%20voluntario%20en%20Proyecto%20Celene" class="btn" target="_blank">Quiero ser Voluntario <span aria-hidden='true'>💬</span></a>
             </div>
             <div class="support-card">
                 <h2 class="hand-drawn">🎓 Servicio Social</h2>
@@ -55,16 +48,17 @@
                 <a href="servicio-social.html" class="btn" style="background: var(--pc-azul-suave); color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro);">Ver Programas Escolares</a>
             </div>
             <div class="support-card">
-                <h2 class="hand-drawn">🤝 Empresas</h2>
+                <h2 class="hand-drawn"><span aria-hidden='true'>🤝</span> Empresas</h2>
                 <p>Suma a tu empresa a la Alianza Rosa, obtén beneficios de salud para tu equipo y conviértete en Responsable (ESR).</p>
                 <a href="patrocinadores.html" class="btn" style="background: var(--pc-amarillo); color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro);">Alianzas Corporativas</a>
             </div>
             <div class="support-card">
-                <h2 class="hand-drawn">💖 Donativos</h2>
+                <h2 class="hand-drawn"><span aria-hidden='true'>💖</span> Donativos</h2>
                 <p>Aportaciones sin fines de lucro. Tu donativo se traduce directamente en mastografías.</p>
                 <div style="background:var(--pc-amarillo); padding:15px; border-radius:15px; border:2px dashed var(--pc-negro); margin-top:15px; font-size:1rem;"><strong>Banco Santander</strong><br>A nombre de: Francisco Sandoval<br>Cuenta: <strong>5579070150175472</strong></div>
             </div>
         </div>
     </div>
+<script src="js/global.js"></script>
 </body>
 </html>

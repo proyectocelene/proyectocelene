@@ -152,25 +152,18 @@
             transform: translateY(-2px);
         }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 
 <div class="container">
 
-        <nav class="main-nav">
-            <a href="inicio.html">Inicio</a>
-            <a href="quienes-somos.html">Nosotros</a>
-            <a href="consultorio-comunitario.html">Consultorio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="farmacia-solidaria.html">Farmacia</a>
-            <a href="unete-a-nuestro-equipo.html">Únete / Apoya</a>
-            <a href="mapa-sitio.html" style="background: #fff9c4; border-color: #333333; color: #333333;">🔍 Buscar</a>
-        </nav>
+        <div id="navbar-container" class="main-nav"></div>
 
     <!-- HEADER -->
     <header class="header-card fade-in">
         <img src="https://i.ibb.co/5gfXmT3S/Logo-pc-white-outline.png" alt="Proyecto Celene Logo" class="logo">
-        <h1 class="hand-drawn">¡Tu voz salva vidas! 🌸</h1>
+        <h1 class="hand-drawn">¡Tu voz salva vidas! <span aria-hidden='true'>🌸</span></h1>
         <p>Cuando una mujer tiene miedo y busca ayuda, leer los comentarios de otras pacientes le da la valentía para cruzar nuestra puerta. Ayúdanos a generar confianza.</p>
     </header>
 
@@ -254,5 +247,6 @@
     });
 </script>
 
+<script src="js/global.js"></script>
 </body>
 </html>

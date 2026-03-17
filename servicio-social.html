@@ -146,21 +146,12 @@
             margin-top: 1rem;
         }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 
     <header class="container">
-        <nav class="main-nav">
-            <a href="inicio.html">Inicio</a>
-            <a href="quienes-somos.html">Quiénes Somos</a>
-            <a href="nuestra-historia.html">Nuestra Historia</a>
-            <a href="modulos.html">Nuestros Módulos</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="unete-a-nuestro-equipo.html">Voluntariado</a>
-            <a href="nuestros-aliados.html">Nuestros Aliados</a>
-            <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
-            <a href="servicio-social.html" class="active">Servicio Social</a>
-        </nav>
+        <div id="navbar-container" class="main-nav"></div>
     </header>
 
     <main class="container">
@@ -209,7 +200,7 @@
                 </div></div>
                 
                 <!-- SERVICIO SOCIAL PROFESIONAL -->
-                <div class="accordion-item"><button class="accordion-header">🩺 Servicio Social Profesional (Área de la Salud)</button><div class="accordion-content">
+                <div class="accordion-item"><button class="accordion-header"><span aria-hidden='true'>🩺</span> Servicio Social Profesional (Área de la Salud)</button><div class="accordion-content">
                     <h4>Objetivo del Programa:</h4>
                     <p>Cumplir con la etapa de servicio social obligatoria para licenciaturas del área de la salud (Medicina, Enfermería) en un entorno que combina la atención clínica con un profundo sentido de comunidad y empatía.</p>
                     <h4>Responsabilidades Clave:</h4>
@@ -224,7 +215,7 @@
                 </div></div>
 
                 <!-- MAESTRÍA Y POSGRADO -->
-                <div class="accordion-item"><button class="accordion-header">🔬 Estancias de Maestría y Posgrado</button><div class="accordion-content">
+                <div class="accordion-item"><button class="accordion-header"><span aria-hidden='true'>🔬</span> Estancias de Maestría y Posgrado</button><div class="accordion-content">
                     <h4>Objetivo del Programa:</h4>
                     <p>Ofrecer un campo de estudio para proyectos de investigación o intervención social de alto impacto, enfocados en la salud pública y la gestión de ONGs.</p>
                     <h4>Líneas de Investigación y Proyectos:</h4>
@@ -245,7 +236,7 @@
             <p>Todo gran viaje comienza con un primer paso. Envía tu carta de intención o solicita una reunión informativa con nosotros.</p>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
                  <a href="mailto:contacto@proyectocelene.org">📧 Escribir a Contacto General</a>
-                 <a href="mailto:director@proyectocelene.org" style="background-color: var(--pc-blanco); color: var(--pc-negro);">🧑‍💼 Contactar al Director</a>
+                 <a href="mailto:director@proyectocelene.org" style="background-color: var(--pc-blanco); color: var(--pc-negro);">🧑‍<span aria-hidden='true'>💼</span> Contactar al Director</a>
             </div>
         </section>
 
@@ -271,5 +262,6 @@
     });
 </script>
 
+<script src="js/global.js"></script>
 </body>
 </html>

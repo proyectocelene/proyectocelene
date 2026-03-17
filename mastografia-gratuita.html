@@ -54,10 +54,11 @@
         .modal input, .modal textarea { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; }
         .modal input:focus, .modal textarea:focus { border-color: var(--pc-rosa-fuerte); }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
     <div class="container">
-        <nav class="main-nav"><a href="inicio.html">Inicio</a><a href="quienes-somos.html">¿Quiénes Somos?</a><a href="consultorio-comunitario.html">Consultorio</a><a href="servicios.html">Servicios</a></nav>
+        <div id="navbar-container" class="main-nav"></div>
         <header class="header">
             <img src="https://i.ibb.co/whkTFwLf/MAMOGRAFIA.jpg" alt="Mastografía Gratuita">
             <h1 class="hand-drawn">Guía Paso a Paso 🎀</h1>
@@ -71,7 +72,7 @@
         <!-- PASO 1 -->
         <div class="step-card">
             <div class="step-badge">Paso 1</div>
-            <h3 class="hand-drawn">📍 Ven por tu vale con nosotros</h3>
+            <h3 class="hand-drawn"><span aria-hidden='true'>📍</span> Ven por tu vale con nosotros</h3>
             <p>Primero, necesitamos darte el papelito oficial (el vale) que comprueba que tu estudio no tiene costo.</p>
             <ul>
                 <li><strong>¿A dónde voy?</strong> Ven a nuestro consultorio de Proyecto Celene (estamos a un ladito del Lienzo Charro). Puedes venir sin cita de <strong>Lunes a Domingo de 9:00 am a 4:00 pm</strong>.</li>
@@ -79,7 +80,7 @@
                 <li><strong>¿Qué pasa ahí?</strong> Te entregamos tu vale y <strong>nosotros mismos te ayudamos a agendar el día y la hora de tu estudio</strong> para que tú no batalles nada.</li>
             </ul>
             <div style="margin-top: 20px;">
-                <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn btn-map">📍 Ver ubicación de Proyecto Celene</a>
+                <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn btn-map"><span aria-hidden='true'>📍</span> Ver ubicación de Proyecto Celene</a>
             </div>
         </div>
 
@@ -107,21 +108,53 @@
                 <li><strong>¿Duele? ¡NO!</strong> El estudio dura solo 15 minutos. La máquina te dará un pequeño "apachurrón" en el pecho que dura de 10 a 15 segundos. Es una molestia muy rápida y las enfermeras son muy amables.</li>
             </ul>
             <div style="margin-top: 20px;">
-                <a href="https://maps.app.goo.gl/272juT5ARCiDdQz59" target="_blank" class="btn btn-map">📍 Ver clínica Diagnóstico X Imagen</a>
+                <a href="https://maps.app.goo.gl/272juT5ARCiDdQz59" target="_blank" class="btn btn-map"><span aria-hidden='true'>📍</span> Ver clínica Diagnóstico X Imagen</a>
             </div>
         </div>
 
         <!-- PASO 4 -->
         <div class="step-card">
-            <div class="step-badge" style="background:var(--pc-verde-wa); color:white;">Paso 4</div>
+            <div class="step-badge" style="background: #25d366; color:white;">Paso 4</div>
             <h3 class="hand-drawn">📩 Tus Resultados</h3>
-            <p>¡Ya terminaste! Ahora toca saber cómo saliste.</p>
-            <ul>
-                <li><strong>NO tienes que regresar a la clínica por los resultados.</strong> Ellos nos los van a mandar directamente a nosotros (a Proyecto Celene) en unos 2 o 3 días.</li>
-                <li><strong>¿Cómo pregunto si ya llegaron?</strong> Mándanos un mensajito por WhatsApp al <strong>661 104 4050</strong>.</li>
-                <li><strong>¿Qué escribo en el mensaje?</strong> Solo pon esto: <em>"Hola 👋, mi nombre completo es (escribe tu nombre) y quiero saber si ya están los resultados de mi mastografía".</em></li>
-            </ul>
-            <div style="background: var(--pc-rosa-pastell); padding: 15px; border-radius: 10px; border: 2px dashed var(--pc-rosa-fuerte); margin-top: 15px; font-size: 0.95rem;">
+            
+            <div style="background: #f9f9f9; border: 3px solid #25d366; border-radius: 15px; padding: 25px; margin-top: 20px; box-shadow: 6px 6px 0 #25d366;">
+                <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px; text-align: center;">¿Ya te hiciste la mastografía?</h4>
+                <p style="font-weight: 800; color: var(--pc-negro); font-size: 1.15rem; text-align: center; margin-bottom: 15px;">Pregunta por tus resultados.</p>
+                
+                <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
+                    <li style="margin-bottom: 15px;">
+                        <strong style="color: #25d366; font-size: 1.1rem;">¿Cómo pregunto si ya llegaron?</strong><br>
+                        Mándanos un mensajito por WhatsApp al <strong>661 104 4050</strong>.
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <strong style="color: #25d366; font-size: 1.1rem;">¿Qué escribo en el mensaje?</strong><br>
+                        Solo pon esto: <em>"Hola <span aria-hidden='true'>👋</span>, mi nombre completo es (escribe tu nombre) y quiero saber si ya están los resultados de mi mastografía"</em>.
+                    </li>
+                </ul>
+
+                <p style="font-weight: 600; color: #444; margin-bottom: 15px; text-align: center;">O más fácil aún, llena esto y nosotros armamos el mensaje por ti:</p>
+                <div style="display: flex; flex-direction: column; gap: 10px; max-width: 450px; margin: 0 auto;">
+                    <input type="text" id="nombre_resultados" placeholder="Escribe tu nombre completo..." style="padding: 12px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
+                    <input type="text" id="fecha_estudio" placeholder="¿Cuándo te hiciste el estudio? (Aprox.)" style="padding: 12px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
+                    <button onclick="pedirResultados()" class="btn btn-wa" style="width: 100%; margin-top: 10px;">Enviar por WhatsApp <span aria-hidden='true'>💬</span></button>
+                </div>
+            </div>
+
+            <script>
+                function pedirResultados() {
+                    let nombre = document.getElementById('nombre_resultados').value.trim();
+                    let fecha = document.getElementById('fecha_estudio').value.trim();
+                    
+                    if(!nombre) { alert("Por favor, escribe tu nombre completo."); return; }
+                    
+                    let extraInfo = fecha ? ` Me hice el estudio aproximadamente el ${fecha}.` : '';
+                    let msg = `Hola 👋, mi nombre completo es ${nombre} y quiero saber si ya están los resultados de mi mastografía.${extraInfo}`;
+                    
+                    window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+                }
+            </script>
+
+            <div style="background: var(--pc-rosa-pastell); padding: 15px; border-radius: 10px; border: 2px dashed var(--pc-rosa-fuerte); margin-top: 30px; font-size: 0.95rem; text-align: center;">
                 Nosotros revisaremos tus resultados. Si todo está perfecto, te avisamos por ahí mismo. Si el doctor necesita explicarte algo, te invitaremos a venir al consultorio para platicar con calma. <strong>¡Recuerda que en este proceso nunca estás sola, todo el equipo de Proyecto Celene te acompaña! 💝</strong>
             </div>
         </div>
@@ -148,12 +181,12 @@
         <!-- ACCIONES FINALES -->
         <div class="final-actions">
             <div class="action-box">
-                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;">🩺 Revisión Clínica</h3>
+                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;"><span aria-hidden='true'>🩺</span> Revisión Clínica</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 15px;">¿Encontraste una bolita o sientes dolor? Agenda una consulta general primero para que el médico te revise físicamente.</p>
                 <a href="consulta-general.html" class="btn" style="background:var(--pc-amarillo); color:var(--pc-negro); width:100%; box-shadow:0 6px 0 var(--pc-negro);">Agendar Consulta</a>
             </div>
             <div class="action-box">
-                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;">💬 Tengo más dudas</h3>
+                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;"><span aria-hidden='true'>💬</span> Tengo más dudas</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 15px;">Si algo no te quedó claro sobre el programa o tus requisitos, mándanos un mensaje y te ayudamos con gusto.</p>
                 <button onclick="openModal('modalDudas')" class="btn btn-wa" style="width:100%;">Preguntar por WhatsApp</button>
             </div>
@@ -171,7 +204,7 @@
             <input type="text" id="duda_nombre" placeholder="¿Cuál es tu nombre?">
             <textarea id="duda_texto" rows="4" placeholder="Ej. Hola, yo solo tengo 38 años pero mi mamá tuvo cáncer, ¿puedo aplicar para el vale gratis?"></textarea>
             
-            <button onclick="sendDudaWa()" class="btn btn-wa" style="width:100%;">Enviar Mensaje 💬</button>
+            <button onclick="sendDudaWa()" class="btn btn-wa" style="width:100%;">Enviar Mensaje <span aria-hidden='true'>💬</span></button>
         </div>
     </div>
 
@@ -194,10 +227,11 @@
         function sendDudaWa() {
             let nombre = document.getElementById('duda_nombre').value.trim() || 'No especificado';
             let duda = document.getElementById('duda_texto').value.trim() || 'Necesito información sobre la mastografía.';
-            let msg = `Hola Proyecto Celene 🌸, mi nombre es *${nombre}* y tengo una duda sobre la mastografía gratuita:\n\n"${duda}"`;
+            let msg = `Hola Proyecto Celene <span aria-hidden='true'>🌸</span>, mi nombre es *${nombre}* y tengo una duda sobre la mastografía gratuita:\n\n"${duda}"`;
             window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
             closeModal('modalDudas');
         }
     </script>
+<script src="js/global.js"></script>
 </body>
 </html>

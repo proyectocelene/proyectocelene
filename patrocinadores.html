@@ -84,7 +84,7 @@
         .price-amount { font-size: 1.5rem; font-weight: 900; margin-bottom: 20px; background: var(--pc-gris-suave); padding: 5px; border: 2px dashed var(--pc-negro); border-radius: 10px; }
         .price-list { list-style: none; text-align: left; margin-bottom: 20px; flex-grow: 1; }
         .price-list li { margin-bottom: 10px; font-weight: 600; font-size: 0.95rem; display: flex; align-items: flex-start; gap: 8px; }
-        .price-list li::before { content: "✨"; flex-shrink: 0; }
+        .price-list li::before { content: "<span aria-hidden='true'>✨</span>"; flex-shrink: 0; }
 
         /* MURO DE GRATITUD PREVIEW */
         .gratitude-box {
@@ -145,44 +145,36 @@
         }
 
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 
 <div class="container">
-    <nav class="main-nav">
-        <a href="inicio.html">Inicio</a>
-        <a href="quienes-somos.html">¿Quiénes Somos?</a>
-        <a href="nuestra-historia.html">Nuestra Historia</a>
-        <a href="modulos.html">Nuestros Módulos</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="nuestros-aliados.html">Muro de Gratitud</a>
-        <a href="aniversario.html">Volver al Aniversario</a>
-        <a href="patrocinadores.html" class="active">Patrocinadores</a>
-    </nav>
+    <div id="navbar-container" class="main-nav"></div>
 
     <!-- 1. HERO -->
     <div class="hero">
-        <h1 class="hand-drawn">Únete a la Alianza Rosa 🤝</h1>
+        <h1 class="hand-drawn">Únete a la Alianza Rosa <span aria-hidden='true'>🤝</span></h1>
         <h2 style="font-size: 1.6rem; margin-bottom: 15px;">Transforma Vidas y Fortalece a tu Empresa.</h2>
         <p>En nuestro 18° Aniversario, te invitamos a ser el héroe de cientos de mujeres en Rosarito. Tu apoyo solidario se traduce en detección temprana de cáncer y en beneficios directos de salud para tu equipo de trabajo.</p>
         <a href="#formulario" class="btn-action primario">🚀 Quiero ser Patrocinador</a>
     </div>
 
     <!-- 2. CAMPAÑA GANAR-GANAR -->
-    <h2 class="section-title hand-drawn">Campaña "Ganar-Ganar" 🌟</h2>
+    <h2 class="section-title hand-drawn">Campaña "Ganar-Ganar" <span aria-hidden='true'>🌟</span></h2>
     <div class="benefits-grid">
         <div class="benefit-card">
-            <span class="icon">📸</span>
+            <span class="icon"><span aria-hidden='true'>📸</span></span>
             <h3>Exposición y Prestigio</h3>
             <p>Marketing con Causa. Presencia estelar de tu marca en nuestra Noche de Gala Vintage, Carrera y redes sociales. Conviértete en una ESR (Empresa Socialmente Responsable).</p>
         </div>
         <div class="benefit-card">
-            <span class="icon">🩺</span>
+            <span class="icon"><span aria-hidden='true'>🩺</span></span>
             <h3>Salud para tu Equipo</h3>
             <p>Por cada donativo, tu empresa recibe cupones de salud transferibles para tus empleados (Mastografías, Glucosa, etc). ¡Cuidas a la comunidad y a tu talento humano!</p>
         </div>
         <div class="benefit-card">
-            <span class="icon">📜</span>
+            <span class="icon"><span aria-hidden='true'>📜</span></span>
             <h3>Transparencia Total</h3>
             <p>Al finalizar el año te entregamos un reporte de impacto demostrando exactamente a cuántas mujeres ayudaste a salvar gracias a tu patrocinio.</p>
         </div>
@@ -237,13 +229,13 @@
         <h2 class="hand-drawn">Nuestros Héroes Actuales 🏆</h2>
         <p style="margin-bottom: 10px;">Gracias a aliados locales como:</p>
         <ul style="list-style: none; padding: 0; font-size: 1.25rem; font-weight: 800; color: var(--pc-rosa-oscuro); margin-bottom: 15px; line-height: 1.8;">
-            <li>✨ Pabellón Rosarito Grand</li>
-            <li>✨ Imprenta Romo</li>
-            <li>✨ Florería Yago</li>
+            <li><span aria-hidden='true'>✨</span> Pabellón Rosarito Grand</li>
+            <li><span aria-hidden='true'>✨</span> Imprenta Romo</li>
+            <li><span aria-hidden='true'>✨</span> Florería Yago</li>
         </ul>
         <p style="margin-bottom: 25px;">...y muchos más, hacemos posible el milagro de la prevención todos los días.</p>
         <h3 style="color: var(--pc-rosa-fuerte); font-size: 1.5rem; font-family: 'Handlee', cursive; margin-bottom: 20px;">¡Faltas tú en esta pared de honor!</h3>
-        <a href="nuestros-aliados.html" class="btn-action" style="background: white; border-color: var(--pc-negro);">👁️ Ver el Muro de Gratitud Completo</a>
+        <a href="nuestros-aliados.html" class="btn-action" style="background: white; border-color: var(--pc-negro);"><span aria-hidden='true'>👁️</span> Ver el Muro de Gratitud Completo</a>
     </div>
 
     <!-- 4. FORMULARIO DE ALIANZA -->
@@ -280,7 +272,7 @@
             </div>
         </div>
 
-        <button onclick="enviarAlianza()" class="btn-action wa" style="width: 100%; font-size: 1.3rem; padding: 20px;">📲 Enviar Solicitud y Salvar Vidas</button>
+        <button onclick="enviarAlianza()" class="btn-action wa" style="width: 100%; font-size: 1.3rem; padding: 20px;"><span aria-hidden='true'>📲</span> Enviar Solicitud y Salvar Vidas</button>
     </div>
 
     <!-- 5. CONTACTO DIRECTO -->
@@ -290,7 +282,7 @@
         
         <ul class="contact-list">
             <li><span class="icon">👤</span> <strong>Dir. Francisco Sandoval</strong></li>
-            <li><span class="icon">📞</span> <strong>WhatsApp / Cel:</strong> 661 104 4050</li>
+            <li><span class="icon"><span aria-hidden='true'>📞</span></span> <strong>WhatsApp / Cel:</strong> 661 104 4050</li>
             <li><span class="icon">✉️</span> <strong>Correo:</strong> director@proyectocelene.org</li>
         </ul>
     </div>
@@ -311,18 +303,19 @@
 
         let tipo = tipoSeleccionado ? tipoSeleccionado.value : 'No especificado, requiere asesoría';
 
-        let msg = `*🤝 SOLICITUD DE ALIANZA ROSA - 18 ANIVERSARIO*\n\n`;
+        let msg = `*<span aria-hidden='true'>🤝</span> SOLICITUD DE ALIANZA ROSA - 18 ANIVERSARIO*\n\n`;
         msg += `Hola Proyecto Celene, nos interesa sumarnos como patrocinadores.\n\n`;
-        msg += `🏢 *Empresa:* ${empresa}\n`;
+        msg += `<span aria-hidden='true'>🏢</span> *Empresa:* ${empresa}\n`;
         msg += `👤 *Contacto:* ${nombre}\n`;
-        msg += `📞 *Teléfono:* ${tel}\n`;
+        msg += `<span aria-hidden='true'>📞</span> *Teléfono:* ${tel}\n`;
         msg += `✉️ *Correo:* ${correo}\n\n`;
-        msg += `🎯 *Interés Principal:* ${tipo}\n\n`;
+        msg += `<span aria-hidden='true'>🎯</span> *Interés Principal:* ${tipo}\n\n`;
         msg += `Quedo a la espera de su contacto para conocer más sobre los niveles de patrocinio y beneficios de salud. ¡Gracias!`;
 
         // Enviar al número oficial
         window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
     }
 </script>
+<script src="js/global.js"></script>
 </body>
 </html>

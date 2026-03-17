@@ -174,31 +174,24 @@
             transform: translateY(-2px);
         }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 
 <div class="container">
-        <nav class="main-nav">
-            <a href="inicio.html">Inicio</a>
-            <a href="quienes-somos.html">Nosotros</a>
-            <a href="consultorio-comunitario.html">Consultorio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="farmacia-solidaria.html">Farmacia</a>
-            <a href="unete-a-nuestro-equipo.html">Únete / Apoya</a>
-            <a href="mapa-sitio.html" style="background: #fff9c4; border-color: #333333; color: #333333;">🔍 Buscar</a>
-        </nav>
+        <div id="navbar-container" class="main-nav"></div>
     
     <!-- HEADER CON IMAGEN JPG SOBRE FONDO BLANCO -->
     <header class="header">
         <img src="https://i.ibb.co/JjwF3cQm/FARMACIA-SOLIDARIA.jpg" alt="Farmacia Solidaria Proyecto Celene" class="header-img">
-        <h1 class="hand-drawn">Farmacia Solidaria 💊</h1>
+        <h1 class="hand-drawn">Farmacia Solidaria <span aria-hidden='true'>💊</span></h1>
         <p class="header-info">No somos una farmacia comercial. Somos un proyecto de apoyo mutuo basado en la generosidad de nuestra comunidad. Recibimos, organizamos y distribuimos medicamentos para quienes más lo necesitan, siempre <strong>sin fines de lucro</strong>.</p>
     </header>
 
     <!-- INFO GRID -->
     <div class="info-grid">
         <div class="info-card">
-            <h3 class="hand-drawn">🤝 ¿Cómo funciona?</h3>
+            <h3 class="hand-drawn"><span aria-hidden='true'>🤝</span> ¿Cómo funciona?</h3>
             <p>Los medicamentos provienen de donaciones ciudadanas. No recibimos apoyo del gobierno. Si buscas algo, dejas tus datos y si lo tenemos, te avisamos de inmediato.</p>
         </div>
         <div class="info-card">
@@ -206,7 +199,7 @@
             <p>Manejamos cuotas simbólicas para sostener los gastos operativos de la fundación y asegurar que <strong>ninguna mujer se quede sin atención</strong> por falta de recursos.</p>
         </div>
         <div class="info-card">
-            <h3 class="hand-drawn">🔍 Transparencia Total</h3>
+            <h3 class="hand-drawn"><span aria-hidden='true'>🔍</span> Transparencia Total</h3>
             <p>Para evitar la reventa, todos nuestros medicamentos llevan la leyenda: <em>"Precio Solidario - Apoyo Comunitario Proyecto Celene"</em> asegurando el uso correcto.</p>
         </div>
     </div>
@@ -364,12 +357,12 @@
             <strong>AVISO IMPORTANTE:</strong> Su solicitud será evaluada de forma empática y humana. Si hay disponibilidad en nuestras donaciones, le avisaremos por WhatsApp para que pase a recogerlo. De lo contrario, le orientaremos dónde adquirirlo al precio más económico.
         </div>
 
-        <button class="btn-submit" onclick="enviarSolicitudEx()">Enviar Solicitud Oficial a WhatsApp 💬</button>
+        <button class="btn-submit" onclick="enviarSolicitudEx()">Enviar Solicitud Oficial a WhatsApp <span aria-hidden='true'>💬</span></button>
     </div>
 
     <!-- BOTÓN Y FORMULARIO: QUIERO DONAR -->
     <button class="toggle-btn btn-don" onclick="toggleForm('formDonacion', this)">
-        <span>💖 Quiero Donar Medicina</span>
+        <span><span aria-hidden='true'>💖</span> Quiero Donar Medicina</span>
         <span class="toggle-icon">▼</span>
     </button>
 
@@ -403,7 +396,7 @@
             </div>
         </div>
         
-        <button class="btn-submit" onclick="enviarDonacion()">Enviar Aviso de Donativo 💬</button>
+        <button class="btn-submit" onclick="enviarDonacion()">Enviar Aviso de Donativo <span aria-hidden='true'>💬</span></button>
     </div>
 
     <!-- LISTA DE NECESIDADES -->
@@ -411,12 +404,12 @@
         <h3 class="hand-drawn">🚨 ¿Qué es lo que más nos piden?</h3>
         <p style="margin-bottom:15px; color:#555;">Si deseas comprar medicamento para donarlo o hacer una cooperación voluntaria, estos son los tratamientos que nuestros pacientes necesitan con mayor urgencia todos los días:</p>
         <div class="pills-grid">
-            <span class="pill-tag">🩸 Insulina (Diversos tipos)</span>
+            <span class="pill-tag"><span aria-hidden='true'>🩸</span> Insulina (Diversos tipos)</span>
             <span class="pill-tag">🍬 Metformina</span>
             <span class="pill-tag">💓 Losartán / Captopril</span>
-            <span class="pill-tag">💊 Analgésicos (Paracetamol, Ketorolaco)</span>
+            <span class="pill-tag"><span aria-hidden='true'>💊</span> Analgésicos (Paracetamol, Ketorolaco)</span>
             <span class="pill-tag">🦠 Antibióticos (Amoxicilina, etc.)</span>
-            <span class="pill-tag">🩺 Omeprazol</span>
+            <span class="pill-tag"><span aria-hidden='true'>🩺</span> Omeprazol</span>
             <span class="pill-tag">🎀 Medicamentos Oncológicos</span>
             <span class="pill-tag">🩹 Material de Curación</span>
         </div>
@@ -531,12 +524,12 @@
 
         // Construir Mensaje
         let msg = `*📝 EXPEDIENTE DE SOLICITUD - FARMACIA CELENE*\n\n`;
-        msg += `*1. PACIENTE*\n👤 Nombre: ${nombre}\n🎂 Edad/Género: ${edad} años, ${genero}\n📍 Domicilio: ${dom}\n📞 Tel: ${tel}\n🏥 Servicio Médico: ${servicio}\n\n`;
-        msg += `*2. RECETA MÉDICA*\n🏥 Clínica: ${clinica}\n👨‍⚕️ Médico: ${medico}\n🤒 Diagnóstico: ${dx}\n\n`;
+        msg += `*1. PACIENTE*\n👤 Nombre: ${nombre}\n🎂 Edad/Género: ${edad} años, ${genero}\n<span aria-hidden='true'>📍</span> Domicilio: ${dom}\n<span aria-hidden='true'>📞</span> Tel: ${tel}\n🏥 Servicio Médico: ${servicio}\n\n`;
+        msg += `*2. RECETA MÉDICA*\n🏥 Clínica: ${clinica}\n<span aria-hidden='true'>👨‍⚕️</span> Médico: ${medico}\n🤒 Diagnóstico: ${dx}\n\n`;
         msg += `*3. MEDICAMENTOS REQUERIDOS*\n${medsStr}\n`;
         msg += `*4. MOTIVOS DE SOLICITUD*\n⚠️ ${motivos.length > 0 ? motivos.join(', ') : 'No especificado'}\n\n`;
         msg += `*5. IMPACTO/SITUACIÓN*\n🚨 ${impactos.length > 0 ? impactos.join(', ') : 'No especificado'}\n📝 *Notas:* ${notas}\n\n`;
-        msg += `Solicito revisión de inventario. Quedo al pendiente de su respuesta. 🌸`;
+        msg += `Solicito revisión de inventario. Quedo al pendiente de su respuesta. <span aria-hidden='true'>🌸</span>`;
 
         let url = `https://wa.me/${CELENE_PHONE}?text=${encodeURIComponent(msg)}`;
         window.open(url, '_blank');
@@ -557,17 +550,18 @@
 
         let mensaje = `*🎁 FORMATO DE DONACIÓN SOLIDARIA*\n\n`;
         mensaje += `Hola Proyecto Celene, quiero apoyar a la comunidad:\n\n`;
-        mensaje += `🦸‍♂️ *Donante:* ${nombre}\n`;
-        mensaje += `📞 *Teléfono:* ${tel}\n`;
+        mensaje += `<span aria-hidden='true'>🦸‍♂️</span> *Donante:* ${nombre}\n`;
+        mensaje += `<span aria-hidden='true'>📞</span> *Teléfono:* ${tel}\n`;
         mensaje += `📦 *Medicamentos a donar:* ${meds}\n`;
-        mensaje += `📅 *Caducidad:* ${caducidad}\n`;
-        mensaje += `🚗 *Visita estimada:* ${fecha || "A convenir"}\n\n`;
-        mensaje += `Me da mucho gusto poder ayudar. ¡Nos vemos pronto! 💖`;
+        mensaje += `<span aria-hidden='true'>📅</span> *Caducidad:* ${caducidad}\n`;
+        mensaje += `<span aria-hidden='true'>🚗</span> *Visita estimada:* ${fecha || "A convenir"}\n\n`;
+        mensaje += `Me da mucho gusto poder ayudar. ¡Nos vemos pronto! <span aria-hidden='true'>💖</span>`;
 
         let url = `https://wa.me/${CELENE_PHONE}?text=${encodeURIComponent(mensaje)}`;
         window.open(url, '_blank');
     }
 </script>
 
+<script src="js/global.js"></script>
 </body>
 </html>

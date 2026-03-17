@@ -163,19 +163,12 @@
             transform: translateY(-2px);
         }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 
 <div class="container">
-        <nav class="main-nav">
-            <a href="inicio.html">Inicio</a>
-            <a href="quienes-somos.html">Nosotros</a>
-            <a href="consultorio-comunitario.html">Consultorio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="farmacia-solidaria.html">Farmacia</a>
-            <a href="unete-a-nuestro-equipo.html">Únete / Apoya</a>
-            <a href="mapa-sitio.html" style="background: #fff9c4; border-color: #333333; color: #333333;">🔍 Buscar</a>
-        </nav>
+        <div id="navbar-container" class="main-nav"></div>
     <header class="header">
         <svg class="snoopy-float" viewBox="0 0 100 100">
             <path d="M20 50 Q 50 10, 80 50 Q 50 90, 20 50" stroke="black" stroke-width="4" fill="#fce4ec"/>
@@ -184,7 +177,7 @@
             <path d="M45 60 Q 50 65, 55 60" stroke="black" stroke-width="2" fill="none"/>
         </svg>
         <h1 class="hand-drawn">Catálogo de Salud Celene</h1>
-        <p class="header-info">Ofrecemos servicios médicos de alta calidad, empáticos e integrales, con <strong>cuotas de recuperación accesibles</strong>. Proyecto Celene no tiene fines de lucro; tu aportación nos ayuda a mantener operaciones y seguir salvando vidas en nuestra comunidad. 🌸</p>
+        <p class="header-info">Ofrecemos servicios médicos de alta calidad, empáticos e integrales, con <strong>cuotas de recuperación accesibles</strong>. Proyecto Celene no tiene fines de lucro; tu aportación nos ayuda a mantener operaciones y seguir salvando vidas en nuestra comunidad. <span aria-hidden='true'>🌸</span></p>
         
         <div class="search-container">
             <input type="text" id="serviceSearch" placeholder="Busca un servicio (ej. diabetes, diu, embarazo, consulta)..." onkeyup="searchServices()">
@@ -206,7 +199,7 @@
 
     <!-- BANNER LABORATORIOS (SOLO VISIBLE EN TAB LAB) -->
     <div id="labPromoBanner" class="promo-banner" style="display: none;">
-        <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom:10px;">¡Beneficio Exclusivo en Laboratorios! 🔬</h2>
+        <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom:10px;">¡Beneficio Exclusivo en Laboratorios! <span aria-hidden='true'>🔬</span></h2>
         <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">Al pagar tus laboratorios en <strong>Proyecto Celene</strong> recibes <strong>hasta 70% de descuento</strong> (dependiendo del analito) con Laboratorios Oropeza. <br><br>Y lo mejor: ¡Al hacerte los estudios tienes una <strong>tele-lectura de laboratorios GRATIS</strong> con nuestros médicos! <small style="display:block; margin-top:10px; color:#666;">*Aplican términos y condiciones.</small></p>
     </div>
 
@@ -217,7 +210,7 @@
         =============================== -->
         <div class="service-card category-card" data-cat="mujer" data-keywords="mastografia mama cancer gratis requisitos mujer preventiva">
             <span class="cat-tag">Mujer</span>
-            <h3 class="service-title">Mastografía Gratis 🎗</h3>
+            <h3 class="service-title">Mastografía Gratis <span aria-hidden='true'>🎗</span></h3>
             <p class="service-preview">La detección temprana salva 9 de cada 10 vidas. Este estudio clave encuentra anomalías antes de que sean palpables. No dejes que el costo sea una barrera, ¡estamos para cuidarte!</p>
             <div class="price-highlight">GRATIS</div>
             <div class="btn-group">
@@ -228,7 +221,7 @@
 
         <div class="service-card category-card" data-cat="consulta" data-keywords="consulta medica general medicina doctor empatico integral tratamiento">
             <span class="cat-tag">Consultas</span>
-            <h3 class="service-title">Consulta Médica General 🩺</h3>
+            <h3 class="service-title">Consulta Médica General <span aria-hidden='true'>🩺</span></h3>
             <p class="service-preview">Nuestra diferencia es que te escuchamos de verdad. Recibe un diagnóstico preciso, tratamiento integral y el trato humano que mereces para cuidar tu bienestar completo.</p>
             <div class="price-text">Cuota: $150 m.n.</div>
             <div class="btn-group">
@@ -290,8 +283,19 @@
             <p class="service-preview">Extracción rápida y sin dolor en el consultorio. Te orientamos sobre tu siguiente paso en salud reproductiva.</p>
             <div class="price-text">Cuota: $450 m.n.</div>
             <div class="btn-group">
-                <button class="btn btn-more" onclick="openInfo('diu_ret')">Detalles</button>
+                <a href="retiro-diu.html" class="btn btn-more" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Guía Completa</a>
                 <button onclick="openInfo('diu_ret')" class="btn btn-wa">Agendar</button>
+            </div>
+        </div>
+
+        <div class="service-card category-card" data-cat="mujer" data-keywords="isd implante subdermico brazo retiro sacar dispositivo">
+            <span class="cat-tag">Planificación Familiar</span>
+            <h3 class="service-title">Retiro de Implante (ISD)</h3>
+            <p class="service-preview">Extracción segura con anestesia local. Hacemos que sea un procedimiento amigable y sin dolor.</p>
+            <div class="price-text">Cuota: $450 m.n.</div>
+            <div class="btn-group">
+                <a href="retiro-isd.html" class="btn btn-more" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Guía Completa</a>
+                <button onclick="openInfo('isd_ret')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -319,7 +323,7 @@
 
         <div class="service-card category-card" data-cat="mujer" data-keywords="pastilla dia siguiente anticoncepcion emergencia">
             <span class="cat-tag">Apoyo Inmediato</span>
-            <h3 class="service-title">Anticoncepción de Emergencia 💊</h3>
+            <h3 class="service-title">Anticoncepción de Emergencia <span aria-hidden='true'>💊</span></h3>
             <p class="service-preview">Atención sin juicios, confidencial y empática. Te guiamos para protegerte a tiempo, porque es tu derecho decidir.</p>
             <div class="price-text">Consulta Confidencial</div>
             <div class="btn-group">
@@ -446,7 +450,7 @@
         =============================== -->
         <div class="service-card category-card" data-cat="paquete mujer" data-keywords="paquete mujer integral saludable completo combo">
             <span class="cat-tag">Combo Preventivo</span>
-            <h3 class="service-title">Mujer Saludable Integral 🌸</h3>
+            <h3 class="service-title">Mujer Saludable Integral <span aria-hidden='true'>🌸</span></h3>
             <p class="service-preview">El escudo protector definitivo. Cubrimos todas tus necesidades preventivas anuales en una sola visita, porque tu salud lo vale.</p>
             <div class="price-combo">$500 m.n.</div>
             <div class="btn-group">
@@ -468,7 +472,7 @@
 
         <div class="service-card category-card" data-cat="paquete hombre" data-keywords="mantenimiento hombre paquete anual motor">
             <span class="cat-tag">Combo Preventivo</span>
-            <h3 class="service-title">Mantenimiento Anual Masculino 🚙</h3>
+            <h3 class="service-title">Mantenimiento Anual Masculino <span aria-hidden='true'>🚙</span></h3>
             <p class="service-preview">Un chequeo preventivo a tiempo hace la diferencia. Protege tu próstata y previene la diabetes con este panel enfocado en el hombre.</p>
             <div class="price-combo">$300 m.n.</div>
             <div class="btn-group">
@@ -549,7 +553,7 @@
 
         <div class="service-card category-card" data-cat="sexual" data-keywords="juntos es mejor pareja descuento amigos vecino">
             <span class="cat-tag">Paquete ITS</span>
-            <h3 class="service-title">Juntos es Mejor 👩‍❤️‍👨</h3>
+            <h3 class="service-title">Juntos es Mejor <span aria-hidden='true'>👩‍❤️‍👨</span></h3>
             <p class="service-preview">Cuidarse mutuamente es una muestra de responsabilidad. Panel completo para dos personas con un excelente descuento.</p>
             <div class="price-combo">$1,000 m.n. (x2 personas)</div>
             <div class="btn-group">
@@ -574,7 +578,7 @@
 
         <div class="service-card category-card" data-cat="lab mujer" data-keywords="embarazo sangre prueba hcg">
             <span class="cat-tag">Laboratorio / Mujer</span>
-            <h3 class="service-title">Prueba Embarazo (Sangre) 🩸</h3>
+            <h3 class="service-title">Prueba Embarazo (Sangre) <span aria-hidden='true'>🩸</span></h3>
             <p class="service-preview">Sal de dudas hoy mismo. La prueba más precisa y confiable con resultados en solo 10 minutos. Te acompañamos en cada paso.</p>
             <div class="price-text">Cuota: $150 m.n.</div>
             <div class="btn-group">
@@ -629,7 +633,7 @@
         
         <div class="service-card category-card" data-cat="hombre lab" data-keywords="psa prostata hombre cancer caballero antígeno">
             <span class="cat-tag">Hombre / Laboratorio</span>
-            <h3 class="service-title">Antígeno Prostático (PSA) 🚙</h3>
+            <h3 class="service-title">Antígeno Prostático (PSA) <span aria-hidden='true'>🚙</span></h3>
             <p class="service-preview">El cáncer de próstata es silencioso pero 100% curable a tiempo. Una prueba de sangre basta para proteger tu vida, ¡agenda tu chequeo!</p>
             <div class="price-text">Cuota: $150 m.n.</div>
             <div class="btn-group">
@@ -642,7 +646,7 @@
              PSICOLOGIA
         =============================== -->
         <div class="full-width-box category-card" data-cat="psico">
-            <h2 class="hand-drawn" style="text-align: center; color: var(--pc-rosa-fuerte);">Psicología Celene 🧠</h2>
+            <h2 class="hand-drawn" style="text-align: center; color: var(--pc-rosa-fuerte);">Psicología Celene <span aria-hidden='true'>🧠</span></h2>
             <h3 style="text-align: center; margin-bottom: 20px;">Hablar con un profesional hace toda la diferencia.</h3>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 20px;">El estrés, la enfermedad y la vida diaria pueden abrumarnos. No tienes que cargar con todo tú sola(o). Encuentra un espacio seguro, confidencial y sin juicios para sanar tus emociones y recuperar tu paz mental.</p>
             
@@ -668,8 +672,8 @@
             <div class="price-text">Contactar para costos</div>
             <div class="btn-group" style="flex-wrap: wrap; gap: 8px;">
                 <a href="sobador-tony.html" class="btn btn-more" style="width: 100%;">Leer Más Detalles ➔</a>
-                <a href="tel:6611232010" class="btn" style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);">📞 Llamar</a>
-                <a href="https://wa.me/526611232010" class="btn btn-wa" target="_blank">💬 WhatsApp</a>
+                <a href="tel:6611232010" class="btn" style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);"><span aria-hidden='true'>📞</span> Llamar</a>
+                <a href="https://wa.me/526611232010" class="btn btn-wa" target="_blank"><span aria-hidden='true'>💬</span> WhatsApp</a>
                 <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ATony%3BSobador%0AFN%3ASobador%20Tony%0ATEL%3BTYPE%3DCELL%3A6611232010%0AEND%3AVCARD" download="Sobador_Tony.vcf" class="btn" style="background:var(--pc-amarillo); border-color:var(--pc-negro); color:var(--pc-negro); width: 100%;">📇 Guardar Contacto</a>
             </div>
         </div>
@@ -681,8 +685,8 @@
             <div class="price-text">Contactar para costos</div>
             <div class="btn-group" style="flex-wrap: wrap; gap: 8px;">
                 <a href="fisioterapeuta-lupita.html" class="btn btn-more" style="width: 100%;">Leer Más Detalles ➔</a>
-                <a href="tel:6611232826" class="btn" style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);">📞 Llamar</a>
-                <a href="https://wa.me/526611232826" class="btn btn-wa" target="_blank">💬 WhatsApp</a>
+                <a href="tel:6611232826" class="btn" style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);"><span aria-hidden='true'>📞</span> Llamar</a>
+                <a href="https://wa.me/526611232826" class="btn btn-wa" target="_blank"><span aria-hidden='true'>💬</span> WhatsApp</a>
                 <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ALupita%3BFisioterapeuta%0AFN%3AFisioterapeuta%20Lupita%0ATEL%3BTYPE%3DCELL%3A6611232826%0AEND%3AVCARD" download="Fisioterapeuta_Lupita.vcf" class="btn" style="background:var(--pc-amarillo); border-color:var(--pc-negro); color:var(--pc-negro); width: 100%;">📇 Guardar Contacto</a>
             </div>
         </div>
@@ -820,7 +824,7 @@
     <div id="sexualEducationalModule" class="full-width-box" style="display: none; margin-top: 40px;">
         <!-- QUIZ INTERACTIVO EXPANDIBLE -->
         <div style="background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 30px;">
-            <button class="quiz-toggle-btn" onclick="toggleQuiz()">¿Necesito una prueba de ITS? Haz el test privado 🔍</button>
+            <button class="quiz-toggle-btn" onclick="toggleQuiz()">¿Necesito una prueba de ITS? Haz el test privado <span aria-hidden='true'>🔍</span></button>
             
             <div id="quizContent" style="display: none; margin-top: 25px; padding-top: 15px; border-top: 2px dashed #ccc;">
                 <p style="margin-bottom: 15px; font-size:1.05rem; color:#555;">Marca las casillas que apliquen a tu caso (tu información es 100% confidencial y no se guarda):</p>
@@ -868,7 +872,7 @@
             <p style="font-weight: 800; color: var(--pc-negro); margin-bottom: 15px;">Para agilizar tu atención o dudas, déjanos tus datos:</p>
             <input type="text" id="sm_nombre" placeholder="Tu Nombre Completo">
             <textarea id="sm_duda" rows="2" placeholder="¿Tienes alguna duda o quieres agendar directamente?"></textarea>
-            <button onclick="sendServiceWa()" class="btn btn-wa" style="width: 100%; border-color:var(--pc-negro);">Enviar Mensaje 💬</button>
+            <button onclick="sendServiceWa()" class="btn btn-wa" style="width: 100%; border-color:var(--pc-negro);">Enviar Mensaje <span aria-hidden='true'>💬</span></button>
         </div>
         
         <p style="text-align: center; margin-top: 25px; font-weight: 800; color: #555;">También puedes asegurar tu espacio consultando los horarios:</p>
@@ -902,7 +906,7 @@
     const servicesInfo = {
         // --- MUJER & ANCLAS ---
         mastografia: {
-            title: "Mastografía Gratis 🎗",
+            title: "Mastografía Gratis <span aria-hidden='true'>🎗</span>",
             desc: "Un estudio de imagen clave para detectar anomalías antes de que sean palpables. Una detección temprana salva vidas.",
             why: "En Proyecto Celene hemos detectado cientos de casos a tiempo. No dejes que el costo sea una barrera, ¡queremos verte sana!",
             include: ["Vale para clínica de imagen externa.", "Interpretación por radiólogo certificado.", "Seguimiento médico personalizado."],
@@ -911,7 +915,7 @@
             eduLink: "mastografia-gratuita.html"
         },
         consulta_gen: {
-            title: "Consulta Médica General 🩺",
+            title: "Consulta Médica General <span aria-hidden='true'>🩺</span>",
             desc: "Nuestra diferencia es que **te escuchamos de verdad**. Evaluamos tu entorno, no solo el síntoma, porque el estrés y las emociones también afectan tu salud.",
             why: "Curar el cuerpo pero entender al paciente es la base de nuestra vocación. Un buen diagnóstico mejora tu calidad de vida de inmediato.",
             include: ["Valoración por el Dr. Carlos Donato.", "Receta médica y explicación clara.", "Interpretación de laboratorios sin prisas.", "Canalización oportuna."],
@@ -919,7 +923,7 @@
             waMsg: "Consulta Médica General"
         },
         papa: {
-            title: "Papanicolaou (Citología) 🌸",
+            title: "Papanicolaou (Citología) <span aria-hidden='true'>🌸</span>",
             desc: "Detecta a tiempo cambios celulares en el cuello del útero antes de que se conviertan en cáncer.",
             why: "Es una prueba de rutina que ha salvado millones de vidas a nivel mundial. Cuidarte es el acto de amor propio más grande.",
             include: ["Toma de muestra confidencial.", "Material estéril.", "Entrega de resultados y consejería."],
@@ -935,12 +939,22 @@
             waMsg: "Colocación de Implante"
         },
         implante_ret: {
-            title: "Retiro de Implante",
+            title: "Retiro de Implante (ISD)",
             desc: "Extracción clínica del dispositivo de tu brazo una vez que caduca o si deseas embarazarte.",
             why: "Nunca intentes retirarlo tú misma. Nosotros lo hacemos de forma profesional con una incisión mínima y segura.",
             include: ["Anestesia local.", "Retiro médico meticuloso.", "Parche de curación."],
-            reqs: "Cuota: $400 m.n.",
-            waMsg: "Retiro de Implante"
+            reqs: "Cuota: $450 m.n.",
+            waMsg: "Retiro de Implante",
+            eduLink: "retiro-isd.html"
+        },
+        isd_ret: {
+            title: "Retiro de Implante (ISD)",
+            desc: "Retiro seguro del implante del brazo usando anestesia local para tu comodidad.",
+            why: "Sabemos que las agujas pueden dar nervios. Te explicamos todo paso a paso en un ambiente relajado y empático.",
+            include: ["Anestesia local.", "Insumos estériles.", "Retiro profesional."],
+            reqs: "Cuota: $450 m.n.",
+            waMsg: "Cita para Retiro de Implante (ISD)",
+            eduLink: "retiro-isd.html"
         },
         diu_col: {
             title: "Colocación de DIU 🛡",
@@ -956,7 +970,8 @@
             why: "Si tu DIU cumplió su tiempo (5-10 años) o quieres cambiar de método, lo retiramos sin causarte dolor.",
             include: ["Retiro clínico seguro.", "Consejería para tu próximo método si lo requieres."],
             reqs: "Cuota: $450 m.n.",
-            waMsg: "Retiro de DIU"
+            waMsg: "Retiro de DIU",
+            eduLink: "retiro-diu.html"
         },
         inyeccion: {
             title: "Inyección Anticonceptiva",
@@ -975,7 +990,7 @@
             waMsg: "Consulta por dolor menstrual"
         },
         emergencia: {
-            title: "Anticoncepción de Emergencia 💊",
+            title: "Anticoncepción de Emergencia <span aria-hidden='true'>💊</span>",
             desc: "Orientación profesional para la pastilla del día siguiente. Te ofrecemos un espacio libre de juicios, regaños y lleno de empatía.",
             why: "Los accidentes pasan (rotura de condón, olvido). Actuar antes de 72h es fundamental para proteger tus decisiones.",
             include: ["Orientación sobre cómo actúa en tu cuerpo.", "Manejo de efectos secundarios.", "Consejería de método a largo plazo."],
@@ -1066,7 +1081,7 @@
         },
         
         psicologia: {
-            title: "Sesión de Psicología 🧠",
+            title: "Sesión de Psicología <span aria-hidden='true'>🧠</span>",
             desc: "Encuentra un espacio seguro, confidencial y sin juicios para sanar tus emociones y recuperar tu paz mental.",
             why: "El estrés, la enfermedad y la vida diaria pueden abrumarnos. Hablar con un profesional hace toda la diferencia.",
             include: ["Acompañamiento Oncológico", "Manejo de Duelo", "Ansiedad y Depresión", "Terapia de Pareja/Familiar"],
@@ -1076,7 +1091,7 @@
 
         // --- COMBOS ---
         paquete_mujer_int: {
-            title: "Mujer Saludable Integral 🌸",
+            title: "Mujer Saludable Integral <span aria-hidden='true'>🌸</span>",
             desc: "El chequeo preventivo más completo y profundo. Un verdadero escudo protector para tu salud anual.",
             why: "Encontrar signos de cáncer o diabetes a tiempo no solo salva tu vida, sino que asegura el bienestar de toda tu familia.",
             include: ["Consulta Médica General.", "Toma de Papanicolaou.", "Exploración clínica de mamas.", "Vale para Mastografía (40+ años).", "Examen de Orina.", "Prueba de VIH.", "Toma de Presión y Glucosa."],
@@ -1092,7 +1107,7 @@
             waMsg: "Paquete Mujer Saludable Básico"
         },
         mant_hombre: {
-            title: "Mantenimiento Anual Masculino 🚙",
+            title: "Mantenimiento Anual Masculino <span aria-hidden='true'>🚙</span>",
             desc: "Un servicio completo a tu cuerpo. Especialmente diseñado para detectar problemas prostáticos y enfermedades metabólicas silenciosas.",
             why: "El cáncer de próstata no duele al principio, pero un piquete en el dedo puede detectarlo a tiempo y hacerte ganar la batalla.",
             include: ["Consulta Médica.", "Cuestionario Prostático.", "Prueba PSA (Antígeno Prostático).", "Prueba VIH.", "Revisión: Glucosa, Presión, Peso."],
@@ -1150,7 +1165,7 @@
             waMsg: "Paquete ITS Completo Tranquilo"
         },
         juntos_mejor: {
-            title: "Paquete Juntos es Mejor 👩‍❤️‍👨",
+            title: "Paquete Juntos es Mejor <span aria-hidden='true'>👩‍❤️‍👨</span>",
             desc: "El paquete 'Completo Tranquilo' multiplicado por dos. Cuidarse en pareja fortalece la confianza.",
             why: "Venir juntos es un acto de amor maduro. Además, Proyecto Celene les premia con un ahorro de $200 pesos.",
             include: ["Panel completo para ti.", "Panel completo para tu acompañante."],
@@ -1168,7 +1183,7 @@
             waMsg: "Prueba de Embarazo en Orina"
         },
         embarazo_sangre: {
-            title: "Prueba de Embarazo (Sangre) 🩸",
+            title: "Prueba de Embarazo (Sangre) <span aria-hidden='true'>🩸</span>",
             desc: "Test sérico avanzado que detecta la hormona hCG mucho antes que cualquier prueba de farmacia.",
             why: "Para cuando necesitas salir de dudas de inmediato, incluso antes de que llegue la fecha de tu regla. Precisión absoluta.",
             include: ["Extracción suave por profesional.", "Resultado confiable en 10 min."],
@@ -1415,7 +1430,7 @@
         
         // Agregar botón de guía educativa si el servicio lo tiene configurado
         if(info.eduLink) {
-            bodyHtml += `<div style="text-align: center; margin-top: 20px;"><a href="${info.eduLink}" class="btn" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); width: 100%; box-shadow: 0 4px 0 var(--pc-negro); display: block;">📖 Leer Guía Educativa</a></div>`;
+            bodyHtml += `<div style="text-align: center; margin-top: 20px;"><a href="${info.eduLink}" class="btn" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); width: 100%; box-shadow: 0 4px 0 var(--pc-negro); display: block;"><span aria-hidden='true'>📖</span> Leer Guía Educativa</a></div>`;
         }
 
         document.getElementById('modalBody').innerHTML = bodyHtml;
@@ -1429,7 +1444,7 @@
     function sendServiceWa() {
         let nombre = document.getElementById('sm_nombre').value.trim() || "No especificado";
         let duda = document.getElementById('sm_duda').value.trim();
-        let msg = `Hola Proyecto Celene 🌸.\nMi nombre es *${nombre}* y me interesa agendar/información sobre: *${currentServiceWaMsg}*.`;
+        let msg = `Hola Proyecto Celene <span aria-hidden='true'>🌸</span>.\nMi nombre es *${nombre}* y me interesa agendar/información sobre: *${currentServiceWaMsg}*.`;
         if(duda) {
             msg += `\n\nMi comentario/duda es: "${duda}"`;
         }
@@ -1442,5 +1457,6 @@
     filterCategory('all');
 </script>
 
+<script src="js/global.js"></script>
 </body>
 </html>

@@ -36,13 +36,14 @@
         .modal input, .modal textarea { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; }
         .modal input:focus, .modal textarea:focus { border-color: var(--pc-rosa-fuerte); }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
     <div class="container">
-        <nav class="main-nav"><a href="inicio.html">Inicio</a><a href="quienes-somos.html">¿Quiénes Somos?</a><a href="consultorio-comunitario.html">Consultorio</a><a href="servicios.html">Servicios</a></nav>
+        <div id="navbar-container" class="main-nav"></div>
         <header class="header">
             <img src="https://i.ibb.co/zhSRq5hX/CONSULTA-GENERAL.jpg" alt="Consulta General">
-            <h1 class="hand-drawn">Consulta Médica General 🩺</h1>
+            <h1 class="hand-drawn">Consulta Médica General <span aria-hidden='true'>🩺</span></h1>
             <p style="font-weight:600; font-size:1.1rem;">Atención profesional, empática y humana con cuota accesible.</p>
         </header>
         <div class="content-box">
@@ -83,7 +84,7 @@
                 <p style="margin-top: 10px;"><strong>¿Por qué tiene costo ($150) a diferencia de la orientación gratuita?</strong><br>
                 Porque por normatividad legal (NOM-004), la emisión de recetas médicas requiere que el médico dedique el tiempo para abrir un <strong>expediente clínico completo</strong> y responsabilizarse legalmente del tratamiento usando su cédula profesional.</p>
                 
-                <button onclick="openModal('modalVirtual')" class="btn" style="background:var(--pc-azul-suave); color:var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); margin-bottom: 15px;">Agendar Consulta Virtual 💬</button>
+                <button onclick="openModal('modalVirtual')" class="btn" style="background:var(--pc-azul-suave); color:var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); margin-bottom: 15px;">Agendar Consulta Virtual <span aria-hidden='true'>💬</span></button>
                 
                 <!-- Botón Calendario Google -->
                 <div style="text-align: center; display: flex; justify-content: center;">
@@ -114,7 +115,7 @@
             <p style="margin-bottom:20px; font-weight: 600; color: #555;">Llena estos datos para agilizar la apertura de tu expediente médico.</p>
             <input type="text" id="cv_nombre" placeholder="Nombre completo del paciente">
             <textarea id="cv_motivo" rows="3" placeholder="Motivo de tu consulta virtual (seguimiento, receta, dolor...)"></textarea>
-            <button onclick="sendVirtualWa()" class="btn" style="width:100%; background: #25d366; color: white;">Enviar Solicitud a WhatsApp 💬</button>
+            <button onclick="sendVirtualWa()" class="btn" style="width:100%; background: #25d366; color: white;">Enviar Solicitud a WhatsApp <span aria-hidden='true'>💬</span></button>
         </div>
     </div>
 
@@ -130,5 +131,6 @@
             closeModal('modalVirtual');
         }
     </script>
+<script src="js/global.js"></script>
 </body>
 </html>

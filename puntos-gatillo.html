@@ -108,10 +108,11 @@
             .interactive-map-section { padding: 20px 15px; }
         }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
     <div class="container">
-        <nav class="main-nav"><a href="inicio.html">Inicio</a><a href="recursos-educativos.html">Recursos Educativos</a><a href="servicios.html">Servicios</a></nav>
+        <div id="navbar-container" class="main-nav"></div>
         <header class="header">
             <h1 class="hand-drawn">Inyección de Puntos Gatillo 💉</h1>
             <p style="font-weight:600; font-size:1.1rem; max-width: 700px; margin: 0 auto;">Vivir con dolor crónico es agotador. En Proyecto Celene te explicamos científicamente qué son estos "nudos" y cómo los eliminamos en minutos para devolverte tu calidad de vida.</p>
@@ -141,7 +142,7 @@
         </div>
 
         <!-- MAPA INTERACTIVO -->
-        <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); text-align: center; margin-bottom: 10px;">2. El Mapa del Dolor 📍</h2>
+        <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); text-align: center; margin-bottom: 10px;">2. El Mapa del Dolor <span aria-hidden='true'>📍</span></h2>
         <p style="text-align: center; font-size: 1.1rem; font-weight: 600; margin-bottom: 20px;">Lo más sorprendente de estos nudos es el <strong>DOLOR REFERIDO</strong>: el nudo está en un lugar, pero el dolor "viaja" a otro. <br><span style="color: var(--pc-rosa-fuerte);">Toca los puntos rojos en la imagen para descubrirlo.</span></p>
         
         <div class="interactive-map-section">
@@ -251,9 +252,9 @@
             
             <p style="font-weight: 900; font-size: 1.5rem; color: var(--pc-rosa-fuerte); margin-bottom: 15px; background: var(--pc-rosa-pastell); display: inline-block; padding: 10px 20px; border-radius: 15px; border: 3px dashed var(--pc-negro);">Cuota de recuperación: $300 M.N.</p>
             <br>
-            <a href="https://wa.me/526611044050?text=Hola,%20leí%20la%20guía%20médica%20y%20quiero%20agendar%20una%20Inyección%20de%20Puntos%20Gatillo%20para%20sentir%20ALIVIO." class="btn" style="font-size: 1.3rem; padding: 20px 40px; display: inline-block;">Agendar mi Sesión por WhatsApp 💬</a>
+            <a href="https://wa.me/526611044050?text=Hola,%20leí%20la%20guía%20médica%20y%20quiero%20agendar%20una%20Inyección%20de%20Puntos%20Gatillo%20para%20sentir%20ALIVIO." class="btn" style="font-size: 1.3rem; padding: 20px 40px; display: inline-block;">Agendar mi Sesión por WhatsApp <span aria-hidden='true'>💬</span></a>
             
-            <p style="margin-top: 25px; color: #555; font-weight: 600;">📍 Visítanos en: Calle Gral. Guadalupe Victoria, Col. Lienzo Charro, Rosarito.</p>
+            <p style="margin-top: 25px; color: #555; font-weight: 600;"><span aria-hidden='true'>📍</span> Visítanos en: Calle Gral. Guadalupe Victoria, Col. Lienzo Charro, Rosarito.</p>
         </div>
 
     </div>
@@ -312,7 +313,7 @@
                 resBox.innerHTML = "💆‍♀️ <strong>Alternativa Sugerida:</strong><br>Ya que tienes fobia extrema a las agujas, la tensión del piquete podría empeorar tu nudo. Te recomendamos probar primero con <strong>terapia manual</strong>. Agenda con nuestro <a href='sobador-tony.html' style='color:var(--pc-rosa-fuerte);'>Sobador Tradicional</a> o nuestra <a href='fisioterapeuta-lupita.html' style='color:var(--pc-rosa-fuerte);'>Fisioterapeuta</a>.";
                 resBox.style.borderColor = "#f57c00";
             } else if (q1.value === 'yes' || q2.value === 'yes') {
-                resBox.innerHTML = "✅ <strong>¡Eres un excelente candidato!</strong><br>Tus síntomas coinciden perfectamente con el Síndrome Miofascial. Esta inyección te dará un alivio inmenso. ¡Agenda tu cita en el botón verde de abajo!";
+                resBox.innerHTML = "<span aria-hidden='true'>✅</span> <strong>¡Eres un excelente candidato!</strong><br>Tus síntomas coinciden perfectamente con el Síndrome Miofascial. Esta inyección te dará un alivio inmenso. ¡Agenda tu cita en el botón verde de abajo!";
                 resBox.style.borderColor = "#388e3c";
             } else {
                 resBox.innerHTML = "🤔 <strong>Resultado Inconcluso:</strong><br>Tus síntomas no son los clásicos de un Punto Gatillo. Te sugerimos agendar una <a href='consulta-general.html' style='color:var(--pc-rosa-fuerte);'>Consulta Médica General</a> para revisar qué está causando tus molestias antes de inyectar.";
@@ -322,5 +323,6 @@
             resBox.style.display = "block";
         }
     </script>
+<script src="js/global.js"></script>
 </body>
 </html>

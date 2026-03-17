@@ -42,10 +42,11 @@
         .X81W0b { border: 4px solid var(--pc-negro) !important; font-family: 'Nunito', sans-serif !important; font-weight: 800 !important; border-radius: 50px !important; padding: 15px 20px !important; box-shadow: 0 6px 0 var(--pc-negro) !important; font-size: 1.1rem !important; }
         .X81W0b:active { box-shadow: 0 0 0 transparent !important; transform: translateY(6px); }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
     <div class="container">
-        <nav class="main-nav"><a href="inicio.html">Inicio</a><a href="quienes-somos.html">¿Quiénes Somos?</a><a href="consultorio-comunitario.html">Consultorio</a><a href="servicios.html">Servicios</a></nav>
+        <div id="navbar-container" class="main-nav"></div>
         <header class="header">
             <img src="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg" alt="Salud Sexual">
             <h1 class="hand-drawn">Clínica de Salud Sexual 🛡️</h1>
@@ -56,7 +57,7 @@
             <ul><li><strong>Prueba de VIH GRATUITA:</strong> Resultado en 15 minutos. Indetectable = Intransmisible.</li><li><strong>Condones Gratis:</strong> Solicítalos en recepción sin pena ni preguntas.</li><li><strong>Paquete ITS Básico ($400):</strong> Evalúa VIH, Sífilis, Hepatitis B y C de manera rápida.</li><li><strong>Paquete ITS Completo ($600):</strong> Añade detección precisa de Gonorrea y Clamidia.</li></ul>
             <p style="margin-top:20px;">Recuerda: Muchas infecciones son completamente silenciosas y no presentan síntomas. Un chequeo de rutina te da paz mental absoluta y protege tu fertilidad a futuro.</p>
             
-            <button onclick="openModal('modalSaludSexual')" class="btn" style="margin-bottom: 15px;">Agendar por WhatsApp 💬</button>
+            <button onclick="openModal('modalSaludSexual')" class="btn" style="margin-bottom: 15px;">Agendar por WhatsApp <span aria-hidden='true'>💬</span></button>
             
             <!-- Botón Calendario Google -->
             <div style="text-align: center; display: flex; justify-content: center; margin-bottom: 30px;">
@@ -83,7 +84,7 @@
             </div>
 
             <div class="banner-orientacion">
-                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom: 10px;">¿Tienes pena o no sabes qué prueba necesitas? 💬</h3>
+                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom: 10px;">¿Tienes pena o no sabes qué prueba necesitas? <span aria-hidden='true'>💬</span></h3>
                 <p style="font-weight: 600; margin-bottom: 15px;">Hablar de salud sexual puede ser difícil. Usa nuestra <strong>Orientación Médica Gratuita</strong> por WhatsApp. Te escucharemos sin juicios y te guiaremos sobre qué pasos tomar.</p>
                 <a href="orientacion-medica-gratuita.html" class="btn" style="background: white; color: var(--pc-negro); border-color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); margin-top: 0; padding: 12px; font-size: 1.1rem;">Ir a Orientación Gratuita ➔</a>
             </div>
@@ -106,7 +107,7 @@
                 <option value="Paquete Juntos es Mejor">Paquete Juntos es Mejor (Pareja)</option>
                 <option value="Otra duda / Orientación">Otra duda / Orientación</option>
             </select>
-            <button onclick="sendSaludSexualWa()" class="btn" style="width:100%; background: #25d366; color: white;">Enviar a WhatsApp 💬</button>
+            <button onclick="sendSaludSexualWa()" class="btn" style="width:100%; background: #25d366; color: white;">Enviar a WhatsApp <span aria-hidden='true'>💬</span></button>
         </div>
     </div>
     <script>
@@ -120,5 +121,6 @@
             closeModal('modalSaludSexual');
         }
     </script>
+<script src="js/global.js"></script>
 </body>
 </html>

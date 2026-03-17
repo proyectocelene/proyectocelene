@@ -261,22 +261,13 @@
             .gala-spread h3 { font-size: 2.5rem; }
         }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 
 <div class="container">
     
-    <nav class="main-nav">
-        <a href="inicio.html">Inicio</a>
-        <a href="quienes-somos.html">¿Quiénes Somos?</a>
-        <a href="nuestra-historia.html">Nuestra Historia</a>
-        <a href="consultorio-comunitario.html">Consultorio</a>
-        <a href="modulos.html">Nuestros Módulos</a>
-        <a href="resena.html">Reseñas</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
-        <a href="unete-a-nuestro-equipo.html">Únete al Equipo</a>
-    </nav>
+    <div id="navbar-container" class="main-nav"></div>
 
     <header class="magazine-hero fade-in">
         <div class="hero-text">
@@ -285,15 +276,15 @@
             <h2>Proyecto Celene</h2>
             <p>Acompáñanos a vivir todo un día de festejo, arrancando con actividades deportivas y médicas por la mañana, y culminando con una espectacular Gran Noche de Gala Vintage. ¡Solidaridad y elegancia en un solo día!</p>
             <div style="font-family: 'Courier Prime', monospace; font-weight: bold; font-size: 1.2rem; margin-bottom: 25px; background:var(--pop-dark); color:white; display:inline-block; padding:8px 20px; border-radius:10px;">
-                📅 28 Marzo 2026 | 📍 Rosarito
+                <span aria-hidden='true'>📅</span> 28 Marzo 2026 | <span aria-hidden='true'>📍</span> Rosarito
             </div>
             <div style="margin-top: 10px; text-align: center;">
-                <a href="#comprar" class="btn-action" style="background:var(--pop-yellow);">🎫 Adquiere tus Entradas</a>
+                <a href="#comprar" class="btn-action" style="background:var(--pop-yellow);"><span aria-hidden='true'>🎫</span> Adquiere tus Entradas</a>
             </div>
             
             <!-- SPOTIFY IFRAME -->
             <div class="spotify-container" style="margin-top: 30px; width: 100%; text-align: center;">
-                <p style="font-family: 'Shrikhand', cursive; font-size: 1.2rem; margin-bottom: 10px; color: var(--pop-yellow); text-shadow: 2px 2px 0 var(--pop-dark);">🎶 ¡Sube el volumen y entra en ambiente!</p>
+                <p style="font-family: 'Shrikhand', cursive; font-size: 1.2rem; margin-bottom: 10px; color: var(--pop-yellow); text-shadow: 2px 2px 0 var(--pop-dark);"><span aria-hidden='true'>🎶</span> ¡Sube el volumen y entra en ambiente!</p>
                 <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3xLGqpmU1Uv?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </div>
@@ -323,40 +314,40 @@
         
         <div class="timeline-item" onclick="openModal('modalCarrera')">
             <div class="timeline-content">
-                <div class="timeline-time">☀️ 08:00 A.M.</div>
-                <h3 class="timeline-title">🏃‍♀️ Carrera Aniversario</h3>
+                <div class="timeline-time"><span aria-hidden='true'>☀️</span> 08:00 A.M.</div>
+                <h3 class="timeline-title"><span aria-hidden='true'>🏃‍♀️</span> Carrera Aniversario</h3>
                 <span class="click-hint">Toca para más detalles 👆</span>
             </div>
         </div>
 
         <div class="timeline-item" onclick="openModal('modalJornada')">
             <div class="timeline-content">
-                <div class="timeline-time">☀️ 08:00 A.M.</div>
-                <h3 class="timeline-title">🩺 Jornada Médica</h3>
+                <div class="timeline-time"><span aria-hidden='true'>☀️</span> 08:00 A.M.</div>
+                <h3 class="timeline-title"><span aria-hidden='true'>🩺</span> Jornada Médica</h3>
                 <span class="click-hint">Toca para más detalles 👆</span>
             </div>
         </div>
 
         <div class="timeline-item" onclick="openModal('modalZumba')">
             <div class="timeline-content">
-                <div class="timeline-time">☀️ 09:00 A.M.</div>
-                <h3 class="timeline-title">💃 Gran Zumbatón</h3>
+                <div class="timeline-time"><span aria-hidden='true'>☀️</span> 09:00 A.M.</div>
+                <h3 class="timeline-title"><span aria-hidden='true'>💃</span> Gran Zumbatón</h3>
                 <span class="click-hint">Toca para más detalles 👆</span>
             </div>
         </div>
 
         <div class="timeline-item" onclick="openModal('modalPlatica')">
             <div class="timeline-content">
-                <div class="timeline-time">☀️ 11:00 A.M.</div>
-                <h3 class="timeline-title">🎤 Plática de Honor</h3>
+                <div class="timeline-time"><span aria-hidden='true'>☀️</span> 11:00 A.M.</div>
+                <h3 class="timeline-title"><span aria-hidden='true'>🎤</span> Plática de Honor</h3>
                 <span class="click-hint">Toca para más detalles 👆</span>
             </div>
         </div>
 
         <div class="timeline-item" onclick="document.getElementById('gala-section').scrollIntoView({behavior: 'smooth'})">
             <div class="timeline-content" style="background: var(--pop-blue); color: white;">
-                <div class="timeline-time" style="background: white; color: var(--pop-dark);">🌙 07:00 P.M.</div>
-                <h3 class="timeline-title" style="color: var(--pop-yellow);">✨ Evento Estelar</h3>
+                <div class="timeline-time" style="background: white; color: var(--pop-dark);"><span aria-hidden='true'>🌙</span> 07:00 P.M.</div>
+                <h3 class="timeline-title" style="color: var(--pop-yellow);"><span aria-hidden='true'>✨</span> Evento Estelar</h3>
                 <span class="click-hint" style="background: rgba(0,0,0,0.3); color: white; border-color: white;">Desplázate abajo 👇</span>
             </div>
         </div>
@@ -364,12 +355,12 @@
 
     <!-- EVENTO ESTELAR: LA GALA -->
     <div id="gala-section" style="padding-top: 50px;">
-        <h2 class="section-title font-groovy fade-in">🌙 El Evento Estelar</h2>
+        <h2 class="section-title font-groovy fade-in"><span aria-hidden='true'>🌙</span> El Evento Estelar</h2>
         <div class="gala-spread fade-in">
         <div class="gala-content">
             <div class="event-time" style="background:var(--pc-blanco); color:var(--pop-dark); font-size:1.4rem;">07:00 P.M. - 12:00 A.M.</div>
             <h3 class="font-groovy">Gran Noche de Gala Vintage</h3>
-            <p>📍 Patio Central del Palacio Municipal de Rosarito.</p>
+            <p><span aria-hidden='true'>📍</span> Patio Central del Palacio Municipal de Rosarito.</p>
             <p style="font-size: 1.3rem; font-weight: 800; color: var(--pop-yellow);">Cerraremos con broche de oro.</p>
             <p>Disfruta de un majestuoso <strong>Desfile de Modas</strong> con talento local y alta costura inspirada en la época de los 50s y 60s. ¡Habrá venta exclusiva de ropa de diseñador creada por mujeres emprendedoras!</p>
             
@@ -378,12 +369,12 @@
                 <span style="font-size:0.9rem; font-weight:normal;">Reina de Belleza Suprema Internacional & Señora México 2025</span>
             </div>
             
-            <p style="font-weight:900; font-size:1.2rem; margin-top:10px;">👗 Código de Vestimenta: Estilo 50s - 60s</p>
+            <p style="font-weight:900; font-size:1.2rem; margin-top:10px;"><span aria-hidden='true'>👗</span> Código de Vestimenta: Estilo 50s - 60s</p>
             
             <div class="action-row" style="margin-top: 30px;">
-                <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action" style="background:var(--pop-yellow); color:var(--pop-dark);">📍 Ver en Mapa</a>
-                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gala+Vintage+Celene&dates=20260328T190000/20260328T235900&ctz=America/Tijuana&details=Gala+Aniversario&location=Palacio+Municipal+Rosarito" target="_blank" class="btn-action" style="background:var(--pc-blanco);">📅 Agendar en Calendario</a>
-                <a href="#comprar" class="btn-action" style="background:var(--pop-pink); color:white;">🎟️ Comprar Pase a la Gala ($300)</a>
+                <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action" style="background:var(--pop-yellow); color:var(--pop-dark);"><span aria-hidden='true'>📍</span> Ver en Mapa</a>
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gala+Vintage+Celene&dates=20260328T190000/20260328T235900&ctz=America/Tijuana&details=Gala+Aniversario&location=Palacio+Municipal+Rosarito" target="_blank" class="btn-action" style="background:var(--pc-blanco);"><span aria-hidden='true'>📅</span> Agendar en Calendario</a>
+                <a href="#comprar" class="btn-action" style="background:var(--pop-pink); color:white;"><span aria-hidden='true'>🎟️</span> Comprar Pase a la Gala ($300)</a>
             </div>
         </div>
     </div>
@@ -391,13 +382,13 @@
     <!-- BOTON NUEVO: CONOCE LA EPOCA -->
     <div style="text-align: center; margin-bottom: 60px;" class="fade-in">
         <a href="epoca-vintage.html" class="btn-action" style="background: var(--pop-blue); color: white; padding: 20px 40px; font-size: 1.3rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;">
-            🎙️ ¿Quieres conocer más sobre esta época y cómo vestirte? <br>¡Da clic aquí! 👗🚗
+            <span aria-hidden='true'>🎙️</span> ¿Quieres conocer más sobre esta época y cómo vestirte? <br>¡Da clic aquí! <span aria-hidden='true'>👗</span><span aria-hidden='true'>🚗</span>
         </a>
     </div>
 
     <!-- COMPRA DE BOLETOS -->
     <div id="comprar">
-        <h2 class="section-title font-groovy fade-in">🎟️ Taquilla Oficial</h2>
+        <h2 class="section-title font-groovy fade-in"><span aria-hidden='true'>🎟️</span> Taquilla Oficial</h2>
         <p style="text-align:center; font-size:1.1rem; font-weight:bold; margin-bottom:25px;" class="fade-in">Arma tu paquete de boletos. Selecciona la cantidad y luego envíanos tu pedido.</p>
         
         <div class="tickets-container fade-in">
@@ -454,26 +445,26 @@
                 <div class="copy-box-modern" style="margin-top:15px;">
                     <span class="label">Cuenta Santander</span>
                     <input type="text" id="cuentaBanco" value="5579070150175472" readonly>
-                    <button onclick="copyToClipboard('cuentaBanco')">📋 Copiar</button>
+                    <button onclick="copyToClipboard('cuentaBanco')"><span aria-hidden='true'>📋</span> Copiar</button>
                 </div>
                 <div class="copy-box-modern">
                     <span class="label">Titular de Cuenta</span>
                     <input type="text" id="nombreTitular" value="Francisco Sandoval Deras" readonly>
-                    <button onclick="copyToClipboard('nombreTitular')">📋 Copiar</button>
+                    <button onclick="copyToClipboard('nombreTitular')"><span aria-hidden='true'>📋</span> Copiar</button>
                 </div>
             </li>
             <li><strong>Envíanos tu pedido.</strong> Haz clic en el botón verde para mandar tu pedido y comprobante de pago por WhatsApp para recibir tus accesos digitales.</li>
         </ul>
         <div style="text-align:center; margin-top:30px;">
-            <button onclick="buyTickets()" class="btn-action" style="background:#25D366; color:white; font-size:1.3rem; padding:15px 40px;">📲 Enviar Pedido por WhatsApp</button>
+            <button onclick="buyTickets()" class="btn-action" style="background:#25D366; color:white; font-size:1.3rem; padding:15px 40px;"><span aria-hidden='true'>📲</span> Enviar Pedido por WhatsApp</button>
         </div>
     </div>
 
     <!-- PATROCINADORES -->
     <div class="emotional-hook fade-in" style="background:var(--pop-yellow); border-radius: 20px;">
-        <h3 class="font-groovy" style="font-size: 2.2rem; color:var(--pop-dark); margin-bottom: 10px;">¿Quieres ser Patrocinador? 🤝</h3>
+        <h3 class="font-groovy" style="font-size: 2.2rem; color:var(--pop-dark); margin-bottom: 10px;">¿Quieres ser Patrocinador? <span aria-hidden='true'>🤝</span></h3>
         <p style="font-size:1.1rem; font-weight:normal; margin-bottom:20px;">Destaca tu marca en nuestro evento histórico apoyando a las mujeres de Rosarito. Solicitamos patrocinios económicos o en especie.</p>
-        <a href="patrocinadores.html" class="btn-action" style="background:var(--pop-dark); color:white;">💼 Más Información</a>
+        <a href="patrocinadores.html" class="btn-action" style="background:var(--pop-dark); color:white;"><span aria-hidden='true'>💼</span> Más Información</a>
     </div>
 
 </div>
@@ -484,7 +475,7 @@
 <div id="modalCarrera" class="modal" onclick="closeOnOutside(event, 'modalCarrera')">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('modalCarrera')">✕</span>
-        <h3 class="modal-title">🏃‍♀️ Carrera de Aniversario</h3>
+        <h3 class="modal-title"><span aria-hidden='true'>🏃‍♀️</span> Carrera de Aniversario</h3>
         <p class="event-time" style="display:inline-block;">08:00 A.M.</p>
         <p class="modal-text">Únete con toda la familia para arrancar el día con energía. Recorre Rosarito apoyando la prevención del cáncer de mama.</p>
         <ul style="margin-left: 20px; font-weight: 600; line-height:1.8; margin-bottom: 20px;">
@@ -493,8 +484,8 @@
             <li><strong>Costo:</strong> $200.00 MN</li>
         </ul>
         <div class="action-row">
-            <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action" style="background:var(--pc-blanco);">📍 Mapa</a>
-            <a href="#comprar" class="btn-action" onclick="closeModal('modalCarrera')">🎟️ Comprar</a>
+            <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action" style="background:var(--pc-blanco);"><span aria-hidden='true'>📍</span> Mapa</a>
+            <a href="#comprar" class="btn-action" onclick="closeModal('modalCarrera')"><span aria-hidden='true'>🎟️</span> Comprar</a>
         </div>
     </div>
 </div>
@@ -503,13 +494,13 @@
 <div id="modalJornada" class="modal" onclick="closeOnOutside(event, 'modalJornada')">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('modalJornada')">✕</span>
-        <h3 class="modal-title">🩺 Jornada y Mercadito</h3>
+        <h3 class="modal-title"><span aria-hidden='true'>🩺</span> Jornada y Mercadito</h3>
         <p class="event-time" style="display:inline-block;">08:00 A.M. - 02:00 P.M.</p>
-        <p class="modal-text">📍 Estacionamiento del Palacio Municipal.<br><strong>Servicios Gratuitos:</strong> Entrega de Vales para Mastografías, Papanicolaou, Presión Arterial, Glucosa y Pláticas de prevención. ¡Obtén tu Pasaporte de Salud!</p>
+        <p class="modal-text"><span aria-hidden='true'>📍</span> Estacionamiento del Palacio Municipal.<br><strong>Servicios Gratuitos:</strong> Entrega de Vales para Mastografías, Papanicolaou, Presión Arterial, Glucosa y Pláticas de prevención. ¡Obtén tu Pasaporte de Salud!</p>
         <div style="background:var(--pop-bg); border:3px dashed var(--pop-orange); padding:15px; border-radius:10px; margin-top:15px;">
             <h4 class="font-groovy" style="color:var(--pop-orange);">Mercadito Emprendedor</h4>
             <p style="font-size:0.95rem; margin-bottom:10px;">Apoya la economía local. Venta de ropa, comida, artesanías, plantas y dulces.</p>
-            <button class="btn-action" style="font-size:0.9rem; padding:8px 15px;" onclick="openModal('vendorModal'); closeModal('modalJornada');">🎪 ¡Quiero Exponer!</button>
+            <button class="btn-action" style="font-size:0.9rem; padding:8px 15px;" onclick="openModal('vendorModal'); closeModal('modalJornada');"><span aria-hidden='true'>🎪</span> ¡Quiero Exponer!</button>
         </div>
     </div>
 </div>
@@ -518,7 +509,7 @@
 <div id="modalZumba" class="modal" onclick="closeOnOutside(event, 'modalZumba')">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('modalZumba')">✕</span>
-        <h3 class="modal-title">💃 Gran Zumbatón</h3>
+        <h3 class="modal-title"><span aria-hidden='true'>💃</span> Gran Zumbatón</h3>
         <p class="event-time" style="display:inline-block;">09:00 A.M.</p>
         <p class="modal-text">Activación física con mucha música, baile y diversión para despertar el cuerpo. <strong>¡Conoce los beneficios!</strong></p>
         <ul style="margin-left: 20px; font-weight: 600; line-height:1.6; font-size:0.95rem;">
@@ -534,7 +525,7 @@
 <div id="modalPlatica" class="modal" onclick="closeOnOutside(event, 'modalPlatica')">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('modalPlatica')">✕</span>
-        <h3 class="modal-title">🎤 Plática de Honor</h3>
+        <h3 class="modal-title"><span aria-hidden='true'>🎤</span> Plática de Honor</h3>
         <p class="event-time" style="display:inline-block;">11:00 A.M.</p>
         <p class="modal-text">Con nuestra madrina de honor <strong>Luz C. Ruiz</strong>. Una charla íntima sobre prevención, resiliencia y amor propio.</p>
         
@@ -547,7 +538,7 @@
             </ul>
         </div>
         <div class="action-row">
-            <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20asistir%20a%20la%20plática%20de%20las%2011am" target="_blank" class="btn-action">💬 Confirmar Asistencia</a>
+            <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20asistir%20a%20la%20plática%20de%20las%2011am" target="_blank" class="btn-action"><span aria-hidden='true'>💬</span> Confirmar Asistencia</a>
         </div>
     </div>
 </div>
@@ -556,7 +547,7 @@
 <div id="vendorModal" class="modal" onclick="closeOnOutside(event, 'vendorModal')">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('vendorModal')">✕</span>
-        <h3 class="modal-title" style="font-size:1.8rem;">Registro Expositor 🎪</h3>
+        <h3 class="modal-title" style="font-size:1.8rem;">Registro Expositor <span aria-hidden='true'>🎪</span></h3>
         <p style="font-size:0.9rem; margin-bottom:15px;">Llena estos datos y serás redirigida a nuestro WhatsApp para coordinar tu lugar en el Mercadito Emprendedor.</p>
         
         <input type="text" id="vendorName" placeholder="Tu Nombre Completo">
@@ -569,7 +560,7 @@
             <option value="Otro">Otro giro</option>
         </select>
         
-        <button onclick="sendVendorWhatsApp()" class="btn-action" style="width:100%;">Enviar Datos 📲</button>
+        <button onclick="sendVendorWhatsApp()" class="btn-action" style="width:100%;">Enviar Datos <span aria-hidden='true'>📲</span></button>
     </div>
 </div>
 
@@ -612,9 +603,9 @@
         }
 
         let msg = `*🎫 COMPRA DE BOLETOS - 18 ANIVERSARIO CELENE*\n\nHola, quiero adquirir mis boletos. Este es mi pedido:\n\n`;
-        if(qC > 0) msg += `🏃‍♀️ ${qC}x Boleto Carrera ($200 c/u)\n`;
-        if(qG > 0) msg += `✨ ${qG}x Boleto Gala ($300 c/u)\n`;
-        if(qCombo > 0) msg += `🌟 ${qCombo}x Combo Especial ($400 c/u)\n`;
+        if(qC > 0) msg += `<span aria-hidden='true'>🏃‍♀️</span> ${qC}x Boleto Carrera ($200 c/u)\n`;
+        if(qG > 0) msg += `<span aria-hidden='true'>✨</span> ${qG}x Boleto Gala ($300 c/u)\n`;
+        if(qCombo > 0) msg += `<span aria-hidden='true'>🌟</span> ${qCombo}x Combo Especial ($400 c/u)\n`;
         msg += `\n*TOTAL A PAGAR: $${total}.00 MN*\n\n`;
         msg += `Adjunto mi comprobante de pago de Santander. ¡Gracias!`;
 
@@ -646,19 +637,8 @@
         });
     }
 
-    // Animaciones al hacer scroll
-    document.addEventListener("DOMContentLoaded", function() {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); 
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    });
+    
 </script>
+<script src="js/global.js"></script>
 </body>
 </html>

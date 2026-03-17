@@ -79,26 +79,19 @@
 
         @media (max-width: 600px) { .header h1 { font-size: 2.2rem; } }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 
 <div class="container">
-    <nav class="main-nav">
-        <a href="inicio.html">Inicio</a>
-        <a href="quienes-somos.html">Nosotros</a>
-        <a href="consultorio-comunitario.html">Consultorio</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="farmacia-solidaria.html">Farmacia</a>
-        <a href="unete-a-nuestro-equipo.html">Únete / Apoya</a>
-        <a href="mapa-sitio.html" style="background: #fff9c4; border-color: #333333; color: #333333;">🔍 Buscar</a>
-    </nav>
+    <div id="navbar-container" class="main-nav"></div>
 
     <header class="header">
         <img src="https://i.ibb.co/k2LCbnsF/tcarta-volante.png" alt="Logo Consultorio Comunitario Proyecto Celene" class="header-img">
         <p class="header-info">Bienvenido al corazón médico de Proyecto Celene. Aquí centralizamos todos nuestros esfuerzos de salud clínica, preventiva y tradicional para ofrecerte atención humana, profesional y a costos sumamente accesibles.</p>
         
         <div style="text-align: center; margin-top: 25px;">
-            <a href="servicios.html" class="btn btn-rosa" style="max-width: 400px; font-size: 1.2rem; padding: 15px;">📋 Conoce Todos Nuestros Servicios ➔</a>
+            <a href="servicios.html" class="btn btn-rosa" style="max-width: 400px; font-size: 1.2rem; padding: 15px;"><span aria-hidden='true'>📋</span> Conoce Todos Nuestros Servicios ➔</a>
         </div>
     </header>
 
@@ -113,14 +106,14 @@
 
         <div class="med-card">
             <img src="https://i.ibb.co/zhSRq5hX/CONSULTA-GENERAL.jpg" alt="Consulta General" style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
-            <h3 class="hand-drawn">🩺 Consulta General</h3>
+            <h3 class="hand-drawn"><span aria-hidden='true'>🩺</span> Consulta General</h3>
             <p>Atención profesional empática, tanto presencial como virtual, con una cuota de recuperación accesible.</p>
             <a href="consulta-general.html" class="btn btn-azul">Saber más ➔</a>
         </div>
 
         <div class="med-card">
             <img src="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg" alt="Orientación Médica Gratuita" style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
-            <h3 class="hand-drawn">💬 Orientación Médica Gratuita</h3>
+            <h3 class="hand-drawn"><span aria-hidden='true'>💬</span> Orientación Médica Gratuita</h3>
             <p>Resuelve dudas rápidas, recibe orientación profesional o agenda una teleconsulta sin salir de casa.</p>
             <a href="orientacion-medica-gratuita.html" class="btn btn-wa">Ir a Orientación ➔</a>
         </div>
@@ -134,19 +127,20 @@
 
         <div class="med-card">
             <img src="https://i.ibb.co/Q7rXQMZd/EDUCACION.jpg" alt="Educación para Pacientes" style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
-            <h3 class="hand-drawn">📖 Educación para Pacientes</h3>
+            <h3 class="hand-drawn"><span aria-hidden='true'>📖</span> Educación para Pacientes</h3>
             <p>Aprende a cuidar tu cuerpo. Encuentra manuales, infografías y herramientas de prevención integral.</p>
             <a href="recursos-educativos.html" class="btn btn-azul">Explorar Recursos ➔</a>
         </div>
 
         <div class="med-card">
             <img src="https://i.ibb.co/JjwF3cQm/FARMACIA-SOLIDARIA.jpg" alt="Farmacia Solidaria" style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
-            <h3 class="hand-drawn">💊 Farmacia Solidaria</h3>
+            <h3 class="hand-drawn"><span aria-hidden='true'>💊</span> Farmacia Solidaria</h3>
             <p>Un proyecto de apoyo mutuo para distribuir medicamentos a cuotas simbólicas para quienes más lo necesitan.</p>
             <a href="farmacia-solidaria.html" class="btn btn-amarillo">Ir a la Farmacia ➔</a>
         </div>
     </div>
 </div>
 
+<script src="js/global.js"></script>
 </body>
 </html>

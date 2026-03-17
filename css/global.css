@@ -1,0 +1,17 @@
+/* NAVEGACIÓN PRINCIPAL GLOBAL */
+.main-nav {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+    margin-bottom: 30px; padding: 15px; background: var(--pc-blanco, #ffffff);
+    border: 3px solid var(--pc-negro, #333333); border-radius: 20px;
+    box-shadow: 6px 6px 0px var(--pc-rosa-pastell, #fce4ec);
+}
+.main-nav a {
+    text-decoration: none; color: var(--pc-negro, #333333); font-weight: 800;
+    font-size: 1.05rem; padding: 8px 15px; border-radius: 15px;
+    transition: all 0.2s; border: 2px solid transparent;
+}
+.main-nav a:hover {
+    background: var(--pc-rosa-fuerte, #d81b60); color: var(--pc-blanco, #ffffff);
+    border-color: var(--pc-negro, #333333); box-shadow: 3px 3px 0 var(--pc-negro, #333333);
+    transform: translateY(-2px);
+}

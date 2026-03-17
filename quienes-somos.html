@@ -318,20 +318,13 @@
             transform: translateY(-2px);
         }
     </style>
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 
     <div class="container">
 
-        <nav class="main-nav">
-            <a href="inicio.html">Inicio</a>
-            <a href="quienes-somos.html">Nosotros</a>
-            <a href="consultorio-comunitario.html">Consultorio</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="farmacia-solidaria.html">Farmacia</a>
-            <a href="unete-a-nuestro-equipo.html">Únete / Apoya</a>
-            <a href="mapa-sitio.html" style="background: #fff9c4; border-color: #333333; color: #333333;">🔍 Buscar</a>
-        </nav>
+        <div id="navbar-container" class="main-nav"></div>
         
         <!-- HEADER -->
         <header class="hero fade-in">
@@ -343,18 +336,18 @@
         <!-- MISIÓN Y VISIÓN -->
         <div class="mv-grid">
             <div class="card fade-in">
-                <h2 class="hand-drawn">🎯 Nuestra Misión</h2>
+                <h2 class="hand-drawn"><span aria-hidden='true'>🎯</span> Nuestra Misión</h2>
                 <p>Brindar apoyo integral a las mujeres para la detección temprana del cáncer de mama, garantizando acceso a estudios, medicamentos, tratamientos y educación en salud, siempre con profunda calidez humana y sin fines de lucro.</p>
             </div>
             <div class="card fade-in">
-                <h2 class="hand-drawn">👁️ Nuestra Visión</h2>
+                <h2 class="hand-drawn"><span aria-hidden='true'>👁️</span> Nuestra Visión</h2>
                 <p>Ser la fundación de referencia en el noroeste de México por nuestro impacto en la salud femenina, nuestra total transparencia y nuestro compromiso comunitario, asegurando que ninguna mujer deje de atenderse por falta de recursos.</p>
             </div>
         </div>
 
         <!-- VALORES -->
         <section class="values-section fade-in">
-            <h2 class="hand-drawn" style="font-size: 2.5rem; color: var(--pc-rosa-fuerte);">💖 Nuestro Corazón</h2>
+            <h2 class="hand-drawn" style="font-size: 2.5rem; color: var(--pc-rosa-fuerte);"><span aria-hidden='true'>💖</span> Nuestro Corazón</h2>
             <p style="font-size: 1.1rem; font-weight: 600; color: #555;">No solo somos una clínica, somos una familia. Nuestro actuar diario se rige por estos principios:</p>
             
             <div class="values-grid">
@@ -387,7 +380,7 @@
 
         <!-- EQUIPO -->
         <section class="team-section">
-            <h2 class="hand-drawn fade-in" style="text-align: center; font-size: 2.5rem; margin-bottom: 10px;">🦸‍♀️🦸‍♂️ Los Humanos detrás de la Promesa</h2>
+            <h2 class="hand-drawn fade-in" style="text-align: center; font-size: 2.5rem; margin-bottom: 10px;"><span aria-hidden='true'>🦸‍♀️</span><span aria-hidden='true'>🦸‍♂️</span> Los Humanos detrás de la Promesa</h2>
             <p class="fade-in" style="text-align: center; font-size: 1.1rem; font-weight: 600; margin-bottom: 30px; color: #555;">Conoce a los líderes que hacen posible esta Alianza Rosa:</p>
             
             <div class="team-grid">
@@ -440,7 +433,7 @@
         <section class="institutional-section fade-in">
             
             <!-- Organigrama -->
-            <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 20px;">Nuestra Estructura y Organigrama 🏛️</h2>
+            <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 20px;">Nuestra Estructura y Organigrama <span aria-hidden='true'>🏛️</span></h2>
             <p style="font-size: 1.1rem; margin-bottom: 25px;">Para garantizar que cada donativo y esfuerzo llegue a quien más lo necesita, operamos bajo una estructura formal y organizada. Nuestro equipo directivo y operativo está compuesto por profesionales comprometidos con nuestra misión:</p>
             
             <div class="tree fade-in">
@@ -507,7 +500,7 @@
             </div>
 
             <!-- Plan de Acción Estratégico -->
-            <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 10px;">Nuestro Plan de Acción Estratégico 🗺️</h2>
+            <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 10px;">Nuestro Plan de Acción Estratégico <span aria-hidden='true'>🗺️</span></h2>
             <p style="font-size: 1.1rem; margin-bottom: 10px;">No solo reaccionamos ante la enfermedad, actuamos antes de que avance. Nuestro modelo de intervención comunitaria se sostiene en los siguientes pilares:</p>
             
             <div class="plan-grid">
@@ -527,13 +520,13 @@
 
             <!-- Legalidad y Transparencia -->
             <div class="legal-box">
-                <h2 class="hand-drawn">Legalidad y Transparencia: Nuestro Sustento Oficial ⚖️</h2>
+                <h2 class="hand-drawn">Legalidad y Transparencia: Nuestro Sustento Oficial <span aria-hidden='true'>⚖️</span></h2>
                 <p style="font-size: 1.1rem; font-weight: 600;">Sabemos que la confianza es el pilar de la filantropía. <strong>Proyecto Celene Rosarito A.C.</strong> es una organización de la sociedad civil con fines no lucrativos, legalmente constituida y reconocida por los tres niveles de gobierno.</p>
                 
                 <ul class="legal-list">
-                    <li><span class="icon">📜</span> <div><strong>Constitución Legal:</strong> Registrados formalmente el 8 de octubre de 2014 ante la Notaría Pública No. 1 de Playas de Rosarito, B.C., a cargo del Lic. Luis A. Durazo Bazúa (Escritura No. 25,110, Volumen 324).</div></li>
-                    <li><span class="icon">🏢</span> <div><strong>Registro Fiscal:</strong> Contamos con el Registro Federal de Contribuyentes (RFC) <strong>PCR141008SS0</strong> bajo el régimen de Personas Morales con Fines no Lucrativos.</div></li>
-                    <li><span class="icon">✅</span> <div><strong>Cumplimiento Absoluto:</strong> Nuestra Asociación mantiene una Opinión de Cumplimiento de Obligaciones Fiscales en sentido POSITIVO ante el SAT, garantizando a nuestros donantes que operamos con total rectitud financiera.</div></li>
+                    <li><span class="icon"><span aria-hidden='true'>📜</span></span> <div><strong>Constitución Legal:</strong> Registrados formalmente el 8 de octubre de 2014 ante la Notaría Pública No. 1 de Playas de Rosarito, B.C., a cargo del Lic. Luis A. Durazo Bazúa (Escritura No. 25,110, Volumen 324).</div></li>
+                    <li><span class="icon"><span aria-hidden='true'>🏢</span></span> <div><strong>Registro Fiscal:</strong> Contamos con el Registro Federal de Contribuyentes (RFC) <strong>PCR141008SS0</strong> bajo el régimen de Personas Morales con Fines no Lucrativos.</div></li>
+                    <li><span class="icon"><span aria-hidden='true'>✅</span></span> <div><strong>Cumplimiento Absoluto:</strong> Nuestra Asociación mantiene una Opinión de Cumplimiento de Obligaciones Fiscales en sentido POSITIVO ante el SAT, garantizando a nuestros donantes que operamos con total rectitud financiera.</div></li>
                 </ul>
 
                 <div class="trust-quote">
@@ -548,23 +541,14 @@
             <h2>"18 años después, nuestra promesa sigue más viva que nunca. Todo lo hacemos por amor a ellas."</h2>
             
             <div class="btn-group">
-                <a href="unete-a-nuestro-equipo.html" class="btn btn-rosa">👉 Únete como Voluntario</a>
-                <a href="nuestra-historia.html" class="btn btn-blanco">📖 Conoce nuestra Historia Completa</a>
+                <a href="unete-a-nuestro-equipo.html" class="btn btn-rosa"><span aria-hidden='true'>👉</span> Únete como Voluntario</a>
+                <a href="nuestra-historia.html" class="btn btn-blanco"><span aria-hidden='true'>📖</span> Conoce nuestra Historia Completa</a>
             </div>
         </div>
 
     </div>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
+    
+<script src="js/global.js"></script>
 </body>
 </html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retiro de DIU - Guía Integral - Proyecto Celene</title>
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec; --pc-rosa-fuerte: #d81b60; --pc-rosa-medio: #f06292;
+            --pc-negro: #333333; --pc-blanco: #ffffff; --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd; --pc-verde-wa: #25d366; --pc-gris-suave: #f9f9f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        /* HEADER HERO */
+        .hero { background: var(--pc-rosa-pastell); border: 4px solid var(--pc-negro); border-radius: 25px; padding: 50px 20px; text-align: center; box-shadow: 10px 10px 0px var(--pc-azul-suave); margin-bottom: 40px; position: relative; overflow: hidden; }
+        .hero h1 { font-size: 3rem; color: var(--pc-rosa-fuerte); line-height: 1.1; margin-bottom: 15px; position: relative; z-index: 2; }
+        .hero p { font-size: 1.2rem; font-weight: 800; color: var(--pc-negro); max-width: 600px; margin: 0 auto; position: relative; z-index: 2; }
+        
+        /* DECORACIÓN ANIMADA HERO (DIU CSS) */
+        .diu-shape { position: absolute; z-index: 1; opacity: 0.15; animation: floatSpin 10s infinite linear; }
+        .diu-1 { top: -20px; left: -20px; font-size: 8rem; }
+        .diu-2 { bottom: -30px; right: 10px; font-size: 6rem; animation-duration: 8s; animation-direction: reverse; }
+        @keyframes floatSpin { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(180deg); } 100% { transform: translateY(0) rotate(360deg); } }
+
+        /* FASES INTERACTIVAS (TABS/CARDS) */
+        .phase-card { background: var(--pc-blanco); border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 8px 8px 0px var(--pc-rosa-medio); transition: transform 0.3s; position: relative; }
+        .phase-card:nth-child(even) { box-shadow: 8px 8px 0px var(--pc-amarillo); }
+        .phase-card:hover { transform: translateY(-5px); }
+        
+        .phase-badge { position: absolute; top: -20px; left: -15px; background: var(--pc-negro); color: var(--pc-blanco); font-family: 'Handlee', cursive; font-size: 1.3rem; padding: 10px 20px; border-radius: 15px; border: 3px solid var(--pc-blanco); transform: rotate(-3deg); box-shadow: 4px 4px 0 var(--pc-rosa-fuerte); z-index: 10; font-weight: bold;}
+        .phase-card:nth-child(even) .phase-badge { background: var(--pc-rosa-fuerte); box-shadow: 4px 4px 0 var(--pc-negro); }
+
+        .phase-card h3 { font-size: 1.8rem; color: var(--pc-rosa-fuerte); margin: 10px 0 15px 0; border-bottom: 2px dashed #ddd; padding-bottom: 10px; }
+        .phase-card:nth-child(even) h3 { color: var(--pc-negro); }
+        
+        .phase-card p { font-size: 1.1rem; color: #444; font-weight: 600; margin-bottom: 15px; }
+        .phase-card ul { margin-left: 20px; margin-bottom: 15px; }
+        .phase-card li { font-size: 1.05rem; color: #555; margin-bottom: 10px; font-weight: 600; line-height: 1.5; }
+        .phase-card li strong { color: var(--pc-negro); }
+
+        /* CAJA DE EMPATÍA */
+        .empathy-box { background: var(--pc-azul-suave); border: 3px dashed var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; margin-top: 15px; font-weight: 800; font-size: 1.1rem; color: var(--pc-negro); box-shadow: 5px 5px 0 #bbdefb;}
+
+        /* BOTONES */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 25px; border-radius: 50px; border: 4px solid var(--pc-negro); font-weight: 800; text-decoration: none; font-size: 1.1rem; cursor: pointer; transition: all 0.1s; font-family: 'Nunito', sans-serif; position: relative; top: 0; text-align: center; box-shadow: 0 6px 0 var(--pc-negro); margin: 5px; }
+        .btn:active { top: 6px; box-shadow: 0 0px 0 transparent !important; }
+        .btn-wa { background: var(--pc-verde-wa); color: white; }
+        .btn-rosa { background: var(--pc-rosa-fuerte); color: white; }
+        .btn-back { background: var(--pc-blanco); color: var(--pc-negro); }
+
+        .action-container { text-align: center; padding: 40px 20px; background: var(--pc-blanco); border: 4px solid var(--pc-negro); border-radius: 25px; box-shadow: 8px 8px 0 var(--pc-rosa-pastell); margin-top: 40px; }
+
+        /* ANIMACIONES FADE-IN (usando la clase de global.css) */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="navbar-container" class="main-nav"></div>
+
+    <header class="hero fade-in">
+        <div class="diu-shape diu-1 hand-drawn"><span aria-hidden='true'>🩱</span></div>
+        <div class="diu-shape diu-2 hand-drawn"><span aria-hidden='true'>🌸</span></div>
+        <h1 class="hand-drawn">Guía Integral: Retiro de DIU</h1>
+        <p>Todo lo que necesitas saber sobre el procedimiento, paso a paso. Cuidamos tu cuerpo, tu mente y tu entorno. <span aria-hidden='true'>💝</span></p>
+    </header>
+
+    <div style="background: white; border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 25px; margin-bottom: 40px; font-size: 1.15rem; font-weight: 600; text-align: center;" class="fade-in">
+        ¡Hola! 👋 Entendemos perfectamente que los procedimientos ginecológicos pueden causar nervios. Por eso preparamos esta guía súper transparente. Aquí <strong>tú tienes el control</strong> en cada paso de tu visita a Proyecto Celene.
+    </div>
+
+    <!-- FASE 1 -->
+    <div class="phase-card fade-in">
+        <div class="phase-badge">Fase 1</div>
+        <h3 class="hand-drawn"><span aria-hidden='true'>🧠</span> Tus Emociones y La Decisión</h3>
+        <p>El procedimiento comienza en tu mente antes de llegar al consultorio. Es vital abordar la ansiedad junta con nosotros.</p>
+        <ul>
+            <li><strong>Validación del miedo:</strong> Es <em>completamente normal</em> sentir nervios o miedo al dolor. Muchas pacientes leen malas experiencias en internet, pero la realidad clínica es que el retiro suele ser muchísimo más rápido y menos molesto que la inserción.</li>
+            <li><strong>Tú tienes el control:</strong> El retiro es un proceso voluntario. Tú decides cuándo se retira, ya sea porque caducó, buscas embarazo, o simplemente porque quieres cambiar de método.</li>
+            <li><strong>El poder de la información:</strong> Conocer exactamente qué va a pasar y saber que puedes detener el proceso en cualquier momento, reduce la ansiedad drásticamente.</li>
+        </ul>
+        <div class="empathy-box">Si tienes miedo, díselo sin pena a tu médico al llegar. Estamos aquí para escucharte y ajustar todo a tu ritmo.</div>
+    </div>
+
+    <!-- FASE 2 -->
+    <div class="phase-card fade-in">
+        <div class="phase-badge">Fase 2</div>
+        <h3 class="hand-drawn"><span aria-hidden='true'>⏰</span> Preparación Práctica en Casa</h3>
+        <p>Tips para que llegues a la cita con las mejores condiciones físicas y mentales:</p>
+        <ul>
+            <li><strong>¿Quién te acompaña?</strong> ¡No tienes que ir sola! Puedes venir con tu pareja, una amiga o un familiar. Tu acompañante puede tomar tu mano durante el retiro o esperarte afuera, lo que te haga sentir más segura.</li>
+            <li><strong>Manejo preventivo del dolor:</strong> Si no eres alérgica, tomar un analgésico (como ibuprofeno de 400mg) unos 30 a 60 minutos antes ayuda a relajar el útero y minimizar los cólicos.</li>
+            <li><strong>Comodidad ante todo:</strong> Lleva ropa que te haga sentir libre, preferiblemente falda, vestido o pantalones holgados.</li>
+            <li><strong>Alimentación:</strong> Come algo ligero antes de ir. Ir en ayunas puede aumentar la sensación de mareo por los puros nervios.</li>
+            <li><strong>Vida sexual:</strong> Si NO planeas embarazarte y suspenderás métodos, evita tener relaciones sexuales sin protección 7 días antes de la cita.</li>
+        </ul>
+    </div>
+
+    <!-- FASE 3 -->
+    <div class="phase-card fade-in">
+        <div class="phase-badge">Fase 3</div>
+        <h3 class="hand-drawn"><span aria-hidden='true'>🎶</span> Llegada y Control del Entorno</h3>
+        <p>El ambiente en el consultorio juega un papel crucial en la relajación pélvica cuando llegues con nosotros:</p>
+        <ul>
+            <li><strong>Tu música, tus reglas:</strong> Puedes pedirnos que pongamos una lista de reproducción específica, o bien, usar tus propios audífonos con tu podcast favorito o ruido blanco.</li>
+            <li><strong>Comunicación abierta:</strong> Estableceremos una "palabra de seguridad" o una señal con la mano para que el médico se detenga inmediatamente si necesitas una pausa para respirar.</li>
+            <li><strong>Aclimatación:</strong> Tendrás privacidad total para cambiarte con calma. Nuestra prioridad es tu respeto y tu espacio.</li>
+        </ul>
+    </div>
+
+    <!-- FASE 4 -->
+    <div class="phase-card fade-in">
+        <div class="phase-badge">Fase 4</div>
+        <h3 class="hand-drawn"><span aria-hidden='true'>🩺</span> El Procedimiento Médico (Paso a Paso)</h3>
+        <p>Te explicamos exactamente qué hace el médico mientras tú miras este proceso aliviada:</p>
+        <ul>
+            <li><strong>La posición:</strong> Te recostarás apoyando los pies. Respira profundo e intenta soltar la tensión de las piernas (apretar los músculos hace que sea un poquito más incómodo).</li>
+            <li><strong>El espéculo:</strong> Introduciremos suavemente un "pato" lubricado para que sea lo menos molesto posible. Su función es solo abrir el canal visual.</li>
+            <li><strong>Localización:</strong> El médico localizará visualmente los hilos de tu DIU.</li>
+            <li><strong>Técnica de respiración:</strong> Te pediremos que tomes aire profundamente y, al soltarlo lentamente, el médico hará el movimiento.</li>
+            <li><strong>El "jaloncito":</strong> Con unas pinzas largas, se jalan los hilos. Los brazos del DIU (que tienen forma de "T") se pliegan deslizando suavemente hacia afuera.</li>
+            <li><strong>El tiempo real:</strong> ¡El jalón dura exactamente entre 1 y 3 segundos! Sentirás un cólico agudo rapidísimo que empieza a desaparecer casi de inmediato.</li>
+        </ul>
+    </div>
+
+    <!-- FASE 5 & 6 -->
+    <div class="phase-card fade-in">
+        <div class="phase-badge">Fase 5 y 6</div>
+        <h3 class="hand-drawn"><span aria-hidden='true'>🛋️</span> Recuperación en Casa</h3>
+        <p>Qué hacemos justo después de la extracción y qué puedes esperar las siguientes 48 horas:</p>
+        <ul>
+            <li><strong>Cero prisas:</strong> Te quedarás acostada un par de minutos. Levantarse de golpe puede causar un ligero mareo normal.</li>
+            <li><strong>Confirmación visual:</strong> Si gustas, te mostramos el DIU para confirmar que salió completo e intacto.</li>
+            <li><strong>Síntomas normales en casa:</strong> Cólicos leves a moderados (como tu periodo) y manchado/sangrado leve durante un par de días. Puedes usar toallas sanitarias y regresar a tus actividades diarias.</li>
+            <li><strong><span aria-hidden='true'>⚠️</span> Señales para llamarnos:</strong> Llámanos de inmediato si experimentas dolor severo que te dobla, hemorragia abundante (empapar una toalla grande en 1 hora), flujo con mal olor o fiebre.</li>
+        </ul>
+    </div>
+
+    <!-- FASE 7 -->
+    <div class="phase-card fade-in">
+        <div class="phase-badge">Fase 7</div>
+        <h3 class="hand-drawn"><span aria-hidden='true'>🗺️</span> Tu Plan a Futuro</h3>
+        <p>El retiro no es el final de tu consulta, ¡es el inicio de tu nueva etapa clínica!</p>
+        <ul>
+            <li><strong>Si quieres otro método:</strong> ¡Claro que sí! Podemos colocarte un DIU nuevo, un implante, o iniciar pastillas/inyecciones *ese mismo día* aprovechando la cita para no perder tu protección.</li>
+            <li><strong>Si buscas embarazo:</strong> Tu fertilidad regresa inmediatamente. Es el momento perfecto para recetarte tu suplementación de ácido fólico y vitaminas prenatales para un embarazo sano.</li>
+        </ul>
+    </div>
+
+    <!-- ACCIÓN FINAL -->
+    <div class="action-container fade-in">
+        <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 15px;">¿Lista para agendar tu cita?</h2>
+        <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 25px;">La cuota de recuperación por el Retiro de DIU es de <strong>$450 m.n.</strong> Escríbenos y acordamos la hora que mejor te quede.</p>
+        
+        <div style="background: var(--pc-gris-suave); border: 3px solid var(--pc-verde-wa); border-radius: 15px; padding: 20px; text-align: left; max-width: 500px; margin: 0 auto 25px auto;">
+            <p style="font-weight: 800; text-align: center; margin-bottom: 15px;">Llena tus datos para enviar mensaje directo al consultorio:</p>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <input type="text" id="wa_nombre" placeholder="Nombre completo..." style="padding: 12px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
+                <input type="number" id="wa_edad" placeholder="Edad..." style="padding: 12px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
+                <textarea id="wa_duda" placeholder="Ej. ¿Qué me recomienda antes de ir? ¿Puedo ponerme otro DIU ahí mismo?" rows="3" style="padding: 12px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 1rem; resize: vertical;"></textarea>
+                <button onclick="agendarDiuWa()" class="btn btn-wa" style="width: 100%; margin-top: 5px;">Agendar por WhatsApp <span aria-hidden='true'>💬</span></button>
+            </div>
+        </div>
+
+        <script>
+            function agendarDiuWa() {
+                let nombre = document.getElementById('wa_nombre').value.trim();
+                let edad = document.getElementById('wa_edad').value.trim();
+                let duda = document.getElementById('wa_duda').value.trim();
+
+                if(!nombre || !edad) { alert("Por favor, llena tu nombre y edad para darte un mejor servicio."); return; }
+
+                let mensaje = `Hola 👋, envié mis datos desde la guía web de RETIRO DE DIU:\n\n*Nombre:* ${nombre}\n*Edad:* ${edad}\n`;
+                if(duda) mensaje += `*Mi duda:* ${duda}\n\n`;
+                mensaje += `Me gustaría agendar una cita o saber cuándo puedo pasar.`;
+
+                window.open(`https://wa.me/526611044050?text=${encodeURIComponent(mensaje)}`, '_blank');
+            }
+        </script>
+        
+        <div style="background: var(--pc-amarillo); border: 2px dashed var(--pc-negro); border-radius: 10px; padding: 15px; max-width: 500px; margin: 0 auto 25px auto; font-size: 0.95rem;">
+            <strong>🏥 Horarios de Atención:</strong><br>
+            Lunes a Domingo de <strong>9:00 am a 4:00 pm</strong>.<br>
+            <em>Puedes acudir directamente sin cita y serás atendida por orden de llegada, o agendar para asegurar tu espacio.</em>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+            <a href="servicios.html" class="btn btn-back">Volver a Servicios <span aria-hidden='true'>📋</span></a>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/global.js"></script>
+</body>
+</html>
