@@ -129,6 +129,13 @@
         .modal-body ul { margin-left: 20px; margin-top: 10px; color: #444; }
         .modal-body li { margin-bottom: 8px; }
 
+        /* MIni Formulario dentro de Modal */
+        .mini-form-container { background: var(--pc-gris-suave); padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-top: 20px; }
+        .mini-form-container input, .mini-form-container textarea { width: 100%; padding: 12px 15px; margin-bottom: 10px; border: 2px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; }
+        .mini-form-container input:focus, .mini-form-container textarea:focus { border-color: var(--pc-rosa-fuerte); }
+        .X81W0b { border: 4px solid var(--pc-negro) !important; font-family: 'Nunito', sans-serif !important; font-weight: 800 !important; border-radius: 50px !important; padding: 15px 20px !important; box-shadow: 0 6px 0 var(--pc-negro) !important; font-size: 1.1rem !important; }
+        .X81W0b:active { box-shadow: 0 0 0 transparent !important; transform: translateY(6px); }
+
         .snoopy-float { width: 55px; margin: 0 auto 10px; animation: float 3s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
@@ -162,12 +169,12 @@
 <div class="container">
         <nav class="main-nav">
             <a href="inicio.html">Inicio</a>
-            <a href="quienes-somos.html">¿Quiénes Somos?</a>
-            <a href="nuestra-historia.html">Nuestra Historia</a>
-            <a href="modulos.html">Nuestros Módulos</a>
-            <a href="resena.html">Reseñas</a>
+            <a href="quienes-somos.html">Nosotros</a>
+            <a href="consultorio-comunitario.html">Consultorio</a>
             <a href="servicios.html">Servicios</a>
-            <a href="farmacia-solidaria.html">Farmacia Solidaria</a>
+            <a href="farmacia-solidaria.html">Farmacia</a>
+            <a href="unete-a-nuestro-equipo.html">Únete / Apoya</a>
+            <a href="mapa-sitio.html" style="background: #fff9c4; border-color: #333333; color: #333333;">🔍 Buscar</a>
         </nav>
     <header class="header">
         <svg class="snoopy-float" viewBox="0 0 100 100">
@@ -193,6 +200,7 @@
         <button class="filter-btn" onclick="filterCategory('sexual')">Salud Sexual</button>
         <button class="filter-btn" onclick="filterCategory('lab')">Laboratorios</button>
         <button class="filter-btn" onclick="filterCategory('psico')">Psicología</button>
+        <button class="filter-btn" onclick="filterCategory('fisio')">Fisioterapia</button>
         <button class="filter-btn" onclick="filterCategory('proc')">Procedimientos</button>
     </nav>
 
@@ -214,7 +222,7 @@
             <div class="price-highlight">GRATIS</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('mastografia')">Más Info</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20el%20servicio%20de%20Mastografía,%20¿me%20puede%20dar%20más%20información?" class="btn btn-wa" target="_blank">Agendar</a>
+                <a href="mastografia-gratuita.html" class="btn btn-wa">Ver Guía y Agendar</a>
             </div>
         </div>
 
@@ -225,7 +233,7 @@
             <div class="price-text">Cuota: $150 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('consulta_gen')">Más Info</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20una%20Consulta%20Médica%20General,%20¿me%20puede%20dar%20más%20información?" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('consulta_gen')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -239,7 +247,7 @@
             <div class="price-text">Cuota: $150 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('papa')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20el%20Papanicolaou,%20¿me%20puede%20dar%20más%20información?" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('papa')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -250,7 +258,7 @@
             <div class="price-text">Cuota: $400 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('implante_col')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20la%20colocación%20de%20implante,%20¿me%20puede%20dar%20más%20información?" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('implante_col')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -261,7 +269,7 @@
             <div class="price-text">Cuota: $400 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('implante_ret')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20el%20retiro%20de%20implante,%20¿me%20puede%20dar%20más%20información?" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('implante_ret')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -272,7 +280,7 @@
             <div class="price-text">Cuota: $450 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('diu_col')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20la%20colocación%20de%20DIU,%20¿me%20puede%20dar%20más%20información?" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('diu_col')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -283,7 +291,7 @@
             <div class="price-text">Cuota: $450 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('diu_ret')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20el%20retiro%20de%20DIU,%20¿me%20puede%20dar%20más%20información?" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('diu_ret')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -294,7 +302,7 @@
             <div class="price-text">Cuota: $50 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('inyeccion')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20la%20inyección%20anticonceptiva,%20¿me%20puede%20dar%20más%20información?" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('inyeccion')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -305,7 +313,7 @@
             <div class="price-text">Consulta Médica</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('dismenorrea')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20busco%20consulta%20por%20dolores%20menstruales,%20¿me%20puede%20dar%20más%20información?" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('dismenorrea')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -316,7 +324,7 @@
             <div class="price-text">Consulta Confidencial</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('emergencia')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20necesito%20orientación%20sobre%20anticoncepción%20de%20emergencia" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('emergencia')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -327,7 +335,7 @@
             <div class="price-highlight">GRATIS</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('anticon_gratis')">Ver opciones</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20quisiera%20saber%20qué%20métodos%20anticonceptivos%20gratuitos%20tienen%20disponibles" class="btn btn-wa" target="_blank">Preguntar</a>
+                <button onclick="openInfo('anticon_gratis')" class="btn btn-wa">Preguntar</button>
             </div>
         </div>
 
@@ -338,7 +346,7 @@
             <div class="price-text">Consulta Médica</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('menopausia')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20consulta%20para%20manejo%20de%20menopausia" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('menopausia')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -349,7 +357,7 @@
             <div class="price-text">Consulta Médica</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('prenatal')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20quisiera%20agendar%20control%20prenatal" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('prenatal')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -360,7 +368,7 @@
             <div class="price-text">Consulta Médica</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('infecciones_fem')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20necesito%20consulta%20por%20infección" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('infecciones_fem')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
         
@@ -371,7 +379,7 @@
             <div class="price-text">Parte de tu consulta</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('ref_gineco')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">WhatsApp</a>
+                <button onclick="openInfo('ref_gineco')" class="btn btn-wa">WhatsApp</button>
             </div>
         </div>
 
@@ -385,7 +393,7 @@
             <div class="price-text">Consulta Médica</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('hiperplasia')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20busco%20consulta%20para%20revisión%20de%20próstata" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('hiperplasia')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -396,7 +404,7 @@
             <div class="price-text">Consulta Médica</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('disfuncion')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20deseo%20agendar%20una%20consulta%20confidencial%20para%20hombre" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('disfuncion')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -407,7 +415,7 @@
             <div class="price-text">Consulta Médica</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('eyaculacion')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20deseo%20agendar%20una%20consulta%20confidencial%20para%20hombre" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('eyaculacion')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
         
@@ -418,7 +426,7 @@
             <div class="price-text">Parte de tu consulta</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('cuestionario_prost')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">WhatsApp</a>
+                <button onclick="openInfo('cuestionario_prost')" class="btn btn-wa">WhatsApp</button>
             </div>
         </div>
 
@@ -429,7 +437,7 @@
             <div class="price-text">Parte de tu consulta</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('ref_uro')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">WhatsApp</a>
+                <button onclick="openInfo('ref_uro')" class="btn btn-wa">WhatsApp</button>
             </div>
         </div>
 
@@ -443,7 +451,7 @@
             <div class="price-combo">$500 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('paquete_mujer_int')">¿Qué incluye?</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20el%20Paquete%20Mujer%20Saludable%20Integral" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('paquete_mujer_int')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -454,7 +462,7 @@
             <div class="price-combo">$300 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('paquete_mujer_bas')">¿Qué incluye?</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20el%20Paquete%20Mujer%20Saludable%20Básico" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('paquete_mujer_bas')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -465,7 +473,7 @@
             <div class="price-combo">$300 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('mant_hombre')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20el%20Mantenimiento%20Anual%20Masculino" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('mant_hombre')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -479,7 +487,7 @@
             <div class="price-highlight">GRATIS</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('vih')">Más Info</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20la%20Prueba%20Gratuita%20de%20VIH" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('vih')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -490,7 +498,7 @@
             <div class="price-highlight">GRATIS</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('condones')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">WhatsApp</a>
+                <button onclick="openInfo('condones')" class="btn btn-wa">WhatsApp</button>
             </div>
         </div>
         
@@ -501,7 +509,7 @@
             <div class="price-text">Sin Costo</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('orientacion_sexual')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20orientación%20sobre%20planificación%20familiar" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('orientacion_sexual')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -513,7 +521,7 @@
             <div class="price-text">Cuota: $400 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('basico_seguro')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20el%20Paquete%20Básico%20Seguro" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('basico_seguro')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -524,7 +532,7 @@
             <div class="price-text">Cuota: $350 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('pareja_atenta')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20el%20Paquete%20Pareja%20Atenta" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('pareja_atenta')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -535,7 +543,7 @@
             <div class="price-text">Cuota: $600 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('completo_tranquilo')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20el%20Paquete%20Completo%20Tranquilo" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('completo_tranquilo')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -546,7 +554,7 @@
             <div class="price-combo">$1,000 m.n. (x2 personas)</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('juntos_mejor')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20el%20Paquete%20Juntos%20es%20Mejor" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('juntos_mejor')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -560,7 +568,7 @@
             <div class="price-text">Cuota: $50 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('embarazo_orina')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('embarazo_orina')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -571,7 +579,7 @@
             <div class="price-text">Cuota: $150 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('embarazo_sangre')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('embarazo_sangre')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -582,7 +590,7 @@
             <div class="price-text">Cuota: $150 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('covid')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('covid')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -593,7 +601,7 @@
             <div class="price-text">Cuota: $30 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('glucosa')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('glucosa')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
         
@@ -604,7 +612,7 @@
             <div class="price-text">Cuota: $150 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('hba1c')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('hba1c')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -615,7 +623,7 @@
             <div class="price-text">Cuota: $50 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('orina')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('orina')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
         
@@ -626,7 +634,7 @@
             <div class="price-text">Cuota: $150 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('psa')">Más Info</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20la%20Prueba%20de%20Antígeno%20Prostático" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('psa')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -646,7 +654,36 @@
             </div>
             
             <div style="text-align: center; margin-top: 25px;">
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20agendar%20una%20sesión%20con%20Psicología" class="btn btn-wa" target="_blank" style="display:inline-block; padding:12px 30px; font-size:1.1rem;">Agendar Sesión de Psicología</a>
+                <button onclick="openInfo('psicologia')" class="btn btn-wa" style="display:inline-block; padding:12px 30px; font-size:1.1rem;">Agendar Sesión de Psicología</button>
+            </div>
+        </div>
+
+        <!-- ==============================
+             FISIOTERAPIA Y SOBADOR
+        =============================== -->
+        <div class="service-card category-card" data-cat="fisio" data-keywords="sobador masaje tiron empacho huesos tony primotapia tradicional">
+            <span class="cat-tag">Medicina Tradicional</span>
+            <h3 class="service-title">Sobador Tony de Primo Tapia</h3>
+            <p class="service-preview">Atención tradicional para torceduras, empacho, tensión muscular y ajuste. Lunes a Sábado de 9:00 am a 5:00 pm en Proyecto Celene. (Atención a domicilio disponible).</p>
+            <div class="price-text">Contactar para costos</div>
+            <div class="btn-group" style="flex-wrap: wrap; gap: 8px;">
+                <a href="sobador-tony.html" class="btn btn-more" style="width: 100%;">Leer Más Detalles ➔</a>
+                <a href="tel:6611232010" class="btn" style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);">📞 Llamar</a>
+                <a href="https://wa.me/526611232010" class="btn btn-wa" target="_blank">💬 WhatsApp</a>
+                <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ATony%3BSobador%0AFN%3ASobador%20Tony%0ATEL%3BTYPE%3DCELL%3A6611232010%0AEND%3AVCARD" download="Sobador_Tony.vcf" class="btn" style="background:var(--pc-amarillo); border-color:var(--pc-negro); color:var(--pc-negro); width: 100%;">📇 Guardar Contacto</a>
+            </div>
+        </div>
+
+        <div class="service-card category-card" data-cat="fisio" data-keywords="fisioterapia rehabilitacion fisica lupita enfermera dolor lesion terapia">
+            <span class="cat-tag">Fisioterapia</span>
+            <h3 class="service-title">Fisioterapeuta Lupita, Enf.</h3>
+            <p class="service-preview">Rehabilitación física, lesiones crónicas y manejo del dolor con atención clínica, profesional y calidez humana.</p>
+            <div class="price-text">Contactar para costos</div>
+            <div class="btn-group" style="flex-wrap: wrap; gap: 8px;">
+                <a href="fisioterapeuta-lupita.html" class="btn btn-more" style="width: 100%;">Leer Más Detalles ➔</a>
+                <a href="tel:6611232826" class="btn" style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);">📞 Llamar</a>
+                <a href="https://wa.me/526611232826" class="btn btn-wa" target="_blank">💬 WhatsApp</a>
+                <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ALupita%3BFisioterapeuta%0AFN%3AFisioterapeuta%20Lupita%0ATEL%3BTYPE%3DCELL%3A6611232826%0AEND%3AVCARD" download="Fisioterapeuta_Lupita.vcf" class="btn" style="background:var(--pc-amarillo); border-color:var(--pc-negro); color:var(--pc-negro); width: 100%;">📇 Guardar Contacto</a>
             </div>
         </div>
 
@@ -660,7 +697,7 @@
             <div class="price-text">Cuota: $150 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('virtual')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('virtual')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -671,7 +708,7 @@
             <div class="price-text">Cuota: $100 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('certificado')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('certificado')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -682,7 +719,7 @@
             <div class="price-text">Desde: $15 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('signos')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('signos')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -693,7 +730,7 @@
             <div class="price-text">Cuota: $40 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('inyeccion_med')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('inyeccion_med')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -704,7 +741,7 @@
             <div class="price-text">Cuota: $300 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('puntos_gatillo')">Detalles</button>
-                <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20la%20inyección%20de%20puntos%20gatillo" class="btn btn-wa" target="_blank">Agendar</a>
+                <a href="puntos-gatillo.html" class="btn btn-wa">Ver Guía y Agendar</a>
             </div>
         </div>
 
@@ -715,7 +752,7 @@
             <div class="price-text">Aprox: $250 m.n. (Varía)</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('curacion')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('curacion')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -726,7 +763,7 @@
             <div class="price-text">Cuota: $350 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('sutura')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('sutura')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -737,7 +774,7 @@
             <div class="price-text">Cuota: $150 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('retiro_puntos')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('retiro_puntos')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -748,7 +785,7 @@
             <div class="price-text">Cuota: $250 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('oidos')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('oidos')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -759,7 +796,7 @@
             <div class="price-text">Cuota: $400 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('absceso')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('absceso')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -770,7 +807,7 @@
             <div class="price-text">Cuota: $350 m.n.</div>
             <div class="btn-group">
                 <button class="btn btn-more" onclick="openInfo('verrugas')">Detalles</button>
-                <a href="https://wa.me/526611044050" class="btn btn-wa" target="_blank">Agendar</a>
+                <button onclick="openInfo('verrugas')" class="btn btn-wa">Agendar</button>
             </div>
         </div>
 
@@ -826,8 +863,32 @@
         <span class="close-modal" onclick="closeModal()">✕</span>
         <div id="modalHeader"></div>
         <div id="modalBody" class="modal-body"></div>
-        <div style="margin-top: 30px; text-align: center;">
-            <a id="modalWaBtn" href="#" class="btn btn-wa" style="display: block; width: 100%; font-size:1.1rem; padding:15px;" target="_blank">Consultar por WhatsApp 💬</a>
+        
+        <div class="mini-form-container">
+            <p style="font-weight: 800; color: var(--pc-negro); margin-bottom: 15px;">Para agilizar tu atención o dudas, déjanos tus datos:</p>
+            <input type="text" id="sm_nombre" placeholder="Tu Nombre Completo">
+            <textarea id="sm_duda" rows="2" placeholder="¿Tienes alguna duda o quieres agendar directamente?"></textarea>
+            <button onclick="sendServiceWa()" class="btn btn-wa" style="width: 100%; border-color:var(--pc-negro);">Enviar Mensaje 💬</button>
+        </div>
+        
+        <p style="text-align: center; margin-top: 25px; font-weight: 800; color: #555;">También puedes asegurar tu espacio consultando los horarios:</p>
+        
+        <div style="text-align: center; margin-top: 15px; display: flex; justify-content: center;">
+            <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+            <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+            <script>
+            (function() {
+              var target = document.currentScript;
+              window.addEventListener('load', function() {
+                calendar.schedulingButton.load({
+                  url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
+                  color: '#d81b60',
+                  label: '🗓️ Consultar horarios y Agendar',
+                  target,
+                });
+              });
+            })();
+            </script>
         </div>
     </div>
 </div>
@@ -836,6 +897,8 @@
     /* =========================================
        BASE DE DATOS COMPLETA DE SERVICIOS
     ========================================= */
+    let currentServiceWaMsg = "";
+
     const servicesInfo = {
         // --- MUJER & ANCLAS ---
         mastografia: {
@@ -844,7 +907,8 @@
             why: "En Proyecto Celene hemos detectado cientos de casos a tiempo. No dejes que el costo sea una barrera, ¡queremos verte sana!",
             include: ["Vale para clínica de imagen externa.", "Interpretación por radiólogo certificado.", "Seguimiento médico personalizado."],
             reqs: "2 copias de INE y 2 copias de CURP. Mayores de 40 años o 35 con antecedentes familiares directos.",
-            waMsg: "Mastografía Gratis"
+            waMsg: "Mastografía Gratis",
+            eduLink: "mastografia-gratuita.html"
         },
         consulta_gen: {
             title: "Consulta Médica General 🩺",
@@ -999,6 +1063,15 @@
             include: ["Resumen médico oficial.", "Entrega de tus estudios para el urólogo."],
             reqs: "Se entrega como parte de tu consulta médica.",
             waMsg: "Referencias a Urología"
+        },
+        
+        psicologia: {
+            title: "Sesión de Psicología 🧠",
+            desc: "Encuentra un espacio seguro, confidencial y sin juicios para sanar tus emociones y recuperar tu paz mental.",
+            why: "El estrés, la enfermedad y la vida diaria pueden abrumarnos. Hablar con un profesional hace toda la diferencia.",
+            include: ["Acompañamiento Oncológico", "Manejo de Duelo", "Ansiedad y Depresión", "Terapia de Pareja/Familiar"],
+            reqs: "Cuota de Recuperación y sesiones sujetas a valoración.",
+            waMsg: "Agendar Sesión de Psicología"
         },
 
         // --- COMBOS ---
@@ -1346,12 +1419,23 @@
         }
 
         document.getElementById('modalBody').innerHTML = bodyHtml;
-        document.getElementById('modalWaBtn').href = `https://wa.me/526611044050?text=Hola,%20Proyecto%20Celene.%20Me%20interesa%20información%20sobre:%20${encodeURIComponent(info.waMsg)}`;
+        currentServiceWaMsg = info.waMsg;
         
         document.getElementById('serviceModal').style.display = "flex";
     }
 
     function closeModal() { document.getElementById('serviceModal').style.display = "none"; }
+    
+    function sendServiceWa() {
+        let nombre = document.getElementById('sm_nombre').value.trim() || "No especificado";
+        let duda = document.getElementById('sm_duda').value.trim();
+        let msg = `Hola Proyecto Celene 🌸.\nMi nombre es *${nombre}* y me interesa agendar/información sobre: *${currentServiceWaMsg}*.`;
+        if(duda) {
+            msg += `\n\nMi comentario/duda es: "${duda}"`;
+        }
+        window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+        closeModal();
+    }
     window.onclick = function(event) { if (event.target == document.getElementById('serviceModal')) closeModal(); }
     
     // Iniciar con la vista de "Todos" activa y sin banners basura

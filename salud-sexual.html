@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Sexual - Proyecto Celene</title>
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --pc-rosa-pastell:#fce4ec; --pc-rosa-fuerte:#d81b60; --pc-negro:#333; --pc-blanco:#fff; --pc-amarillo:#fff9c4; --pc-azul-suave:#e3f2fd; }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:'Nunito',sans-serif; background:var(--pc-blanco); color:var(--pc-negro); line-height:1.6; padding-bottom:50px; }
+        .hand-drawn { font-family:'Handlee',cursive; }
+        .container { max-width:900px; margin:0 auto; padding:15px; }
+        .main-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:30px; padding:15px; background:var(--pc-blanco); border:3px solid var(--pc-negro); border-radius:20px; box-shadow:6px 6px 0 var(--pc-rosa-pastell); }
+        .main-nav a { text-decoration:none; color:var(--pc-negro); font-weight:800; font-size:1.05rem; padding:8px 15px; border-radius:15px; transition:0.2s; border:2px solid transparent; }
+        .main-nav a:hover { background:var(--pc-rosa-fuerte); color:white; border-color:var(--pc-negro); transform:translateY(-2px); box-shadow:3px 3px 0 var(--pc-negro); }
+        .header { text-align:center; padding:40px 20px; background:#fce4ec; border:4px solid var(--pc-negro); border-radius:20px; margin-bottom:30px; box-shadow:8px 8px 0 var(--pc-negro); }
+        .header img { max-width:100%; width:400px; border-radius:15px; border:3px solid var(--pc-negro); margin-bottom:15px; background:white; }
+        .header h1 { font-size:2.8rem; color:var(--pc-rosa-fuerte); margin-bottom:10px; line-height:1.1; }
+        .content-box { background:white; border:3px solid var(--pc-negro); border-radius:20px; padding:30px; margin-bottom:30px; box-shadow:6px 6px 0 var(--pc-amarillo); }
+        .content-box h2 { color:var(--pc-rosa-fuerte); margin-bottom:15px; font-size:1.8rem; }
+        .content-box ul { margin-left:20px; margin-bottom:15px; font-weight:600; color:#444; }
+        .content-box li { margin-bottom:8px; }
+        .btn { display:block; text-align:center; padding:15px; border-radius:50px; border:4px solid var(--pc-negro); font-weight:800; text-decoration:none; font-size:1.2rem; background:#25d366; color:white; box-shadow:0 6px 0 #1b9c4b; margin:20px auto 0; max-width:400px; transition:0.1s; }
+        .btn:active { top:6px; box-shadow:0 0 0 transparent; }
+
+        .video-container {
+            display: flex; justify-content: center; margin: 30px 0; overflow: hidden;
+            border-radius: 15px; border: 4px solid var(--pc-negro);
+        }
+        .banner-orientacion { background: var(--pc-azul-suave); border: 3px dashed var(--pc-negro); padding: 20px; border-radius: 15px; text-align: center; margin-top: 30px; }
+
+        /* MODAL */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); align-items: center; justify-content: center; padding: 15px; }
+        .modal-content { background: white; border: 4px solid var(--pc-negro); border-radius: 25px; max-width: 500px; width: 100%; padding: 35px; position: relative; box-shadow: 12px 12px 0px var(--pc-amarillo); animation: popIn 0.3s ease-out; }
+        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .close-modal { position: absolute; top: 15px; right: 25px; font-size: 2rem; cursor: pointer; font-weight: 900; color: var(--pc-negro); }
+        .modal input, .modal select { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; }
+        .modal input:focus, .modal select:focus { border-color: var(--pc-rosa-fuerte); }
+        
+        .X81W0b { border: 4px solid var(--pc-negro) !important; font-family: 'Nunito', sans-serif !important; font-weight: 800 !important; border-radius: 50px !important; padding: 15px 20px !important; box-shadow: 0 6px 0 var(--pc-negro) !important; font-size: 1.1rem !important; }
+        .X81W0b:active { box-shadow: 0 0 0 transparent !important; transform: translateY(6px); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav"><a href="inicio.html">Inicio</a><a href="quienes-somos.html">¿Quiénes Somos?</a><a href="consultorio-comunitario.html">Consultorio</a><a href="servicios.html">Servicios</a></nav>
+        <header class="header">
+            <img src="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg" alt="Salud Sexual">
+            <h1 class="hand-drawn">Clínica de Salud Sexual 🛡️</h1>
+            <p style="font-weight:600; font-size:1.1rem;">Tu salud íntima es importante. Espacio seguro, confidencial y sin juicios.</p>
+        </header>
+        <div class="content-box">
+            <h2 class="hand-drawn">Nuestros Servicios Privados</h2>
+            <ul><li><strong>Prueba de VIH GRATUITA:</strong> Resultado en 15 minutos. Indetectable = Intransmisible.</li><li><strong>Condones Gratis:</strong> Solicítalos en recepción sin pena ni preguntas.</li><li><strong>Paquete ITS Básico ($400):</strong> Evalúa VIH, Sífilis, Hepatitis B y C de manera rápida.</li><li><strong>Paquete ITS Completo ($600):</strong> Añade detección precisa de Gonorrea y Clamidia.</li></ul>
+            <p style="margin-top:20px;">Recuerda: Muchas infecciones son completamente silenciosas y no presentan síntomas. Un chequeo de rutina te da paz mental absoluta y protege tu fertilidad a futuro.</p>
+            
+            <button onclick="openModal('modalSaludSexual')" class="btn" style="margin-bottom: 15px;">Agendar por WhatsApp 💬</button>
+            
+            <!-- Botón Calendario Google -->
+            <div style="text-align: center; display: flex; justify-content: center; margin-bottom: 30px;">
+                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                <script>
+                (function() {
+                  var target = document.currentScript;
+                  window.addEventListener('load', function() {
+                    calendar.schedulingButton.load({
+                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
+                      color: '#d81b60',
+                      label: '🗓️ Consultar horarios y Agendar',
+                      target,
+                    });
+                  });
+                })();
+                </script>
+            </div>
+            
+            <div class="video-container">
+                <!-- VIDEO DE FACEBOOK SOBRE ITS Y ORIENTACION -->
+                <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F990264640843547%2F&show_text=false&width=476&t=0" width="476" height="591" style="border:none;overflow:hidden; max-width: 100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+
+            <div class="banner-orientacion">
+                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom: 10px;">¿Tienes pena o no sabes qué prueba necesitas? 💬</h3>
+                <p style="font-weight: 600; margin-bottom: 15px;">Hablar de salud sexual puede ser difícil. Usa nuestra <strong>Orientación Médica Gratuita</strong> por WhatsApp. Te escucharemos sin juicios y te guiaremos sobre qué pasos tomar.</p>
+                <a href="orientacion-medica-gratuita.html" class="btn" style="background: white; color: var(--pc-negro); border-color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); margin-top: 0; padding: 12px; font-size: 1.1rem;">Ir a Orientación Gratuita ➔</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div id="modalSaludSexual" class="modal" onclick="closeOnOutside(event, 'modalSaludSexual')">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalSaludSexual')">✕</span>
+            <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Cita de Salud Sexual 🛡️</h3>
+            <p style="margin-bottom:20px; font-weight: 600; color: #555;">Tu información es confidencial y segura. Ayúdanos a prepararnos para tu visita.</p>
+            <input type="text" id="ss_nombre" placeholder="¿Cómo te llamamos? (Opcional)">
+            <select id="ss_servicio">
+                <option value="">¿Qué servicio te interesa?</option>
+                <option value="Prueba VIH (Gratis)">Prueba VIH (Gratis)</option>
+                <option value="Paquete Básico Seguro">Paquete Básico Seguro</option>
+                <option value="Paquete Pareja Atenta">Paquete Pareja Atenta</option>
+                <option value="Paquete Completo Tranquilo">Paquete Completo Tranquilo</option>
+                <option value="Paquete Juntos es Mejor">Paquete Juntos es Mejor (Pareja)</option>
+                <option value="Otra duda / Orientación">Otra duda / Orientación</option>
+            </select>
+            <button onclick="sendSaludSexualWa()" class="btn" style="width:100%; background: #25d366; color: white;">Enviar a WhatsApp 💬</button>
+        </div>
+    </div>
+    <script>
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        function closeOnOutside(event, id) { if(event.target.id === id) closeModal(id); }
+        function sendSaludSexualWa() {
+            let n = document.getElementById('ss_nombre').value.trim() || 'No especificado';
+            let s = document.getElementById('ss_servicio').value || 'Información General';
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(`Hola, mi nombre es ${n} y me interesa el servicio de Salud Sexual: *${s}*.`)}`, '_blank');
+            closeModal('modalSaludSexual');
+        }
+    </script>
+</body>
+</html>

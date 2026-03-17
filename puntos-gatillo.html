@@ -3,607 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía de Inyección de Puntos Gatillo - Proyecto Celene</title>
-    <link rel="icon" href="imagenes/logo pc circulo.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&family=Shrikhand&display=swap" rel="stylesheet">
+    <title>Inyección de Puntos Gatillo - Proyecto Celene</title>
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --pc-rosa-pastell: #fce4ec;
-            --pc-rosa-medio: #f06292;
-            --pc-rosa-fuerte: #d81b60;
-            --pc-rosa-oscuro: #ad1457;
-            --pc-negro: #333333;
-            --pc-blanco: #ffffff;
-            --pc-amarillo: #fff9c4;
-            --pc-verde-wa: #25d366;
-            --pc-verde-wa-oscuro: #1b9c4b;
-            --pc-azul-suave: #e3f2fd;
-            --pc-gris-suave: #f9f9f9;
-        }
-
-        body {
-            font-family: 'Nunito', sans-serif;
-            margin: 0;
-            background-color: var(--pc-blanco);
-            color: var(--pc-negro);
-            line-height: 1.6;
-        }
-
-        .hand-drawn { font-family: 'Handlee', cursive; }
-        .retro-banner-font { font-family: 'Shrikhand', cursive; }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* --- Header & Nav --- */
-        header {
-            background: var(--pc-blanco);
-            border-bottom: 4px solid var(--pc-negro);
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--pc-negro);
-        }
-
-        .logo img {
-            width: 60px;
-            margin-right: 15px;
-        }
-
-        .logo-text {
-            font-family: 'Shrikhand', cursive;
-            font-size: 24px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links li a {
-            padding: 10px 15px;
-            text-decoration: none;
-            color: var(--pc-negro);
-            font-weight: 600;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
+        :root { --pc-rosa-pastell:#fce4ec; --pc-rosa-fuerte:#d81b60; --pc-negro:#333; --pc-blanco:#fff; --pc-amarillo:#fff9c4; --pc-azul-suave:#e3f2fd; }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:'Nunito',sans-serif; background:var(--pc-blanco); color:var(--pc-negro); line-height:1.6; padding-bottom:50px; }
+        .hand-drawn { font-family:'Handlee',cursive; }
+        .container { max-width:900px; margin:0 auto; padding:15px; }
+        .main-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:30px; padding:15px; background:var(--pc-blanco); border:3px solid var(--pc-negro); border-radius:20px; box-shadow:6px 6px 0 var(--pc-rosa-pastell); }
+        .main-nav a { text-decoration:none; color:var(--pc-negro); font-weight:800; font-size:1.05rem; padding:8px 15px; border-radius:15px; transition:0.2s; border:2px solid transparent; }
+        .main-nav a:hover { background:var(--pc-rosa-fuerte); color:white; border-color:var(--pc-negro); transform:translateY(-2px); box-shadow:3px 3px 0 var(--pc-negro); }
+        .header { text-align:center; padding:40px 20px; background:#e3f2fd; border:4px solid var(--pc-negro); border-radius:20px; margin-bottom:30px; box-shadow:8px 8px 0 var(--pc-negro); }
+        .header h1 { font-size:2.8rem; color:var(--pc-rosa-fuerte); margin-bottom:10px; line-height:1.1; }
         
-        .nav-links li a:hover, .nav-links li a.active {
-            background: var(--pc-rosa-pastell);
-            transform: translateY(-2px);
-        }
+        .content-box { background:white; border:3px solid var(--pc-negro); border-radius:20px; padding:35px; margin-bottom:30px; box-shadow:8px 8px 0 var(--pc-rosa-pastell); }
+        .content-box.highlight { background: var(--pc-amarillo); box-shadow: 8px 8px 0 var(--pc-negro); }
+        .content-box h2 { color:var(--pc-rosa-fuerte); margin-bottom:20px; font-size:2rem; border-bottom: 3px dashed var(--pc-amarillo); padding-bottom: 10px;}
+        .content-box.highlight h2 { border-bottom-color: var(--pc-negro); color: var(--pc-negro); }
+        .content-box ul { margin-left:20px; margin-bottom:15px; font-weight:600; color:#444; }
+        .content-box li { margin-bottom:8px; }
+        .content-box p { font-size: 1.1rem; color: #444; font-weight: 600; margin-bottom: 15px; }
         
-        .menu-toggle { display: none; }
-
-        /* --- Botones --- */
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            font-size: 18px;
-            font-weight: 800;
-            text-decoration: none;
-            color: var(--pc-negro);
-            border: 4px solid var(--pc-negro);
-            border-radius: 50px;
-            position: relative;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn-primario {
-            background-color: var(--pc-rosa-fuerte);
-            color: var(--pc-blanco);
-            box-shadow: 6px 6px 0px var(--pc-negro);
-        }
-
-        .btn:active {
-            top: 6px;
-            left: 6px;
-            box-shadow: 0 0 0 transparent !important;
-        }
-
-        .btn-wa {
-            background-color: var(--pc-verde-wa);
-            box-shadow: 6px 6px 0px var(--pc-negro);
-            color: var(--pc-blanco);
-        }
-
-        .btn-wa:hover {
-            background-color: var(--pc-verde-wa-oscuro);
-        }
+        .btn { display:inline-flex; justify-content:center; align-items:center; text-align:center; padding:15px 30px; border-radius:50px; border:4px solid var(--pc-negro); font-weight:800; text-decoration:none; font-size:1.2rem; background:#25d366; color:white; box-shadow:0 6px 0 #1b9c4b; margin:20px auto 0; transition:0.1s; cursor:pointer; font-family:'Nunito', sans-serif;}
+        .btn:active { top:6px; box-shadow:0 0 0 transparent; }
         
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: var(--pc-verde-wa);
-            color: var(--pc-blanco);
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid var(--pc-negro);
-        }
+        /* DIAGRAMA CSS DEL MÚSCULO */
+        .diagram-container { background: #fce4ec; border: 4px solid var(--pc-negro); border-radius: 15px; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 30px 0; position: relative; overflow: hidden; }
+        .muscle-band { width: 80%; height: 60px; background: repeating-linear-gradient(90deg, #e57373, #e57373 10px, #ef5350 10px, #ef5350 20px); border: 3px solid var(--pc-negro); border-radius: 30px; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 -10px 0 rgba(0,0,0,0.1); }
+        .knot { width: 40px; height: 40px; background: #b71c1c; border-radius: 50%; border: 3px solid var(--pc-negro); position: absolute; z-index: 2; box-shadow: 0 0 15px #b71c1c; animation: throb 1.5s infinite alternate; }
+        @keyframes throb { 0% { transform: scale(1); box-shadow: 0 0 10px #b71c1c; } 100% { transform: scale(1.2); box-shadow: 0 0 25px #b71c1c; } }
+        .needle { position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 6px; height: 70px; background: #90a4ae; border: 2px solid var(--pc-negro); border-bottom: none; z-index: 3; animation: inject 3s infinite; }
+        .needle::after { content: ''; position: absolute; bottom: -10px; left: -2px; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 10px solid var(--pc-negro); }
+        .syringe-body { position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 24px; height: 60px; background: rgba(255,255,255,0.8); border: 3px solid var(--pc-negro); border-radius: 3px; z-index: 3; animation: inject 3s infinite; }
+        .syringe-plunger { position: absolute; top: -140px; left: 50%; transform: translateX(-50%); width: 10px; height: 30px; background: #555; border: 2px solid var(--pc-negro); z-index: 3; animation: plunge 3s infinite; }
+        @keyframes inject { 0%, 20% { top: -60px; } 40%, 80% { top: -15px; } 100% { top: -60px; } }
+        @keyframes plunge { 0%, 40% { top: -140px; height: 30px; } 60%, 80% { top: -120px; height: 10px; } 100% { top: -140px; height: 30px; } }
 
-        /* --- Secciones y Tarjetas --- */
-        .hero-section {
-            background: var(--pc-azul-suave);
-            padding: 60px 20px;
-            text-align: center;
-            border-radius: 25px;
-            border: 4px solid var(--pc-negro);
-            margin-top: 30px;
-        }
+        /* COMPARATIVAS (PARA QUÉ SÍ Y NO) */
+        .compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0; }
+        .compare-card { padding: 25px; border: 3px solid var(--pc-negro); border-radius: 15px; }
+        .compare-card.yes { background: #e8f5e9; box-shadow: 6px 6px 0 #a5d6a7; }
+        .compare-card.no { background: #ffebee; box-shadow: 6px 6px 0 #ef9a9a; }
+        .compare-card h3 { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; margin-bottom: 15px; }
 
-        .hero-section h1 {
-            font-family: 'Handlee', cursive;
-            font-size: 3.5em;
-            margin: 0;
-            color: var(--pc-rosa-fuerte);
-        }
-
-        .hero-section p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 15px auto 0;
-        }
-
-        .content-section {
-            padding: 40px 0;
-        }
+        /* MAPA INTERACTIVO DEL DOLOR (CSS BODY) */
+        .interactive-map-section { display: flex; flex-wrap: wrap; gap: 30px; background: var(--pc-gris-suave); border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 40px; align-items: center; }
+        .map-visual { flex: 1; min-width: 250px; display: flex; justify-content: center; position: relative; padding: 20px 0; }
+        .map-text { flex: 1; min-width: 280px; background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 25px; box-shadow: 6px 6px 0 var(--pc-rosa-medio); }
         
-        .section-title {
-            font-family: 'Handlee', cursive;
-            font-size: 2.8em;
-            color: var(--pc-rosa-fuerte);
-            text-align: center;
-            margin-bottom: 40px;
-        }
+        /* Silueta abstracta de espalda */
+        .body-silhouette { width: 160px; height: 350px; position: relative; }
+        .body-head { width: 60px; height: 70px; background: #bdbdbd; border-radius: 40% 40% 50% 50%; border: 3px solid var(--pc-negro); position: absolute; left: 50%; transform: translateX(-50%); top: 0; z-index: 2; }
+        .body-torso { width: 140px; height: 160px; background: #e0e0e0; border-radius: 30px 30px 40px 40%; border: 3px solid var(--pc-negro); position: absolute; left: 50%; transform: translateX(-50%); top: 60px; z-index: 1; }
+        .body-arm-l, .body-arm-r { width: 35px; height: 140px; background: #e0e0e0; border-radius: 20px; border: 3px solid var(--pc-negro); position: absolute; top: 70px; z-index: 0; }
+        .body-arm-l { left: -10px; transform: rotate(15deg); }
+        .body-arm-r { right: -10px; transform: rotate(-15deg); }
+        .body-leg-l, .body-leg-r { width: 45px; height: 150px; background: #e0e0e0; border-radius: 20px; border: 3px solid var(--pc-negro); position: absolute; top: 200px; z-index: 0; }
+        .body-leg-l { left: 30px; }
+        .body-leg-r { right: 30px; }
 
-        .guide-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        /* Puntos interactivos */
+        .pain-point { position: absolute; width: 24px; height: 24px; background: #ff5252; border: 3px solid white; border-radius: 50%; z-index: 10; cursor: pointer; animation: pulse-red 1.5s infinite; transition: 0.2s; box-shadow: 0 0 10px rgba(255,0,0,0.5); }
+        .pain-point:hover, .pain-point.active { transform: scale(1.3); background: #b71c1c; border-color: var(--pc-amarillo); animation: none; box-shadow: 0 0 0 4px var(--pc-negro); }
+        @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(255, 82, 82, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0); } }
         
-        .info-card {
-            background: var(--pc-blanco);
-            border: 3px solid var(--pc-negro);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 8px 8px 0px var(--pc-rosa-pastell);
-            transition: all 0.3s ease;
-        }
-        
-        .info-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 12px 12px 0px var(--pc-rosa-medio);
-        }
+        .pt-neck { top: 65px; left: 60px; } /* Cuello/Trapecio */
+        .pt-scapula { top: 110px; left: 85px; } /* Omoplato */
+        .pt-lumbar { top: 180px; left: 68px; } /* Espalda baja */
+        .pt-glute { top: 230px; left: 90px; } /* Glúteo */
 
-        .info-card h3 {
-            font-family: 'Handlee', cursive;
-            font-size: 1.8em;
-            color: var(--pc-rosa-fuerte);
-            margin-top: 0;
-        }
+        /* TEST INTERACTIVO */
+        .quiz-box { background: var(--pc-azul-suave); padding: 30px; border-radius: 20px; border: 4px dashed var(--pc-negro); margin: 40px 0; }
+        .quiz-question { background: white; border: 2px solid var(--pc-negro); padding: 15px; border-radius: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; gap: 10px;}
+        .quiz-options { display: flex; gap: 10px; flex-shrink: 0;}
+        .quiz-radio { display: none; }
+        .quiz-lbl { padding: 8px 15px; border: 2px solid var(--pc-negro); border-radius: 8px; cursor: pointer; transition: 0.2s; background: var(--pc-gris-suave); }
+        .quiz-radio:checked + .quiz-lbl { background: var(--pc-rosa-fuerte); color: white; }
+        #quizResult { display: none; margin-top: 20px; padding: 20px; border-radius: 10px; border: 3px solid var(--pc-negro); background: white; font-size: 1.1rem; font-weight: 800; text-align: center; }
 
-        .info-card ul {
-            padding-left: 20px;
-        }
+        /* IMÁGENES EDUCATIVAS */
+        .edu-images { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .edu-img-box { border: 4px solid var(--pc-negro); border-radius: 15px; overflow: hidden; background: white; box-shadow: 6px 6px 0 var(--pc-azul-suave); }
+        .edu-img-box img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 1/1; }
 
-        .info-card li {
-            margin-bottom: 10px;
-        }
+        /* GUIA PASO A PASO */
+        .step-row { display: flex; gap: 20px; margin-bottom: 25px; align-items: flex-start; }
+        .step-icon { width: 60px; height: 60px; background: var(--pc-amarillo); border: 3px solid var(--pc-negro); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; flex-shrink: 0; box-shadow: 3px 3px 0 var(--pc-negro); }
+        .step-text h4 { font-size: 1.3rem; color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; margin-bottom: 5px; }
         
-        .questionnaire-section {
-            background: var(--pc-amarillo);
-            border: 4px solid var(--pc-negro);
-            border-radius: 25px;
-            padding: 40px;
-            margin: 50px 0;
-            box-shadow: 10px 10px 0px var(--pc-negro);
-        }
-        
-        .questionnaire-section .form-check {
-            display: block;
-            position: relative;
-            padding-left: 35px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            font-size: 18px;
-            user-select: none;
-        }
+        /* MODAL */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); align-items: center; justify-content: center; padding: 15px; }
+        .modal-content { background: white; border: 4px solid var(--pc-negro); border-radius: 25px; max-width: 500px; width: 100%; padding: 35px; position: relative; box-shadow: 12px 12px 0px var(--pc-rosa-pastell); animation: popIn 0.3s ease-out; }
+        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .close-modal { position: absolute; top: 15px; right: 25px; font-size: 2rem; cursor: pointer; font-weight: 900; color: var(--pc-negro); }
+        .modal input, .modal textarea, .modal select { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; }
+        .modal input:focus, .modal textarea:focus, .modal select:focus { border-color: var(--pc-rosa-fuerte); }
+        .X81W0b { border: 4px solid var(--pc-negro) !important; font-family: 'Nunito', sans-serif !important; font-weight: 800 !important; border-radius: 50px !important; padding: 15px 20px !important; box-shadow: 0 6px 0 var(--pc-negro) !important; font-size: 1.1rem !important; }
+        .X81W0b:active { box-shadow: 0 0 0 transparent !important; transform: translateY(6px); }
 
-        .questionnaire-section .form-check input {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
+        @media (max-width: 600px) { 
+            .quiz-question { flex-direction: column; align-items: flex-start; } 
+            .interactive-map-section { padding: 20px 15px; }
         }
-
-        .checkmark {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 25px;
-            width: 25px;
-            background-color: var(--pc-blanco);
-            border: 3px solid var(--pc-negro);
-            border-radius: 5px;
-        }
-
-        .form-check:hover input ~ .checkmark {
-            background-color: var(--pc-rosa-pastell);
-        }
-
-        .form-check input:checked ~ .checkmark {
-            background-color: var(--pc-rosa-fuerte);
-        }
-        
-        #quiz-result {
-            margin-top: 25px;
-            padding: 20px;
-            border-radius: 15px;
-            border: 3px solid var(--pc-negro);
-            display: none; /* Initially hidden */
-        }
-        
-        .result-good {
-             background-color: var(--pc-azul-suave);
-        }
-        
-        .result-bad {
-            background-color: var(--pc-rosa-pastell);
-        }
-
-        .cta-banner {
-            background: var(--pc-rosa-oscuro);
-            color: var(--pc-blanco);
-            text-align: center;
-            padding: 50px 20px;
-            border-radius: 25px;
-            border: 4px solid var(--pc-negro);
-            margin-top: 60px;
-        }
-        
-        .cta-banner h2 {
-            font-family: 'Shrikhand', cursive;
-            font-size: 2.5em;
-            margin-top: 0;
-        }
-        
-        .cta-banner p {
-            font-size: 1.5em;
-            font-weight: 800;
-            margin-bottom: 30px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: var(--pc-rosa-oscuro);
-            color: var(--pc-blanco);
-            padding: 40px 20px 20px;
-            margin-top: 60px;
-            border-top: 5px solid var(--pc-negro);
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .footer-col h4 {
-            font-family: 'Shrikhand', cursive;
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--pc-amarillo);
-        }
-        
-        .footer-col a {
-            color: var(--pc-blanco);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 2px solid var(--pc-rosa-fuerte);
-            margin-top: 20px;
-            max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                background: var(--pc-blanco);
-                border-bottom: 3px solid var(--pc-negro);
-            }
-            .nav-links.active { display: flex; }
-            .nav-links li { width: 100%; text-align: center; }
-            .menu-toggle { display: block; /* Implement hamburger icon here */ }
-            
-            .hero-section h1 { font-size: 2.5em; }
-        }
-
     </style>
 </head>
 <body>
+    <div class="container">
+        <nav class="main-nav"><a href="inicio.html">Inicio</a><a href="recursos-educativos.html">Recursos Educativos</a><a href="servicios.html">Servicios</a></nav>
+        <header class="header">
+            <h1 class="hand-drawn">Inyección de Puntos Gatillo 💉</h1>
+            <p style="font-weight:600; font-size:1.1rem; max-width: 700px; margin: 0 auto;">Vivir con dolor crónico es agotador. En Proyecto Celene te explicamos científicamente qué son estos "nudos" y cómo los eliminamos en minutos para devolverte tu calidad de vida.</p>
+        </header>
 
-    <header>
-        <nav class="container">
-            <a href="index.html" class="logo">
-                <img src="imagenes/logo pc circulo.png" alt="Logo Proyecto Celene">
-                <span class="logo-text">Proyecto Celene</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="inicio.html">Inicio</a></li>
-                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-                <li><a href="nuestra-historia.html">Nuestra Historia</a></li>
-                <li><a href="modulos.html">Nuestros Módulos</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="recursos-educativos.html">Recursos</a></li>
-                <li><a href="unete-a-nuestro-equipo.html">Únete</a></li>
-                <li><a href="patrocinadores.html">Patrocinadores</a></li>
+        <div class="content-box">
+            <h2 class="hand-drawn">1. ¿Qué es un "Nudo" o Punto Gatillo?</h2>
+            <p>Científicamente los llamamos <strong>Puntos Gatillo Miofasciales</strong>. Son áreas donde una banda de fibras musculares se ha quedado "atrapada" en una contracción constante. Es como si una parte de tu músculo olvidara cómo relajarse.</p>
+            <p>Al estar tan apretado, el nudo corta el flujo de sangre y oxígeno en esa zona, acumulando desechos metabólicos y enviando señales de dolor intenso que el cuerpo no puede romper por sí solo.</p>
+            
+            <h4 style="color: var(--pc-negro); margin-top: 20px; font-size: 1.2rem;">¿Por qué aparecen?</h4>
+            <ul style="list-style-type: none; margin-left: 0; margin-top: 10px;">
+                <li>📱 <strong>Posturas prolongadas:</strong> Horas frente a la computadora o el celular ("cuello de texto").</li>
+                <li>😟 <strong>Estrés emocional:</strong> La tensión que acumulas involuntariamente en hombros y mandíbula.</li>
+                <li>🏋️‍♀️ <strong>Microtraumas:</strong> Cargar cosas pesadas, movimientos repetitivos o esfuerzos repentinos.</li>
+                <li>🛋️ <strong>Sedentarismo:</strong> Músculos débiles que se fatigan y se anudan con facilidad.</li>
             </ul>
-            <div class="menu-toggle">☰</div>
-        </nav>
-    </header>
 
-    <main class="container">
+            <div class="edu-images" style="margin-top: 30px;">
+                <div class="edu-img-box">
+                    <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/646945182_1371063475054799_4434172893718613673_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=3aMQktYat8kQ7kNvwHKL2sK&_nc_oc=AdnP0f5lbUzbTpY0KTOVXPKikr1E7zxpLLdWhMQnAl3vZB6p_rQ9g2WXX4o-sCk2urxHi9srSKiE12ZWRyy46ZMo&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&_nc_gid=A7ntZEyLPoVEegIVD3-vIw&_nc_ss=8&oh=00_AfwU9qp_UcBD6zeOVmzC7uhTOGRRsV94tE7beUVJIMUQwg&oe=69BE8E96" alt="Explicación Punto Gatillo 1">
+                </div>
+                <div class="edu-img-box">
+                    <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/645947900_1371063471721466_1345494411970888091_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=13d280&_nc_ohc=WW8yupHdZUsQ7kNvwGF7Wct&_nc_oc=AdmINnbMElJS46PiAXPJ5rc68ewgSg3RBS2ylXGG8rs4HzqcFwTbZT7aqdNOH0xZ1ALEm73ldBjX8PZrWC17U12D&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&_nc_gid=doqp6eLX2Fcx9fvfOBowIg&_nc_ss=8&oh=00_AfyIivmJmUAn3ZqNSUfJnvZ9xyzN_4l0uggZUfuVJ-K-Jg&oe=69BEA0F1" alt="Explicación Punto Gatillo 2">
+                </div>
+            </div>
+        </div>
+
+        <!-- MAPA INTERACTIVO -->
+        <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); text-align: center; margin-bottom: 10px;">2. El Mapa del Dolor 📍</h2>
+        <p style="text-align: center; font-size: 1.1rem; font-weight: 600; margin-bottom: 20px;">Lo más sorprendente de estos nudos es el <strong>DOLOR REFERIDO</strong>: el nudo está en un lugar, pero el dolor "viaja" a otro. <br><span style="color: var(--pc-rosa-fuerte);">Toca los puntos rojos en la imagen para descubrirlo.</span></p>
         
-        <section class="hero-section">
-            <h1 class="fade-in">Guía Médica: Inyección de Puntos Gatillo</h1>
-            <p class="fade-in">Entiende qué son esos "nudos" musculares y cómo un procedimiento rápido y seguro puede devolverte tu calidad de vida.</p>
-        </section>
-
-        <section id="guia" class="content-section">
-            <h2 class="section-title">🧐 ¿Qué son realmente esos "Nudos"?</h2>
-            <div class="guide-grid">
-                <div class="info-card">
-                    <h3>El Origen del Dolor</h3>
-                    <p>Científicamente los llamamos <strong>Puntos Gatillo Miofasciales</strong>. Son áreas donde las fibras musculares se han quedado "atrapadas" en una contracción constante. Esto crea una zona sin oxígeno y con acumulación de desechos, generando un ciclo de dolor que el cuerpo no puede romper por sí solo.</p>
-                </div>
-                <div class="info-card">
-                    <h3>¿Por qué aparecen?</h3>
-                    <ul>
-                        <li><strong>Posturas prolongadas:</strong> Horas frente a la computadora o el celular.</li>
-                        <li><strong>Estrés emocional:</strong> Tensión acumulada en hombros y mandíbula.</li>
-                        <li><strong>Microtraumas:</strong> Movimientos repetitivos o esfuerzos repentinos.</li>
-                        <li><strong>Sedentarismo:</strong> Músculos débiles que se fatigan y se anudan fácilmente.</li>
-                    </ul>
+        <div class="interactive-map-section">
+            <div class="map-visual">
+                <div class="body-silhouette">
+                    <div class="body-head"></div>
+                    <div class="body-arm-l"></div>
+                    <div class="body-arm-r"></div>
+                    <div class="body-torso"></div>
+                    <div class="body-leg-l"></div>
+                    <div class="body-leg-r"></div>
+                    <!-- Hotspots -->
+                    <div class="pain-point pt-neck" onclick="showPain('neck', this)"></div>
+                    <div class="pain-point pt-scapula" onclick="showPain('scapula', this)"></div>
+                    <div class="pain-point pt-lumbar" onclick="showPain('lumbar', this)"></div>
+                    <div class="pain-point pt-glute" onclick="showPain('glute', this)"></div>
                 </div>
             </div>
-        </section>
-
-        <section id="mapa-dolor" class="content-section">
-            <h2 class="section-title">🔍 El Mapa del Dolor Referido</h2>
-            <p style="text-align: center; max-width: 800px; margin: -20px auto 40px;">Lo más sorprendente de los puntos gatillo es el <strong>dolor referido</strong>: el nudo está en un lugar, pero el dolor "viaja" a otro.</p>
-            <div class="guide-grid">
-                <div class="info-card">
-                    <h3>Cuello y Hombros</h3>
-                    <p>Causan cefaleas tensionales (dolor detrás de los ojos), mareos y pesadez constante.</p>
-                </div>
-                <div class="info-card">
-                    <h3>Espalda Baja</h3>
-                    <p>Generan rigidez al despertar y dolor que se corre hacia la cadera o glúteos.</p>
-                </div>
-                <div class="info-card">
-                    <h3>Glúteos (Falsa Ciática)</h3>
-                    <p>El nudo presiona el nervio ciático, enviando hormigueo o dolor que baja por la pierna.</p>
-                </div>
-                 <div class="info-card">
-                    <h3>Entre Omóplatos</h3>
-                    <p>Puedes sentir un "picahielo" que incluso dificulta respirar profundo.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="cuestionario" class="questionnaire-section">
-            <h2 class="section-title" style="color: var(--pc-negro);">¿Es para ti este procedimiento?</h2>
-            <p style="text-align:center; margin-top: -20px; font-weight: 600;">Marca las casillas que apliquen a tu situación. Este cuestionario es orientativo y no reemplaza una valoración médica profesional.</p>
-            
-            <div id="quiz-form">
-                <label class="form-check">¿Sufres de dolor muscular crónico que no mejora?
-                    <input type="checkbox" name="symptom" value="positive">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="form-check">¿Sientes "nudos" o "bolitas" dolorosas al tocar tus músculos?
-                    <input type="checkbox" name="symptom" value="positive">
-                    <span class="checkmark"></span>
-                </label>
-                 <label class="form-check">¿Tu dolor de cabeza parece originarse en el cuello?
-                    <input type="checkbox" name="symptom" value="positive">
-                    <span class="checkmark"></span>
-                </label>
-                <hr style="border: 0; border-top: 2px solid var(--pc-negro); margin: 20px 0;">
-                <p style="font-weight: 800;">Contraindicaciones: Marca si tienes alguna de estas condiciones.</p>
-                <label class="form-check">¿Tienes alergia a los anestésicos locales (como la lidocaína)?
-                    <input type="checkbox" name="symptom" value="negative">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="form-check">¿Tienes una infección activa en la piel en el área del dolor?
-                    <input type="checkbox" name="symptom" value="negative">
-                    <span class="checkmark"></span>
-                </label>
-                 <label class="form-check">¿Estás tomando anticoagulantes o tienes un trastorno de coagulación?
-                    <input type="checkbox" name="symptom" value="negative">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            
-            <div id="quiz-result">
-                <p id="quiz-result-text"></p>
-            </div>
-        </section>
-
-        <section id="procedimiento" class="content-section">
-             <h2 class="section-title">💉 El Procedimiento: ¿Cómo funciona?</h2>
-             <p style="text-align: center; max-width: 800px; margin: -20px auto 40px;">Es un procedimiento rápido, seguro y muy tolerable realizado por nuestro personal médico.</p>
-             <div class="guide-grid">
-                <div class="info-card">
-                    <h3>1. Localización y Limpieza</h3>
-                    <p>El médico identifica el punto exacto mediante palpación y desinfectamos la zona con cuidado.</p>
-                </div>
-                <div class="info-card">
-                    <h3>2. Inserción y Efecto</h3>
-                    <p>Usamos una aguja muy fina para depositar una pequeña dosis de anestésico local o solución salina.</p>
-                    <ul>
-                        <li><strong>Efecto Mecánico:</strong> La aguja "desata" el nudo físicamente.</li>
-                        <li><strong>Efecto Químico:</strong> El anestésico "apaga" el dolor y relaja el músculo.</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <h3>3. ¿Qué esperar?</h3>
-                     <p>El alivio es casi inmediato. Es normal sentir la zona sensible por 24-48 horas. Recomendamos estiramientos suaves y calor local para una recuperación óptima.</p>
-                </div>
-             </div>
-        </section>
-
-        <section class="cta-banner">
-            <h2 class="retro-banner-font">¿Listo para dejar atrás el dolor?</h2>
-            <p>💰 Cuota de recuperación: $300 pesos.</p>
-            <a href="https://wa.me/526611044050?text=Hola,%20me%20interesa%20agendar%20una%20cita%20para%20Inyección%20de%20Puntos%20Gatillo." class="btn btn-wa" target="_blank">📲 Agenda tu Cita por WhatsApp</a>
-        </section>
-
-    </main>
-    
-    <a href="https://wa.me/526611044050?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20servicios." class="whatsapp-float" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 .2c57.1 0 109.7 21.8 149.4 61.5l-1.3-2.1c41.1 43.1 63.3 100.9 63.3 162.2 0 105.9-86.2 192.2-192.2 192.2h-.1c-32.3 0-63.8-8.1-92.4-23.4l-6.5-4-69.8 18.3L71 359.2l-4.5-6.8c-19.1-29.1-29.4-63.1-29.4-98.3 0-105.9 86.2-192.2 192.2-192.2zM223.9 104.4l-.1 0c-15.9 0-31.5 3.1-46.2 9.2-14.7 6.1-28.1 14.6-39.7 25.3-11.6 10.7-21.2 23.5-28.3 37.8-7.1 14.3-10.7 29.7-10.7 45.4s3.6 31.1 10.7 45.4c7.1 14.3 16.7 27.1 28.3 37.8 11.6 10.7 25 19.2 39.7 25.3 14.7 6.1 30.3 9.2 46.2 9.2 61.9 0 112.4-50.5 112.4-112.4S285.8 104.4 223.9 104.4z"/></svg>
-    </a>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h4>Proyecto Celene</h4>
-                <p>Tu salud es nuestra causa. Una fundación dedicada a la memoria y obra de Celene Sandoval.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navegación</h4>
-                <a href="inicio.html">Inicio</a>
-                <a href="quienes-somos.html">Quiénes Somos</a>
-                <a href="servicios.html">Servicios</a>
-                <a href="unete-a-nuestro-equipo.html">Únete al Equipo</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contacto</h4>
-                <p>📍 Calle Gral. Guadalupe Victoria, Col. Lienzo Charro, Rosarito.</p>
-                <p>📲 WhatsApp: 661 104 4050</p>
-                <p>📧 director@proyectocelene.org</p>
+            <div class="map-text">
+                <h3 id="map-title" class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 10px;">¿Dónde te duele?</h3>
+                <p id="map-desc" style="font-size: 1.1rem; color: #444; font-weight: 600;">Selecciona un punto rojo en la silueta para descubrir cómo un nudo en esa zona puede estar causando tu dolor.</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Proyecto Celene. Todos los derechos reservados.</p>
+
+        <div class="content-box">
+            <h2 class="hand-drawn">3. El Procedimiento: ¿Cómo funciona la TPI?</h2>
+            <p>Es un procedimiento médico rápido, seguro y muy tolerable. Así lo hacemos en Proyecto Celene:</p>
+            <!-- ANIMACIÓN CSS -->
+            <div class="diagram-container">
+                <h4 style="position: absolute; top: 10px; left: 15px; font-family: 'Handlee', cursive; color: var(--pc-rosa-oscuro);">El "Reset" Muscular:</h4>
+                <div class="syringe-plunger"></div>
+                <div class="syringe-body"></div>
+                <div class="needle"></div>
+                <div class="muscle-band">
+                    <div class="knot"></div>
+                </div>
+                <p style="margin-top: 25px; text-align: center; font-size: 0.95rem;"><strong>Efecto Mecánico:</strong> La aguja "desata" o rompe el nudo físicamente.<br><strong>Efecto Químico:</strong> El anestésico (lidocaína) apaga el dolor, permitiendo que la sangre regrese.</p>
+            </div>
+
+            <ul style="margin-top: 20px;">
+                <li><strong>1️⃣ Localización:</strong> El médico identifica el punto exacto mediante palpación y presión.</li>
+                <li><strong>2️⃣ Limpieza:</strong> Desinfectamos la zona con cuidado y alcohol.</li>
+                <li><strong>3️⃣ Inserción:</strong> Usamos una aguja muy fina (tipo insulina). Al tocar el nudo, el músculo da un pequeño "brinquito", indicando que le atinamos al origen.</li>
+                <li><strong>4️⃣ Efecto dominó:</strong> Al relajar ese punto, el dolor referido (ej. en la cabeza o pierna) empieza a desaparecer.</li>
+            </ul>
         </div>
-    </footer>
+
+        <div class="content-box">
+            <h2 class="hand-drawn">4. ¿Qué esperar y Home Care?</h2>
+            <p><strong>Porcentaje de Éxito:</strong> Es sumamente alto, superior al 80-90% para alivio casi inmediato.</p>
+            <p><strong>¿Cuántas sesiones?</strong> Muchos sanan en una sola sesión, aunque casos crónicos o muy tensos pueden requerir de 3 a 5 visitas.</p>
+            <p><strong>Después del proceso:</strong> Es normal sentir la zona sensible por 24-48 horas, como si hubieras hecho mucho ejercicio. ¡El movimiento es clave! Recomendamos estiramientos suaves. 🚫 NO cargues cosas pesadas ese día.</p>
+        </div>
+
+        <div class="content-box highlight">
+            <h2 class="hand-drawn">5. ¿Qué puedes hacer tú HOY MISMO? 🏠</h2>
+            <p>Antes de tu cita, intenta mitigar el dolor en casa con estos 3 pasos:</p>
+            <ul style="font-size: 1.1rem; color: var(--pc-negro);">
+                <li>🔥 <strong>Calor local:</strong> Aplica una compresa caliente por 15 minutos para relajar las fibras superficiales.</li>
+                <li>🎾 <strong>Auto-masaje:</strong> Usa una pelota de tenis contra la pared, colócala justo en el nudo y recárgate suavemente para presionar el punto exacto.</li>
+                <li>🚶‍♀️ <strong>Pausas activas:</strong> Si trabajas sentado, levántate, estira los brazos y muévete cada 40 minutos sin falta.</li>
+            </ul>
+        </div>
+
+        <!-- TEST INTERACTIVO -->
+        <div class="quiz-box">
+            <h2 class="hand-drawn" style="border: none; color: var(--pc-negro); margin-bottom: 5px; font-size: 2.2rem;">6. ¿Eres Candidato/a?</h2>
+            <p style="margin-bottom: 25px;">Responde estas 4 preguntas rápidas para saber si este procedimiento es seguro y efectivo para ti:</p>
+
+            <div class="quiz-question">
+                <span>1. ¿Sientes una "bolita" o cordón duro en el músculo que duele mucho al presionarlo?</span>
+                <div class="quiz-options">
+                    <input type="radio" name="q1" id="q1_y" value="yes" class="quiz-radio"><label for="q1_y" class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q1" id="q1_n" value="no" class="quiz-radio"><label for="q1_n" class="quiz-lbl">No</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <span>2. ¿El dolor lleva días o semanas sin quitarse con masajes normales o pastillas?</span>
+                <div class="quiz-options">
+                    <input type="radio" name="q2" id="q2_y" value="yes" class="quiz-radio"><label for="q2_y" class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q2" id="q2_n" value="no" class="quiz-radio"><label for="q2_n" class="quiz-lbl">No</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <span>3. ¿Tienes fiebre, o la zona que te duele está caliente, roja o infectada?</span>
+                <div class="quiz-options">
+                    <input type="radio" name="q3" id="q3_y" value="stop" class="quiz-radio"><label for="q3_y" class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q3" id="q3_n" value="good" class="quiz-radio"><label for="q3_n" class="quiz-lbl">No</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <span>4. ¿Le tienes fobia incontrolable a las agujas / piquetes?</span>
+                <div class="quiz-options">
+                    <input type="radio" name="q4" id="q4_y" value="fobia" class="quiz-radio"><label for="q4_y" class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q4" id="q4_n" value="good" class="quiz-radio"><label for="q4_n" class="quiz-lbl">No</label>
+                </div>
+            </div>
+
+            <button onclick="evaluarGatillo()" class="btn" style="width: 100%; max-width: none; background: var(--pc-negro); box-shadow: 0 5px 0 #000; margin-top: 15px;">Ver Resultado</button>
+            
+            <div id="quizResult"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px;">¿Listo para dejar atrás el dolor?</h3>
+            <p style="margin-bottom: 20px; font-size: 1.1rem; max-width: 600px; margin-inline: auto;">En nuestra fundación nos mueve tu salud. Ofrecemos este servicio bajo una cuota accesible que incluye la valoración médica, material estéril y la aplicación.</p>
+            
+            <p style="font-weight: 900; font-size: 1.5rem; color: var(--pc-rosa-fuerte); margin-bottom: 15px; background: var(--pc-rosa-pastell); display: inline-block; padding: 10px 20px; border-radius: 15px; border: 3px dashed var(--pc-negro);">Cuota de recuperación: $300 M.N.</p>
+            <br>
+            <a href="https://wa.me/526611044050?text=Hola,%20leí%20la%20guía%20médica%20y%20quiero%20agendar%20una%20Inyección%20de%20Puntos%20Gatillo%20para%20sentir%20ALIVIO." class="btn" style="font-size: 1.3rem; padding: 20px 40px; display: inline-block;">Agendar mi Sesión por WhatsApp 💬</a>
+            
+            <p style="margin-top: 25px; color: #555; font-weight: 600;">📍 Visítanos en: Calle Gral. Guadalupe Victoria, Col. Lienzo Charro, Rosarito.</p>
+        </div>
+
+    </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const quizForm = document.getElementById('quiz-form');
-            const quizResult = document.getElementById('quiz-result');
-            const quizResultText = document.getElementById('quiz-result-text');
+        // Lógica del Mapa de Dolor Interactivo
+        const painData = {
+            'neck': {
+                title: 'Cuello y Hombros',
+                desc: 'Un nudo en el trapecio causa el temido "cuello de texto". Genera cefaleas tensionales (dolor intenso detrás de los ojos o en las sienes), mareos y una pesadez constante que no te deja trabajar.'
+            },
+            'scapula': {
+                title: 'Entre los Omóplatos',
+                desc: 'Sientes un piquete como de "picahielo" constante. A veces este nudo es tan severo que incluso sientes que te cuesta respirar profundo o simula un dolor en los brazos/codos.'
+            },
+            'lumbar': {
+                title: 'Espalda Baja (Lumbar)',
+                desc: 'Generan una rigidez terrible al despertar. Sientes que no puedes enderezarte por completo y el dolor suele correrse hacia la cadera a lo largo del día.'
+            },
+            'glute': {
+                title: 'Glúteos (Falsa Ciática)',
+                desc: '¡El engaño más común! El nudo piriforme presiona el nervio ciático, enviando hormigueo, adormecimiento o dolor punzante que baja por toda la pierna simulando problemas de columna.'
+            }
+        };
 
-            quizForm.addEventListener('change', function() {
-                const checked = quizForm.querySelectorAll('input[type="checkbox"]:checked');
-                let positivePoints = 0;
-                let negativePoints = 0;
-
-                checked.forEach(checkbox => {
-                    if (checkbox.value === 'positive') {
-                        positivePoints++;
-                    } else if (checkbox.value === 'negative') {
-                        negativePoints++;
-                    }
-                });
-
-                quizResult.style.display = 'block';
-
-                if (negativePoints > 0) {
-                    quizResultText.innerHTML = '<strong>Posible Contraindicación:</strong> Has marcado una o más condiciones que podrían ser una contraindicación. Es fundamental que lo discutas con nuestro equipo médico antes de agendar. ¡Contáctanos para orientarte!';
-                    quizResult.className = 'result-bad';
-                } else if (positivePoints > 0) {
-                    quizResultText.innerHTML = '<strong>Eres un buen candidato:</strong> Basado en tus respuestas, este procedimiento podría ser muy beneficioso para ti. Te recomendamos agendar una valoración médica para confirmarlo.';
-                     quizResult.className = 'result-good';
-                } else {
-                    quizResult.style.display = 'none';
-                    quizResultText.innerHTML = '';
-                }
-            });
+        function showPain(area, element) {
+            // Quitar clase active de todos los puntos
+            document.querySelectorAll('.pain-point').forEach(pt => pt.classList.remove('active'));
+            // Añadir active al clickeado
+            element.classList.add('active');
             
-            // --- Fade-in Animation ---
-            const faders = document.querySelectorAll('.fade-in');
-            const appearOptions = {
-                threshold: 0.5,
-                rootMargin: "0px 0px -50px 0px"
-            };
-            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    } else {
-                        entry.target.classList.add('appear');
-                        appearOnScroll.unobserve(entry.target);
-                    }
-                });
-            }, appearOptions);
+            // Actualizar textos
+            document.getElementById('map-title').innerText = painData[area].title;
+            document.getElementById('map-desc').innerHTML = painData[area].desc + "<br><br><strong style='color:var(--pc-rosa-fuerte);'>¡La inyección TPI desactiva este origen en minutos!</strong>";
+        }
 
-            faders.forEach(fader => {
-                appearOnScroll.observe(fader);
-            });
-        });
-        
-        // --- Mobile Menu ---
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        // Lógica del Cuestionario
+        function evaluarGatillo() {
+            let resBox = document.getElementById('quizResult');
+            
+            // Validar que respondieron todo
+            let q1 = document.querySelector('input[name="q1"]:checked');
+            let q2 = document.querySelector('input[name="q2"]:checked');
+            let q3 = document.querySelector('input[name="q3"]:checked');
+            let q4 = document.querySelector('input[name="q4"]:checked');
 
+            if(!q1 || !q2 || !q3 || !q4) {
+                alert("Por favor, responde todas las preguntas del test.");
+                return;
+            }
+
+            if(q3.value === 'stop') {
+                resBox.innerHTML = "🚨 <strong>NO eres candidato en este momento.</strong><br>La presencia de fiebre o calor extremo en la zona sugiere una posible INFECCIÓN. Inyectar ahí puede ser peligroso. Te sugerimos agendar una <a href='consulta-general.html' style='color:var(--pc-rosa-fuerte);'>Consulta Médica General</a> primero.";
+                resBox.style.borderColor = "#d32f2f";
+            } else if (q4.value === 'fobia') {
+                resBox.innerHTML = "💆‍♀️ <strong>Alternativa Sugerida:</strong><br>Ya que tienes fobia extrema a las agujas, la tensión del piquete podría empeorar tu nudo. Te recomendamos probar primero con <strong>terapia manual</strong>. Agenda con nuestro <a href='sobador-tony.html' style='color:var(--pc-rosa-fuerte);'>Sobador Tradicional</a> o nuestra <a href='fisioterapeuta-lupita.html' style='color:var(--pc-rosa-fuerte);'>Fisioterapeuta</a>.";
+                resBox.style.borderColor = "#f57c00";
+            } else if (q1.value === 'yes' || q2.value === 'yes') {
+                resBox.innerHTML = "✅ <strong>¡Eres un excelente candidato!</strong><br>Tus síntomas coinciden perfectamente con el Síndrome Miofascial. Esta inyección te dará un alivio inmenso. ¡Agenda tu cita en el botón verde de abajo!";
+                resBox.style.borderColor = "#388e3c";
+            } else {
+                resBox.innerHTML = "🤔 <strong>Resultado Inconcluso:</strong><br>Tus síntomas no son los clásicos de un Punto Gatillo. Te sugerimos agendar una <a href='consulta-general.html' style='color:var(--pc-rosa-fuerte);'>Consulta Médica General</a> para revisar qué está causando tus molestias antes de inyectar.";
+                resBox.style.borderColor = "#1976d2";
+            }
+
+            resBox.style.display = "block";
+        }
     </script>
 </body>
 </html>
