@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salud Sexual - Proyecto Celene</title>
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/salud-sexual.html">
+    <meta property="og:title" content="Clínica de Salud Sexual - Proyecto Celene">
+    <meta property="og:description" content="Tu salud íntima es importante. Espacio seguro, confidencial y sin juicios para pruebas ITS y consejería.">
+    <meta property="og:image" content="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/salud-sexual.html">
+    <meta property="twitter:title" content="Clínica de Salud Sexual - Proyecto Celene">
+    <meta property="twitter:description" content="Tu salud íntima es importante. Espacio seguro, confidencial y sin juicios para pruebas ITS y consejería.">
+    <meta property="twitter:image" content="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg">
+
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
         :root { --pc-rosa-pastell:#fce4ec; --pc-rosa-fuerte:#d81b60; --pc-negro:#333; --pc-blanco:#fff; --pc-amarillo:#fff9c4; --pc-azul-suave:#e3f2fd; }
@@ -41,6 +56,13 @@
         
         .X81W0b { border: 4px solid var(--pc-negro) !important; font-family: 'Nunito', sans-serif !important; font-weight: 800 !important; border-radius: 50px !important; padding: 15px 20px !important; box-shadow: 0 6px 0 var(--pc-negro) !important; font-size: 1.1rem !important; }
         .X81W0b:active { box-shadow: 0 0 0 transparent !important; transform: translateY(6px); }
+
+        /* TEST ITS */
+        .quiz-toggle-btn { background: var(--pc-rosa-fuerte); color: white; border: 3px solid var(--pc-negro); border-radius: 50px; padding: 15px; font-size: 1.1rem; font-weight: 800; width: 100%; cursor: pointer; box-shadow: 0 5px 0 var(--pc-negro); transition: 0.1s; font-family: 'Nunito', sans-serif; margin-bottom: 20px; }
+        .quiz-toggle-btn:active { top: 5px; box-shadow: 0 0px 0 var(--pc-negro); transform: translateY(5px); }
+        .quiz-label { display: block; background: white; border: 2px solid #ccc; padding: 12px 15px; border-radius: 10px; margin-bottom: 8px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+        .quiz-label:hover { border-color: var(--pc-negro); background: var(--pc-rosa-pastell); }
+        .quiz-label input { margin-right: 10px; transform: scale(1.3); }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
@@ -57,6 +79,28 @@
             <ul><li><strong>Prueba de VIH GRATUITA:</strong> Resultado en 15 minutos. Indetectable = Intransmisible.</li><li><strong>Condones Gratis:</strong> Solicítalos en recepción sin pena ni preguntas.</li><li><strong>Paquete ITS Básico ($400):</strong> Evalúa VIH, Sífilis, Hepatitis B y C de manera rápida.</li><li><strong>Paquete ITS Completo ($600):</strong> Añade detección precisa de Gonorrea y Clamidia.</li></ul>
             <p style="margin-top:20px;">Recuerda: Muchas infecciones son completamente silenciosas y no presentan síntomas. Un chequeo de rutina te da paz mental absoluta y protege tu fertilidad a futuro.</p>
             
+            <!-- TEST ITS -->
+            <div style="background: var(--pc-gris-suave); padding: 25px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin: 30px 0;">
+                <button class="quiz-toggle-btn" onclick="toggleQuiz()">¿Necesito una prueba de ITS? Haz el test privado <span aria-hidden='true'>🔍</span></button>
+                
+                <div id="quizContent" style="display: none; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="margin-bottom: 15px; font-size:1.05rem; color:#555;">Marca las casillas que apliquen a tu caso (tu información es 100% confidencial y no se guarda):</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Tuviste relaciones sin condón</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Más de una pareja sexual en los últimos 12 meses</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> No sabes si tu pareja se ha hecho pruebas</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Tienes síntomas como ardor, comezón o secreción</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Alguna vez pensaste: "No creo que me pase a mí"</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Lo hiciste "nomás tantito" sin protección</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Usaste o compartiste agujas o jeringas</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Te hiciste tatuajes sin medidas higiénicas</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Contacto con sangre u otros fluidos en el trabajo</label>
+                    </div>
+                    <button class="btn" style="width: 100%; max-width: 300px; display: block; margin: 0 auto; background: var(--pc-negro); border-color: var(--pc-negro); box-shadow: 0 5px 0 #000;" onclick="calculateQuiz()">Ver mi resultado</button>
+                    <div id="quizResult" style="display:none; margin-top: 25px; padding: 20px; border-radius: 10px; border-left: 5px solid var(--pc-rosa-fuerte); background: var(--pc-rosa-pastell); font-size: 1.15rem; line-height: 1.5;"></div>
+                </div>
+            </div>
+
             <button onclick="openModal('modalSaludSexual')" class="btn" style="margin-bottom: 15px;">Agendar por WhatsApp <span aria-hidden='true'>💬</span></button>
             
             <!-- Botón Calendario Google -->
@@ -119,6 +163,33 @@
             let s = document.getElementById('ss_servicio').value || 'Información General';
             window.open(`https://wa.me/526611044050?text=${encodeURIComponent(`Hola, mi nombre es ${n} y me interesa el servicio de Salud Sexual: *${s}*.`)}`, '_blank');
             closeModal('modalSaludSexual');
+        }
+
+        /* Funciones del test ITS */
+        function toggleQuiz() {
+            let content = document.getElementById('quizContent');
+            content.style.display = (content.style.display === 'none') ? 'block' : 'none';
+        }
+
+        function calculateQuiz() {
+            let checkboxes = document.querySelectorAll('.its-quiz:checked');
+            let resultDiv = document.getElementById('quizResult');
+            let score = checkboxes.length;
+            
+            let html = "";
+            if(score <= 1) {
+                html = "<strong>0–1 puntos → BAJO RIESGO:</strong><br> Vas bien, pero no te confíes. Sigue protegiéndote con condón. ¡Prevenir es amarte!";
+                resultDiv.style.borderLeftColor = "#25d366"; resultDiv.style.background = "#e8f5e9";
+            } else if(score <= 4) {
+                html = "<strong>2–4 puntos → RIESGO MODERADO:</strong><br> Más vale checar que lamentar. Te invitamos con total confianza a agendar nuestro <strong>Paquete Básico o Pareja</strong>. ¡Cuidamos de ti sin juzgarte!";
+                resultDiv.style.borderLeftColor = "#f0ad4e"; resultDiv.style.background = "#fff3e0";
+            } else {
+                html = "<strong>5 o más puntos → RIESGO ALTO:</strong><br> Necesitas una prueba... ¡y pronto! Agenda nuestro <strong>Paquete Completo Tranquilo</strong> hoy mismo. Deja de vivir con la duda, estamos aquí para apoyarte y guiarte con amor y absoluta discreción.";
+                resultDiv.style.borderLeftColor = "#d81b60"; resultDiv.style.background = "#fce4ec";
+            }
+            
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = "block";
         }
     </script>
 <script src="js/global.js"></script>

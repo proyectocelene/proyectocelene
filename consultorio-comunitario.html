@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultorio Comunitario - Proyecto Celene</title>
-    <meta name="description" content="El área médica de Proyecto Celene. Brindamos servicios de salud integral, consultas, laboratorios y prevención con cuotas accesibles.">
+    <meta name="description"
+        content="El área médica de Proyecto Celene. Brindamos servicios de salud integral, consultas, laboratorios y prevención con cuotas accesibles.">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/consultorio-comunitario.html">
+    <meta property="og:title" content="Consultorio Comunitario - Proyecto Celene">
+    <meta property="og:description" content="El área médica de Proyecto Celene. Brindamos servicios de salud integral, consultas y prevención con cuotas accesibles.">
+    <meta property="og:image" content="https://i.ibb.co/k2LCbnsF/tcarta-volante.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/consultorio-comunitario.html">
+    <meta property="twitter:title" content="Consultorio Comunitario - Proyecto Celene">
+    <meta property="twitter:description" content="El área médica de Proyecto Celene. Brindamos servicios de salud integral, consultas y prevención con cuotas accesibles.">
+    <meta property="twitter:image" content="https://i.ibb.co/k2LCbnsF/tcarta-volante.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --pc-rosa-pastell: #fce4ec;
@@ -21,126 +38,268 @@
             --pc-gris-suave: #f9f9f9;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 60px; }
-        .hand-drawn { font-family: 'Handlee', cursive; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 15px; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-gris-suave);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px;
+        }
 
         /* NAVEGACIÓN PRINCIPAL */
         .main-nav {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-            margin-bottom: 25px; padding: 15px; background: var(--pc-blanco);
-            border: 3px solid var(--pc-negro); border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
             box-shadow: 6px 6px 0px var(--pc-rosa-pastell);
         }
+
         .main-nav a {
-            text-decoration: none; color: var(--pc-negro); font-weight: 800;
-            font-size: 1.05rem; padding: 8px 15px; border-radius: 15px;
-            transition: all 0.2s; border: 2px solid transparent;
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: all 0.2s;
+            border: 2px solid transparent;
         }
-        .main-nav a:hover { background: var(--pc-rosa-fuerte); color: var(--pc-blanco); border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); transform: translateY(-2px); }
+
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte);
+            color: var(--pc-blanco);
+            border-color: var(--pc-negro);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+            transform: translateY(-2px);
+        }
 
         /* HEADER */
-        .header { 
-            text-align: center; padding: 40px 20px; background: var(--pc-blanco); 
-            border: 4px solid var(--pc-negro); border-radius: 25px; 
-            margin-bottom: 40px; box-shadow: 8px 8px 0px var(--pc-azul-suave); 
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-blanco);
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 8px 8px 0px var(--pc-azul-suave);
         }
+
         .header-img {
-            max-width: 100%; width: 450px; height: auto; margin: 0 auto 15px; display: block;
+            max-width: 100%;
+            width: 450px;
+            height: auto;
+            margin: 0 auto 15px;
+            display: block;
         }
-        .header-info { font-size: 1.15rem; max-width: 800px; margin: 0 auto; font-weight: 600; color: #444; }
+
+        .header-info {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 600;
+            color: #444;
+        }
 
         /* GRID DE ÁREAS MÉDICAS */
-        .medical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        
-        .med-card {
-            background: white; border: 3px solid var(--pc-negro); border-radius: 20px;
-            padding: 25px; text-align: center; transition: transform 0.2s;
-            box-shadow: 6px 6px 0px var(--pc-rosa-pastell); display: flex; flex-direction: column;
+        .medical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
-        .med-card:hover { transform: translateY(-6px); box-shadow: 8px 8px 0px var(--pc-amarillo); }
-        
-        .med-card h3 { color: var(--pc-negro); font-size: 1.6rem; margin-bottom: 15px; }
-        .med-card p { font-size: 1rem; color: #555; font-weight: 600; margin-bottom: 20px; flex-grow: 1; }
-        
-        .btn { 
-            display: inline-block; text-align: center; padding: 12px 20px; border-radius: 50px; 
-            border: 3px solid var(--pc-negro); font-weight: 800; text-decoration: none; 
-            font-size: 1.1rem; cursor: pointer; position: relative; top: 0; transition: all 0.1s; 
-            font-family: 'Nunito', sans-serif; box-shadow: 0 4px 0 var(--pc-negro); width: 100%;
-        }
-        .btn:active { top: 4px; box-shadow: 0 0px 0 var(--pc-negro); }
-        .btn-rosa { background: var(--pc-rosa-fuerte); color: white; }
-        .btn-azul { background: var(--pc-azul-suave); color: var(--pc-negro); }
-        .btn-amarillo { background: var(--pc-amarillo); color: var(--pc-negro); }
-        .btn-wa { background: var(--pc-verde-wa); color: white; }
 
-        @media (max-width: 600px) { .header h1 { font-size: 2.2rem; } }
+        .med-card {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.2s;
+            box-shadow: 6px 6px 0px var(--pc-rosa-pastell);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .med-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 8px 8px 0px var(--pc-amarillo);
+        }
+
+        .med-card h3 {
+            color: var(--pc-negro);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .med-card p {
+            font-size: 1rem;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            text-align: center;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 3px solid var(--pc-negro);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: relative;
+            top: 0;
+            transition: all 0.1s;
+            font-family: 'Nunito', sans-serif;
+            box-shadow: 0 4px 0 var(--pc-negro);
+            width: 100%;
+        }
+
+        .btn:active {
+            top: 4px;
+            box-shadow: 0 0px 0 var(--pc-negro);
+        }
+
+        .btn-rosa {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+        }
+
+        .btn-azul {
+            background: var(--pc-azul-suave);
+            color: var(--pc-negro);
+        }
+
+        .btn-amarillo {
+            background: var(--pc-amarillo);
+            color: var(--pc-negro);
+        }
+
+        .btn-wa {
+            background: var(--pc-verde-wa);
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+        }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
 
-<div class="container">
-    <div id="navbar-container" class="main-nav"></div>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
 
-    <header class="header">
-        <img src="https://i.ibb.co/k2LCbnsF/tcarta-volante.png" alt="Logo Consultorio Comunitario Proyecto Celene" class="header-img">
-        <p class="header-info">Bienvenido al corazón médico de Proyecto Celene. Aquí centralizamos todos nuestros esfuerzos de salud clínica, preventiva y tradicional para ofrecerte atención humana, profesional y a costos sumamente accesibles.</p>
-        
-        <div style="text-align: center; margin-top: 25px;">
-            <a href="servicios.html" class="btn btn-rosa" style="max-width: 400px; font-size: 1.2rem; padding: 15px;"><span aria-hidden='true'>📋</span> Conoce Todos Nuestros Servicios ➔</a>
-        </div>
-    </header>
+        <header class="header">
+            <img src="https://i.ibb.co/k2LCbnsF/tcarta-volante.png" alt="Logo Consultorio Comunitario Proyecto Celene"
+                class="header-img">
+            <p class="header-info">Bienvenido al corazón médico de Proyecto Celene. Aquí centralizamos todos nuestros
+                esfuerzos de salud clínica, preventiva y tradicional para ofrecerte atención humana, profesional y a
+                costos sumamente accesibles.</p>
 
-    <div class="medical-grid">
-        
-        <div class="med-card">
-            <img src="https://i.ibb.co/whkTFwLf/MAMOGRAFIA.jpg" alt="Mastografía Gratuita" style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
-            <h3 class="hand-drawn">🎀 Mastografía Gratuita</h3>
-            <p>Estudios gratuitos para mujeres de 40 años o más (o 35 con antecedentes). Detección oportuna.</p>
-            <a href="mastografia-gratuita.html" class="btn btn-rosa">Saber más ➔</a>
-        </div>
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="servicios.html" class="btn btn-rosa"
+                    style="max-width: 400px; font-size: 1.2rem; padding: 15px;"><span aria-hidden='true'>📋</span>
+                    Conoce Todos Nuestros Servicios ➔</a>
+            </div>
+        </header>
 
-        <div class="med-card">
-            <img src="https://i.ibb.co/zhSRq5hX/CONSULTA-GENERAL.jpg" alt="Consulta General" style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
-            <h3 class="hand-drawn"><span aria-hidden='true'>🩺</span> Consulta General</h3>
-            <p>Atención profesional empática, tanto presencial como virtual, con una cuota de recuperación accesible.</p>
-            <a href="consulta-general.html" class="btn btn-azul">Saber más ➔</a>
-        </div>
+        <div class="medical-grid">
 
-        <div class="med-card">
-            <img src="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg" alt="Orientación Médica Gratuita" style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
-            <h3 class="hand-drawn"><span aria-hidden='true'>💬</span> Orientación Médica Gratuita</h3>
-            <p>Resuelve dudas rápidas, recibe orientación profesional o agenda una teleconsulta sin salir de casa.</p>
-            <a href="orientacion-medica-gratuita.html" class="btn btn-wa">Ir a Orientación ➔</a>
-        </div>
+            <div class="med-card">
+                <img src="https://i.ibb.co/whkTFwLf/MAMOGRAFIA.jpg" alt="Mastografía Gratuita"
+                    style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
+                <h3 class="hand-drawn">🎀 Mastografía Gratuita</h3>
+                <p>Estudios gratuitos para mujeres de 40 años o más (o 35 con antecedentes). Detección oportuna.</p>
+                <a href="mastografia-gratuita.html" class="btn btn-rosa">Saber más ➔</a>
+            </div>
 
-        <div class="med-card">
-            <img src="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg" alt="Clínica de Salud Sexual e ITS" style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
-            <h3 class="hand-drawn">🛡️ Clínica de Salud Sexual</h3>
-            <p>Pruebas de VIH gratuitas, paquetes de detección de ITS y orientación en planificación familiar confidencial.</p>
-            <a href="salud-sexual.html" class="btn btn-amarillo">Saber más ➔</a>
-        </div>
+            <div class="med-card">
+                <img src="https://i.ibb.co/zhSRq5hX/CONSULTA-GENERAL.jpg" alt="Consulta General"
+                    style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
+                <h3 class="hand-drawn"><span aria-hidden='true'>🩺</span> Consulta General</h3>
+                <p>Atención profesional empática, tanto presencial como virtual, con una cuota de recuperación
+                    accesible.</p>
+                <a href="consulta-general.html" class="btn btn-azul">Saber más ➔</a>
+            </div>
 
-        <div class="med-card">
-            <img src="https://i.ibb.co/Q7rXQMZd/EDUCACION.jpg" alt="Educación para Pacientes" style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
-            <h3 class="hand-drawn"><span aria-hidden='true'>📖</span> Educación para Pacientes</h3>
-            <p>Aprende a cuidar tu cuerpo. Encuentra manuales, infografías y herramientas de prevención integral.</p>
-            <a href="recursos-educativos.html" class="btn btn-azul">Explorar Recursos ➔</a>
-        </div>
+            <div class="med-card">
+                <img src="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg" alt="Orientación Médica Gratuita"
+                    style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
+                <h3 class="hand-drawn"><span aria-hidden='true'>💬</span> Orientación Médica Gratuita</h3>
+                <p>Resuelve dudas rápidas, recibe orientación profesional o agenda una teleconsulta sin salir de casa.
+                </p>
+                <a href="orientacion-medica-gratuita.html" class="btn btn-wa">Ir a Orientación ➔</a>
+            </div>
 
-        <div class="med-card">
-            <img src="https://i.ibb.co/JjwF3cQm/FARMACIA-SOLIDARIA.jpg" alt="Farmacia Solidaria" style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
-            <h3 class="hand-drawn"><span aria-hidden='true'>💊</span> Farmacia Solidaria</h3>
-            <p>Un proyecto de apoyo mutuo para distribuir medicamentos a cuotas simbólicas para quienes más lo necesitan.</p>
-            <a href="farmacia-solidaria.html" class="btn btn-amarillo">Ir a la Farmacia ➔</a>
+            <div class="med-card">
+                <img src="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg" alt="Clínica de Salud Sexual e ITS"
+                    style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
+                <h3 class="hand-drawn">🛡️ Clínica de Salud Sexual</h3>
+                <p>Pruebas de VIH gratuitas, paquetes de detección de ITS y orientación en planificación familiar
+                    confidencial.</p>
+                <a href="salud-sexual.html" class="btn btn-amarillo">Saber más ➔</a>
+            </div>
+
+            <div class="med-card">
+                <img src="https://i.ibb.co/Q7rXQMZd/EDUCACION.jpg" alt="Educación para Pacientes"
+                    style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
+                <h3 class="hand-drawn"><span aria-hidden='true'>📖</span> Educación para Pacientes</h3>
+                <p>Aprende a cuidar tu cuerpo. Encuentra manuales, infografías y herramientas de prevención integral.
+                </p>
+                <a href="recursos-educativos.html" class="btn btn-azul">Explorar Recursos ➔</a>
+            </div>
+
+            <div class="med-card">
+                <img src="https://i.ibb.co/JjwF3cQm/FARMACIA-SOLIDARIA.jpg" alt="Farmacia Solidaria"
+                    style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: contain; background: white;">
+                <h3 class="hand-drawn"><span aria-hidden='true'>💊</span> Farmacia Solidaria</h3>
+                <p>Un proyecto de apoyo mutuo para distribuir medicamentos a cuotas simbólicas para quienes más lo
+                    necesitan.</p>
+                <a href="farmacia-solidaria.html" class="btn btn-amarillo">Ir a la Farmacia ➔</a>
+            </div>
+
+            <!-- Nueva Clínica de Control de Peso -->
+            <div class="med-card">
+                <img src="https://i.ibb.co/BVbcyxJB/snoopy-control-de-peso.png"
+                    alt="Clínica de Control de Peso"
+                    style="width: 100%; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; aspect-ratio: 1/1; object-fit: cover; background: white;">
+                <h3 class="hand-drawn"><span aria-hidden='true'>⚖️</span> Control de Peso</h3>
+                <p>Logra tu peso ideal de forma saludable, sin dietas extremas y con acompañamiento médico, clínico y
+                    personalizado.</p>
+                <a href="control-de-peso.html" class="btn btn-rosa">Saber más ➔</a>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="js/global.js"></script>
+    <script src="js/global.js"></script>
 </body>
+
 </html>

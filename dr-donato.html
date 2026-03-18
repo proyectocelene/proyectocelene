@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Carlos Donato - Proyecto Celene</title>
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/dr-donato.html">
+    <meta property="og:title" content="Dr. Carlos Donato - Proyecto Celene">
+    <meta property="og:description" content="Conoce al Dr. Carlos Donato, Coordinador Médico y Operativo de Proyecto Celene.">
+    <meta property="og:image" content="https://i.ibb.co/ztp8mz1/DR-DONATO.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/dr-donato.html">
+    <meta property="twitter:title" content="Dr. Carlos Donato - Proyecto Celene">
+    <meta property="twitter:description" content="Conoce al Dr. Carlos Donato, Coordinador Médico y Operativo de Proyecto Celene.">
+    <meta property="twitter:image" content="https://i.ibb.co/ztp8mz1/DR-DONATO.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-rosa-medio: #f06292;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde-wa: #25d366;
+            --pc-gris-suave: #f9f9f9;
+            --pc-azul-profundo: #118AB2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-gris-suave);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* NAV */
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0px var(--pc-rosa-pastell);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            border-color: var(--pc-negro);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        /* HERO */
+        .hero-profile {
+            background: var(--pc-azul-suave);
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            padding: 40px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 10px 10px 0 var(--pc-azul-profundo);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-img-box {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 20px;
+            border: 4px solid var(--pc-negro);
+            box-shadow: 8px 8px 0 var(--pc-blanco);
+            transform: rotate(-2deg);
+        }
+
+        .hero-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            color: var(--pc-rosa-fuerte);
+            line-height: 1.1;
+            margin-bottom: 5px;
+        }
+
+        .hero-text h2 {
+            font-size: 1.4rem;
+            color: var(--pc-azul-profundo);
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .quote-bubble {
+            background: var(--pc-blanco);
+            border: 3px dashed var(--pc-negro);
+            padding: 20px;
+            border-radius: 15px 15px 15px 0;
+            font-family: 'Handlee', cursive;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            color: var(--pc-negro);
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: 3px solid var(--pc-negro);
+            font-weight: 900;
+            text-decoration: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.1s;
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            box-shadow: 0 5px 0 var(--pc-negro);
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn:active {
+            top: 5px;
+            box-shadow: 0 0px 0 transparent !important;
+        }
+
+        .btn-wa {
+            background: var(--pc-verde-wa);
+            color: white;
+        }
+
+        .btn-rosa {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+        }
+
+        /* SECTIONS */
+        .content-section {
+            background: var(--pc-blanco);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 8px 8px 0 var(--pc-amarillo);
+        }
+
+        .content-section.dark {
+            background: var(--pc-negro);
+            color: var(--pc-blanco);
+            box-shadow: 8px 8px 0 var(--pc-rosa-medio);
+        }
+
+        .content-section h3 {
+            font-size: 2rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--pc-gris-suave);
+            padding-bottom: 10px;
+        }
+
+        .content-section.dark h3 {
+            color: var(--pc-amarillo);
+            border-color: #555;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* GRID DE ÁREAS Y CERTIFICACIONES */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tag-card {
+            background: var(--pc-gris-suave);
+            border: 2px solid var(--pc-negro);
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+        }
+
+        /* CAROUSEL FOTOS */
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-top: 30px;
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            background: var(--pc-blanco);
+            box-shadow: 8px 8px 0 var(--pc-amarillo);
+        }
+
+        .carousel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 25px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--pc-rosa-fuerte) var(--pc-gris-suave);
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .carousel-track::-webkit-scrollbar-track {
+            background: var(--pc-gris-suave);
+            border-radius: 10px;
+        }
+
+        .carousel-track::-webkit-scrollbar-thumb {
+            background: var(--pc-rosa-fuerte);
+            border-radius: 10px;
+        }
+
+        .carousel-slide {
+            min-width: 280px;
+            max-width: 320px;
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            background: var(--pc-gris-suave);
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        .carousel-slide img:hover {
+            transform: scale(1.02);
+            box-shadow: 4px 4px 0 var(--pc-rosa-fuerte);
+        }
+
+        .carousel-slide p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        .carousel-slide strong {
+            color: var(--pc-negro);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+        }
+
+        /* MODAL DR DONATO */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 11000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            max-width: 450px;
+            width: 100%;
+            padding: 30px;
+            position: relative;
+            box-shadow: 10px 10px 0 var(--pc-azul-profundo);
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            font-weight: 900;
+            color: var(--pc-negro);
+            transition: 0.2s;
+        }
+
+        .close-modal:hover {
+            color: var(--pc-rosa-fuerte);
+            transform: scale(1.1);
+        }
+
+        .modal input,
+        .modal textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .modal input:focus,
+        .modal textarea:focus {
+            border-color: var(--pc-rosa-fuerte);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="navbar-container" class="main-nav">
+            <a href="index.html">Inicio</a>
+            <a href="quienes-somos.html">Nosotros</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="orientacion-medica-gratuita.html">Orientación Médica</a>
+            <a href="unete-a-nuestro-equipo.html">Únete</a>
+        </div>
+
+        <!-- HERO -->
+        <header class="hero-profile">
+            <div class="hero-img-box">
+                <img src="https://i.ibb.co/ztp8mz1/DR-DONATO.jpg" alt="Dr. Carlos Donato" class="hero-img">
+            </div>
+            <div class="hero-text">
+                <h1 class="hand-drawn">Dr. Carlos Donato</h1>
+                <h2>Coordinador Médico y Operativo</h2>
+
+                <div class="quote-bubble">
+                    "Que recibir atención médica no sea un obstáculo. Mi visión es un sistema de salud que funcione para
+                    el paciente; donde nadie tenga que perder un día de trabajo, sufrir largas listas de espera o
+                    sobrevivir a la falta de insumos para ejercer su derecho a estar bien."
+                </div>
+
+                <a href="unete-a-nuestro-equipo.html" class="btn btn-rosa">Súmate a mi visión 🤝</a>
+                <a href="servicios.html" class="btn">Conoce nuestros programas 🩺</a>
+            </div>
+        </header>
+
+        <!-- BIOGRAFÍA -->
+        <section class="content-section">
+            <h3 class="hand-drawn">Raíces, Datos y Vocación</h3>
+            <p>Nací y vivo en Rosarito. Soy Médico General egresado de la Universidad Autónoma de Baja California (UABC)
+                y, desde el primer día de mi práctica, mi mayor motor ha sido el trabajo comunitario y la actualización
+                científica constante para mi gente.</p>
+            <p>Tengo una profunda pasión por la optimización de procesos, el análisis de datos y la estadística. A
+                través de la creación de expedientes clínicos electrónicos y la recopilación de datos, busco que cada
+                decisión médica y administrativa esté respaldada por evidencia contundente, asegurando que la ayuda
+                llegue a donde más se necesita de la forma más eficiente.</p>
+        </section>
+
+        <!-- LA REALIDAD -->
+        <section class="content-section dark">
+            <h3 class="hand-drawn">Nuestro Camino hacia la Gratuidad: Salud para Todos</h3>
+            <p>"Mi convicción como médico es clara: la salud es un derecho humano fundamental. Mi meta más grande, y por
+                la que trabajo todos los días desde la coordinación operativa, es aperturar la clínica totalmente
+                gratuita de Proyecto Celene.</p>
+
+            <p>Entendemos que la atención médica de calidad requiere insumos, licencias y equipos para funcionar
+                correctamente. En este transcurso, las cuotas de recuperación accesibles que manejamos hoy funcionan
+                como un escalón necesario hacia esa meta. Nos permiten operar con excelencia médica e ir construyendo
+                las bases de nuestro gran sueño.</p>
+
+            <p style="color: var(--pc-rosa-pastell);">Sin embargo, quiero ser muy claro con nuestra filosofía: en
+                Proyecto Celene nunca se le niega la atención médica a nadie. Invito de todo corazón a toda la comunidad
+                de Rosarito a visitarnos y acercarse a nuestros programas, sin importar cuál sea su situación económica
+                actual. Las puertas de nuestra clínica están abiertas para ti, porque nuestro compromiso principal
+                siempre será tu bienestar."</p>
+        </section>
+
+        <!-- ÁREAS DE ATENCIÓN Y PROGRAMAS -->
+        <section class="content-section">
+            <h3 class="hand-drawn">Áreas de Atención Integral</h3>
+            <div class="grid-2" style="margin-bottom: 30px;">
+                <div class="tag-card">🩺 Medicina General Integral</div>
+                <div class="tag-card">🌸 Salud Femenina y Menopausia</div>
+                <div class="tag-card">🛡️ Clínica de Salud Sexual e ITS</div>
+                <div class="tag-card">👵 Atención en el Adulto Mayor</div>
+                <div class="tag-card">🧠 Salud Mental y Emocional</div>
+                <div class="tag-card">🚭 Manejo de Adicciones</div>
+            </div>
+
+            <h3 class="hand-drawn" style="border: none; margin-bottom: 10px;">Programas de Mayor Impacto</h3>
+            <div
+                style="background: var(--pc-azul-suave); border: 2px dashed var(--pc-negro); padding: 20px; border-radius: 15px; margin-bottom: 15px;">
+                <strong style="font-size: 1.2rem; color: var(--pc-azul-profundo);">Educación Sexual Integral (Sin
+                    Estigmas)</strong>
+                <p style="margin-top: 5px; margin-bottom: 0;">Llevamos información actualizada, libre de sesgos y basada
+                    en ciencia a donde más se necesita: desde escuelas hasta asilos de ancianos y centros de
+                    recuperación. Romper barreras informativas es el primer paso hacia una comunidad sana.</p>
+            </div>
+            <div
+                style="background: var(--pc-rosa-pastell); border: 2px dashed var(--pc-negro); padding: 20px; border-radius: 15px;">
+                <strong style="font-size: 1.2rem; color: var(--pc-rosa-fuerte);">Perspectiva de Género en la
+                    Salud</strong>
+                <p style="margin-top: 5px; margin-bottom: 0;">Dentro de la prevención de cáncer cervicouterino y de
+                    mama, mi enfoque clínico siempre integra la perspectiva de género. Entender cómo la sociedad y el
+                    entorno afectan la salud de mis pacientes es clave para ofrecer el acompañamiento empático correcto.
+                </p>
+            </div>
+        </section>
+
+        <!-- CERTIFICACIONES Y GALERÍA -->
+        <section class="content-section">
+            <h3 class="hand-drawn">Formación y Certificaciones</h3>
+            <ul style="list-style-position: inside; font-weight: 600; color: #444; font-size: 1.05rem;">
+                <li style="margin-bottom: 8px;"><strong>Soporte Vital:</strong> Certificación ATLS (Apoyo Vital Avanzado
+                    en Trauma) y BLS.</li>
+                <li style="margin-bottom: 8px;"><strong>Intervención:</strong> Diplomado en Primeros Auxilios
+                    Psicológicos y Tanatología.</li>
+                <li style="margin-bottom: 8px;"><strong>Salud Reproductiva:</strong> Certificación OPS en Planificación
+                    Familiar e Interrupción Legal del Embarazo.</li>
+                <li style="margin-bottom: 8px;"><strong>Impacto Social:</strong> Certificación ODS en Primeros Auxilios.
+                </li>
+                <li style="margin-bottom: 8px;"><strong>Otras ramas:</strong> Terapia Ocupacional e Investigación en Trabajo Social.</li>
+            </ul>
+
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="https://i.ibb.co/FbVj8xnV/DONATO-BRIAGADA-VIH.jpg" alt="Brigadas VIH">
+                        <p><strong>Brigadas de Prevención VIH</strong>Participación activa en jornadas de
+                            concientización y aplicación de pruebas rápidas. La prevención es vida.</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.ibb.co/4nRrvqrG/DONATO-PLATICA-EDUCACION-SEXUAL-INTEGRAL.jpg"
+                            alt="Educación Sexual">
+                        <p><strong>Educación Sexual Integral</strong>Impartiendo pláticas basadas en evidencia y libres
+                            de estigmas, capacitando a jóvenes y adultos sobre su cuerpo.</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.ibb.co/hRnwQ3KC/DONATO-PLATICAS-NI-OS-HIGIENE-PERSONAL.jpg"
+                            alt="Pláticas Infantiles">
+                        <p><strong>Higiene desde la Infancia</strong>Enseñando a los niños sobre higiene personal de
+                            forma didáctica, previniendo enfermedades desde la escuela.</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.ibb.co/k2LCbnsF/tcarta-volante.png" alt="Programa Médico">
+                        <p><strong>Desarrollo de Programas</strong>Diseñando e implementando programas médicos
+                            integrales que sean 100% accesibles para nuestra comunidad.</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.ibb.co/HLwK5MHk/DR-DONATO-ORGANIZANDO-MEDS.jpg" alt="Farmacia Solidaria">
+                        <p><strong>Farmacia Solidaria</strong>Optimizando y organizando inventarios para asegurar que el
+                            abasto de medicina llegue a quienes más lo necesitan.</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.ibb.co/FPwdkzs/DR-DONATO-DANDO-CONSULTA-EN-SANQUINTINN-COMUNIDAD-MARGINADA.jpg"
+                            alt="Consulta Comunitaria">
+                        <p><strong>Brigadas en Comunidades</strong>Llevando atención médica de calidad a las zonas
+                            marginadas de San Quintín. ¡La salud no debe tener barreras!</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.ibb.co/ztp8mz1/DR-DONATO.jpg" alt="Consulta General">
+                        <p><strong>Atención Clínica Diaria</strong>Brindando consulta general con un enfoque integral,
+                            centrado en escuchar y entender las necesidades reales del paciente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO DIRECTO -->
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 class="hand-drawn" style="color: var(--pc-negro); margin-bottom: 10px;">¡Hagamos equipo!</h2>
+            <p style="font-weight: 600; color: #555; max-width: 600px; margin: 0 auto 20px;">Para consultas médicas,
+                alianzas corporativas, convenios o dudas sobre nuestros programas comunitarios, puedes contactarme
+                directamente.</p>
+
+            <div
+                style="display: flex; flex-direction: column; align-items: center; gap: 15px; max-width: 450px; margin: 0 auto;">
+
+                <!-- Copiar Correo -->
+                <div
+                    style="display: flex; width: 100%; border: 3px solid var(--pc-negro); border-radius: 10px; overflow: hidden; background: white;">
+                    <div
+                        style="padding: 12px; flex: 1; font-weight: 800; font-size: 1.1rem; color: var(--pc-azul-profundo); display: flex; align-items: center; justify-content: center; word-break: break-all;">
+                        donato@proyectocelene.org
+                    </div>
+                    <button onclick="copyData('donato@proyectocelene.org', 'btnEmail')" id="btnEmail"
+                        style="background: var(--pc-amarillo); border: none; border-left: 3px solid var(--pc-negro); padding: 10px 20px; font-weight: 900; cursor: pointer; transition: 0.2s; font-family: 'Nunito', sans-serif;">Copiar
+                        📧</button>
+                </div>
+
+                <!-- Copiar Teléfono -->
+                <div
+                    style="display: flex; width: 100%; border: 3px solid var(--pc-negro); border-radius: 10px; overflow: hidden; background: white;">
+                    <div
+                        style="padding: 12px; flex: 1; font-weight: 800; font-size: 1.1rem; color: var(--pc-azul-profundo); display: flex; align-items: center; justify-content: center;">
+                        +52 661 286 5423
+                    </div>
+                    <button onclick="copyData('+526612865423', 'btnPhone')" id="btnPhone"
+                        style="background: var(--pc-azul-suave); border: none; border-left: 3px solid var(--pc-negro); padding: 10px 20px; font-weight: 900; cursor: pointer; transition: 0.2s; font-family: 'Nunito', sans-serif;">Copiar
+                        📞</button>
+                </div>
+
+                <button onclick="document.getElementById('modalDrDonato').style.display='flex'" class="btn btn-wa"
+                    style="width: 100%; margin: 10px 0 0 0;">WhatsApp con el Dr. Donato <span
+                        aria-hidden="true">💬</span></button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MODAL DR DONATO WHATSAPP -->
+    <div id="modalDrDonato" class="modal" onclick="if(event.target==this) this.style.display='none'">
+        <div class="modal-content">
+            <span class="close-modal" onclick="document.getElementById('modalDrDonato').style.display='none'">✕</span>
+            <h3 class="hand-drawn"
+                style="color:var(--pc-rosa-fuerte); font-size:1.8rem; margin-bottom:10px; margin-top: 0;">Contactar al
+                Dr. Donato</h3>
+            <p style="margin-bottom:15px; font-weight: 600; color: #555;">Déjame tus datos para poder darte una atención
+                directa y más personalizada.</p>
+            <input type="text" id="dr_nombre" placeholder="Tu Nombre Completo">
+            <input type="number" id="dr_edad" placeholder="Tu Edad">
+            <textarea id="dr_duda" rows="3" placeholder="¿Cuál es tu duda, consulta médica o propuesta?"></textarea>
+            <button onclick="sendDrDonatoWa()" class="btn btn-wa"
+                style="width:100%; border-color:#333; margin-top: 5px;">Enviar Mensaje 💬</button>
+        </div>
+    </div>
+
+    <script>
+        function copyData(text, btnId) {
+            navigator.clipboard.writeText(text).then(() => {
+                let btn = document.getElementById(btnId);
+                let originalText = btn.innerHTML;
+                btn.innerHTML = "¡Copiado! ✅";
+                btn.style.background = "var(--pc-verde-wa)";
+                btn.style.color = "white";
+                setTimeout(() => { btn.innerHTML = originalText; btn.style.background = ""; btn.style.color = ""; }, 2000);
+            });
+        }
+
+        function sendDrDonatoWa() {
+            let n = document.getElementById('dr_nombre').value.trim() || 'No especificado';
+            let e = document.getElementById('dr_edad').value.trim() || '-';
+            let d = document.getElementById('dr_duda').value.trim();
+            let msg = `Hola Dr. Donato.\nSoy *${n}* (${e} años).\n\nTe contacto para lo siguiente:\n"${d}"`;
+            window.open(`https://wa.me/526612865423?text=${encodeURIComponent(msg)}`, '_blank');
+            document.getElementById('modalDrDonato').style.display = 'none';
+        }
+    </script>
+    <script src="js/global.js"></script>
+</body>
+
+</html>

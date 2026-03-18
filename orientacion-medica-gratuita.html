@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orientación Médica - Proyecto Celene</title>
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/orientacion-medica-gratuita.html">
+    <meta property="og:title" content="Orientación Médica Gratuita - Proyecto Celene">
+    <meta property="og:description" content="Resuelve dudas rápidas, conoce a qué especialista acudir o recibe información preventiva sin salir de casa.">
+    <meta property="og:image" content="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/orientacion-medica-gratuita.html">
+    <meta property="twitter:title" content="Orientación Médica Gratuita - Proyecto Celene">
+    <meta property="twitter:description" content="Resuelve dudas rápidas, conoce a qué especialista acudir o recibe información preventiva sin salir de casa.">
+    <meta property="twitter:image" content="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg">
+
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
         :root { --pc-rosa-pastell:#fce4ec; --pc-rosa-fuerte:#d81b60; --pc-negro:#333; --pc-blanco:#fff; --pc-amarillo:#fff9c4; --pc-azul-suave:#e3f2fd; }
@@ -47,6 +62,12 @@
             background: #fff3e0; border: 3px dashed #ff9800; padding: 20px; border-radius: 15px;
             margin-top: 30px; font-size: 0.95rem; color: #e65100;
         }
+
+        /* DIAGRAMA DE PASOS */
+        .steps-container { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; }
+        .step-row { display: flex; align-items: flex-start; gap: 15px; background: var(--pc-gris-suave); padding: 15px; border-radius: 15px; border: 2px solid var(--pc-negro); box-shadow: 4px 4px 0 var(--pc-azul-suave); transition: transform 0.2s;}
+        .step-row:hover { transform: translateX(10px); background: white; }
+        .step-icon { background: var(--pc-rosa-fuerte); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem; border: 2px solid var(--pc-negro); flex-shrink: 0; font-family: 'Handlee', cursive;}
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
@@ -54,13 +75,28 @@
     <div class="container">
         <div id="navbar-container" class="main-nav"></div>
         <header class="header">
-            <img src="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg" alt="Orientación Médica">
             <h1 class="hand-drawn">Orientación Médica Gratuita <span aria-hidden='true'>💬</span></h1>
-            <p style="font-weight:600; font-size:1.1rem;">Resuelve dudas rápidas, conoce a qué especialista acudir o recibe información preventiva.</p>
+            <p style="font-weight:800; font-size:1.3rem; color: var(--pc-rosa-fuerte); background: white; border: 3px dashed var(--pc-negro); padding: 10px; display: inline-block; border-radius: 15px; margin-top: 10px;">¡Servicio Exclusivo en Línea / Virtual!</p>
+            <p style="font-weight:600; font-size:1.1rem; margin-top: 15px;">Resuelve dudas rápidas, conoce a qué especialista acudir o recibe información preventiva sin salir de casa.</p>
         </header>
         <div class="content-box">
             <h2 class="hand-drawn">¿Cómo funciona?</h2>
-            <p>A veces solo necesitas que un profesional te escuche y te indique qué paso debes tomar. A través de este servicio gratuito, nuestro equipo médico evalúa tus síntomas iniciales para orientarte.</p>
+            <p>A veces solo necesitas que un profesional te escuche y te indique qué paso debes tomar. A través de este servicio <strong>100% virtual gratuito</strong>, nuestro equipo médico evalúa tus síntomas iniciales para orientarte.</p>
+            
+            <div class="steps-container">
+                <div class="step-row">
+                    <div class="step-icon">1</div>
+                    <div><strong>Manda tu mensaje:</strong> Llena el formulario de abajo o agenda tu espacio.</div>
+                </div>
+                <div class="step-row">
+                    <div class="step-icon">2</div>
+                    <div><strong>Evaluación Rápida:</strong> Nuestro equipo lee tu caso clínico por WhatsApp.</div>
+                </div>
+                <div class="step-row">
+                    <div class="step-icon">3</div>
+                    <div><strong>Orientación:</strong> Te respondemos indicándote qué estudios hacerte, si necesitas ir a urgencias, o con qué especialista acudir (Ginecología, Urología, etc).</div>
+                </div>
+            </div>
             
             <ul style="margin-top: 20px;">
                 <li><span aria-hidden='true'>✅</span> Dudas rápidas sobre síntomas leves o medicamentos.</li>
@@ -71,19 +107,15 @@
 
             <div class="warning-box">
                 <h3 class="hand-drawn" style="color:#e65100; font-size: 1.5rem; margin-bottom: 10px;">Límites de la Orientación Gratuita</h3>
-                <p>🚫 <strong>NO se emiten Recetas Médicas ni tratamientos controlados.</strong><br>
+                <p>🚫 <strong>NO se emiten Recetas Médicas, NO hay orientación presencial gratis.</strong><br>
                 Por normatividad legal en México (NOM-004-SSA3-2012), recetar un medicamento requiere realizar un diagnóstico profundo, una exploración y abrir un <strong>expediente clínico formal</strong>.</p>
                 
                 <p style="margin-top: 10px;"><strong>¿Ocupas valoración física o receta oficial?</strong><br>
                 Si al orientarte notamos que requieres una exploración, te invitaremos a acudir presencialmente. Si no puedes venir pero necesitas receta, puedes agendar una <strong>Consulta Virtual Formal (Costo: $150 pesos)</strong>, la cual incluye tu expediente y receta digital con la cédula del médico titular.</p>
             </div>
 
-            <div class="video-container">
-                <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F990264640843547%2F&show_text=false&width=476&t=0" width="476" height="591" style="border:none;overflow:hidden; max-width: 100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-            </div>
-
             <h2 class="hand-drawn" style="text-align: center; margin-top: 30px;">Accede al Servicio</h2>
-            <p style="text-align: center; font-weight: 600; margin-bottom: 20px;">Puedes <strong>acudir presencialmente sin cita de Lunes a Domingo de 9:00 am a 4:00 pm</strong>, o agendar tu llamada / videollamada usando las opciones de abajo:</p>
+            <p style="text-align: center; font-weight: 600; margin-bottom: 20px;">Envíanos tu caso por mensaje o consulta los horarios disponibles para tu videollamada / llamada de orientación gratuita:</p>
 
             <button onclick="openModal('modalOrientacion')" class="btn">Iniciar Orientación por Mensaje <span aria-hidden='true'>💬</span></button>
             
@@ -98,7 +130,7 @@
                     calendar.schedulingButton.load({
                       url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
                       color: '#fff9c4', /* Amarillo */
-                      label: '<span aria-hidden='true'>📅</span> Consultar horarios para Cita Virtual',
+                  label: '<span aria-hidden="true">📅</span> Consultar horarios disponibles',
                       target,
                     });
                   });
@@ -151,7 +183,7 @@
             let enf = document.getElementById('ori_enfermedades').value || 'Ninguna';
             let med = document.getElementById('ori_medicamentos').value || 'Ninguno';
 
-            let msg = `*FICHA DE ORIENTACIÓN MÉDICA*\n\n👤 *Paciente:* ${nombre}\n🎂 *Edad:* ${edad} | *Sexo:* ${sexo}\n\n<span aria-hidden='true'>💬</span> *Motivo de Orientación:*\n${motivo}\n\n<span aria-hidden='true'>🩺</span> *Enfermedades previas:* ${enf}\n<span aria-hidden='true'>💊</span> *Medicamentos actuales:* ${med}\n\nSolicito apoyo con orientación médica gratuita, por favor.`;
+            let msg = `*FICHA DE ORIENTACIÓN MÉDICA*\n\n👤 *Paciente:* ${nombre}\n🎂 *Edad:* ${edad} | *Sexo:* ${sexo}\n\n💬 *Motivo de Orientación:*\n${motivo}\n\n🩺 *Enfermedades previas:* ${enf}\n💊 *Medicamentos actuales:* ${med}\n\nSolicito apoyo con orientación médica gratuita, por favor.`;
             
             window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
             closeModal('modalOrientacion');

@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio - Proyecto Celene</title>
-    <meta name="description" content="Fundación en Rosarito, B.C. dedicada a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad.">
+    <meta name="description"
+        content="Fundación en Rosarito, B.C. dedicada a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad.">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://proyectoselene.org/">
+    <meta property="og:url" content="https://proyectocelene.org/inicio.html">
     <meta property="og:title" content="Proyecto Celene A.C. - Lucha Contra el Cáncer de Mama">
-    <meta property="og:description" content="Fundación en Rosarito, B.C. dedicada a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad.">
+    <meta property="og:description"
+        content="Fundación en Rosarito, B.C. dedicada a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad.">
     <meta property="og:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://proyectoselene.org/">
+    <meta property="twitter:url" content="https://proyectocelene.org/inicio.html">
     <meta property="twitter:title" content="Proyecto Celene A.C. - Lucha Contra el Cáncer de Mama">
-    <meta property="twitter:description" content="Fundación en Rosarito, B.C. dedicada a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad.">
+    <meta property="twitter:description"
+        content="Fundación en Rosarito, B.C. dedicada a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad.">
     <meta property="twitter:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&family=Shrikhand&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&family=Shrikhand&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --pc-rosa-pastell: #fce4ec;
@@ -37,33 +43,122 @@
             --pc-gris-suave: #f9f9f9;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Nunito', sans-serif; background: var(--pc-blanco); color: var(--pc-negro); line-height: 1.5; overflow-x: hidden; }
-        .hand-drawn { font-family: 'Handlee', cursive; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 15px; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 15px;
+        }
 
         /* ANIMACIONES */
-        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .float-subtle { animation: float 4s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .float-subtle {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
 
         /* BOTONES FÍSICOS "3D" */
-        .btn { 
-            display: inline-block; text-align: center; padding: 15px 20px; border-radius: 50px; 
-            border: 4px solid var(--pc-negro); font-weight: 800; text-decoration: none; 
-            font-size: 1.1rem; cursor: pointer; position: relative; top: 0; transition: all 0.1s; 
-            font-family: 'Nunito', sans-serif; width: 100%; max-width: 350px; margin-bottom: 15px;
+        .btn {
+            display: inline-block;
+            text-align: center;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: relative;
+            top: 0;
+            transition: all 0.1s;
+            font-family: 'Nunito', sans-serif;
+            width: 100%;
+            max-width: 350px;
+            margin-bottom: 15px;
         }
-        .btn:active { top: 6px; box-shadow: 0 0px 0 transparent !important; }
-        .btn:disabled { opacity: 0.7; cursor: not-allowed; }
-        
-        .btn-primario { background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 6px 0 var(--pc-negro); }
-        .btn-secundario { background: var(--pc-amarillo); color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); }
-        .btn-wa { background: var(--pc-verde-wa); color: white; border-color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); }
-        .btn-llamar { background: var(--pc-azul-suave); color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); }
-        .btn-social { background: white; color: var(--pc-negro); border: 3px solid var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); width: auto; padding: 10px 20px; font-size: 1rem; }
+
+        .btn:active {
+            top: 6px;
+            box-shadow: 0 0px 0 transparent !important;
+        }
+
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .btn-primario {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            box-shadow: 0 6px 0 var(--pc-negro);
+        }
+
+        .btn-secundario {
+            background: var(--pc-amarillo);
+            color: var(--pc-negro);
+            box-shadow: 0 6px 0 var(--pc-negro);
+        }
+
+        .btn-wa {
+            background: var(--pc-verde-wa);
+            color: white;
+            border-color: var(--pc-negro);
+            box-shadow: 0 6px 0 var(--pc-negro);
+        }
+
+        .btn-llamar {
+            background: var(--pc-azul-suave);
+            color: var(--pc-negro);
+            box-shadow: 0 6px 0 var(--pc-negro);
+        }
+
+        .btn-social {
+            background: white;
+            color: var(--pc-negro);
+            border: 3px solid var(--pc-negro);
+            box-shadow: 0 4px 0 var(--pc-negro);
+            width: auto;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
 
         /* BANNER 60s MAGAZINE (18 ANIVERSARIO) */
         .retro-banner {
@@ -81,107 +176,339 @@
             position: relative;
             overflow: hidden;
         }
+
         .retro-banner:hover {
             transform: translateY(-4px);
             box-shadow: 10px 10px 0px #EF476F;
         }
+
         .retro-banner-content {
-            font-size: 1.25rem; font-weight: normal; font-family: 'Shrikhand', cursive; letter-spacing: 1px;
+            font-size: 1.25rem;
+            font-weight: normal;
+            font-family: 'Shrikhand', cursive;
+            letter-spacing: 1px;
         }
+
         .retro-badge {
-            background: #EF476F; color: white; padding: 4px 12px; font-family: 'Nunito', sans-serif; font-weight: 900;
-            border-radius: 20px; font-size: 0.9rem; margin-right: 10px;
-            border: 2px solid var(--pc-negro); text-shadow: none;
-            display: inline-block; transform: rotate(-5deg);
+            background: #EF476F;
+            color: white;
+            padding: 4px 12px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 900;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            border: 2px solid var(--pc-negro);
+            text-shadow: none;
+            display: inline-block;
+            transform: rotate(-5deg);
         }
 
         /* ================= SECCIÓN 1: BANNER HERO ================= */
         .hero-section {
-            text-align: center; padding: 40px 20px; background: var(--pc-blanco);
-            border: 4px solid var(--pc-negro); border-radius: 25px; margin-bottom: 40px;
-            box-shadow: 10px 10px 0px var(--pc-rosa-pastell); position: relative;
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-blanco);
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 10px 10px 0px var(--pc-rosa-pastell);
+            position: relative;
         }
-        .logo-container { position: relative; display: inline-block; margin: 0 auto 20px; }
-        .hero-logo { max-width: 100%; width: 280px; height: auto; display: block; border-radius: 15px; margin: 0; }
-        .hero-title { font-size: 3.5rem; color: var(--pc-rosa-fuerte); margin-bottom: 0px; line-height: 1.1; }
-        .hero-location { font-size: 2rem; color: var(--pc-negro); margin-bottom: 15px; }
-        .hero-subtitle { font-size: 1.3rem; color: #555; font-weight: 800; margin-bottom: 30px; font-style: italic; }
-        .hero-buttons { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto 20px;
+        }
+
+        .hero-logo {
+            max-width: 100%;
+            width: 280px;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+            margin: 0;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 0px;
+            line-height: 1.1;
+        }
+
+        .hero-location {
+            font-size: 2rem;
+            color: var(--pc-negro);
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #555;
+            font-weight: 800;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
 
         /* ================= SECCIÓN 2: BIENVENIDA ================= */
         .welcome-section {
-            background: var(--pc-rosa-pastell); border: 4px dashed var(--pc-negro);
-            border-radius: 20px; padding: 35px 25px; text-align: center; margin-bottom: 50px;
+            background: var(--pc-rosa-pastell);
+            border: 4px dashed var(--pc-negro);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            margin-bottom: 50px;
         }
-        .welcome-section h2 { font-size: 2.2rem; color: var(--pc-rosa-fuerte); margin-bottom: 15px; }
-        .welcome-section p { font-size: 1.15rem; font-weight: 600; color: var(--pc-negro); max-width: 800px; margin: 0 auto; }
+
+        .welcome-section h2 {
+            font-size: 2.2rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 15px;
+        }
+
+        .welcome-section p {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--pc-negro);
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
         /* ================= SECCIÓN 3: SERVICIOS DESTACADOS ================= */
-        .services-header { text-align: center; margin-bottom: 30px; }
-        .services-header h2 { font-size: 2.5rem; color: var(--pc-negro); }
-        
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; }
-        
+        .services-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .services-header h2 {
+            font-size: 2.5rem;
+            color: var(--pc-negro);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
         .service-card {
-            background: white; border: 3px solid var(--pc-negro); border-radius: 20px;
-            padding: 20px; text-align: center; transition: transform 0.2s;
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s;
             box-shadow: 6px 6px 0px var(--pc-gris-suave);
         }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 8px 8px 0px var(--pc-rosa-medio); }
-        
-        .service-img {
-            width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background: white;
-            border: 3px solid var(--pc-negro); border-radius: 15px; margin-bottom: 15px;
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 8px 8px 0px var(--pc-rosa-medio);
         }
-        
-        .service-card h3 { color: var(--pc-rosa-fuerte); font-size: 1.4rem; margin-bottom: 10px; }
-        .service-card p { font-size: 0.95rem; color: #444; font-weight: 600; margin-bottom: 15px; line-height: 1.4; }
-        .service-card a { color: var(--pc-negro); font-weight: 800; text-decoration: underline; text-decoration-color: var(--pc-rosa-fuerte); text-decoration-thickness: 3px; }
+
+        .service-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: var(--pc-rosa-fuerte);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .service-card a {
+            color: var(--pc-negro);
+            font-weight: 800;
+            text-decoration: underline;
+            text-decoration-color: var(--pc-rosa-fuerte);
+            text-decoration-thickness: 3px;
+        }
 
         /* ================= SECCIÓN 4: SISTEMA DE CITAS ================= */
         .appointments-section {
-            background: white; border: 4px solid var(--pc-negro); border-radius: 25px;
-            padding: 40px 25px; margin-bottom: 50px; box-shadow: 10px 10px 0px var(--pc-azul-suave);
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            padding: 40px 25px;
+            margin-bottom: 50px;
+            box-shadow: 10px 10px 0px var(--pc-azul-suave);
         }
-        .appointments-section h2 { font-size: 2.5rem; color: var(--pc-rosa-fuerte); text-align: center; margin-bottom: 15px; }
-        .appointments-section > p { text-align: center; font-size: 1.1rem; font-weight: 600; margin-bottom: 30px; max-width: 800px; margin-inline: auto; }
-        
-        .appt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .appt-card { background: var(--pc-gris-suave); border: 2px dashed var(--pc-negro); padding: 20px; border-radius: 15px; }
-        .appt-card h4 { font-size: 1.2rem; color: var(--pc-negro); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-        .appt-card p { font-size: 0.95rem; color: #555; }
+
+        .appointments-section h2 {
+            font-size: 2.5rem;
+            color: var(--pc-rosa-fuerte);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .appointments-section>p {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-inline: auto;
+        }
+
+        .appt-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .appt-card {
+            background: var(--pc-gris-suave);
+            border: 2px dashed var(--pc-negro);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .appt-card h4 {
+            font-size: 1.2rem;
+            color: var(--pc-negro);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .appt-card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
 
         /* ================= SECCIÓN 5: UBICACIÓN Y CONTACTO ================= */
         .footer-wrapper {
-            background: var(--pc-rosa-oscuro); color: white; border-radius: 25px;
-            padding: 40px 20px; margin-bottom: 20px; border: 4px solid var(--pc-negro);
+            background: var(--pc-rosa-oscuro);
+            color: white;
+            border-radius: 25px;
+            padding: 40px 20px;
+            margin-bottom: 20px;
+            border: 4px solid var(--pc-negro);
         }
+
         .contact-grid {
-            display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
         }
-        .contact-info { text-align: center; }
-        .contact-info h2 { font-size: 2.8rem; color: white; margin-bottom: 5px; line-height: 1.1; }
-        .contact-info h3 { font-size: 1.4rem; color: var(--pc-rosa-pastell); font-weight: 800; margin-bottom: 5px; }
-        .contact-info .slogan { font-size: 1.2rem; font-weight: 800; font-style: italic; margin-bottom: 25px; color: var(--pc-amarillo); }
-        
-        .contact-info p { font-size: 1.05rem; margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; justify-content: center; text-align: left; max-width: 400px; margin-inline: auto; }
-        .contact-info .icon { font-size: 1.3rem; }
-        
-        .social-links { display: flex; justify-content: center; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
-        
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.4rem;
+            color: var(--pc-rosa-pastell);
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .contact-info .slogan {
+            font-size: 1.2rem;
+            font-weight: 800;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: var(--pc-amarillo);
+        }
+
+        .contact-info p {
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            justify-content: center;
+            text-align: left;
+            max-width: 400px;
+            margin-inline: auto;
+        }
+
+        .contact-info .icon {
+            font-size: 1.3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
         .map-container {
-            width: 100%; height: 350px; border: 4px solid white; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 8px 0 rgba(0,0,0,0.2);
+            width: 100%;
+            height: 350px;
+            border: 4px solid white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
         }
-        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
 
         .reviews-box {
-            background: white; border: 4px solid var(--pc-negro); border-radius: 20px;
-            padding: 30px; text-align: center; color: var(--pc-negro); margin-top: 30px;
-            box-shadow: 6px 6px 0 var(--pc-amarillo); max-width: 800px; margin-inline: auto;
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            color: var(--pc-negro);
+            margin-top: 30px;
+            box-shadow: 6px 6px 0 var(--pc-amarillo);
+            max-width: 800px;
+            margin-inline: auto;
         }
-        .reviews-box h4 { font-size: 1.8rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; }
-        .stars { color: #f39c12; font-size: 2rem; margin-bottom: 15px; letter-spacing: 5px; }
+
+        .reviews-box h4 {
+            font-size: 1.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            letter-spacing: 5px;
+        }
 
         /* ESTAMPILLA SNOOPY 18 ANIVERSARIO */
         .snoopy-stamp {
@@ -194,289 +521,510 @@
             transform: rotate(15deg);
             cursor: pointer;
         }
+
         @keyframes stampDance {
-            0%   { transform: scale(1) rotate(15deg); }
-            20%  { transform: scale(2.5) rotate(5deg); }
-            40%  { transform: scale(2.5) rotate(25deg); }
-            60%  { transform: scale(2.5) rotate(5deg); }
-            80%  { transform: scale(2.5) rotate(25deg); }
-            100% { transform: scale(1) rotate(15deg); }
+            0% {
+                transform: scale(1) rotate(15deg);
+            }
+
+            20% {
+                transform: scale(2.5) rotate(5deg);
+            }
+
+            40% {
+                transform: scale(2.5) rotate(25deg);
+            }
+
+            60% {
+                transform: scale(2.5) rotate(5deg);
+            }
+
+            80% {
+                transform: scale(2.5) rotate(25deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(15deg);
+            }
         }
+
         .stamp-dance {
             animation: stampDance 0.8s ease-in-out;
         }
 
-        @media (min-width: 768px) {
-            .hero-buttons { flex-direction: row; justify-content: center; gap: 20px; flex-wrap: wrap; }
-            .btn { margin-bottom: 0; }
-            .contact-grid { grid-template-columns: 1fr 1fr; align-items: center; }
-            .contact-info { text-align: left; }
-            .contact-info p { justify-content: flex-start; margin-inline: 0; }
-            .social-links { justify-content: flex-start; }
-            .appointments-section > p { font-size: 1.2rem; }
+        /* ANIMACIÓN PINES MAPA */
+        .pin {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: translate(-50%, -100%);
+            animation: bouncePin 2s infinite;
+            z-index: 10;
         }
+
+        .pin-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(2px 2px 0px var(--pc-negro));
+        }
+
+        .pin-label {
+            background: var(--pc-negro);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            margin-top: -5px;
+            border: 2px solid white;
+            white-space: nowrap;
+        }
+
+        @keyframes bouncePin {
+
+            0%,
+            100% {
+                transform: translate(-50%, -100%);
+            }
+
+            50% {
+                transform: translate(-50%, -115%);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                margin-bottom: 0;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+
+            .contact-info {
+                text-align: left;
+            }
+
+            .contact-info p {
+                justify-content: flex-start;
+                margin-inline: 0;
+            }
+
+            .social-links {
+                justify-content: flex-start;
+            }
+
+            .appointments-section>p {
+                font-size: 1.2rem;
+            }
+        }
+
         @media (max-width: 600px) {
-            .hero-title { font-size: 2.5rem; }
-            .hero-location { font-size: 1.6rem; }
-            .welcome-section h2 { font-size: 1.8rem; }
-            .contact-info h2 { font-size: 2.2rem; }
-            .snoopy-stamp { width: 100px; bottom: -10px; right: -15px; }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-location {
+                font-size: 1.6rem;
+            }
+
+            .welcome-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-info h2 {
+                font-size: 2.2rem;
+            }
+
+            .snoopy-stamp {
+                width: 100px;
+                bottom: -10px;
+                right: -15px;
+            }
         }
 
         /* NAVEGACIÓN PRINCIPAL */
         .main-nav {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-            margin-bottom: 30px; padding: 15px; background: var(--pc-blanco);
-            border: 3px solid var(--pc-negro); border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
             box-shadow: 6px 6px 0px var(--pc-rosa-pastell);
         }
+
         .main-nav a {
-            text-decoration: none; color: var(--pc-negro); font-weight: 800;
-            font-size: 1.05rem; padding: 8px 15px; border-radius: 15px;
-            transition: all 0.2s; border: 2px solid transparent;
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: all 0.2s;
+            border: 2px solid transparent;
         }
+
         .main-nav a:hover {
-            background: var(--pc-rosa-fuerte); color: var(--pc-blanco);
-            border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro);
+            background: var(--pc-rosa-fuerte);
+            color: var(--pc-blanco);
+            border-color: var(--pc-negro);
+            box-shadow: 3px 3px 0 var(--pc-negro);
             transform: translateY(-2px);
         }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
         <div id="navbar-container" class="main-nav"></div>
 
-    <!-- ================= SECCIÓN 1: BANNER PRINCIPAL ================= -->
-    <header class="hero-section fade-in">
+        <!-- ================= SECCIÓN 1: BANNER PRINCIPAL ================= -->
+        <header class="hero-section fade-in">
 
-        <!-- BANNER 18 ANIVERSARIO -->
-        <a href="aniversario.html" class="retro-banner float-subtle">
-            <div class="retro-banner-content">
-                <span class="retro-badge">¡NUEVO!</span>
-                <span aria-hidden='true'>🎉</span> NOCHE DE GALA VINTAGE 50s-60s. ¡HAZ CLIC AQUÍ! <span aria-hidden='true'>👗</span><span aria-hidden='true'>🎙️</span>
-            </div>
-        </a>
-
-        <!-- Logo de la Fundación y Estampilla -->
-        <div class="logo-container float-subtle">
-            <img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Proyecto Celene Logo" class="hero-logo">
-            <!-- ESTAMPILLA SNOOPY -->
-            <img src="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png" alt="Snoopy 18 Aniversario" class="snoopy-stamp" onclick="this.classList.remove('stamp-dance'); void this.offsetWidth; this.classList.add('stamp-dance');">
-        </div>
-        
-        <h1 class="hand-drawn hero-title">Proyecto Celene A.C.</h1>
-        <h2 class="hand-drawn hero-location">Rosarito, B.C.</h2>
-        <p class="hero-subtitle">Únete a la lucha contra el cáncer de mama <span aria-hidden='true'>🎗️</span></p>
-        
-        <div class="hero-buttons">
-            <a href="mastografia-gratuita.html" class="btn btn-primario">Agendar Mastografía Gratis <span aria-hidden='true'>🎗️</span></a>
-            <!-- Botón cambiado al estilo verde de WhatsApp -->
-            <a href="orientacion-medica-gratuita.html" class="btn btn-wa">Orientación Médica Gratuita <span aria-hidden='true'>💬</span></a>
-            <a href="servicios.html" class="btn btn-secundario">Ver Todos los Servicios <span aria-hidden='true'>📋</span></a>
-            <a href="recursos-educativos.html" class="btn btn-llamar">Recursos Educativos <span aria-hidden='true'>📖</span></a>
-        </div>
-    </header>
-
-    <!-- ================= SECCIÓN 2: BIENVENIDA E IMPACTO ================= -->
-    <section class="welcome-section fade-in">
-        <h2 class="hand-drawn">Tu salud es nuestra misión</h2>
-        <p>Somos una fundación médica y comunitaria sin fines de lucro en Rosarito, B.C. Nos dedicamos a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad. <span aria-hidden='true'>🌸</span></p>
-    </section>
-
-    <!-- ================= SECCIÓN 3: SERVICIOS DESTACADOS ================= -->
-    <div class="services-header fade-in">
-        <h2 class="hand-drawn">Cuidamos de Ti</h2>
-    </div>
-    
-    <div class="services-grid">
-        <!-- Bloque 1: Mastografías -->
-        <div class="service-card fade-in">
-            <img src="https://i.ibb.co/whkTFwLf/MAMOGRAFIA.jpg" alt="Mastografía Gratis" class="service-img">
-            <h3 class="hand-drawn">Mastografías Sin Costo</h3>
-            <p>Estudios gratuitos para mujeres de 40 años o más (o 35 con antecedentes familiares). Solo requieres traer copias de tu INE y CURP.</p>
-            <a href="mastografia-gratuita.html">Saber más ➔</a>
-        </div>
-
-        <!-- Bloque 2: Consulta General -->
-        <div class="service-card fade-in">
-            <img src="https://i.ibb.co/zhSRq5hX/CONSULTA-GENERAL.jpg" alt="Consulta Médica General" class="service-img">
-            <h3 class="hand-drawn">Consulta Médica</h3>
-            <p>Atención profesional empática, tanto presencial como virtual, con una cuota de recuperación accesible de solo $150 pesos.</p>
-            <a href="consulta-general.html">Saber más ➔</a>
-        </div>
-
-        <!-- Bloque 3: Salud Sexual e ITS -->
-        <div class="service-card fade-in">
-            <img src="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg" alt="Salud Sexual e ITS" class="service-img">
-            <h3 class="hand-drawn">Salud Sexual e ITS</h3>
-            <p>Pruebas de VIH gratuitas, confidenciales y seguras. Además, contamos con paquetes de detección (ITS) para tu total tranquilidad.</p>
-            <a href="salud-sexual.html">Saber más ➔</a>
-        </div>
-
-        <!-- Bloque 4: Farmacia Solidaria -->
-        <div class="service-card fade-in">
-            <img src="https://i.ibb.co/JjwF3cQm/FARMACIA-SOLIDARIA.jpg" alt="Farmacia Solidaria" class="service-img">
-            <h3 class="hand-drawn">Farmacia Solidaria</h3>
-            <p>Acceso a medicamentos donados mediante cooperaciones simbólicas. Ayudamos a sostener nuestra labor sin dejar a nadie atrás.</p>
-            <a href="farmacia-solidaria.html">Ir a la Farmacia ➔</a>
-        </div>
-
-        <!-- Bloque 5: Clínica Virtual -->
-        <div class="service-card fade-in">
-            <img src="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg" alt="Orientación Médica Gratuita" class="service-img">
-            <h3 class="hand-drawn">Orientación Médica Gratuita</h3>
-            <p>Tu espacio de salud a distancia sin costo. Resuelve dudas rápidas y accede a cuestionarios e indicaciones médicas desde tu celular.</p>
-            <a href="orientacion-medica-gratuita.html">Ir a Orientación ➔</a>
-        </div>
-
-        <!-- Bloque 6: Recursos Educativos -->
-        <div class="service-card fade-in">
-            <img src="https://i.ibb.co/Q7rXQMZd/EDUCACION.jpg" alt="Recursos Educativos" class="service-img">
-            <h3 class="hand-drawn">Recursos Educativos</h3>
-            <p>Aprende a cuidar tu cuerpo. Encuentra manuales, infografías y herramientas de prevención sobre autoexploración, salud sexual y bienestar integral.</p>
-            <a href="recursos-educativos.html">Explorar Recursos ➔</a>
-        </div>
-    </div>
-
-    <!-- ================= SECCIÓN 4: SISTEMA DE CITAS ================= -->
-    <section class="appointments-section fade-in">
-        <h2 class="hand-drawn">Agenda tu Cita en Línea <span aria-hidden='true'>📅</span></h2>
-        <p><span aria-hidden='true'>🌸</span> Bienvenidos al sistema de citas de Proyecto Celene. Ofrecemos niveles de atención diseñados para adaptarnos a tus necesidades:</p>
-        
-        <div class="appt-grid">
-            <div class="appt-card">
-                <h4><span aria-hidden='true'>🩺</span> Consulta Médica ($150)</h4>
-                <p>Para quienes necesitan un diagnóstico detallado, recetas médicas oficiales o seguimiento de un tratamiento. Puede ser <strong>presencial o virtual</strong> (te contactaremos por WhatsApp o llamada para la videollamada).</p>
-            </div>
-            <div class="appt-card">
-                <h4><span aria-hidden='true'>💬</span> Orientación Médica Gratuita</h4>
-                <p>Servicio virtual sin costo para resolver dudas rápidas sobre síntomas o revisar estudios previos. <br><br><em>*Por normativa legal, esta orientación NO incluye recetas médicas ni apertura de expediente.</em></p>
-            </div>
-        </div>
-
-        <!-- Botón Emergente de Google Calendar -->
-        <div style="text-align: center; margin-top: 30px; display: flex; justify-content: center;">
-            <!-- Google Calendar Appointment Scheduling begin -->
-            <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-            <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-            <script>
-            (function() {
-              var target = document.currentScript;
-              window.addEventListener('load', function() {
-                calendar.schedulingButton.load({
-                  url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
-                  color: '#d81b60', /* Ajustado al color rosa de Proyecto Celene */
-                  label: '🗓️ Programar una Cita Aquí',
-                  target,
-                });
-              });
-            })();
-            </script>
-            <!-- end Google Calendar Appointment Scheduling -->
-        </div>
-    </section>
-
-    <!-- ================= SECCIÓN MAPA DEL SITIO ================= -->
-    <section class="sitemap-section fade-in" style="background: var(--pc-gris-suave); border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 40px 25px; margin-bottom: 50px;">
-        <h2 class="hand-drawn" style="text-align: center; color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 15px;">🔍 ¿Qué buscas? ¡Encuéntralo aquí!</h2>
-        <p style="text-align: center; font-weight: 600; margin-bottom: 30px; font-size: 1.1rem;">Explora todas nuestras secciones para no perderte de ningún servicio o evento.</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
-            <!-- Categoría 1 -->
-            <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-rosa-pastell);">
-                <h3 style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;"><span aria-hidden='true'>🏥</span> Atención Médica</h3>
-                <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
-                    <li>➔ <a href="mastografia-gratuita.html" style="color: var(--pc-rosa-fuerte); text-decoration: none;">Mastografía Gratuita</a></li>
-                    <li>➔ <a href="consulta-general.html" style="color: var(--pc-negro); text-decoration: none;">Consulta General</a></li>
-                    <li>➔ <a href="salud-sexual.html" style="color: var(--pc-negro); text-decoration: none;">Salud Sexual e ITS</a></li>
-                    <li>➔ <a href="fisioterapeuta-lupita.html" style="color: var(--pc-negro); text-decoration: none;">Fisioterapia - Lupita</a></li>
-                    <li>➔ <a href="sobador-tony.html" style="color: var(--pc-negro); text-decoration: none;">Puntos Gatillo - Tony</a></li>
-                    <li>➔ <a href="servicios.html" style="color: var(--pc-negro); text-decoration: none;">Ver Todos...</a></li>
-                </ul>
-            </div>
-            <!-- Categoría 2 -->
-            <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-azul-suave);">
-                <h3 style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;"><span aria-hidden='true'>💊</span> Farmacia y Apoyo</h3>
-                <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
-                    <li>➔ <a href="farmacia-solidaria.html" style="color: var(--pc-negro); text-decoration: none;">Farmacia Solidaria</a></li>
-                    <li>➔ <a href="orientacion-medica-gratuita.html" style="color: var(--pc-negro); text-decoration: none;">Orientación Virtual</a></li>
-                    <li>➔ <a href="recursos-educativos.html" style="color: var(--pc-negro); text-decoration: none;">Recursos Educativos</a></li>
-                </ul>
-            </div>
-            <!-- Categoría 3 -->
-            <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-amarillo);">
-                <h3 style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;"><span aria-hidden='true'>📚</span> Conócenos</h3>
-                <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
-                    <li>➔ <a href="quienes-somos.html" style="color: var(--pc-negro); text-decoration: none;">Nuestro Equipo</a></li>
-                    <li>➔ <a href="nuestra-historia.html" style="color: var(--pc-negro); text-decoration: none;">Nuestra Historia</a></li>
-                    <li>➔ <a href="nuestros-aliados.html" style="color: var(--pc-negro); text-decoration: none;">Nuestros Aliados</a></li>
-                </ul>
-            </div>
-            <!-- Categoría 4 -->
-            <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 #25d366;">
-                <h3 style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;"><span aria-hidden='true'>🤝</span> Participa</h3>
-                <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
-                    <li>➔ <a href="aniversario.html" style="color: var(--pc-rosa-fuerte); text-decoration: none;">18° Aniversario Gala</a></li>
-                    <li>➔ <a href="unete-a-nuestro-equipo.html" style="color: var(--pc-negro); text-decoration: none;">Únete / Donar</a></li>
-                    <li>➔ <a href="servicio-social.html" style="color: var(--pc-negro); text-decoration: none;">Servicio Social</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= SECCIÓN 5: UBICACIÓN, CONTACTO Y RESEÑAS ================= -->
-    <div class="footer-wrapper fade-in">
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h2 class="hand-drawn">Proyecto Celene A.C.</h2>
-                <h3>Playas de Rosarito, Baja California</h3>
-                <p class="slogan">Únete a la lucha contra el cáncer de mama <span aria-hidden='true'>🎗️</span></p>
-                
-                <p><span class="icon"><span aria-hidden='true'>📍</span></span> <span>Calle Gral. Guadalupe Victoria, Col. Lienzo Charro, Rosarito, B.C.<br><small>(A un costado del Lienzo Charro)</small></span></p>
-                <p><span class="icon"><span aria-hidden='true'>⏰</span></span> <span><strong>Horario:</strong> Lunes a Domingo de 9:00 AM a 5:00 PM.</span></p>
-                
-                <p style="font-size: 0.95rem; line-height: 1.5; margin-top: 20px; font-weight: 600;">
-                    <span aria-hidden='true'>💬</span> Si te interesa platicarnos de tu caso, mándanos un WhatsApp al 661 104 4050 o llámanos a la línea telefónica. ¡Estamos para servirte!
-                </p>
-
-                <div class="social-links">
-                    <a href="tel:6611044050" class="btn btn-llamar" style="margin-bottom:0;">Llamar <span aria-hidden='true'>📞</span></a>
-                    <a href="https://wa.me/526611044050" class="btn btn-wa" style="margin-bottom:0;" target="_blank">WhatsApp <span aria-hidden='true'>💬</span></a>
+            <!-- BANNER 18 ANIVERSARIO -->
+            <a href="aniversario.html" class="retro-banner float-subtle">
+                <div class="retro-banner-content">
+                    <span class="retro-badge">¡NUEVO!</span>
+                    <span aria-hidden='true'>🎉</span> NOCHE DE GALA VINTAGE 50s-60s. ¡HAZ CLIC AQUÍ! <span
+                        aria-hidden='true'>👗</span><span aria-hidden='true'>🎙️</span>
                 </div>
+            </a>
 
-                <div class="social-links" style="margin-top: 15px;">
-                    <a href="https://www.facebook.com/proyectocelene.rosarito/" class="btn btn-social" target="_blank"><span aria-hidden='true'>👍</span> Facebook</a>
-                    <a href="https://www.instagram.com/proyectocelene" class="btn btn-social" target="_blank"><span aria-hidden='true'>📸</span> Instagram</a>
+            <!-- Logo de la Fundación y Estampilla -->
+            <div class="logo-container float-subtle">
+                <img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Proyecto Celene Logo" class="hero-logo">
+                <!-- ESTAMPILLA SNOOPY -->
+                <img src="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png" alt="Snoopy 18 Aniversario" class="snoopy-stamp"
+                    onclick="this.classList.remove('stamp-dance'); void this.offsetWidth; this.classList.add('stamp-dance');">
+            </div>
+
+            <h1 class="hand-drawn hero-title">Proyecto Celene A.C.</h1>
+            <h2 class="hand-drawn hero-location">Rosarito, B.C.</h2>
+            <p class="hero-subtitle">Únete a la lucha contra el cáncer de mama <span aria-hidden='true'>🎗️</span></p>
+
+            <div class="hero-buttons">
+                <a href="mastografia-gratuita.html" class="btn btn-primario">Agendar Mastografía Gratis <span
+                        aria-hidden='true'>🎗️</span></a>
+                <!-- Botón cambiado al estilo verde de WhatsApp -->
+                <a href="orientacion-medica-gratuita.html" class="btn btn-wa">Orientación Médica Gratuita <span
+                        aria-hidden='true'>💬</span></a>
+                <a href="servicios.html" class="btn btn-secundario">Ver Todos los Servicios <span
+                        aria-hidden='true'>📋</span></a>
+                <a href="recursos-educativos.html" class="btn btn-llamar">Recursos Educativos <span
+                        aria-hidden='true'>📖</span></a>
+            </div>
+        </header>
+
+        <!-- ================= SECCIÓN 2: BIENVENIDA E IMPACTO ================= -->
+        <section class="welcome-section fade-in">
+            <h2 class="hand-drawn">Tu salud es nuestra misión</h2>
+            <p>Somos una fundación médica y comunitaria sin fines de lucro en Rosarito, B.C. Nos dedicamos a la
+                detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda
+                la comunidad. <span aria-hidden='true'>🌸</span></p>
+        </section>
+
+        <!-- ================= SECCIÓN 3: SERVICIOS DESTACADOS ================= -->
+        <div class="services-header fade-in">
+            <h2 class="hand-drawn">Cuidamos de Ti</h2>
+        </div>
+
+        <div class="services-grid">
+            <!-- Bloque 1: Mastografías -->
+            <div class="service-card fade-in">
+                <img src="https://i.ibb.co/whkTFwLf/MAMOGRAFIA.jpg" alt="Mastografía Gratis" class="service-img">
+                <h3 class="hand-drawn">Mastografías Sin Costo</h3>
+                <p>Estudios gratuitos para mujeres de 40 años o más (o 35 con antecedentes familiares). Solo requieres
+                    traer copias de tu INE y CURP.</p>
+                <a href="mastografia-gratuita.html">Saber más ➔</a>
+            </div>
+
+            <!-- Bloque 2: Consulta General -->
+            <div class="service-card fade-in">
+                <img src="https://i.ibb.co/zhSRq5hX/CONSULTA-GENERAL.jpg" alt="Consulta Médica General"
+                    class="service-img">
+                <h3 class="hand-drawn">Consulta Médica</h3>
+                <p>Atención profesional empática, tanto presencial como virtual, con una cuota de recuperación accesible
+                    de solo $150 pesos.</p>
+                <a href="consulta-general.html">Saber más ➔</a>
+            </div>
+
+            <!-- Bloque 3: Salud Sexual e ITS -->
+            <div class="service-card fade-in">
+                <img src="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg" alt="Salud Sexual e ITS" class="service-img">
+                <h3 class="hand-drawn">Salud Sexual e ITS</h3>
+                <p>Pruebas de VIH gratuitas, confidenciales y seguras. Además, contamos con paquetes de detección (ITS)
+                    para tu total tranquilidad.</p>
+                <a href="salud-sexual.html">Saber más ➔</a>
+            </div>
+
+            <!-- Bloque 4: Farmacia Solidaria -->
+            <div class="service-card fade-in">
+                <img src="https://i.ibb.co/JjwF3cQm/FARMACIA-SOLIDARIA.jpg" alt="Farmacia Solidaria"
+                    class="service-img">
+                <h3 class="hand-drawn">Farmacia Solidaria</h3>
+                <p>Acceso a medicamentos donados mediante cooperaciones simbólicas. Ayudamos a sostener nuestra labor
+                    sin dejar a nadie atrás.</p>
+                <a href="farmacia-solidaria.html">Ir a la Farmacia ➔</a>
+            </div>
+
+            <!-- Bloque 5: Clínica Virtual -->
+            <div class="service-card fade-in">
+                <img src="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg" alt="Orientación Médica Gratuita"
+                    class="service-img">
+                <h3 class="hand-drawn">Orientación Médica Gratuita</h3>
+                <p>Tu espacio de salud a distancia sin costo. Resuelve dudas rápidas y accede a cuestionarios e
+                    indicaciones médicas desde tu celular.</p>
+                <a href="orientacion-medica-gratuita.html">Ir a Orientación ➔</a>
+            </div>
+
+            <!-- Bloque 6: Recursos Educativos -->
+            <div class="service-card fade-in">
+                <img src="https://i.ibb.co/Q7rXQMZd/EDUCACION.jpg" alt="Recursos Educativos" class="service-img">
+                <h3 class="hand-drawn">Recursos Educativos</h3>
+                <p>Aprende a cuidar tu cuerpo. Encuentra manuales, infografías y herramientas de prevención sobre
+                    autoexploración, salud sexual y bienestar integral.</p>
+                <a href="recursos-educativos.html">Explorar Recursos ➔</a>
+            </div>
+        </div>
+
+        <!-- ================= SECCIÓN NUESTRO ALCANCE ================= -->
+        <section class="alcance-section fade-in"
+            style="background: var(--pc-azul-suave); border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 40px 25px; margin-bottom: 50px; text-align: center; position: relative;">
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 10px;">Conoce
+                Nuestro Alcance <span aria-hidden='true'>🗺️</span></h2>
+            <p
+                style="font-weight: 800; font-size: 1.15rem; margin-bottom: 30px; max-width: 700px; margin-inline: auto; color: var(--pc-negro);">
+                Desde Rosarito hasta Nayarit, nuestra promesa de salvar vidas sigue cruzando fronteras. ¡La ayuda no
+                tiene límites!</p>
+
+            <div class="mexico-map-container" style="position: relative; max-width: 600px; margin: 0 auto 30px;">
+                <!-- Mapa Abstracto México (Low Poly) -->
+                <svg viewBox="0 0 800 550"
+                    style="width: 100%; height: auto; filter: drop-shadow(8px 8px 0px var(--pc-rosa-pastell));"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <!-- Baja California -->
+                    <polygon points="120,40 100,80 110,160 140,240 160,280 180,270 160,210 140,140 150,50" fill="white"
+                        stroke="#333" stroke-width="5" stroke-linejoin="round" />
+                    <!-- Mainland -->
+                    <polygon
+                        points="190,60 250,70 320,100 400,150 480,180 500,230 570,240 680,220 730,250 710,320 650,330 600,380 630,420 720,420 760,450 720,480 630,450 560,480 480,440 430,400 370,390 320,330 260,300 230,240 210,180 180,120"
+                        fill="white" stroke="#333" stroke-width="5" stroke-linejoin="round" />
+                </svg>
+
+                <!-- Pines Animados -->
+                <div class="pin" style="top: 15%; left: 16%; animation-delay: 0s;">
+                    <div class="pin-icon">📍</div>
+                <div class="pin-label">Rosarito (Matriz)</div>
+                </div>
+                <div class="pin" style="top: 65%; left: 42%; animation-delay: 1s;">
+                    <div class="pin-icon">📍</div>
+                <div class="pin-label">Nayarit (Red 5 Módulos)</div>
                 </div>
             </div>
 
-            <!-- Google Maps -->
-            <div class="map-container">
-                <iframe 
-                    src="https://maps.google.com/maps?q=Proyecto%20Celene%20Rosarito&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            <a href="modulos1.html" class="btn btn-primario" style="margin-top: 10px;">Ver Nuestras Sedes ➔</a>
+        </section>
+
+        <!-- ================= SECCIÓN 4: SISTEMA DE CITAS ================= -->
+        <section class="appointments-section fade-in">
+            <h2 class="hand-drawn">Agenda tu Cita en Línea <span aria-hidden='true'>📅</span></h2>
+            <p><span aria-hidden='true'>🌸</span> Bienvenidos al sistema de citas de Proyecto Celene. Ofrecemos niveles
+                de atención diseñados para adaptarnos a tus necesidades:</p>
+
+            <div class="appt-grid">
+                <div class="appt-card">
+                    <h4><span aria-hidden='true'>🩺</span> Consulta Médica ($150)</h4>
+                    <p>Para quienes necesitan un diagnóstico detallado, recetas médicas oficiales o seguimiento de un
+                        tratamiento. Puede ser <strong>presencial o virtual</strong> (te contactaremos por WhatsApp o
+                        llamada para la videollamada).</p>
+                </div>
+                <div class="appt-card">
+                    <h4><span aria-hidden='true'>💬</span> Orientación Médica Gratuita</h4>
+                    <p>Servicio virtual sin costo para resolver dudas rápidas sobre síntomas o revisar estudios previos.
+                        <br><br><em>*Por normativa legal, esta orientación NO incluye recetas médicas ni apertura de
+                            expediente.</em></p>
+                </div>
+            </div>
+
+            <!-- Botón Emergente de Google Calendar -->
+            <div style="text-align: center; margin-top: 30px; display: flex; justify-content: center;">
+                <!-- Google Calendar Appointment Scheduling begin -->
+                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                <script>
+                    (function () {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function () {
+                            calendar.schedulingButton.load({
+                                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
+                                color: '#d81b60', /* Ajustado al color rosa de Proyecto Celene */
+                                label: '🗓️ Programar una Cita Aquí',
+                                target,
+                            });
+                        });
+                    })();
+                </script>
+                <!-- end Google Calendar Appointment Scheduling -->
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN MAPA DEL SITIO ================= -->
+        <section class="sitemap-section fade-in"
+            style="background: var(--pc-gris-suave); border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 40px 25px; margin-bottom: 50px;">
+            <h2 class="hand-drawn"
+                style="text-align: center; color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 15px;">🔍
+                ¿Qué buscas? ¡Encuéntralo aquí!</h2>
+            <p style="text-align: center; font-weight: 600; margin-bottom: 30px; font-size: 1.1rem;">Explora todas
+                nuestras secciones para no perderte de ningún servicio o evento.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                <!-- Categoría 1 -->
+                <div
+                    style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-rosa-pastell);">
+                    <h3
+                        style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;">
+                        <span aria-hidden='true'>🏥</span> Atención Médica</h3>
+                    <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
+                        <li>➔ <a href="mastografia-gratuita.html"
+                                style="color: var(--pc-rosa-fuerte); text-decoration: none;">Mastografía Gratuita</a>
+                        </li>
+                        <li>➔ <a href="consulta-general.html"
+                                style="color: var(--pc-negro); text-decoration: none;">Consulta General</a></li>
+                        <li>➔ <a href="salud-sexual.html" style="color: var(--pc-negro); text-decoration: none;">Salud
+                                Sexual e ITS</a></li>
+                        <li>➔ <a href="fisioterapeuta-lupita.html"
+                                style="color: var(--pc-negro); text-decoration: none;">Fisioterapia - Lupita</a></li>
+                        <li>➔ <a href="sobador-tony.html" style="color: var(--pc-negro); text-decoration: none;">Puntos
+                                Gatillo - Tony</a></li>
+                        <li>➔ <a href="servicios.html" style="color: var(--pc-negro); text-decoration: none;">Ver
+                                Todos...</a></li>
+                    </ul>
+                </div>
+                <!-- Categoría 2 -->
+                <div
+                    style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-azul-suave);">
+                    <h3
+                        style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;">
+                        <span aria-hidden='true'>💊</span> Farmacia y Apoyo</h3>
+                    <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
+                        <li>➔ <a href="farmacia-solidaria.html"
+                                style="color: var(--pc-negro); text-decoration: none;">Farmacia Solidaria</a></li>
+                        <li>➔ <a href="orientacion-medica-gratuita.html"
+                                style="color: var(--pc-negro); text-decoration: none;">Orientación Virtual</a></li>
+                        <li>➔ <a href="recursos-educativos.html"
+                                style="color: var(--pc-negro); text-decoration: none;">Recursos Educativos</a></li>
+                    </ul>
+                </div>
+                <!-- Categoría 3 -->
+                <div
+                    style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-amarillo);">
+                    <h3
+                        style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;">
+                        <span aria-hidden='true'>📚</span> Conócenos</h3>
+                    <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
+                        <li>➔ <a href="quienes-somos.html"
+                                style="color: var(--pc-negro); text-decoration: none;">Nuestro Equipo</a></li>
+                        <li>➔ <a href="nuestra-historia.html"
+                                style="color: var(--pc-negro); text-decoration: none;">Nuestra Historia</a></li>
+                        <li>➔ <a href="nuestros-aliados.html"
+                                style="color: var(--pc-negro); text-decoration: none;">Nuestros Aliados</a></li>
+                        <li>➔ <a href="modulos1.html" style="color: var(--pc-negro); text-decoration: none;">Sedes y
+                                Módulos</a></li>
+                    </ul>
+                </div>
+                <!-- Categoría 4 -->
+                <div
+                    style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 #25d366;">
+                    <h3
+                        style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 2px solid var(--pc-rosa-fuerte); padding-bottom: 5px;">
+                        <span aria-hidden='true'>🤝</span> Participa</h3>
+                    <ul style="list-style: none; line-height: 1.8; font-weight: 600;">
+                        <li>➔ <a href="aniversario.html"
+                                style="color: var(--pc-rosa-fuerte); text-decoration: none;">18° Aniversario Gala</a>
+                        </li>
+                        <li>➔ <a href="unete-a-nuestro-equipo.html"
+                                style="color: var(--pc-negro); text-decoration: none;">Únete / Donar</a></li>
+                        <li>➔ <a href="servicio-social.html"
+                                style="color: var(--pc-negro); text-decoration: none;">Servicio Social</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN 5: UBICACIÓN, CONTACTO Y RESEÑAS ================= -->
+        <div class="footer-wrapper fade-in">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="hand-drawn">Proyecto Celene A.C.</h2>
+                    <h3>Playas de Rosarito, Baja California</h3>
+                    <p class="slogan">Únete a la lucha contra el cáncer de mama <span aria-hidden='true'>🎗️</span></p>
+
+                    <p><span class="icon"><span aria-hidden='true'>📍</span></span> <span>Calle Gral. Guadalupe
+                            Victoria, Col. Lienzo Charro, Rosarito, B.C.<br><small>(A un costado del Lienzo
+                                Charro)</small></span></p>
+                    <p><span class="icon"><span aria-hidden='true'>⏰</span></span> <span><strong>Horario:</strong> Lunes
+                            a Domingo de 9:00 AM a 5:00 PM.</span></p>
+
+                    <p style="font-size: 0.95rem; line-height: 1.5; margin-top: 20px; font-weight: 600;">
+                        <span aria-hidden='true'>💬</span> Si te interesa platicarnos de tu caso, mándanos un WhatsApp
+                        al 661 104 4050 o llámanos a la línea telefónica. ¡Estamos para servirte!
+                    </p>
+
+                    <div class="social-links">
+                        <a href="tel:6611044050" class="btn btn-llamar" style="margin-bottom:0;">Llamar <span
+                                aria-hidden='true'>📞</span></a>
+                        <a href="https://wa.me/526611044050" class="btn btn-wa" style="margin-bottom:0;"
+                            target="_blank">WhatsApp <span aria-hidden='true'>💬</span></a>
+                    </div>
+
+                    <div class="social-links" style="margin-top: 15px;">
+                        <a href="https://www.facebook.com/proyectocelene.rosarito/" class="btn btn-social"
+                            target="_blank"><span aria-hidden='true'>👍</span> Facebook</a>
+                        <a href="https://www.instagram.com/proyectocelene" class="btn btn-social" target="_blank"><span
+                                aria-hidden='true'>📸</span> Instagram</a>
+                    </div>
+                </div>
+
+                <!-- Google Maps -->
+                <div class="map-container">
+                    <iframe
+                        src="https://maps.google.com/maps?q=Proyecto%20Celene%20Rosarito&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Reseñas de Google al final -->
+            <div class="reviews-box">
+                <h4 class="hand-drawn">¿Te hemos ayudado?</h4>
+                <div class="stars">★★★★★</div>
+                <p style="font-size: 1rem; margin-bottom: 20px; font-weight: 600;">Proporciona a las pacientes un
+                    vínculo de confianza dejando tu opinión en Google.</p>
+                <a href="https://g.page/r/CSyqpg-XraHKEBM/review" class="btn btn-primario" target="_blank"
+                    style="margin-bottom:0; font-size:1.2rem;">Dejar una Reseña <span aria-hidden='true'>🌟</span></a>
             </div>
         </div>
 
-        <!-- Reseñas de Google al final -->
-        <div class="reviews-box">
-            <h4 class="hand-drawn">¿Te hemos ayudado?</h4>
-            <div class="stars">★★★★★</div>
-            <p style="font-size: 1rem; margin-bottom: 20px; font-weight: 600;">Proporciona a las pacientes un vínculo de confianza dejando tu opinión en Google.</p>
-            <a href="https://g.page/r/CSyqpg-XraHKEBM/review" class="btn btn-primario" target="_blank" style="margin-bottom:0; font-size:1.2rem;">Dejar una Reseña <span aria-hidden='true'>🌟</span></a>
-        </div>
     </div>
 
-</div>
 
 
-
-<script src="js/global.js"></script>
+    <script src="js/global.js"></script>
 </body>
+
 </html>

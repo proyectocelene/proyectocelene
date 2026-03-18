@@ -10,14 +10,14 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://proyectoselene.org/">
+    <meta property="og:url" content="https://proyectocelene.org/">
     <meta property="og:title" content="Proyecto Celene A.C. - Lucha Contra el Cáncer de Mama">
     <meta property="og:description" content="Fundación en Rosarito, B.C. dedicada a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad.">
     <meta property="og:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://proyectoselene.org/">
+    <meta property="twitter:url" content="https://proyectocelene.org/">
     <meta property="twitter:title" content="Proyecto Celene A.C. - Lucha Contra el Cáncer de Mama">
     <meta property="twitter:description" content="Fundación en Rosarito, B.C. dedicada a la detección temprana del cáncer de mama y a brindar servicios de salud integrales y accesibles para toda la comunidad.">
     <meta property="twitter:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
@@ -241,6 +241,19 @@
             border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro);
             transform: translateY(-2px);
         }
+
+        /* MODAL CONTACTO INICIO */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); align-items: center; justify-content: center; padding: 15px; }
+        .modal-content { background: white; border: 4px solid var(--pc-negro); border-radius: 25px; max-width: 500px; width: 100%; padding: 35px; position: relative; box-shadow: 12px 12px 0px var(--pc-amarillo); animation: popIn 0.3s ease-out; }
+        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .close-modal { position: absolute; top: 15px; right: 25px; font-size: 2.5rem; cursor: pointer; font-weight: 900; color: var(--pc-negro); line-height: 1; transition: 0.2s; }
+        .close-modal:hover { color: var(--pc-rosa-fuerte); transform: scale(1.1); }
+        .modal input, .modal textarea { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; }
+        .modal input:focus, .modal textarea:focus { border-color: var(--pc-rosa-fuerte); }
+        
+        /* ANIMACIÓN AGENDA */
+        .agenda-pulse { animation: pulseBg 2s infinite; }
+        @keyframes pulseBg { 0% { box-shadow: 0 0 0 0 rgba(216, 27, 96, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(216, 27, 96, 0); } 100% { box-shadow: 0 0 0 0 rgba(216, 27, 96, 0); } }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
@@ -345,21 +358,27 @@
     <!-- ================= SECCIÓN 4: SISTEMA DE CITAS ================= -->
     <section class="appointments-section fade-in">
         <h2 class="hand-drawn">Agenda tu Cita en Línea <span aria-hidden='true'>📅</span></h2>
-        <p><span aria-hidden='true'>🌸</span> Bienvenidos al sistema de citas de Proyecto Celene. <strong>Puedes acudir presencialmente SIN CITA de Lunes a Domingo de 9:00 am a 4:00 pm</strong>, o consultar los horarios disponibles y agendar tu espacio:</p>
+        <div style="background: var(--pc-amarillo); border: 3px dashed var(--pc-negro); padding: 20px; border-radius: 15px; max-width: 800px; margin: 0 auto 30px; text-align: center; font-size: 1.15rem;">
+            <p><strong><span aria-hidden='true'>🏥</span> ¿Prefieres venir directamente?</strong><br>
+            Puedes acudir <strong>SIN CITA</strong> de Lunes a Domingo de 9:00 am a 4:00 pm.<br>
+            <small style="color: #555;">(Se atiende conforme van llegando por lista de espera).</small></p>
+        </div>
         
         <div class="appt-grid">
-            <div class="appt-card">
+            <div class="appt-card" style="text-align: center; background: white; border: 3px solid var(--pc-negro); box-shadow: 6px 6px 0 var(--pc-rosa-pastell); transition: transform 0.2s;">
                 <h4><span aria-hidden='true'>🩺</span> Consulta Médica ($150)</h4>
                 <p>Para quienes necesitan un diagnóstico detallado, recetas médicas oficiales o abrir expediente. Puede ser <strong>presencial o virtual</strong>.</p>
+                <a href="consulta-general.html" class="btn btn-primario" style="margin-top: 15px; padding: 10px;">Ver más info</a>
             </div>
-            <div class="appt-card">
+            <div class="appt-card" style="text-align: center; background: white; border: 3px solid var(--pc-negro); box-shadow: 6px 6px 0 var(--pc-azul-suave); transition: transform 0.2s;">
                 <h4><span aria-hidden='true'>💬</span> Orientación Médica Gratuita</h4>
                 <p>Servicio virtual sin costo para resolver dudas rápidas sobre síntomas o revisar estudios previos. <br><br><em>*Por normativa legal, esta orientación NO incluye recetas médicas ni apertura de expediente.</em></p>
+                <a href="orientacion-medica-gratuita.html" class="btn btn-llamar" style="margin-top: 15px; padding: 10px; border-color: var(--pc-negro);">Ver más info</a>
             </div>
         </div>
 
         <!-- Botón Emergente de Google Calendar -->
-        <div style="text-align: center; margin-top: 30px; display: flex; justify-content: center;">
+        <div class="agenda-pulse" style="text-align: center; margin-top: 30px; display: inline-flex; justify-content: center; border-radius: 50px; margin-inline: auto;">
             <!-- Google Calendar Appointment Scheduling begin -->
             <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
             <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
@@ -370,7 +389,7 @@
                 calendar.schedulingButton.load({
                   url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
                   color: '#d81b60', /* Ajustado al color rosa de Proyecto Celene */
-                  label: '🗓️ Programar una Cita Aquí',
+                  label: '🗓️ Consultar horarios disponibles y agendar',
                   target,
                 });
               });
@@ -445,7 +464,7 @@
 
                 <div class="social-links">
                     <a href="tel:6611044050" class="btn btn-llamar" style="margin-bottom:0;">Llamar <span aria-hidden='true'>📞</span></a>
-                    <a href="https://wa.me/526611044050" class="btn btn-wa" style="margin-bottom:0;" target="_blank">WhatsApp <span aria-hidden='true'>💬</span></a>
+                    <button onclick="document.getElementById('modalContactoIndex').style.display='flex'" class="btn btn-wa" style="margin-bottom:0;">WhatsApp <span aria-hidden='true'>💬</span></button>
                 </div>
 
                 <div class="social-links" style="margin-top: 15px;">

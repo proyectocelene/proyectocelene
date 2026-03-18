@@ -1,99 +1,314 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Qué estás buscando? - Proyecto Celene</title>
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/mapa-sitio.html">
+    <meta property="og:title" content="Mapa del Sitio - Proyecto Celene">
+    <meta property="og:description"
+        content="Encuentra rápidamente todos los servicios, guías y contactos de Proyecto Celene.">
+    <meta property="og:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/mapa-sitio.html">
+    <meta property="twitter:title" content="Mapa del Sitio - Proyecto Celene">
+    <meta property="twitter:description"
+        content="Encuentra rápidamente todos los servicios, guías y contactos de Proyecto Celene.">
+    <meta property="twitter:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
     <style>
-        :root { --pc-rosa-pastell:#fce4ec; --pc-rosa-fuerte:#d81b60; --pc-negro:#333333; --pc-blanco:#ffffff; --pc-amarillo:#fff9c4; --pc-azul-suave:#e3f2fd; --pc-gris-suave:#f9f9f9; }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:'Nunito',sans-serif; background:var(--pc-blanco); color:var(--pc-negro); line-height:1.6; padding-bottom:50px; }
-        .hand-drawn { font-family:'Handlee',cursive; }
-        .container { max-width:900px; margin:0 auto; padding:15px; }
-        
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
         /* NAVEGACIÓN UNIVERSAL */
-        .main-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:30px; padding:15px; background:var(--pc-blanco); border:3px solid var(--pc-negro); border-radius:20px; box-shadow:6px 6px 0 var(--pc-rosa-pastell); }
-        .main-nav a { text-decoration:none; color:var(--pc-negro); font-weight:800; font-size:1.05rem; padding:8px 15px; border-radius:15px; transition:0.2s; border:2px solid transparent; }
-        .main-nav a:hover { background:var(--pc-rosa-fuerte); color:white; border-color:var(--pc-negro); transform:translateY(-2px); box-shadow:3px 3px 0 var(--pc-negro); }
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+        }
 
-        .header { text-align:center; padding:40px 20px; background:var(--pc-amarillo); border:4px solid var(--pc-negro); border-radius:20px; margin-bottom:30px; box-shadow:8px 8px 0 var(--pc-negro); }
-        .header h1 { font-size:2.8rem; color:var(--pc-rosa-fuerte); margin-bottom:10px; line-height:1.1; }
-        
-        .search-box { width: 100%; padding: 20px; font-size: 1.2rem; border: 4px solid var(--pc-negro); border-radius: 50px; outline: none; font-family: 'Nunito', sans-serif; box-shadow: 6px 6px 0 var(--pc-azul-suave); margin-bottom: 40px; transition: 0.2s; }
-        .search-box:focus { border-color: var(--pc-rosa-fuerte); box-shadow: 6px 6px 0 var(--pc-rosa-pastell); }
+        .main-nav a {
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
 
-        .category-section { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-gris-suave); }
-        .category-section h2 { color: var(--pc-rosa-fuerte); margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px dashed #ccc; padding-bottom: 10px; }
-        
-        .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .map-link { display: flex; align-items: center; gap: 10px; padding: 15px; border: 2px solid var(--pc-negro); border-radius: 15px; text-decoration: none; color: var(--pc-negro); font-weight: 800; background: var(--pc-blanco); transition: 0.2s; }
-        .map-link:hover { background: var(--pc-rosa-pastell); transform: translateY(-3px); box-shadow: 4px 4px 0 var(--pc-negro); }
-        .link-icon { font-size: 1.5rem; }
-        .link-text span { display: block; font-size: 0.85rem; color: #666; font-weight: 600; margin-top: 3px; }
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            border-color: var(--pc-negro);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-amarillo);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-negro);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.2rem;
+            border: 4px solid var(--pc-negro);
+            border-radius: 50px;
+            outline: none;
+            font-family: 'Nunito', sans-serif;
+            box-shadow: 6px 6px 0 var(--pc-azul-suave);
+            margin-bottom: 40px;
+            transition: 0.2s;
+        }
+
+        .search-box:focus {
+            border-color: var(--pc-rosa-fuerte);
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+        }
+
+        .category-section {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 var(--pc-gris-suave);
+        }
+
+        .category-section h2 {
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px dashed #ccc;
+            padding-bottom: 10px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .map-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            border: 2px solid var(--pc-negro);
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            background: var(--pc-blanco);
+            transition: 0.2s;
+        }
+
+        .map-link:hover {
+            background: var(--pc-rosa-pastell);
+            transform: translateY(-3px);
+            box-shadow: 4px 4px 0 var(--pc-negro);
+        }
+
+        .link-icon {
+            font-size: 1.5rem;
+        }
+
+        .link-text span {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 600;
+            margin-top: 3px;
+        }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
     <div class="container">
         <div id="navbar-container" class="main-nav"></div>
 
         <header class="header">
             <h1 class="hand-drawn">¿Qué estás buscando? <span aria-hidden='true'>🔍</span></h1>
-            <p style="font-weight:600; font-size:1.1rem;">Escribe en el recuadro para encontrar rápidamente la página que necesitas.</p>
+            <p style="font-weight:600; font-size:1.1rem;">Escribe en el recuadro para encontrar rápidamente la página
+                que necesitas.</p>
         </header>
 
-        <input type="text" id="searchBox" class="search-box" onkeyup="filterLinks()" placeholder="Ej. Mastografía, voluntariado, citas, donar...">
+        <input type="text" id="searchBox" class="search-box" onkeyup="filterLinks()"
+            placeholder="Ej. Mastografía, voluntariado, citas, donar...">
 
         <div id="mapContainer">
             <div class="category-section">
                 <h2 class="hand-drawn">🏥 Clínica y Servicios Médicos</h2>
                 <div class="links-grid">
-                    <a href="consultorio-comunitario.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>🩺</span></span><div class="link-text">Consultorio Comunitario<span>El centro de nuestra área médica.</span></div></a>
-                    <a href="servicios.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>📋</span></span><div class="link-text">Catálogo de Servicios<span>Lista de estudios y precios.</span></div></a>
-                    <a href="mastografia-gratuita.html" class="map-link"><span class="link-icon">🎀</span><div class="link-text">Mastografía Gratuita<span>Requisitos y guía para tu estudio.</span></div></a>
-                    <a href="consulta-general.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>👨‍⚕️</span></span><div class="link-text">Consulta General<span>Atención presencial y virtual.</span></div></a>
-                    <a href="salud-sexual.html" class="map-link"><span class="link-icon">🛡️</span><div class="link-text">Salud Sexual e ITS<span>Pruebas VIH y anticonceptivos.</span></div></a>
-                    <a href="orientacion-medica-gratuita.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>💬</span></span><div class="link-text">Orientación Gratuita<span>Resuelve dudas por WhatsApp.</span></div></a>
-                    <a href="retiro-diu.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>🩱</span></span><div class="link-text">Retiro de DIU<span>Guía integral y paso a paso.</span></div></a>
-                    <a href="retiro-isd.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>🩹</span></span><div class="link-text">Retiro de ISD<span>Guía sobre implante en brazo.</span></div></a>
-                    <a href="fisioterapeuta-lupita.html" class="map-link"><span class="link-icon">👐</span><div class="link-text">Fisioterapia (Lupita)<span>Rehabilitación y dolor crónico.</span></div></a>
-                    <a href="sobador-tony.html" class="map-link"><span class="link-icon">🌿</span><div class="link-text">Sobador (Tony)<span>Medicina tradicional.</span></div></a>
+                    <a href="consultorio-comunitario.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>🩺</span></span>
+                        <div class="link-text">Consultorio Comunitario<span>El centro de nuestra área médica.</span>
+                        </div>
+                    </a>
+                    <a href="servicios.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>📋</span></span>
+                        <div class="link-text">Catálogo de Servicios<span>Lista de estudios y precios.</span></div>
+                    </a>
+                    <a href="mastografia-gratuita.html" class="map-link"><span class="link-icon">🎀</span>
+                        <div class="link-text">Mastografía Gratuita<span>Requisitos y guía para tu estudio.</span></div>
+                    </a>
+                    <a href="consulta-general.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>👨‍⚕️</span></span>
+                        <div class="link-text">Consulta General<span>Atención presencial y virtual.</span></div>
+                    </a>
+                    <a href="salud-sexual.html" class="map-link"><span class="link-icon">🛡️</span>
+                        <div class="link-text">Salud Sexual e ITS<span>Pruebas VIH y anticonceptivos.</span></div>
+                    </a>
+                    <a href="orientacion-medica-gratuita.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>💬</span></span>
+                        <div class="link-text">Orientación Gratuita<span>Resuelve dudas por WhatsApp.</span></div>
+                    </a>
+                    <a href="retiro-diu.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>🩱</span></span>
+                        <div class="link-text">Retiro de DIU<span>Guía integral y paso a paso.</span></div>
+                    </a>
+                    <a href="retiro-isd.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>🩹</span></span>
+                        <div class="link-text">Retiro de ISD<span>Guía sobre implante en brazo.</span></div>
+                    </a>
+                    <a href="fisioterapeuta-lupita.html" class="map-link"><span class="link-icon">👐</span>
+                        <div class="link-text">Fisioterapia (Lupita)<span>Rehabilitación y dolor crónico.</span></div>
+                    </a>
+                    <a href="sobador-tony.html" class="map-link"><span class="link-icon">🌿</span>
+                        <div class="link-text">Sobador (Tony)<span>Medicina tradicional.</span></div>
+                    </a>
                 </div>
             </div>
             <div class="category-section">
                 <h2 class="hand-drawn">📚 Educación y Farmacia</h2>
                 <div class="links-grid">
-                    <a href="farmacia-solidaria.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>💊</span></span><div class="link-text">Farmacia Solidaria<span>Donación y petición de medicina.</span></div></a>
-                    <a href="recursos-educativos.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>📖</span></span><div class="link-text">Recursos Educativos<span>Guías y herramientas de salud.</span></div></a>
-                    <a href="puntos-gatillo.html" class="map-link"><span class="link-icon">💉</span><div class="link-text">Puntos Gatillo<span>Guía sobre dolores musculares.</span></div></a>
+                    <a href="farmacia-solidaria.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>💊</span></span>
+                        <div class="link-text">Farmacia Solidaria<span>Donación y petición de medicina.</span></div>
+                    </a>
+                    <a href="recursos-educativos.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>📖</span></span>
+                        <div class="link-text">Recursos Educativos<span>Guías y herramientas de salud.</span></div>
+                    </a>
+                    <a href="puntos-gatillo.html" class="map-link"><span class="link-icon">💉</span>
+                        <div class="link-text">Puntos Gatillo<span>Guía sobre dolores musculares.</span></div>
+                    </a>
                 </div>
             </div>
             <div class="category-section">
                 <h2 class="hand-drawn"><span aria-hidden='true'>🤝</span> Apoyo y Comunidad</h2>
                 <div class="links-grid">
-                    <a href="unete-a-nuestro-equipo.html" class="map-link"><span class="link-icon">🙋‍♀️</span><div class="link-text">Únete / Apoya<span>Voluntariado y donativos.</span></div></a>
-                    <a href="servicio-social.html" class="map-link"><span class="link-icon">🎓</span><div class="link-text">Servicio Social<span>Prácticas profesionales.</span></div></a>
-                    <a href="patrocinadores.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>🏢</span></span><div class="link-text">Patrocinadores<span>Alianzas para empresas.</span></div></a>
-                    <a href="nuestros-aliados.html" class="map-link"><span class="link-icon">🏆</span><div class="link-text">Muro de Gratitud<span>Nuestros donantes héroes.</span></div></a>
+                    <a href="unete-a-nuestro-equipo.html" class="map-link"><span class="link-icon">🙋‍♀️</span>
+                        <div class="link-text">Únete / Apoya<span>Voluntariado y donativos.</span></div>
+                    </a>
+                    <a href="servicio-social.html" class="map-link"><span class="link-icon">🎓</span>
+                        <div class="link-text">Servicio Social<span>Prácticas profesionales.</span></div>
+                    </a>
+                    <a href="patrocinadores.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>🏢</span></span>
+                        <div class="link-text">Patrocinadores<span>Alianzas para empresas.</span></div>
+                    </a>
+                    <a href="nuestros-aliados.html" class="map-link"><span class="link-icon">🏆</span>
+                        <div class="link-text">Muro de Gratitud<span>Nuestros donantes héroes.</span></div>
+                    </a>
                 </div>
             </div>
             <div class="category-section">
                 <h2 class="hand-drawn"><span aria-hidden='true'>🏢</span> Sobre la Fundación</h2>
                 <div class="links-grid">
-                    <a href="inicio.html" class="map-link"><span class="link-icon">🏠</span><div class="link-text">Inicio<span>Página principal de Celene.</span></div></a>
-                    <a href="quienes-somos.html" class="map-link"><span class="link-icon">❤️</span><div class="link-text">Quiénes Somos<span>Conoce a nuestro equipo.</span></div></a>
-                    <a href="nuestra-historia.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>📜</span></span><div class="link-text">Nuestra Historia<span>Cómo nació el proyecto.</span></div></a>
-                    <a href="modulos.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>📍</span></span><div class="link-text">Nuestros Módulos<span>Sedes en Nayarit y BC.</span></div></a>
-                    <a href="resena.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>🌟</span></span><div class="link-text">Dejar Reseña<span>Califica nuestra atención.</span></div></a>
+                    <a href="inicio.html" class="map-link"><span class="link-icon">🏠</span>
+                        <div class="link-text">Inicio<span>Página principal de Celene.</span></div>
+                    </a>
+                    <a href="quienes-somos.html" class="map-link"><span class="link-icon">❤️</span>
+                        <div class="link-text">Quiénes Somos<span>Conoce a nuestro equipo.</span></div>
+                    </a>
+                    <a href="nuestra-historia.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>📜</span></span>
+                        <div class="link-text">Nuestra Historia<span>Cómo nació el proyecto.</span></div>
+                    </a>
+                    <a href="modulos1.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>📍</span></span>
+                        <div class="link-text">Nuestros Módulos<span>Sedes en Nayarit y BC.</span></div>
+                    </a>
+                    <a href="resena.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>🌟</span></span>
+                        <div class="link-text">Dejar Reseña<span>Califica nuestra atención.</span></div>
+                    </a>
                 </div>
             </div>
             <div class="category-section">
                 <h2 class="hand-drawn"><span aria-hidden='true'>🎉</span> Eventos</h2>
                 <div class="links-grid">
-                    <a href="aniversario.html" class="map-link"><span class="link-icon">🎂</span><div class="link-text">18° Aniversario<span>Boletos y Gala.</span></div></a>
-                    <a href="epoca-vintage.html" class="map-link"><span class="link-icon"><span aria-hidden='true'>🎙️</span></span><div class="link-text">Guía Vintage 50s-60s<span>Cómo vestirse.</span></div></a>
+                    <a href="aniversario.html" class="map-link"><span class="link-icon">🎂</span>
+                        <div class="link-text">18° Aniversario<span>Boletos y Gala.</span></div>
+                    </a>
+                    <a href="epoca-vintage.html" class="map-link"><span class="link-icon"><span
+                                aria-hidden='true'>🎙️</span></span>
+                        <div class="link-text">Guía Vintage 50s-60s<span>Cómo vestirse.</span></div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -105,6 +320,7 @@
             document.querySelectorAll('.category-section').forEach(s => s.style.display = s.querySelectorAll('.map-link[style="display: flex;"], .map-link:not([style*="display: none"])').length === 0 ? "none" : "block");
         }
     </script>
-<script src="js/global.js"></script>
+    <script src="js/global.js"></script>
 </body>
+
 </html>

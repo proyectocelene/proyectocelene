@@ -1,61 +1,351 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mastografía Gratuita - Proyecto Celene</title>
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/mastografia-gratuita.html">
+    <meta property="og:title" content="Mastografía Gratuita - Proyecto Celene">
+    <meta property="og:description" content="Guía paso a paso para usar tu vale de Mastografía Gratis en Rosarito.">
+    <meta property="og:image" content="https://i.ibb.co/whkTFwLf/MAMOGRAFIA.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/mastografia-gratuita.html">
+    <meta property="twitter:title" content="Mastografía Gratuita - Proyecto Celene">
+    <meta property="twitter:description" content="Guía paso a paso para usar tu vale de Mastografía Gratis en Rosarito.">
+    <meta property="twitter:image" content="https://i.ibb.co/whkTFwLf/MAMOGRAFIA.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
     <style>
-        :root { --pc-rosa-pastell:#fce4ec; --pc-rosa-fuerte:#d81b60; --pc-negro:#333; --pc-blanco:#fff; --pc-amarillo:#fff9c4; --pc-azul-suave:#e3f2fd; }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:'Nunito',sans-serif; background:var(--pc-blanco); color:var(--pc-negro); line-height:1.6; padding-bottom:50px; }
-        .hand-drawn { font-family:'Handlee',cursive; }
-        .container { max-width:900px; margin:0 auto; padding:15px; }
-        .main-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:30px; padding:15px; background:var(--pc-blanco); border:3px solid var(--pc-negro); border-radius:20px; box-shadow:6px 6px 0 var(--pc-rosa-pastell); }
-        .main-nav a { text-decoration:none; color:var(--pc-negro); font-weight:800; font-size:1.05rem; padding:8px 15px; border-radius:15px; transition:0.2s; border:2px solid transparent; }
-        .main-nav a:hover { background:var(--pc-rosa-fuerte); color:white; border-color:var(--pc-negro); transform:translateY(-2px); box-shadow:3px 3px 0 var(--pc-negro); }
-        .header { text-align:center; padding:40px 20px; background:var(--pc-rosa-pastell); border:4px solid var(--pc-negro); border-radius:20px; margin-bottom:30px; box-shadow:8px 8px 0 var(--pc-negro); }
-        .header img { max-width:100%; width:400px; border-radius:15px; border:3px solid var(--pc-negro); margin-bottom:15px; background:white; }
-        .header h1 { font-size:2.8rem; color:var(--pc-rosa-fuerte); margin-bottom:10px; line-height:1.1; }
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333;
+            --pc-blanco: #fff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            border-color: var(--pc-negro);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-rosa-pastell);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-negro);
+        }
+
+        .header img {
+            max-width: 100%;
+            width: 400px;
+            border-radius: 15px;
+            border: 3px solid var(--pc-negro);
+            margin-bottom: 15px;
+            background: white;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
 
         /* ESTILOS DE PASOS */
-        .step-card { background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; position: relative; box-shadow: 8px 8px 0 var(--pc-amarillo); }
-        .step-card:nth-child(even) { box-shadow: 8px 8px 0 var(--pc-azul-suave); }
-        .step-badge { position: absolute; top: -20px; left: -15px; background: var(--pc-rosa-fuerte); color: white; font-family: 'Shrikhand', cursive; font-size: 1.5rem; padding: 10px 20px; border-radius: 15px; border: 3px solid var(--pc-negro); transform: rotate(-5deg); box-shadow: 4px 4px 0 var(--pc-negro); }
-        .step-card h3 { font-size: 1.8rem; color: var(--pc-negro); margin: 15px 0 15px 0; padding-left: 10px; border-left: 5px solid var(--pc-rosa-fuerte); }
-        .step-card p { font-size: 1.1rem; color: #444; margin-bottom: 15px; font-weight: 600; }
-        .step-card ul { margin-left: 20px; font-size: 1.05rem; font-weight: 600; color: #555; }
-        .step-card li { margin-bottom: 10px; }
+        .step-card {
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 8px 8px 0 var(--pc-amarillo);
+        }
+
+        .step-card:nth-child(even) {
+            box-shadow: 8px 8px 0 var(--pc-azul-suave);
+        }
+
+        .step-badge {
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            font-family: 'Shrikhand', cursive;
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            border-radius: 15px;
+            border: 3px solid var(--pc-negro);
+            transform: rotate(-5deg);
+            box-shadow: 4px 4px 0 var(--pc-negro);
+        }
+
+        .step-card h3 {
+            font-size: 1.8rem;
+            color: var(--pc-negro);
+            margin: 15px 0 15px 0;
+            padding-left: 10px;
+            border-left: 5px solid var(--pc-rosa-fuerte);
+        }
+
+        .step-card p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .step-card ul {
+            margin-left: 20px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .step-card li {
+            margin-bottom: 10px;
+        }
 
         /* MAPAS Y BOTONES */
-        .btn { display:inline-flex; align-items: center; justify-content: center; text-align:center; padding:15px 25px; border-radius:50px; border:4px solid var(--pc-negro); font-weight:800; text-decoration:none; font-size:1.1rem; transition:0.1s; cursor: pointer; font-family: 'Nunito', sans-serif; position: relative; top: 0;}
-        .btn:active { top: 6px; box-shadow: 0 0 0 transparent !important; }
-        .btn-wa { background:#25d366; color:white; box-shadow:0 6px 0 #1b9c4b; }
-        .btn-map { background:var(--pc-blanco); color:var(--pc-negro); box-shadow:0 6px 0 var(--pc-negro); }
-        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.1s;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            position: relative;
+            top: 0;
+        }
+
+        .btn:active {
+            top: 6px;
+            box-shadow: 0 0 0 transparent !important;
+        }
+
+        .btn-wa {
+            background: #25d366;
+            color: white;
+            box-shadow: 0 6px 0 #1b9c4b;
+        }
+
+        .btn-map {
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            box-shadow: 0 6px 0 var(--pc-negro);
+        }
+
         /* ACORDEÓN PREGUNTAS FRECUENTES */
-        .faq-section { background: var(--pc-rosa-pastell); border: 4px dashed var(--pc-negro); border-radius: 25px; padding: 40px 25px; margin-bottom: 50px; }
-        .accordion-item { border: 3px solid var(--pc-negro); border-radius: 15px; margin-bottom: 15px; overflow: hidden; box-shadow: 6px 6px 0 var(--pc-blanco); }
-        .accordion-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px 20px; background-color: var(--pc-blanco); width: 100%; border: none; font-size: 1.15rem; font-weight: 800; text-align: left; font-family: 'Nunito', sans-serif; color: var(--pc-rosa-oscuro); }
-        .accordion-header::after { content: '▼'; font-size: 1.2rem; transition: transform 0.3s; color: var(--pc-negro); }
-        .accordion-item.active .accordion-header::after { transform: rotate(180deg); }
-        .accordion-content { padding: 0 20px 20px; background-color: var(--pc-blanco); display: none; font-weight: 600; color: #444; font-size: 1.05rem; }
+        .faq-section {
+            background: var(--pc-rosa-pastell);
+            border: 4px dashed var(--pc-negro);
+            border-radius: 25px;
+            padding: 40px 25px;
+            margin-bottom: 50px;
+        }
+
+        .accordion-item {
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 6px 6px 0 var(--pc-blanco);
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 15px 20px;
+            background-color: var(--pc-blanco);
+            width: 100%;
+            border: none;
+            font-size: 1.15rem;
+            font-weight: 800;
+            text-align: left;
+            font-family: 'Nunito', sans-serif;
+            color: var(--pc-rosa-oscuro);
+        }
+
+        .accordion-header::after {
+            content: '▼';
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+            color: var(--pc-negro);
+        }
+
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 0 20px 20px;
+            background-color: var(--pc-blanco);
+            display: none;
+            font-weight: 600;
+            color: #444;
+            font-size: 1.05rem;
+        }
 
         /* ACCIONES FINALES */
-        .final-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .action-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 25px; text-align: center; box-shadow: 6px 6px 0 var(--pc-gris-suave); }
+        .final-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .action-box {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 6px 6px 0 var(--pc-gris-suave);
+        }
 
         /* MODAL DE DUDAS */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); align-items: center; justify-content: center; padding: 15px; }
-        .modal-content { background: white; border: 4px solid var(--pc-negro); border-radius: 25px; max-width: 500px; width: 100%; padding: 35px; position: relative; box-shadow: 12px 12px 0px var(--pc-rosa-pastell); animation: popIn 0.3s ease-out; }
-        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .close-modal { position: absolute; top: 15px; right: 25px; font-size: 2rem; cursor: pointer; font-weight: 900; color: var(--pc-negro); }
-        .modal input, .modal textarea { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; }
-        .modal input:focus, .modal textarea:focus { border-color: var(--pc-rosa-fuerte); }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            max-width: 500px;
+            width: 100%;
+            padding: 35px;
+            position: relative;
+            box-shadow: 12px 12px 0px var(--pc-rosa-pastell);
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: 900;
+            color: var(--pc-negro);
+        }
+
+        .modal input,
+        .modal textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .modal input:focus,
+        .modal textarea:focus {
+            border-color: var(--pc-rosa-fuerte);
+        }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
     <div class="container">
         <div id="navbar-container" class="main-nav"></div>
@@ -64,9 +354,12 @@
             <h1 class="hand-drawn">Guía Paso a Paso 🎀</h1>
             <p style="font-weight:600; font-size:1.2rem;">Cómo usar tu vale de Mastografía Gratis.</p>
         </header>
-        
-        <div style="background: white; border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 25px; margin-bottom: 40px; font-size: 1.15rem; font-weight: 600; text-align: center;">
-            ¡Hola! 👋 Sabemos que hacerte estudios médicos a veces da un poquito de nervios o parece complicado, pero en <strong>Proyecto Celene</strong> estamos para llevarte de la mano. Hacerte tu mastografía es muy fácil, rápido y <strong>100% GRATIS</strong>. Solo sigue estos 4 sencillos pasos:
+
+        <div
+            style="background: white; border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 25px; margin-bottom: 40px; font-size: 1.15rem; font-weight: 600; text-align: center;">
+            ¡Hola! 👋 Sabemos que hacerte estudios médicos a veces da un poquito de nervios o parece complicado, pero en
+            <strong>Proyecto Celene</strong> estamos para llevarte de la mano. Hacerte tu mastografía es muy fácil,
+            rápido y <strong>100% GRATIS</strong>. Solo sigue estos 4 sencillos pasos:
         </div>
 
         <!-- PASO 1 -->
@@ -75,12 +368,17 @@
             <h3 class="hand-drawn"><span aria-hidden='true'>📍</span> Ven por tu vale con nosotros</h3>
             <p>Primero, necesitamos darte el papelito oficial (el vale) que comprueba que tu estudio no tiene costo.</p>
             <ul>
-                <li><strong>¿A dónde voy?</strong> Ven a nuestro consultorio de Proyecto Celene (estamos a un ladito del Lienzo Charro). Puedes venir sin cita de <strong>Lunes a Domingo de 9:00 am a 4:00 pm</strong>.</li>
-                <li><strong>¿Qué llevo?</strong> Solo necesitas traer <strong>2 copias de tu INE</strong> y <strong>2 copias de tu CURP</strong>. <br><em>(Recuerda que debes tener 40 años o más, o 35 si tienes antecedentes directos).</em></li>
-                <li><strong>¿Qué pasa ahí?</strong> Te entregamos tu vale y <strong>nosotros mismos te ayudamos a agendar el día y la hora de tu estudio</strong> para que tú no batalles nada.</li>
+                <li><strong>¿A dónde voy?</strong> Ven a nuestro consultorio de Proyecto Celene (estamos a un ladito del
+                    Lienzo Charro). Puedes venir sin cita de <strong>Lunes a Domingo de 9:00 am a 4:00 pm</strong>.</li>
+                <li><strong>¿Qué llevo?</strong> Solo necesitas traer <strong>2 copias de tu INE</strong> y <strong>2
+                        copias de tu CURP</strong>. <br><em>(Recuerda que debes tener 40 años o más, o 35 si tienes
+                        antecedentes directos).</em></li>
+                <li><strong>¿Qué pasa ahí?</strong> Te entregamos tu vale y <strong>nosotros mismos te ayudamos a
+                        agendar el día y la hora de tu estudio</strong> para que tú no batalles nada.</li>
             </ul>
             <div style="margin-top: 20px;">
-                <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn btn-map"><span aria-hidden='true'>📍</span> Ver ubicación de Proyecto Celene</a>
+                <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn btn-map"><span
+                        aria-hidden='true'>📍</span> Ver ubicación de Proyecto Celene</a>
             </div>
         </div>
 
@@ -88,12 +386,16 @@
         <div class="step-card">
             <div class="step-badge" style="background:var(--pc-azul-suave); color:var(--pc-negro);">Paso 2</div>
             <h3 class="hand-drawn">🚿 Prepárate en casa (Día del estudio)</h3>
-            <p>Para que las fotos de tu pecho salgan perfectas y claritas, el día que te toque ir a tu cita debes hacer lo siguiente en tu casa:</p>
+            <p>Para que las fotos de tu pecho salgan perfectas y claritas, el día que te toque ir a tu cita debes hacer
+                lo siguiente en tu casa:</p>
             <ul>
-                <li><strong>Báñate normal, pero OJO:</strong> 🚫 NO te pongas desodorante, crema, talco ni perfume en el pecho o en las axilas. ¡Nada de nada! Estos productos manchan las imágenes de la máquina.</li>
-                <li><strong>Vístete cómoda:</strong> Usa ropa de dos piezas (por ejemplo, blusa y pantalón o falda). Así, al momento del estudio, solo te quitas la blusa y no tienes que desvestirte toda.</li>
+                <li><strong>Báñate normal, pero OJO:</strong> 🚫 NO te pongas desodorante, crema, talco ni perfume en el
+                    pecho o en las axilas. ¡Nada de nada! Estos productos manchan las imágenes de la máquina.</li>
+                <li><strong>Vístete cómoda:</strong> Usa ropa de dos piezas (por ejemplo, blusa y pantalón o falda).
+                    Así, al momento del estudio, solo te quitas la blusa y no tienes que desvestirte toda.</li>
                 <li><strong>Sin joyas:</strong> No lleves collares ni cadenitas ese día.</li>
-                <li><strong>¿Tienes miedo de que te duela?</strong> Una hora antes de salir de tu casa, puedes tomarte una pastilla para el dolor (como Paracetamol o Ibuprofeno) para que estés más relajada.</li>
+                <li><strong>¿Tienes miedo de que te duela?</strong> Una hora antes de salir de tu casa, puedes tomarte
+                    una pastilla para el dolor (como Paracetamol o Ibuprofeno) para que estés más relajada.</li>
             </ul>
         </div>
 
@@ -101,14 +403,21 @@
         <div class="step-card">
             <div class="step-badge" style="background:var(--pc-amarillo); color:var(--pc-negro);">Paso 3</div>
             <h3 class="hand-drawn">🏥 Ve a hacerte tu estudio</h3>
-            <p>El estudio NO se hace en Proyecto Celene, se hace en una clínica especial para radiografías aliada con nosotros.</p>
+            <p>El estudio NO se hace en Proyecto Celene, se hace en una clínica especial para radiografías aliada con
+                nosotros.</p>
             <ul>
-                <li><strong>¿A dónde voy el día de mi cita?</strong> A la clínica <strong>Diagnóstico X Imagen</strong>. Está en el Blvd. Benito Juárez, justo <strong>frente a Tacos Manuel y Abarrotes El Florido</strong>.</li>
-                <li><strong>Llega 15 minutos antes</strong> de la hora que te tocó. ¡No olvides llevar tu vale original y tus copias!</li>
-                <li><strong>¿Duele? ¡NO!</strong> El estudio dura solo 15 minutos. La máquina te dará un pequeño "apachurrón" en el pecho que dura de 10 a 15 segundos. Es una molestia muy rápida y las enfermeras son muy amables.</li>
+                <li><strong>¿A dónde voy el día de mi cita?</strong> A la clínica <strong>Diagnóstico X Imagen</strong>.
+                    Está en el Blvd. Benito Juárez, justo <strong>frente a Tacos Manuel y Abarrotes El Florido</strong>.
+                </li>
+                <li><strong>Llega 15 minutos antes</strong> de la hora que te tocó. ¡No olvides llevar tu vale original
+                    y tus copias!</li>
+                <li><strong>¿Duele? ¡NO!</strong> El estudio dura solo 15 minutos. La máquina te dará un pequeño
+                    "apachurrón" en el pecho que dura de 10 a 15 segundos. Es una molestia muy rápida y las enfermeras
+                    son muy amables.</li>
             </ul>
             <div style="margin-top: 20px;">
-                <a href="https://maps.app.goo.gl/272juT5ARCiDdQz59" target="_blank" class="btn btn-map"><span aria-hidden='true'>📍</span> Ver clínica Diagnóstico X Imagen</a>
+                <a href="https://maps.app.goo.gl/272juT5ARCiDdQz59" target="_blank" class="btn btn-map"><span
+                        aria-hidden='true'>📍</span> Ver clínica Diagnóstico X Imagen</a>
             </div>
         </div>
 
@@ -116,11 +425,16 @@
         <div class="step-card">
             <div class="step-badge" style="background: #25d366; color:white;">Paso 4</div>
             <h3 class="hand-drawn">📩 Tus Resultados</h3>
-            
-            <div style="background: #f9f9f9; border: 3px solid #25d366; border-radius: 15px; padding: 25px; margin-top: 20px; box-shadow: 6px 6px 0 #25d366;">
-                <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px; text-align: center;">¿Ya te hiciste la mastografía?</h4>
-                <p style="font-weight: 800; color: var(--pc-negro); font-size: 1.15rem; text-align: center; margin-bottom: 15px;">Pregunta por tus resultados.</p>
-                
+
+            <div
+                style="background: #f9f9f9; border: 3px solid #25d366; border-radius: 15px; padding: 25px; margin-top: 20px; box-shadow: 6px 6px 0 #25d366;">
+                <h4 class="hand-drawn"
+                    style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px; text-align: center;">¿Ya te
+                    hiciste la mastografía?</h4>
+                <p
+                    style="font-weight: 800; color: var(--pc-negro); font-size: 1.15rem; text-align: center; margin-bottom: 15px;">
+                    Pregunta por tus resultados.</p>
+
                 <ul style="list-style: none; padding: 0; margin-bottom: 25px;">
                     <li style="margin-bottom: 15px;">
                         <strong style="color: #25d366; font-size: 1.1rem;">¿Cómo pregunto si ya llegaron?</strong><br>
@@ -128,15 +442,20 @@
                     </li>
                     <li style="margin-bottom: 15px;">
                         <strong style="color: #25d366; font-size: 1.1rem;">¿Qué escribo en el mensaje?</strong><br>
-                        Solo pon esto: <em>"Hola <span aria-hidden='true'>👋</span>, mi nombre completo es (escribe tu nombre) y quiero saber si ya están los resultados de mi mastografía"</em>.
+                        Solo pon esto: <em>"Hola <span aria-hidden='true'>👋</span>, mi nombre completo es (escribe tu
+                            nombre) y quiero saber si ya están los resultados de mi mastografía"</em>.
                     </li>
                 </ul>
 
-                <p style="font-weight: 600; color: #444; margin-bottom: 15px; text-align: center;">O más fácil aún, llena esto y nosotros armamos el mensaje por ti:</p>
+                <p style="font-weight: 600; color: #444; margin-bottom: 15px; text-align: center;">O más fácil aún,
+                    llena esto y nosotros armamos el mensaje por ti:</p>
                 <div style="display: flex; flex-direction: column; gap: 10px; max-width: 450px; margin: 0 auto;">
-                    <input type="text" id="nombre_resultados" placeholder="Escribe tu nombre completo..." style="padding: 12px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
-                    <input type="text" id="fecha_estudio" placeholder="¿Cuándo te hiciste el estudio? (Aprox.)" style="padding: 12px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
-                    <button onclick="pedirResultados()" class="btn btn-wa" style="width: 100%; margin-top: 10px;">Enviar por WhatsApp <span aria-hidden='true'>💬</span></button>
+                    <input type="text" id="nombre_resultados" placeholder="Escribe tu nombre completo..."
+                        style="padding: 12px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
+                    <input type="text" id="fecha_estudio" placeholder="¿Cuándo te hiciste el estudio? (Aprox.)"
+                        style="padding: 12px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
+                    <button onclick="pedirResultados()" class="btn btn-wa" style="width: 100%; margin-top: 10px;">Enviar
+                        por WhatsApp <span aria-hidden='true'>💬</span></button>
                 </div>
             </div>
 
@@ -144,51 +463,97 @@
                 function pedirResultados() {
                     let nombre = document.getElementById('nombre_resultados').value.trim();
                     let fecha = document.getElementById('fecha_estudio').value.trim();
-                    
-                    if(!nombre) { alert("Por favor, escribe tu nombre completo."); return; }
-                    
+
+                    if (!nombre) { alert("Por favor, escribe tu nombre completo."); return; }
+
                     let extraInfo = fecha ? ` Me hice el estudio aproximadamente el ${fecha}.` : '';
                     let msg = `Hola 👋, mi nombre completo es ${nombre} y quiero saber si ya están los resultados de mi mastografía.${extraInfo}`;
-                    
+
                     window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
                 }
             </script>
 
-            <div style="background: var(--pc-rosa-pastell); padding: 15px; border-radius: 10px; border: 2px dashed var(--pc-rosa-fuerte); margin-top: 30px; font-size: 0.95rem; text-align: center;">
-                Nosotros revisaremos tus resultados. Si todo está perfecto, te avisamos por ahí mismo. Si el doctor necesita explicarte algo, te invitaremos a venir al consultorio para platicar con calma. <strong>¡Recuerda que en este proceso nunca estás sola, todo el equipo de Proyecto Celene te acompaña! 💝</strong>
+            <div
+                style="background: var(--pc-rosa-pastell); padding: 15px; border-radius: 10px; border: 2px dashed var(--pc-rosa-fuerte); margin-top: 30px; font-size: 0.95rem; text-align: center;">
+                Nosotros revisaremos tus resultados. Si todo está perfecto, te avisamos por ahí mismo. Si el doctor
+                necesita explicarte algo, te invitaremos a venir al consultorio para platicar con calma.
+                <strong>¡Recuerda que en este proceso nunca estás sola, todo el equipo de Proyecto Celene te acompaña!
+                    💝</strong>
             </div>
         </div>
 
         <!-- PLAN B / PREGUNTAS FRECUENTES -->
         <div class="faq-section">
-            <h2 class="hand-drawn" style="text-align: center; color: var(--pc-negro); margin-bottom: 25px; font-size: 2.2rem;">Cuadro de Dudas: ¿Qué pasa si...? 🤔</h2>
-            
+            <h2 class="hand-drawn"
+                style="text-align: center; color: var(--pc-negro); margin-bottom: 25px; font-size: 2.2rem;">Cuadro de
+                Dudas: ¿Qué pasa si...? 🤔</h2>
+
             <div class="accordion">
-                <div class="accordion-item"><button class="accordion-header">¿Qué pasa si pierdo mi vale de mastografía?</button><div class="accordion-content"><br>¡Tranquila, no pasa nada grave! Si lo pierdes, se te moja o se rompe, solo regresa a nuestro consultorio de Proyecto Celene. Vuelve a traer tus 2 copias de INE y 2 copias de CURP, y con mucho gusto te reponemos tu vale oficial.</div></div>
-                
-                <div class="accordion-item"><button class="accordion-header">¿Qué hago si se me hace tarde el día de mi cita?</button><div class="accordion-content"><br>Te pedimos llegar 15 minutos antes, pero si el tráfico o un imprevisto te retrasan, llama de inmediato a la clínica Diagnóstico X Imagen para avisarles que vas en camino.<br><br>Si llegas muy tarde, es posible que el doctor ya esté ocupado con otra paciente y tengas que reagendar para otro día. ¡No te desanimes, te ayudamos a buscar otra fecha!</div></div>
-                
-                <div class="accordion-item"><button class="accordion-header">¿Qué pasa si se me olvida la cita o sale una emergencia?</button><div class="accordion-content"><br>Sabemos que a veces hay emergencias. Si de plano no puedes asistir, por favor llama a la clínica con tiempo para avisar.<br><br>Al cancelar con tiempo, nos ayudas a regalarle ese espacio a otra mujer que tal vez necesita revisarse de urgencia. ¡Después te ayudamos a agendar un nuevo día para ti!</div></div>
-                
-                <div class="accordion-item"><button class="accordion-header">¿Me puedo hacer el estudio si ando en "mis días"?</button><div class="accordion-content"><br>De preferencia NO. Te recomendamos no hacerte el estudio justo antes o durante los días de tu periodo menstrual.<br><br>En esos días tus pechos están mucho más sensibles e hinchaditos, y el "apachurrón" de la máquina te podría molestar más de lo normal. Mejor escogemos una fecha donde te sientas completamente cómoda.</div></div>
-                
-                <div class="accordion-item"><button class="accordion-header">¿Qué pasa si tengo implantes, embarazo o doy pecho?</button><div class="accordion-content"><br>Es súper importante que le avises a la enfermera de la clínica en cuanto llegues y antes de pasar a la máquina. Así ella tomará las medidas especiales y necesarias para hacerte el estudio con el mayor cuidado posible.</div></div>
-                
-                <div class="accordion-item"><button class="accordion-header">¿Seguro que no tengo que dar ni un peso allá?</button><div class="accordion-content"><br>¡Segurísimo! Tu vale cubre el 100% del costo del estudio. No tienes que pagar nada en la clínica, es un regalo de Proyecto Celene para cuidar tu salud.</div></div>
+                <div class="accordion-item"><button class="accordion-header">¿Qué pasa si pierdo mi vale de
+                        mastografía?</button>
+                    <div class="accordion-content"><br>¡Tranquila, no pasa nada grave! Si lo pierdes, se te moja o se
+                        rompe, solo regresa a nuestro consultorio de Proyecto Celene. Vuelve a traer tus 2 copias de INE
+                        y 2 copias de CURP, y con mucho gusto te reponemos tu vale oficial.</div>
+                </div>
+
+                <div class="accordion-item"><button class="accordion-header">¿Qué hago si se me hace tarde el día de mi
+                        cita?</button>
+                    <div class="accordion-content"><br>Te pedimos llegar 15 minutos antes, pero si el tráfico o un
+                        imprevisto te retrasan, llama de inmediato a la clínica Diagnóstico X Imagen para avisarles que
+                        vas en camino.<br><br>Si llegas muy tarde, es posible que el doctor ya esté ocupado con otra
+                        paciente y tengas que reagendar para otro día. ¡No te desanimes, te ayudamos a buscar otra
+                        fecha!</div>
+                </div>
+
+                <div class="accordion-item"><button class="accordion-header">¿Qué pasa si se me olvida la cita o sale
+                        una emergencia?</button>
+                    <div class="accordion-content"><br>Sabemos que a veces hay emergencias. Si de plano no puedes
+                        asistir, por favor llama a la clínica con tiempo para avisar.<br><br>Al cancelar con tiempo, nos
+                        ayudas a regalarle ese espacio a otra mujer que tal vez necesita revisarse de urgencia. ¡Después
+                        te ayudamos a agendar un nuevo día para ti!</div>
+                </div>
+
+                <div class="accordion-item"><button class="accordion-header">¿Me puedo hacer el estudio si ando en "mis
+                        días"?</button>
+                    <div class="accordion-content"><br>De preferencia NO. Te recomendamos no hacerte el estudio justo
+                        antes o durante los días de tu periodo menstrual.<br><br>En esos días tus pechos están mucho más
+                        sensibles e hinchaditos, y el "apachurrón" de la máquina te podría molestar más de lo normal.
+                        Mejor escogemos una fecha donde te sientas completamente cómoda.</div>
+                </div>
+
+                <div class="accordion-item"><button class="accordion-header">¿Qué pasa si tengo implantes, embarazo o
+                        doy pecho?</button>
+                    <div class="accordion-content"><br>Es súper importante que le avises a la enfermera de la clínica en
+                        cuanto llegues y antes de pasar a la máquina. Así ella tomará las medidas especiales y
+                        necesarias para hacerte el estudio con el mayor cuidado posible.</div>
+                </div>
+
+                <div class="accordion-item"><button class="accordion-header">¿Seguro que no tengo que dar ni un peso
+                        allá?</button>
+                    <div class="accordion-content"><br>¡Segurísimo! Tu vale cubre el 100% del costo del estudio. No
+                        tienes que pagar nada en la clínica, es un regalo de Proyecto Celene para cuidar tu salud.</div>
+                </div>
             </div>
         </div>
 
         <!-- ACCIONES FINALES -->
         <div class="final-actions">
             <div class="action-box">
-                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;"><span aria-hidden='true'>🩺</span> Revisión Clínica</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 15px;">¿Encontraste una bolita o sientes dolor? Agenda una consulta general primero para que el médico te revise físicamente.</p>
-                <a href="consulta-general.html" class="btn" style="background:var(--pc-amarillo); color:var(--pc-negro); width:100%; box-shadow:0 6px 0 var(--pc-negro);">Agendar Consulta</a>
+                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;"><span
+                        aria-hidden='true'>🩺</span> Revisión Clínica</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 15px;">¿Encontraste una bolita o sientes dolor? Agenda una
+                    consulta general primero para que el médico te revise físicamente.</p>
+                <a href="consulta-general.html" class="btn"
+                    style="background:var(--pc-amarillo); color:var(--pc-negro); width:100%; box-shadow:0 6px 0 var(--pc-negro);">Agendar
+                    Consulta</a>
             </div>
             <div class="action-box">
-                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;"><span aria-hidden='true'>💬</span> Tengo más dudas</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 15px;">Si algo no te quedó claro sobre el programa o tus requisitos, mándanos un mensaje y te ayudamos con gusto.</p>
-                <button onclick="openModal('modalDudas')" class="btn btn-wa" style="width:100%;">Preguntar por WhatsApp</button>
+                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;"><span
+                        aria-hidden='true'>💬</span> Tengo más dudas</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 15px;">Si algo no te quedó claro sobre el programa o tus
+                    requisitos, mándanos un mensaje y te ayudamos con gusto.</p>
+                <button onclick="openModal('modalDudas')" class="btn btn-wa" style="width:100%;">Preguntar por
+                    WhatsApp</button>
             </div>
         </div>
 
@@ -198,13 +563,18 @@
     <div id="modalDudas" class="modal" onclick="closeOnOutside(event, 'modalDudas')">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modalDudas')">✕</span>
-            <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Cuéntanos tu duda 💭</h3>
-            <p style="margin-bottom:20px; font-weight: 600; color: #555;">Escribe tu pregunta y te responderemos lo más pronto posible.</p>
-            
+            <h3 class="hand-drawn"
+                style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Cuéntanos tu
+                duda 💭</h3>
+            <p style="margin-bottom:20px; font-weight: 600; color: #555;">Escribe tu pregunta y te responderemos lo más
+                pronto posible.</p>
+
             <input type="text" id="duda_nombre" placeholder="¿Cuál es tu nombre?">
-            <textarea id="duda_texto" rows="4" placeholder="Ej. Hola, yo solo tengo 38 años pero mi mamá tuvo cáncer, ¿puedo aplicar para el vale gratis?"></textarea>
-            
-            <button onclick="sendDudaWa()" class="btn btn-wa" style="width:100%;">Enviar Mensaje <span aria-hidden='true'>💬</span></button>
+            <textarea id="duda_texto" rows="4"
+                placeholder="Ej. Hola, yo solo tengo 38 años pero mi mamá tuvo cáncer, ¿puedo aplicar para el vale gratis?"></textarea>
+
+            <button onclick="sendDudaWa()" class="btn btn-wa" style="width:100%;">Enviar Mensaje <span
+                    aria-hidden='true'>💬</span></button>
         </div>
     </div>
 
@@ -222,16 +592,17 @@
         // Lógica Modal
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        function closeOnOutside(event, id) { if(event.target.id === id) closeModal(id); }
+        function closeOnOutside(event, id) { if (event.target.id === id) closeModal(id); }
 
         function sendDudaWa() {
             let nombre = document.getElementById('duda_nombre').value.trim() || 'No especificado';
             let duda = document.getElementById('duda_texto').value.trim() || 'Necesito información sobre la mastografía.';
-            let msg = `Hola Proyecto Celene <span aria-hidden='true'>🌸</span>, mi nombre es *${nombre}* y tengo una duda sobre la mastografía gratuita:\n\n"${duda}"`;
+            let msg = `Hola Proyecto Celene 🌸, mi nombre es *${nombre}* y tengo una duda sobre la mastografía gratuita:\n\n"${duda}"`;
             window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
             closeModal('modalDudas');
         }
     </script>
-<script src="js/global.js"></script>
+    <script src="js/global.js"></script>
 </body>
+
 </html>

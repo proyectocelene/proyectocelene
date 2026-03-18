@@ -1,17 +1,107 @@
 /* NAVEGACIÓN PRINCIPAL GLOBAL */
 .main-nav {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-    margin-bottom: 30px; padding: 15px; background: var(--pc-blanco, #ffffff);
-    border: 3px solid var(--pc-negro, #333333); border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: var(--pc-blanco, #ffffff);
+    border: 3px solid var(--pc-negro, #333333);
+    border-radius: 20px;
     box-shadow: 6px 6px 0px var(--pc-rosa-pastell, #fce4ec);
 }
+
 .main-nav a {
-    text-decoration: none; color: var(--pc-negro, #333333); font-weight: 800;
-    font-size: 1.05rem; padding: 8px 15px; border-radius: 15px;
-    transition: all 0.2s; border: 2px solid transparent;
+    text-decoration: none;
+    color: var(--pc-negro, #333333);
+    font-weight: 800;
+    font-size: 1.05rem;
+    padding: 8px 15px;
+    border-radius: 15px;
+    transition: all 0.2s;
+    border: 2px solid transparent;
 }
+
 .main-nav a:hover {
-    background: var(--pc-rosa-fuerte, #d81b60); color: var(--pc-blanco, #ffffff);
-    border-color: var(--pc-negro, #333333); box-shadow: 3px 3px 0 var(--pc-negro, #333333);
+    background: var(--pc-rosa-fuerte, #d81b60);
+    color: var(--pc-blanco, #ffffff);
+    border-color: var(--pc-negro, #333333);
+    box-shadow: 3px 3px 0 var(--pc-negro, #333333);
     transform: translateY(-2px);
+}
+
+/* BOTON WHATSAPP FLOTANTE GLOBAL */
+.global-wa-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border: 3px solid #333333;
+    box-shadow: 4px 4px 0 #333333;
+    z-index: 9999;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.global-wa-float:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 8px 0 #333333;
+}
+
+.global-wa-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.global-wa-modal-content {
+    background: #ffffff;
+    border: 4px solid #333333;
+    border-radius: 20px;
+    max-width: 400px;
+    width: 100%;
+    padding: 25px;
+    position: relative;
+    box-shadow: 8px 8px 0px #fff9c4;
+    animation: popInWa 0.3s ease-out;
+    font-family: 'Nunito', sans-serif;
+}
+
+.global-wa-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: 900;
+    color: #333333;
+}
+
+@keyframes popInWa {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

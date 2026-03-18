@@ -1,267 +1,663 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retiro de Implante (ISD) - Guía Integral - Proyecto Celene</title>
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/retiro-isd.html">
+    <meta property="og:title" content="Guía Integral: Retiro de Implante (ISD) - Proyecto Celene">
+    <meta property="og:description" content="Entendemos tus nervios. Aquí te explicamos el procedimiento paso a paso para que te sientas segura, informada y cuidada.">
+    <meta property="og:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/retiro-isd.html">
+    <meta property="twitter:title" content="Guía Integral: Retiro de Implante (ISD) - Proyecto Celene">
+    <meta property="twitter:description" content="Entendemos tus nervios. Aquí te explicamos el procedimiento paso a paso para que te sientas segura, informada y cuidada.">
+    <meta property="twitter:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
     <style>
         :root {
-            --pc-rosa-pastell: #fce4ec; --pc-rosa-fuerte: #d81b60; --pc-rosa-medio: #f06292;
-            --pc-negro: #333333; --pc-blanco: #ffffff; --pc-amarillo: #fff9c4;
-            --pc-azul-suave: #e3f2fd; --pc-verde-wa: #25d366; --pc-gris-suave: #f9f9f9;
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-rosa-medio: #f06292;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde-wa: #25d366;
+            --pc-gris-suave: #f9f9f9;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
-        .hand-drawn { font-family: 'Handlee', cursive; }
-        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-gris-suave);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
 
         /* HEADER HERO */
-        .hero { background: var(--pc-azul-suave); border: 4px solid var(--pc-negro); border-radius: 25px; padding: 50px 20px; text-align: center; box-shadow: 10px 10px 0px var(--pc-rosa-pastell); margin-bottom: 40px; position: relative; overflow: hidden; }
-        .hero h1 { font-size: 3rem; color: var(--pc-rosa-fuerte); line-height: 1.1; margin-bottom: 15px; position: relative; z-index: 2; }
-        .hero p { font-size: 1.2rem; font-weight: 800; color: var(--pc-negro); max-width: 600px; margin: 0 auto; position: relative; z-index: 2; }
-        
+        .hero {
+            background: var(--pc-azul-suave);
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 10px 10px 0px var(--pc-rosa-pastell);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--pc-rosa-fuerte);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--pc-negro);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
         /* DECORACIÓN ANIMADA HERO */
-        .isd-shape { position: absolute; z-index: 1; opacity: 0.15; animation: floatSpin 10s infinite linear; }
-        .isd-1 { top: -20px; left: -20px; font-size: 8rem; }
-        .isd-2 { bottom: -30px; right: 10px; font-size: 6rem; animation-duration: 8s; animation-direction: reverse; }
-        @keyframes floatSpin { 0% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(180deg); } 100% { transform: translateY(0) rotate(360deg); } }
+        .isd-shape {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.15;
+            animation: floatSpin 10s infinite linear;
+        }
+
+        .isd-1 {
+            top: -20px;
+            left: -20px;
+            font-size: 8rem;
+        }
+
+        .isd-2 {
+            bottom: -30px;
+            right: 10px;
+            font-size: 6rem;
+            animation-duration: 8s;
+            animation-direction: reverse;
+        }
+
+        @keyframes floatSpin {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
 
         /* ANIMACIÓN CSS DEL PROCEDIMIENTO (BRAZO E IMPLANTE) */
-        .animation-container { background: #fdfaf6; border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 30px; margin: 30px 0; text-align: center; overflow: hidden; box-shadow: 6px 6px 0 var(--pc-amarillo); }
-        .animation-container h3 { color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 20px; }
-        
-        .arm-wrapper { position: relative; width: 200px; height: 100px; margin: 0 auto; }
-        .arm { width: 100%; height: 60px; background: #fbd6b4; border: 3px solid var(--pc-negro); border-radius: 30px; position: absolute; top: 20px; left: 0; z-index: 2; }
-        .incision { width: 6px; height: 12px; background: var(--pc-negro); border-radius: 5px; position: absolute; left: 50px; top: 24px; z-index: 3; }
-        .implant { width: 30px; height: 8px; background: #fff; border: 2px solid #ccc; border-radius: 5px; position: absolute; top: 26px; z-index: 1; animation: extractISD 5s infinite; }
-        .tweezers { width: 50px; height: 15px; border-bottom: 3px solid #777; border-left: 3px solid #777; border-bottom-left-radius: 50%; position: absolute; z-index: 4; transform-origin: left bottom; animation: tweezerGrab 5s infinite; }
-        
-        @keyframes extractISD {
-            0% { left: 60px; opacity: 0; }
-            30% { left: 60px; opacity: 1; }
-            50% { left: 20px; opacity: 1; }
-            70% { left: -10px; opacity: 1; transform: rotate(-15deg); }
-            100% { left: -10px; opacity: 0; transform: rotate(-15deg); }
+        .animation-container {
+            background: #fdfaf6;
+            border: 4px dashed var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 6px 6px 0 var(--pc-amarillo);
         }
+
+        .animation-container h3 {
+            color: var(--pc-rosa-fuerte);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .arm-wrapper {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        .arm {
+            width: 100%;
+            height: 60px;
+            background: #fbd6b4;
+            border: 3px solid var(--pc-negro);
+            border-radius: 30px;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            z-index: 2;
+        }
+
+        .incision {
+            width: 6px;
+            height: 12px;
+            background: var(--pc-negro);
+            border-radius: 5px;
+            position: absolute;
+            left: 50px;
+            top: 24px;
+            z-index: 3;
+        }
+
+        .implant {
+            width: 30px;
+            height: 8px;
+            background: #fff;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            position: absolute;
+            top: 26px;
+            z-index: 1;
+            animation: extractISD 5s infinite;
+        }
+
+        .tweezers {
+            width: 50px;
+            height: 15px;
+            border-bottom: 3px solid #777;
+            border-left: 3px solid #777;
+            border-bottom-left-radius: 50%;
+            position: absolute;
+            z-index: 4;
+            transform-origin: left bottom;
+            animation: tweezerGrab 5s infinite;
+        }
+
+        @keyframes extractISD {
+            0% {
+                left: 60px;
+                opacity: 0;
+            }
+
+            30% {
+                left: 60px;
+                opacity: 1;
+            }
+
+            50% {
+                left: 20px;
+                opacity: 1;
+            }
+
+            70% {
+                left: -10px;
+                opacity: 1;
+                transform: rotate(-15deg);
+            }
+
+            100% {
+                left: -10px;
+                opacity: 0;
+                transform: rotate(-15deg);
+            }
+        }
+
         @keyframes tweezerGrab {
-            0% { left: -20px; top: 0px; opacity: 0; transform: rotate(-30deg); }
-            20% { left: 10px; top: 15px; opacity: 1; transform: rotate(0deg); }
-            50% { left: 10px; top: 15px; opacity: 1; }
-            70% { left: -20px; top: 5px; opacity: 1; transform: rotate(-15deg); }
-            100% { left: -20px; top: 5px; opacity: 0; transform: rotate(-15deg); }
+            0% {
+                left: -20px;
+                top: 0px;
+                opacity: 0;
+                transform: rotate(-30deg);
+            }
+
+            20% {
+                left: 10px;
+                top: 15px;
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            50% {
+                left: 10px;
+                top: 15px;
+                opacity: 1;
+            }
+
+            70% {
+                left: -20px;
+                top: 5px;
+                opacity: 1;
+                transform: rotate(-15deg);
+            }
+
+            100% {
+                left: -20px;
+                top: 5px;
+                opacity: 0;
+                transform: rotate(-15deg);
+            }
         }
 
         /* FASES INTERACTIVAS (TABS/CARDS) */
-        .phase-card { background: var(--pc-blanco); border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 8px 8px 0px var(--pc-azul-suave); transition: transform 0.3s; position: relative; }
-        .phase-card:nth-child(even) { box-shadow: 8px 8px 0px var(--pc-amarillo); }
-        .phase-card:hover { transform: translateY(-5px); }
-        
-        .phase-badge { position: absolute; top: -20px; left: -15px; background: var(--pc-negro); color: var(--pc-blanco); font-family: 'Handlee', cursive; font-size: 1.3rem; padding: 10px 20px; border-radius: 15px; border: 3px solid var(--pc-blanco); transform: rotate(-3deg); box-shadow: 4px 4px 0 var(--pc-rosa-fuerte); z-index: 10; font-weight: bold;}
-        .phase-card:nth-child(even) .phase-badge { background: var(--pc-rosa-fuerte); box-shadow: 4px 4px 0 var(--pc-negro); }
+        .phase-card {
+            background: var(--pc-blanco);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0px var(--pc-azul-suave);
+            transition: transform 0.3s;
+            position: relative;
+        }
 
-        .phase-card h3 { font-size: 1.8rem; color: var(--pc-rosa-fuerte); margin: 10px 0 15px 0; border-bottom: 2px dashed #ddd; padding-bottom: 10px; }
-        .phase-card:nth-child(even) h3 { color: var(--pc-negro); }
-        
-        .phase-card p { font-size: 1.1rem; color: #444; font-weight: 600; margin-bottom: 15px; }
-        .phase-card ul { margin-left: 20px; margin-bottom: 15px; }
-        .phase-card li { font-size: 1.05rem; color: #555; margin-bottom: 10px; font-weight: 600; line-height: 1.5; }
-        .phase-card li strong { color: var(--pc-negro); }
+        .phase-card:nth-child(even) {
+            box-shadow: 8px 8px 0px var(--pc-amarillo);
+        }
+
+        .phase-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .phase-badge {
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            background: var(--pc-negro);
+            color: var(--pc-blanco);
+            font-family: 'Handlee', cursive;
+            font-size: 1.3rem;
+            padding: 10px 20px;
+            border-radius: 15px;
+            border: 3px solid var(--pc-blanco);
+            transform: rotate(-3deg);
+            box-shadow: 4px 4px 0 var(--pc-rosa-fuerte);
+            z-index: 10;
+            font-weight: bold;
+        }
+
+        .phase-card:nth-child(even) .phase-badge {
+            background: var(--pc-rosa-fuerte);
+            box-shadow: 4px 4px 0 var(--pc-negro);
+        }
+
+        .phase-card h3 {
+            font-size: 1.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin: 10px 0 15px 0;
+            border-bottom: 2px dashed #ddd;
+            padding-bottom: 10px;
+        }
+
+        .phase-card:nth-child(even) h3 {
+            color: var(--pc-negro);
+        }
+
+        .phase-card p {
+            font-size: 1.1rem;
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .phase-card ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .phase-card li {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 10px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .phase-card li strong {
+            color: var(--pc-negro);
+        }
 
         /* CAJA DE EMPATÍA */
-        .empathy-box { background: var(--pc-rosa-pastell); border: 3px dashed var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; margin-top: 15px; font-weight: 800; font-size: 1.1rem; color: var(--pc-negro); box-shadow: 5px 5px 0 var(--pc-rosa-medio);}
+        .empathy-box {
+            background: var(--pc-rosa-pastell);
+            border: 3px dashed var(--pc-negro);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--pc-negro);
+            box-shadow: 5px 5px 0 var(--pc-rosa-medio);
+        }
 
         /* BOTONES */
-        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 25px; border-radius: 50px; border: 4px solid var(--pc-negro); font-weight: 800; text-decoration: none; font-size: 1.1rem; cursor: pointer; transition: all 0.1s; font-family: 'Nunito', sans-serif; position: relative; top: 0; text-align: center; box-shadow: 0 6px 0 var(--pc-negro); margin: 5px; }
-        .btn:active { top: 6px; box-shadow: 0 0px 0 transparent !important; }
-        .btn-wa { background: var(--pc-verde-wa); color: white; }
-        .btn-back { background: var(--pc-blanco); color: var(--pc-negro); }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.1s;
+            font-family: 'Nunito', sans-serif;
+            position: relative;
+            top: 0;
+            text-align: center;
+            box-shadow: 0 6px 0 var(--pc-negro);
+            margin: 5px;
+        }
 
-        .action-container { text-align: center; padding: 40px 20px; background: var(--pc-blanco); border: 4px solid var(--pc-negro); border-radius: 25px; box-shadow: 8px 8px 0 var(--pc-amarillo); margin-top: 40px; }
+        .btn:active {
+            top: 6px;
+            box-shadow: 0 0px 0 transparent !important;
+        }
+
+        .btn-wa {
+            background: var(--pc-verde-wa);
+            color: white;
+        }
+
+        .btn-back {
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+        }
+
+        .action-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-blanco);
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            box-shadow: 8px 8px 0 var(--pc-amarillo);
+            margin-top: 40px;
+        }
 
         /* Estilos para el formulario emergente */
-        #wa-popup { display: none; background: var(--pc-gris-suave); border: 3px solid var(--pc-verde-wa); border-radius: 15px; padding: 20px; text-align: left; max-width: 500px; margin: 20px auto; animation: slideDown 0.3s ease-out; }
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        #wa-popup {
+            display: none;
+            background: var(--pc-gris-suave);
+            border: 3px solid var(--pc-verde-wa);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: left;
+            max-width: 500px;
+            margin: 20px auto;
+            animation: slideDown 0.3s ease-out;
+        }
 
-        .btn-calendar { background: #4285f4; color: white; border-color: var(--pc-negro); }
-        .btn-dudas { background: var(--pc-amarillo); color: var(--pc-negro); border-color: var(--pc-negro); }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
 
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-calendar {
+            background: #4285f4;
+            color: white;
+            border-color: var(--pc-negro);
+        }
+
+        .btn-dudas {
+            background: var(--pc-amarillo);
+            color: var(--pc-negro);
+            border-color: var(--pc-negro);
+        }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <div id="navbar-container" class="main-nav"></div>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
 
-    <header class="hero fade-in">
-        <div class="isd-shape isd-1 hand-drawn"><span aria-hidden='true'>🩹</span></div>
-        <div class="isd-shape isd-2 hand-drawn"><span aria-hidden='true'>🌸</span></div>
-        <h1 class="hand-drawn">Guía Integral: Retiro de Implante (ISD)</h1>
-        <p>Entendemos tus nervios. Aquí te explicamos el procedimiento paso a paso para que te sientas segura, informada y cuidada. <span aria-hidden='true'>🥰</span></p>
-    </header>
+        <header class="hero fade-in">
+            <div class="isd-shape isd-1 hand-drawn"><span aria-hidden='true'>🩹</span></div>
+            <div class="isd-shape isd-2 hand-drawn"><span aria-hidden='true'>🌸</span></div>
+            <h1 class="hand-drawn">Guía Integral: Retiro de Implante (ISD)</h1>
+            <p>Entendemos tus nervios. Aquí te explicamos el procedimiento paso a paso para que te sientas segura,
+                informada y cuidada. <span aria-hidden='true'>🥰</span></p>
+        </header>
 
-    <div style="background: white; border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 25px; margin-bottom: 40px; font-size: 1.15rem; font-weight: 600; text-align: center;" class="fade-in">
-        ¡Hola! 👋 Es súper común sentir nervios porque el implante está en el brazo y lleva anestesia. Pero no te preocupes, el retiro es rápido y nosotros nos encargamos de que estés lo más cómoda posible. <strong>Tú tienes el control.</strong>
-    </div>
-
-    <!-- FASE 1 -->
-    <div class="phase-card fade-in">
-        <div class="phase-badge">Fase 1</div>
-        <h3 class="hand-drawn"><span aria-hidden='true'>🧠</span> Tus Emociones y La Decisión</h3>
-        <p>Es normal tener dudas o miedos antes de llegar. Queremos que sepas que:</p>
-        <ul>
-            <li><strong>Validación del miedo:</strong> Temerle a las agujas para la anestesia o pensar que el implante "se movió" es una de las mayores preocupaciones. En el 99% de los casos, el implante sigue exactamente en su lugar y se puede tocar muy fácil a través de la piel.</li>
-            <li><strong>Tú decides:</strong> Quitárselo es completamente tu decisión, ya sea por caducidad (3 a 5 años), porque deseas un embarazo o por cambio de método.</li>
-            <li><strong>No duele:</strong> La extracción en sí NO se siente porque usamos anestesia local. Solo sentirás el "piquetito" inicial de la anestesia, ¡que dura un segundito!</li>
-        </ul>
-        <div class="empathy-box">Si te da impresión ver la aguja o sangre, avísanos al llegar. ¡No tienes que ver nada del procedimiento! Muchas pacientes prefieren cerrar los ojos o ver el celular.</div>
-    </div>
-
-    <!-- FASE 2 -->
-    <div class="phase-card fade-in">
-        <div class="phase-badge">Fase 2</div>
-        <h3 class="hand-drawn"><span aria-hidden='true'>👗</span> Preparación en Casa</h3>
-        <p>Cómo llegarlista a la cita:</p>
-        <ul>
-            <li><strong>¡Come algo!</strong> Es muy importante que NO vengas en ayunas. Come algo ligero y dulce antes de llegar para evitar que los nervios te bajen la presión.</li>
-            <li><strong>¿Qué me pongo?:</strong> Lleva blusa de tirantes, manga corta o muy suelta. Necesitaremos acceso fácil a la parte interna de tu brazo (cerca de la axila).</li>
-            <li><strong>Acompañante:</strong> Puedes venir con alguien para que te sostenga la mano con el otro brazo, o te espere afuera.</li>
-            <li><strong>¿Sexo antes?</strong> Si no quieres embarazo y vas a retirar el implante sin poner otro, usa condón 7 días antes de tu retiro.</li>
-        </ul>
-    </div>
-
-    <!-- ANIMACIÓN -->
-    <div class="animation-container fade-in">
-        <h3 class="hand-drawn"><span aria-hidden='true'>👀</span> Mira cómo es el procedimiento:</h3>
-        <p style="margin-bottom: 30px; font-weight:600; color:#555;">Una mini incisión por la que asoma el plastiquito.</p>
-        
-        <div class="arm-wrapper">
-            <!-- Capas de la animación: Brazo, heridita, pinzas e implante saliendo -->
-            <div class="implant"></div>
-            <div class="arm">
-                <div class="incision"></div>
-            </div>
-            <div class="tweezers"></div>
-        </div>
-    </div>
-
-    <!-- FASE 4 -->
-    <div class="phase-card fade-in">
-        <div class="phase-badge">Fase 4</div>
-        <h3 class="hand-drawn"><span aria-hidden='true'>🩺</span> El Procedimiento Paso a Paso</h3>
-        <p>Esto esto es exactamente lo que haremos:</p>
-        <ul>
-            <li><strong>Ubicación:</strong> Te recostarás con el brazo doblado. El médico tocará tu piel para sentir dónde está la punta del implante.</li>
-            <li><strong>Anestesia:</strong> Se hace limpieza con alcohol y se inyecta un poco de anestesia local. Arderá solo por un par de segunditos, luego se adormecerá el área.</li>
-            <li><strong>Apertura mínima:</strong> Se hace una incisión muuuuy chiquita (como de 2 milímetros) justo donde está la punta. Si ya tenías una minicicatriz de cuando te lo pusieron, se usará el mismo lugarcito.</li>
-            <li><strong>El retiro:</strong> El médico empujará suavemente desde el otro extremo de tu brazo para que el tubito blanco asome por la incisión, y lo jalará con pinzas.</li>
-            <li><strong>Curación:</strong> Cuando sale el tubito, se te ponen unas delgadísimas tiritas adhesivas (Steri-Strips) para cerrar la piel solita, y finalmente una gasa y un vendaje de compresión en el brazo.</li>
-        </ul>
-    </div>
-
-    <!-- FASE 5 & 6 -->
-    <div class="phase-card fade-in">
-        <div class="phase-badge">Fase 5 y 6</div>
-        <h3 class="hand-drawn"><span aria-hidden='true'>🛋️</span> Recuperación y Cuidados en Casa</h3>
-        <p>Qué hacemos justo después de la extracción y qué puedes esperar:</p>
-        <ul>
-            <li><strong>Es normal que haya un moretón:</strong> Se formará un hematoma (moretón) de color morado o amarillento que desaparecerá en una semana.</li>
-            <li><strong>El vendaje:</strong> Deberás dejar el vendaje elástico, la gasa y las cintillas adhesivas <strong>limpios y secos por al menos 24 a 48 horas</strong>. Cuando te bañes, levanta el brazo y tápalo con plástico para que no le caiga agua.</li>
-            <li><strong>Las cintillas:</strong> Tardan varios días en caerse solas. ¡No las arranques! Ellas cierran tu piel sin necesidad de puntos de sutura.</li>
-            <li><strong><span aria-hidden='true'>⚠️</span> Señales para llamarnos:</strong> Llámanos de inmediato si la zona está caliente, expulsa líquido amarillento / pus, o tienes fiebre.</li>
-        </ul>
-    </div>
-
-    <!-- FASE 7 -->
-    <div class="phase-card fade-in">
-        <div class="phase-badge">Fase 7</div>
-        <h3 class="hand-drawn"><span aria-hidden='true'>🗺️</span> Tu Plan a Futuro</h3>
-        <ul>
-            <li><strong>Reemplazo Inmediato:</strong> Si solo se caducó tu implante y quieres seguir cuidándote con lo mismo, el doctor puede retirar el viejo y colocar uno nuevo <em>en ese mismo segundo</em> a través de la misma pequeñísima incisión. (Se ahorra doble herida).</li>
-            <li><strong>Cambio de Método:</strong> Puedes empezar ese mismo día inyecciones, pastillas o DIU.</li>
-        </ul>
-    </div>
-
-    <!-- ACCIÓN FINAL -->
-    <div class="action-container fade-in">
-        <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 15px;">¿Lista para agendar tu cita?</h2>
-        <p style="font-size: 1.15rem; font-weight: 600; margin-bottom: 25px;">La cuota de recuperación por el Retiro de Implante (ISD) es de <strong>$450 m.n.</strong></p>
-        
-        <div style="background: var(--pc-amarillo); border: 2px dashed var(--pc-negro); border-radius: 15px; padding: 20px; max-width: 600px; margin: 0 auto 30px auto; text-align: left;">
-            <p style="font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;"><span aria-hidden='true'>🏥</span> Horarios de Atención:</p>
-            <p style="font-weight: 600; margin-bottom: 10px;">Lunes a Domingo de <strong>9:00 am a 4:00 pm</strong>.</p>
-            <p style="font-size: 0.95rem; line-height: 1.4; color: #444;">Puedes acudir directamente sin cita y serás atendida por orden de llegada, o agendar para asegurar tu espacio.</p>
+        <div style="background: white; border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 25px; margin-bottom: 40px; font-size: 1.15rem; font-weight: 600; text-align: center;"
+            class="fade-in">
+            ¡Hola! 👋 Es súper común sentir nervios porque el implante está en el brazo y lleva anestesia. Pero no te
+            preocupes, el retiro es rápido y nosotros nos encargamos de que estés lo más cómoda posible. <strong>Tú
+                tienes el control.</strong>
         </div>
 
-        <div style="margin-bottom: 30px;">
-            <p style="font-weight: 800; margin-bottom: 15px;">Horarios Disponibles:</p>
-            <!-- Botón Calendario Google -->
-            <div style="display: flex; justify-content: center;">
-                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-                <script>
-                (function() {
-                  var target = document.currentScript;
-                  window.addEventListener('load', function() {
-                    calendar.schedulingButton.load({
-                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
-                      color: '#4285f4',
-                      label: '🗓️ Consultar Agenda y Agendar',
-                      target,
-                    });
-                  });
-                })();
-                </script>
+        <!-- FASE 1 -->
+        <div class="phase-card fade-in">
+            <div class="phase-badge">Fase 1</div>
+            <h3 class="hand-drawn"><span aria-hidden='true'>🧠</span> Tus Emociones y La Decisión</h3>
+            <p>Es normal tener dudas o miedos antes de llegar. Queremos que sepas que:</p>
+            <ul>
+                <li><strong>Validación del miedo:</strong> Temerle a las agujas para la anestesia o pensar que el
+                    implante "se movió" es una de las mayores preocupaciones. En el 99% de los casos, el implante sigue
+                    exactamente en su lugar y se puede tocar muy fácil a través de la piel.</li>
+                <li><strong>Tú decides:</strong> Quitárselo es completamente tu decisión, ya sea por caducidad (3 a 5
+                    años), porque deseas un embarazo o por cambio de método.</li>
+                <li><strong>No duele:</strong> La extracción en sí NO se siente porque usamos anestesia local. Solo
+                    sentirás el "piquetito" inicial de la anestesia, ¡que dura un segundito!</li>
+            </ul>
+            <div class="empathy-box">Si te da impresión ver la aguja o sangre, avísanos al llegar. ¡No tienes que ver
+                nada del procedimiento! Muchas pacientes prefieren cerrar los ojos o ver el celular.</div>
+        </div>
+
+        <!-- FASE 2 -->
+        <div class="phase-card fade-in">
+            <div class="phase-badge">Fase 2</div>
+            <h3 class="hand-drawn"><span aria-hidden='true'>👗</span> Preparación en Casa</h3>
+            <p>Cómo llegarlista a la cita:</p>
+            <ul>
+                <li><strong>¡Come algo!</strong> Es muy importante que NO vengas en ayunas. Come algo ligero y dulce
+                    antes de llegar para evitar que los nervios te bajen la presión.</li>
+                <li><strong>¿Qué me pongo?:</strong> Lleva blusa de tirantes, manga corta o muy suelta. Necesitaremos
+                    acceso fácil a la parte interna de tu brazo (cerca de la axila).</li>
+                <li><strong>Acompañante:</strong> Puedes venir con alguien para que te sostenga la mano con el otro
+                    brazo, o te espere afuera.</li>
+                <li><strong>¿Sexo antes?</strong> Si no quieres embarazo y vas a retirar el implante sin poner otro, usa
+                    condón 7 días antes de tu retiro.</li>
+            </ul>
+        </div>
+
+        <!-- ANIMACIÓN -->
+        <div class="animation-container fade-in">
+            <h3 class="hand-drawn"><span aria-hidden='true'>👀</span> Mira cómo es el procedimiento:</h3>
+            <p style="margin-bottom: 30px; font-weight:600; color:#555;">Una mini incisión por la que asoma el
+                plastiquito.</p>
+
+            <div class="arm-wrapper">
+                <!-- Capas de la animación: Brazo, heridita, pinzas e implante saliendo -->
+                <div class="implant"></div>
+                <div class="arm">
+                    <div class="incision"></div>
+                </div>
+                <div class="tweezers"></div>
             </div>
         </div>
 
-        <div style="margin-bottom: 40px;">
-            <p style="font-weight: 800; margin-bottom: 15px;">¿Tienes más dudas?</p>
-            <button onclick="toggleWaPopup()" class="btn btn-dudas"><span aria-hidden='true'>💬</span> Envíanos un mensaje a WhatsApp</button>
-            
-            <div id="wa-popup">
-                <p style="font-weight: 800; text-align: center; margin-bottom: 15px;">Llena tus datos para enviar mensaje directo al consultorio:</p>
-                <div style="display: flex; flex-direction: column; gap: 12px;">
-                    <input type="text" id="wa_nombre" placeholder="Nombre completo..." style="padding: 12px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
-                    <input type="number" id="wa_edad" placeholder="Edad..." style="padding: 12px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
-                    <textarea id="wa_duda" placeholder="Ej. ¿Qué me recomienda antes de ir? ¿Tengo que ir en ayunas?" rows="3" style="padding: 12px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 1rem; resize: vertical;"></textarea>
-                    <button onclick="agendarIsdWa()" class="btn btn-wa" style="width: 100%; margin-top: 5px;">Solicita tu orientación por WhatsApp <span aria-hidden='true'>💬</span></button>
+        <!-- FASE 4 -->
+        <div class="phase-card fade-in">
+            <div class="phase-badge">Fase 4</div>
+            <h3 class="hand-drawn"><span aria-hidden='true'>🩺</span> El Procedimiento Paso a Paso</h3>
+            <p>Esto esto es exactamente lo que haremos:</p>
+            <ul>
+                <li><strong>Ubicación:</strong> Te recostarás con el brazo doblado. El médico tocará tu piel para sentir
+                    dónde está la punta del implante.</li>
+                <li><strong>Anestesia:</strong> Se hace limpieza con alcohol y se inyecta un poco de anestesia local.
+                    Arderá solo por un par de segunditos, luego se adormecerá el área.</li>
+                <li><strong>Apertura mínima:</strong> Se hace una incisión muuuuy chiquita (como de 2 milímetros) justo
+                    donde está la punta. Si ya tenías una minicicatriz de cuando te lo pusieron, se usará el mismo
+                    lugarcito.</li>
+                <li><strong>El retiro:</strong> El médico empujará suavemente desde el otro extremo de tu brazo para que
+                    el tubito blanco asome por la incisión, y lo jalará con pinzas.</li>
+                <li><strong>Curación:</strong> Cuando sale el tubito, se te ponen unas delgadísimas tiritas adhesivas
+                    (Steri-Strips) para cerrar la piel solita, y finalmente una gasa y un vendaje de compresión en el
+                    brazo.</li>
+            </ul>
+        </div>
+
+        <!-- FASE 5 & 6 -->
+        <div class="phase-card fade-in">
+            <div class="phase-badge">Fase 5 y 6</div>
+            <h3 class="hand-drawn"><span aria-hidden='true'>🛋️</span> Recuperación y Cuidados en Casa</h3>
+            <p>Qué hacemos justo después de la extracción y qué puedes esperar:</p>
+            <ul>
+                <li><strong>Es normal que haya un moretón:</strong> Se formará un hematoma (moretón) de color morado o
+                    amarillento que desaparecerá en una semana.</li>
+                <li><strong>El vendaje:</strong> Deberás dejar el vendaje elástico, la gasa y las cintillas adhesivas
+                    <strong>limpios y secos por al menos 24 a 48 horas</strong>. Cuando te bañes, levanta el brazo y
+                    tápalo con plástico para que no le caiga agua.</li>
+                <li><strong>Las cintillas:</strong> Tardan varios días en caerse solas. ¡No las arranques! Ellas cierran
+                    tu piel sin necesidad de puntos de sutura.</li>
+                <li><strong><span aria-hidden='true'>⚠️</span> Señales para llamarnos:</strong> Llámanos de inmediato si
+                    la zona está caliente, expulsa líquido amarillento / pus, o tienes fiebre.</li>
+            </ul>
+        </div>
+
+        <!-- FASE 7 -->
+        <div class="phase-card fade-in">
+            <div class="phase-badge">Fase 7</div>
+            <h3 class="hand-drawn"><span aria-hidden='true'>🗺️</span> Tu Plan a Futuro</h3>
+            <ul>
+                <li><strong>Reemplazo Inmediato:</strong> Si solo se caducó tu implante y quieres seguir cuidándote con
+                    lo mismo, el doctor puede retirar el viejo y colocar uno nuevo <em>en ese mismo segundo</em> a
+                    través de la misma pequeñísima incisión. (Se ahorra doble herida).</li>
+                <li><strong>Cambio de Método:</strong> Puedes empezar ese mismo día inyecciones, pastillas o DIU.</li>
+            </ul>
+        </div>
+
+        <!-- ACCIÓN FINAL -->
+        <div class="action-container fade-in">
+            <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 15px;">¿Lista para
+                agendar tu cita?</h2>
+            <p style="font-size: 1.15rem; font-weight: 600; margin-bottom: 25px;">La cuota de recuperación por el Retiro
+                de Implante (ISD) es de <strong>$450 m.n.</strong></p>
+
+            <div
+                style="background: var(--pc-amarillo); border: 2px dashed var(--pc-negro); border-radius: 15px; padding: 20px; max-width: 600px; margin: 0 auto 30px auto; text-align: left;">
+                <p style="font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;"><span aria-hidden='true'>🏥</span>
+                    Horarios de Atención:</p>
+                <p style="font-weight: 600; margin-bottom: 10px;">Lunes a Domingo de <strong>9:00 am a 4:00 pm</strong>.
+                </p>
+                <p style="font-size: 0.95rem; line-height: 1.4; color: #444;">Puedes acudir directamente sin cita y
+                    serás atendida por orden de llegada, o agendar para asegurar tu espacio.</p>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <p style="font-weight: 800; margin-bottom: 15px;">Horarios Disponibles:</p>
+                <!-- Botón Calendario Google -->
+                <div style="display: flex; justify-content: center;">
+                    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                    <script>
+                        (function () {
+                            var target = document.currentScript;
+                            window.addEventListener('load', function () {
+                                calendar.schedulingButton.load({
+                                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
+                                    color: '#4285f4',
+                                    label: '🗓️ Consultar Agenda y Agendar',
+                                    target,
+                                });
+                            });
+                        })();
+                    </script>
                 </div>
             </div>
+
+            <div style="margin-bottom: 40px;">
+                <p style="font-weight: 800; margin-bottom: 15px;">¿Tienes más dudas?</p>
+                <button onclick="toggleWaPopup()" class="btn btn-dudas"><span aria-hidden='true'>💬</span> Envíanos un
+                    mensaje a WhatsApp</button>
+
+                <div id="wa-popup">
+                    <p style="font-weight: 800; text-align: center; margin-bottom: 15px;">Llena tus datos para enviar
+                        mensaje directo al consultorio:</p>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <input type="text" id="wa_nombre" placeholder="Nombre completo..."
+                            style="padding: 12px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
+                        <input type="number" id="wa_edad" placeholder="Edad..."
+                            style="padding: 12px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 1rem;">
+                        <textarea id="wa_duda"
+                            placeholder="Ej. ¿Qué me recomienda antes de ir? ¿Tengo que ir en ayunas?" rows="3"
+                            style="padding: 12px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 1rem; resize: vertical;"></textarea>
+                        <button onclick="agendarIsdWa()" class="btn btn-wa"
+                            style="width: 100%; margin-top: 5px;">Solicita tu orientación por WhatsApp <span
+                                aria-hidden='true'>💬</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function toggleWaPopup() {
+                    const popup = document.getElementById('wa-popup');
+                    popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+                    if (popup.style.display === 'block') popup.scrollIntoView({ behavior: 'smooth' });
+                }
+
+                function agendarIsdWa() {
+                    let nombre = document.getElementById('wa_nombre').value.trim();
+                    let edad = document.getElementById('wa_edad').value.trim();
+                    let duda = document.getElementById('wa_duda').value.trim();
+
+                    if (!nombre || !edad) { alert("Por favor, llena tu nombre y edad para darte un mejor servicio."); return; }
+
+                    let mensaje = `Hola 👋, envié mis datos desde la guía web de RETIRO DE IMPLANTE (ISD):\n\n*Nombre:* ${nombre}\n*Edad:* ${edad}\n`;
+                    if (duda) mensaje += `*Mi duda:* ${duda}\n\n`;
+                    mensaje += `Me gustaría recibir orientación o agendar una cita.`;
+
+                    window.open(`https://wa.me/526611044050?text=${encodeURIComponent(mensaje)}`, '_blank');
+                }
+            </script>
+
+            <div
+                style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; border-top: 2px dashed #eee; padding-top: 20px;">
+                <a href="servicios.html" class="btn btn-back">Volver a Servicios <span aria-hidden='true'>📋</span></a>
+            </div>
         </div>
 
-        <script>
-            function toggleWaPopup() {
-                const popup = document.getElementById('wa-popup');
-                popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
-                if(popup.style.display === 'block') popup.scrollIntoView({ behavior: 'smooth' });
-            }
-
-            function agendarIsdWa() {
-                let nombre = document.getElementById('wa_nombre').value.trim();
-                let edad = document.getElementById('wa_edad').value.trim();
-                let duda = document.getElementById('wa_duda').value.trim();
-
-                if(!nombre || !edad) { alert("Por favor, llena tu nombre y edad para darte un mejor servicio."); return; }
-
-                let mensaje = `Hola 👋, envié mis datos desde la guía web de RETIRO DE IMPLANTE (ISD):\n\n*Nombre:* ${nombre}\n*Edad:* ${edad}\n`;
-                if(duda) mensaje += `*Mi duda:* ${duda}\n\n`;
-                mensaje += `Me gustaría recibir orientación o agendar una cita.`;
-
-                window.open(`https://wa.me/526611044050?text=${encodeURIComponent(mensaje)}`, '_blank');
-            }
-        </script>
-
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; border-top: 2px dashed #eee; padding-top: 20px;">
-            <a href="servicios.html" class="btn btn-back">Volver a Servicios <span aria-hidden='true'>📋</span></a>
-        </div>
     </div>
 
-</div>
-
-<script src="js/global.js"></script>
+    <script src="js/global.js"></script>
 </body>
+
 </html>

@@ -9,17 +9,17 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://proyectoselene.org/farmacia-solidaria.html">
+    <meta property="og:url" content="https://proyectocelene.org/farmacia-solidaria.html">
     <meta property="og:title" content="Farmacia Solidaria - Proyecto Celene A.C.">
     <meta property="og:description" content="Un proyecto de apoyo mutuo para distribuir medicamentos a quienes más lo necesitan, mediante cuotas de recuperación simbólicas.">
-    <meta property="og:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+    <meta property="og:image" content="https://i.ibb.co/JjwF3cQm/FARMACIA-SOLIDARIA.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://proyectoselene.org/farmacia-solidaria.html">
+    <meta property="twitter:url" content="https://proyectocelene.org/farmacia-solidaria.html">
     <meta property="twitter:title" content="Farmacia Solidaria - Proyecto Celene A.C.">
     <meta property="twitter:description" content="Un proyecto de apoyo mutuo para distribuir medicamentos a quienes más lo necesitan, mediante cuotas de recuperación simbólicas.">
-    <meta property="twitter:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+    <meta property="twitter:image" content="https://i.ibb.co/JjwF3cQm/FARMACIA-SOLIDARIA.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
@@ -524,12 +524,12 @@
 
         // Construir Mensaje
         let msg = `*📝 EXPEDIENTE DE SOLICITUD - FARMACIA CELENE*\n\n`;
-        msg += `*1. PACIENTE*\n👤 Nombre: ${nombre}\n🎂 Edad/Género: ${edad} años, ${genero}\n<span aria-hidden='true'>📍</span> Domicilio: ${dom}\n<span aria-hidden='true'>📞</span> Tel: ${tel}\n🏥 Servicio Médico: ${servicio}\n\n`;
-        msg += `*2. RECETA MÉDICA*\n🏥 Clínica: ${clinica}\n<span aria-hidden='true'>👨‍⚕️</span> Médico: ${medico}\n🤒 Diagnóstico: ${dx}\n\n`;
+        msg += `*1. PACIENTE*\n👤 Nombre: ${nombre}\n🎂 Edad/Género: ${edad} años, ${genero}\n📍 Domicilio: ${dom}\n📞 Tel: ${tel}\n🏥 Servicio Médico: ${servicio}\n\n`;
+        msg += `*2. RECETA MÉDICA*\n🏥 Clínica: ${clinica}\n👨‍⚕️ Médico: ${medico}\n🤒 Diagnóstico: ${dx}\n\n`;
         msg += `*3. MEDICAMENTOS REQUERIDOS*\n${medsStr}\n`;
         msg += `*4. MOTIVOS DE SOLICITUD*\n⚠️ ${motivos.length > 0 ? motivos.join(', ') : 'No especificado'}\n\n`;
         msg += `*5. IMPACTO/SITUACIÓN*\n🚨 ${impactos.length > 0 ? impactos.join(', ') : 'No especificado'}\n📝 *Notas:* ${notas}\n\n`;
-        msg += `Solicito revisión de inventario. Quedo al pendiente de su respuesta. <span aria-hidden='true'>🌸</span>`;
+        msg += `Solicito revisión de inventario. Quedo al pendiente de su respuesta. 🌸`;
 
         let url = `https://wa.me/${CELENE_PHONE}?text=${encodeURIComponent(msg)}`;
         window.open(url, '_blank');
@@ -550,12 +550,12 @@
 
         let mensaje = `*🎁 FORMATO DE DONACIÓN SOLIDARIA*\n\n`;
         mensaje += `Hola Proyecto Celene, quiero apoyar a la comunidad:\n\n`;
-        mensaje += `<span aria-hidden='true'>🦸‍♂️</span> *Donante:* ${nombre}\n`;
-        mensaje += `<span aria-hidden='true'>📞</span> *Teléfono:* ${tel}\n`;
+        mensaje += `🦸‍♂️ *Donante:* ${nombre}\n`;
+        mensaje += `📞 *Teléfono:* ${tel}\n`;
         mensaje += `📦 *Medicamentos a donar:* ${meds}\n`;
-        mensaje += `<span aria-hidden='true'>📅</span> *Caducidad:* ${caducidad}\n`;
-        mensaje += `<span aria-hidden='true'>🚗</span> *Visita estimada:* ${fecha || "A convenir"}\n\n`;
-        mensaje += `Me da mucho gusto poder ayudar. ¡Nos vemos pronto! <span aria-hidden='true'>💖</span>`;
+        mensaje += `📅 *Caducidad:* ${caducidad}\n`;
+        mensaje += `🚗 *Visita estimada:* ${fecha || "A convenir"}\n\n`;
+        mensaje += `Me da mucho gusto poder ayudar. ¡Nos vemos pronto! 💖`;
 
         let url = `https://wa.me/${CELENE_PHONE}?text=${encodeURIComponent(mensaje)}`;
         window.open(url, '_blank');

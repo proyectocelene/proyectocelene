@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica de Control de Peso - Proyecto Celene</title>
+    <meta name="description"
+        content="Clínica de Control de Peso en Proyecto Celene. Logra tu peso ideal de forma saludable, previniendo enfermedades y con acompañamiento médico personalizado.">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/control-de-peso.html">
+    <meta property="og:title" content="Clínica de Control de Peso - Proyecto Celene">
+    <meta property="og:description" content="Clínica de Control de Peso en Proyecto Celene. Logra tu peso ideal de forma saludable, previniendo enfermedades y con acompañamiento médico personalizado.">
+    <meta property="og:image" content="https://i.ibb.co/BVbcyxJB/snoopy-control-de-peso.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/control-de-peso.html">
+    <meta property="twitter:title" content="Clínica de Control de Peso - Proyecto Celene">
+    <meta property="twitter:description" content="Clínica de Control de Peso en Proyecto Celene. Logra tu peso ideal de forma saludable, previniendo enfermedades y con acompañamiento médico personalizado.">
+    <meta property="twitter:image" content="https://i.ibb.co/BVbcyxJB/snoopy-control-de-peso.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-gris-suave);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* NAVEGACIÓN PRINCIPAL */
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            border-color: var(--pc-negro);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-azul-suave);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-negro);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        /* CAJAS DE CONTENIDO */
+        .content-box {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 var(--pc-amarillo);
+        }
+
+        .content-box h2 {
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #444;
+            font-size: 1.05rem;
+        }
+
+        .content-box li {
+            margin-bottom: 8px;
+        }
+
+        .info-panel {
+            background: var(--pc-rosa-pastell);
+            border: 3px dashed var(--pc-negro);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .info-panel h3 {
+            color: var(--pc-negro);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        /* CALCULADORA IMC */
+        .bmi-box {
+            background: white;
+            border: 4px dashed var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 8px 8px 0 var(--pc-azul-suave);
+        }
+
+        .bmi-inputs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .bmi-inputs input {
+            width: 160px;
+            padding: 15px;
+            font-size: 1.2rem;
+            border: 3px solid var(--pc-negro);
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .bmi-inputs input:focus {
+            border-color: var(--pc-rosa-fuerte);
+            outline: none;
+        }
+
+        .bmi-gauge-container {
+            width: 100%;
+            height: 35px;
+            background: linear-gradient(to right, #81d4fa 0%, #81d4fa 18.5%, #a5d6a7 18.5%, #a5d6a7 24.9%, #fff59d 24.9%, #fff59d 29.9%, #ffcc80 29.9%, #ffcc80 34.9%, #ef9a9a 34.9%, #ef9a9a 100%);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            position: relative;
+            margin: 40px 0 10px;
+        }
+
+        .bmi-marker {
+            position: absolute;
+            top: -15px;
+            left: 0%;
+            width: 6px;
+            height: 65px;
+            background: var(--pc-negro);
+            transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2;
+            display: none;
+        }
+
+        .bmi-marker::after {
+            content: 'Tú';
+            position: absolute;
+            top: -25px;
+            left: -14px;
+            background: var(--pc-negro);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .bmi-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #555;
+        }
+
+        #bmiResultText {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-top: 20px;
+            color: var(--pc-negro);
+            display: none;
+            background: var(--pc-gris-suave);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid var(--pc-negro);
+        }
+
+        /* PILARES DIAGRAMA */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0 30px;
+        }
+
+        .pillar-card {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 35px 20px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+            transition: 0.3s;
+            z-index: 1;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 8px 8px 0 var(--pc-rosa-fuerte);
+        }
+
+        .pillar-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--pc-amarillo);
+            border: 3px solid var(--pc-negro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 4px 4px 0 var(--pc-negro);
+        }
+
+        /* ACORDEON TRATAMIENTOS */
+        .accordion-item {
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 6px 6px 0 var(--pc-blanco);
+            background: white;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 15px 20px;
+            background-color: var(--pc-blanco);
+            width: 100%;
+            border: none;
+            font-size: 1.15rem;
+            font-weight: 800;
+            text-align: left;
+            font-family: 'Nunito', sans-serif;
+            color: var(--pc-rosa-fuerte);
+        }
+
+        .accordion-header::after {
+            content: '▼';
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+            color: var(--pc-negro);
+        }
+
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 0 20px 20px;
+            background-color: var(--pc-blanco);
+            display: none;
+            font-weight: 600;
+            color: #444;
+            font-size: 1.05rem;
+        }
+
+        .accordion-content ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .tag-yes {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 2px 8px;
+            border-radius: 5px;
+            border: 2px solid #2e7d32;
+            font-size: 0.85rem;
+            font-weight: 900;
+        }
+
+        .tag-no {
+            background: #ffebee;
+            color: #c62828;
+            padding: 2px 8px;
+            border-radius: 5px;
+            border: 2px solid #c62828;
+            font-size: 0.85rem;
+            font-weight: 900;
+        }
+
+        /* QUIZ CANDIDATO */
+        .quiz-box {
+            background: var(--pc-azul-suave);
+            padding: 30px;
+            border-radius: 20px;
+            border: 4px dashed var(--pc-negro);
+            margin: 40px 0;
+            box-shadow: 8px 8px 0 var(--pc-amarillo);
+        }
+
+        .quiz-question {
+            background: white;
+            border: 2px solid var(--pc-negro);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .quiz-options {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .quiz-radio {
+            display: none;
+        }
+
+        .quiz-lbl {
+            padding: 8px 15px;
+            border: 2px solid var(--pc-negro);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            background: var(--pc-gris-suave);
+        }
+
+        .quiz-radio:checked+.quiz-lbl {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+        }
+
+        #quizResult {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px solid var(--pc-negro);
+            background: white;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        /* BOTONES */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.2rem;
+            background: #25d366;
+            color: white;
+            box-shadow: 0 6px 0 #1b9c4b;
+            margin: 20px auto 0;
+            transition: 0.1s;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .btn:active {
+            top: 6px;
+            box-shadow: 0 0 0 transparent;
+        }
+        
+        /* MODAL WHATSAPP */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); align-items: center; justify-content: center; padding: 15px; }
+        .modal-content { background: white; border: 4px solid var(--pc-negro); border-radius: 25px; max-width: 450px; width: 100%; padding: 35px; position: relative; box-shadow: 12px 12px 0px var(--pc-amarillo); animation: popIn 0.3s ease-out; }
+        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; font-weight: 900; color: var(--pc-negro); transition: 0.2s;}
+        .close-modal:hover { color: var(--pc-rosa-fuerte); transform: scale(1.1); }
+        .modal input, .modal textarea { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; transition: 0.2s;}
+        .modal input:focus, .modal textarea:focus { border-color: var(--pc-rosa-fuerte); }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <header class="header fade-in">
+            <img src="https://i.ibb.co/BVbcyxJB/snoopy-control-de-peso.png" alt="Clínica de Control de Peso"
+                style="max-width:100%; width:450px; border-radius:15px; border:3px solid var(--pc-negro); margin-bottom:15px; background:white; object-fit:cover;">
+            <h1 class="hand-drawn">Clínica de Control de Peso <span aria-hidden='true'>⚖️</span></h1>
+            <p style="font-weight:600; font-size:1.1rem; max-width: 700px; margin: 0 auto;">Tu salud no se mide solo en
+                tallas, se mide en bienestar integral. Logra tus metas con un acompañamiento médico y humano.</p>
+        </header>
+
+        <div class="content-box fade-in">
+            <!-- SECCIÓN 1: INTRODUCCIÓN EMPÁTICA -->
+            <h2 class="hand-drawn">Hablemos de Sobrepeso sin Estigmas</h2>
+            <p>En <strong>Proyecto Celene</strong>, lo primero que queremos que sepas es que <strong>el peso no define
+                    tu valor ni tu salud por completo.</strong> Entendemos la frustración de haber "intentado de todo" y
+                de sentirte juzgado.</p>
+            <p>La conversación sobre el peso no debe ser sobre la culpa o la fuerza de voluntad. Debe ser sobre la
+                <strong>salud.</strong> El sobrepeso y la obesidad <strong>no son un fracaso personal; son condiciones
+                    médicas crónicas y complejas.</strong> Tienen causas profundas (metabólicas, hormonales, genéticas,
+                ambientales, emocionales) y, lo más importante, <strong>tienen tratamiento.</strong></p>
+            <p>La buena noticia es que una pérdida de peso modesta del 5% al 10% es suficiente para prevenir
+                enfermedades y mejorar drásticamente tu funcionalidad y calidad de vida.</p>
+
+            <!-- CALCULADORA IMC -->
+            <div class="bmi-box fade-in">
+                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 10px;">
+                    Calculadora de IMC y Salud</h3>
+                <p style="margin-bottom: 20px; font-weight: 600; color: #555;">Ingresa tus datos para conocer tu Índice
+                    de Masa Corporal y tu rango de peso saludable estimado.</p>
+
+                <div class="bmi-inputs">
+                    <input type="number" id="calc-peso" placeholder="Tu peso (kg)">
+                    <input type="number" id="calc-altura" placeholder="Tu altura (cm)">
+                </div>
+
+                <button onclick="calcularIMC()" class="btn"
+                    style="margin: 0; background: var(--pc-negro); box-shadow: 0 5px 0 #000; padding: 10px 25px;">Calcular
+                    <span aria-hidden="true">📏</span></button>
+
+                <div class="bmi-gauge-container">
+                    <div class="bmi-marker" id="bmi-marker"></div>
+                </div>
+                <div class="bmi-labels">
+                    <span>Bajo</span>
+                    <span>Normal</span>
+                    <span>Sobrepeso</span>
+                    <span>Obesidad I, II, III</span>
+                </div>
+
+                <div id="bmiResultText"></div>
+            </div>
+
+            <!-- SECCIÓN 2: PILARES -->
+            <h2 class="hand-drawn" style="margin-top:40px;">Tratamos Personas, No una Báscula</h2>
+            <p>Para nosotros, "bajar de peso" no es el objetivo final. El objetivo es que <strong>ganes salud, energía y
+                    bienestar.</strong> Sabemos que la estrategia de "simplemente come menos y muévete más" ignora la
+                raíz del problema. Nuestro enfoque integral incluye:</p>
+
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon"><span aria-hidden="true">🩺</span></div>
+                    <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Médica</h4>
+                    <p style="font-size: 0.95rem;">Buscamos el "por qué". Valoramos tu metabolismo, descartamos
+                        problemas de tiroides, resistencia a la insulina y tratamos comorbilidades (presión alta,
+                        diabetes).</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon" style="background: var(--pc-azul-suave);"><span
+                            aria-hidden="true">🧠</span></div>
+                    <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Emocional
+                    </h4>
+                    <p style="font-size: 0.95rem;">Nuestra mente y la comida están unidas. Ofrecemos espacio seguro con
+                        psicología para manejar la ansiedad, estrés, depresión y el "comer emocional".</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon" style="background: #e8f5e9;"><span aria-hidden="true">🍎</span></div>
+                    <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Física</h4>
+                    <p style="font-size: 0.95rem;">Te guiamos para crear hábitos realistas, sin dietas extremas ni
+                        castigos, encontrando una forma de alimentarte y moverte que realmente disfrutes a largo plazo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3: MANEJO ESCALONADO Y MEDICAMENTOS -->
+            <div
+                style="background: var(--pc-rosa-pastell); border: 3px dashed var(--pc-negro); padding: 25px; border-radius: 15px; margin-bottom: 30px;">
+                <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 10px;">¿Y los
+                    Medicamentos? Una Herramienta Poderosa</h3>
+                <p style="color: #444; font-weight: 600;">Queremos ser claros: usar medicamentos para bajar de peso
+                    <strong>no es "hacer trampa" ni es la "vía fácil".</strong> Es usar la ciencia para tratar una
+                    condición médica real. Ayudan a regular el apetito, apagar los antojos del cerebro y romper la
+                    resistencia a la insulina.</p>
+            </div>
+
+            <h2 class="hand-drawn">Opciones de Tratamiento: Manejo Escalonado</h2>
+            <p>El control moderno del sobrepeso requiere un enfoque en equipo. Conoce las opciones médicas validadas
+                científicamente:</p>
+
+            <div class="accordion" style="margin-top: 20px;">
+                <!-- Acordeon 1 -->
+                <div class="accordion-item"><button class="accordion-header">1. Terapia Conductual (La Base) 🥗</button>
+                    <div class="accordion-content">
+                        <p style="margin-top: 15px;"><span class="tag-yes">¿Cuándo SÍ?</span> Es la base imperativa para
+                            <strong>todos los pacientes</strong> sin importar si usarán medicamentos o cirugía.</p>
+                        <ul>
+                            <li><strong>En qué consiste:</strong> Dieta reducida en calorías reales, 150-300 minutos de
+                                actividad física a la semana y terapia conductual (control de porciones,
+                                auto-monitoreo).</li>
+                            <li><strong>Ventajas:</strong> Totalmente seguro, mejora la salud cardiovascular, previene
+                                diabetes y preserva la masa muscular.</li>
+                            <li><strong>El Reto:</strong> La pérdida lograda (5-7%) suele ser difícil de mantener a
+                                largo plazo porque el cuerpo responde cambiando las hormonas para "aumentar el hambre" y
+                                reducir la quema de calorías. ¡Por eso no es falta de voluntad!</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Acordeon 2 -->
+                <div class="accordion-item"><button class="accordion-header">2. Tratamiento Farmacológico 💊</button>
+                    <div class="accordion-content">
+                        <p style="margin-top: 15px;"><span class="tag-yes">¿Cuándo SÍ?</span> Cuando los hábitos no
+                            logran reducir un 5% del peso en 3-6 meses. Aprobado para IMC ≥ 30, o IMC ≥ 27 con
+                            enfermedades asociadas (hipertensión, diabetes).</p>
+                        <p><span class="tag-no">¿Cuándo NO?</span> Embarazo, lactancia o contraindicaciones específicas.
+                        </p>
+                        <p style="margin-top: 10px; color: #c62828;"><em>Importante: NO recomendamos tés, pastillas
+                                "milagro" o suplementos no regulados, ya que pueden ser muy peligrosos (daño cardíaco o
+                                hepático).</em></p>
+                        <h4 style="margin-top: 15px; color: var(--pc-negro);">Opciones Médicas Seguras:</h4>
+                        <ul>
+                            <li><strong>Agonistas GLP-1/GIP (Inyecciones semanales/diarias):</strong> Los más efectivos
+                                hoy en día (pérdidas de 15% a 22%). Retrasan el vaciado gástrico y quitan el hambre
+                                desde el cerebro. <em>(Contraindicado si hay historial de cáncer medular de
+                                    tiroides).</em></li>
+                            <li><strong>Fentermina-Topiramato (Oral):</strong> Muy potente para disminuir el apetito
+                                (pérdidas del 8-10%). <em>(Totalmente prohibido en el embarazo e hipertensión
+                                    descontrolada).</em></li>
+                            <li><strong>Naltrexona-Bupropión (Oral):</strong> Actúa en el centro de recompensas
+                                reduciendo antojos. <em>(Prohibido si hay epilepsia o hipertensión).</em></li>
+                            <li><strong>Orlistat (Oral):</strong> Bloquea la absorción del 30% de la grasa que comes.
+                                <em>(Puede causar incontinencia fecal si comes mucha grasa).</em></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Acordeon 3 -->
+                <div class="accordion-item"><button class="accordion-header">3. Balón Intragástrico 🎈</button>
+                    <div class="accordion-content">
+                        <p style="margin-top: 15px;"><span class="tag-yes">¿Cuándo SÍ?</span> Como puente u opción (IMC
+                            30-40) si han fracasado los hábitos y no se desea cirugía bariátrica.</p>
+                        <p><span class="tag-no">¿Cuándo NO?</span> Cirugías de estómago previas, hernias de hiato,
+                            embarazo o enfermedad hepática severa.</p>
+                        <ul>
+                            <li><strong>¿Cómo funciona?</strong> Globo de silicona colocado por endoscopia (sin cirugía)
+                                que ocupa espacio en el estómago. Se deja máx. 6 meses.</li>
+                            <li><strong>Ventajas:</strong> Mínimamente invasivo. Genera pérdida del 6% al 15%
+                                tempranamente.</li>
+                            <li><strong>Desventajas:</strong> Náuseas y dolor la primera semana. Si no hay mantenimiento
+                                con fármacos/hábitos, el peso suele recuperarse al retirarlo.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Acordeon 4 -->
+                <div class="accordion-item"><button class="accordion-header">4. Cirugía Bariátrica y Metabólica
+                        🏥</button>
+                    <div class="accordion-content">
+                        <p style="margin-top: 15px;"><span class="tag-yes">¿Cuándo SÍ?</span> Adultos con IMC ≥ 35, o
+                            IMC 30-34.9 con diabetes tipo 2 u otros problemas graves no controlados por vía médica.</p>
+                        <p><span class="tag-no">¿Cuándo NO?</span> Riesgo prohibitivo a anestesia general, enfermedades
+                            psiquiátricas graves no tratadas, abuso de sustancias.</p>
+                        <ul>
+                            <li><strong>Manga Gástrica (Sleeve):</strong> Extrae el 75% del estómago reduciendo
+                                drásticamente la "hormona del hambre".</li>
+                            <li><strong>Bypass Gástrico:</strong> Altera la anatomía intestinal para absorber menos
+                                nutrientes y frenar el hambre.</li>
+                            <li><strong>Ventajas:</strong> Es el tratamiento más efectivo a largo plazo (pérdidas del
+                                25% al 35% o más). Remisión de diabetes tipo 2 y reducción de mortalidad global.</li>
+                            <li><strong>El Reto:</strong> Exige un compromiso <strong>de por vida</strong> para tomar
+                                suplementos vitamínicos y requiere un fuerte acompañamiento psicológico preventivo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 4: QUIZ CANDIDATO -->
+            <div class="quiz-box fade-in">
+                <h2 class="hand-drawn"
+                    style="border: none; color: var(--pc-negro); margin-bottom: 5px; font-size: 2.2rem;">¿Eres candidato
+                    a Medicamentos? 💊</h2>
+                <p style="margin-bottom: 25px; color: var(--pc-negro); font-weight: 600;">Responde estas preguntas
+                    rápidas para darte una idea inicial (requiere confirmación médica en consulta):</p>
+
+                <div class="quiz-question">
+                    <span>1. Según la calculadora de arriba, ¿tu IMC es mayor a 27 o tienes un sobrepeso u obesidad
+                        evidente?</span>
+                    <div class="quiz-options">
+                        <input type="radio" name="qc1" id="qc1_y" value="yes" class="quiz-radio"><label for="qc1_y"
+                            class="quiz-lbl">Sí</label>
+                        <input type="radio" name="qc1" id="qc1_n" value="no" class="quiz-radio"><label for="qc1_n"
+                            class="quiz-lbl">No</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <span>2. ¿Padeces hipertensión, pre-diabetes, colesterol alto, ovarios poliquísticos o apnea del
+                        sueño?</span>
+                    <div class="quiz-options">
+                        <input type="radio" name="qc2" id="qc2_y" value="yes" class="quiz-radio"><label for="qc2_y"
+                            class="quiz-lbl">Sí</label>
+                        <input type="radio" name="qc2" id="qc2_n" value="no" class="quiz-radio"><label for="qc2_n"
+                            class="quiz-lbl">No</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <span>3. ¿Has intentado hacer dieta y ejercicio por más de 3 meses sin lograr perder ni mantener el
+                        peso?</span>
+                    <div class="quiz-options">
+                        <input type="radio" name="qc3" id="qc3_y" value="yes" class="quiz-radio"><label for="qc3_y"
+                            class="quiz-lbl">Sí</label>
+                        <input type="radio" name="qc3" id="qc3_n" value="no" class="quiz-radio"><label for="qc3_n"
+                            class="quiz-lbl">No</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <span>4. Precaución: ¿Estás embarazada, lactando, o tienes antecedentes familiares de cáncer de
+                        tiroides?</span>
+                    <div class="quiz-options">
+                        <input type="radio" name="qc4" id="qc4_y" value="stop" class="quiz-radio"><label for="qc4_y"
+                            class="quiz-lbl">Sí</label>
+                        <input type="radio" name="qc4" id="qc4_n" value="good" class="quiz-radio"><label for="qc4_n"
+                            class="quiz-lbl">No</label>
+                    </div>
+                </div>
+
+                <button onclick="evaluarCandidato()" class="btn"
+                    style="width: 100%; max-width: none; background: var(--pc-negro); box-shadow: 0 5px 0 #000; margin-top: 15px;">Ver
+                    Mi Resultado</button>
+
+                <div id="quizResult"></div>
+            </div>
+
+            <div class="info-panel">
+                <h3 class="hand-drawn">Inversión en tu Salud</h3>
+                <p style="font-weight: 800; font-size: 1.1rem; color: var(--pc-rosa-fuerte);">Cuota de Consulta Médica
+                    General: $150 m.n.</p>
+                <p style="font-size: 1rem;">Te recomendamos acudir mensualmente para darle seguimiento a tus avances,
+                    ajustar tu plan y celebrar juntos tus victorias.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 15px;">¡Da el primer paso hacia una vida
+                    más ligera y saludable!</p>
+                <button onclick="document.getElementById('modalWaPeso').style.display='flex'" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); border-color: var(--pc-negro);">¿Tienes más dudas? Envíanos un mensaje <span
+                        aria-hidden='true'>💬</span></button>
+
+                <div style="background: var(--pc-amarillo); border: 2px dashed var(--pc-negro); border-radius: 10px; padding: 20px; max-width: 600px; margin: 30px auto 20px auto; text-align: left;">
+                    <p style="font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;"><span aria-hidden='true'>🏥</span> Horarios de Atención:</p>
+                    <p style="font-weight: 600; margin-bottom: 10px;">Lunes a Domingo de <strong>9:00 am a 4:00 pm</strong>.</p>
+                    <p style="font-size: 0.95rem; line-height: 1.4; color: #444;">Puedes acudir directamente sin cita y serás atendido(a) por orden de llegada, o si lo prefieres, conoce los horarios disponibles y aparta tu lugar:</p>
+                </div>
+
+                <div style="margin-top: 20px; display: flex; justify-content: center;">
+                    <!-- Botón Calendario Google -->
+                    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                    <script>
+                        (function () {
+                            var target = document.currentScript;
+                            window.addEventListener('load', function () {
+                                calendar.schedulingButton.load({
+                                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
+                                    color: '#d81b60',
+                                    label: '🗓️ Consultar horarios disponibles y agendar',
+                                    target,
+                                });
+                            });
+                        })();
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL WHATSAPP PESO -->
+    <div id="modalWaPeso" class="modal" onclick="if(event.target==this) this.style.display='none'">
+        <div class="modal-content">
+            <span class="close-modal" onclick="document.getElementById('modalWaPeso').style.display='none'">✕</span>
+            <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:10px; margin-top: 0; line-height: 1.1;">Agenda o Dudas <span aria-hidden='true'>💬</span></h3>
+            <p style="margin-bottom:20px; font-weight: 600; color: #555;">Déjanos tus datos para agilizar tu atención o resolver tus preguntas.</p>
+            <input type="text" id="wa_peso_nombre" placeholder="Tu Nombre Completo">
+            <input type="number" id="wa_peso_edad" placeholder="Tu Edad">
+            <textarea id="wa_peso_duda" rows="3" placeholder="¿Tienes alguna duda o quieres agendar directamente?"></textarea>
+            <button onclick="enviarWaPeso()" class="btn" style="width:100%; margin-top: 5px; background: #25d366; color: white;">Enviar Mensaje a WhatsApp <span aria-hidden='true'>📲</span></button>
+        </div>
+    </div>
+
+    <script>
+        // Lógica de Calculadora IMC
+        function calcularIMC() {
+            let peso = parseFloat(document.getElementById('calc-peso').value);
+            let alturaCm = parseFloat(document.getElementById('calc-altura').value);
+
+            if (!peso || !alturaCm || alturaCm <= 0 || peso <= 0) {
+                alert("Por favor, ingresa tu peso y altura correctamente.");
+                return;
+            }
+
+            let alturaM = alturaCm / 100;
+            let imc = peso / (alturaM * alturaM);
+            let imcRounded = imc.toFixed(1);
+
+            // Rango de peso ideal (IMC 18.5 - 24.9)
+            let pesoIdealMin = (18.5 * (alturaM * alturaM)).toFixed(1);
+            let pesoIdealMax = (24.9 * (alturaM * alturaM)).toFixed(1);
+
+            // Lógica del Marker (CSS)
+            // Escala aprox: 15 a 40+. Mapeamos a 0-100%
+            let percent = 0;
+            if (imc < 18.5) percent = (imc / 18.5) * 18.5;
+            else if (imc < 25) percent = 18.5 + ((imc - 18.5) / 6.4) * (24.9 - 18.5);
+            else if (imc < 30) percent = 25 + ((imc - 25) / 5) * (29.9 - 25);
+            else if (imc < 40) percent = 30 + ((imc - 30) / 10) * 30; // Spread obesity
+            else percent = 95;
+
+            if (percent > 98) percent = 98;
+            if (percent < 2) percent = 2;
+
+            let marker = document.getElementById('bmi-marker');
+            marker.style.display = 'block';
+            marker.style.left = percent + '%';
+
+            let categoria = "";
+            let color = "";
+            if (imc < 18.5) { categoria = "Bajo de Peso"; color = "#0288d1"; }
+            else if (imc < 25) { categoria = "Peso Normal (Saludable)"; color = "#2e7d32"; }
+            else if (imc < 30) { categoria = "Sobrepeso"; color = "#f57f17"; }
+            else if (imc < 35) { categoria = "Obesidad Grado I"; color = "#c62828"; }
+            else if (imc < 40) { categoria = "Obesidad Grado II"; color = "#b71c1c"; }
+            else { categoria = "Obesidad Grado III (Mórbida)"; color = "#880e4f"; }
+
+            let resBox = document.getElementById('bmiResultText');
+            resBox.innerHTML = `Tu IMC es: <span style="color:${color}; font-size:1.5rem;">${imcRounded}</span> (${categoria})<br><br><span style="font-size:1rem; font-weight:600; color:#555;">Tu rango de peso saludable (metabólico) estimado para tu altura está entre <strong>${pesoIdealMin} kg y ${pesoIdealMax} kg.</strong><br><em>*Nota: El IMC es una guía, la valoración final requiere evaluar masa muscular y grasa corporal con el médico.</em></span>`;
+            resBox.style.display = 'block';
+        }
+
+        // Lógica Acordeón
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                const isActive = item.classList.toggle('active');
+                item.querySelector('.accordion-content').style.display = isActive ? 'block' : 'none';
+            });
+        });
+
+        // Lógica Quiz
+        function evaluarCandidato() {
+            let q1 = document.querySelector('input[name="qc1"]:checked');
+            let q2 = document.querySelector('input[name="qc2"]:checked');
+            let q3 = document.querySelector('input[name="qc3"]:checked');
+            let q4 = document.querySelector('input[name="qc4"]:checked');
+
+            if (!q1 || !q2 || !q3 || !q4) return alert("Responde todas las preguntas.");
+
+            let resBox = document.getElementById('quizResult');
+            if (q4.value === 'stop') {
+                resBox.innerHTML = "🚨 <strong>Precaución Médica:</strong><br>Debido a tu respuesta en la pregunta 4, muchos medicamentos modernos (como los GLP-1) están contraindicados. Sin embargo, el Dr. Donato puede ayudarte a trazar un plan nutricional o buscar alternativas seguras para ti.";
+                resBox.style.borderColor = "#c62828";
+            } else if (q1.value === 'yes' && q3.value === 'yes') {
+                resBox.innerHTML = "<span aria-hidden='true'>✅</span> <strong>¡Eres un excelente candidato!</strong><br>La ciencia muestra que cuando los hábitos no han sido suficientes, tu cuerpo necesita apoyo metabólico. Agenda una cita para platicar sobre las opciones farmacológicas ideales para tu presupuesto e historial.";
+                resBox.style.borderColor = "#2e7d32";
+            } else {
+                resBox.innerHTML = "🩺 <strong>El primer paso es la valoración:</strong><br>Aunque no cumples con los criterios severos inmediatos, en consulta te ayudaremos a estructurar un plan de Estilo de Vida y evaluaremos si un apoyo inicial es justo lo que necesitas para arrancar.";
+                resBox.style.borderColor = "#1565c0";
+            }
+            resBox.style.display = "block";
+        }
+
+        function enviarWaPeso() {
+            let nombre = document.getElementById('wa_peso_nombre').value.trim() || 'No especificado';
+            let edad = document.getElementById('wa_peso_edad').value.trim() || '-';
+            let duda = document.getElementById('wa_peso_duda').value.trim();
+
+            let msg = `Hola Proyecto Celene 🌸.\nSoy *${nombre}* (${edad} años) y me interesa la Clínica de Control de Peso.\n`;
+            if (duda) {
+                msg += `\nMi comentario o duda es: "${duda}"`;
+            } else {
+                msg += `\nMe gustaría agendar una consulta médica.`;
+            }
+
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+            document.getElementById('modalWaPeso').style.display = 'none';
+        }
+    </script>
+    <script src="js/global.js"></script>
+</body>
+
+</html>

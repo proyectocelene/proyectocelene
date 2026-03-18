@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>18° Aniversario Vintage - Proyecto Celene</title>
-    <meta name="description" content="Acompáñanos a celebrar 18 años de transformar vidas en nuestra Noche de Gala Vintage 50s-60s. Proyecto Celene, Rosarito B.C.">
+    <meta name="description"
+        content="Acompáñanos a celebrar 18 años de transformar vidas en nuestra Noche de Gala Vintage 50s-60s. Proyecto Celene, Rosarito B.C.">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://proyectoselene.org/aniversario.html">
+    <meta property="og:url" content="https://proyectocelene.org/aniversario.html">
     <meta property="og:title" content="18° Aniversario Vintage - Proyecto Celene">
-    <meta property="og:description" content="Acompáñanos a celebrar 18 años de transformar vidas en nuestra Noche de Gala Vintage 50s-60s. Proyecto Celene, Rosarito B.C.">
+    <meta property="og:description"
+        content="Acompáñanos a celebrar 18 años de transformar vidas en nuestra Noche de Gala Vintage 50s-60s. Proyecto Celene, Rosarito B.C.">
     <meta property="og:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://proyectoselene.org/aniversario.html">
+    <meta property="twitter:url" content="https://proyectocelene.org/aniversario.html">
     <meta property="twitter:title" content="18° Aniversario Vintage - Proyecto Celene">
-    <meta property="twitter:description" content="Acompáñanos a celebrar 18 años de transformar vidas en nuestra Noche de Gala Vintage 50s-60s. Proyecto Celene, Rosarito B.C.">
+    <meta property="twitter:description"
+        content="Acompáñanos a celebrar 18 años de transformar vidas en nuestra Noche de Gala Vintage 50s-60s. Proyecto Celene, Rosarito B.C.">
     <meta property="twitter:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
 
     <!-- Fuentes Retro -->
-    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;600;800;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;600;800;900&family=Courier+Prime:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             /* Paleta Pop-Art 60s */
@@ -31,614 +37,1312 @@
             --pop-yellow: #FFD23F;
             --pop-blue: #118AB2;
             --pop-pink: #EF476F;
-            --pop-bg: #F4F1EA; /* Papel crema vintage */
+            --pop-bg: #F4F1EA;
+            /* Papel crema vintage */
             --pop-dark: #2D232E;
             --pc-blanco: #ffffff;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            font-family: 'Inter', sans-serif; /* Inspirado en Helvetica de los 60s */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Inspirado en Helvetica de los 60s */
             background-color: var(--pop-bg);
             /* Textura de ruido (papel revista impreso) */
             background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.06"/></svg>');
-            color: var(--pop-dark); 
-            line-height: 1.5; 
+            color: var(--pop-dark);
+            line-height: 1.5;
             padding-bottom: 50px;
             overflow-x: hidden;
         }
 
-        .font-groovy { font-family: 'Shrikhand', cursive; font-weight: normal; letter-spacing: 1px; }
-        .font-typewriter { font-family: 'Courier Prime', monospace; font-weight: bold; }
+        .font-groovy {
+            font-family: 'Shrikhand', cursive;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; position: relative; }
+        .font-typewriter {
+            font-family: 'Courier Prime', monospace;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
 
         /* NAVEGACIÓN PRINCIPAL (Manteniendo el estilo global) */
         .main-nav {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-            margin-bottom: 30px; padding: 15px; background: var(--pop-yellow);
-            border: 3px solid var(--pop-dark); border-radius: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pop-yellow);
+            border: 3px solid var(--pop-dark);
+            border-radius: 50px;
             box-shadow: 4px 4px 0px var(--pop-dark);
         }
+
         .main-nav a {
-            text-decoration: none; color: var(--pop-dark); font-weight: 800;
-            font-size: 1.05rem; padding: 8px 15px; border-radius: 15px;
-            transition: all 0.2s; border: 2px solid transparent;
+            text-decoration: none;
+            color: var(--pop-dark);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: all 0.2s;
+            border: 2px solid transparent;
         }
+
         .main-nav a:hover {
-            background: var(--pop-pink); color: var(--pc-blanco);
-            border-color: var(--pop-dark); box-shadow: 3px 3px 0 var(--pop-dark);
+            background: var(--pop-pink);
+            color: var(--pc-blanco);
+            border-color: var(--pop-dark);
+            box-shadow: 3px 3px 0 var(--pop-dark);
         }
 
         /* HERO - PORTADA EDITORIAL ASIMÉTRICA */
         .magazine-hero {
-            display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-            background: var(--pop-blue); border: 4px solid var(--pop-dark);
-            border-radius: 60px 20px 60px 20px; padding: 40px 20px;
-            box-shadow: 12px 12px 0px var(--pop-dark); margin-bottom: 50px;
-            overflow: hidden; gap: 30px; position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            background: var(--pop-blue);
+            border: 4px solid var(--pop-dark);
+            border-radius: 60px 20px 60px 20px;
+            padding: 40px 20px;
+            box-shadow: 12px 12px 0px var(--pop-dark);
+            margin-bottom: 50px;
+            overflow: hidden;
+            gap: 30px;
+            position: relative;
         }
-        .hero-text { flex: 1; min-width: 300px; color: var(--pc-blanco); text-align: left; z-index: 2; padding: 0 20px;}
-        .hero-image-container { flex: 1; min-width: 300px; text-align: center; z-index: 2; }
-        
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            color: var(--pc-blanco);
+            text-align: left;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .hero-image-container {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            z-index: 2;
+        }
+
         /* ANIMACIÓN DE DISCO DE VINILO (TOCADISCOS) */
         .vinyl-container {
-            position: relative; width: 280px; height: 280px; margin: 0 auto;
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
             filter: drop-shadow(10px 10px 0px var(--pop-dark));
         }
+
         .vinyl-record {
-            width: 100%; height: 100%; background: #1a1a1a; border-radius: 50%;
-            position: absolute; top: 0; left: 0;
-            animation: spin 3s linear infinite; display: flex; align-items: center; justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: spin 3s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border: 4px solid var(--pop-dark);
         }
+
         .vinyl-grooves {
-            width: 90%; height: 90%; border-radius: 50%; border: 2px solid #333; position: absolute;
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            border: 2px solid #333;
+            position: absolute;
             box-shadow: inset 0 0 0 10px #1a1a1a, inset 0 0 0 12px #333, inset 0 0 0 22px #1a1a1a, inset 0 0 0 24px #333, inset 0 0 0 34px #1a1a1a, inset 0 0 0 36px #333;
         }
+
         .vinyl-label {
-            width: 110px; height: 110px; border-radius: 50%; z-index: 2; border: 3px solid var(--pop-yellow);
-            overflow: hidden; background: white; display: flex; align-items: center; justify-content: center;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            z-index: 2;
+            border: 3px solid var(--pop-yellow);
+            overflow: hidden;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .vinyl-label img { width: 90%; height: auto; object-fit: contain; }
+
+        .vinyl-label img {
+            width: 90%;
+            height: auto;
+            object-fit: contain;
+        }
+
         .vinyl-hole {
-            width: 12px; height: 12px; background: var(--pop-bg); border-radius: 50%;
-            position: absolute; z-index: 3; border: 2px solid #ccc;
+            width: 12px;
+            height: 12px;
+            background: var(--pop-bg);
+            border-radius: 50%;
+            position: absolute;
+            z-index: 3;
+            border: 2px solid #ccc;
         }
+
         .vinyl-tonearm {
-            position: absolute; top: 20px; right: -15px; width: 20px; height: 140px;
-            background: silver; border-radius: 10px; transform-origin: top center;
-            transform: rotate(35deg); z-index: 4; border: 2px solid var(--pop-dark);
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            width: 20px;
+            height: 140px;
+            background: silver;
+            border-radius: 10px;
+            transform-origin: top center;
+            transform: rotate(35deg);
+            z-index: 4;
+            border: 2px solid var(--pop-dark);
         }
-        .vinyl-tonearm::after { content: ""; position: absolute; bottom: -15px; left: -10px; width: 30px; height: 40px; background: #444; border-radius: 5px; border: 2px solid var(--pop-dark); transform: rotate(-15deg); }
-        .vinyl-tonearm::before { content: ""; position: absolute; top: 5px; left: 5px; width: 10px; height: 10px; background: var(--pop-dark); border-radius: 50%; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .vinyl-tonearm::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: -10px;
+            width: 30px;
+            height: 40px;
+            background: #444;
+            border-radius: 5px;
+            border: 2px solid var(--pop-dark);
+            transform: rotate(-15deg);
+        }
+
+        .vinyl-tonearm::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--pop-dark);
+            border-radius: 50%;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
         .issue-badge {
-            background: var(--pop-yellow); color: var(--pop-dark); font-family: 'Courier Prime', monospace;
-            font-size: 1rem; font-weight: bold; padding: 5px 15px; border-radius: 20px; border: 2px solid var(--pop-dark);
-            display: inline-block; margin-bottom: 15px; transform: rotate(-5deg); box-shadow: 3px 3px 0 var(--pop-dark);
+            background: var(--pop-yellow);
+            color: var(--pop-dark);
+            font-family: 'Courier Prime', monospace;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 2px solid var(--pop-dark);
+            display: inline-block;
+            margin-bottom: 15px;
+            transform: rotate(-5deg);
+            box-shadow: 3px 3px 0 var(--pop-dark);
         }
-        .magazine-hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 5px; text-shadow: 4px 4px 0px var(--pop-dark); color: var(--pop-pink); }
-        .magazine-hero h2 { font-family: 'Shrikhand', cursive; font-size: 2.5rem; font-weight: normal; color: var(--pop-yellow); text-shadow: 3px 3px 0 var(--pop-dark); margin-bottom: 15px; line-height: 1.1; letter-spacing: 1px; }
-        .magazine-hero p { font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; line-height: 1.6; }
+
+        .magazine-hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 5px;
+            text-shadow: 4px 4px 0px var(--pop-dark);
+            color: var(--pop-pink);
+        }
+
+        .magazine-hero h2 {
+            font-family: 'Shrikhand', cursive;
+            font-size: 2.5rem;
+            font-weight: normal;
+            color: var(--pop-yellow);
+            text-shadow: 3px 3px 0 var(--pop-dark);
+            margin-bottom: 15px;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+
+        .magazine-hero p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
 
         /* GANCHO EMOCIONAL */
         .emotional-hook {
-            background: var(--pc-blanco); border: 4px solid var(--pop-dark);
-            padding: 30px; text-align: center; border-radius: 50% 20% / 10% 40%;
-            margin: 0 auto 50px; font-size: 1.25rem; font-weight: 600; color: var(--pop-dark);
-            box-shadow: 8px 8px 0px var(--pop-pink); max-width: 800px;
+            background: var(--pc-blanco);
+            border: 4px solid var(--pop-dark);
+            padding: 30px;
+            text-align: center;
+            border-radius: 50% 20% / 10% 40%;
+            margin: 0 auto 50px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--pop-dark);
+            box-shadow: 8px 8px 0px var(--pop-pink);
+            max-width: 800px;
         }
-        .emotional-hook strong { font-size: 1.8rem; color: var(--pop-orange); display: block; margin-bottom: 10px; }
+
+        .emotional-hook strong {
+            font-size: 1.8rem;
+            color: var(--pop-orange);
+            display: block;
+            margin-bottom: 10px;
+        }
 
         /* TITULOS DE SECCIÓN */
         .section-title {
-            font-size: 3rem; color: var(--pop-dark); text-align: center; margin-bottom: 30px;
-            text-transform: uppercase; position: relative; z-index: 1;
+            font-size: 3rem;
+            color: var(--pop-dark);
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
         }
+
         .section-title::after {
-            content: ""; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-            width: 150px; height: 15px; background: var(--pop-yellow); z-index: -1;
+            content: "";
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 15px;
+            background: var(--pop-yellow);
+            z-index: -1;
         }
 
         /* LÍNEA DEL TIEMPO VERTICAL POP-ART 60s */
-        .timeline { position: relative; max-width: 600px; margin: 0 auto 60px; padding-left: 40px; }
-        .timeline::before { content: ''; position: absolute; top: 0; left: 16px; height: 100%; width: 8px; background: var(--pop-dark); border-radius: 10px; }
-        .timeline-item { position: relative; margin-bottom: 35px; padding-left: 20px; cursor: pointer; transition: 0.2s; }
-        .timeline-item:hover { transform: translateX(10px); }
-        .timeline-item::before { content: ''; position: absolute; left: -34px; top: 5px; width: 28px; height: 28px; background: var(--pop-yellow); border: 4px solid var(--pop-dark); border-radius: 50%; z-index: 2; transition: 0.2s; }
-        .timeline-item:hover::before { background: var(--pop-pink); transform: scale(1.2); }
-        
-        .timeline-content { background: var(--pc-blanco); border: 4px solid var(--pop-dark); border-radius: 20px; padding: 25px; box-shadow: 8px 8px 0px var(--pop-blue); transition: 0.2s; display: flex; flex-direction: column; gap: 5px; text-align: left; }
-        .timeline-item:nth-child(even) .timeline-content { box-shadow: 8px 8px 0px var(--pop-pink); }
-        .timeline-item:hover .timeline-content { background: var(--pop-yellow); box-shadow: 8px 8px 0px var(--pop-dark); }
-        
-        .timeline-time { font-family: 'Courier Prime', monospace; font-size: 1.2rem; font-weight: bold; background: var(--pop-dark); color: white; padding: 5px 15px; border-radius: 10px; align-self: flex-start; margin-bottom: 5px; border: 2px solid white; box-shadow: 3px 3px 0 var(--pop-orange); transform: rotate(-2deg); }
-        .timeline-title { font-size: 1.8rem; font-weight: 900; line-height: 1.1; font-family: 'Shrikhand', cursive; color: var(--pop-orange); letter-spacing: 1px; margin-top: 5px; }
-        .click-hint { font-size: 0.85rem; font-weight: 800; color: #555; text-transform: uppercase; margin-top: 10px; display: inline-block; background: rgba(255,255,255,0.8); padding: 5px 12px; border-radius: 10px; border: 2px dashed var(--pop-dark); align-self: flex-start; }
+        .timeline {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 60px;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 16px;
+            height: 100%;
+            width: 8px;
+            background: var(--pop-dark);
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+            padding-left: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 5px;
+            width: 28px;
+            height: 28px;
+            background: var(--pop-yellow);
+            border: 4px solid var(--pop-dark);
+            border-radius: 50%;
+            z-index: 2;
+            transition: 0.2s;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--pop-pink);
+            transform: scale(1.2);
+        }
+
+        .timeline-content {
+            background: var(--pc-blanco);
+            border: 4px solid var(--pop-dark);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 8px 8px 0px var(--pop-blue);
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            text-align: left;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            box-shadow: 8px 8px 0px var(--pop-pink);
+        }
+
+        .timeline-item:hover .timeline-content {
+            background: var(--pop-yellow);
+            box-shadow: 8px 8px 0px var(--pop-dark);
+        }
+
+        .timeline-time {
+            font-family: 'Courier Prime', monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: var(--pop-dark);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 10px;
+            align-self: flex-start;
+            margin-bottom: 5px;
+            border: 2px solid white;
+            box-shadow: 3px 3px 0 var(--pop-orange);
+            transform: rotate(-2deg);
+        }
+
+        .timeline-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            font-family: 'Shrikhand', cursive;
+            color: var(--pop-orange);
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .click-hint {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #555;
+            text-transform: uppercase;
+            margin-top: 10px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px 12px;
+            border-radius: 10px;
+            border: 2px dashed var(--pop-dark);
+            align-self: flex-start;
+        }
 
         /* GALA (Nocturna) - DOBLE PÁGINA EDITORIAL */
         .gala-spread {
-            background: var(--pop-dark); color: var(--pc-blanco); border: 4px solid var(--pop-yellow);
-            border-radius: 40px; padding: 60px 30px; text-align: center; position: relative;
-            box-shadow: 12px 12px 0px var(--pop-orange); margin-bottom: 50px; overflow: hidden;
+            background: var(--pop-dark);
+            color: var(--pc-blanco);
+            border: 4px solid var(--pop-yellow);
+            border-radius: 40px;
+            padding: 60px 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: 12px 12px 0px var(--pop-orange);
+            margin-bottom: 50px;
+            overflow: hidden;
         }
+
         /* Patrón de fondo para la gala */
         .gala-spread::before {
-            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 2px);
-            background-size: 20px 20px; z-index: 0;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+            background-size: 20px 20px;
+            z-index: 0;
         }
-        .gala-content { position: relative; z-index: 1; }
-        .gala-spread h3 { font-size: 3.5rem; color: var(--pop-pink); line-height: 1.1; margin-bottom: 15px; text-shadow: 3px 3px 0px var(--pop-bg); }
-        .gala-spread p { font-size: 1.15rem; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .guest-box { background: var(--pop-blue); border: 3px solid var(--pop-yellow); padding: 15px; border-radius: 15px; display: inline-block; margin-bottom: 25px; font-weight: bold; transform: rotate(2deg); color: #fff;}
+
+        .gala-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .gala-spread h3 {
+            font-size: 3.5rem;
+            color: var(--pop-pink);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 0px var(--pop-bg);
+        }
+
+        .gala-spread p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .guest-box {
+            background: var(--pop-blue);
+            border: 3px solid var(--pop-yellow);
+            padding: 15px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-weight: bold;
+            transform: rotate(2deg);
+            color: #fff;
+        }
 
         /* BOTONES GLOBALES DE ACCIÓN */
         .btn-action {
-            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            background: var(--pop-orange); border: 3px solid var(--pop-dark); color: var(--pop-dark);
-            padding: 12px 25px; font-weight: 900; font-size: 1.1rem; border-radius: 50px;
-            cursor: pointer; transition: transform 0.2s; text-decoration: none; font-family: 'Inter', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--pop-orange);
+            border: 3px solid var(--pop-dark);
+            color: var(--pop-dark);
+            padding: 12px 25px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
             box-shadow: 5px 5px 0px var(--pop-dark);
         }
-        .btn-action:hover { transform: translateY(-3px); box-shadow: 8px 8px 0px var(--pop-dark); background: var(--pop-pink); color: white; }
-        .btn-action:active { transform: translateY(2px); box-shadow: 3px 3px 0px var(--pop-dark); }
+
+        .btn-action:hover {
+            transform: translateY(-3px);
+            box-shadow: 8px 8px 0px var(--pop-dark);
+            background: var(--pop-pink);
+            color: white;
+        }
+
+        .btn-action:active {
+            transform: translateY(2px);
+            box-shadow: 3px 3px 0px var(--pop-dark);
+        }
 
         /* DISEÑO DE BOLETOS VINTAGE (ESTILO FERIA) */
-        .tickets-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 50px; }
+        .tickets-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
         .ticket {
-            background: var(--pc-blanco); border: 4px solid var(--pop-dark); border-radius: 15px;
-            padding: 30px 20px 20px; position: relative; text-align: center; width: 100%; max-width: 320px;
-            box-shadow: 8px 8px 0px var(--pop-blue); display: flex; flex-direction: column; justify-content: space-between;
+            background: var(--pc-blanco);
+            border: 4px solid var(--pop-dark);
+            border-radius: 15px;
+            padding: 30px 20px 20px;
+            position: relative;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            box-shadow: 8px 8px 0px var(--pop-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .ticket.combo { background: var(--pop-yellow); box-shadow: 8px 8px 0px var(--pop-pink); transform: scale(1.05); }
+
+        .ticket.combo {
+            background: var(--pop-yellow);
+            box-shadow: 8px 8px 0px var(--pop-pink);
+            transform: scale(1.05);
+        }
+
         /* Recortes de boleto */
-        .ticket::before, .ticket::after {
-            content: ''; position: absolute; top: 45%; width: 30px; height: 30px;
-            background: var(--pop-bg); border: 4px solid var(--pop-dark); border-radius: 50%;
-            transform: translateY(-50%); z-index: 10;
+        .ticket::before,
+        .ticket::after {
+            content: '';
+            position: absolute;
+            top: 45%;
+            width: 30px;
+            height: 30px;
+            background: var(--pop-bg);
+            border: 4px solid var(--pop-dark);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
         }
-        .ticket::before { left: -18px; }
-        .ticket::after { right: -18px; }
-        
-        .ticket-rip { border-top: 3px dashed var(--pop-dark); margin: 20px 0; width: 100%; }
-        .ticket-title { font-family: 'Shrikhand', cursive; font-size: 1.8rem; line-height: 1.1; margin-bottom: 10px; }
-        .ticket-price { font-size: 3rem; font-weight: 900; font-family: 'Courier Prime', monospace; color: var(--pop-orange); text-shadow: 2px 2px 0px var(--pop-dark); margin: 10px 0; }
-        
+
+        .ticket::before {
+            left: -18px;
+        }
+
+        .ticket::after {
+            right: -18px;
+        }
+
+        .ticket-rip {
+            border-top: 3px dashed var(--pop-dark);
+            margin: 20px 0;
+            width: 100%;
+        }
+
+        .ticket-title {
+            font-family: 'Shrikhand', cursive;
+            font-size: 1.8rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .ticket-price {
+            font-size: 3rem;
+            font-weight: 900;
+            font-family: 'Courier Prime', monospace;
+            color: var(--pop-orange);
+            text-shadow: 2px 2px 0px var(--pop-dark);
+            margin: 10px 0;
+        }
+
         /* CONTROLES CANTIDAD (CARRITO) */
-        .qty-selector { display: flex; align-items: center; justify-content: center; gap: 15px; z-index: 20; position:relative; margin-top: 10px;}
-        .qty-btn { background: var(--pop-dark); color: white; border: 2px solid var(--pop-dark); width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; font-weight: bold; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 0px var(--pop-dark); }
-        .qty-btn:hover { background: var(--pop-pink); transform: scale(1.1); }
-        .qty-btn:active { transform: scale(0.95); }
-        .qty-input { width: 60px; text-align: center; font-size: 1.5rem; font-weight: bold; border: 3px solid var(--pop-dark); border-radius: 10px; padding: 5px; outline: none; font-family: 'Courier Prime', monospace; }
+        .qty-selector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            z-index: 20;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .qty-btn {
+            background: var(--pop-dark);
+            color: white;
+            border: 2px solid var(--pop-dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 0px var(--pop-dark);
+        }
+
+        .qty-btn:hover {
+            background: var(--pop-pink);
+            transform: scale(1.1);
+        }
+
+        .qty-btn:active {
+            transform: scale(0.95);
+        }
+
+        .qty-input {
+            width: 60px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: 3px solid var(--pop-dark);
+            border-radius: 10px;
+            padding: 5px;
+            outline: none;
+            font-family: 'Courier Prime', monospace;
+        }
 
         /* TOTAL CART BOX */
-        .cart-total-box { background: var(--pop-dark); color: white; padding: 20px; border-radius: 20px; text-align: center; margin-bottom: 30px; font-size: 1.5rem; font-weight: 900; border: 4px solid var(--pop-pink); box-shadow: 8px 8px 0px var(--pop-yellow); }
-        
+        .cart-total-box {
+            background: var(--pop-dark);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border: 4px solid var(--pop-pink);
+            box-shadow: 8px 8px 0px var(--pop-yellow);
+        }
+
         /* INSTRUCCIONES DE COMPRA Y BANCO */
         .purchase-steps {
-            background: var(--pc-blanco); border: 4px solid var(--pop-dark); padding: 35px;
-            border-radius: 25px; margin-bottom: 50px; box-shadow: 10px 10px 0px var(--pop-yellow);
+            background: var(--pc-blanco);
+            border: 4px solid var(--pop-dark);
+            padding: 35px;
+            border-radius: 25px;
+            margin-bottom: 50px;
+            box-shadow: 10px 10px 0px var(--pop-yellow);
         }
-        .step-list { list-style: none; font-size: 1.15rem; font-weight: 600; counter-reset: steps; margin-bottom: 25px; }
-        .step-list li { margin-bottom: 20px; position: relative; padding-left: 50px; }
+
+        .step-list {
+            list-style: none;
+            font-size: 1.15rem;
+            font-weight: 600;
+            counter-reset: steps;
+            margin-bottom: 25px;
+        }
+
+        .step-list li {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 50px;
+        }
+
         .step-list li::before {
-            counter-increment: steps; content: counter(steps); position: absolute; left: 0; top: -5px;
-            background: var(--pop-dark); color: var(--pop-bg); width: 35px; height: 35px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'Shrikhand', cursive;
+            counter-increment: steps;
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: -5px;
+            background: var(--pop-dark);
+            color: var(--pop-bg);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-family: 'Shrikhand', cursive;
         }
-        
+
         /* BOTONES DE COPIAR MEJORADOS */
-        .copy-box-modern { display: flex; flex-wrap: wrap; align-items: center; background: white; border: 3px solid var(--pop-dark); border-radius: 10px; overflow: hidden; box-shadow: 4px 4px 0 var(--pop-blue); margin-bottom: 15px; max-width: 500px; }
-        .copy-box-modern .label { background: var(--pop-yellow); padding: 12px 15px; font-weight: bold; font-family: 'Inter', sans-serif; border-right: 3px solid var(--pop-dark); }
-        .copy-box-modern input { flex: 1; min-width: 150px; border: none; padding: 12px 15px; font-size: 1.1rem; font-weight: bold; font-family: 'Courier Prime', monospace; outline: none; background: transparent; color: var(--pop-dark); }
-        .copy-box-modern button { background: var(--pop-dark); color: white; border: none; border-left: 3px solid var(--pop-dark); padding: 12px 20px; cursor: pointer; font-weight: bold; transition: 0.2s; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 5px; }
-        .copy-box-modern button:hover { background: var(--pop-pink); }
+        .copy-box-modern {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background: white;
+            border: 3px solid var(--pop-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 4px 4px 0 var(--pop-blue);
+            margin-bottom: 15px;
+            max-width: 500px;
+        }
+
+        .copy-box-modern .label {
+            background: var(--pop-yellow);
+            padding: 12px 15px;
+            font-weight: bold;
+            font-family: 'Inter', sans-serif;
+            border-right: 3px solid var(--pop-dark);
+        }
+
+        .copy-box-modern input {
+            flex: 1;
+            min-width: 150px;
+            border: none;
+            padding: 12px 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Courier Prime', monospace;
+            outline: none;
+            background: transparent;
+            color: var(--pop-dark);
+        }
+
+        .copy-box-modern button {
+            background: var(--pop-dark);
+            color: white;
+            border: none;
+            border-left: 3px solid var(--pop-dark);
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .copy-box-modern button:hover {
+            background: var(--pop-pink);
+        }
 
         /* MODALES EMERGENTES */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(45, 35, 46, 0.85); align-items: center; justify-content: center; padding: 15px; }
-        .modal-content { background: var(--pop-bg); border: 4px solid var(--pop-dark); padding: 40px 30px; max-width: 550px; width: 100%; border-radius: 20px; box-shadow: 12px 12px 0px var(--pop-yellow); position: relative; animation: popIn 0.3s ease-out; }
-        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; font-weight: 900; color: var(--pop-dark); background: var(--pc-blanco); border: 2px solid var(--pop-dark); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; transition: 0.2s; }
-        .close-modal:hover { background: var(--pop-pink); color: white; }
-        .modal-title { font-family: 'Shrikhand', cursive; font-size: 2.2rem; color: var(--pop-blue); margin-bottom: 15px; line-height: 1.1;}
-        .modal-text { font-size: 1.05rem; margin-bottom: 20px; }
-        .modal input, .modal select { width: 100%; padding: 12px; margin-bottom: 15px; border: 3px solid var(--pop-dark); font-family: 'Inter', sans-serif; border-radius: 10px; outline: none; }
-        .modal input:focus, .modal select:focus { border-color: var(--pop-pink); }
-        
-        .action-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; justify-content: center; }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 35, 46, 0.85);
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background: var(--pop-bg);
+            border: 4px solid var(--pop-dark);
+            padding: 40px 30px;
+            max-width: 550px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 12px 12px 0px var(--pop-yellow);
+            position: relative;
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: 900;
+            color: var(--pop-dark);
+            background: var(--pc-blanco);
+            border: 2px solid var(--pop-dark);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+
+        .close-modal:hover {
+            background: var(--pop-pink);
+            color: white;
+        }
+
+        .modal-title {
+            font-family: 'Shrikhand', cursive;
+            font-size: 2.2rem;
+            color: var(--pop-blue);
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .modal-text {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        .modal input,
+        .modal select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 3px solid var(--pop-dark);
+            font-family: 'Inter', sans-serif;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .modal input:focus,
+        .modal select:focus {
+            border-color: var(--pop-pink);
+        }
+
+        .action-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
 
         /* ANIMACIONES */
-        .fade-in { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         @media (max-width: 768px) {
-            .magazine-hero h1 { font-size: 3rem; }
-            .section-title { font-size: 2.2rem; }
-            .gala-spread h3 { font-size: 2.5rem; }
+            .magazine-hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .gala-spread h3 {
+                font-size: 2.5rem;
+            }
         }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
 
-<div class="container">
-    
-    <div id="navbar-container" class="main-nav"></div>
+    <div class="container">
 
-    <header class="magazine-hero fade-in">
-        <div class="hero-text">
-            <div class="issue-badge">VOL. 18 - EDICIÓN ESPECIAL</div>
-            <h1 class="font-groovy">18° Aniversario</h1>
-            <h2>Proyecto Celene</h2>
-            <p>Acompáñanos a vivir todo un día de festejo, arrancando con actividades deportivas y médicas por la mañana, y culminando con una espectacular Gran Noche de Gala Vintage. ¡Solidaridad y elegancia en un solo día!</p>
-            <div style="font-family: 'Courier Prime', monospace; font-weight: bold; font-size: 1.2rem; margin-bottom: 25px; background:var(--pop-dark); color:white; display:inline-block; padding:8px 20px; border-radius:10px;">
-                <span aria-hidden='true'>📅</span> 28 Marzo 2026 | <span aria-hidden='true'>📍</span> Rosarito
+        <div id="navbar-container" class="main-nav"></div>
+
+        <header class="magazine-hero fade-in">
+            <div class="hero-text">
+                <div class="issue-badge">VOL. 18 - EDICIÓN ESPECIAL</div>
+                <h1 class="font-groovy">18° Aniversario</h1>
+                <h2>Proyecto Celene</h2>
+                <p>Acompáñanos a vivir todo un día de festejo, arrancando con actividades deportivas y médicas por la
+                    mañana, y culminando con una espectacular Gran Noche de Gala Vintage. ¡Solidaridad y elegancia en un
+                    solo día!</p>
+                <div
+                    style="font-family: 'Courier Prime', monospace; font-weight: bold; font-size: 1.2rem; margin-bottom: 25px; background:var(--pop-dark); color:white; display:inline-block; padding:8px 20px; border-radius:10px;">
+                    <span aria-hidden='true'>📅</span> 28 Marzo 2026 | <span aria-hidden='true'>📍</span> Rosarito
+                </div>
+                <div style="margin-top: 10px; text-align: center;">
+                    <a href="#comprar" class="btn-action" style="background:var(--pop-yellow);"><span
+                            aria-hidden='true'>🎫</span> Adquiere tus Entradas</a>
+                </div>
+
+                <!-- SPOTIFY IFRAME -->
+                <div class="spotify-container" style="margin-top: 30px; width: 100%; text-align: center;">
+                    <p
+                        style="font-family: 'Shrikhand', cursive; font-size: 1.2rem; margin-bottom: 10px; color: var(--pop-yellow); text-shadow: 2px 2px 0 var(--pop-dark);">
+                        <span aria-hidden='true'>🎶</span> ¡Sube el volumen y entra en ambiente!</p>
+                    <iframe data-testid="embed-iframe" style="border-radius:12px"
+                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3xLGqpmU1Uv?utm_source=generator&theme=0"
+                        width="100%" height="152" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
             </div>
-            <div style="margin-top: 10px; text-align: center;">
-                <a href="#comprar" class="btn-action" style="background:var(--pop-yellow);"><span aria-hidden='true'>🎫</span> Adquiere tus Entradas</a>
-            </div>
-            
-            <!-- SPOTIFY IFRAME -->
-            <div class="spotify-container" style="margin-top: 30px; width: 100%; text-align: center;">
-                <p style="font-family: 'Shrikhand', cursive; font-size: 1.2rem; margin-bottom: 10px; color: var(--pop-yellow); text-shadow: 2px 2px 0 var(--pop-dark);"><span aria-hidden='true'>🎶</span> ¡Sube el volumen y entra en ambiente!</p>
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3xLGqpmU1Uv?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-        </div>
-        <div class="hero-image-container">
-            <!-- ANIMACION DE TOCADISCOS Y DISCO DE VINILO -->
-            <div class="vinyl-container">
-                <div class="vinyl-record">
-                    <div class="vinyl-grooves"></div>
-                    <div class="vinyl-label">
-                        <img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Proyecto Celene">
+            <div class="hero-image-container">
+                <!-- ANIMACION DE TOCADISCOS Y DISCO DE VINILO -->
+                <div class="vinyl-container">
+                    <div class="vinyl-record">
+                        <div class="vinyl-grooves"></div>
+                        <div class="vinyl-label">
+                            <img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Proyecto Celene">
+                        </div>
+                        <div class="vinyl-hole"></div>
                     </div>
-                    <div class="vinyl-hole"></div>
-                </div>
-                <div class="vinyl-tonearm"></div>
-            </div>
-        </div>
-    </header>
-
-    <div class="emotional-hook fade-in">
-        <strong class="font-groovy">Por amor a ellas.</strong>
-        ¿Sabías que tu entrada a este evento se traduce directamente en mastografías gratuitas? Hoy te diviertes, celebras y mañana, salvas una vida.
-    </div>
-
-    <!-- LÍNEA DEL TIEMPO INTERACTIVA -->
-    <h2 class="section-title font-groovy fade-in" style="line-height: 1.2;">Conoce Nuestro Itinerario <br><span style="font-size: 1.8rem; color: var(--pop-orange);">Proyecto Celene: 18° Aniversario</span></h2>
-    <div class="timeline fade-in">
-        
-        <div class="timeline-item" onclick="openModal('modalCarrera')">
-            <div class="timeline-content">
-                <div class="timeline-time"><span aria-hidden='true'>☀️</span> 08:00 A.M.</div>
-                <h3 class="timeline-title"><span aria-hidden='true'>🏃‍♀️</span> Carrera Aniversario</h3>
-                <span class="click-hint">Toca para más detalles 👆</span>
-            </div>
-        </div>
-
-        <div class="timeline-item" onclick="openModal('modalJornada')">
-            <div class="timeline-content">
-                <div class="timeline-time"><span aria-hidden='true'>☀️</span> 08:00 A.M.</div>
-                <h3 class="timeline-title"><span aria-hidden='true'>🩺</span> Jornada Médica</h3>
-                <span class="click-hint">Toca para más detalles 👆</span>
-            </div>
-        </div>
-
-        <div class="timeline-item" onclick="openModal('modalZumba')">
-            <div class="timeline-content">
-                <div class="timeline-time"><span aria-hidden='true'>☀️</span> 09:00 A.M.</div>
-                <h3 class="timeline-title"><span aria-hidden='true'>💃</span> Gran Zumbatón</h3>
-                <span class="click-hint">Toca para más detalles 👆</span>
-            </div>
-        </div>
-
-        <div class="timeline-item" onclick="openModal('modalPlatica')">
-            <div class="timeline-content">
-                <div class="timeline-time"><span aria-hidden='true'>☀️</span> 11:00 A.M.</div>
-                <h3 class="timeline-title"><span aria-hidden='true'>🎤</span> Plática de Honor</h3>
-                <span class="click-hint">Toca para más detalles 👆</span>
-            </div>
-        </div>
-
-        <div class="timeline-item" onclick="document.getElementById('gala-section').scrollIntoView({behavior: 'smooth'})">
-            <div class="timeline-content" style="background: var(--pop-blue); color: white;">
-                <div class="timeline-time" style="background: white; color: var(--pop-dark);"><span aria-hidden='true'>🌙</span> 07:00 P.M.</div>
-                <h3 class="timeline-title" style="color: var(--pop-yellow);"><span aria-hidden='true'>✨</span> Evento Estelar</h3>
-                <span class="click-hint" style="background: rgba(0,0,0,0.3); color: white; border-color: white;">Desplázate abajo 👇</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- EVENTO ESTELAR: LA GALA -->
-    <div id="gala-section" style="padding-top: 50px;">
-        <h2 class="section-title font-groovy fade-in"><span aria-hidden='true'>🌙</span> El Evento Estelar</h2>
-        <div class="gala-spread fade-in">
-        <div class="gala-content">
-            <div class="event-time" style="background:var(--pc-blanco); color:var(--pop-dark); font-size:1.4rem;">07:00 P.M. - 12:00 A.M.</div>
-            <h3 class="font-groovy">Gran Noche de Gala Vintage</h3>
-            <p><span aria-hidden='true'>📍</span> Patio Central del Palacio Municipal de Rosarito.</p>
-            <p style="font-size: 1.3rem; font-weight: 800; color: var(--pop-yellow);">Cerraremos con broche de oro.</p>
-            <p>Disfruta de un majestuoso <strong>Desfile de Modas</strong> con talento local y alta costura inspirada en la época de los 50s y 60s. ¡Habrá venta exclusiva de ropa de diseñador creada por mujeres emprendedoras!</p>
-            
-            <div class="guest-box">
-                👑 Invitada Especial: Paloma Ríos<br>
-                <span style="font-size:0.9rem; font-weight:normal;">Reina de Belleza Suprema Internacional & Señora México 2025</span>
-            </div>
-            
-            <p style="font-weight:900; font-size:1.2rem; margin-top:10px;"><span aria-hidden='true'>👗</span> Código de Vestimenta: Estilo 50s - 60s</p>
-            
-            <div class="action-row" style="margin-top: 30px;">
-                <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action" style="background:var(--pop-yellow); color:var(--pop-dark);"><span aria-hidden='true'>📍</span> Ver en Mapa</a>
-                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gala+Vintage+Celene&dates=20260328T190000/20260328T235900&ctz=America/Tijuana&details=Gala+Aniversario&location=Palacio+Municipal+Rosarito" target="_blank" class="btn-action" style="background:var(--pc-blanco);"><span aria-hidden='true'>📅</span> Agendar en Calendario</a>
-                <a href="#comprar" class="btn-action" style="background:var(--pop-pink); color:white;"><span aria-hidden='true'>🎟️</span> Comprar Pase a la Gala ($300)</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- BOTON NUEVO: CONOCE LA EPOCA -->
-    <div style="text-align: center; margin-bottom: 60px;" class="fade-in">
-        <a href="epoca-vintage.html" class="btn-action" style="background: var(--pop-blue); color: white; padding: 20px 40px; font-size: 1.3rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;">
-            <span aria-hidden='true'>🎙️</span> ¿Quieres conocer más sobre esta época y cómo vestirte? <br>¡Da clic aquí! <span aria-hidden='true'>👗</span><span aria-hidden='true'>🚗</span>
-        </a>
-    </div>
-
-    <!-- COMPRA DE BOLETOS -->
-    <div id="comprar">
-        <h2 class="section-title font-groovy fade-in"><span aria-hidden='true'>🎟️</span> Taquilla Oficial</h2>
-        <p style="text-align:center; font-size:1.1rem; font-weight:bold; margin-bottom:25px;" class="fade-in">Arma tu paquete de boletos. Selecciona la cantidad y luego envíanos tu pedido.</p>
-        
-        <div class="tickets-container fade-in">
-            <div class="ticket">
-                <div class="ticket-title">Carrera Matutina</div>
-                <p style="font-weight:600;">Acceso a carrera 8:00 AM</p>
-                <div class="ticket-rip"></div>
-                <div class="ticket-price">$200</div>
-                <div class="qty-selector">
-                    <button class="qty-btn" onclick="updateQty('carrera', -1)">-</button>
-                    <input type="number" id="qty_carrera" class="qty-input" value="0" min="0" readonly>
-                    <button class="qty-btn" onclick="updateQty('carrera', 1)">+</button>
+                    <div class="vinyl-tonearm"></div>
                 </div>
             </div>
-            
-            <div class="ticket">
-                <div class="ticket-title">Gala Vintage</div>
-                <p style="font-weight:600;">Acceso al Desfile 7:00 PM</p>
-                <div class="ticket-rip"></div>
-                <div class="ticket-price">$300</div>
-                <div class="qty-selector">
-                    <button class="qty-btn" onclick="updateQty('gala', -1)">-</button>
-                    <input type="number" id="qty_gala" class="qty-input" value="0" min="0" readonly>
-                    <button class="qty-btn" onclick="updateQty('gala', 1)">+</button>
+        </header>
+
+        <div class="emotional-hook fade-in">
+            <strong class="font-groovy">Por amor a ellas.</strong>
+            ¿Sabías que tu entrada a este evento se traduce directamente en mastografías gratuitas? Hoy te diviertes,
+            celebras y mañana, salvas una vida.
+        </div>
+
+        <!-- LÍNEA DEL TIEMPO INTERACTIVA -->
+        <h2 class="section-title font-groovy fade-in" style="line-height: 1.2;">Conoce Nuestro Itinerario <br><span
+                style="font-size: 1.8rem; color: var(--pop-orange);">Proyecto Celene: 18° Aniversario</span></h2>
+        <div class="timeline fade-in">
+
+            <div class="timeline-item" onclick="openModal('modalCarrera')">
+                <div class="timeline-content">
+                    <div class="timeline-time"><span aria-hidden='true'>☀️</span> 08:00 A.M.</div>
+                    <h3 class="timeline-title"><span aria-hidden='true'>🏃‍♀️</span> Carrera Aniversario</h3>
+                    <span class="click-hint">Toca para más detalles 👆</span>
                 </div>
             </div>
 
-            <div class="ticket combo">
-                <div class="ticket-title">Combo Especial</div>
-                <p style="font-weight:600;">Carrera + Gala Vintage</p>
-                <div class="ticket-rip" style="border-color:white;"></div>
-                <div class="ticket-price">$400</div>
-                <div class="qty-selector">
-                    <button class="qty-btn" style="background:white; color:var(--pop-dark);" onclick="updateQty('combo', -1)">-</button>
-                    <input type="number" id="qty_combo" class="qty-input" style="background:white;" value="0" min="0" readonly>
-                    <button class="qty-btn" style="background:white; color:var(--pop-dark);" onclick="updateQty('combo', 1)">+</button>
+            <div class="timeline-item" onclick="openModal('modalJornada')">
+                <div class="timeline-content">
+                    <div class="timeline-time"><span aria-hidden='true'>☀️</span> 08:00 A.M.</div>
+                    <h3 class="timeline-title"><span aria-hidden='true'>🩺</span> Jornada Médica</h3>
+                    <span class="click-hint">Toca para más detalles 👆</span>
+                </div>
+            </div>
+
+            <div class="timeline-item" onclick="openModal('modalZumba')">
+                <div class="timeline-content">
+                    <div class="timeline-time"><span aria-hidden='true'>☀️</span> 09:00 A.M.</div>
+                    <h3 class="timeline-title"><span aria-hidden='true'>💃</span> Gran Zumbatón</h3>
+                    <span class="click-hint">Toca para más detalles 👆</span>
+                </div>
+            </div>
+
+            <div class="timeline-item" onclick="openModal('modalPlatica')">
+                <div class="timeline-content">
+                    <div class="timeline-time"><span aria-hidden='true'>☀️</span> 11:00 A.M.</div>
+                    <h3 class="timeline-title"><span aria-hidden='true'>🎤</span> Plática de Honor</h3>
+                    <span class="click-hint">Toca para más detalles 👆</span>
+                </div>
+            </div>
+
+            <div class="timeline-item"
+                onclick="document.getElementById('gala-section').scrollIntoView({behavior: 'smooth'})">
+                <div class="timeline-content" style="background: var(--pop-blue); color: white;">
+                    <div class="timeline-time" style="background: white; color: var(--pop-dark);"><span
+                            aria-hidden='true'>🌙</span> 07:00 P.M.</div>
+                    <h3 class="timeline-title" style="color: var(--pop-yellow);"><span aria-hidden='true'>✨</span>
+                        Evento Estelar</h3>
+                    <span class="click-hint"
+                        style="background: rgba(0,0,0,0.3); color: white; border-color: white;">Desplázate abajo
+                        👇</span>
                 </div>
             </div>
         </div>
-        
-        <div class="cart-total-box fade-in">
-            Total a Pagar: <span id="cartTotal" style="color:var(--pop-yellow); font-family: 'Courier Prime', monospace;">$0.00 MN</span>
-        </div>
-    </div>
 
-    <!-- PASOS DE PAGO -->
-    <div class="purchase-steps fade-in">
-        <h3 class="font-groovy" style="font-size:2rem; color:var(--pop-blue); margin-bottom:20px; text-align:center;">¿Cómo comprar?</h3>
-        <ul class="step-list">
-            <li><strong>Realiza tu transferencia o depósito.</strong> (Guarda la captura de pantalla).<br>
-                <span style="font-size:0.95rem; font-weight:normal; color:#555;">En concepto agrega: "Nombre y número de tu boleto".</span>
-            </li>
-            <li><strong>Copia los datos de pago oficiales:</strong><br>
-                <div class="copy-box-modern" style="margin-top:15px;">
-                    <span class="label">Cuenta Santander</span>
-                    <input type="text" id="cuentaBanco" value="5579070150175472" readonly>
-                    <button onclick="copyToClipboard('cuentaBanco')"><span aria-hidden='true'>📋</span> Copiar</button>
+        <!-- EVENTO ESTELAR: LA GALA -->
+        <div id="gala-section" style="padding-top: 50px;">
+            <h2 class="section-title font-groovy fade-in"><span aria-hidden='true'>🌙</span> El Evento Estelar</h2>
+            <div class="gala-spread fade-in">
+                <div class="gala-content">
+                    <div class="event-time"
+                        style="background:var(--pc-blanco); color:var(--pop-dark); font-size:1.4rem;">07:00 P.M. - 12:00
+                        A.M.</div>
+                    <h3 class="font-groovy">Gran Noche de Gala Vintage</h3>
+                    <p><span aria-hidden='true'>📍</span> Patio Central del Palacio Municipal de Rosarito.</p>
+                    <p style="font-size: 1.3rem; font-weight: 800; color: var(--pop-yellow);">Cerraremos con broche de
+                        oro.</p>
+                    <p>Disfruta de un majestuoso <strong>Desfile de Modas</strong> con talento local y alta costura
+                        inspirada en la época de los 50s y 60s. ¡Habrá venta exclusiva de ropa de diseñador creada por
+                        mujeres emprendedoras!</p>
+
+                    <div class="guest-box">
+                        👑 Invitada Especial: Paloma Ríos<br>
+                        <span style="font-size:0.9rem; font-weight:normal;">Reina de Belleza Suprema Internacional &
+                            Señora México 2025</span>
+                    </div>
+
+                    <p style="font-weight:900; font-size:1.2rem; margin-top:10px;"><span aria-hidden='true'>👗</span>
+                        Código de Vestimenta: Estilo 50s - 60s</p>
+
+                    <div class="action-row" style="margin-top: 30px;">
+                        <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action"
+                            style="background:var(--pop-yellow); color:var(--pop-dark);"><span
+                                aria-hidden='true'>📍</span> Ver en Mapa</a>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gala+Vintage+Celene&dates=20260328T190000/20260328T235900&ctz=America/Tijuana&details=Gala+Aniversario&location=Palacio+Municipal+Rosarito"
+                            target="_blank" class="btn-action" style="background:var(--pc-blanco);"><span
+                                aria-hidden='true'>📅</span> Agendar en Calendario</a>
+                        <a href="#comprar" class="btn-action" style="background:var(--pop-pink); color:white;"><span
+                                aria-hidden='true'>🎟️</span> Comprar Pase a la Gala ($300)</a>
+                    </div>
                 </div>
-                <div class="copy-box-modern">
-                    <span class="label">Titular de Cuenta</span>
-                    <input type="text" id="nombreTitular" value="Francisco Sandoval Deras" readonly>
-                    <button onclick="copyToClipboard('nombreTitular')"><span aria-hidden='true'>📋</span> Copiar</button>
+            </div>
+
+            <!-- BOTON NUEVO: CONOCE LA EPOCA -->
+            <div style="text-align: center; margin-bottom: 60px;" class="fade-in">
+                <a href="epoca-vintage.html" class="btn-action"
+                    style="background: var(--pop-blue); color: white; padding: 20px 40px; font-size: 1.3rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;">
+                    <span aria-hidden='true'>🎙️</span> ¿Quieres conocer más sobre esta época y cómo vestirte? <br>¡Da
+                    clic aquí! <span aria-hidden='true'>👗</span><span aria-hidden='true'>🚗</span>
+                </a>
+            </div>
+
+            <!-- COMPRA DE BOLETOS -->
+            <div id="comprar">
+                <h2 class="section-title font-groovy fade-in"><span aria-hidden='true'>🎟️</span> Taquilla Oficial</h2>
+                <p style="text-align:center; font-size:1.1rem; font-weight:bold; margin-bottom:25px;" class="fade-in">
+                    Arma tu paquete de boletos. Selecciona la cantidad y luego envíanos tu pedido.</p>
+
+                <div class="tickets-container fade-in">
+                    <div class="ticket">
+                        <div class="ticket-title">Carrera Matutina</div>
+                        <p style="font-weight:600;">Acceso a carrera 8:00 AM</p>
+                        <div class="ticket-rip"></div>
+                        <div class="ticket-price">$200</div>
+                        <div class="qty-selector">
+                            <button class="qty-btn" onclick="updateQty('carrera', -1)">-</button>
+                            <input type="number" id="qty_carrera" class="qty-input" value="0" min="0" readonly>
+                            <button class="qty-btn" onclick="updateQty('carrera', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ticket">
+                        <div class="ticket-title">Gala Vintage</div>
+                        <p style="font-weight:600;">Acceso al Desfile 7:00 PM</p>
+                        <div class="ticket-rip"></div>
+                        <div class="ticket-price">$300</div>
+                        <div class="qty-selector">
+                            <button class="qty-btn" onclick="updateQty('gala', -1)">-</button>
+                            <input type="number" id="qty_gala" class="qty-input" value="0" min="0" readonly>
+                            <button class="qty-btn" onclick="updateQty('gala', 1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="ticket combo">
+                        <div class="ticket-title">Combo Especial</div>
+                        <p style="font-weight:600;">Carrera + Gala Vintage</p>
+                        <div class="ticket-rip" style="border-color:white;"></div>
+                        <div class="ticket-price">$400</div>
+                        <div class="qty-selector">
+                            <button class="qty-btn" style="background:white; color:var(--pop-dark);"
+                                onclick="updateQty('combo', -1)">-</button>
+                            <input type="number" id="qty_combo" class="qty-input" style="background:white;" value="0"
+                                min="0" readonly>
+                            <button class="qty-btn" style="background:white; color:var(--pop-dark);"
+                                onclick="updateQty('combo', 1)">+</button>
+                        </div>
+                    </div>
                 </div>
-            </li>
-            <li><strong>Envíanos tu pedido.</strong> Haz clic en el botón verde para mandar tu pedido y comprobante de pago por WhatsApp para recibir tus accesos digitales.</li>
-        </ul>
-        <div style="text-align:center; margin-top:30px;">
-            <button onclick="buyTickets()" class="btn-action" style="background:#25D366; color:white; font-size:1.3rem; padding:15px 40px;"><span aria-hidden='true'>📲</span> Enviar Pedido por WhatsApp</button>
+
+                <div class="cart-total-box fade-in">
+                    Total a Pagar: <span id="cartTotal"
+                        style="color:var(--pop-yellow); font-family: 'Courier Prime', monospace;">$0.00 MN</span>
+                </div>
+            </div>
+
+            <!-- PASOS DE PAGO -->
+            <div class="purchase-steps fade-in">
+                <h3 class="font-groovy"
+                    style="font-size:2rem; color:var(--pop-blue); margin-bottom:20px; text-align:center;">¿Cómo comprar?
+                </h3>
+                <ul class="step-list">
+                    <li><strong>Realiza tu transferencia o depósito.</strong> (Guarda la captura de pantalla).<br>
+                        <span style="font-size:0.95rem; font-weight:normal; color:#555;">En concepto agrega: "Nombre y
+                            número de tu boleto".</span>
+                    </li>
+                    <li><strong>Copia los datos de pago oficiales:</strong><br>
+                        <div class="copy-box-modern" style="margin-top:15px;">
+                            <span class="label">Cuenta Santander</span>
+                            <input type="text" id="cuentaBanco" value="5579070150175472" readonly>
+                            <button onclick="copyToClipboard('cuentaBanco')"><span aria-hidden='true'>📋</span>
+                                Copiar</button>
+                        </div>
+                        <div class="copy-box-modern">
+                            <span class="label">Titular de Cuenta</span>
+                            <input type="text" id="nombreTitular" value="Francisco Sandoval Deras" readonly>
+                            <button onclick="copyToClipboard('nombreTitular')"><span aria-hidden='true'>📋</span>
+                                Copiar</button>
+                        </div>
+                    </li>
+                    <li><strong>Envíanos tu pedido.</strong> Haz clic en el botón verde para mandar tu pedido y
+                        comprobante de pago por WhatsApp para recibir tus accesos digitales.</li>
+                </ul>
+                <div style="text-align:center; margin-top:30px;">
+                    <button onclick="buyTickets()" class="btn-action"
+                        style="background:#25D366; color:white; font-size:1.3rem; padding:15px 40px;"><span
+                            aria-hidden='true'>📲</span> Enviar Pedido por WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- PATROCINADORES -->
+            <div class="emotional-hook fade-in" style="background:var(--pop-yellow); border-radius: 20px;">
+                <h3 class="font-groovy" style="font-size: 2.2rem; color:var(--pop-dark); margin-bottom: 10px;">¿Quieres
+                    ser Patrocinador? <span aria-hidden='true'>🤝</span></h3>
+                <p style="font-size:1.1rem; font-weight:normal; margin-bottom:20px;">Destaca tu marca en nuestro evento
+                    histórico apoyando a las mujeres de Rosarito. Solicitamos patrocinios económicos o en especie.</p>
+                <a href="patrocinadores.html" class="btn-action" style="background:var(--pop-dark); color:white;"><span
+                        aria-hidden='true'>💼</span> Más Información</a>
+            </div>
+
         </div>
-    </div>
 
-    <!-- PATROCINADORES -->
-    <div class="emotional-hook fade-in" style="background:var(--pop-yellow); border-radius: 20px;">
-        <h3 class="font-groovy" style="font-size: 2.2rem; color:var(--pop-dark); margin-bottom: 10px;">¿Quieres ser Patrocinador? <span aria-hidden='true'>🤝</span></h3>
-        <p style="font-size:1.1rem; font-weight:normal; margin-bottom:20px;">Destaca tu marca en nuestro evento histórico apoyando a las mujeres de Rosarito. Solicitamos patrocinios económicos o en especie.</p>
-        <a href="patrocinadores.html" class="btn-action" style="background:var(--pop-dark); color:white;"><span aria-hidden='true'>💼</span> Más Información</a>
-    </div>
+        <!-- ================= MODALES (VENTANAS EMERGENTES) ================= -->
 
-</div>
-
-<!-- ================= MODALES (VENTANAS EMERGENTES) ================= -->
-
-<!-- Modal Carrera -->
-<div id="modalCarrera" class="modal" onclick="closeOnOutside(event, 'modalCarrera')">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modalCarrera')">✕</span>
-        <h3 class="modal-title"><span aria-hidden='true'>🏃‍♀️</span> Carrera de Aniversario</h3>
-        <p class="event-time" style="display:inline-block;">08:00 A.M.</p>
-        <p class="modal-text">Únete con toda la familia para arrancar el día con energía. Recorre Rosarito apoyando la prevención del cáncer de mama.</p>
-        <ul style="margin-left: 20px; font-weight: 600; line-height:1.8; margin-bottom: 20px;">
-            <li><strong>Ruta:</strong> Palacio Municipal hasta Viveros La Nena (Blvd. Guerrero).</li>
-            <li><strong>Distancia:</strong> Aprox 2.5 km.</li>
-            <li><strong>Costo:</strong> $200.00 MN</li>
-        </ul>
-        <div class="action-row">
-            <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action" style="background:var(--pc-blanco);"><span aria-hidden='true'>📍</span> Mapa</a>
-            <a href="#comprar" class="btn-action" onclick="closeModal('modalCarrera')"><span aria-hidden='true'>🎟️</span> Comprar</a>
+        <!-- Modal Carrera -->
+        <div id="modalCarrera" class="modal" onclick="closeOnOutside(event, 'modalCarrera')">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('modalCarrera')">✕</span>
+                <h3 class="modal-title"><span aria-hidden='true'>🏃‍♀️</span> Carrera de Aniversario</h3>
+                <p class="event-time" style="display:inline-block;">08:00 A.M.</p>
+                <p class="modal-text">Únete con toda la familia para arrancar el día con energía. Recorre Rosarito
+                    apoyando la prevención del cáncer de mama.</p>
+                <ul style="margin-left: 20px; font-weight: 600; line-height:1.8; margin-bottom: 20px;">
+                    <li><strong>Ruta:</strong> Palacio Municipal hasta Viveros La Nena (Blvd. Guerrero).</li>
+                    <li><strong>Distancia:</strong> Aprox 2.5 km.</li>
+                    <li><strong>Costo:</strong> $200.00 MN</li>
+                </ul>
+                <div class="action-row">
+                    <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action"
+                        style="background:var(--pc-blanco);"><span aria-hidden='true'>📍</span> Mapa</a>
+                    <a href="#comprar" class="btn-action" onclick="closeModal('modalCarrera')"><span
+                            aria-hidden='true'>🎟️</span> Comprar</a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<!-- Modal Jornada -->
-<div id="modalJornada" class="modal" onclick="closeOnOutside(event, 'modalJornada')">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modalJornada')">✕</span>
-        <h3 class="modal-title"><span aria-hidden='true'>🩺</span> Jornada y Mercadito</h3>
-        <p class="event-time" style="display:inline-block;">08:00 A.M. - 02:00 P.M.</p>
-        <p class="modal-text"><span aria-hidden='true'>📍</span> Estacionamiento del Palacio Municipal.<br><strong>Servicios Gratuitos:</strong> Entrega de Vales para Mastografías, Papanicolaou, Presión Arterial, Glucosa y Pláticas de prevención. ¡Obtén tu Pasaporte de Salud!</p>
-        <div style="background:var(--pop-bg); border:3px dashed var(--pop-orange); padding:15px; border-radius:10px; margin-top:15px;">
-            <h4 class="font-groovy" style="color:var(--pop-orange);">Mercadito Emprendedor</h4>
-            <p style="font-size:0.95rem; margin-bottom:10px;">Apoya la economía local. Venta de ropa, comida, artesanías, plantas y dulces.</p>
-            <button class="btn-action" style="font-size:0.9rem; padding:8px 15px;" onclick="openModal('vendorModal'); closeModal('modalJornada');"><span aria-hidden='true'>🎪</span> ¡Quiero Exponer!</button>
+        <!-- Modal Jornada -->
+        <div id="modalJornada" class="modal" onclick="closeOnOutside(event, 'modalJornada')">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('modalJornada')">✕</span>
+                <h3 class="modal-title"><span aria-hidden='true'>🩺</span> Jornada y Mercadito</h3>
+                <p class="event-time" style="display:inline-block;">08:00 A.M. - 02:00 P.M.</p>
+                <p class="modal-text"><span aria-hidden='true'>📍</span> Estacionamiento del Palacio
+                    Municipal.<br><strong>Servicios Gratuitos:</strong> Entrega de Vales para Mastografías,
+                    Papanicolaou, Presión Arterial, Glucosa y Pláticas de prevención. ¡Obtén tu Pasaporte de Salud!</p>
+                <div
+                    style="background:var(--pop-bg); border:3px dashed var(--pop-orange); padding:15px; border-radius:10px; margin-top:15px;">
+                    <h4 class="font-groovy" style="color:var(--pop-orange);">Mercadito Emprendedor</h4>
+                    <p style="font-size:0.95rem; margin-bottom:10px;">Apoya la economía local. Venta de ropa, comida,
+                        artesanías, plantas y dulces.</p>
+                    <button class="btn-action" style="font-size:0.9rem; padding:8px 15px;"
+                        onclick="openModal('vendorModal'); closeModal('modalJornada');"><span
+                            aria-hidden='true'>🎪</span> ¡Quiero Exponer!</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<!-- Modal Zumbaton -->
-<div id="modalZumba" class="modal" onclick="closeOnOutside(event, 'modalZumba')">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modalZumba')">✕</span>
-        <h3 class="modal-title"><span aria-hidden='true'>💃</span> Gran Zumbatón</h3>
-        <p class="event-time" style="display:inline-block;">09:00 A.M.</p>
-        <p class="modal-text">Activación física con mucha música, baile y diversión para despertar el cuerpo. <strong>¡Conoce los beneficios!</strong></p>
-        <ul style="margin-left: 20px; font-weight: 600; line-height:1.6; font-size:0.95rem;">
-            <li>Quema calorías divirtiéndote (hasta 500 cal por sesión).</li>
-            <li>Mejora la coordinación y el equilibrio.</li>
-            <li>Reduce el estrés y libera endorfinas (hormonas de la felicidad).</li>
-            <li>Es una excelente terapia para mejorar la autoestima.</li>
-        </ul>
-    </div>
-</div>
-
-<!-- Modal Platica -->
-<div id="modalPlatica" class="modal" onclick="closeOnOutside(event, 'modalPlatica')">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('modalPlatica')">✕</span>
-        <h3 class="modal-title"><span aria-hidden='true'>🎤</span> Plática de Honor</h3>
-        <p class="event-time" style="display:inline-block;">11:00 A.M.</p>
-        <p class="modal-text">Con nuestra madrina de honor <strong>Luz C. Ruiz</strong>. Una charla íntima sobre prevención, resiliencia y amor propio.</p>
-        
-        <div style="background:var(--pop-yellow); border:3px solid var(--pop-dark); padding:15px; border-radius:10px; margin-top:15px;">
-            <h4 style="font-weight:900; margin-bottom:5px;">Sobre la invitada:</h4>
-            <ul style="font-size:0.9rem; margin-left:20px; font-weight:600;">
-                <li>Fashionista y Mujer Altruista.</li>
-                <li>Diseñadora en Alta Costura.</li>
-                <li>Directora Gral. de Pasarela Rosa con Causa.</li>
-            </ul>
+        <!-- Modal Zumbaton -->
+        <div id="modalZumba" class="modal" onclick="closeOnOutside(event, 'modalZumba')">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('modalZumba')">✕</span>
+                <h3 class="modal-title"><span aria-hidden='true'>💃</span> Gran Zumbatón</h3>
+                <p class="event-time" style="display:inline-block;">09:00 A.M.</p>
+                <p class="modal-text">Activación física con mucha música, baile y diversión para despertar el cuerpo.
+                    <strong>¡Conoce los beneficios!</strong></p>
+                <ul style="margin-left: 20px; font-weight: 600; line-height:1.6; font-size:0.95rem;">
+                    <li>Quema calorías divirtiéndote (hasta 500 cal por sesión).</li>
+                    <li>Mejora la coordinación y el equilibrio.</li>
+                    <li>Reduce el estrés y libera endorfinas (hormonas de la felicidad).</li>
+                    <li>Es una excelente terapia para mejorar la autoestima.</li>
+                </ul>
+            </div>
         </div>
-        <div class="action-row">
-            <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20asistir%20a%20la%20plática%20de%20las%2011am" target="_blank" class="btn-action"><span aria-hidden='true'>💬</span> Confirmar Asistencia</a>
+
+        <!-- Modal Platica -->
+        <div id="modalPlatica" class="modal" onclick="closeOnOutside(event, 'modalPlatica')">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('modalPlatica')">✕</span>
+                <h3 class="modal-title"><span aria-hidden='true'>🎤</span> Plática de Honor</h3>
+                <p class="event-time" style="display:inline-block;">11:00 A.M.</p>
+                <p class="modal-text">Con nuestra madrina de honor <strong>Luz C. Ruiz</strong>. Una charla íntima sobre
+                    prevención, resiliencia y amor propio.</p>
+
+                <div
+                    style="background:var(--pop-yellow); border:3px solid var(--pop-dark); padding:15px; border-radius:10px; margin-top:15px;">
+                    <h4 style="font-weight:900; margin-bottom:5px;">Sobre la invitada:</h4>
+                    <ul style="font-size:0.9rem; margin-left:20px; font-weight:600;">
+                        <li>Fashionista y Mujer Altruista.</li>
+                        <li>Diseñadora en Alta Costura.</li>
+                        <li>Directora Gral. de Pasarela Rosa con Causa.</li>
+                    </ul>
+                </div>
+                <div class="action-row">
+                    <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20asistir%20a%20la%20plática%20de%20las%2011am"
+                        target="_blank" class="btn-action"><span aria-hidden='true'>💬</span> Confirmar Asistencia</a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<!-- MODAL EXPOSITORES BAZAR -->
-<div id="vendorModal" class="modal" onclick="closeOnOutside(event, 'vendorModal')">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('vendorModal')">✕</span>
-        <h3 class="modal-title" style="font-size:1.8rem;">Registro Expositor <span aria-hidden='true'>🎪</span></h3>
-        <p style="font-size:0.9rem; margin-bottom:15px;">Llena estos datos y serás redirigida a nuestro WhatsApp para coordinar tu lugar en el Mercadito Emprendedor.</p>
-        
-        <input type="text" id="vendorName" placeholder="Tu Nombre Completo">
-        <input type="text" id="vendorBrand" placeholder="Nombre de tu Negocio/Marca">
-        <select id="vendorType">
-            <option value="">¿Qué vas a vender?</option>
-            <option value="Ropa/Accesorios">Ropa o Accesorios</option>
-            <option value="Comida/Postres">Comida / Postres</option>
-            <option value="Artesanías/Plantas">Artesanías / Plantas</option>
-            <option value="Otro">Otro giro</option>
-        </select>
-        
-        <button onclick="sendVendorWhatsApp()" class="btn-action" style="width:100%;">Enviar Datos <span aria-hidden='true'>📲</span></button>
-    </div>
-</div>
+        <!-- MODAL EXPOSITORES BAZAR -->
+        <div id="vendorModal" class="modal" onclick="closeOnOutside(event, 'vendorModal')">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal('vendorModal')">✕</span>
+                <h3 class="modal-title" style="font-size:1.8rem;">Registro Expositor <span aria-hidden='true'>🎪</span>
+                </h3>
+                <p style="font-size:0.9rem; margin-bottom:15px;">Llena estos datos y serás redirigida a nuestro WhatsApp
+                    para coordinar tu lugar en el Mercadito Emprendedor.</p>
 
-<script>
-    // Funciones Generales de Modal
-    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
-    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-    function closeOnOutside(event, id) {
-        if(event.target.id === id) {
-            closeModal(id);
-        }
-    }
-    
-    // LOGICA DEL CARRITO DE BOLETOS
-    function updateQty(type, change) {
-        let input = document.getElementById('qty_' + type);
-        let newVal = parseInt(input.value) + change;
-        if(newVal < 0) newVal = 0;
-        input.value = newVal;
-        calculateTotal();
-    }
+                <input type="text" id="vendorName" placeholder="Tu Nombre Completo">
+                <input type="text" id="vendorBrand" placeholder="Nombre de tu Negocio/Marca">
+                <select id="vendorType">
+                    <option value="">¿Qué vas a vender?</option>
+                    <option value="Ropa/Accesorios">Ropa o Accesorios</option>
+                    <option value="Comida/Postres">Comida / Postres</option>
+                    <option value="Artesanías/Plantas">Artesanías / Plantas</option>
+                    <option value="Otro">Otro giro</option>
+                </select>
 
-    function calculateTotal() {
-        let carrera = parseInt(document.getElementById('qty_carrera').value) * 200;
-        let gala = parseInt(document.getElementById('qty_gala').value) * 300;
-        let combo = parseInt(document.getElementById('qty_combo').value) * 400;
-        let total = carrera + gala + combo;
-        document.getElementById('cartTotal').innerText = "$" + total + ".00 MN";
-    }
+                <button onclick="sendVendorWhatsApp()" class="btn-action" style="width:100%;">Enviar Datos <span
+                        aria-hidden='true'>📲</span></button>
+            </div>
+        </div>
 
-    function buyTickets() {
-        let qC = parseInt(document.getElementById('qty_carrera').value);
-        let qG = parseInt(document.getElementById('qty_gala').value);
-        let qCombo = parseInt(document.getElementById('qty_combo').value);
-        let total = (qC*200) + (qG*300) + (qCombo*400);
+        <script>
+            // Funciones Generales de Modal
+            function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+            function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+            function closeOnOutside(event, id) {
+                if (event.target.id === id) {
+                    closeModal(id);
+                }
+            }
 
-        if(total === 0) {
-            alert("¡Ups! Por favor, selecciona la cantidad de boletos que deseas comprar usando los botones de [+] y [-].");
-            return;
-        }
+            // LOGICA DEL CARRITO DE BOLETOS
+            function updateQty(type, change) {
+                let input = document.getElementById('qty_' + type);
+                let newVal = parseInt(input.value) + change;
+                if (newVal < 0) newVal = 0;
+                input.value = newVal;
+                calculateTotal();
+            }
 
-        let msg = `*🎫 COMPRA DE BOLETOS - 18 ANIVERSARIO CELENE*\n\nHola, quiero adquirir mis boletos. Este es mi pedido:\n\n`;
-        if(qC > 0) msg += `<span aria-hidden='true'>🏃‍♀️</span> ${qC}x Boleto Carrera ($200 c/u)\n`;
-        if(qG > 0) msg += `<span aria-hidden='true'>✨</span> ${qG}x Boleto Gala ($300 c/u)\n`;
-        if(qCombo > 0) msg += `<span aria-hidden='true'>🌟</span> ${qCombo}x Combo Especial ($400 c/u)\n`;
-        msg += `\n*TOTAL A PAGAR: $${total}.00 MN*\n\n`;
-        msg += `Adjunto mi comprobante de pago de Santander. ¡Gracias!`;
+            function calculateTotal() {
+                let carrera = parseInt(document.getElementById('qty_carrera').value) * 200;
+                let gala = parseInt(document.getElementById('qty_gala').value) * 300;
+                let combo = parseInt(document.getElementById('qty_combo').value) * 400;
+                let total = carrera + gala + combo;
+                document.getElementById('cartTotal').innerText = "$" + total + ".00 MN";
+            }
 
-        window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
-    }
+            function buyTickets() {
+                let qC = parseInt(document.getElementById('qty_carrera').value);
+                let qG = parseInt(document.getElementById('qty_gala').value);
+                let qCombo = parseInt(document.getElementById('qty_combo').value);
+                let total = (qC * 200) + (qG * 300) + (qCombo * 400);
 
-    function sendVendorWhatsApp() {
-        let name = document.getElementById('vendorName').value;
-        let brand = document.getElementById('vendorBrand').value;
-        let type = document.getElementById('vendorType').value;
-        
-        if(!name || !brand || !type) {
-            alert("Por favor, llena todos los campos.");
-            return;
-        }
-        
-        let msg = `Hola Proyecto Celene, quiero participar en el Mercadito Emprendedor.%0A%0A*Mi Nombre:* ${name}%0A*Mi Marca:* ${brand}%0A*Giro:* ${type}%0A%0A¿Me podrían dar informes sobre disponibilidad y requisitos?`;
-        window.open(`https://wa.me/526611044050?text=${msg}`, '_blank');
-        closeModal('vendorModal');
-    }
+                if (total === 0) {
+                    alert("¡Ups! Por favor, selecciona la cantidad de boletos que deseas comprar usando los botones de [+] y [-].");
+                    return;
+                }
 
-    // Función Copiar al Portapapeles Inteligente
-    function copyToClipboard(inputId) {
-        var copyText = document.getElementById(inputId);
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /* Para móviles */
-        navigator.clipboard.writeText(copyText.value).then(() => {
-            alert("¡Copiado con éxito: " + copyText.value + "!");
-        });
-    }
+                let msg = `*🎫 COMPRA DE BOLETOS - 18 ANIVERSARIO CELENE*\n\nHola, quiero adquirir mis boletos. Este es mi pedido:\n\n`;
+                if (qC > 0) msg += `🏃‍♀️ ${qC}x Boleto Carrera ($200 c/u)\n`;
+                if (qG > 0) msg += `✨ ${qG}x Boleto Gala ($300 c/u)\n`;
+                if (qCombo > 0) msg += `🌟 ${qCombo}x Combo Especial ($400 c/u)\n`;
+                msg += `\n*TOTAL A PAGAR: $${total}.00 MN*\n\n`;
+                msg += `Adjunto mi comprobante de pago de Santander. ¡Gracias!`;
 
-    
-</script>
-<script src="js/global.js"></script>
+                window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+            }
+
+            function sendVendorWhatsApp() {
+                let name = document.getElementById('vendorName').value;
+                let brand = document.getElementById('vendorBrand').value;
+                let type = document.getElementById('vendorType').value;
+
+                if (!name || !brand || !type) {
+                    alert("Por favor, llena todos los campos.");
+                    return;
+                }
+
+                let msg = `Hola Proyecto Celene, quiero participar en el Mercadito Emprendedor.%0A%0A*Mi Nombre:* ${name}%0A*Mi Marca:* ${brand}%0A*Giro:* ${type}%0A%0A¿Me podrían dar informes sobre disponibilidad y requisitos?`;
+                window.open(`https://wa.me/526611044050?text=${msg}`, '_blank');
+                closeModal('vendorModal');
+            }
+
+            // Función Copiar al Portapapeles Inteligente
+            function copyToClipboard(inputId) {
+                var copyText = document.getElementById(inputId);
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); /* Para móviles */
+                navigator.clipboard.writeText(copyText.value).then(() => {
+                    alert("¡Copiado con éxito: " + copyText.value + "!");
+                });
+            }
+
+
+        </script>
+        <script src="js/global.js"></script>
 </body>
+
 </html>
