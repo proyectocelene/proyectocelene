@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Consulta - Dr. Donato | Proyecto Celene</title>
+    <meta name="description"
+        content="Agenda tu cita médica con el Dr. Carlos Donato en Proyecto Celene, Rosarito. Revisa disponibilidad y reserva en línea.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/reservar-consulta.html">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/reservar-consulta.html">
+    <meta property="og:title" content="Reservar Consulta Médica - Dr. Donato">
+    <meta property="og:description" content="Agenda tu cita médica rápida y fácilmente en línea.">
+    <meta property="og:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/reservar-consulta.html">
+    <meta property="twitter:title" content="Reservar Consulta Médica - Dr. Donato">
+    <meta property="twitter:description" content="Agenda tu cita médica rápida y fácilmente en línea.">
+    <meta property="twitter:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde-wa: #25d366;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-gris-suave);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-blanco);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-rosa-pastell);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* TABS / QUICK LINKS */
+        .tabs-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            color: var(--pc-negro);
+            box-shadow: 0 4px 0 var(--pc-negro);
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .tab-btn:hover {
+            background: var(--pc-rosa-pastell);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 var(--pc-negro);
+        }
+
+        .tab-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 transparent;
+        }
+
+        .tab-btn.active {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+        }
+
+        /* CALENDAR WRAPPER */
+        .calendar-wrapper {
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 10px 10px 0 var(--pc-azul-suave);
+            margin-bottom: 40px;
+        }
+
+        /* SECCION DE PAGOS */
+        .payment-section {
+            background: white;
+            border: 4px dashed var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-amarillo);
+        }
+
+        .payment-section h2 {
+            color: var(--pc-rosa-fuerte);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .payment-methods {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .payment-option {
+            background: var(--pc-blanco);
+            border: 2px solid var(--pc-negro);
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .payment-option:hover {
+            background: var(--pc-amarillo);
+            box-shadow: 4px 4px 0 var(--pc-negro);
+            transform: translateY(-2px);
+        }
+
+        .payment-option input[type="radio"] {
+            margin-right: 15px;
+            transform: scale(1.5);
+            accent-color: var(--pc-rosa-fuerte);
+            cursor: pointer;
+        }
+
+        .payment-option label {
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.05rem;
+            color: var(--pc-negro);
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        .copy-box-modern {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            background: white;
+            border: 2px solid var(--pc-negro);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .copy-box-modern .label {
+            background: var(--pc-gris-suave);
+            padding: 8px 12px;
+            font-weight: 800;
+            border-right: 2px solid var(--pc-negro);
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+
+        .copy-box-modern input {
+            flex: 1;
+            min-width: 0;
+            border: none;
+            padding: 8px 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            outline: none;
+            background: transparent;
+            color: var(--pc-negro);
+            text-overflow: ellipsis;
+            margin-bottom: 0 !important;
+            border-radius: 0 !important;
+        }
+
+        .copy-box-modern button {
+            background: var(--pc-negro);
+            color: white;
+            border: none;
+            border-left: 2px solid var(--pc-negro);
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: 800;
+            transition: 0.2s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+
+        .copy-box-modern button:hover {
+            background: var(--pc-rosa-fuerte);
+        }
+
+        .btn-direction {
+            background: var(--pc-amarillo);
+            color: var(--pc-negro);
+            border: 2px solid var(--pc-negro);
+            border-radius: 50px;
+            padding: 5px 10px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            box-shadow: 2px 2px 0 var(--pc-negro);
+            transition: 0.2s;
+            margin-top: 5px;
+        }
+
+        .btn-direction:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        .step-list {
+            list-style: none;
+            font-size: 1rem;
+            font-weight: 600;
+            counter-reset: steps;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            padding-left: 0;
+        }
+
+        .step-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .step-list li::before {
+            counter-increment: steps;
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: -2px;
+            background: var(--pc-negro);
+            color: var(--pc-blanco);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-family: 'Handlee', cursive;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <header class="header fade-in">
+            <h1 class="hand-drawn">Reserva tu Consulta <span>📅</span></h1>
+            <p>Selecciona el día y la hora que mejor se adapten a ti para tu cita con el Dr. Carlos Donato en Proyecto
+                Celene.</p>
+        </header>
+
+        <!-- NAVEGACIÓN RÁPIDA (TABS) -->
+        <div class="tabs-wrapper fade-in">
+            <a href="reservar-consulta.html" class="tab-btn active">🗓️ Agendar Aquí</a>
+            <a href="consulta-general.html" class="tab-btn">🩺 Detalles de Consulta</a>
+            <a href="servicios.html" class="tab-btn">📋 Todos los Servicios</a>
+            <a href="dr-donato.html" class="tab-btn">👨‍⚕️ Perfil Dr. Donato</a>
+        </div>
+
+        <!-- GOOGLE CALENDAR IFRAME -->
+        <div class="calendar-wrapper fade-in">
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <iframe
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true"
+                style="border: 0" width="100%" height="650" frameborder="0"></iframe>
+            <!-- end Google Calendar Appointment Scheduling -->
+        </div>
+
+        <!-- OPCIONES DE PAGO -->
+        <div class="payment-section fade-in">
+            <h2 class="hand-drawn">Cuota y Opciones de Pago</h2>
+            <p style="text-align: center; font-size: 1.1rem; font-weight: 600; margin-bottom: 25px; color: #555;">La
+                cuota de recuperación de la Consulta General es de <strong
+                    style="color: var(--pc-rosa-fuerte); font-size: 1.3rem;">$150 m.n.</strong><br>Una vez agendado tu
+                espacio arriba, elige cómo prefieres realizar tu pago:</p>
+
+            <div class="payment-methods" style="max-width: 650px; margin: 0 auto;">
+                <div class="payment-option" onclick="document.getElementById('payEfectivo').click()">
+                    <input type="radio" name="paymentMethod" id="payEfectivo" value="efectivo" checked
+                        onchange="togglePaymentInstructions()">
+                    <label for="payEfectivo"
+                        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px;">
+                        <span>💵 <strong>Efectivo en Consultorio</strong><br><small style="color: #666;">(Sin comisión:
+                                $150.00 MN)</small></span>
+                        <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction"
+                            style="margin: 0;" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                    </label>
+                </div>
+
+                <div class="payment-option" onclick="document.getElementById('payTransferencia').click()">
+                    <input type="radio" name="paymentMethod" id="payTransferencia" value="transferencia"
+                        onchange="togglePaymentInstructions()">
+                    <label for="payTransferencia">
+                        🏦 <strong>Transferencia SPEI / CLABE</strong><br><small style="color: #666;">(Sin comisión:
+                            $150.00 MN)</small>
+                    </label>
+                </div>
+
+                <div class="payment-option" onclick="document.getElementById('payMercadoPago').click()">
+                    <input type="radio" name="paymentMethod" id="payMercadoPago" value="mercadopago"
+                        onchange="togglePaymentInstructions()">
+                    <label for="payMercadoPago">
+                        💳 <strong>Pago en línea (Mercado Pago)</strong> <br>
+                        <span style="font-size: 0.85rem; font-weight: 600; color: #555;">(Incluye comisión de
+                            plataforma: $162.00 MN)</span>
+                    </label>
+                </div>
+
+                <!-- Instrucciones Dinámicas -->
+                <div id="instructionsEfectivo"
+                    style="display: block; margin-top: 15px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 1rem; font-weight: 600; color: #444;"><strong>¡Perfecto!</strong> Al momento de
+                        agendar en el calendario, tus datos quedan registrados. Solo preséntate el día de tu cita y
+                        realiza tu pago directamente en recepción.</p>
+                </div>
+
+                <div id="instructionsTransferencia"
+                    style="display: none; margin-top: 15px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 1rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">
+                        Total a transferir: $150.00 MN</p>
+                    <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe"
+                            value="722969010854962949" readonly><button type="button"
+                            onclick="copyToClipboard('clabe', this)"><span>📋</span> Copiar</button></div>
+                    <div class="copy-box-modern"><span class="label">Beneficiario</span><input type="text" id="benef"
+                            value="Carlos Donato Dueñas Prieto" readonly><button type="button"
+                            onclick="copyToClipboard('benef', this)"><span>📋</span> Copiar</button></div>
+                    <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco"
+                            value="Mercado Pago W" readonly><button type="button"
+                            onclick="copyToClipboard('banco', this)"><span>📋</span> Copiar</button></div>
+                    <ul class="step-list">
+                        <li>Realiza la transferencia desde tu app bancaria.</li>
+                        <li>Envíanos tu comprobante por WhatsApp mencionando la fecha de la cita que acabas de agendar.
+                        </li>
+                    </ul>
+                    <button onclick="sendReceiptWa()"
+                        style="background: #25d366; color: white; border: 3px solid var(--pc-negro); padding: 12px 20px; font-weight: 800; border-radius: 50px; font-size: 1rem; cursor: pointer; display: block; width: 100%; text-align: center; box-shadow: 0 4px 0 #1b9c4b; font-family: 'Nunito', sans-serif;">Enviar
+                        Comprobante <span>💬</span></button>
+                </div>
+
+                <div id="instructionsMercadoPago"
+                    style="display: none; margin-top: 15px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 1rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">
+                        Total a pagar en línea: $162.00 MN</p>
+                    <a href="https://mpago.la/2RrwWdd" target="_blank"
+                        style="display: block; text-align: center; border-radius: 15px; padding: 15px; font-size: 1.1rem; font-weight: 800; width: 100%; border: 3px solid var(--pc-negro); box-shadow: 4px 4px 0 var(--pc-negro); background: var(--pc-azul-suave); color: var(--pc-negro); text-decoration: none; margin-bottom: 15px;">Pagar
+                        en Mercado Pago ➔</a>
+                    <ul class="step-list">
+                        <li>Realiza el pago en el enlace y toma una captura de pantalla.</li>
+                        <li>Envíanos tu captura por WhatsApp para ligarla a tu cita agendada.</li>
+                    </ul>
+                    <button onclick="sendReceiptWa()"
+                        style="background: #25d366; color: white; border: 3px solid var(--pc-negro); padding: 12px 20px; font-weight: 800; border-radius: 50px; font-size: 1rem; cursor: pointer; display: block; width: 100%; text-align: center; box-shadow: 0 4px 0 #1b9c4b; font-family: 'Nunito', sans-serif;">Enviar
+                        Comprobante <span>💬</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica de Opciones de Pago
+        function togglePaymentInstructions() {
+            let paymentMethodElement = document.querySelector('input[name="paymentMethod"]:checked');
+            let paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'efectivo';
+
+            document.getElementById('instructionsEfectivo').style.display = paymentMethod === 'efectivo' ? 'block' : 'none';
+            document.getElementById('instructionsTransferencia').style.display = paymentMethod === 'transferencia' ? 'block' : 'none';
+            document.getElementById('instructionsMercadoPago').style.display = paymentMethod === 'mercadopago' ? 'block' : 'none';
+        }
+
+        function copyToClipboard(inputId, btn) {
+            var copyText = document.getElementById(inputId);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value).then(() => {
+                let originalHTML = btn.innerHTML;
+                btn.innerHTML = "¡Copiado! ✅";
+                btn.style.background = "var(--pc-rosa-fuerte)";
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.background = "";
+                }, 2000);
+            });
+        }
+
+        function sendReceiptWa() {
+            let method = document.querySelector('input[name="paymentMethod"]:checked').value;
+            let methodText = method === 'transferencia' ? 'Transferencia Bancaria' : 'Mercado Pago';
+            let msg = `Hola Proyecto Celene 🌸.\nAcabo de agendar mi consulta médica en el calendario y anexo mi comprobante de pago mediante *${methodText}*.`;
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+    <script src="js/global.js"></script>
+</body>
+
+</html>

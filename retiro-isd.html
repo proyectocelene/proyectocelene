@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retiro de Implante (ISD) - Guía Integral - Proyecto Celene</title>
+    <meta name="description" content="Entendemos tus nervios. Aquí te explicamos el procedimiento de retiro de implante subdérmico paso a paso.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/retiro-isd.html">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
     
     <!-- Open Graph / Facebook -->
@@ -440,6 +443,23 @@
             color: var(--pc-negro);
             border-color: var(--pc-negro);
         }
+
+        /* ESTILOS DE MÉTODOS DE PAGO */
+        .payment-methods { margin-bottom: 25px; text-align: left; background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; margin-top: 15px; }
+        .payment-option { background: var(--pc-blanco); border: 2px solid var(--pc-negro); border-radius: 10px; padding: 10px 15px; margin-bottom: 10px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; }
+        .payment-option:hover { background: var(--pc-amarillo); box-shadow: 4px 4px 0 var(--pc-negro); transform: translateY(-2px); }
+        .payment-option input[type="radio"] { margin-right: 15px; transform: scale(1.5); accent-color: var(--pc-rosa-fuerte); cursor: pointer; }
+        .payment-option label { cursor: pointer; width: 100%; font-size: 1rem; color: var(--pc-negro); margin-bottom: 0; }
+        .copy-box-modern { display: flex; flex-wrap: nowrap; align-items: stretch; background: white; border: 2px solid var(--pc-negro); border-radius: 10px; overflow: hidden; margin-bottom: 10px; width: 100%; }
+        .copy-box-modern .label { background: var(--pc-gris-suave); padding: 8px 12px; font-weight: 800; border-right: 2px solid var(--pc-negro); display: flex; align-items: center; white-space: nowrap; font-size: 0.9rem; }
+        .copy-box-modern input { flex: 1; min-width: 0; border: none; padding: 8px 12px; font-size: 1rem; font-weight: bold; outline: none; background: transparent; color: var(--pc-negro); text-overflow: ellipsis; margin-bottom: 0 !important; border-radius: 0 !important; }
+        .copy-box-modern button { background: var(--pc-negro); color: white; border: none; border-left: 2px solid var(--pc-negro); padding: 8px 15px; cursor: pointer; font-weight: 800; transition: 0.2s; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 5px; white-space: nowrap; }
+        .copy-box-modern button:hover { background: var(--pc-rosa-fuerte); }
+        .btn-direction { background: var(--pc-amarillo); color: var(--pc-negro); border: 2px solid var(--pc-negro); border-radius: 50px; padding: 5px 10px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; box-shadow: 2px 2px 0 var(--pc-negro); transition: 0.2s; margin-top: 5px; }
+        .btn-direction:hover { background: var(--pc-rosa-fuerte); color: white; transform: translateY(-2px); box-shadow: 3px 3px 0 var(--pc-negro); }
+        .step-list { list-style: none; font-size: 1rem; font-weight: 600; counter-reset: steps; margin-bottom: 15px; margin-top: 15px; padding-left: 0; }
+        .step-list li { margin-bottom: 15px; position: relative; padding-left: 40px; }
+        .step-list li::before { counter-increment: steps; content: counter(steps); position: absolute; left: 0; top: -2px; background: var(--pc-negro); color: var(--pc-blanco); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'Handlee', cursive; }
     </style>
 </head>
 
@@ -449,11 +469,11 @@
         <div id="navbar-container" class="main-nav"></div>
 
         <header class="hero fade-in">
-            <div class="isd-shape isd-1 hand-drawn"><span aria-hidden='true'>🩹</span></div>
-            <div class="isd-shape isd-2 hand-drawn"><span aria-hidden='true'>🌸</span></div>
+            <div class="isd-shape isd-1 hand-drawn"><span>🩹</span></div>
+            <div class="isd-shape isd-2 hand-drawn"><span>🌸</span></div>
             <h1 class="hand-drawn">Guía Integral: Retiro de Implante (ISD)</h1>
             <p>Entendemos tus nervios. Aquí te explicamos el procedimiento paso a paso para que te sientas segura,
-                informada y cuidada. <span aria-hidden='true'>🥰</span></p>
+                informada y cuidada. <span>🥰</span></p>
         </header>
 
         <div style="background: white; border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 25px; margin-bottom: 40px; font-size: 1.15rem; font-weight: 600; text-align: center;"
@@ -466,7 +486,7 @@
         <!-- FASE 1 -->
         <div class="phase-card fade-in">
             <div class="phase-badge">Fase 1</div>
-            <h3 class="hand-drawn"><span aria-hidden='true'>🧠</span> Tus Emociones y La Decisión</h3>
+            <h3 class="hand-drawn"><span>🧠</span> Tus Emociones y La Decisión</h3>
             <p>Es normal tener dudas o miedos antes de llegar. Queremos que sepas que:</p>
             <ul>
                 <li><strong>Validación del miedo:</strong> Temerle a las agujas para la anestesia o pensar que el
@@ -484,7 +504,7 @@
         <!-- FASE 2 -->
         <div class="phase-card fade-in">
             <div class="phase-badge">Fase 2</div>
-            <h3 class="hand-drawn"><span aria-hidden='true'>👗</span> Preparación en Casa</h3>
+            <h3 class="hand-drawn"><span>👗</span> Preparación en Casa</h3>
             <p>Cómo llegarlista a la cita:</p>
             <ul>
                 <li><strong>¡Come algo!</strong> Es muy importante que NO vengas en ayunas. Come algo ligero y dulce
@@ -500,7 +520,7 @@
 
         <!-- ANIMACIÓN -->
         <div class="animation-container fade-in">
-            <h3 class="hand-drawn"><span aria-hidden='true'>👀</span> Mira cómo es el procedimiento:</h3>
+            <h3 class="hand-drawn"><span>👀</span> Mira cómo es el procedimiento:</h3>
             <p style="margin-bottom: 30px; font-weight:600; color:#555;">Una mini incisión por la que asoma el
                 plastiquito.</p>
 
@@ -517,7 +537,7 @@
         <!-- FASE 4 -->
         <div class="phase-card fade-in">
             <div class="phase-badge">Fase 4</div>
-            <h3 class="hand-drawn"><span aria-hidden='true'>🩺</span> El Procedimiento Paso a Paso</h3>
+            <h3 class="hand-drawn"><span>🩺</span> El Procedimiento Paso a Paso</h3>
             <p>Esto esto es exactamente lo que haremos:</p>
             <ul>
                 <li><strong>Ubicación:</strong> Te recostarás con el brazo doblado. El médico tocará tu piel para sentir
@@ -538,7 +558,7 @@
         <!-- FASE 5 & 6 -->
         <div class="phase-card fade-in">
             <div class="phase-badge">Fase 5 y 6</div>
-            <h3 class="hand-drawn"><span aria-hidden='true'>🛋️</span> Recuperación y Cuidados en Casa</h3>
+            <h3 class="hand-drawn"><span>🛋️</span> Recuperación y Cuidados en Casa</h3>
             <p>Qué hacemos justo después de la extracción y qué puedes esperar:</p>
             <ul>
                 <li><strong>Es normal que haya un moretón:</strong> Se formará un hematoma (moretón) de color morado o
@@ -548,7 +568,7 @@
                     tápalo con plástico para que no le caiga agua.</li>
                 <li><strong>Las cintillas:</strong> Tardan varios días en caerse solas. ¡No las arranques! Ellas cierran
                     tu piel sin necesidad de puntos de sutura.</li>
-                <li><strong><span aria-hidden='true'>⚠️</span> Señales para llamarnos:</strong> Llámanos de inmediato si
+                <li><strong><span>⚠️</span> Señales para llamarnos:</strong> Llámanos de inmediato si
                     la zona está caliente, expulsa líquido amarillento / pus, o tienes fiebre.</li>
             </ul>
         </div>
@@ -556,7 +576,7 @@
         <!-- FASE 7 -->
         <div class="phase-card fade-in">
             <div class="phase-badge">Fase 7</div>
-            <h3 class="hand-drawn"><span aria-hidden='true'>🗺️</span> Tu Plan a Futuro</h3>
+            <h3 class="hand-drawn"><span>🗺️</span> Tu Plan a Futuro</h3>
             <ul>
                 <li><strong>Reemplazo Inmediato:</strong> Si solo se caducó tu implante y quieres seguir cuidándote con
                     lo mismo, el doctor puede retirar el viejo y colocar uno nuevo <em>en ese mismo segundo</em> a
@@ -572,9 +592,54 @@
             <p style="font-size: 1.15rem; font-weight: 600; margin-bottom: 25px;">La cuota de recuperación por el Retiro
                 de Implante (ISD) es de <strong>$450 m.n.</strong></p>
 
+            <div class="payment-methods" style="max-width: 600px; margin: 0 auto 25px auto;">
+                <h4 style="margin-bottom: 10px; font-size: 1.1rem; text-align: center; color: var(--pc-rosa-fuerte);">Opciones de Pago</h4>
+                
+                <div class="payment-option" onclick="document.getElementById('payEfectivo').click()">
+                    <input type="radio" name="paymentMethod" id="payEfectivo" value="efectivo" checked onchange="togglePaymentInstructions()">
+                    <label for="payEfectivo" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
+                        <span>💵 <strong>Efectivo en Consultorio</strong><br><small style="color: #666;">(Sin comisión: $450.00 MN)</small></span>
+                        <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" style="margin: 0;" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                    </label>
+                </div>
+                
+                <div class="payment-option" onclick="document.getElementById('payTransferencia').click()">
+                    <input type="radio" name="paymentMethod" id="payTransferencia" value="transferencia" onchange="togglePaymentInstructions()">
+                    <label for="payTransferencia" style="margin-bottom: 0;">
+                        🏦 <strong>Transferencia SPEI / CLABE</strong><br><small style="color: #666;">(Sin comisión: $450.00 MN)</small>
+                    </label>
+                </div>
+                
+                <div class="payment-option" onclick="document.getElementById('payMercadoPago').click()">
+                    <input type="radio" name="paymentMethod" id="payMercadoPago" value="mercadopago" onchange="togglePaymentInstructions()">
+                    <label for="payMercadoPago" style="margin-bottom: 0;">
+                        💳 <strong>Pago en línea (Mercado Pago)</strong> <br>
+                        <span style="font-size: 0.85rem; font-weight: 600; color: #555;">(Incluye comisión: $473.83 MN)</span>
+                    </label>
+                </div>
+
+                <div id="instructionsEfectivo" style="display: block; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 0.95rem;"><strong>1.</strong> Agenda tu cita usando nuestro calendario o envíanos un mensaje y menciona que pagarás en efectivo en el consultorio.</p>
+                </div>
+
+                <div id="instructionsTransferencia" style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">Total a transferir: $450.00 MN</p>
+                    <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe" value="722969010854962949" readonly><button type="button" onclick="copyToClipboard('clabe', this)"><span>📋</span> Copiar</button></div>
+                    <div class="copy-box-modern"><span class="label">Beneficiario</span><input type="text" id="benef" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef', this)"><span>📋</span> Copiar</button></div>
+                    <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco" value="Mercado Pago W" readonly><button type="button" onclick="copyToClipboard('banco', this)"><span>📋</span> Copiar</button></div>
+                    <ul class="step-list" style="margin-top: 10px; text-align:left;"><li>Realiza la transferencia (guarda tu comprobante).</li><li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li></ul>
+                </div>
+
+                <div id="instructionsMercadoPago" style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">Total a pagar en línea: $473.83 MN</p>
+                    <a href="https://mpago.la/1xZdVDs" target="_blank" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 10px; font-size: 1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); margin-bottom:15px;">Pagar en Mercado Pago ➔</a>
+                    <ul class="step-list" style="margin-top: 10px; text-align:left;"><li>Realiza el pago en el enlace (guarda captura de pantalla).</li><li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li></ul>
+                </div>
+            </div>
+
             <div
                 style="background: var(--pc-amarillo); border: 2px dashed var(--pc-negro); border-radius: 15px; padding: 20px; max-width: 600px; margin: 0 auto 30px auto; text-align: left;">
-                <p style="font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;"><span aria-hidden='true'>🏥</span>
+                <p style="font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;"><span>🏥</span>
                     Horarios de Atención:</p>
                 <p style="font-weight: 600; margin-bottom: 10px;">Lunes a Domingo de <strong>9:00 am a 4:00 pm</strong>.
                 </p>
@@ -606,7 +671,7 @@
 
             <div style="margin-bottom: 40px;">
                 <p style="font-weight: 800; margin-bottom: 15px;">¿Tienes más dudas?</p>
-                <button onclick="toggleWaPopup()" class="btn btn-dudas"><span aria-hidden='true'>💬</span> Envíanos un
+                <button onclick="toggleWaPopup()" class="btn btn-dudas"><span>💬</span> Envíanos un
                     mensaje a WhatsApp</button>
 
                 <div id="wa-popup">
@@ -621,8 +686,7 @@
                             placeholder="Ej. ¿Qué me recomienda antes de ir? ¿Tengo que ir en ayunas?" rows="3"
                             style="padding: 12px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 1rem; resize: vertical;"></textarea>
                         <button onclick="agendarIsdWa()" class="btn btn-wa"
-                            style="width: 100%; margin-top: 5px;">Solicita tu orientación por WhatsApp <span
-                                aria-hidden='true'>💬</span></button>
+                            style="width: 100%; margin-top: 5px;">Solicita tu orientación por WhatsApp <span>💬</span></button>
                     </div>
                 </div>
             </div>
@@ -634,15 +698,49 @@
                     if (popup.style.display === 'block') popup.scrollIntoView({ behavior: 'smooth' });
                 }
 
+                function copyToClipboard(inputId, btn) {
+                    var copyText = document.getElementById(inputId);
+                    copyText.select();
+                    copyText.setSelectionRange(0, 99999);
+                    navigator.clipboard.writeText(copyText.value).then(() => {
+                        let originalHTML = btn.innerHTML;
+                        btn.innerHTML = "¡Copiado! ✅";
+                        btn.style.background = "var(--pc-rosa-fuerte)";
+                        setTimeout(() => {
+                            btn.innerHTML = originalHTML;
+                            btn.style.background = "";
+                        }, 2000);
+                    });
+                }
+
+                function togglePaymentInstructions() {
+                    let paymentMethodElement = document.querySelector('input[name="paymentMethod"]:checked');
+                    let paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'efectivo';
+
+                    document.getElementById('instructionsEfectivo').style.display = paymentMethod === 'efectivo' ? 'block' : 'none';
+                    document.getElementById('instructionsTransferencia').style.display = paymentMethod === 'transferencia' ? 'block' : 'none';
+                    document.getElementById('instructionsMercadoPago').style.display = paymentMethod === 'mercadopago' ? 'block' : 'none';
+                }
+
                 function agendarIsdWa() {
                     let nombre = document.getElementById('wa_nombre').value.trim();
                     let edad = document.getElementById('wa_edad').value.trim();
                     let duda = document.getElementById('wa_duda').value.trim();
+                    let paymentMethodElement = document.querySelector('input[name="paymentMethod"]:checked');
 
                     if (!nombre || !edad) { alert("Por favor, llena tu nombre y edad para darte un mejor servicio."); return; }
 
                     let mensaje = `Hola 👋, envié mis datos desde la guía web de RETIRO DE IMPLANTE (ISD):\n\n*Nombre:* ${nombre}\n*Edad:* ${edad}\n`;
                     if (duda) mensaje += `*Mi duda:* ${duda}\n\n`;
+
+                    if (paymentMethodElement) {
+                        let paymentText = "";
+                        if (paymentMethodElement.value === 'efectivo') paymentText = "Efectivo en Consultorio";
+                        if (paymentMethodElement.value === 'transferencia') paymentText = "Transferencia Bancaria";
+                        if (paymentMethodElement.value === 'mercadopago') paymentText = "Pago en Línea (Mercado Pago)";
+                        mensaje += `*Método de Pago seleccionado:* ${paymentText}\n\n`;
+                    }
+
                     mensaje += `Me gustaría recibir orientación o agendar una cita.`;
 
                     window.open(`https://wa.me/526611044050?text=${encodeURIComponent(mensaje)}`, '_blank');
@@ -651,7 +749,7 @@
 
             <div
                 style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; border-top: 2px dashed #eee; padding-top: 20px;">
-                <a href="servicios.html" class="btn btn-back">Volver a Servicios <span aria-hidden='true'>📋</span></a>
+                <a href="servicios.html" class="btn btn-back">Volver a Servicios <span>📋</span></a>
             </div>
         </div>
 

@@ -1,146 +1,669 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salud Sexual - Proyecto Celene</title>
+    <title>Clínica de Salud Sexual - Proyecto Celene</title>
+    <meta name="description" content="Tu salud íntima es importante. Espacio seguro, confidencial y sin juicios para pruebas ITS y consejería.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/salud-sexual.html">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://proyectocelene.org/salud-sexual.html">
     <meta property="og:title" content="Clínica de Salud Sexual - Proyecto Celene">
-    <meta property="og:description" content="Tu salud íntima es importante. Espacio seguro, confidencial y sin juicios para pruebas ITS y consejería.">
+    <meta property="og:description"
+        content="Tu salud íntima es importante. Espacio seguro, confidencial y sin juicios para pruebas ITS y consejería.">
     <meta property="og:image" content="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg">
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://proyectocelene.org/salud-sexual.html">
     <meta property="twitter:title" content="Clínica de Salud Sexual - Proyecto Celene">
-    <meta property="twitter:description" content="Tu salud íntima es importante. Espacio seguro, confidencial y sin juicios para pruebas ITS y consejería.">
+    <meta property="twitter:description"
+        content="Tu salud íntima es importante. Espacio seguro, confidencial y sin juicios para pruebas ITS y consejería.">
     <meta property="twitter:image" content="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg">
 
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
     <style>
-        :root { --pc-rosa-pastell:#fce4ec; --pc-rosa-fuerte:#d81b60; --pc-negro:#333; --pc-blanco:#fff; --pc-amarillo:#fff9c4; --pc-azul-suave:#e3f2fd; }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:'Nunito',sans-serif; background:var(--pc-blanco); color:var(--pc-negro); line-height:1.6; padding-bottom:50px; }
-        .hand-drawn { font-family:'Handlee',cursive; }
-        .container { max-width:900px; margin:0 auto; padding:15px; }
-        .main-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:30px; padding:15px; background:var(--pc-blanco); border:3px solid var(--pc-negro); border-radius:20px; box-shadow:6px 6px 0 var(--pc-rosa-pastell); }
-        .main-nav a { text-decoration:none; color:var(--pc-negro); font-weight:800; font-size:1.05rem; padding:8px 15px; border-radius:15px; transition:0.2s; border:2px solid transparent; }
-        .main-nav a:hover { background:var(--pc-rosa-fuerte); color:white; border-color:var(--pc-negro); transform:translateY(-2px); box-shadow:3px 3px 0 var(--pc-negro); }
-        .header { text-align:center; padding:40px 20px; background:#fce4ec; border:4px solid var(--pc-negro); border-radius:20px; margin-bottom:30px; box-shadow:8px 8px 0 var(--pc-negro); }
-        .header img { max-width:100%; width:400px; border-radius:15px; border:3px solid var(--pc-negro); margin-bottom:15px; background:white; }
-        .header h1 { font-size:2.8rem; color:var(--pc-rosa-fuerte); margin-bottom:10px; line-height:1.1; }
-        .content-box { background:white; border:3px solid var(--pc-negro); border-radius:20px; padding:30px; margin-bottom:30px; box-shadow:6px 6px 0 var(--pc-amarillo); }
-        .content-box h2 { color:var(--pc-rosa-fuerte); margin-bottom:15px; font-size:1.8rem; }
-        .content-box ul { margin-left:20px; margin-bottom:15px; font-weight:600; color:#444; }
-        .content-box li { margin-bottom:8px; }
-        .btn { display:block; text-align:center; padding:15px; border-radius:50px; border:4px solid var(--pc-negro); font-weight:800; text-decoration:none; font-size:1.2rem; background:#25d366; color:white; box-shadow:0 6px 0 #1b9c4b; margin:20px auto 0; max-width:400px; transition:0.1s; }
-        .btn:active { top:6px; box-shadow:0 0 0 transparent; }
-
-        .video-container {
-            display: flex; justify-content: center; margin: 30px 0; overflow: hidden;
-            border-radius: 15px; border: 4px solid var(--pc-negro);
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333;
+            --pc-blanco: #fff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f5f5f5;
         }
-        .banner-orientacion { background: var(--pc-azul-suave); border: 3px dashed var(--pc-negro); padding: 20px; border-radius: 15px; text-align: center; margin-top: 30px; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            border-color: var(--pc-negro);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: #fce4ec;
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-negro);
+        }
+
+        .header img {
+            max-width: 100%;
+            width: 400px;
+            border-radius: 15px;
+            border: 3px solid var(--pc-negro);
+            margin-bottom: 15px;
+            background: white;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .content-box {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 var(--pc-amarillo);
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.2rem;
+            background: #25d366;
+            color: white;
+            box-shadow: 0 6px 0 #1b9c4b;
+            margin: 20px auto 0;
+            max-width: 400px;
+            transition: 0.1s;
+            cursor: pointer;
+        }
+
+        .btn:active {
+            transform: translateY(6px);
+            box-shadow: 0 0 0 transparent !important;
+        }
+
+        .banner-orientacion {
+            background: var(--pc-azul-suave);
+            border: 3px dashed var(--pc-negro);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
 
         /* MODAL */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); align-items: center; justify-content: center; padding: 15px; }
-        .modal-content { background: white; border: 4px solid var(--pc-negro); border-radius: 25px; max-width: 500px; width: 100%; padding: 35px; position: relative; box-shadow: 12px 12px 0px var(--pc-amarillo); animation: popIn 0.3s ease-out; }
-        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .close-modal { position: absolute; top: 15px; right: 25px; font-size: 2rem; cursor: pointer; font-weight: 900; color: var(--pc-negro); }
-        .modal input, .modal select { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; }
-        .modal input:focus, .modal select:focus { border-color: var(--pc-rosa-fuerte); }
-        
-        .X81W0b { border: 4px solid var(--pc-negro) !important; font-family: 'Nunito', sans-serif !important; font-weight: 800 !important; border-radius: 50px !important; padding: 15px 20px !important; box-shadow: 0 6px 0 var(--pc-negro) !important; font-size: 1.1rem !important; }
-        .X81W0b:active { box-shadow: 0 0 0 transparent !important; transform: translateY(6px); }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            max-width: 500px;
+            width: 100%;
+            padding: 35px;
+            position: relative;
+            box-shadow: 12px 12px 0px var(--pc-amarillo);
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: 900;
+            color: var(--pc-negro);
+        }
+
+        .modal input,
+        .modal select,
+        .modal textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            resize: vertical;
+            transition: 0.2s;
+        }
+
+        .modal input:focus,
+        .modal select:focus,
+        .modal textarea:focus {
+            border-color: var(--pc-rosa-fuerte);
+        }
 
         /* TEST ITS */
-        .quiz-toggle-btn { background: var(--pc-rosa-fuerte); color: white; border: 3px solid var(--pc-negro); border-radius: 50px; padding: 15px; font-size: 1.1rem; font-weight: 800; width: 100%; cursor: pointer; box-shadow: 0 5px 0 var(--pc-negro); transition: 0.1s; font-family: 'Nunito', sans-serif; margin-bottom: 20px; }
-        .quiz-toggle-btn:active { top: 5px; box-shadow: 0 0px 0 var(--pc-negro); transform: translateY(5px); }
-        .quiz-label { display: block; background: white; border: 2px solid #ccc; padding: 12px 15px; border-radius: 10px; margin-bottom: 8px; cursor: pointer; font-weight: 600; transition: 0.2s; }
-        .quiz-label:hover { border-color: var(--pc-negro); background: var(--pc-rosa-pastell); }
-        .quiz-label input { margin-right: 10px; transform: scale(1.3); }
+        .quiz-toggle-btn {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 50px;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            width: 100%;
+            cursor: pointer;
+            box-shadow: 0 5px 0 var(--pc-negro);
+            transition: 0.1s;
+            font-family: 'Nunito', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .quiz-toggle-btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 0px 0 var(--pc-negro);
+        }
+
+        .quiz-label {
+            display: block;
+            background: white;
+            border: 2px solid #ccc;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .quiz-label:hover {
+            border-color: var(--pc-negro);
+            background: var(--pc-rosa-pastell);
+        }
+
+        .quiz-label input {
+            margin-right: 10px;
+            transform: scale(1.3);
+        }
+
+        /* ESI CARDS */
+        .esi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .esi-card {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 4px 4px 0 var(--pc-rosa-pastell);
+        }
+
+        .esi-card h4 {
+            color: var(--pc-rosa-fuerte);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-family: 'Handlee', cursive;
+        }
+
+        .esi-card p {
+            font-size: 0.95rem;
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .law-box {
+            background: var(--pc-amarillo);
+            padding: 25px;
+            border-radius: 15px;
+            border: 3px dashed var(--pc-negro);
+            margin-top: 30px;
+        }
+
+        /* TABS INTERACTIVOS */
+        .tabs-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            color: var(--pc-negro);
+            box-shadow: 0 4px 0 var(--pc-negro);
+            transition: 0.2s;
+        }
+
+        .tab-btn:hover {
+            background: var(--pc-rosa-pastell);
+        }
+
+        .tab-btn.active {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            box-shadow: 0 0px 0 var(--pc-negro);
+            transform: translateY(4px);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeInTab 0.4s ease-out;
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 var(--pc-azul-suave);
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
     <div class="container">
         <div id="navbar-container" class="main-nav"></div>
+
         <header class="header">
             <img src="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg" alt="Salud Sexual">
-            <h1 class="hand-drawn">Clínica de Salud Sexual 🛡️</h1>
-            <p style="font-weight:600; font-size:1.1rem;">Tu salud íntima es importante. Espacio seguro, confidencial y sin juicios.</p>
+            <h1 class="hand-drawn" style="margin-bottom: 5px;">Clínica de Salud Sexual 🛡️</h1>
+            <h2 style="font-size: 1.4rem; color: var(--pc-negro); font-weight: 800; margin-bottom: 15px;">Sin Miedos,
+                Sin Juicios, Solo Ciencia</h2>
+            <p style="font-weight:600; font-size:1.1rem; color: var(--pc-rosa-fuerte);">Por el Dr. Carlos Donato</p>
         </header>
-        <div class="content-box">
-            <h2 class="hand-drawn">Nuestros Servicios Privados</h2>
-            <ul><li><strong>Prueba de VIH GRATUITA:</strong> Resultado en 15 minutos. Indetectable = Intransmisible.</li><li><strong>Condones Gratis:</strong> Solicítalos en recepción sin pena ni preguntas.</li><li><strong>Paquete ITS Básico ($400):</strong> Evalúa VIH, Sífilis, Hepatitis B y C de manera rápida.</li><li><strong>Paquete ITS Completo ($600):</strong> Añade detección precisa de Gonorrea y Clamidia.</li></ul>
-            <p style="margin-top:20px;">Recuerda: Muchas infecciones son completamente silenciosas y no presentan síntomas. Un chequeo de rutina te da paz mental absoluta y protege tu fertilidad a futuro.</p>
-            
-            <!-- TEST ITS -->
-            <div style="background: var(--pc-gris-suave); padding: 25px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin: 30px 0;">
-                <button class="quiz-toggle-btn" onclick="toggleQuiz()">¿Necesito una prueba de ITS? Haz el test privado <span aria-hidden='true'>🔍</span></button>
-                
-                <div id="quizContent" style="display: none; padding-top: 15px; border-top: 2px dashed #ccc;">
-                    <p style="margin-bottom: 15px; font-size:1.05rem; color:#555;">Marca las casillas que apliquen a tu caso (tu información es 100% confidencial y no se guarda):</p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; margin-bottom: 20px;">
-                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Tuviste relaciones sin condón</label>
-                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Más de una pareja sexual en los últimos 12 meses</label>
-                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> No sabes si tu pareja se ha hecho pruebas</label>
-                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Tienes síntomas como ardor, comezón o secreción</label>
-                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Alguna vez pensaste: "No creo que me pase a mí"</label>
-                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Lo hiciste "nomás tantito" sin protección</label>
-                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Usaste o compartiste agujas o jeringas</label>
-                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Te hiciste tatuajes sin medidas higiénicas</label>
-                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Contacto con sangre u otros fluidos en el trabajo</label>
+
+        <div class="tabs-wrapper">
+            <button class="tab-btn active" onclick="openTab(event, 'tab-prevencion')">🛡️ Prevención e ITS</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-inicio')">🏠 Inicio y Clínica</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-esi')">📄 ESI y Derechos</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-anatomia')">🧠 Tu Cuerpo</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-digital')">🌐 Era Digital</button>
+        </div>
+
+        <div id="tab-prevencion" class="tab-content" style="display: block;">
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">Gestión de Riesgos y Salud Práctica</h2>
+
+            <div
+                style="background: var(--pc-gris-suave); padding: 25px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-top: 20px; margin-bottom: 30px;">
+                <button class="quiz-toggle-btn" onclick="toggleQuiz()" style="margin-bottom: 0;">¿Necesitas una prueba
+                    de ITS? Haz el test privado <span>🔍</span></button>
+                <div id="quizContent"
+                    style="display: none; padding-top: 20px; margin-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="margin-bottom: 15px; font-size:1.05rem; color:#555;">Marca las casillas que apliquen a tu
+                        caso (tu información es 100% confidencial y no se guarda):</p>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Tuviste relaciones sin
+                            condón</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Más de una pareja sexual en
+                            12 meses</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> No sabes si tu pareja se ha
+                            hecho pruebas</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Tienes síntomas (ardor,
+                            comezón, secreción)</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Pensaste: "No creo que me
+                            pase a mí"</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Lo hiciste "nomás tantito"
+                            sin protección</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Compartiste agujas o te
+                            tatuaste sin higiene</label>
                     </div>
-                    <button class="btn" style="width: 100%; max-width: 300px; display: block; margin: 0 auto; background: var(--pc-negro); border-color: var(--pc-negro); box-shadow: 0 5px 0 #000;" onclick="calculateQuiz()">Ver mi resultado</button>
-                    <div id="quizResult" style="display:none; margin-top: 25px; padding: 20px; border-radius: 10px; border-left: 5px solid var(--pc-rosa-fuerte); background: var(--pc-rosa-pastell); font-size: 1.15rem; line-height: 1.5;"></div>
+                    <button class="btn"
+                        style="width: 100%; max-width: 300px; display: block; margin: 0 auto; background: var(--pc-negro); border-color: var(--pc-negro); box-shadow: 0 5px 0 #000;"
+                        onclick="calculateQuiz()">Ver mi resultado</button>
+                    <div id="quizResult"
+                        style="display:none; margin-top: 25px; padding: 20px; border-radius: 10px; border-left: 5px solid var(--pc-rosa-fuerte); background: var(--pc-rosa-pastell); font-size: 1.15rem; line-height: 1.5;">
+                    </div>
                 </div>
             </div>
 
-            <button onclick="openModal('modalSaludSexual')" class="btn" style="margin-bottom: 15px;">Agendar por WhatsApp <span aria-hidden='true'>💬</span></button>
-            
-            <!-- Botón Calendario Google -->
+            <div
+                style="background: var(--pc-azul-suave); padding: 20px; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 30px;">
+                <h3 style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;">El "Accidente en la Cocina" (Hablemos de
+                    ITS)</h3>
+                <p>Si te cortas cocinando, no te escondes por vergüenza; simplemente vas al médico y curas la herida.
+                    Una Infección de Transmisión Sexual (ITS) es exactamente lo mismo: <strong>un riesgo inherente a una
+                        actividad.</strong></p>
+                <p><strong>No te juzgamos:</strong> Si tuviste una práctica de riesgo, acude. Tenemos pruebas rápidas de
+                    VIH, Sífilis y tratamiento para Gonorrea y VPH.</p>
+                <p><strong>Pruebas de Rutina:</strong> La fidelidad percibida no siempre es igual a bajo riesgo. Hazte
+                    tu panel de ITS anualmente como parte de tu amor propio.</p>
+            </div>
+
+            <h3 style="color:var(--pc-negro);">Higiene Sexual Práctica</h3>
+            <ul style="margin-left: 20px; line-height: 1.6; margin-bottom: 25px;">
+                <li><strong>Antes:</strong> Aseo con agua y jabón neutro (solo zona externa). ¡Y manos limpias!</li>
+                <li><strong>Durante:</strong> Uso de condón y MUCHO lubricante (especialmente en sexo anal, para evitar
+                    desgarres e infecciones).</li>
+                <li><strong>Después:</strong> ¡ORINAR! Es la mejor forma de limpiar la uretra y prevenir infecciones
+                    urinarias.</li>
+            </ul>
+        </div>
+
+        <div id="tab-inicio" class="tab-content">
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom: 15px;">El Contrato sin Leer</h2>
+            <p style="font-size: 1.05rem; font-weight: 600; color: #444; margin-bottom: 15px;">¿Alguna vez te han dado
+                un contrato de 20 páginas y lo has firmado sin leerlo? Probablemente no, porque es riesgoso. Sin
+                embargo, muchos entramos en nuestra vida íntima sin haber "leído el manual" de nuestro propio cuerpo.
+            </p>
+            <p style="font-size: 1.05rem; font-weight: 600; color: #444; margin-bottom: 25px;">Soy el Dr. Carlos Donato.
+                Mi trabajo no es sermonearte ni ser una autoridad moral. Mi objetivo es ser un recurso para ti. Trabajo
+                desde la prevención para que tomes decisiones informadas sobre tu salud y tu vida, desde la infancia
+                hasta la plenitud de la edad adulta.</p>
+
+            <h3 style="color: var(--pc-negro); margin-bottom: 15px;">¿Por qué estamos aquí?</h3>
+            <p style="margin-bottom: 25px;">A mi consulta llegan jóvenes asustados por mitos de internet, adultos que
+                desconocen su anatomía y personas mayores que creen que su deseo tiene fecha de caducidad. La falta de
+                educación sexual nos afecta a todos. Aquí, la sexualidad se vive de forma científica, comprensiva y
+                profesional.</p>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                <button onclick="openModal('modalDrDonato')" class="btn"
+                    style="width: 100%; margin: 0; background: var(--pc-rosa-fuerte); border-color: var(--pc-negro); box-shadow: 0 5px 0 var(--pc-negro);">¿Tienes
+                    dudas o urgencia? Agendar Cita 👨‍⚕️</button>
+                <button onclick="openModal('modalPlatica')" class="btn"
+                    style="width: 100%; margin: 0; background: var(--pc-azul-suave); color: var(--pc-negro); border-color: var(--pc-negro); box-shadow: 0 5px 0 var(--pc-negro);">Lleva
+                    educación a tu Escuela/Empresa 🏫</button>
+            </div>
+
             <div style="text-align: center; display: flex; justify-content: center; margin-bottom: 30px;">
                 <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
                 <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
                 <script>
-                (function() {
-                  var target = document.currentScript;
-                  window.addEventListener('load', function() {
-                    calendar.schedulingButton.load({
-                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
-                      color: '#d81b60',
-                      label: '🗓️ Consultar horarios y Agendar',
-                      target,
-                    });
-                  });
-                })();
+                    (function () {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function () {
+                            calendar.schedulingButton.load({
+                                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
+                                color: '#d81b60',
+                                label: '🗓️ Consultar horarios y Agendar',
+                                target,
+                            });
+                        });
+                    })();
                 </script>
             </div>
-            
-            <div class="video-container">
-                <!-- VIDEO DE FACEBOOK SOBRE ITS Y ORIENTACION -->
-                <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F990264640843547%2F&show_text=false&width=476&t=0" width="476" height="591" style="border:none;overflow:hidden; max-width: 100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+
+            <div style="display: flex; justify-content: center; margin: 30px 0;">
+                <div
+                    style="width: 350px; height: 350px; border: 4px solid var(--pc-negro); border-radius: 15px; overflow: hidden; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte); background: black;">
+                    <iframe
+                        src="https://www.facebook.com/plugins/video.php?height=350&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F990264640843547%2F&show_text=false&width=350&t=0"
+                        width="350" height="350" style="border:none;overflow:hidden; width:100%; height:100%;"
+                        scrolling="no" frameborder="0" allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
             </div>
 
-            <div class="banner-orientacion">
-                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom: 10px;">¿Tienes pena o no sabes qué prueba necesitas? <span aria-hidden='true'>💬</span></h3>
-                <p style="font-weight: 600; margin-bottom: 15px;">Hablar de salud sexual puede ser difícil. Usa nuestra <strong>Orientación Médica Gratuita</strong> por WhatsApp. Te escucharemos sin juicios y te guiaremos sobre qué pasos tomar.</p>
-                <a href="orientacion-medica-gratuita.html" class="btn" style="background: white; color: var(--pc-negro); border-color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); margin-top: 0; padding: 12px; font-size: 1.1rem;">Ir a Orientación Gratuita ➔</a>
+            <h3 class="hand-drawn" style="border-top: 3px dashed var(--pc-negro); padding-top: 20px; margin-top: 20px;">
+                Nuestros Servicios y Clínica</h3>
+            <p style="margin-bottom: 15px;">Trabajamos en Proyecto Celene desde una perspectiva de género para promover
+                el bienestar en Baja California.</p>
+            <ul style="margin-left: 20px; font-weight: 600; color: #444; line-height: 1.8;">
+                <li><strong>Consultas Privadas:</strong> Orientación médica, salud reproductiva y planificación.</li>
+                <li><strong>Métodos Anticonceptivos:</strong> Entrega de preservativos (femeninos/masculinos) gratis y
+                    anticoncepción de emergencia.</li>
+                <li><strong>Pruebas Rápidas:</strong> Detección gratuita y confidencial de VIH y paquetes ITS.</li>
+                <li><strong>Salud Menopáusica:</strong> Acompañamiento en cambios hormonales y físicos.</li>
+            </ul>
+        </div>
+
+        <div id="tab-esi" class="tab-content">
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">La ESI como Herramienta de Supervivencia</h2>
+
+            <h3 style="margin-top:20px; color:var(--pc-negro);">¿Qué es la Sexualidad?</h3>
+            <p>Según la OMS, es una dimensión central del ser humano. Incluye el sexo, la identidad, los roles de
+                género, el placer, la intimidad y la reproducción. No es solo "tener relaciones"; es quiénes somos y
+                cómo nos vinculamos.</p>
+
+            <div class="law-box" style="margin: 25px 0;">
+                <h3 style="color: var(--pc-negro); margin-bottom: 10px;">📜 Tus Derechos Sexuales en México</h3>
+                <p>En nuestro país, tus derechos están respaldados por la Constitución.</p>
+                <ul style="margin-left: 20px; margin-bottom: 0;">
+                    <li><strong>Adolescentes y Privacidad:</strong> Según la NOM-047, los adolescentes tienen derecho a
+                        acudir a consulta de salud sexual y reproductiva sin supervisión de sus padres, recibiendo
+                        orientación de forma confidencial.</li>
+                    <li><strong>Derecho a la Información:</strong> Tienes derecho a recibir educación sexual basada en
+                        evidencia científica, no en dogmas.</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top:30px; color:var(--pc-rosa-fuerte);">Conceptos Básicos para Hablar el Mismo Idioma</h3>
+            <div class="esi-grid">
+                <div class="esi-card">
+                    <h4>⚙️ Sexo Biológico</h4>
+                    <p>Características físicas, genéticas y hormonales (XX, XY, Intersexualidad). Es biología, no
+                        ideología.</p>
+                </div>
+                <div class="esi-card">
+                    <h4>🧍‍♂️🧍‍♀️ Género</h4>
+                    <p>El "guion social" que nos dicen cómo debemos actuar o comportarnos en sociedad.</p>
+                </div>
+                <div class="esi-card">
+                    <h4>💭 Identidad de Género</h4>
+                    <p>Cómo te sientes por dentro (Hombre, Mujer, No binario).</p>
+                </div>
+                <div class="esi-card">
+                    <h4>❤️ Orientación Sexual</h4>
+                    <p>Hacia quién sientes atracción. Es como ser zurdo o diestro: no se elige, se descubre.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top:30px; color:var(--pc-rosa-fuerte);">¿Qué es el Consentimiento?</h3>
+            <p>El consentimiento no es la ausencia de un "NO", es la presencia entusiasta de un "SÍ".</p>
+            <ul style="margin-left: 20px; font-weight: 600; line-height: 1.6; margin-bottom: 10px;">
+                <li><strong>Free (Libre):</strong> Sin presión, manipulación ni bajo efecto de sustancias.</li>
+                <li><strong>Reversible:</strong> Puedes decir "para" en cualquier momento, aunque ya haya empezado el
+                    acto.</li>
+                <li><strong>Informed (Informado):</strong> Saber a qué consientes (ej. si hay riesgo de ITS o si se
+                    usará protección).</li>
+                <li><strong>Enthusiastic (Entusiasta):</strong> Si no hay ganas mutuas, no hay consentimiento.</li>
+                <li><strong>Specific (Específico):</strong> Decir sí a una cosa no es decir sí a todo.</li>
+            </ul>
+        </div>
+
+        <div id="tab-anatomia" class="tab-content">
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">Conocer es Poder 🧠</h2>
+
+            <h3 style="margin-top:20px; color:var(--pc-negro);">Anatomía Femenina: Rompiendo el Silencio</h3>
+            <p>Durante siglos, el cuerpo femenino se explicó desde la mirada masculina. Es hora de actualizar el mapa:
+            </p>
+            <ul style="margin-left: 20px; font-weight: 600; line-height: 1.6; margin-bottom: 25px;">
+                <li><strong>El Clítoris:</strong> No es un "botón". Es un órgano grande con 8,000 terminaciones
+                    nerviosas dedicado exclusivamente al placer.</li>
+                <li><strong>El Mito del Punto G:</strong> No es un botón mágico. El placer proviene de la estimulación
+                    del Complejo Clito-Uretro-Vaginal.</li>
+                <li><strong>La Realidad del Orgasmo:</strong> Solo el 25% de las mujeres llega al orgasmo únicamente
+                    mediante la penetración. El 75% restante necesita estimulación directa del clítoris. Esto no es un
+                    "error de diseño", es nuestra biología real.</li>
+            </ul>
+
+            <h3 style="color:var(--pc-negro);">Anatomía Masculina y Salud</h3>
+            <ul style="margin-left: 20px; font-weight: 600; line-height: 1.6; margin-bottom: 25px;">
+                <li><strong>Fimosis y Frenillo Corto:</strong> Muchas personas sufren dolor en silencio creyendo que es
+                    normal. Estas son condiciones médicas comunes, tratables y prevenibles.</li>
+                <li><strong>Salud a Largo Plazo:</strong> Las erecciones son un signo de salud vascular. No importa si
+                    tienes 19 o 78 años, tu salud sexual importa.</li>
+            </ul>
+
+            <div
+                style="background: var(--pc-amarillo); padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro);">
+                <h3 style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;">La Relación Contigo Mismo (Autoerotismo)
+                </h3>
+                <p>Imagina que vas a manejar un coche nuevo en una autopista. ¿No sería mejor leer el manual y dar una
+                    vuelta a la manzana primero? La masturbación es una práctica natural y saludable que permite:</p>
+                <ul style="margin-left: 20px; margin-bottom: 0;">
+                    <li>Conocer tus límites y preferencias.</li>
+                    <li>Detectar cambios anatómicos (bolitas, alteraciones) a tiempo.</li>
+                    <li>Es la práctica sexual 100% segura (sin riesgo de ITS o embarazo).</li>
+                </ul>
             </div>
         </div>
+
+        <div id="tab-digital" class="tab-content">
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">El Algoritmo vs. La Realidad 📱</h2>
+
+            <h3 style="margin-top:20px; color:var(--pc-negro);">Pornografía vs. Deporte</h3>
+            <p>Imagina que quieres aprender un deporte: buscas un entrenador que te enseñe la técnica correcta. En la
+                sexualidad, el "entrenador" más popular para los jóvenes suele ser la pornografía.</p>
+            <p><strong>El problema:</strong> La pornografía es un <em>espectáculo</em>, no educación. Entrenar con porno
+                crea expectativas irreales, centrándose en el desempeño físico y visual, ignorando el placer real
+                (especialmente el femenino) y generando ansiedad.</p>
+
+            <h3 style="margin-top:20px; color:var(--pc-negro);">Sexting Seguro y Consentimiento</h3>
+            <p>El sexting es una práctica sexual común en la adultez, pero requiere reglas claras para no convertirse en
+                un riesgo inmenso:</p>
+            <ul style="margin-left: 20px; font-weight: 600; line-height: 1.6;">
+                <li><strong>Ley Olimpia:</strong> En Baja California y México, difundir contenido íntimo sin permiso es
+                    un delito penado por la ley. Recuerda: <em>El "SÍ" de tomar la foto no es un "SÍ" para
+                        compartirla.</em></li>
+                <li><strong>Protege tu identidad:</strong> Si decides hacerlo, nunca muestres tu rostro, marcas de
+                    nacimiento distintivas o tatuajes.</li>
+                <li><strong>Usa apps seguras:</strong> Que notifiquen capturas de pantalla o eliminen los mensajes
+                    automáticamente, aunque la confianza mutua debe ser el primer filtro.</li>
+            </ul>
+        </div>
+
+        <div class="banner-orientacion">
+            <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom: 10px;">¿Tienes pena o no sabes
+                qué prueba necesitas? <span>💬</span></h3>
+            <p style="font-weight: 600; margin-bottom: 15px;">Hablar de salud sexual puede ser difícil. Usa nuestra
+                <strong>Orientación Médica Gratuita</strong> por WhatsApp. Te escucharemos sin juicios y te guiaremos
+                sobre qué pasos tomar.</p>
+            <a href="orientacion-medica-gratuita.html" class="btn"
+                style="background: white; color: var(--pc-negro); border-color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); margin-top: 0; padding: 12px; font-size: 1.1rem;">Ir
+                a Orientación Gratuita ➔</a>
+        </div>
+
     </div>
 
-    <!-- MODAL -->
+    <a href="javascript:void(0)" onclick="openModal('modalDrDonato')"
+        style="position: fixed; bottom: 20px; right: 20px; background: var(--pc-rosa-fuerte); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid var(--pc-negro); box-shadow: 4px 4px 0 var(--pc-negro); z-index: 9999; text-decoration: none; transition: 0.2s;"
+        title="WhatsApp Dr. Donato" onmouseover="this.style.transform='translateY(-5px)'"
+        onmouseout="this.style.transform='translateY(0)'">👨‍⚕️</a>
+
     <div id="modalSaludSexual" class="modal" onclick="closeOnOutside(event, 'modalSaludSexual')">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modalSaludSexual')">✕</span>
-            <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Cita de Salud Sexual 🛡️</h3>
-            <p style="margin-bottom:20px; font-weight: 600; color: #555;">Tu información es confidencial y segura. Ayúdanos a prepararnos para tu visita.</p>
+            <h3 class="hand-drawn"
+                style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Cita de Salud
+                Sexual 🛡️</h3>
+            <p style="margin-bottom:20px; font-weight: 600; color: #555;">Tu información es confidencial y segura.
+                Ayúdanos a prepararnos para tu visita.</p>
             <input type="text" id="ss_nombre" placeholder="¿Cómo te llamamos? (Opcional)">
             <select id="ss_servicio">
                 <option value="">¿Qué servicio te interesa?</option>
@@ -151,13 +674,80 @@
                 <option value="Paquete Juntos es Mejor">Paquete Juntos es Mejor (Pareja)</option>
                 <option value="Otra duda / Orientación">Otra duda / Orientación</option>
             </select>
-            <button onclick="sendSaludSexualWa()" class="btn" style="width:100%; background: #25d366; color: white;">Enviar a WhatsApp <span aria-hidden='true'>💬</span></button>
+            <button onclick="sendSaludSexualWa()" class="btn"
+                style="width:100%; background: #25d366; color: white;">Enviar a WhatsApp <span>💬</span></button>
         </div>
     </div>
+
+    <div id="modalDrDonato" class="modal" onclick="closeOnOutside(event, 'modalDrDonato')">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalDrDonato')">✕</span>
+            <h3 class="hand-drawn"
+                style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Consulta con
+                Dr. Donato 👨‍⚕️</h3>
+            <p style="margin-bottom:15px; font-weight: 600; color: #555;">Agenda tu consulta especializada en salud
+                sexual, ITS o consejería. Libre de prejuicios y confidencial. <br><a href="dr-donato.html"
+                    style="color:var(--pc-rosa-fuerte);">Conoce al Dr. Donato ➔</a></p>
+
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a href="consulta-general.html" class="btn"
+                    style="background: var(--pc-amarillo); color: var(--pc-negro); border-color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); padding: 8px 15px; font-size: 0.95rem; margin: 0; display: inline-block;">🩺
+                    Ver Detalles de Consulta General</a>
+            </div>
+
+            <input type="text" id="dr_donato_nombre" placeholder="¿Cuál es tu nombre? (Opcional)">
+            <textarea id="dr_donato_motivo" rows="3"
+                placeholder="¿Cuál es el motivo de tu consulta? (Tranquilo/a, es confidencial)"></textarea>
+            <button onclick="sendDrDonatoWa()" class="btn"
+                style="width:100%; margin-top: 10px; background: #25d366; color: white; border-color: var(--pc-negro); box-shadow: 0 5px 0 var(--pc-negro);">Enviar
+                a WhatsApp <span>💬</span></button>
+        </div>
+    </div>
+
+    <div id="modalPlatica" class="modal" onclick="closeOnOutside(event, 'modalPlatica')">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modalPlatica')">✕</span>
+            <h3 class="hand-drawn"
+                style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Plática ESI
+                Institucional 🏫</h3>
+            <p style="margin-bottom:20px; font-weight: 600; color: #555;">Llevamos la Educación Sexual Integral a tu
+                institución. Déjanos los datos y nos comunicaremos contigo para agendar.</p>
+            <input type="text" id="escuela_nombre" placeholder="Nombre de la Institución / Empresa">
+            <select id="escuela_ciudad">
+                <option value="">¿En qué ciudad se ubican?</option>
+                <option value="Rosarito">Playas de Rosarito</option>
+                <option value="Tijuana">Tijuana</option>
+                <option value="Ensenada">Ensenada</option>
+                <option value="Otra">Otra</option>
+            </select>
+            <select id="escuela_publico">
+                <option value="">¿A qué público va dirigida?</option>
+                <option value="Alumnos/Estudiantes">Alumnos / Estudiantes</option>
+                <option value="Padres de Familia">Padres de Familia</option>
+                <option value="Docentes/Personal">Docentes o Personal Laboral</option>
+            </select>
+            <textarea id="escuela_tema" rows="2"
+                placeholder="Motivo del mensaje o tema principal que les gustaría abordar..."></textarea>
+            <button onclick="sendPlaticaWa()" class="btn"
+                style="width:100%; margin-top: 10px; background: #25d366; color: white; border-color: var(--pc-negro); box-shadow: 0 5px 0 var(--pc-negro);">Solicitar
+                Plática <span>💬</span></button>
+        </div>
+    </div>
+
     <script>
+        // FUNCIONES DE TABS
+        function openTab(event, tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).style.display = 'block';
+            event.currentTarget.classList.add('active');
+        }
+
+        // FUNCIONES DE MODALES Y WHATSAPP
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        function closeOnOutside(event, id) { if(event.target.id === id) closeModal(id); }
+        function closeOnOutside(event, id) { if (event.target.id === id) closeModal(id); }
+
         function sendSaludSexualWa() {
             let n = document.getElementById('ss_nombre').value.trim() || 'No especificado';
             let s = document.getElementById('ss_servicio').value || 'Información General';
@@ -165,7 +755,25 @@
             closeModal('modalSaludSexual');
         }
 
-        /* Funciones del test ITS */
+        function sendDrDonatoWa() {
+            let n = document.getElementById('dr_donato_nombre').value.trim() || 'No especificado';
+            let m = document.getElementById('dr_donato_motivo').value.trim() || 'Información sobre consulta';
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(`Hola, mi nombre es ${n}. Me gustaría agendar una consulta de Salud Sexual con el Dr. Carlos Donato.\n\nMotivo: ${m}`)}`, '_blank');
+            closeModal('modalDrDonato');
+        }
+
+        function sendPlaticaWa() {
+            let esc = document.getElementById('escuela_nombre').value.trim() || 'No especificada';
+            let ciudad = document.getElementById('escuela_ciudad').value || 'No especificado';
+            let publico = document.getElementById('escuela_publico').value || 'No especificado';
+            let tema = document.getElementById('escuela_tema').value.trim() || 'Educación Sexual Integral General';
+
+            let msg = `Hola Proyecto Celene 👋, nos interesa agendar una Plática / Taller de Salud Sexual (ESI).\n\n🏫 *Institución / Grupo:* ${esc}\n📍 *Ciudad:* ${ciudad}\n👥 *Público Objetivo:* ${publico}\n💬 *Motivo o Temas:* ${tema}\n\n¿Nos podrían compartir información sobre disponibilidad?`;
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+            closeModal('modalPlatica');
+        }
+
+        // FUNCIONES DEL TEST ITS
         function toggleQuiz() {
             let content = document.getElementById('quizContent');
             content.style.display = (content.style.display === 'none') ? 'block' : 'none';
@@ -175,23 +783,24 @@
             let checkboxes = document.querySelectorAll('.its-quiz:checked');
             let resultDiv = document.getElementById('quizResult');
             let score = checkboxes.length;
-            
+
             let html = "";
-            if(score <= 1) {
+            if (score <= 1) {
                 html = "<strong>0–1 puntos → BAJO RIESGO:</strong><br> Vas bien, pero no te confíes. Sigue protegiéndote con condón. ¡Prevenir es amarte!";
                 resultDiv.style.borderLeftColor = "#25d366"; resultDiv.style.background = "#e8f5e9";
-            } else if(score <= 4) {
+            } else if (score <= 4) {
                 html = "<strong>2–4 puntos → RIESGO MODERADO:</strong><br> Más vale checar que lamentar. Te invitamos con total confianza a agendar nuestro <strong>Paquete Básico o Pareja</strong>. ¡Cuidamos de ti sin juzgarte!";
                 resultDiv.style.borderLeftColor = "#f0ad4e"; resultDiv.style.background = "#fff3e0";
             } else {
                 html = "<strong>5 o más puntos → RIESGO ALTO:</strong><br> Necesitas una prueba... ¡y pronto! Agenda nuestro <strong>Paquete Completo Tranquilo</strong> hoy mismo. Deja de vivir con la duda, estamos aquí para apoyarte y guiarte con amor y absoluta discreción.";
                 resultDiv.style.borderLeftColor = "#d81b60"; resultDiv.style.background = "#fce4ec";
             }
-            
+
             resultDiv.innerHTML = html;
             resultDiv.style.display = "block";
         }
     </script>
-<script src="js/global.js"></script>
+    <script src="js/global.js"></script>
 </body>
+
 </html>

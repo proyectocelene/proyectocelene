@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const navbarContainer = document.getElementById('navbar-container');
     if (navbarContainer) {
         navbarContainer.innerHTML = `
-            <a href="inicio.html">Inicio</a>
+            <a href="index.html">Inicio</a>
             <a href="quienes-somos.html">Nosotros</a>
             <a href="modulos1.html">Módulos</a>
             <a href="consultorio-comunitario.html">Consultorio</a>
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Inyectar Botón Flotante de WhatsApp Global y su Modal
     const globalWaHTML = `
         <a href="javascript:void(0)" class="global-wa-float" onclick="openGlobalWaModal()" title="Contacto WhatsApp">
-            <span aria-hidden="true">💬</span>
+            <span>💬</span>
         </a>
         <div id="globalWaModal" class="global-wa-modal" onclick="closeGlobalWaModal(event)">
             <div class="global-wa-modal-content">

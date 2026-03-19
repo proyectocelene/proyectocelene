@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dr. Donato de Bolsillo</title>
+    
+    <!-- Etiquetas PWA para que sea "Instalable" en el celular -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22Dr.%20Donato%20de%20Bolsillo%22%2C%22short_name%22%3A%22Doc%20Donato%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23f8fafc%22%2C%22theme_color%22%3A%22%233b82f6%22%7D">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        /* Accesibilidad: Clase para agrandar todo */
+        html { transition: font-size 0.3s ease; }
+        html.text-large { font-size: 120%; }
+        
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .card { background: white; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        .input-group label { display: block; font-size: 0.875rem; font-weight: 600; color: #475569; margin-bottom: 0.25rem; }
+        .input-field { width: 100%; padding: 0.625rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; outline: none; transition: all 0.2s; }
+        .input-field:focus { border-color: #3b82f6; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); }
+        .btn-primary { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.75rem; transition: background 0.2s; cursor: pointer; }
+        .btn-primary:hover { background-color: #2563eb; }
+        .btn-whatsapp { background-color: #25d366; color: white; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background 0.2s; cursor: pointer;}
+        .btn-whatsapp:hover { background-color: #1ea952; }
+        
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+        
+        @keyframes pop { 0% { transform: scale(0.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .feedback-pop { animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+
+        /* Jeringa CSS */
+        .syringe-container { display: flex; align-items: center; justify-content: center; margin: 20px 0; }
+        .syringe-needle { width: 4px; height: 30px; background: #cbd5e1; border-radius: 2px 2px 0 0; position: relative; z-index: 1;}
+        .syringe-barrel { width: 60px; height: 100px; border: 3px solid #94a3b8; border-radius: 4px; position: relative; background: rgba(255,255,255,0.8); z-index: 2; overflow: hidden; display: flex; align-items: flex-end;}
+        .syringe-liquid { width: 100%; background: rgba(59, 130, 246, 0.5); transition: height 0.3s ease; }
+        .syringe-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(to bottom, transparent, transparent 9px, #94a3b8 9px, #94a3b8 10px); z-index: 3; opacity: 0.3;}
+        .syringe-plunger { width: 20px; height: 40px; background: #475569; position: relative; z-index: 1; margin-top: -5px; border-radius: 0 0 4px 4px;}
+        .syringe-top { width: 40px; height: 8px; background: #475569; border-radius: 4px; margin-top: -2px; z-index: 1;}
+        
+        /* Volcan CSS */
+        .volcano { width: 80px; height: 60px; clip-path: polygon(20% 100%, 80% 100%, 60% 0, 40% 0); background: #334155; position: relative; overflow: hidden;}
+        .volcano-lava { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, #ef4444, #f97316, #eab308); transition: height 0.5s ease; }
+        .volcano-smoke { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 20px; height: 20px; background: gray; border-radius: 50%; opacity: 0; transition: opacity 0.5s; animation: float 2s infinite alternate;}
+        @keyframes float { 0% { transform: translate(-50%, 0) scale(1); } 100% { transform: translate(-50%, -10px) scale(1.5); opacity: 0.5; } }
+
+        /* SOS Fab */
+        .fab { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: #ef4444; color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(239,68,68,0.5); cursor: pointer; z-index: 40; font-size: 24px; animation: pulse-red 2s infinite; }
+        @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+
+        /* Animación micrófono */
+        .mic-listening { animation: pulse-blue 1.5s infinite; background-color: #ef4444; color: white !important;}
+        @keyframes pulse-blue { 0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); } }
+    </style>
+</head>
+<body class="pb-24 text-slate-800">
+
+    <div class="max-w-md mx-auto px-4 pt-6 relative">
+        
+        <!-- Botón Accesibilidad: Letra Grande -->
+        <button onclick="toggleZoom()" class="absolute top-6 right-4 bg-slate-200 hover:bg-slate-300 text-slate-700 font-black w-10 h-10 rounded-full shadow-sm flex items-center justify-center text-lg z-50 transition-colors" title="Aumentar tamaño de letra">
+            A+
+        </button>
+
+        <!-- Header Personalizado -->
+        <header class="mb-6 text-center pt-2">
+            <img src="https://i.ibb.co/k2LCbnsF/tcarta-volante.png" alt="Proyecto Celene" class="w-11/12 max-w-[250px] mx-auto rounded-xl shadow-sm mb-4 object-contain">
+            <h1 class="text-3xl font-bold text-slate-800">Dr. Donato de Bolsillo</h1>
+            <p class="text-slate-500 text-sm mt-1">Tu bitácora médica personal</p>
+        </header>
+
+        <!-- Datos del Paciente -->
+        <div class="grid grid-cols-3 gap-3 mb-4">
+            <input type="text" id="nombrePaciente" onchange="saveProfile()" placeholder="Tu Nombre..." class="col-span-2 p-3 text-center font-bold text-slate-700 bg-white border-2 border-slate-200 rounded-xl focus:border-blue-500 outline-none shadow-sm">
+            <input type="number" id="edadPaciente" onchange="saveProfile()" placeholder="Edad" class="col-span-1 p-3 text-center font-bold text-slate-700 bg-white border-2 border-slate-200 rounded-xl focus:border-blue-500 outline-none shadow-sm">
+        </div>
+
+        <!-- Toggle de Diabetes -->
+        <div class="mb-6 bg-white p-3 rounded-xl border border-slate-200 shadow-sm flex justify-between items-center">
+            <span class="text-sm font-bold text-slate-700">💉 Tratamiento con Insulina</span>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="tieneDiabetes" onchange="toggleDiabetesUI(); saveProfile();" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+            </label>
+        </div>
+
+        <!-- Navegación Tabs -->
+        <div class="flex bg-white rounded-xl shadow-sm border border-slate-100 p-1 mb-4 sticky top-2 z-30">
+            <button onclick="switchTab('registro')" id="tab-registro-btn" class="flex-1 py-2 text-xs sm:text-sm font-bold rounded-lg bg-blue-50 text-blue-600 transition-colors">📝 Registro</button>
+            <button onclick="switchTab('medicamentos')" id="tab-medicamentos-btn" class="flex-1 py-2 text-xs sm:text-sm font-bold rounded-lg text-slate-500 hover:bg-slate-50 transition-colors">💊 Medicinas</button>
+            <button onclick="switchTab('historial')" id="tab-historial-btn" class="flex-1 py-2 text-xs sm:text-sm font-bold rounded-lg text-slate-500 hover:bg-slate-50 transition-colors">📊 Historial</button>
+        </div>
+
+        <!-- Banner de Conexión Offline -->
+        <div id="offline-banner" class="hidden bg-slate-800 text-white p-3 rounded-xl shadow-md text-sm font-bold items-center gap-3 mb-4">
+            <span class="text-xl">📡</span> 
+            <div>Estás sin conexión a internet. Tus registros se guardarán en tu celular para que los envíes después.</div>
+        </div>
+
+        <!-- Banner de Recordatorios -->
+        <div id="reminders-banner" class="hidden flex-col gap-2 mb-4"></div>
+
+        <!-- TAB 1: REGISTRO -->
+        <div id="tab-registro" class="block space-y-6">
+            
+            <!-- NUEVO: BOTÓN DE DICTADO INTELIGENTE GLOBAL -->
+            <button onclick="iniciarDictadoInteligente()" class="w-full bg-blue-100 hover:bg-blue-200 text-blue-700 border-2 border-blue-300 font-bold py-4 rounded-2xl shadow-sm flex items-center justify-center gap-3 transition-colors text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clip-rule="evenodd" /></svg>
+                Dictar todos mis datos
+            </button>
+
+            <!-- Baumanómetro + Volcán -->
+            <div class="card p-5 bg-slate-800 border-b-4 border-slate-900 relative mt-2">
+                <h3 class="text-slate-400 text-[10px] font-bold mb-3 text-center uppercase tracking-widest flex items-center justify-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Monitor de Presión
+                </h3>
+                
+                <div class="flex items-center gap-4">
+                    <div class="flex-1 grid grid-cols-2 gap-2 text-center">
+                        <div class="bg-black/60 p-2 rounded-lg border border-slate-700">
+                            <label class="block text-[9px] text-red-400 font-mono mb-1">PAS (SYS)</label>
+                            <input type="number" id="sistolica" oninput="checkPresion()" class="w-full bg-transparent text-red-500 font-mono text-xl text-center outline-none placeholder-red-900" placeholder="120">
+                        </div>
+                        <div class="bg-black/60 p-2 rounded-lg border border-slate-700">
+                            <label class="block text-[9px] text-blue-400 font-mono mb-1">PAD (DIA)</label>
+                            <input type="number" id="diastolica" oninput="checkPresion()" class="w-full bg-transparent text-blue-500 font-mono text-xl text-center outline-none placeholder-blue-900" placeholder="80">
+                        </div>
+                        <div class="col-span-2 bg-black/60 p-2 rounded-lg border border-slate-700">
+                            <label class="block text-[9px] text-green-400 font-mono mb-1">❤️ FRECUENCIA CARDÍACA</label>
+                            <input type="number" id="pulso" class="w-full bg-transparent text-green-500 font-mono text-xl text-center outline-none placeholder-green-900" placeholder="70 lpm">
+                        </div>
+                    </div>
+                    
+                    <!-- Diagrama de Volcán -->
+                    <div class="flex flex-col items-center justify-end w-24">
+                        <div class="text-[9px] text-slate-400 font-bold mb-1 uppercase text-center">Estado</div>
+                        <div class="relative">
+                            <div id="volcano-smoke" class="volcano-smoke"></div>
+                            <div class="volcano">
+                                <div id="volcano-lava" class="volcano-lava" style="height: 10%;"></div>
+                            </div>
+                        </div>
+                        <div id="presion-feedback" class="text-center text-[10px] font-bold mt-1 h-8 text-slate-300 flex items-center justify-center">Ingresa valores</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Glucómetro Inteligente -->
+            <div id="seccion-glucometro" class="card bg-slate-100 p-4 rounded-2xl border-2 border-slate-300 shadow-inner relative">
+                <div class="absolute top-2 right-3 text-red-500">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c-5.33 7.6-8 11.8-8 15a8 8 0 1016 0c0-3.2-2.67-7.4-8-15z"/></svg>
+                </div>
+                <span class="text-[11px] font-bold text-slate-500 uppercase mb-2 block">Glucómetro <span class="text-[9px] text-slate-400 normal-case">(Opcional)</span></span>
+                
+                <!-- Toggle Ayunas / Postprandial -->
+                <div class="flex bg-slate-200 rounded-lg p-1 mb-3">
+                    <button id="btn-ayunas" onclick="setMomentoComida('ayunas')" class="flex-1 py-1.5 text-xs font-bold rounded bg-white text-blue-600 shadow-sm transition-all">🌙 En Ayunas</button>
+                    <button id="btn-post" onclick="setMomentoComida('post')" class="flex-1 py-1.5 text-xs font-bold rounded text-slate-500 transition-all">🍽️ Ya Comí</button>
+                </div>
+
+                <div class="bg-yellow-50/80 w-full p-3 rounded-lg border-2 border-slate-300 shadow-inner text-center">
+                    <input type="number" id="glucosa" oninput="checkGlucosa()" placeholder="Ej. 95" class="w-full bg-transparent text-slate-800 font-mono text-4xl text-center outline-none placeholder-slate-300">
+                    <span class="text-[10px] font-mono text-slate-500 font-bold">mg/dL</span>
+                </div>
+                <div id="glucosa-feedback" class="mt-3 text-sm font-bold text-center h-4 text-slate-500">---</div>
+            </div>
+
+            <!-- Báscula, Síntomas -->
+            <div class="grid grid-cols-2 gap-4">
+                <div class="input-group">
+                    <label>⚖️ Peso (kg)</label>
+                    <input type="number" step="0.1" id="peso" placeholder="70.5" class="input-field bg-slate-50 text-center font-mono text-xl font-bold">
+                </div>
+                <div class="input-group">
+                    <label>🧠 Ánimo</label>
+                    <select id="sentimiento" class="input-field bg-slate-50 text-center text-lg">
+                        <option value="Excelente">😊 Excelente</option>
+                        <option value="Bien">🙂 Bien</option>
+                        <option value="Regular">😐 Regular</option>
+                        <option value="Mal">😔 Mal</option>
+                        <option value="Cansado">😫 Cansado</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Sección de Notas con Dictado por Voz individual -->
+            <div class="input-group relative">
+                <label>📝 Notas o Síntomas</label>
+                <textarea id="comentarios" rows="3" placeholder="Ej. Me dolió la cabeza, tuve pesadillas..." class="input-field bg-slate-50 resize-none pr-12"></textarea>
+                
+                <button id="btn-mic" onclick="iniciarDictadoNotas()" class="absolute right-2 bottom-2 text-blue-500 bg-blue-100 hover:bg-blue-200 p-2 rounded-full transition-colors flex items-center justify-center shadow-sm" title="Toca para dictar">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clip-rule="evenodd" /></svg>
+                </button>
+            </div>
+
+            <!-- SECCIÓN DE INSULINA INTEGRADADA -->
+            <div id="seccion-insulina" class="card p-5 border-t-4 border-orange-400 mt-6 bg-slate-50">
+                <h2 class="text-lg font-bold text-slate-800 mb-2 flex items-center justify-center gap-2">
+                    💉 Control de Insulina
+                </h2>
+                
+                <div class="text-[11px] text-center text-slate-500 mb-4 px-2 leading-relaxed">
+                    Si eres paciente insulinodependiente, registra tu dosis aplicada hoy. 
+                    <br><strong class="text-blue-700">Regla de los 3 Días:</strong> Ajusta tu dosis solo si la has mantenido por 3 días seguidos.
+                </div>
+                
+                <!-- Jeringa CSS Interactiva -->
+                <div class="flex flex-col items-center mb-6">
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="insulina-dosis" oninput="updateSyringe()" placeholder="0" class="w-16 text-center text-2xl font-bold text-blue-600 bg-white border-b-2 border-blue-400 outline-none pb-1 rounded shadow-inner">
+                        <span class="font-bold text-slate-500">Unidades</span>
+                    </div>
+                    
+                    <div class="syringe-container flex-col mt-4">
+                        <div class="syringe-top"></div>
+                        <div class="syringe-plunger" id="s-plunger"></div>
+                        <div class="syringe-barrel">
+                            <div class="syringe-lines"></div>
+                            <div class="syringe-liquid" id="s-liquid" style="height: 0%;"></div>
+                        </div>
+                        <div class="syringe-needle"></div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 p-3 bg-red-50 rounded-lg border border-red-200 mb-4">
+                    <input type="checkbox" id="calc-hipo" onchange="calcularAjusteInsulina()" class="w-6 h-6 accent-red-500 shrink-0">
+                    <label for="calc-hipo" class="text-xs font-semibold text-red-800 cursor-pointer">
+                        🚨 Sufrí hipoglucemia nocturna (sudor frío, pesadillas, glucosa baja de noche).
+                    </label>
+                </div>
+
+                <!-- Calendario / Evaluación -->
+                <div id="insulina-evaluacion" class="hidden p-4 rounded-xl border-2 transition-all text-center bg-white shadow-sm">
+                    <h4 id="insulina-titulo" class="font-bold text-lg mb-2"></h4>
+                    <p id="insulina-mensaje" class="text-sm font-medium mb-2"></p>
+                    <div id="insulina-calendario" class="flex justify-center gap-2 mt-3"></div>
+                </div>
+            </div>
+
+            <button onclick="saveEntry()" class="w-full btn-primary text-xl shadow-lg shadow-blue-500/30 py-4 mt-6">
+                💾 Guardar Registro Completo
+            </button>
+            
+            <button onclick="sendWhatsApp('actual')" class="w-full bg-green-500 text-white font-bold py-3 rounded-xl shadow-md hover:bg-green-600 flex items-center justify-center gap-2 mt-3 transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Enviar ESTE registro a mi Doctor
+            </button>
+        </div>
+
+        <!-- TAB 2: MEDICAMENTOS -->
+        <div id="tab-medicamentos" class="hidden space-y-4">
+            
+            <p class="text-xs text-slate-500 text-center mb-2 px-4">Toca la casilla para marcar tu medicina como "Tomada" el día de hoy.</p>
+            
+            <div id="lista-medicamentos-container" class="space-y-4">
+                <!-- Se llena dinámicamente -->
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 mt-6 shadow-sm">
+                <h3 class="font-bold text-blue-800 text-sm mb-2 flex items-center gap-1">➕ Añadir Medicamento</h3>
+                <div class="flex flex-col gap-3 mb-2">
+                    <input type="text" id="nuevo-med-nombre" placeholder="Ej. Losartán 50mg" class="p-3 text-sm border border-blue-200 rounded-lg outline-none focus:border-blue-500 font-semibold text-slate-700">
+                    <select id="nuevo-med-horario" class="p-3 text-sm border border-blue-200 rounded-lg outline-none bg-white font-semibold text-slate-700 cursor-pointer">
+                        <option value="manana">🌅 Mañana (6am - 12pm)</option>
+                        <option value="tarde">☀️ Tarde (12pm - 7pm)</option>
+                        <option value="noche">🌙 Noche (7pm - 6am)</option>
+                        <option value="prn">💊 Solo cuando lo necesito</option>
+                    </select>
+                </div>
+                <button onclick="agregarMedicamento()" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg text-sm hover:bg-blue-700 transition shadow-sm mt-1">Añadir a mi lista</button>
+            </div>
+
+            <button onclick="sendWhatsAppMedicamentos()" class="w-full btn-whatsapp shadow-lg shadow-green-500/30 py-4 text-sm mt-4">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                ENVIAR MIS MEDICINAS A MI DOCTOR
+            </button>
+        </div>
+
+        <!-- TAB 3: HISTORIAL -->
+        <div id="tab-historial" class="hidden space-y-6">
+            
+            <button onclick="sendWhatsApp('todos')" class="w-full btn-whatsapp shadow-lg shadow-green-500/30 py-4 text-sm mt-2">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                ENVIAR HISTORIAL COMPLETO A MI DOCTOR
+            </button>
+
+            <!-- Gráfica Presión -->
+            <div class="card p-4">
+                <h2 class="text-sm font-bold text-slate-800 mb-2">Evolución de Presión Arterial</h2>
+                <div class="h-48"><canvas id="chartPresion"></canvas></div>
+                <p class="text-[9px] text-center text-slate-400 mt-1">Zona verde: Meta saludable (< 130/80)</p>
+            </div>
+
+            <!-- Gráfica Glucosa -->
+            <div id="grafica-glucosa-container" class="card p-4">
+                <h2 class="text-sm font-bold text-slate-800 mb-2">Evolución de Glucosa (Ayunas)</h2>
+                <div class="h-48"><canvas id="chartGlucosa"></canvas></div>
+                <p class="text-[9px] text-center text-slate-400 mt-1">Zona verde: Meta en ayunas (80 - 130 mg/dL)</p>
+            </div>
+
+            <!-- Bitácora Listado -->
+            <div class="card p-5">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-slate-800">Historial Médico</h2>
+                    <button onclick="clearData()" class="text-xs text-red-500 bg-red-50 px-2 py-1 rounded font-semibold hover:bg-red-100 transition">Borrar</button>
+                </div>
+                <div id="bitacora-lista" class="space-y-3 max-h-96 overflow-y-auto pr-2 pb-4">
+                    <!-- Registros dinámicos -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- ============================================== -->
+        <!-- DIRECTORIO MÉDICO Y CONTACTO (FOOTER)          -->
+        <!-- ============================================== -->
+        <div class="mt-8 mb-6">
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 w-full text-left">
+                
+                <div class="flex items-center gap-4 mb-5 border-b border-slate-100 pb-5">
+                    <img src="https://i.ibb.co/gLgnFxnR/DR-DONATO-CUADRADO.png" alt="Dr. Donato" class="w-16 h-16 rounded-full shadow-inner shrink-0 border border-blue-200 object-cover">
+                    <div>
+                        <h3 class="font-black text-slate-800 text-xl leading-tight">Dr. Donato</h3>
+                        <p class="text-sm text-blue-600 font-bold">Proyecto Celene</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-4 mb-6">
+                    <div class="flex items-start gap-3 text-slate-700">
+                        <span class="text-xl shrink-0 mt-0.5">🕒</span>
+                        <p class="text-sm"><b>Atención sin cita previa:</b><br>Lunes a Domingo<br>9:00 AM a 5:00 PM.</p>
+                    </div>
+                    
+                    <a href="https://maps.app.goo.gl/w3mAo9Pek32WLwi87" target="_blank" class="flex items-center gap-3 text-slate-700 hover:text-blue-600 transition bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <span class="text-xl shrink-0">📍</span> 
+                        <span class="text-sm font-bold">Ver consultorio en el mapa</span>
+                    </a>
+                    
+                    <a href="https://proyectocelene.org" target="_blank" class="flex items-center gap-3 text-slate-700 hover:text-blue-600 transition bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <span class="text-xl shrink-0">🌐</span> 
+                        <span class="text-sm font-bold">proyectocelene.org</span>
+                    </a>
+                    
+                    <a href="mailto:donato@proyectocelene.org" class="flex items-center gap-3 text-slate-700 hover:text-blue-600 transition bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <span class="text-xl shrink-0">📧</span> 
+                        <span class="text-sm font-bold text-blue-600 underline">donato@proyectocelene.org</span>
+                    </a>
+                </div>
+
+                <button onclick="abrirCita()" class="w-full bg-blue-600 text-white font-bold py-4 px-4 rounded-xl hover:bg-blue-700 transition-colors shadow-lg flex items-center justify-center gap-2 text-lg">
+                    📅 Agendar Consulta
+                </button>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BOTÓN SOS FLOTANTE -->
+    <button onclick="abrirSOS()" class="fab" aria-label="Emergencia SOS">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+    </button>
+
+    <!-- ============================================== -->
+    <!-- MODAL DE DICTADO INTELIGENTE                   -->
+    <!-- ============================================== -->
+    <div id="modalDictado" class="fixed inset-0 bg-blue-900/90 z-50 hidden flex-col items-center justify-center p-6 text-white text-center">
+        <div class="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mb-6 animate-bounce shadow-[0_0_40px_rgba(59,130,246,0.8)]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clip-rule="evenodd" /></svg>
+        </div>
+        <h2 class="text-3xl font-bold mb-2">Te escucho...</h2>
+        <p class="text-blue-200 mb-8 text-lg">Habla con naturalidad.</p>
+        
+        <div class="bg-blue-800/50 p-5 rounded-2xl border border-blue-500 max-w-sm mb-6 text-left w-full">
+            <strong class="text-yellow-400 block mb-2">Ejemplo de qué decir:</strong>
+            <p class="text-slate-200 italic font-medium leading-relaxed">
+                "Mi presión es 120 sobre 80, mi corazón a 75, azúcar en 105 y peso 70 kilos."
+            </p>
+        </div>
+
+        <button onclick="detenerDictadoInteligente()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-full shadow-lg mt-4">Cancelar</button>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- MODAL DE CITAS MÉDICAS                         -->
+    <!-- ============================================== -->
+    <div id="modalCita" class="fixed inset-0 bg-slate-900/80 z-50 hidden flex-col items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            
+            <button onclick="cerrarCita()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <h2 class="text-xl font-black text-slate-800 mb-2 flex items-center gap-2">
+                <span class="text-2xl">📅</span> Agendar Consulta
+            </h2>
+            <p class="text-sm text-slate-600 mb-5 leading-relaxed font-medium bg-blue-50 p-3 rounded-lg border border-blue-100">
+                Llena estos datos. <b>Te confirmaré por WhatsApp</b> si el horario que deseas está disponible.
+            </p>
+
+            <div class="space-y-4 mb-6">
+                <div class="input-group">
+                    <label>¿Qué día quieres venir?</label>
+                    <input type="date" id="cita-fecha" class="input-field bg-slate-50 font-bold text-slate-700 text-lg py-3">
+                </div>
+                <div class="input-group">
+                    <label>¿A qué hora aproximadamente?</label>
+                    <input type="time" id="cita-hora" class="input-field bg-slate-50 font-bold text-slate-700 text-lg py-3">
+                </div>
+                <div class="input-group">
+                    <label>¿Cuál es el motivo de la cita?</label>
+                    <textarea id="cita-motivo" rows="2" placeholder="Ej. Revisión mensual, dolor de cabeza..." class="input-field bg-slate-50 resize-none"></textarea>
+                </div>
+            </div>
+
+            <button onclick="enviarCitaWhatsApp()" class="w-full btn-whatsapp py-4 shadow-lg text-lg mb-4">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Enviar Solicitud
+            </button>
+
+            <div class="text-center border-t border-slate-200 pt-4">
+                <p class="text-xs text-slate-500 mb-3 font-medium">O si lo prefieres, consulta directamente mi disponibilidad aquí:</p>
+                <a href="https://calendar.app.google/voTkx7S2J3BE2Zcu8" target="_blank" class="inline-block bg-slate-100 text-slate-700 text-xs font-bold py-3 px-5 rounded-xl hover:bg-slate-200 transition border border-slate-200 shadow-sm w-full">
+                    🗓️ Ver Calendario de Citas
+                </a>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Modal SOS / Cronómetro -->
+    <div id="modalSOS" class="fixed inset-0 bg-black/90 z-50 hidden flex-col items-center justify-center p-6 text-white text-center">
+        <h2 class="text-3xl font-bold text-red-500 mb-4 flex items-center gap-2">🚨 EMERGENCIA 🚨</h2>
+        
+        <div class="bg-red-900/50 p-5 rounded-2xl border border-red-500 max-w-sm mb-6 space-y-4 text-left">
+            <div>
+                <strong class="text-yellow-400">Si tu azúcar está BAJA (< 70):</strong>
+                <p class="text-sm text-slate-200 mt-1">Consume 15g de carbohidratos rápidos (ej. medio vaso de jugo, 3 dulces, o 1 cucharada de miel/azúcar). Espera 15 min y vuelve a medir.</p>
+            </div>
+            <div class="border-t border-red-500/50 pt-3">
+                <strong class="text-yellow-400">Si tu presión es MUY ALTA (> 180/120):</strong>
+                <p class="text-sm text-slate-200 mt-1">Reposa en silencio 5 min. Si persisten síntomas (dolor de pecho, falta de aire, visión borrosa) <b>ACUDE A URGENCIAS O LLAMA AL MÉDICO</b>.</p>
+            </div>
+        </div>
+
+        <div id="timerDisplay" class="text-6xl font-mono font-bold mb-6 text-yellow-300">15:00</div>
+        
+        <div class="flex gap-4">
+            <button onclick="iniciarTimer()" class="bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-6 rounded-full shadow-lg">Iniciar Cronómetro</button>
+            <button onclick="cerrarSOS()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-full">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Toast de guardado -->
+    <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-6 py-3 rounded-full text-sm font-medium opacity-0 transition-opacity pointer-events-none z-50 shadow-2xl">
+        ¡Acción guardada!
+    </div>
+
+    <script>
+        let healthData = JSON.parse(localStorage.getItem('healthEntries')) || [];
+        let pacienteName = localStorage.getItem('pacienteName') || '';
+        let pacienteEdad = localStorage.getItem('pacienteEdad') || '';
+        
+        let cPresion = null;
+        let cGlucosa = null;
+        let estadoComida = 'ayunas';
+        let timerInterval;
+        let isLargeText = localStorage.getItem('isLargeText') === 'true';
+
+        let tieneDiabetes = localStorage.getItem('tieneDiabetes') === 'false' ? false : true;
+        let medicamentos = JSON.parse(localStorage.getItem('pacienteMedicamentos')) || { manana: [], tarde: [], noche: [], prn: [] };
+        let tomasDiarias = JSON.parse(localStorage.getItem('tomasDiarias')) || {};
+
+        let recAsistenteInteligente = null;
+
+        window.onload = function() {
+            // Detección de conexión a internet
+            window.addEventListener('online', updateOnlineStatus);
+            window.addEventListener('offline', updateOnlineStatus);
+            updateOnlineStatus();
+
+            if(pacienteName) document.getElementById('nombrePaciente').value = pacienteName;
+            if(pacienteEdad) document.getElementById('edadPaciente').value = pacienteEdad;
+            
+            document.getElementById('tieneDiabetes').checked = tieneDiabetes;
+            toggleDiabetesUI();
+            aplicarZoom();
+            
+            setMomentoComida('ayunas');
+            renderHistory();
+            actualizarGraficas();
+            checkReminders();
+            renderMedicamentos();
+            setInterval(checkCurrentTimeBlock, 60000); 
+        };
+
+        // --- ASISTENTE DE VOZ INTELIGENTE (NUEVO) ---
+        function iniciarDictadoInteligente() {
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                alert("Tu navegador no soporta el dictado por voz. Intenta usar Google Chrome o Safari.");
+                return;
+            }
+            
+            document.getElementById('modalDictado').classList.remove('hidden');
+            document.getElementById('modalDictado').classList.add('flex');
+            
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recAsistenteInteligente = new SpeechRecognition();
+            recAsistenteInteligente.lang = 'es-MX';
+            recAsistenteInteligente.interimResults = false;
+            
+            recAsistenteInteligente.onresult = function(event) {
+                const transcript = event.results[0][0].transcript.toLowerCase();
+                procesarTextoInteligente(transcript);
+                detenerDictadoInteligente();
+            };
+            
+            recAsistenteInteligente.onerror = function(event) {
+                alert("No pude escucharte bien: " + event.error);
+                detenerDictadoInteligente();
+            };
+            
+            recAsistenteInteligente.start();
+        }
+
+        function detenerDictadoInteligente() {
+            document.getElementById('modalDictado').classList.add('hidden');
+            document.getElementById('modalDictado').classList.remove('flex');
+            if(recAsistenteInteligente) {
+                recAsistenteInteligente.stop();
+            }
+        }
+
+        function procesarTextoInteligente(texto) {
+            let encontradoAlgo = false;
+
+            // 1. Extraer Presión Arterial (Ej: "120 sobre 80", "120 con 80", "120 80")
+            let presionMatch = texto.match(/(\d{2,3})\s*(?:sobre|con|y|a| )\s*(\d{2,3})/i);
+            if(presionMatch) {
+                document.getElementById('sistolica').value = presionMatch[1];
+                document.getElementById('diastolica').value = presionMatch[2];
+                checkPresion();
+                encontradoAlgo = true;
+            }
+
+            // 2. Extraer Glucosa/Azúcar (Ej: "azúcar 105", "105 de glucosa")
+            let glucosaMatch = texto.match(/(?:az[úu]car|glucosa|dulce).*?(\d{2,3})/i) || texto.match(/(\d{2,3}).*?(?:az[úu]car|glucosa)/i);
+            if(glucosaMatch && tieneDiabetes) {
+                document.getElementById('glucosa').value = glucosaMatch[1] || glucosaMatch[2];
+                checkGlucosa();
+                encontradoAlgo = true;
+            }
+
+            // 3. Extraer Pulso/Corazón (Ej: "corazón a 80", "pulso 75")
+            let pulsoMatch = texto.match(/(?:coraz[óo]n|pulso|latidos|frecuencia).*?(\d{2,3})/i) || texto.match(/(\d{2,3}).*?(?:latidos|pulsaciones)/i);
+            if(pulsoMatch) {
+                document.getElementById('pulso').value = pulsoMatch[1] || pulsoMatch[2];
+                encontradoAlgo = true;
+            }
+
+            // 4. Extraer Peso (Ej: "peso 70", "72.5 kilos")
+            let pesoMatch = texto.match(/(?:peso|pes[eé]).*?(\d{2,3}(?:\.\d+)?)/i) || texto.match(/(\d{2,3}(?:\.\d+)?).*?(?:kilos|kg)/i);
+            if(pesoMatch) {
+                document.getElementById('peso').value = pesoMatch[1] || pesoMatch[2];
+                encontradoAlgo = true;
+            }
+
+            if(encontradoAlgo) {
+                showToast("¡Datos extraídos correctamente!");
+            } else {
+                alert("No pude encontrar los números en lo que dijiste. Intenta hablar más claro o escríbelos manualmente.");
+            }
+        }
+
+        // --- OFFLINE SUPPORT ---
+        function updateOnlineStatus() {
+            const banner = document.getElementById('offline-banner');
+            if (navigator.onLine) {
+                banner.classList.add('hidden');
+                banner.classList.remove('flex');
+            } else {
+                banner.classList.remove('hidden');
+                banner.classList.add('flex');
+            }
+        }
+
+        // --- SISTEMA DE CITAS ---
+        function abrirCita() {
+            document.getElementById('modalCita').classList.remove('hidden');
+            document.getElementById('modalCita').classList.add('flex');
+            
+            const hoy = new Date().toISOString().split('T')[0];
+            document.getElementById('cita-fecha').setAttribute('min', hoy);
+        }
+
+        function cerrarCita() {
+            document.getElementById('modalCita').classList.add('hidden');
+            document.getElementById('modalCita').classList.remove('flex');
+        }
+
+        function enviarCitaWhatsApp() {
+            if (!navigator.onLine) {
+                alert("Necesitas conexión a internet para enviar la solicitud de cita por WhatsApp.");
+                return;
+            }
+
+            saveProfile();
+            const nombre = pacienteName ? pacienteName : "[Nombre no registrado]";
+            const fecha = document.getElementById('cita-fecha').value;
+            const hora = document.getElementById('cita-hora').value;
+            const motivo = document.getElementById('cita-motivo').value;
+
+            if(!fecha || !hora) {
+                alert("Por favor selecciona una fecha y una hora para poder agendar tu cita.");
+                return;
+            }
+
+            let mensaje = `*SOLICITUD DE CITA MÉDICA*%0A`;
+            mensaje += `👤 Paciente: *${nombre}*%0A%0A`;
+            mensaje += `🗓️ Fecha deseada: *${fecha}*%0A`;
+            mensaje += `⏰ Hora deseada: *${hora}*%0A`;
+            if(motivo) mensaje += `📝 Motivo: _${motivo}_%0A`;
+            mensaje += `%0AHola Dr. Donato, me gustaría saber si tiene disponibilidad en este horario. Quedo en espera de su confirmación.`;
+
+            cerrarCita();
+            const url = `https://wa.me/526612865423?text=${mensaje}`;
+            window.open(url, '_blank');
+        }
+
+        // --- ACCESIBILIDAD ---
+        function toggleZoom() {
+            isLargeText = !isLargeText;
+            localStorage.setItem('isLargeText', isLargeText);
+            aplicarZoom();
+            showToast(isLargeText ? "Letra aumentada" : "Letra normal");
+        }
+
+        function aplicarZoom() {
+            if(isLargeText) document.documentElement.classList.add('text-large');
+            else document.documentElement.classList.remove('text-large');
+        }
+
+        // --- DICTADO POR VOZ (NOTAS INDIVIDUALES) ---
+        function iniciarDictadoNotas() {
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                alert("Tu navegador no soporta el dictado por voz. Intenta usar Google Chrome o Safari.");
+                return;
+            }
+            
+            const btnMic = document.getElementById('btn-mic');
+            btnMic.classList.add('mic-listening');
+            
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'es-MX';
+            recognition.interimResults = false;
+            
+            recognition.onresult = function(event) {
+                const texto = event.results[0][0].transcript;
+                const textarea = document.getElementById('comentarios');
+                textarea.value = textarea.value ? textarea.value + '. ' + texto : texto;
+                btnMic.classList.remove('mic-listening');
+                showToast("Texto agregado");
+            };
+            
+            recognition.onerror = function(event) {
+                btnMic.classList.remove('mic-listening');
+                alert("Hubo un problema con el micrófono: " + event.error);
+            };
+
+            recognition.onend = function() {
+                btnMic.classList.remove('mic-listening');
+            }
+            
+            recognition.start();
+        }
+
+        // --- TOGGLE DIABETES ---
+        function toggleDiabetesUI() {
+            tieneDiabetes = document.getElementById('tieneDiabetes').checked;
+            const disp = tieneDiabetes ? 'block' : 'none';
+            document.getElementById('seccion-insulina').style.display = disp;
+            // Ocultar glucómetro si no hay diabetes
+            document.getElementById('seccion-glucometro').style.display = disp;
+        }
+
+        // --- MEDICAMENTOS ---
+        function agregarMedicamento() {
+            const nombre = document.getElementById('nuevo-med-nombre').value.trim();
+            const horario = document.getElementById('nuevo-med-horario').value;
+            if(!nombre) return alert("Por favor escribe el nombre de la medicina.");
+            
+            medicamentos[horario].push({ id: Date.now(), nombre: nombre });
+            localStorage.setItem('pacienteMedicamentos', JSON.stringify(medicamentos));
+            document.getElementById('nuevo-med-nombre').value = '';
+            renderMedicamentos();
+            showToast("Añadida");
+        }
+
+        function borrarMedicamento(horario, id) {
+            medicamentos[horario] = medicamentos[horario].filter(m => m.id !== id);
+            localStorage.setItem('pacienteMedicamentos', JSON.stringify(medicamentos));
+            renderMedicamentos();
+        }
+
+        function marcarMedicamentoTomado(id) {
+            const hoy = new Date().toLocaleDateString();
+            if(!tomasDiarias[hoy]) tomasDiarias[hoy] = [];
+            
+            if(tomasDiarias[hoy].includes(id)) {
+                tomasDiarias[hoy] = tomasDiarias[hoy].filter(medId => medId !== id); 
+            } else {
+                tomasDiarias[hoy].push(id); 
+                showToast("¡Medicina registrada!");
+            }
+            
+            localStorage.setItem('tomasDiarias', JSON.stringify(tomasDiarias));
+            renderMedicamentos();
+        }
+
+        function getHorarioActualInfo() {
+            const hour = new Date().getHours();
+            if(hour >= 6 && hour < 12) return 'manana';
+            if(hour >= 12 && hour < 19) return 'tarde';
+            if(hour >= 19 || hour < 6) return 'noche';
+            return 'manana';
+        }
+
+        function checkCurrentTimeBlock() {
+            renderMedicamentos(); 
+        }
+
+        function renderMedicamentos() {
+            const container = document.getElementById('lista-medicamentos-container');
+            const currentBlock = getHorarioActualInfo();
+            const hoy = new Date().toLocaleDateString();
+            const tomasDeHoy = tomasDiarias[hoy] || [];
+            
+            const bloques = [
+                { id: 'manana', titulo: '🌅 Por la Mañana', color: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-800' },
+                { id: 'tarde', titulo: '☀️ Por la Tarde', color: 'bg-orange-50', border: 'border-orange-200', text: 'text-orange-800' },
+                { id: 'noche', titulo: '🌙 Por la Noche', color: 'bg-indigo-50', border: 'border-indigo-200', text: 'text-indigo-800' },
+                { id: 'prn', titulo: '💊 Solo cuando lo necesito (SOS)', color: 'bg-slate-50', border: 'border-slate-200', text: 'text-slate-800' }
+            ];
+
+            let html = '';
+            bloques.forEach(b => {
+                const meds = medicamentos[b.id];
+                const isCurrent = currentBlock === b.id && b.id !== 'prn';
+                const activeClasses = isCurrent ? 'ring-2 ring-blue-500 shadow-md scale-[1.02] transition-transform' : 'opacity-90';
+                
+                html += `
+                <div class="rounded-xl border ${b.border} ${b.color} p-4 relative ${activeClasses}">
+                    ${isCurrent ? '<div class="absolute -top-3 right-4 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-sm animate-pulse">¡TOCA AHORA!</div>' : ''}
+                    <h4 class="font-bold ${b.text} mb-3 border-b border-black/10 pb-2">${b.titulo}</h4>
+                    `;
+                
+                if(meds.length === 0) {
+                    html += `<p class="text-xs text-black/40 italic font-medium">Vacío.</p>`;
+                } else {
+                    html += `<ul class="space-y-2">`;
+                    meds.forEach(m => {
+                        const isTaken = tomasDeHoy.includes(m.id);
+                        html += `
+                        <li class="flex justify-between items-center bg-white p-2 rounded-lg border border-black/5 shadow-sm">
+                            <div class="flex items-center gap-3 flex-1 cursor-pointer" onclick="marcarMedicamentoTomado(${m.id})">
+                                <div class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center ${isTaken ? 'bg-green-500 border-green-500 text-white' : 'border-slate-300 bg-slate-50'}">
+                                    ${isTaken ? '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>' : ''}
+                                </div>
+                                <span class="text-sm font-bold ${isTaken ? 'text-slate-400 line-through' : 'text-slate-700'}">💊 ${m.nombre}</span>
+                            </div>
+                            <button onclick="borrarMedicamento('${b.id}', ${m.id})" class="text-red-400 hover:text-red-600 p-2 rounded-full hover:bg-red-50 transition ml-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                            </button>
+                        </li>`;
+                    });
+                    html += `</ul>`;
+                }
+                html += `</div>`;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // --- RECORDATORIOS ---
+        function checkReminders() {
+            let banner = document.getElementById('reminders-banner');
+            let msgs = [];
+            
+            let lastWA = localStorage.getItem('lastWhatsApp');
+            if(lastWA) {
+                let days = (Date.now() - parseInt(lastWA)) / (1000 * 60 * 60 * 24);
+                if (days >= 7) {
+                    msgs.push(`<div class="bg-yellow-50 border border-yellow-200 text-yellow-800 p-3 rounded-lg shadow-sm text-sm flex items-start gap-3"><span class="text-2xl">📅</span> <div><b>¡Hola!</b> Han pasado más de 7 días desde tu último reporte. Recuerda enviar tus datos a tu doctor para tu seguimiento seguro.</div></div>`);
+                }
+            } else if (healthData.length >= 5) {
+                msgs.push(`<div class="bg-yellow-50 border border-yellow-200 text-yellow-800 p-3 rounded-lg shadow-sm text-sm flex items-start gap-3"><span class="text-2xl">📅</span> <div><b>Recordatorio:</b> No olvides presionar el botón de enviar para que el Dr. Donato revise tus registros.</div></div>`);
+            }
+
+            if(tieneDiabetes && healthData.length >= 3) {
+                let dose1 = healthData[0].insulina;
+                let dose2 = healthData[1].insulina;
+                let dose3 = healthData[2].insulina;
+                let lastGluc = healthData[0].glucosa;
+                
+                if(dose1 && dose1 === dose2 && dose2 === dose3) {
+                    if(lastGluc && (lastGluc > 130 || lastGluc < 70)) {
+                        msgs.push(`<div class="bg-blue-50 border border-blue-200 text-blue-800 p-3 rounded-lg shadow-sm text-sm flex items-start gap-3"><span class="text-2xl">💉</span> <div><b>Aviso de Insulina:</b> Llevas al menos 3 registros con la misma dosis y tu azúcar requiere atención. Revisa tu sección de insulina para aplicar el ajuste.</div></div>`);
+                    }
+                }
+            }
+
+            if(msgs.length > 0) {
+                banner.innerHTML = msgs.join('');
+                banner.classList.remove('hidden');
+                banner.classList.add('flex');
+            }
+        }
+
+        // --- TABS ---
+        function switchTab(tabName) {
+            document.getElementById('tab-registro').classList.add('hidden');
+            document.getElementById('tab-medicamentos').classList.add('hidden');
+            document.getElementById('tab-historial').classList.add('hidden');
+            
+            ['registro', 'medicamentos', 'historial'].forEach(b => {
+                let btn = document.getElementById(`tab-${b}-btn`);
+                if(btn) btn.className = "flex-1 py-2 text-xs sm:text-sm font-bold rounded-lg text-slate-500 hover:bg-slate-50 transition-colors";
+            });
+
+            document.getElementById(`tab-${tabName}`).classList.remove('hidden');
+            let activeBtn = document.getElementById(`tab-${tabName}-btn`);
+            if(activeBtn) activeBtn.className = "flex-1 py-2 text-xs sm:text-sm font-bold rounded-lg bg-blue-50 text-blue-600 shadow-sm transition-colors";
+            
+            if(tabName === 'historial') actualizarGraficas();
+        }
+
+        function saveProfile() {
+            pacienteName = document.getElementById('nombrePaciente').value;
+            pacienteEdad = document.getElementById('edadPaciente').value;
+            tieneDiabetes = document.getElementById('tieneDiabetes').checked;
+            localStorage.setItem('pacienteName', pacienteName);
+            localStorage.setItem('pacienteEdad', pacienteEdad);
+            localStorage.setItem('tieneDiabetes', tieneDiabetes);
+        }
+
+        // --- LÓGICA MÉDICA ---
+        function checkPresion() {
+            let sys = parseInt(document.getElementById('sistolica').value);
+            let dia = parseInt(document.getElementById('diastolica').value);
+            let fb = document.getElementById('presion-feedback');
+            let lava = document.getElementById('volcano-lava');
+            let smoke = document.getElementById('volcano-smoke');
+            
+            if(!sys && !dia) { 
+                fb.innerText = "Ingresa valores"; 
+                lava.style.height = "10%";
+                smoke.style.opacity = "0";
+                return; 
+            }
+            
+            fb.classList.remove('text-green-400', 'text-yellow-400', 'text-orange-400', 'text-red-400', 'text-red-500', 'animate-pulse');
+            
+            if (sys >= 140 || dia >= 90) {
+                fb.innerText = "🚨 Descontrol (Alerta)";
+                fb.classList.add('text-red-500', 'animate-pulse');
+                lava.style.height = "100%";
+                lava.style.background = "linear-gradient(to top, #b91c1c, #ef4444)";
+                smoke.style.opacity = "1";
+            } else if (sys >= 130 || dia >= 80) {
+                fb.innerText = "⚠️ Fuera de Meta (Elevada)";
+                fb.classList.add('text-orange-400');
+                lava.style.height = "60%";
+                lava.style.background = "linear-gradient(to top, #ea580c, #f97316)";
+                smoke.style.opacity = "0";
+            } else {
+                fb.innerText = "✅ Controlado (< 130/80)";
+                fb.classList.add('text-green-400');
+                lava.style.height = "20%";
+                lava.style.background = "#22c55e";
+                smoke.style.opacity = "0";
+            }
+        }
+
+        function setMomentoComida(estado) {
+            estadoComida = estado;
+            let btnA = document.getElementById('btn-ayunas');
+            let btnP = document.getElementById('btn-post');
+            
+            if(estado === 'ayunas') {
+                btnA.className = "flex-1 py-1.5 text-xs font-bold rounded bg-white text-blue-600 shadow-sm transition-all";
+                btnP.className = "flex-1 py-1.5 text-xs font-bold rounded text-slate-500 transition-all";
+            } else {
+                btnP.className = "flex-1 py-1.5 text-xs font-bold rounded bg-white text-blue-600 shadow-sm transition-all";
+                btnA.className = "flex-1 py-1.5 text-xs font-bold rounded text-slate-500 transition-all";
+            }
+            checkGlucosa();
+        }
+
+        function checkGlucosa() {
+            let val = parseInt(document.getElementById('glucosa').value);
+            let fb = document.getElementById('glucosa-feedback');
+            
+            if(!val) { 
+                fb.innerText = "---"; 
+                fb.className = "mt-3 text-sm font-bold text-center h-4 text-slate-500"; 
+                return; 
+            }
+            
+            fb.classList.remove('feedback-pop'); void fb.offsetWidth; fb.classList.add('feedback-pop');
+
+            if(val < 70) {
+                fb.innerText = "⚠️ ALERTA: Hipoglucemia";
+                fb.className = "mt-3 text-sm font-bold text-center h-4 text-red-600 feedback-pop";
+            } else {
+                if(estadoComida === 'ayunas') {
+                    if(val <= 130 && val >= 80) {
+                        fb.innerText = "✅ En Meta (80-130)";
+                        fb.className = "mt-3 text-sm font-bold text-center h-4 text-green-600 feedback-pop";
+                    } else if (val > 130) {
+                        fb.innerText = "🚨 Alta para ayuno";
+                        fb.className = "mt-3 text-sm font-bold text-center h-4 text-orange-600 feedback-pop";
+                    }
+                } else {
+                    if(val < 180) {
+                        fb.innerText = "✅ En Meta (< 180)";
+                        fb.className = "mt-3 text-sm font-bold text-center h-4 text-green-600 feedback-pop";
+                    } else {
+                        fb.innerText = "🚨 Alta para postcomida";
+                        fb.className = "mt-3 text-sm font-bold text-center h-4 text-orange-600 feedback-pop";
+                    }
+                }
+            }
+        }
+
+        // --- INSULINA ---
+        function updateSyringe() {
+            let val = parseInt(document.getElementById('insulina-dosis').value) || 0;
+            let percentage = Math.min((val / 50) * 100, 100);
+            document.getElementById('s-liquid').style.height = `${percentage}%`;
+            document.getElementById('s-plunger').style.transform = `translateY(-${percentage * 0.8}px)`;
+            calcularAjusteInsulina();
+        }
+
+        function calcularAjusteInsulina() {
+            const dosis = parseFloat(document.getElementById('insulina-dosis').value);
+            
+            let glucosaInput = parseInt(document.getElementById('glucosa').value);
+            let glucosa = (glucosaInput && estadoComida === 'ayunas') ? glucosaInput : null;
+            
+            if(!glucosa) {
+                let ultimaAyunas = healthData.find(e => e.glucosa && e.momentoGlucosa === 'ayunas');
+                if(ultimaAyunas) glucosa = ultimaAyunas.glucosa;
+            }
+
+            const nocturna = document.getElementById('calc-hipo').checked;
+            
+            const box = document.getElementById('insulina-evaluacion');
+            const titulo = document.getElementById('insulina-titulo');
+            const mensaje = document.getElementById('insulina-mensaje');
+            const cal = document.getElementById('insulina-calendario');
+
+            if (!dosis || !glucosa) {
+                box.classList.add('hidden');
+                return;
+            }
+
+            let diasSeguidos = 0;
+            for(let i=0; i<healthData.length; i++) {
+                if(healthData[i].insulina == dosis) diasSeguidos++;
+                else if (healthData[i].insulina) break;
+            }
+
+            box.classList.remove('hidden');
+            let colorClass = "";
+            let accion = "";
+
+            if (nocturna) {
+                let sugerida = Math.max(0, Math.min(dosis - 4, dosis - (dosis * 0.1))).toFixed(1);
+                titulo.innerText = "🚨 ALERTA: Hipoglucemia Nocturna";
+                accion = `Disminuir 4 unidades o un 10%. Sugerida: <b>${sugerida} U</b>.`;
+                colorClass = "bg-red-50 border-red-300 text-red-800";
+            } else if (glucosa < 70) {
+                titulo.innerText = "⬇️ BAJA: Riesgo de Hipoglucemia";
+                accion = `Disminuir de 2 a 4 unidades. Sugerida: <b>${Math.max(0, dosis-2)} a ${Math.max(0, dosis-4)} U</b>.`;
+                colorClass = "bg-red-50 border-red-300 text-red-800";
+            } else if (glucosa >= 70 && glucosa <= 100) {
+                titulo.innerText = "✅ ÓPTIMA: Glucosa en Meta";
+                accion = `Mantén la dosis actual de ${dosis} U.`;
+                colorClass = "bg-green-50 border-green-300 text-green-800";
+            } else if (glucosa > 100 && glucosa <= 130) {
+                titulo.innerText = "🟡 LÍMITE: Glucosa Aceptable";
+                accion = `Mantén la dosis y cuida la dieta.`;
+                colorClass = "bg-yellow-50 border-yellow-300 text-yellow-800";
+            } else if (glucosa > 130 && glucosa <= 180) {
+                titulo.innerText = "⬆️ ALTA: Aumento Ligero";
+                accion = `Aumentar de 2 a 4 unidades. Sugerida: <b>${dosis+2} a ${dosis+4} U</b>.`;
+                colorClass = "bg-orange-50 border-orange-300 text-orange-800";
+            } else if (glucosa > 180) {
+                titulo.innerText = "⬆️⬆️ MUY ALTA: Aumento Mayor";
+                accion = `Aumentar de 4 a 6 unidades. Sugerida: <b>${dosis+4} a ${dosis+6} U</b>.`;
+                colorClass = "bg-red-50 border-red-400 text-red-900";
+            }
+
+            if(diasSeguidos < 3 && !nocturna && glucosa >= 70) {
+                mensaje.innerHTML = `Llevas aprox <b>${diasSeguidos} días</b> con esta dosis. Espera cumplir los 3 días antes de hacer un ajuste hacia arriba.<br><br><i class="text-blue-700">Pronóstico futuro: ${accion}</i>`;
+                colorClass = "bg-blue-50 border-blue-300 text-blue-800";
+                titulo.innerText = "⏳ En periodo de valoración";
+            } else {
+                mensaje.innerHTML = `Ya puedes aplicar el ajuste sugerido. <br>👉 ${accion}`;
+            }
+
+            box.className = `p-4 rounded-xl border-2 transition-all mt-4 ${colorClass}`;
+            
+            cal.innerHTML = [1,2,3].map(d => {
+                let fill = d <= diasSeguidos ? "bg-current text-white" : "bg-transparent border-2 border-current opacity-50";
+                return `<div class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold ${fill}">${d > diasSeguidos ? d : '✓'}</div>`;
+            }).join('');
+        }
+
+        // --- GUARDADO ---
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            if(msg) toast.innerText = msg;
+            toast.style.opacity = '1';
+            setTimeout(() => { toast.style.opacity = '0'; }, 3000);
+        }
+
+        function saveEntry() {
+            saveProfile();
+            const sys = document.getElementById('sistolica').value;
+            const dia = document.getElementById('diastolica').value;
+            const pulso = document.getElementById('pulso').value;
+            const glucosa = document.getElementById('glucosa').value;
+            const peso = document.getElementById('peso').value;
+            const sentimiento = document.getElementById('sentimiento').value;
+            const comentarios = document.getElementById('comentarios').value;
+            const insulina = document.getElementById('insulina-dosis').value;
+            
+            if (!sys || !dia || !peso) {
+                alert("Por favor llena Presión y Peso al menos.");
+                return;
+            }
+
+            const entry = {
+                id: Date.now(),
+                fecha: new Date().toLocaleString(),
+                sistolica: parseInt(sys),
+                diastolica: parseInt(dia),
+                pulso: pulso ? parseInt(pulso) : '--',
+                glucosa: glucosa ? parseInt(glucosa) : null,
+                momentoGlucosa: glucosa ? estadoComida : null,
+                peso: parseFloat(peso),
+                sentimiento,
+                comentarios,
+                insulina: insulina ? parseFloat(insulina) : null
+            };
+
+            healthData.unshift(entry);
+            localStorage.setItem('healthEntries', JSON.stringify(healthData));
+            
+            ['sistolica', 'diastolica', 'pulso', 'glucosa', 'peso', 'comentarios', 'insulina-dosis'].forEach(id => {
+                let el = document.getElementById(id);
+                if(el) el.value = '';
+            });
+            updateSyringe();
+            checkPresion();
+            checkGlucosa();
+
+            showToast("Registro guardado con éxito");
+            renderHistory();
+            checkReminders(); 
+        }
+
+        // --- HISTORIAL ---
+        function renderHistory() {
+            const lista = document.getElementById('bitacora-lista');
+            if (healthData.length === 0) {
+                lista.innerHTML = '<p class="text-center text-slate-400 py-4">No hay registros aún.</p>';
+                return;
+            }
+
+            lista.innerHTML = healthData.map(entry => {
+                let gColor = 'bg-slate-200 text-slate-600';
+                let gText = 'Sin registro';
+                
+                if(entry.glucosa) {
+                    let esMalo = (entry.momentoGlucosa === 'ayunas' && entry.glucosa > 130) || (entry.momentoGlucosa === 'post' && entry.glucosa >= 180) || entry.glucosa < 70;
+                    gColor = esMalo ? 'bg-orange-100 text-orange-800' : 'bg-green-100 text-green-800';
+                    let icono = entry.momentoGlucosa === 'ayunas' ? '🌙' : '🍽️';
+                    gText = `G: ${entry.glucosa} mg/dL ${icono}`;
+                }
+
+                return `
+                <div class="border border-slate-200 bg-white p-3 rounded-xl shadow-sm">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-[10px] uppercase font-bold text-slate-400 border-b pb-1">🕒 ${entry.fecha}</span>
+                        <div class="flex flex-wrap gap-2 mt-1">
+                            <span class="bg-slate-800 text-white text-xs font-bold px-2 py-1 rounded">
+                                PAS: <span class="text-red-400">${entry.sistolica}</span> | PAD: <span class="text-blue-400">${entry.diastolica}</span> 
+                            </span>
+                            <span class="${gColor} text-xs font-bold px-2 py-1 rounded shadow-sm border border-slate-100">${gText}</span>
+                            ${entry.insulina ? `<span class="bg-purple-100 text-purple-800 text-xs font-bold px-2 py-1 rounded shadow-sm">💉 Insulina: ${entry.insulina}U</span>` : ''}
+                        </div>
+                        ${entry.comentarios && entry.comentarios !== "Registro solo de insulina" ? `<p class="mt-2 text-xs text-slate-600 bg-slate-50 p-2 rounded border border-slate-100 font-medium">📝 "${entry.comentarios}"</p>` : ''}
+                    </div>
+                </div>
+            `}).join('');
+        }
+
+        // --- GRÁFICAS ---
+        function actualizarGraficas() {
+            if (healthData.length === 0) return;
+
+            let datosGrafica = healthData.slice(0,10).reverse();
+            let labels = datosGrafica.map(e => e.fecha.split(',')[0].substring(0,5));
+            
+            let sysData = datosGrafica.map(e => e.sistolica === '--' ? null : e.sistolica);
+            let diaData = datosGrafica.map(e => e.diastolica === '--' ? null : e.diastolica);
+            
+            let glAyunasData = datosGrafica.map(e => (e.glucosa && e.momentoGlucosa === 'ayunas') ? e.glucosa : null);
+
+            if(cPresion) cPresion.destroy();
+            cPresion = new Chart(document.getElementById('chartPresion').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        { label: 'PAS (Alta)', data: sysData, borderColor: '#ef4444', backgroundColor: '#ef4444', tension: 0.3, spanGaps: true },
+                        { label: 'PAD (Baja)', data: diaData, borderColor: '#3b82f6', backgroundColor: '#3b82f6', tension: 0.3, spanGaps: true }
+                    ]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { 
+                        legend: { labels:{boxWidth:10, font:{size:10}} },
+                        annotation: {
+                            annotations: {
+                                box1: { type: 'box', yMin: 0, yMax: 130, backgroundColor: 'rgba(34, 197, 94, 0.15)', borderWidth: 0 }
+                            }
+                        }
+                    },
+                    scales: { y: { min: 50, max: 200 } }
+                }
+            });
+
+            if(cGlucosa) cGlucosa.destroy();
+            cGlucosa = new Chart(document.getElementById('chartGlucosa').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{ label: 'Azúcar Ayunas', data: glAyunasData, borderColor: '#f59e0b', backgroundColor: '#f59e0b', tension: 0.3, spanGaps: true }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { 
+                        legend: { labels:{boxWidth:10, font:{size:10}} },
+                        annotation: {
+                            annotations: {
+                                box1: { type: 'box', yMin: 80, yMax: 130, backgroundColor: 'rgba(34, 197, 94, 0.15)', borderWidth: 0 }
+                            }
+                        }
+                    },
+                    scales: { y: { min: 50, max: 250 } }
+                }
+            });
+        }
+
+        function clearData() {
+            if (confirm("¿Estás seguro de borrar todos tus registros médicos?")) {
+                healthData = [];
+                localStorage.removeItem('healthEntries');
+                renderHistory();
+                if(cPresion) cPresion.destroy();
+                if(cGlucosa) cGlucosa.destroy();
+                alert("Datos borrados.");
+            }
+        }
+
+        // --- EXPORTAR A WHATSAPP ---
+        function sendWhatsApp(tipo) {
+            if (!navigator.onLine) {
+                alert("Necesitas conexión a internet para enviar el mensaje por WhatsApp. Tus datos están guardados, inténtalo más tarde.");
+                return;
+            }
+
+            if (healthData.length === 0) {
+                alert("No tienes datos guardados para enviar.");
+                return;
+            }
+
+            saveProfile();
+            const nombre = pacienteName ? pacienteName : "[Nombre]";
+            const edadTxt = pacienteEdad ? `${pacienteEdad} años` : "[Edad]";
+            
+            let mensaje = `*REPORTE MÉDICO PARA EL DR. DONATO*%0A`;
+            mensaje += `👤 Paciente: *${nombre}* (${edadTxt})%0A`;
+            mensaje += `Generado el: ${new Date().toLocaleString()}%0A%0A`;
+            
+            let dataAEnviar = tipo === 'actual' ? [healthData[0]] : healthData.slice(0, 40);
+            
+            if(tipo === 'actual') {
+                mensaje += `*🩺 ÚLTIMO REGISTRO:*%0A`;
+            } else {
+                mensaje += `*📊 HISTORIAL COMPLETO:*%0A`;
+            }
+            
+            dataAEnviar.forEach((e, i) => {
+                mensaje += `---%0A`;
+                mensaje += `*📅 ${e.fecha.split(',')[0]}* (${e.fecha.split(',')[1].trim()})%0A`;
+                if(e.sistolica !== '--') mensaje += `🩺 PAS: ${e.sistolica} | PAD: ${e.diastolica} | FC: ${e.pulso}%0A`;
+                if(e.glucosa) {
+                    let estado = e.momentoGlucosa === 'ayunas' ? '(Ayunas)' : '(Post-comida)';
+                    mensaje += `🩸 Glucosa: ${e.glucosa} mg/dL ${estado}%0A`;
+                }
+                if(e.insulina) mensaje += `💉 Insulina: ${e.insulina} Unidades%0A`;
+                if(e.peso && e.peso !== '--') mensaje += `⚖️ Peso: ${e.peso} kg%0A`;
+                if(e.comentarios && e.comentarios !== "Registro solo de insulina") mensaje += `📝 Notas: ${e.comentarios}%0A`;
+            });
+
+            localStorage.setItem('lastWhatsApp', Date.now().toString());
+            checkReminders(); 
+
+            const url = `https://wa.me/526612865423?text=${mensaje}`;
+            window.open(url, '_blank');
+        }
+
+        function sendWhatsAppMedicamentos() {
+            if (!navigator.onLine) {
+                alert("Necesitas conexión a internet para enviar el mensaje por WhatsApp.");
+                return;
+            }
+
+            saveProfile();
+            const nombre = pacienteName ? pacienteName : "[Nombre]";
+            const edadTxt = pacienteEdad ? `${pacienteEdad} años` : "[Edad]";
+            
+            let totalMeds = 0;
+            Object.values(medicamentos).forEach(arr => totalMeds += arr.length);
+
+            if (totalMeds === 0) {
+                alert("No tienes medicamentos en tu lista para enviar.");
+                return;
+            }
+
+            let mensaje = `*LISTA DE MEDICAMENTOS ACTUALIZADA*%0A`;
+            mensaje += `👤 Paciente: *${nombre}* (${edadTxt})%0A`;
+            mensaje += `👨‍⚕️ Para: Dr. Donato%0A%0A`;
+
+            const hoy = new Date().toLocaleDateString();
+            const tomasDeHoy = tomasDiarias[hoy] || [];
+
+            const bloques = [
+                { id: 'manana', titulo: '🌅 Mañana' },
+                { id: 'tarde', titulo: '☀️ Tarde' },
+                { id: 'noche', titulo: '🌙 Noche' },
+                { id: 'prn', titulo: '💊 Solo cuando lo necesito' }
+            ];
+
+            bloques.forEach(b => {
+                const meds = medicamentos[b.id];
+                if(meds.length > 0) {
+                    mensaje += `*${b.titulo}:*%0A`;
+                    meds.forEach(m => {
+                        let tomada = tomasDeHoy.includes(m.id) ? "✅ Tomada" : "⏳ Pendiente";
+                        mensaje += `- ${m.nombre} (${tomada})%0A`;
+                    });
+                    mensaje += `%0A`;
+                }
+            });
+
+            const url = `https://wa.me/526612865423?text=${mensaje}`;
+            window.open(url, '_blank');
+        }
+
+        // --- EMERGENCIA SOS ---
+        let timerSegundos = 15 * 60; 
+        
+        function abrirSOS() {
+            document.getElementById('modalSOS').classList.remove('hidden');
+            document.getElementById('modalSOS').classList.add('flex');
+            clearInterval(timerInterval);
+            timerSegundos = 15 * 60;
+            actualizarDisplayTimer();
+        }
+
+        function cerrarSOS() {
+            document.getElementById('modalSOS').classList.add('hidden');
+            document.getElementById('modalSOS').classList.remove('flex');
+            clearInterval(timerInterval);
+        }
+
+        function iniciarTimer() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timerSegundos--;
+                actualizarDisplayTimer();
+                if(timerSegundos <= 0) {
+                    clearInterval(timerInterval);
+                    alert("¡PASARON 15 MINUTOS! VUELVE A CHECAR TUS SIGNOS.");
+                    if(navigator.vibrate) navigator.vibrate([500, 500, 500, 500]);
+                }
+            }, 1000);
+        }
+
+        function actualizarDisplayTimer() {
+            let m = Math.floor(timerSegundos / 60).toString().padStart(2, '0');
+            let s = (timerSegundos % 60).toString().padStart(2, '0');
+            document.getElementById('timerDisplay').innerText = `${m}:${s}`;
+        }
+    </script>
+</body>
+</html>

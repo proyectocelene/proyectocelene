@@ -7,6 +7,8 @@
     <title>18° Aniversario Vintage - Proyecto Celene</title>
     <meta name="description"
         content="Acompáñanos a celebrar 18 años de transformar vidas en nuestra Noche de Gala Vintage 50s-60s. Proyecto Celene, Rosarito B.C.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/aniversario.html">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
 
     <!-- Open Graph / Facebook -->
@@ -722,28 +724,32 @@
         /* BOTONES DE COPIAR MEJORADOS */
         .copy-box-modern {
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
+            flex-wrap: nowrap;
+            align-items: stretch;
             background: white;
             border: 3px solid var(--pop-dark);
-            border-radius: 10px;
+            border-radius: 50px;
             overflow: hidden;
             box-shadow: 4px 4px 0 var(--pop-blue);
             margin-bottom: 15px;
+            width: 100%;
             max-width: 500px;
         }
 
         .copy-box-modern .label {
             background: var(--pop-yellow);
-            padding: 12px 15px;
-            font-weight: bold;
+            padding: 12px 20px;
+            font-weight: 900;
             font-family: 'Inter', sans-serif;
             border-right: 3px solid var(--pop-dark);
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
         }
 
         .copy-box-modern input {
             flex: 1;
-            min-width: 150px;
+            min-width: 0;
             border: none;
             padding: 12px 15px;
             font-size: 1.1rem;
@@ -752,6 +758,7 @@
             outline: none;
             background: transparent;
             color: var(--pop-dark);
+            text-overflow: ellipsis;
         }
 
         .copy-box-modern button {
@@ -759,19 +766,82 @@
             color: white;
             border: none;
             border-left: 3px solid var(--pop-dark);
-            padding: 12px 20px;
+            padding: 12px 25px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 900;
             transition: 0.2s;
             font-size: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 8px;
+            white-space: nowrap;
         }
 
         .copy-box-modern button:hover {
             background: var(--pop-pink);
+        }
+
+        .btn-direction {
+            background: var(--pop-yellow);
+            color: var(--pop-dark);
+            border: 3px solid var(--pop-dark);
+            border-radius: 50px;
+            padding: 8px 15px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.95rem;
+            box-shadow: 3px 3px 0 var(--pop-dark);
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-direction:hover {
+            background: var(--pop-orange);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 5px 5px 0 var(--pop-dark);
+        }
+
+        /* ESTILOS DE MÉTODOS DE PAGO */
+        .payment-methods {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .payment-option {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pop-dark);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .payment-option:hover {
+            background: var(--pop-yellow);
+            box-shadow: 4px 4px 0 var(--pop-dark);
+            transform: translateY(-2px);
+        }
+
+        .payment-option input[type="radio"] {
+            margin-right: 15px;
+            transform: scale(1.5);
+            accent-color: var(--pop-pink);
+            cursor: pointer;
+        }
+
+        .payment-option label {
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            color: var(--pop-dark);
         }
 
         /* MODALES EMERGENTES */
@@ -919,18 +989,17 @@
                     solo día!</p>
                 <div
                     style="font-family: 'Courier Prime', monospace; font-weight: bold; font-size: 1.2rem; margin-bottom: 25px; background:var(--pop-dark); color:white; display:inline-block; padding:8px 20px; border-radius:10px;">
-                    <span aria-hidden='true'>📅</span> 28 Marzo 2026 | <span aria-hidden='true'>📍</span> Rosarito
+                    <span>📅</span> 28 Marzo 2026 | <span>📍</span> Rosarito
                 </div>
                 <div style="margin-top: 10px; text-align: center;">
-                    <a href="#comprar" class="btn-action" style="background:var(--pop-yellow);"><span
-                            aria-hidden='true'>🎫</span> Adquiere tus Entradas</a>
+                    <a href="#comprar" class="btn-action" style="background:var(--pop-yellow);"><span>🎫</span> Adquiere tus Entradas</a>
                 </div>
 
                 <!-- SPOTIFY IFRAME -->
                 <div class="spotify-container" style="margin-top: 30px; width: 100%; text-align: center;">
                     <p
                         style="font-family: 'Shrikhand', cursive; font-size: 1.2rem; margin-bottom: 10px; color: var(--pop-yellow); text-shadow: 2px 2px 0 var(--pop-dark);">
-                        <span aria-hidden='true'>🎶</span> ¡Sube el volumen y entra en ambiente!</p>
+                        <span>🎶</span> ¡Sube el volumen y entra en ambiente!</p>
                     <iframe data-testid="embed-iframe" style="border-radius:12px"
                         src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3xLGqpmU1Uv?utm_source=generator&theme=0"
                         width="100%" height="152" frameBorder="0" allowfullscreen=""
@@ -966,32 +1035,32 @@
 
             <div class="timeline-item" onclick="openModal('modalCarrera')">
                 <div class="timeline-content">
-                    <div class="timeline-time"><span aria-hidden='true'>☀️</span> 08:00 A.M.</div>
-                    <h3 class="timeline-title"><span aria-hidden='true'>🏃‍♀️</span> Carrera Aniversario</h3>
+                    <div class="timeline-time"><span>☀️</span> 08:00 A.M.</div>
+                    <h3 class="timeline-title"><span>🏃‍♀️</span> Carrera Aniversario</h3>
                     <span class="click-hint">Toca para más detalles 👆</span>
                 </div>
             </div>
 
             <div class="timeline-item" onclick="openModal('modalJornada')">
                 <div class="timeline-content">
-                    <div class="timeline-time"><span aria-hidden='true'>☀️</span> 08:00 A.M.</div>
-                    <h3 class="timeline-title"><span aria-hidden='true'>🩺</span> Jornada Médica</h3>
+                    <div class="timeline-time"><span>☀️</span> 08:00 A.M.</div>
+                    <h3 class="timeline-title"><span>🩺</span> Jornada Médica</h3>
                     <span class="click-hint">Toca para más detalles 👆</span>
                 </div>
             </div>
 
             <div class="timeline-item" onclick="openModal('modalZumba')">
                 <div class="timeline-content">
-                    <div class="timeline-time"><span aria-hidden='true'>☀️</span> 09:00 A.M.</div>
-                    <h3 class="timeline-title"><span aria-hidden='true'>💃</span> Gran Zumbatón</h3>
+                    <div class="timeline-time"><span>☀️</span> 09:00 A.M.</div>
+                    <h3 class="timeline-title"><span>💃</span> Gran Zumbatón</h3>
                     <span class="click-hint">Toca para más detalles 👆</span>
                 </div>
             </div>
 
             <div class="timeline-item" onclick="openModal('modalPlatica')">
                 <div class="timeline-content">
-                    <div class="timeline-time"><span aria-hidden='true'>☀️</span> 11:00 A.M.</div>
-                    <h3 class="timeline-title"><span aria-hidden='true'>🎤</span> Plática de Honor</h3>
+                    <div class="timeline-time"><span>☀️</span> 11:00 A.M.</div>
+                    <h3 class="timeline-title"><span>🎤</span> Plática de Honor</h3>
                     <span class="click-hint">Toca para más detalles 👆</span>
                 </div>
             </div>
@@ -999,9 +1068,8 @@
             <div class="timeline-item"
                 onclick="document.getElementById('gala-section').scrollIntoView({behavior: 'smooth'})">
                 <div class="timeline-content" style="background: var(--pop-blue); color: white;">
-                    <div class="timeline-time" style="background: white; color: var(--pop-dark);"><span
-                            aria-hidden='true'>🌙</span> 07:00 P.M.</div>
-                    <h3 class="timeline-title" style="color: var(--pop-yellow);"><span aria-hidden='true'>✨</span>
+                    <div class="timeline-time" style="background: white; color: var(--pop-dark);"><span>🌙</span> 07:00 P.M.</div>
+                    <h3 class="timeline-title" style="color: var(--pop-yellow);"><span>✨</span>
                         Evento Estelar</h3>
                     <span class="click-hint"
                         style="background: rgba(0,0,0,0.3); color: white; border-color: white;">Desplázate abajo
@@ -1012,14 +1080,14 @@
 
         <!-- EVENTO ESTELAR: LA GALA -->
         <div id="gala-section" style="padding-top: 50px;">
-            <h2 class="section-title font-groovy fade-in"><span aria-hidden='true'>🌙</span> El Evento Estelar</h2>
+            <h2 class="section-title font-groovy fade-in"><span>🌙</span> El Evento Estelar</h2>
             <div class="gala-spread fade-in">
                 <div class="gala-content">
                     <div class="event-time"
                         style="background:var(--pc-blanco); color:var(--pop-dark); font-size:1.4rem;">07:00 P.M. - 12:00
                         A.M.</div>
                     <h3 class="font-groovy">Gran Noche de Gala Vintage</h3>
-                    <p><span aria-hidden='true'>📍</span> Patio Central del Palacio Municipal de Rosarito.</p>
+                    <p><span>📍</span> Patio Central del Palacio Municipal de Rosarito.</p>
                     <p style="font-size: 1.3rem; font-weight: 800; color: var(--pop-yellow);">Cerraremos con broche de
                         oro.</p>
                     <p>Disfruta de un majestuoso <strong>Desfile de Modas</strong> con talento local y alta costura
@@ -1032,18 +1100,15 @@
                             Señora México 2025</span>
                     </div>
 
-                    <p style="font-weight:900; font-size:1.2rem; margin-top:10px;"><span aria-hidden='true'>👗</span>
+                    <p style="font-weight:900; font-size:1.2rem; margin-top:10px;"><span>👗</span>
                         Código de Vestimenta: Estilo 50s - 60s</p>
 
                     <div class="action-row" style="margin-top: 30px;">
                         <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action"
-                            style="background:var(--pop-yellow); color:var(--pop-dark);"><span
-                                aria-hidden='true'>📍</span> Ver en Mapa</a>
+                            style="background:var(--pop-yellow); color:var(--pop-dark);"><span>📍</span> Ver en Mapa</a>
                         <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gala+Vintage+Celene&dates=20260328T190000/20260328T235900&ctz=America/Tijuana&details=Gala+Aniversario&location=Palacio+Municipal+Rosarito"
-                            target="_blank" class="btn-action" style="background:var(--pc-blanco);"><span
-                                aria-hidden='true'>📅</span> Agendar en Calendario</a>
-                        <a href="#comprar" class="btn-action" style="background:var(--pop-pink); color:white;"><span
-                                aria-hidden='true'>🎟️</span> Comprar Pase a la Gala ($300)</a>
+                            target="_blank" class="btn-action" style="background:var(--pc-blanco);"><span>📅</span> Agendar en Calendario</a>
+                        <a href="#comprar" class="btn-action" style="background:var(--pop-pink); color:white;"><span>🎟️</span> Comprar Pase a la Gala ($300)</a>
                     </div>
                 </div>
             </div>
@@ -1052,14 +1117,14 @@
             <div style="text-align: center; margin-bottom: 60px;" class="fade-in">
                 <a href="epoca-vintage.html" class="btn-action"
                     style="background: var(--pop-blue); color: white; padding: 20px 40px; font-size: 1.3rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;">
-                    <span aria-hidden='true'>🎙️</span> ¿Quieres conocer más sobre esta época y cómo vestirte? <br>¡Da
-                    clic aquí! <span aria-hidden='true'>👗</span><span aria-hidden='true'>🚗</span>
+                    <span>🎙️</span> ¿Quieres conocer más sobre esta época y cómo vestirte? <br>¡Da
+                    clic aquí! <span>👗</span><span>🚗</span>
                 </a>
             </div>
 
             <!-- COMPRA DE BOLETOS -->
             <div id="comprar">
-                <h2 class="section-title font-groovy fade-in"><span aria-hidden='true'>🎟️</span> Taquilla Oficial</h2>
+                <h2 class="section-title font-groovy fade-in"><span>🎟️</span> Taquilla Oficial</h2>
                 <p style="text-align:center; font-size:1.1rem; font-weight:bold; margin-bottom:25px;" class="fade-in">
                     Arma tu paquete de boletos. Selecciona la cantidad y luego envíanos tu pedido.</p>
 
@@ -1115,43 +1180,111 @@
                 <h3 class="font-groovy"
                     style="font-size:2rem; color:var(--pop-blue); margin-bottom:20px; text-align:center;">¿Cómo comprar?
                 </h3>
-                <ul class="step-list">
-                    <li><strong>Realiza tu transferencia o depósito.</strong> (Guarda la captura de pantalla).<br>
-                        <span style="font-size:0.95rem; font-weight:normal; color:#555;">En concepto agrega: "Nombre y
-                            número de tu boleto".</span>
-                    </li>
-                    <li><strong>Copia los datos de pago oficiales:</strong><br>
-                        <div class="copy-box-modern" style="margin-top:15px;">
-                            <span class="label">Cuenta Santander</span>
-                            <input type="text" id="cuentaBanco" value="5579070150175472" readonly>
-                            <button onclick="copyToClipboard('cuentaBanco')"><span aria-hidden='true'>📋</span>
-                                Copiar</button>
+                
+                <div class="payment-methods">
+                    <h4 style="margin-bottom: 15px; font-size: 1.2rem; text-align: center;">Selecciona tu método de pago:</h4>
+                    
+                    <div class="payment-option" onclick="document.getElementById('payEfectivo').click()">
+                        <input type="radio" name="paymentMethod" id="payEfectivo" value="efectivo" checked onchange="calculateTotal()">
+                        <label for="payEfectivo" style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 10px;">
+                            <span>💵 <strong>Efectivo en Consultorio</strong> (Sin comisión)</span>
+                            <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" style="margin: 0;" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                        </label>
+                    </div>
+                    
+                    <div class="payment-option" onclick="document.getElementById('payTransferencia').click()">
+                        <input type="radio" name="paymentMethod" id="payTransferencia" value="transferencia" onchange="calculateTotal()">
+                        <label for="payTransferencia">🏦 <strong>Transferencia SPEI / CLABE</strong> (Sin comisión)</label>
+                    </div>
+                    
+                    <div class="payment-option" onclick="document.getElementById('payMercadoPago').click()">
+                        <input type="radio" name="paymentMethod" id="payMercadoPago" value="mercadopago" onchange="calculateTotal()">
+                        <label for="payMercadoPago">
+                            💳 <strong>Pago en línea (Mercado Pago)</strong> <br>
+                            <span style="font-size: 0.9rem; font-weight: 600; color: #555;">(Al ser una fundación sin fines de lucro, la plataforma agrega su comisión: 4.22% + $4.84 MXN)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Instrucciones dinámicas dependiendo del método -->
+                <div id="instructionsEfectivo" class="payment-instructions" style="display: block;">
+                    <ul class="step-list">
+                        <li><strong>Genera tu pedido.</strong> Presiona el botón verde de abajo para enviarnos tu pedido por WhatsApp.</li>
+                        <li><strong>Visítanos.</strong> Ven a nuestro consultorio en Rosarito para realizar tu pago en efectivo y recoger tus boletos.
+                            <br>
+                            <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction"><span>📍</span> Ver ubicación del Consultorio</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="instructionsTransferencia" class="payment-instructions" style="display: none;">
+                    <div style="background: var(--pop-yellow); padding: 20px; border-radius: 20px; border: 4px dashed var(--pop-dark); margin-bottom: 25px; text-align: center; box-shadow: 6px 6px 0 var(--pop-pink);">
+                        <p style="font-size: 1.2rem; font-weight: 800; margin-bottom: 5px; color: var(--pop-dark);">Tu Total a Transferir:</p>
+                        <div class="copy-box-modern" style="margin: 0 auto; max-width: 400px; box-shadow: none;">
+                            <span class="label">Total $</span>
+                            <input type="text" id="transferTotalInput" value="0.00" readonly style="text-align: center; font-size: 1.3rem; color: var(--pop-pink);">
+                            <button type="button" onclick="copyToClipboard('transferTotalInput', this)"><span>📋</span> Copiar</button>
                         </div>
-                        <div class="copy-box-modern">
-                            <span class="label">Titular de Cuenta</span>
-                            <input type="text" id="nombreTitular" value="Francisco Sandoval Deras" readonly>
-                            <button onclick="copyToClipboard('nombreTitular')"><span aria-hidden='true'>📋</span>
-                                Copiar</button>
+                    </div>
+                    <ul class="step-list">
+                        <li><strong>Copia los datos de pago oficiales:</strong><br>
+                            <div class="copy-box-modern" style="margin-top:15px;">
+                                <span class="label">Santander</span>
+                                <input type="text" id="cuentaBanco" value="5579070150175472" readonly>
+                                <button type="button" onclick="copyToClipboard('cuentaBanco', this)"><span>📋</span>
+                                    Copiar</button>
+                            </div>
+                            <div class="copy-box-modern">
+                                <span class="label">Titular</span>
+                                <input type="text" id="nombreTitular" value="Francisco Sandoval Deras" readonly>
+                                <button type="button" onclick="copyToClipboard('nombreTitular', this)"><span>📋</span>
+                                    Copiar</button>
+                            </div>
+                            <div class="copy-box-modern">
+                                <span class="label">Concepto</span>
+                                <input type="text" id="conceptoTransferencia" value="Boleto Celene" readonly>
+                                <button type="button" onclick="copyToClipboard('conceptoTransferencia', this)"><span>📋</span>
+                                    Copiar</button>
+                            </div>
+                        </li>
+                        <li><strong>Realiza tu transferencia.</strong> Pega la cuenta y el concepto exacto que copiaste arriba. (Guarda la captura de pantalla).</li>
+                        <li><strong>Envíanos tu pedido.</strong> Haz clic en el botón verde para mandar tu pedido y
+                            comprobante de pago por WhatsApp para recibir tus accesos digitales.</li>
+                    </ul>
+                </div>
+
+                <div id="instructionsMercadoPago" class="payment-instructions" style="display: none;">
+                    <div style="background: var(--pop-yellow); padding: 20px; border-radius: 20px; border: 4px dashed var(--pop-dark); margin-bottom: 25px; text-align: center; box-shadow: 6px 6px 0 var(--pop-blue);">
+                        <p style="font-size: 1.2rem; font-weight: 800; margin-bottom: 15px; color: var(--pop-dark);">Tu Total a Pagar en Línea (comisión incluida):</p>
+                        <div class="copy-box-modern" style="margin: 0 auto; max-width: 400px; box-shadow: none;">
+                            <span class="label">Total $</span>
+                            <input type="text" id="mercadoPagoTotalInput" value="0.00" readonly style="text-align: center; font-size: 1.3rem; color: var(--pop-orange);">
+                            <button type="button" onclick="copyToClipboard('mercadoPagoTotalInput', this)"><span>📋</span> Copiar</button>
                         </div>
-                    </li>
-                    <li><strong>Envíanos tu pedido.</strong> Haz clic en el botón verde para mandar tu pedido y
-                        comprobante de pago por WhatsApp para recibir tus accesos digitales.</li>
-                </ul>
+                        <p style="color: var(--pop-pink); font-size: 0.95rem; margin-top: 15px; font-weight: 900; text-transform: uppercase;">⚠️ ¡Ojo! Asegúrate de poner la cantidad exacta con decimales.</p>
+                    </div>
+                    <ul class="step-list">
+                        <li><strong>Realiza tu pago en línea.</strong> Copia el total de arriba, haz clic en el enlace y pégalo exactamente en la página de pago:<br>
+                            <a href="https://link.mercadopago.com.mx/drdonato" target="_blank" class="btn-action" style="background:var(--pop-blue); color:white; font-size: 1.1rem; margin-top: 15px; box-shadow: 4px 4px 0 var(--pop-dark); width: 100%;">Pagar en Mercado Pago ➔</a>
+                        </li>
+                        <li><strong>Toma captura de pantalla</strong> de tu pago exitoso.</li>
+                        <li><strong>Envíanos tu pedido.</strong> Haz clic en el botón verde de abajo para mandar tu pedido y comprobante por WhatsApp para recibir tus accesos digitales.</li>
+                    </ul>
+                </div>
+
                 <div style="text-align:center; margin-top:30px;">
                     <button onclick="buyTickets()" class="btn-action"
-                        style="background:#25D366; color:white; font-size:1.3rem; padding:15px 40px;"><span
-                            aria-hidden='true'>📲</span> Enviar Pedido por WhatsApp</button>
+                        style="background:#25D366; color:white; font-size:1.3rem; padding:15px 40px;"><span>📲</span> Enviar Pedido por WhatsApp</button>
                 </div>
             </div>
 
             <!-- PATROCINADORES -->
             <div class="emotional-hook fade-in" style="background:var(--pop-yellow); border-radius: 20px;">
                 <h3 class="font-groovy" style="font-size: 2.2rem; color:var(--pop-dark); margin-bottom: 10px;">¿Quieres
-                    ser Patrocinador? <span aria-hidden='true'>🤝</span></h3>
+                    ser Patrocinador? <span>🤝</span></h3>
                 <p style="font-size:1.1rem; font-weight:normal; margin-bottom:20px;">Destaca tu marca en nuestro evento
                     histórico apoyando a las mujeres de Rosarito. Solicitamos patrocinios económicos o en especie.</p>
-                <a href="patrocinadores.html" class="btn-action" style="background:var(--pop-dark); color:white;"><span
-                        aria-hidden='true'>💼</span> Más Información</a>
+                <a href="patrocinadores.html" class="btn-action" style="background:var(--pop-dark); color:white;"><span>💼</span> Más Información</a>
             </div>
 
         </div>
@@ -1162,7 +1295,7 @@
         <div id="modalCarrera" class="modal" onclick="closeOnOutside(event, 'modalCarrera')">
             <div class="modal-content">
                 <span class="close-modal" onclick="closeModal('modalCarrera')">✕</span>
-                <h3 class="modal-title"><span aria-hidden='true'>🏃‍♀️</span> Carrera de Aniversario</h3>
+                <h3 class="modal-title"><span>🏃‍♀️</span> Carrera de Aniversario</h3>
                 <p class="event-time" style="display:inline-block;">08:00 A.M.</p>
                 <p class="modal-text">Únete con toda la familia para arrancar el día con energía. Recorre Rosarito
                     apoyando la prevención del cáncer de mama.</p>
@@ -1173,9 +1306,8 @@
                 </ul>
                 <div class="action-row">
                     <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action"
-                        style="background:var(--pc-blanco);"><span aria-hidden='true'>📍</span> Mapa</a>
-                    <a href="#comprar" class="btn-action" onclick="closeModal('modalCarrera')"><span
-                            aria-hidden='true'>🎟️</span> Comprar</a>
+                        style="background:var(--pc-blanco);"><span>📍</span> Mapa</a>
+                    <a href="#comprar" class="btn-action" onclick="closeModal('modalCarrera')"><span>🎟️</span> Comprar</a>
                 </div>
             </div>
         </div>
@@ -1184,9 +1316,9 @@
         <div id="modalJornada" class="modal" onclick="closeOnOutside(event, 'modalJornada')">
             <div class="modal-content">
                 <span class="close-modal" onclick="closeModal('modalJornada')">✕</span>
-                <h3 class="modal-title"><span aria-hidden='true'>🩺</span> Jornada y Mercadito</h3>
+                <h3 class="modal-title"><span>🩺</span> Jornada y Mercadito</h3>
                 <p class="event-time" style="display:inline-block;">08:00 A.M. - 02:00 P.M.</p>
-                <p class="modal-text"><span aria-hidden='true'>📍</span> Estacionamiento del Palacio
+                <p class="modal-text"><span>📍</span> Estacionamiento del Palacio
                     Municipal.<br><strong>Servicios Gratuitos:</strong> Entrega de Vales para Mastografías,
                     Papanicolaou, Presión Arterial, Glucosa y Pláticas de prevención. ¡Obtén tu Pasaporte de Salud!</p>
                 <div
@@ -1195,8 +1327,7 @@
                     <p style="font-size:0.95rem; margin-bottom:10px;">Apoya la economía local. Venta de ropa, comida,
                         artesanías, plantas y dulces.</p>
                     <button class="btn-action" style="font-size:0.9rem; padding:8px 15px;"
-                        onclick="openModal('vendorModal'); closeModal('modalJornada');"><span
-                            aria-hidden='true'>🎪</span> ¡Quiero Exponer!</button>
+                        onclick="openModal('vendorModal'); closeModal('modalJornada');"><span>🎪</span> ¡Quiero Exponer!</button>
                 </div>
             </div>
         </div>
@@ -1205,7 +1336,7 @@
         <div id="modalZumba" class="modal" onclick="closeOnOutside(event, 'modalZumba')">
             <div class="modal-content">
                 <span class="close-modal" onclick="closeModal('modalZumba')">✕</span>
-                <h3 class="modal-title"><span aria-hidden='true'>💃</span> Gran Zumbatón</h3>
+                <h3 class="modal-title"><span>💃</span> Gran Zumbatón</h3>
                 <p class="event-time" style="display:inline-block;">09:00 A.M.</p>
                 <p class="modal-text">Activación física con mucha música, baile y diversión para despertar el cuerpo.
                     <strong>¡Conoce los beneficios!</strong></p>
@@ -1222,7 +1353,7 @@
         <div id="modalPlatica" class="modal" onclick="closeOnOutside(event, 'modalPlatica')">
             <div class="modal-content">
                 <span class="close-modal" onclick="closeModal('modalPlatica')">✕</span>
-                <h3 class="modal-title"><span aria-hidden='true'>🎤</span> Plática de Honor</h3>
+                <h3 class="modal-title"><span>🎤</span> Plática de Honor</h3>
                 <p class="event-time" style="display:inline-block;">11:00 A.M.</p>
                 <p class="modal-text">Con nuestra madrina de honor <strong>Luz C. Ruiz</strong>. Una charla íntima sobre
                     prevención, resiliencia y amor propio.</p>
@@ -1238,7 +1369,7 @@
                 </div>
                 <div class="action-row">
                     <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20asistir%20a%20la%20plática%20de%20las%2011am"
-                        target="_blank" class="btn-action"><span aria-hidden='true'>💬</span> Confirmar Asistencia</a>
+                        target="_blank" class="btn-action"><span>💬</span> Confirmar Asistencia</a>
                 </div>
             </div>
         </div>
@@ -1247,7 +1378,7 @@
         <div id="vendorModal" class="modal" onclick="closeOnOutside(event, 'vendorModal')">
             <div class="modal-content">
                 <span class="close-modal" onclick="closeModal('vendorModal')">✕</span>
-                <h3 class="modal-title" style="font-size:1.8rem;">Registro Expositor <span aria-hidden='true'>🎪</span>
+                <h3 class="modal-title" style="font-size:1.8rem;">Registro Expositor <span>🎪</span>
                 </h3>
                 <p style="font-size:0.9rem; margin-bottom:15px;">Llena estos datos y serás redirigida a nuestro WhatsApp
                     para coordinar tu lugar en el Mercadito Emprendedor.</p>
@@ -1262,8 +1393,7 @@
                     <option value="Otro">Otro giro</option>
                 </select>
 
-                <button onclick="sendVendorWhatsApp()" class="btn-action" style="width:100%;">Enviar Datos <span
-                        aria-hidden='true'>📲</span></button>
+                <button onclick="sendVendorWhatsApp()" class="btn-action" style="width:100%;">Enviar Datos <span>📲</span></button>
             </div>
         </div>
 
@@ -1290,27 +1420,89 @@
                 let carrera = parseInt(document.getElementById('qty_carrera').value) * 200;
                 let gala = parseInt(document.getElementById('qty_gala').value) * 300;
                 let combo = parseInt(document.getElementById('qty_combo').value) * 400;
-                let total = carrera + gala + combo;
-                document.getElementById('cartTotal').innerText = "$" + total + ".00 MN";
+                let subtotal = carrera + gala + combo;
+                let total = subtotal;
+
+                let paymentMethodElement = document.querySelector('input[name="paymentMethod"]:checked');
+                let paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'efectivo';
+
+                document.getElementById('instructionsEfectivo').style.display = paymentMethod === 'efectivo' ? 'block' : 'none';
+                document.getElementById('instructionsTransferencia').style.display = paymentMethod === 'transferencia' ? 'block' : 'none';
+                document.getElementById('instructionsMercadoPago').style.display = paymentMethod === 'mercadopago' ? 'block' : 'none';
+
+                if (paymentMethod === 'mercadopago' && subtotal > 0) {
+                    total = (subtotal * 1.0422) + 4.84;
+                    let comision = total - subtotal;
+                    document.getElementById('cartTotal').innerHTML = `$${total.toFixed(2)} MN <br><span style="font-size: 1rem; color: var(--pc-blanco); display: block; font-weight: normal; margin-top: 5px;">(Subtotal: $${subtotal.toFixed(2)} + Comisión: $${comision.toFixed(2)})</span>`;
+                    if(document.getElementById('mercadoPagoTotalInput')) {
+                        document.getElementById('mercadoPagoTotalInput').value = total.toFixed(2).replace('.', ',');
+                    }
+                } else {
+                    document.getElementById('cartTotal').innerHTML = `$${total.toFixed(2)} MN`;
+                }
+
+                if(document.getElementById('transferTotalInput')) {
+                    document.getElementById('transferTotalInput').value = subtotal.toFixed(2);
+                }
+
+                let conceptText = "Boleto Celene";
+                let parts = [];
+                let qC = parseInt(document.getElementById('qty_carrera').value);
+                let qG = parseInt(document.getElementById('qty_gala').value);
+                let qCombo = parseInt(document.getElementById('qty_combo').value);
+                if (qC > 0) parts.push(`${qC} Carrera`);
+                if (qG > 0) parts.push(`${qG} Gala`);
+                if (qCombo > 0) parts.push(`${qCombo} Combo`);
+                if (parts.length > 0) conceptText = parts.join(" ");
+                if (document.getElementById('conceptoTransferencia')) {
+                    document.getElementById('conceptoTransferencia').value = conceptText;
+                }
             }
 
             function buyTickets() {
                 let qC = parseInt(document.getElementById('qty_carrera').value);
                 let qG = parseInt(document.getElementById('qty_gala').value);
                 let qCombo = parseInt(document.getElementById('qty_combo').value);
-                let total = (qC * 200) + (qG * 300) + (qCombo * 400);
+                let subtotal = (qC * 200) + (qG * 300) + (qCombo * 400);
 
-                if (total === 0) {
+                if (subtotal === 0) {
                     alert("¡Ups! Por favor, selecciona la cantidad de boletos que deseas comprar usando los botones de [+] y [-].");
                     return;
+                }
+
+                let paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+                let total = subtotal;
+                let comision = 0;
+                let methodText = "";
+
+                if (paymentMethod === 'mercadopago') {
+                    total = (subtotal * 1.0422) + 4.84;
+                    comision = total - subtotal;
+                    methodText = "Pago en Línea (Mercado Pago)";
+                } else if (paymentMethod === 'transferencia') {
+                    methodText = "Transferencia Bancaria";
+                } else {
+                    methodText = "Efectivo en Consultorio";
                 }
 
                 let msg = `*🎫 COMPRA DE BOLETOS - 18 ANIVERSARIO CELENE*\n\nHola, quiero adquirir mis boletos. Este es mi pedido:\n\n`;
                 if (qC > 0) msg += `🏃‍♀️ ${qC}x Boleto Carrera ($200 c/u)\n`;
                 if (qG > 0) msg += `✨ ${qG}x Boleto Gala ($300 c/u)\n`;
                 if (qCombo > 0) msg += `🌟 ${qCombo}x Combo Especial ($400 c/u)\n`;
-                msg += `\n*TOTAL A PAGAR: $${total}.00 MN*\n\n`;
-                msg += `Adjunto mi comprobante de pago de Santander. ¡Gracias!`;
+                msg += `\n*MÉTODO DE PAGO:* ${methodText}\n`;
+                
+                if (paymentMethod === 'mercadopago') {
+                    msg += `*Subtotal:* $${subtotal.toFixed(2)} MN\n`;
+                    msg += `*Comisión:* $${comision.toFixed(2)} MN\n`;
+                }
+
+                msg += `*TOTAL A PAGAR: $${total.toFixed(2)} MN*\n\n`;
+                
+                if (paymentMethod === 'mercadopago' || paymentMethod === 'transferencia') {
+                    msg += `Adjunto mi comprobante de pago. ¡Gracias!`;
+                } else {
+                    msg += `Pasaré a pagar en efectivo al consultorio. ¡Gracias!`;
+                }
 
                 window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
             }
@@ -1331,12 +1523,18 @@
             }
 
             // Función Copiar al Portapapeles Inteligente
-            function copyToClipboard(inputId) {
+            function copyToClipboard(inputId, btn) {
                 var copyText = document.getElementById(inputId);
                 copyText.select();
                 copyText.setSelectionRange(0, 99999); /* Para móviles */
                 navigator.clipboard.writeText(copyText.value).then(() => {
-                    alert("¡Copiado con éxito: " + copyText.value + "!");
+                    let originalHTML = btn.innerHTML;
+                    btn.innerHTML = "¡Copiado! ✅";
+                    btn.style.background = "var(--pop-pink)";
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.style.background = "";
+                    }, 2000);
                 });
             }
 

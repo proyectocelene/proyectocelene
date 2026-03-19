@@ -7,6 +7,8 @@
     <title>Clínica de Control de Peso - Proyecto Celene</title>
     <meta name="description"
         content="Clínica de Control de Peso en Proyecto Celene. Logra tu peso ideal de forma saludable, previniendo enfermedades y con acompañamiento médico personalizado.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/control-de-peso.html">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
 
     <!-- Open Graph / Facebook -->
@@ -467,6 +469,23 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* ESTILOS DE MÉTODOS DE PAGO */
+        .payment-methods { margin-bottom: 25px; text-align: left; background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; margin-top: 15px; }
+        .payment-option { background: var(--pc-blanco); border: 2px solid var(--pc-negro); border-radius: 10px; padding: 10px 15px; margin-bottom: 10px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; }
+        .payment-option:hover { background: var(--pc-amarillo); box-shadow: 4px 4px 0 var(--pc-negro); transform: translateY(-2px); }
+        .payment-option input[type="radio"] { margin-right: 15px; transform: scale(1.5); accent-color: var(--pc-rosa-fuerte); cursor: pointer; }
+        .payment-option label { cursor: pointer; width: 100%; font-size: 1rem; color: var(--pc-negro); margin-bottom: 0; }
+        .copy-box-modern { display: flex; flex-wrap: nowrap; align-items: stretch; background: white; border: 2px solid var(--pc-negro); border-radius: 10px; overflow: hidden; margin-bottom: 10px; width: 100%; }
+        .copy-box-modern .label { background: var(--pc-gris-suave); padding: 8px 12px; font-weight: 800; border-right: 2px solid var(--pc-negro); display: flex; align-items: center; white-space: nowrap; font-size: 0.9rem; }
+        .copy-box-modern input { flex: 1; min-width: 0; border: none; padding: 8px 12px; font-size: 1rem; font-weight: bold; outline: none; background: transparent; color: var(--pc-negro); text-overflow: ellipsis; margin-bottom: 0 !important; border-radius: 0 !important; }
+        .copy-box-modern button { background: var(--pc-negro); color: white; border: none; border-left: 2px solid var(--pc-negro); padding: 8px 15px; cursor: pointer; font-weight: 800; transition: 0.2s; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 5px; white-space: nowrap; }
+        .copy-box-modern button:hover { background: var(--pc-rosa-fuerte); }
+        .btn-direction { background: var(--pc-amarillo); color: var(--pc-negro); border: 2px solid var(--pc-negro); border-radius: 50px; padding: 5px 10px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; box-shadow: 2px 2px 0 var(--pc-negro); transition: 0.2s; margin-top: 5px; }
+        .btn-direction:hover { background: var(--pc-rosa-fuerte); color: white; transform: translateY(-2px); box-shadow: 3px 3px 0 var(--pc-negro); }
+        .step-list { list-style: none; font-size: 1rem; font-weight: 600; counter-reset: steps; margin-bottom: 15px; margin-top: 15px; padding-left: 0; }
+        .step-list li { margin-bottom: 15px; position: relative; padding-left: 40px; }
+        .step-list li::before { counter-increment: steps; content: counter(steps); position: absolute; left: 0; top: -2px; background: var(--pc-negro); color: var(--pc-blanco); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'Handlee', cursive; }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
@@ -478,7 +497,7 @@
         <header class="header fade-in">
             <img src="https://i.ibb.co/BVbcyxJB/snoopy-control-de-peso.png" alt="Clínica de Control de Peso"
                 style="max-width:100%; width:450px; border-radius:15px; border:3px solid var(--pc-negro); margin-bottom:15px; background:white; object-fit:cover;">
-            <h1 class="hand-drawn">Clínica de Control de Peso <span aria-hidden='true'>⚖️</span></h1>
+            <h1 class="hand-drawn">Clínica de Control de Peso <span>⚖️</span></h1>
             <p style="font-weight:600; font-size:1.1rem; max-width: 700px; margin: 0 auto;">Tu salud no se mide solo en
                 tallas, se mide en bienestar integral. Logra tus metas con un acompañamiento médico y humano.</p>
         </header>
@@ -510,7 +529,7 @@
 
                 <button onclick="calcularIMC()" class="btn"
                     style="margin: 0; background: var(--pc-negro); box-shadow: 0 5px 0 #000; padding: 10px 25px;">Calcular
-                    <span aria-hidden="true">📏</span></button>
+                    <span>📏</span></button>
 
                 <div class="bmi-gauge-container">
                     <div class="bmi-marker" id="bmi-marker"></div>
@@ -533,22 +552,21 @@
 
             <div class="pillars-grid">
                 <div class="pillar-card">
-                    <div class="pillar-icon"><span aria-hidden="true">🩺</span></div>
+                    <div class="pillar-icon"><span>🩺</span></div>
                     <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Médica</h4>
                     <p style="font-size: 0.95rem;">Buscamos el "por qué". Valoramos tu metabolismo, descartamos
                         problemas de tiroides, resistencia a la insulina y tratamos comorbilidades (presión alta,
                         diabetes).</p>
                 </div>
                 <div class="pillar-card">
-                    <div class="pillar-icon" style="background: var(--pc-azul-suave);"><span
-                            aria-hidden="true">🧠</span></div>
+                    <div class="pillar-icon" style="background: var(--pc-azul-suave);"><span>🧠</span></div>
                     <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Emocional
                     </h4>
                     <p style="font-size: 0.95rem;">Nuestra mente y la comida están unidas. Ofrecemos espacio seguro con
                         psicología para manejar la ansiedad, estrés, depresión y el "comer emocional".</p>
                 </div>
                 <div class="pillar-card">
-                    <div class="pillar-icon" style="background: #e8f5e9;"><span aria-hidden="true">🍎</span></div>
+                    <div class="pillar-icon" style="background: #e8f5e9;"><span>🍎</span></div>
                     <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Física</h4>
                     <p style="font-size: 0.95rem;">Te guiamos para crear hábitos realistas, sin dietas extremas ni
                         castigos, encontrando una forma de alimentarte y moverte que realmente disfrutes a largo plazo.
@@ -716,17 +734,61 @@
 
             <div class="info-panel">
                 <h3 class="hand-drawn">Inversión en tu Salud</h3>
-                <p style="font-weight: 800; font-size: 1.1rem; color: var(--pc-rosa-fuerte);">Cuota de Consulta Médica
-                    General: $150 m.n.</p>
+                <p style="font-weight: 800; font-size: 1.1rem; color: var(--pc-rosa-fuerte);">Cuota de Consulta Médica: $200 m.n.</p>
                 <p style="font-size: 1rem;">Te recomendamos acudir mensualmente para darle seguimiento a tus avances,
                     ajustar tu plan y celebrar juntos tus victorias.</p>
+
+                <div class="payment-methods" style="max-width: 600px; margin: 15px auto 0 auto;">
+                    <h4 style="margin-bottom: 10px; font-size: 1.1rem; text-align: center; color: var(--pc-rosa-fuerte);">Opciones de Pago</h4>
+                    
+                    <div class="payment-option" onclick="document.getElementById('payEfectivo').click()">
+                        <input type="radio" name="paymentMethod" id="payEfectivo" value="efectivo" checked onchange="togglePaymentInstructions()">
+                        <label for="payEfectivo" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
+                            <span>💵 <strong>Efectivo en Consultorio</strong><br><small style="color: #666;">(Sin comisión: $200.00 MN)</small></span>
+                            <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" style="margin: 0;" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                        </label>
+                    </div>
+                    
+                    <div class="payment-option" onclick="document.getElementById('payTransferencia').click()">
+                        <input type="radio" name="paymentMethod" id="payTransferencia" value="transferencia" onchange="togglePaymentInstructions()">
+                        <label for="payTransferencia" style="margin-bottom: 0;">
+                            🏦 <strong>Transferencia SPEI / CLABE</strong><br><small style="color: #666;">(Sin comisión: $200.00 MN)</small>
+                        </label>
+                    </div>
+                    
+                    <div class="payment-option" onclick="document.getElementById('payMercadoPago').click()">
+                        <input type="radio" name="paymentMethod" id="payMercadoPago" value="mercadopago" onchange="togglePaymentInstructions()">
+                        <label for="payMercadoPago" style="margin-bottom: 0;">
+                            💳 <strong>Pago en línea (Mercado Pago)</strong> <br>
+                            <span style="font-size: 0.85rem; font-weight: 600; color: #555;">(Incluye comisión: $213.28 MN)</span>
+                        </label>
+                    </div>
+
+                    <div id="instructionsEfectivo" style="display: block; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                        <p style="font-size: 0.95rem;"><strong>1.</strong> Agenda tu cita usando nuestro calendario o envíanos un mensaje y menciona que pagarás en efectivo en el consultorio.</p>
+                    </div>
+
+                    <div id="instructionsTransferencia" style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                        <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">Total a transferir: $200.00 MN</p>
+                        <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe" value="722969010854962949" readonly><button type="button" onclick="copyToClipboard('clabe', this)"><span>📋</span> Copiar</button></div>
+                        <div class="copy-box-modern"><span class="label">Beneficiario</span><input type="text" id="benef" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef', this)"><span>📋</span> Copiar</button></div>
+                        <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco" value="Mercado Pago W" readonly><button type="button" onclick="copyToClipboard('banco', this)"><span>📋</span> Copiar</button></div>
+                        <ul class="step-list" style="margin-top: 10px; text-align:left;"><li>Realiza la transferencia (guarda tu comprobante).</li><li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li></ul>
+                    </div>
+
+                    <div id="instructionsMercadoPago" style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                        <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">Total a pagar en línea: $213.28 MN</p>
+                        <a href="https://mpago.la/2LNJkin" target="_blank" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 10px; font-size: 1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); margin-bottom:15px;">Pagar en Mercado Pago ➔</a>
+                        <ul class="step-list" style="margin-top: 10px; text-align:left;"><li>Realiza el pago en el enlace (guarda captura de pantalla).</li><li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li></ul>
+                    </div>
+                </div>
             </div>
 
             <div style="text-align: center; margin-top: 30px;">
                 <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 15px;">¡Da el primer paso hacia una vida
                     más ligera y saludable!</p>
                 <button onclick="document.getElementById('modalWaPeso').style.display='flex'" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); border-color: var(--pc-negro);">¿Tienes más dudas? Envíanos un mensaje <span
-                        aria-hidden='true'>💬</span></button>
+                        >💬</span></button>
 
                 <div style="background: var(--pc-amarillo); border: 2px dashed var(--pc-negro); border-radius: 10px; padding: 20px; max-width: 600px; margin: 30px auto 20px auto; text-align: left;">
                     <p style="font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;"><span aria-hidden='true'>🏥</span> Horarios de Atención:</p>
@@ -760,12 +822,12 @@
     <div id="modalWaPeso" class="modal" onclick="if(event.target==this) this.style.display='none'">
         <div class="modal-content">
             <span class="close-modal" onclick="document.getElementById('modalWaPeso').style.display='none'">✕</span>
-            <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:10px; margin-top: 0; line-height: 1.1;">Agenda o Dudas <span aria-hidden='true'>💬</span></h3>
+            <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:10px; margin-top: 0; line-height: 1.1;">Agenda o Dudas <span>💬</span></h3>
             <p style="margin-bottom:20px; font-weight: 600; color: #555;">Déjanos tus datos para agilizar tu atención o resolver tus preguntas.</p>
             <input type="text" id="wa_peso_nombre" placeholder="Tu Nombre Completo">
             <input type="number" id="wa_peso_edad" placeholder="Tu Edad">
             <textarea id="wa_peso_duda" rows="3" placeholder="¿Tienes alguna duda o quieres agendar directamente?"></textarea>
-            <button onclick="enviarWaPeso()" class="btn" style="width:100%; margin-top: 5px; background: #25d366; color: white;">Enviar Mensaje a WhatsApp <span aria-hidden='true'>📲</span></button>
+            <button onclick="enviarWaPeso()" class="btn" style="width:100%; margin-top: 5px; background: #25d366; color: white;">Enviar Mensaje a WhatsApp <span>📲</span></button>
         </div>
     </div>
 
@@ -828,6 +890,30 @@
             });
         });
 
+        function copyToClipboard(inputId, btn) {
+            var copyText = document.getElementById(inputId);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value).then(() => {
+                let originalHTML = btn.innerHTML;
+                btn.innerHTML = "¡Copiado! ✅";
+                btn.style.background = "var(--pc-rosa-fuerte)";
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.background = "";
+                }, 2000);
+            });
+        }
+
+        function togglePaymentInstructions() {
+            let paymentMethodElement = document.querySelector('input[name="paymentMethod"]:checked');
+            let paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'efectivo';
+
+            document.getElementById('instructionsEfectivo').style.display = paymentMethod === 'efectivo' ? 'block' : 'none';
+            document.getElementById('instructionsTransferencia').style.display = paymentMethod === 'transferencia' ? 'block' : 'none';
+            document.getElementById('instructionsMercadoPago').style.display = paymentMethod === 'mercadopago' ? 'block' : 'none';
+        }
+
         // Lógica Quiz
         function evaluarCandidato() {
             let q1 = document.querySelector('input[name="qc1"]:checked');
@@ -842,7 +928,7 @@
                 resBox.innerHTML = "🚨 <strong>Precaución Médica:</strong><br>Debido a tu respuesta en la pregunta 4, muchos medicamentos modernos (como los GLP-1) están contraindicados. Sin embargo, el Dr. Donato puede ayudarte a trazar un plan nutricional o buscar alternativas seguras para ti.";
                 resBox.style.borderColor = "#c62828";
             } else if (q1.value === 'yes' && q3.value === 'yes') {
-                resBox.innerHTML = "<span aria-hidden='true'>✅</span> <strong>¡Eres un excelente candidato!</strong><br>La ciencia muestra que cuando los hábitos no han sido suficientes, tu cuerpo necesita apoyo metabólico. Agenda una cita para platicar sobre las opciones farmacológicas ideales para tu presupuesto e historial.";
+                resBox.innerHTML = "<span>✅</span> <strong>¡Eres un excelente candidato!</strong><br>La ciencia muestra que cuando los hábitos no han sido suficientes, tu cuerpo necesita apoyo metabólico. Agenda una cita para platicar sobre las opciones farmacológicas ideales para tu presupuesto e historial.";
                 resBox.style.borderColor = "#2e7d32";
             } else {
                 resBox.innerHTML = "🩺 <strong>El primer paso es la valoración:</strong><br>Aunque no cumples con los criterios severos inmediatos, en consulta te ayudaremos a estructurar un plan de Estilo de Vida y evaluaremos si un apoyo inicial es justo lo que necesitas para arrancar.";
@@ -855,12 +941,21 @@
             let nombre = document.getElementById('wa_peso_nombre').value.trim() || 'No especificado';
             let edad = document.getElementById('wa_peso_edad').value.trim() || '-';
             let duda = document.getElementById('wa_peso_duda').value.trim();
+            let paymentMethodElement = document.querySelector('input[name="paymentMethod"]:checked');
 
             let msg = `Hola Proyecto Celene 🌸.\nSoy *${nombre}* (${edad} años) y me interesa la Clínica de Control de Peso.\n`;
             if (duda) {
                 msg += `\nMi comentario o duda es: "${duda}"`;
             } else {
                 msg += `\nMe gustaría agendar una consulta médica.`;
+            }
+            
+            if (paymentMethodElement) {
+                let paymentText = "";
+                if (paymentMethodElement.value === 'efectivo') paymentText = "Efectivo en Consultorio";
+                if (paymentMethodElement.value === 'transferencia') paymentText = "Transferencia Bancaria";
+                if (paymentMethodElement.value === 'mercadopago') paymentText = "Pago en Línea (Mercado Pago)";
+                msg += `\n\n*Método de Pago seleccionado:* ${paymentText}`;
             }
 
             window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');

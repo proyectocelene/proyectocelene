@@ -1,165 +1,948 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inyección de Puntos Gatillo - Proyecto Celene</title>
+    <meta name="description" content="Elimina el dolor crónico y los nudos musculares con nuestro tratamiento de inyección de puntos gatillo (TPI) en Rosarito.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/puntos-gatillo.html">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://proyectocelene.org/puntos-gatillo.html">
     <meta property="og:title" content="Inyección de Puntos Gatillo - Proyecto Celene">
-    <meta property="og:description" content="Elimina el dolor crónico y los nudos musculares con nuestro tratamiento de TPI en Rosarito.">
+    <meta property="og:description"
+        content="Elimina el dolor crónico y los nudos musculares con nuestro tratamiento de TPI en Rosarito.">
     <meta property="og:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://proyectocelene.org/puntos-gatillo.html">
     <meta property="twitter:title" content="Inyección de Puntos Gatillo - Proyecto Celene">
-    <meta property="twitter:description" content="Elimina el dolor crónico y los nudos musculares con nuestro tratamiento de TPI en Rosarito.">
+    <meta property="twitter:description"
+        content="Elimina el dolor crónico y los nudos musculares con nuestro tratamiento de TPI en Rosarito.">
     <meta property="twitter:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
     <style>
-        :root { --pc-rosa-pastell:#fce4ec; --pc-rosa-fuerte:#d81b60; --pc-negro:#333; --pc-blanco:#fff; --pc-amarillo:#fff9c4; --pc-azul-suave:#e3f2fd; }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:'Nunito',sans-serif; background:var(--pc-blanco); color:var(--pc-negro); line-height:1.6; padding-bottom:50px; }
-        .hand-drawn { font-family:'Handlee',cursive; }
-        .container { max-width:900px; margin:0 auto; padding:15px; }
-        .main-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:30px; padding:15px; background:var(--pc-blanco); border:3px solid var(--pc-negro); border-radius:20px; box-shadow:6px 6px 0 var(--pc-rosa-pastell); }
-        .main-nav a { text-decoration:none; color:var(--pc-negro); font-weight:800; font-size:1.05rem; padding:8px 15px; border-radius:15px; transition:0.2s; border:2px solid transparent; }
-        .main-nav a:hover { background:var(--pc-rosa-fuerte); color:white; border-color:var(--pc-negro); transform:translateY(-2px); box-shadow:3px 3px 0 var(--pc-negro); }
-        .header { text-align:center; padding:40px 20px; background:#e3f2fd; border:4px solid var(--pc-negro); border-radius:20px; margin-bottom:30px; box-shadow:8px 8px 0 var(--pc-negro); }
-        .header h1 { font-size:2.8rem; color:var(--pc-rosa-fuerte); margin-bottom:10px; line-height:1.1; }
-        
-        .content-box { background:white; border:3px solid var(--pc-negro); border-radius:20px; padding:35px; margin-bottom:30px; box-shadow:8px 8px 0 var(--pc-rosa-pastell); }
-        .content-box.highlight { background: var(--pc-amarillo); box-shadow: 8px 8px 0 var(--pc-negro); }
-        .content-box h2 { color:var(--pc-rosa-fuerte); margin-bottom:20px; font-size:2rem; border-bottom: 3px dashed var(--pc-amarillo); padding-bottom: 10px;}
-        .content-box.highlight h2 { border-bottom-color: var(--pc-negro); color: var(--pc-negro); }
-        .content-box ul { margin-left:20px; margin-bottom:15px; font-weight:600; color:#444; }
-        .content-box li { margin-bottom:8px; }
-        .content-box p { font-size: 1.1rem; color: #444; font-weight: 600; margin-bottom: 15px; }
-        
-        .btn { display:inline-flex; justify-content:center; align-items:center; text-align:center; padding:15px 30px; border-radius:50px; border:4px solid var(--pc-negro); font-weight:800; text-decoration:none; font-size:1.2rem; background:#25d366; color:white; box-shadow:0 6px 0 #1b9c4b; margin:20px auto 0; transition:0.1s; cursor:pointer; font-family:'Nunito', sans-serif;}
-        .btn:active { top:6px; box-shadow:0 0 0 transparent; }
-        
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333;
+            --pc-blanco: #fff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            border-color: var(--pc-negro);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: #e3f2fd;
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-negro);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .content-box {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-rosa-pastell);
+        }
+
+        .content-box.highlight {
+            background: var(--pc-amarillo);
+            box-shadow: 8px 8px 0 var(--pc-negro);
+        }
+
+        .content-box h2 {
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 3px dashed var(--pc-amarillo);
+            padding-bottom: 10px;
+        }
+
+        .content-box.highlight h2 {
+            border-bottom-color: var(--pc-negro);
+            color: var(--pc-negro);
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .content-box li {
+            margin-bottom: 8px;
+        }
+
+        .content-box p {
+            font-size: 1.1rem;
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.2rem;
+            background: #25d366;
+            color: white;
+            box-shadow: 0 6px 0 #1b9c4b;
+            margin: 20px auto 0;
+            transition: 0.1s;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .btn:active {
+            top: 6px;
+            box-shadow: 0 0 0 transparent;
+        }
+
         /* DIAGRAMA CSS DEL MÚSCULO */
-        .diagram-container { background: #fce4ec; border: 4px solid var(--pc-negro); border-radius: 15px; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 30px 0; position: relative; overflow: hidden; }
-        .muscle-band { width: 80%; height: 60px; background: repeating-linear-gradient(90deg, #e57373, #e57373 10px, #ef5350 10px, #ef5350 20px); border: 3px solid var(--pc-negro); border-radius: 30px; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 -10px 0 rgba(0,0,0,0.1); }
-        .knot { width: 40px; height: 40px; background: #b71c1c; border-radius: 50%; border: 3px solid var(--pc-negro); position: absolute; z-index: 2; box-shadow: 0 0 15px #b71c1c; animation: throb 1.5s infinite alternate; }
-        @keyframes throb { 0% { transform: scale(1); box-shadow: 0 0 10px #b71c1c; } 100% { transform: scale(1.2); box-shadow: 0 0 25px #b71c1c; } }
-        .needle { position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 6px; height: 70px; background: #90a4ae; border: 2px solid var(--pc-negro); border-bottom: none; z-index: 3; animation: inject 3s infinite; }
-        .needle::after { content: ''; position: absolute; bottom: -10px; left: -2px; border-left: 3px solid transparent; border-right: 3px solid transparent; border-top: 10px solid var(--pc-negro); }
-        .syringe-body { position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 24px; height: 60px; background: rgba(255,255,255,0.8); border: 3px solid var(--pc-negro); border-radius: 3px; z-index: 3; animation: inject 3s infinite; }
-        .syringe-plunger { position: absolute; top: -140px; left: 50%; transform: translateX(-50%); width: 10px; height: 30px; background: #555; border: 2px solid var(--pc-negro); z-index: 3; animation: plunge 3s infinite; }
-        @keyframes inject { 0%, 20% { top: -60px; } 40%, 80% { top: -15px; } 100% { top: -60px; } }
-        @keyframes plunge { 0%, 40% { top: -140px; height: 30px; } 60%, 80% { top: -120px; height: 10px; } 100% { top: -140px; height: 30px; } }
+        .diagram-container {
+            background: #fce4ec;
+            border: 4px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .muscle-band {
+            width: 80%;
+            height: 60px;
+            background: repeating-linear-gradient(90deg, #e57373, #e57373 10px, #ef5350 10px, #ef5350 20px);
+            border: 3px solid var(--pc-negro);
+            border-radius: 30px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 -10px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .knot {
+            width: 40px;
+            height: 40px;
+            background: #b71c1c;
+            border-radius: 50%;
+            border: 3px solid var(--pc-negro);
+            position: absolute;
+            z-index: 2;
+            box-shadow: 0 0 15px #b71c1c;
+            animation: throb 1.5s infinite alternate;
+        }
+
+        @keyframes throb {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px #b71c1c;
+            }
+
+            100% {
+                transform: scale(1.2);
+                box-shadow: 0 0 25px #b71c1c;
+            }
+        }
+
+        .needle {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 70px;
+            background: #90a4ae;
+            border: 2px solid var(--pc-negro);
+            border-bottom: none;
+            z-index: 3;
+            animation: inject 3s infinite;
+        }
+
+        .needle::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: -2px;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 10px solid var(--pc-negro);
+        }
+
+        .syringe-body {
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 3px solid var(--pc-negro);
+            border-radius: 3px;
+            z-index: 3;
+            animation: inject 3s infinite;
+        }
+
+        .syringe-plunger {
+            position: absolute;
+            top: -140px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 30px;
+            background: #555;
+            border: 2px solid var(--pc-negro);
+            z-index: 3;
+            animation: plunge 3s infinite;
+        }
+
+        @keyframes inject {
+
+            0%,
+            20% {
+                top: -60px;
+            }
+
+            40%,
+            80% {
+                top: -15px;
+            }
+
+            100% {
+                top: -60px;
+            }
+        }
+
+        @keyframes plunge {
+
+            0%,
+            40% {
+                top: -140px;
+                height: 30px;
+            }
+
+            60%,
+            80% {
+                top: -120px;
+                height: 10px;
+            }
+
+            100% {
+                top: -140px;
+                height: 30px;
+            }
+        }
 
         /* COMPARATIVAS (PARA QUÉ SÍ Y NO) */
-        .compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0; }
-        .compare-card { padding: 25px; border: 3px solid var(--pc-negro); border-radius: 15px; }
-        .compare-card.yes { background: #e8f5e9; box-shadow: 6px 6px 0 #a5d6a7; }
-        .compare-card.no { background: #ffebee; box-shadow: 6px 6px 0 #ef9a9a; }
-        .compare-card h3 { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; margin-bottom: 15px; }
+        .compare-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .compare-card {
+            padding: 25px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+        }
+
+        .compare-card.yes {
+            background: #e8f5e9;
+            box-shadow: 6px 6px 0 #a5d6a7;
+        }
+
+        .compare-card.no {
+            background: #ffebee;
+            box-shadow: 6px 6px 0 #ef9a9a;
+        }
+
+        .compare-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
 
         /* MAPA INTERACTIVO DEL DOLOR (CSS BODY) */
-        .interactive-map-section { display: flex; flex-wrap: wrap; gap: 30px; background: var(--pc-gris-suave); border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 40px; align-items: center; }
-        .map-visual { flex: 1; min-width: 250px; display: flex; justify-content: center; position: relative; padding: 20px 0; }
-        .map-text { flex: 1; min-width: 280px; background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 25px; box-shadow: 6px 6px 0 var(--pc-rosa-medio); }
-        
+        .interactive-map-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            background: var(--pc-gris-suave);
+            border: 4px dashed var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .map-visual {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .map-text {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 6px 6px 0 var(--pc-rosa-medio);
+        }
+
         /* Silueta abstracta de espalda */
-        .body-silhouette { width: 160px; height: 350px; position: relative; }
-        .body-head { width: 60px; height: 70px; background: #bdbdbd; border-radius: 40% 40% 50% 50%; border: 3px solid var(--pc-negro); position: absolute; left: 50%; transform: translateX(-50%); top: 0; z-index: 2; }
-        .body-torso { width: 140px; height: 160px; background: #e0e0e0; border-radius: 30px 30px 40px 40%; border: 3px solid var(--pc-negro); position: absolute; left: 50%; transform: translateX(-50%); top: 60px; z-index: 1; }
-        .body-arm-l, .body-arm-r { width: 35px; height: 140px; background: #e0e0e0; border-radius: 20px; border: 3px solid var(--pc-negro); position: absolute; top: 70px; z-index: 0; }
-        .body-arm-l { left: -10px; transform: rotate(15deg); }
-        .body-arm-r { right: -10px; transform: rotate(-15deg); }
-        .body-leg-l, .body-leg-r { width: 45px; height: 150px; background: #e0e0e0; border-radius: 20px; border: 3px solid var(--pc-negro); position: absolute; top: 200px; z-index: 0; }
-        .body-leg-l { left: 30px; }
-        .body-leg-r { right: 30px; }
+        .body-silhouette {
+            width: 160px;
+            height: 350px;
+            position: relative;
+        }
+
+        .body-head {
+            width: 60px;
+            height: 70px;
+            background: #bdbdbd;
+            border-radius: 40% 40% 50% 50%;
+            border: 3px solid var(--pc-negro);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            z-index: 2;
+        }
+
+        .body-torso {
+            width: 140px;
+            height: 160px;
+            background: #e0e0e0;
+            border-radius: 30px 30px 40px 40%;
+            border: 3px solid var(--pc-negro);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 60px;
+            z-index: 1;
+        }
+
+        .body-arm-l,
+        .body-arm-r {
+            width: 35px;
+            height: 140px;
+            background: #e0e0e0;
+            border-radius: 20px;
+            border: 3px solid var(--pc-negro);
+            position: absolute;
+            top: 70px;
+            z-index: 0;
+        }
+
+        .body-arm-l {
+            left: -10px;
+            transform: rotate(15deg);
+        }
+
+        .body-arm-r {
+            right: -10px;
+            transform: rotate(-15deg);
+        }
+
+        .body-leg-l,
+        .body-leg-r {
+            width: 45px;
+            height: 150px;
+            background: #e0e0e0;
+            border-radius: 20px;
+            border: 3px solid var(--pc-negro);
+            position: absolute;
+            top: 200px;
+            z-index: 0;
+        }
+
+        .body-leg-l {
+            left: 30px;
+        }
+
+        .body-leg-r {
+            right: 30px;
+        }
 
         /* Puntos interactivos */
-        .pain-point { position: absolute; width: 24px; height: 24px; background: #ff5252; border: 3px solid white; border-radius: 50%; z-index: 10; cursor: pointer; animation: pulse-red 1.5s infinite; transition: 0.2s; box-shadow: 0 0 10px rgba(255,0,0,0.5); }
-        .pain-point:hover, .pain-point.active { transform: scale(1.3); background: #b71c1c; border-color: var(--pc-amarillo); animation: none; box-shadow: 0 0 0 4px var(--pc-negro); }
-        @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(255, 82, 82, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0); } }
-        
-        .pt-neck { top: 65px; left: 60px; } /* Cuello/Trapecio */
-        .pt-scapula { top: 110px; left: 85px; } /* Omoplato */
-        .pt-lumbar { top: 180px; left: 68px; } /* Espalda baja */
-        .pt-glute { top: 230px; left: 90px; } /* Glúteo */
+        .pain-point {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: #ff5252;
+            border: 3px solid white;
+            border-radius: 50%;
+            z-index: 10;
+            cursor: pointer;
+            animation: pulse-red 1.5s infinite;
+            transition: 0.2s;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .pain-point:hover,
+        .pain-point.active {
+            transform: scale(1.3);
+            background: #b71c1c;
+            border-color: var(--pc-amarillo);
+            animation: none;
+            box-shadow: 0 0 0 4px var(--pc-negro);
+        }
+
+        @keyframes pulse-red {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 82, 82, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+            }
+        }
+
+        .pt-neck {
+            top: 65px;
+            left: 60px;
+        }
+
+        /* Cuello/Trapecio */
+        .pt-scapula {
+            top: 110px;
+            left: 85px;
+        }
+
+        /* Omoplato */
+        .pt-lumbar {
+            top: 180px;
+            left: 68px;
+        }
+
+        /* Espalda baja */
+        .pt-glute {
+            top: 230px;
+            left: 90px;
+        }
+
+        /* Glúteo */
 
         /* TEST INTERACTIVO */
-        .quiz-box { background: var(--pc-azul-suave); padding: 30px; border-radius: 20px; border: 4px dashed var(--pc-negro); margin: 40px 0; }
-        .quiz-question { background: white; border: 2px solid var(--pc-negro); padding: 15px; border-radius: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; gap: 10px;}
-        .quiz-options { display: flex; gap: 10px; flex-shrink: 0;}
-        .quiz-radio { display: none; }
-        .quiz-lbl { padding: 8px 15px; border: 2px solid var(--pc-negro); border-radius: 8px; cursor: pointer; transition: 0.2s; background: var(--pc-gris-suave); }
-        .quiz-radio:checked + .quiz-lbl { background: var(--pc-rosa-fuerte); color: white; }
-        #quizResult { display: none; margin-top: 20px; padding: 20px; border-radius: 10px; border: 3px solid var(--pc-negro); background: white; font-size: 1.1rem; font-weight: 800; text-align: center; }
+        .quiz-box {
+            background: var(--pc-azul-suave);
+            padding: 30px;
+            border-radius: 20px;
+            border: 4px dashed var(--pc-negro);
+            margin: 40px 0;
+        }
+
+        .quiz-question {
+            background: white;
+            border: 2px solid var(--pc-negro);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            gap: 10px;
+        }
+
+        .quiz-options {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .quiz-radio {
+            display: none;
+        }
+
+        .quiz-lbl {
+            padding: 8px 15px;
+            border: 2px solid var(--pc-negro);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            background: var(--pc-gris-suave);
+        }
+
+        .quiz-radio:checked+.quiz-lbl {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+        }
+
+        #quizResult {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px solid var(--pc-negro);
+            background: white;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-align: center;
+        }
 
         /* IMÁGENES EDUCATIVAS */
-        .edu-images { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .edu-img-box { border: 4px solid var(--pc-negro); border-radius: 15px; overflow: hidden; background: white; box-shadow: 6px 6px 0 var(--pc-azul-suave); }
-        .edu-img-box img { width: 100%; height: auto; display: block; object-fit: cover; aspect-ratio: 1/1; }
+        .edu-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .edu-img-box {
+            border: 4px solid var(--pc-negro);
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 6px 6px 0 var(--pc-azul-suave);
+        }
+
+        .edu-img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+        }
 
         /* GUIA PASO A PASO */
-        .step-row { display: flex; gap: 20px; margin-bottom: 25px; align-items: flex-start; }
-        .step-icon { width: 60px; height: 60px; background: var(--pc-amarillo); border: 3px solid var(--pc-negro); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 900; flex-shrink: 0; box-shadow: 3px 3px 0 var(--pc-negro); }
-        .step-text h4 { font-size: 1.3rem; color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; margin-bottom: 5px; }
-        
-        /* MODAL */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); align-items: center; justify-content: center; padding: 15px; }
-        .modal-content { background: white; border: 4px solid var(--pc-negro); border-radius: 25px; max-width: 500px; width: 100%; padding: 35px; position: relative; box-shadow: 12px 12px 0px var(--pc-rosa-pastell); animation: popIn 0.3s ease-out; }
-        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .close-modal { position: absolute; top: 15px; right: 25px; font-size: 2rem; cursor: pointer; font-weight: 900; color: var(--pc-negro); }
-        .modal input, .modal textarea, .modal select { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 3px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; }
-        .modal input:focus, .modal textarea:focus, .modal select:focus { border-color: var(--pc-rosa-fuerte); }
-        .X81W0b { border: 4px solid var(--pc-negro) !important; font-family: 'Nunito', sans-serif !important; font-weight: 800 !important; border-radius: 50px !important; padding: 15px 20px !important; box-shadow: 0 6px 0 var(--pc-negro) !important; font-size: 1.1rem !important; }
-        .X81W0b:active { box-shadow: 0 0 0 transparent !important; transform: translateY(6px); }
+        .step-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
 
-        @media (max-width: 600px) { 
-            .quiz-question { flex-direction: column; align-items: flex-start; } 
-            .interactive-map-section { padding: 20px 15px; }
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--pc-amarillo);
+            border: 3px solid var(--pc-negro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            flex-shrink: 0;
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        .step-text h4 {
+            font-size: 1.3rem;
+            color: var(--pc-rosa-fuerte);
+            font-family: 'Handlee', cursive;
+            margin-bottom: 5px;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            max-width: 500px;
+            width: 100%;
+            padding: 35px;
+            position: relative;
+            box-shadow: 12px 12px 0px var(--pc-rosa-pastell);
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: 900;
+            color: var(--pc-negro);
+        }
+
+        .modal input,
+        .modal textarea,
+        .modal select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .modal input:focus,
+        .modal textarea:focus,
+        .modal select:focus {
+            border-color: var(--pc-rosa-fuerte);
+        }
+
+        .X81W0b {
+            border: 4px solid var(--pc-negro) !important;
+            font-family: 'Nunito', sans-serif !important;
+            font-weight: 800 !important;
+            border-radius: 50px !important;
+            padding: 15px 20px !important;
+            box-shadow: 0 6px 0 var(--pc-negro) !important;
+            font-size: 1.1rem !important;
+        }
+
+        .X81W0b:active {
+            box-shadow: 0 0 0 transparent !important;
+            transform: translateY(6px);
+        }
+
+        @media (max-width: 600px) {
+            .quiz-question {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .interactive-map-section {
+                padding: 20px 15px;
+            }
+        }
+
+        /* ESTILOS DE MÉTODOS DE PAGO */
+        .payment-methods {
+            margin-bottom: 25px;
+            text-align: left;
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .payment-option {
+            background: var(--pc-blanco);
+            border: 2px solid var(--pc-negro);
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .payment-option:hover {
+            background: var(--pc-amarillo);
+            box-shadow: 4px 4px 0 var(--pc-negro);
+            transform: translateY(-2px);
+        }
+
+        .payment-option input[type="radio"] {
+            margin-right: 15px;
+            transform: scale(1.5);
+            accent-color: var(--pc-rosa-fuerte);
+            cursor: pointer;
+        }
+
+        .payment-option label {
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            color: var(--pc-negro);
+            margin-bottom: 0;
+        }
+
+        .copy-box-modern {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            background: white;
+            border: 2px solid var(--pc-negro);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .copy-box-modern .label {
+            background: var(--pc-gris-suave);
+            padding: 8px 12px;
+            font-weight: 800;
+            border-right: 2px solid var(--pc-negro);
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+
+        .copy-box-modern input {
+            flex: 1;
+            min-width: 0;
+            border: none;
+            padding: 8px 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            outline: none;
+            background: transparent;
+            color: var(--pc-negro);
+            text-overflow: ellipsis;
+            margin-bottom: 0 !important;
+            border-radius: 0 !important;
+        }
+
+        .copy-box-modern button {
+            background: var(--pc-negro);
+            color: white;
+            border: none;
+            border-left: 2px solid var(--pc-negro);
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: 800;
+            transition: 0.2s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+
+        .copy-box-modern button:hover {
+            background: var(--pc-rosa-fuerte);
+        }
+
+        .btn-direction {
+            background: var(--pc-amarillo);
+            color: var(--pc-negro);
+            border: 2px solid var(--pc-negro);
+            border-radius: 50px;
+            padding: 5px 10px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            box-shadow: 2px 2px 0 var(--pc-negro);
+            transition: 0.2s;
+            margin-top: 5px;
+        }
+
+        .btn-direction:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        .step-list {
+            list-style: none;
+            font-size: 1rem;
+            font-weight: 600;
+            counter-reset: steps;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            padding-left: 0;
+        }
+
+        .step-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .step-list li::before {
+            counter-increment: steps;
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: -2px;
+            background: var(--pc-negro);
+            color: var(--pc-blanco);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-family: 'Handlee', cursive;
         }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
     <div class="container">
         <div id="navbar-container" class="main-nav"></div>
         <header class="header">
             <h1 class="hand-drawn">Inyección de Puntos Gatillo 💉</h1>
-            <p style="font-weight:600; font-size:1.1rem; max-width: 700px; margin: 0 auto;">Vivir con dolor crónico es agotador. En Proyecto Celene te explicamos científicamente qué son estos "nudos" y cómo los eliminamos en minutos para devolverte tu calidad de vida.</p>
+            <p style="font-weight:600; font-size:1.1rem; max-width: 700px; margin: 0 auto;">Vivir con dolor crónico es
+                agotador. En Proyecto Celene te explicamos científicamente qué son estos "nudos" y cómo los eliminamos
+                en minutos para devolverte tu calidad de vida.</p>
         </header>
 
         <div class="content-box">
             <h2 class="hand-drawn">1. ¿Qué es un "Nudo" o Punto Gatillo?</h2>
-            <p>Científicamente los llamamos <strong>Puntos Gatillo Miofasciales</strong>. Son áreas donde una banda de fibras musculares se ha quedado "atrapada" en una contracción constante. Es como si una parte de tu músculo olvidara cómo relajarse.</p>
-            <p>Al estar tan apretado, el nudo corta el flujo de sangre y oxígeno en esa zona, acumulando desechos metabólicos y enviando señales de dolor intenso que el cuerpo no puede romper por sí solo.</p>
-            
+            <p>Científicamente los llamamos <strong>Puntos Gatillo Miofasciales</strong>. Son áreas donde una banda de
+                fibras musculares se ha quedado "atrapada" en una contracción constante. Es como si una parte de tu
+                músculo olvidara cómo relajarse.</p>
+            <p>Al estar tan apretado, el nudo corta el flujo de sangre y oxígeno en esa zona, acumulando desechos
+                metabólicos y enviando señales de dolor intenso que el cuerpo no puede romper por sí solo.</p>
+
             <h4 style="color: var(--pc-negro); margin-top: 20px; font-size: 1.2rem;">¿Por qué aparecen?</h4>
             <ul style="list-style-type: none; margin-left: 0; margin-top: 10px;">
-                <li>📱 <strong>Posturas prolongadas:</strong> Horas frente a la computadora o el celular ("cuello de texto").</li>
-                <li>😟 <strong>Estrés emocional:</strong> La tensión que acumulas involuntariamente en hombros y mandíbula.</li>
-                <li>🏋️‍♀️ <strong>Microtraumas:</strong> Cargar cosas pesadas, movimientos repetitivos o esfuerzos repentinos.</li>
+                <li>📱 <strong>Posturas prolongadas:</strong> Horas frente a la computadora o el celular ("cuello de
+                    texto").</li>
+                <li>😟 <strong>Estrés emocional:</strong> La tensión que acumulas involuntariamente en hombros y
+                    mandíbula.</li>
+                <li>🏋️‍♀️ <strong>Microtraumas:</strong> Cargar cosas pesadas, movimientos repetitivos o esfuerzos
+                    repentinos.</li>
                 <li>🛋️ <strong>Sedentarismo:</strong> Músculos débiles que se fatigan y se anudan con facilidad.</li>
             </ul>
 
             <div class="edu-images" style="margin-top: 30px;">
                 <div class="edu-img-box">
-                    <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/646945182_1371063475054799_4434172893718613673_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=3aMQktYat8kQ7kNvwHKL2sK&_nc_oc=AdnP0f5lbUzbTpY0KTOVXPKikr1E7zxpLLdWhMQnAl3vZB6p_rQ9g2WXX4o-sCk2urxHi9srSKiE12ZWRyy46ZMo&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&_nc_gid=A7ntZEyLPoVEegIVD3-vIw&_nc_ss=8&oh=00_AfwU9qp_UcBD6zeOVmzC7uhTOGRRsV94tE7beUVJIMUQwg&oe=69BE8E96" alt="Explicación Punto Gatillo 1">
+                    <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/646945182_1371063475054799_4434172893718613673_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=3aMQktYat8kQ7kNvwHKL2sK&_nc_oc=AdnP0f5lbUzbTpY0KTOVXPKikr1E7zxpLLdWhMQnAl3vZB6p_rQ9g2WXX4o-sCk2urxHi9srSKiE12ZWRyy46ZMo&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&_nc_gid=A7ntZEyLPoVEegIVD3-vIw&_nc_ss=8&oh=00_AfwU9qp_UcBD6zeOVmzC7uhTOGRRsV94tE7beUVJIMUQwg&oe=69BE8E96"
+                        alt="Explicación Punto Gatillo 1">
                 </div>
                 <div class="edu-img-box">
-                    <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/645947900_1371063471721466_1345494411970888091_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=13d280&_nc_ohc=WW8yupHdZUsQ7kNvwGF7Wct&_nc_oc=AdmINnbMElJS46PiAXPJ5rc68ewgSg3RBS2ylXGG8rs4HzqcFwTbZT7aqdNOH0xZ1ALEm73ldBjX8PZrWC17U12D&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&_nc_gid=doqp6eLX2Fcx9fvfOBowIg&_nc_ss=8&oh=00_AfyIivmJmUAn3ZqNSUfJnvZ9xyzN_4l0uggZUfuVJ-K-Jg&oe=69BEA0F1" alt="Explicación Punto Gatillo 2">
+                    <img src="https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-6/645947900_1371063471721466_1345494411970888091_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=13d280&_nc_ohc=WW8yupHdZUsQ7kNvwGF7Wct&_nc_oc=AdmINnbMElJS46PiAXPJ5rc68ewgSg3RBS2ylXGG8rs4HzqcFwTbZT7aqdNOH0xZ1ALEm73ldBjX8PZrWC17U12D&_nc_zt=23&_nc_ht=scontent-sjc6-1.xx&_nc_gid=doqp6eLX2Fcx9fvfOBowIg&_nc_ss=8&oh=00_AfyIivmJmUAn3ZqNSUfJnvZ9xyzN_4l0uggZUfuVJ-K-Jg&oe=69BEA0F1"
+                        alt="Explicación Punto Gatillo 2">
                 </div>
             </div>
         </div>
 
         <!-- MAPA INTERACTIVO -->
-        <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); text-align: center; margin-bottom: 10px;">2. El Mapa del Dolor <span aria-hidden='true'>📍</span></h2>
-        <p style="text-align: center; font-size: 1.1rem; font-weight: 600; margin-bottom: 20px;">Lo más sorprendente de estos nudos es el <strong>DOLOR REFERIDO</strong>: el nudo está en un lugar, pero el dolor "viaja" a otro. <br><span style="color: var(--pc-rosa-fuerte);">Toca los puntos rojos en la imagen para descubrirlo.</span></p>
-        
+        <h2 class="hand-drawn"
+            style="font-size: 2.2rem; color: var(--pc-negro); text-align: center; margin-bottom: 10px;">2. El Mapa del
+            Dolor <span>📍</span></h2>
+        <p style="text-align: center; font-size: 1.1rem; font-weight: 600; margin-bottom: 20px;">Lo más sorprendente de
+            estos nudos es el <strong>DOLOR REFERIDO</strong>: el nudo está en un lugar, pero el dolor "viaja" a otro.
+            <br><span style="color: var(--pc-rosa-fuerte);">Toca los puntos rojos en la imagen para descubrirlo.</span>
+        </p>
+
         <div class="interactive-map-section">
             <div class="map-visual">
                 <div class="body-silhouette">
@@ -177,8 +960,10 @@
                 </div>
             </div>
             <div class="map-text">
-                <h3 id="map-title" class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 10px;">¿Dónde te duele?</h3>
-                <p id="map-desc" style="font-size: 1.1rem; color: #444; font-weight: 600;">Selecciona un punto rojo en la silueta para descubrir cómo un nudo en esa zona puede estar causando tu dolor.</p>
+                <h3 id="map-title" class="hand-drawn"
+                    style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 10px;">¿Dónde te duele?</h3>
+                <p id="map-desc" style="font-size: 1.1rem; color: #444; font-weight: 600;">Selecciona un punto rojo en
+                    la silueta para descubrir cómo un nudo en esa zona puede estar causando tu dolor.</p>
             </div>
         </div>
 
@@ -187,89 +972,204 @@
             <p>Es un procedimiento médico rápido, seguro y muy tolerable. Así lo hacemos en Proyecto Celene:</p>
             <!-- ANIMACIÓN CSS -->
             <div class="diagram-container">
-                <h4 style="position: absolute; top: 10px; left: 15px; font-family: 'Handlee', cursive; color: var(--pc-rosa-oscuro);">El "Reset" Muscular:</h4>
+                <h4
+                    style="position: absolute; top: 10px; left: 15px; font-family: 'Handlee', cursive; color: var(--pc-rosa-oscuro);">
+                    El "Reset" Muscular:</h4>
                 <div class="syringe-plunger"></div>
                 <div class="syringe-body"></div>
                 <div class="needle"></div>
                 <div class="muscle-band">
                     <div class="knot"></div>
                 </div>
-                <p style="margin-top: 25px; text-align: center; font-size: 0.95rem;"><strong>Efecto Mecánico:</strong> La aguja "desata" o rompe el nudo físicamente.<br><strong>Efecto Químico:</strong> El anestésico (lidocaína) apaga el dolor, permitiendo que la sangre regrese.</p>
+                <p style="margin-top: 25px; text-align: center; font-size: 0.95rem;"><strong>Efecto Mecánico:</strong>
+                    La aguja "desata" o rompe el nudo físicamente.<br><strong>Efecto Químico:</strong> El anestésico
+                    (lidocaína) apaga el dolor, permitiendo que la sangre regrese.</p>
             </div>
 
             <ul style="margin-top: 20px;">
-                <li><strong>1️⃣ Localización:</strong> El médico identifica el punto exacto mediante palpación y presión.</li>
+                <li><strong>1️⃣ Localización:</strong> El médico identifica el punto exacto mediante palpación y
+                    presión.</li>
                 <li><strong>2️⃣ Limpieza:</strong> Desinfectamos la zona con cuidado y alcohol.</li>
-                <li><strong>3️⃣ Inserción:</strong> Usamos una aguja muy fina (tipo insulina). Al tocar el nudo, el músculo da un pequeño "brinquito", indicando que le atinamos al origen.</li>
-                <li><strong>4️⃣ Efecto dominó:</strong> Al relajar ese punto, el dolor referido (ej. en la cabeza o pierna) empieza a desaparecer.</li>
+                <li><strong>3️⃣ Inserción:</strong> Usamos una aguja muy fina (tipo insulina). Al tocar el nudo, el
+                    músculo da un pequeño "brinquito", indicando que le atinamos al origen.</li>
+                <li><strong>4️⃣ Efecto dominó:</strong> Al relajar ese punto, el dolor referido (ej. en la cabeza o
+                    pierna) empieza a desaparecer.</li>
             </ul>
         </div>
 
         <div class="content-box">
             <h2 class="hand-drawn">4. ¿Qué esperar y Home Care?</h2>
-            <p><strong>Porcentaje de Éxito:</strong> Es sumamente alto, superior al 80-90% para alivio casi inmediato.</p>
-            <p><strong>¿Cuántas sesiones?</strong> Muchos sanan en una sola sesión, aunque casos crónicos o muy tensos pueden requerir de 3 a 5 visitas.</p>
-            <p><strong>Después del proceso:</strong> Es normal sentir la zona sensible por 24-48 horas, como si hubieras hecho mucho ejercicio. ¡El movimiento es clave! Recomendamos estiramientos suaves. 🚫 NO cargues cosas pesadas ese día.</p>
+            <p><strong>Porcentaje de Éxito:</strong> Es sumamente alto, superior al 80-90% para alivio casi inmediato.
+            </p>
+            <p><strong>¿Cuántas sesiones?</strong> Muchos sanan en una sola sesión, aunque casos crónicos o muy tensos
+                pueden requerir de 3 a 5 visitas.</p>
+            <p><strong>Después del proceso:</strong> Es normal sentir la zona sensible por 24-48 horas, como si hubieras
+                hecho mucho ejercicio. ¡El movimiento es clave! Recomendamos estiramientos suaves. 🚫 NO cargues cosas
+                pesadas ese día.</p>
         </div>
 
         <div class="content-box highlight">
             <h2 class="hand-drawn">5. ¿Qué puedes hacer tú HOY MISMO? 🏠</h2>
             <p>Antes de tu cita, intenta mitigar el dolor en casa con estos 3 pasos:</p>
             <ul style="font-size: 1.1rem; color: var(--pc-negro);">
-                <li>🔥 <strong>Calor local:</strong> Aplica una compresa caliente por 15 minutos para relajar las fibras superficiales.</li>
-                <li>🎾 <strong>Auto-masaje:</strong> Usa una pelota de tenis contra la pared, colócala justo en el nudo y recárgate suavemente para presionar el punto exacto.</li>
-                <li>🚶‍♀️ <strong>Pausas activas:</strong> Si trabajas sentado, levántate, estira los brazos y muévete cada 40 minutos sin falta.</li>
+                <li>🔥 <strong>Calor local:</strong> Aplica una compresa caliente por 15 minutos para relajar las fibras
+                    superficiales.</li>
+                <li>🎾 <strong>Auto-masaje:</strong> Usa una pelota de tenis contra la pared, colócala justo en el nudo
+                    y recárgate suavemente para presionar el punto exacto.</li>
+                <li>🚶‍♀️ <strong>Pausas activas:</strong> Si trabajas sentado, levántate, estira los brazos y muévete
+                    cada 40 minutos sin falta.</li>
             </ul>
         </div>
 
         <!-- TEST INTERACTIVO -->
         <div class="quiz-box">
-            <h2 class="hand-drawn" style="border: none; color: var(--pc-negro); margin-bottom: 5px; font-size: 2.2rem;">6. ¿Eres Candidato/a?</h2>
-            <p style="margin-bottom: 25px;">Responde estas 4 preguntas rápidas para saber si este procedimiento es seguro y efectivo para ti:</p>
+            <h2 class="hand-drawn" style="border: none; color: var(--pc-negro); margin-bottom: 5px; font-size: 2.2rem;">
+                6. ¿Eres Candidato/a?</h2>
+            <p style="margin-bottom: 25px;">Responde estas 4 preguntas rápidas para saber si este procedimiento es
+                seguro y efectivo para ti:</p>
 
             <div class="quiz-question">
                 <span>1. ¿Sientes una "bolita" o cordón duro en el músculo que duele mucho al presionarlo?</span>
                 <div class="quiz-options">
-                    <input type="radio" name="q1" id="q1_y" value="yes" class="quiz-radio"><label for="q1_y" class="quiz-lbl">Sí</label>
-                    <input type="radio" name="q1" id="q1_n" value="no" class="quiz-radio"><label for="q1_n" class="quiz-lbl">No</label>
+                    <input type="radio" name="q1" id="q1_y" value="yes" class="quiz-radio"><label for="q1_y"
+                        class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q1" id="q1_n" value="no" class="quiz-radio"><label for="q1_n"
+                        class="quiz-lbl">No</label>
                 </div>
             </div>
             <div class="quiz-question">
                 <span>2. ¿El dolor lleva días o semanas sin quitarse con masajes normales o pastillas?</span>
                 <div class="quiz-options">
-                    <input type="radio" name="q2" id="q2_y" value="yes" class="quiz-radio"><label for="q2_y" class="quiz-lbl">Sí</label>
-                    <input type="radio" name="q2" id="q2_n" value="no" class="quiz-radio"><label for="q2_n" class="quiz-lbl">No</label>
+                    <input type="radio" name="q2" id="q2_y" value="yes" class="quiz-radio"><label for="q2_y"
+                        class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q2" id="q2_n" value="no" class="quiz-radio"><label for="q2_n"
+                        class="quiz-lbl">No</label>
                 </div>
             </div>
             <div class="quiz-question">
                 <span>3. ¿Tienes fiebre, o la zona que te duele está caliente, roja o infectada?</span>
                 <div class="quiz-options">
-                    <input type="radio" name="q3" id="q3_y" value="stop" class="quiz-radio"><label for="q3_y" class="quiz-lbl">Sí</label>
-                    <input type="radio" name="q3" id="q3_n" value="good" class="quiz-radio"><label for="q3_n" class="quiz-lbl">No</label>
+                    <input type="radio" name="q3" id="q3_y" value="stop" class="quiz-radio"><label for="q3_y"
+                        class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q3" id="q3_n" value="good" class="quiz-radio"><label for="q3_n"
+                        class="quiz-lbl">No</label>
                 </div>
             </div>
             <div class="quiz-question">
                 <span>4. ¿Le tienes fobia incontrolable a las agujas / piquetes?</span>
                 <div class="quiz-options">
-                    <input type="radio" name="q4" id="q4_y" value="fobia" class="quiz-radio"><label for="q4_y" class="quiz-lbl">Sí</label>
-                    <input type="radio" name="q4" id="q4_n" value="good" class="quiz-radio"><label for="q4_n" class="quiz-lbl">No</label>
+                    <input type="radio" name="q4" id="q4_y" value="fobia" class="quiz-radio"><label for="q4_y"
+                        class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q4" id="q4_n" value="good" class="quiz-radio"><label for="q4_n"
+                        class="quiz-lbl">No</label>
                 </div>
             </div>
 
-            <button onclick="evaluarGatillo()" class="btn" style="width: 100%; max-width: none; background: var(--pc-negro); box-shadow: 0 5px 0 #000; margin-top: 15px;">Ver Resultado</button>
-            
+            <button onclick="evaluarGatillo()" class="btn"
+                style="width: 100%; max-width: none; background: var(--pc-negro); box-shadow: 0 5px 0 #000; margin-top: 15px;">Ver
+                Resultado</button>
+
             <div id="quizResult"></div>
         </div>
 
         <div style="text-align: center; margin-top: 50px;">
-            <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px;">¿Listo para dejar atrás el dolor?</h3>
-            <p style="margin-bottom: 20px; font-size: 1.1rem; max-width: 600px; margin-inline: auto;">En nuestra fundación nos mueve tu salud. Ofrecemos este servicio bajo una cuota accesible que incluye la valoración médica, material estéril y la aplicación.</p>
-            
-            <p style="font-weight: 900; font-size: 1.5rem; color: var(--pc-rosa-fuerte); margin-bottom: 15px; background: var(--pc-rosa-pastell); display: inline-block; padding: 10px 20px; border-radius: 15px; border: 3px dashed var(--pc-negro);">Cuota de recuperación: $300 M.N.</p>
+            <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px;">¿Listo para
+                dejar atrás el dolor?</h3>
+            <p style="margin-bottom: 20px; font-size: 1.1rem; max-width: 600px; margin-inline: auto;">En nuestra
+                fundación nos mueve tu salud. Ofrecemos este servicio bajo una cuota accesible que incluye la valoración
+                médica, material estéril y la aplicación.</p>
+
+            <p
+                style="font-weight: 900; font-size: 1.5rem; color: var(--pc-rosa-fuerte); margin-bottom: 15px; background: var(--pc-rosa-pastell); display: inline-block; padding: 10px 20px; border-radius: 15px; border: 3px dashed var(--pc-negro);">
+                Cuota de recuperación: $300 M.N.</p>
+
+            <div class="payment-methods" style="max-width: 600px; margin: 0 auto 25px auto;">
+                <h4 style="margin-bottom: 10px; font-size: 1.1rem; text-align: center; color: var(--pc-rosa-fuerte);">
+                    Opciones de Pago</h4>
+
+                <div class="payment-option" onclick="document.getElementById('payEfectivo').click()">
+                    <input type="radio" name="paymentMethod" id="payEfectivo" value="efectivo" checked
+                        onchange="togglePaymentInstructions()">
+                    <label for="payEfectivo"
+                        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
+                        <span>💵 <strong>Efectivo en Consultorio</strong><br><small style="color: #666;">(Sin comisión:
+                                $300.00 MN)</small></span>
+                        <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction"
+                            style="margin: 0;" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                    </label>
+                </div>
+
+                <div class="payment-option" onclick="document.getElementById('payTransferencia').click()">
+                    <input type="radio" name="paymentMethod" id="payTransferencia" value="transferencia"
+                        onchange="togglePaymentInstructions()">
+                    <label for="payTransferencia" style="margin-bottom: 0;">
+                        🏦 <strong>Transferencia SPEI / CLABE</strong><br><small style="color: #666;">(Sin comisión:
+                            $300.00 MN)</small>
+                    </label>
+                </div>
+
+                <div class="payment-option" onclick="document.getElementById('payMercadoPago').click()">
+                    <input type="radio" name="paymentMethod" id="payMercadoPago" value="mercadopago"
+                        onchange="togglePaymentInstructions()">
+                    <label for="payMercadoPago" style="margin-bottom: 0;">
+                        💳 <strong>Pago en línea (Mercado Pago)</strong> <br>
+                        <span style="font-size: 0.85rem; font-weight: 600; color: #555;">(Incluye comisión: $317.50
+                            MN)</span>
+                    </label>
+                </div>
+
+                <div id="instructionsEfectivo"
+                    style="display: block; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 0.95rem;"><strong>1.</strong> Agenda tu cita y menciona que pagarás en efectivo
+                        en el consultorio.</p>
+                </div>
+
+                <div id="instructionsTransferencia"
+                    style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">
+                        Total a transferir: $300.00 MN</p>
+                    <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe"
+                            value="722969010854962949" readonly><button type="button"
+                            onclick="copyToClipboard('clabe', this)"><span>📋</span> Copiar</button></div>
+                    <div class="copy-box-modern"><span class="label">Beneficiario</span><input type="text" id="benef"
+                            value="Carlos Donato Dueñas Prieto" readonly><button type="button"
+                            onclick="copyToClipboard('benef', this)"><span>📋</span> Copiar</button></div>
+                    <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco"
+                            value="Mercado Pago W" readonly><button type="button"
+                            onclick="copyToClipboard('banco', this)"><span>📋</span> Copiar</button></div>
+                    <ul class="step-list" style="margin-top: 10px; text-align:left;">
+                        <li>Realiza la transferencia (guarda tu comprobante).</li>
+                        <li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li>
+                    </ul>
+                </div>
+
+                <div id="instructionsMercadoPago"
+                    style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">
+                        Total a pagar en línea: $317.50 MN</p>
+                    <div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal"
+                            value="317.50" readonly><button type="button"
+                            onclick="copyToClipboard('mpTotal', this)"><span>📋</span> Copiar</button></div>
+                    <p
+                        style="color: #e65100; font-size: 0.85rem; font-weight: 800; margin-bottom: 10px; text-align: left;">
+                        ⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>
+                    <a href="https://link.mercadopago.com.mx/drdonato" target="_blank" class="btn-wa"
+                        style="display: block; text-align: center; border-radius: 10px; padding: 10px; font-size: 1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); margin-bottom:15px;">Pagar
+                        en Mercado Pago ➔</a>
+                    <ul class="step-list" style="margin-top: 10px; text-align:left;">
+                        <li>Realiza el pago en el enlace (guarda captura de pantalla).</li>
+                        <li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li>
+                    </ul>
+                </div>
+            </div>
+
             <br>
-            <a href="https://wa.me/526611044050?text=Hola,%20leí%20la%20guía%20médica%20y%20quiero%20agendar%20una%20Inyección%20de%20Puntos%20Gatillo%20para%20sentir%20ALIVIO." class="btn" style="font-size: 1.3rem; padding: 20px 40px; display: inline-block;">Agendar mi Sesión por WhatsApp <span aria-hidden='true'>💬</span></a>
-            
-            <p style="margin-top: 25px; color: #555; font-weight: 600;"><span aria-hidden='true'>📍</span> Visítanos en: Calle Gral. Guadalupe Victoria, Col. Lienzo Charro, Rosarito.</p>
+            <button onclick="agendarTpiWa()" class="btn"
+                style="font-size: 1.3rem; padding: 20px 40px; display: inline-block;">Agendar mi Sesión por WhatsApp
+                <span>💬</span></button>
+
+            <p style="margin-top: 25px; color: #555; font-weight: 600;"><span>📍</span> Visítanos en: Calle Gral.
+                Guadalupe Victoria, Col. Lienzo Charro, Rosarito.</p>
         </div>
 
     </div>
@@ -300,35 +1200,75 @@
             document.querySelectorAll('.pain-point').forEach(pt => pt.classList.remove('active'));
             // Añadir active al clickeado
             element.classList.add('active');
-            
+
             // Actualizar textos
             document.getElementById('map-title').innerText = painData[area].title;
             document.getElementById('map-desc').innerHTML = painData[area].desc + "<br><br><strong style='color:var(--pc-rosa-fuerte);'>¡La inyección TPI desactiva este origen en minutos!</strong>";
         }
 
+        function copyToClipboard(inputId, btn) {
+            var copyText = document.getElementById(inputId);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value).then(() => {
+                let originalHTML = btn.innerHTML;
+                btn.innerHTML = "¡Copiado! ✅";
+                btn.style.background = "var(--pc-rosa-fuerte)";
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.background = "";
+                }, 2000);
+            });
+        }
+
+        function togglePaymentInstructions() {
+            let paymentMethodElement = document.querySelector('input[name="paymentMethod"]:checked');
+            let paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'efectivo';
+
+            document.getElementById('instructionsEfectivo').style.display = paymentMethod === 'efectivo' ? 'block' : 'none';
+            document.getElementById('instructionsTransferencia').style.display = paymentMethod === 'transferencia' ? 'block' : 'none';
+            document.getElementById('instructionsMercadoPago').style.display = paymentMethod === 'mercadopago' ? 'block' : 'none';
+        }
+
+        function agendarTpiWa() {
+            let paymentMethodElement = document.querySelector('input[name="paymentMethod"]:checked');
+            let paymentText = "";
+            if (paymentMethodElement) {
+                if (paymentMethodElement.value === 'efectivo') paymentText = "Efectivo en Consultorio";
+                if (paymentMethodElement.value === 'transferencia') paymentText = "Transferencia Bancaria";
+                if (paymentMethodElement.value === 'mercadopago') paymentText = "Pago en Línea (Mercado Pago)";
+            }
+
+            let msg = `Hola, leí la guía médica y quiero agendar una Inyección de Puntos Gatillo para sentir ALIVIO.`;
+            if (paymentText) {
+                msg += `\n\n*Método de pago seleccionado:* ${paymentText}`;
+            }
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
         // Lógica del Cuestionario
         function evaluarGatillo() {
             let resBox = document.getElementById('quizResult');
-            
+
             // Validar que respondieron todo
             let q1 = document.querySelector('input[name="q1"]:checked');
             let q2 = document.querySelector('input[name="q2"]:checked');
             let q3 = document.querySelector('input[name="q3"]:checked');
             let q4 = document.querySelector('input[name="q4"]:checked');
 
-            if(!q1 || !q2 || !q3 || !q4) {
+            if (!q1 || !q2 || !q3 || !q4) {
                 alert("Por favor, responde todas las preguntas del test.");
                 return;
             }
 
-            if(q3.value === 'stop') {
+            if (q3.value === 'stop') {
                 resBox.innerHTML = "🚨 <strong>NO eres candidato en este momento.</strong><br>La presencia de fiebre o calor extremo en la zona sugiere una posible INFECCIÓN. Inyectar ahí puede ser peligroso. Te sugerimos agendar una <a href='consulta-general.html' style='color:var(--pc-rosa-fuerte);'>Consulta Médica General</a> primero.";
                 resBox.style.borderColor = "#d32f2f";
             } else if (q4.value === 'fobia') {
                 resBox.innerHTML = "💆‍♀️ <strong>Alternativa Sugerida:</strong><br>Ya que tienes fobia extrema a las agujas, la tensión del piquete podría empeorar tu nudo. Te recomendamos probar primero con <strong>terapia manual</strong>. Agenda con nuestro <a href='sobador-tony.html' style='color:var(--pc-rosa-fuerte);'>Sobador Tradicional</a> o nuestra <a href='fisioterapeuta-lupita.html' style='color:var(--pc-rosa-fuerte);'>Fisioterapeuta</a>.";
                 resBox.style.borderColor = "#f57c00";
             } else if (q1.value === 'yes' || q2.value === 'yes') {
-                resBox.innerHTML = "<span aria-hidden='true'>✅</span> <strong>¡Eres un excelente candidato!</strong><br>Tus síntomas coinciden perfectamente con el Síndrome Miofascial. Esta inyección te dará un alivio inmenso. ¡Agenda tu cita en el botón verde de abajo!";
+                resBox.innerHTML = "<span>✅</span> <strong>¡Eres un excelente candidato!</strong><br>Tus síntomas coinciden perfectamente con el Síndrome Miofascial. Esta inyección te dará un alivio inmenso. ¡Agenda tu cita en el botón verde de abajo!";
                 resBox.style.borderColor = "#388e3c";
             } else {
                 resBox.innerHTML = "🤔 <strong>Resultado Inconcluso:</strong><br>Tus síntomas no son los clásicos de un Punto Gatillo. Te sugerimos agendar una <a href='consulta-general.html' style='color:var(--pc-rosa-fuerte);'>Consulta Médica General</a> para revisar qué está causando tus molestias antes de inyectar.";
@@ -338,6 +1278,7 @@
             resBox.style.display = "block";
         }
     </script>
-<script src="js/global.js"></script>
+    <script src="js/global.js"></script>
 </body>
+
 </html>

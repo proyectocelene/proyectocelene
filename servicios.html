@@ -7,6 +7,8 @@
     <title>Servicios - Proyecto Celene</title>
     <meta name="description"
         content="Catálogo de servicios médicos de Proyecto Celene. Ofrecemos mastografías, consultas, papanicolaou, salud sexual, laboratorios y más con cuotas de recuperación accesibles.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/servicios.html">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
 
     <!-- Open Graph / Facebook -->
@@ -221,6 +223,165 @@
             display: inline-block;
             margin-bottom: 15px;
             font-size: 1.1rem;
+        }
+
+        /* ESTILOS DE MÉTODOS DE PAGO */
+        .payment-methods {
+            margin-bottom: 25px;
+            text-align: left;
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .payment-option {
+            background: var(--pc-blanco);
+            border: 2px solid var(--pc-negro);
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .payment-option:hover {
+            background: var(--pc-amarillo);
+            box-shadow: 4px 4px 0 var(--pc-negro);
+            transform: translateY(-2px);
+        }
+
+        .payment-option input[type="radio"] {
+            margin-right: 15px;
+            transform: scale(1.5);
+            accent-color: var(--pc-rosa-fuerte);
+            cursor: pointer;
+        }
+
+        .payment-option label {
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            color: var(--pc-negro);
+        }
+
+        .copy-box-modern {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            background: white;
+            border: 2px solid var(--pc-negro);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .copy-box-modern .label {
+            background: var(--pc-gris-suave);
+            padding: 8px 12px;
+            font-weight: 800;
+            border-right: 2px solid var(--pc-negro);
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+
+        .copy-box-modern input {
+            flex: 1;
+            min-width: 0;
+            border: none;
+            padding: 8px 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            outline: none;
+            background: transparent;
+            color: var(--pc-negro);
+            text-overflow: ellipsis;
+            margin-bottom: 0 !important;
+            border-radius: 0 !important;
+        }
+
+        .copy-box-modern button {
+            background: var(--pc-negro);
+            color: white;
+            border: none;
+            border-left: 2px solid var(--pc-negro);
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: 800;
+            transition: 0.2s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+
+        .copy-box-modern button:hover {
+            background: var(--pc-rosa-fuerte);
+        }
+
+        .btn-direction {
+            background: var(--pc-amarillo);
+            color: var(--pc-negro);
+            border: 2px solid var(--pc-negro);
+            border-radius: 50px;
+            padding: 5px 10px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            box-shadow: 2px 2px 0 var(--pc-negro);
+            transition: 0.2s;
+            margin-top: 5px;
+        }
+
+        .btn-direction:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        .step-list {
+            list-style: none;
+            font-size: 1rem;
+            font-weight: 600;
+            counter-reset: steps;
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+
+        .step-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .step-list li::before {
+            counter-increment: steps;
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: -2px;
+            background: var(--pc-negro);
+            color: var(--pc-blanco);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-family: 'Handlee', cursive;
         }
 
         /* BOTONES FISICOS "3D" */
@@ -577,8 +738,9 @@
             <h1 class="hand-drawn">Catálogo de Salud Celene</h1>
             <p class="header-info">Ofrecemos servicios médicos de alta calidad, empáticos e integrales, con
                 <strong>cuotas de recuperación accesibles</strong>. Proyecto Celene no tiene fines de lucro; tu
-                aportación nos ayuda a mantener operaciones y seguir salvando vidas en nuestra comunidad. <span
-                    aria-hidden='true'>🌸</span></p>
+                aportación nos ayuda a mantener operaciones y seguir salvando vidas en nuestra comunidad.
+                <span>🌸</span>
+            </p>
 
             <div class="search-container">
                 <input type="text" id="serviceSearch"
@@ -603,12 +765,13 @@
         <!-- BANNER LABORATORIOS (SOLO VISIBLE EN TAB LAB) -->
         <div id="labPromoBanner" class="promo-banner" style="display: none;">
             <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom:10px;">¡Beneficio Exclusivo en
-                Laboratorios! <span aria-hidden='true'>🔬</span></h2>
+                Laboratorios! <span>🔬</span></h2>
             <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">Al pagar tus laboratorios en
                 <strong>Proyecto Celene</strong> recibes <strong>hasta 70% de descuento</strong> (dependiendo del
                 analito) con Laboratorios Oropeza. <br><br>Y lo mejor: ¡Al hacerte los estudios tienes una
                 <strong>tele-lectura de laboratorios GRATIS</strong> con nuestros médicos! <small
-                    style="display:block; margin-top:10px; color:#666;">*Aplican términos y condiciones.</small></p>
+                    style="display:block; margin-top:10px; color:#666;">*Aplican términos y condiciones.</small>
+            </p>
         </div>
 
         <!-- BANNER SALUD SEXUAL (SOLO VISIBLE EN TAB SEXUAL) -->
@@ -627,7 +790,7 @@
             <div class="service-card category-card" data-cat="mujer"
                 data-keywords="mastografia mama cancer gratis requisitos mujer preventiva">
                 <span class="cat-tag">Mujer</span>
-                <h3 class="service-title">Mastografía Gratis <span aria-hidden='true'>🎗</span></h3>
+                <h3 class="service-title">Mastografía Gratis <span>🎗</span></h3>
                 <p class="service-preview">La detección temprana salva 9 de cada 10 vidas. Este estudio clave encuentra
                     anomalías antes de que sean palpables. No dejes que el costo sea una barrera, ¡estamos para
                     cuidarte!</p>
@@ -641,7 +804,7 @@
             <div class="service-card category-card" data-cat="consulta"
                 data-keywords="consulta medica general medicina doctor empatico integral tratamiento">
                 <span class="cat-tag">Consultas</span>
-                <h3 class="service-title">Consulta Médica General <span aria-hidden='true'>🩺</span></h3>
+                <h3 class="service-title">Consulta Médica General <span>🩺</span></h3>
                 <p class="service-preview">Nuestra diferencia es que te escuchamos de verdad. Recibe un diagnóstico
                     preciso, tratamiento integral y el trato humano que mereces para cuidar tu bienestar completo.</p>
                 <div class="price-text">Cuota: $150 m.n.</div>
@@ -654,10 +817,10 @@
             <div class="service-card category-card" data-cat="consulta"
                 data-keywords="control peso obesidad adelgazar nutricion dieta">
                 <span class="cat-tag">Consultas</span>
-                <h3 class="service-title">Control de Peso <span aria-hidden='true'>⚖️</span></h3>
+                <h3 class="service-title">Control de Peso <span>⚖️</span></h3>
                 <p class="service-preview">Logra tu peso ideal de forma saludable, previniendo enfermedades crónicas y
                     con un acompañamiento médico integral.</p>
-                <div class="price-text">Consulta: $150 m.n.</div>
+                <div class="price-text">Consulta: $200 m.n.</div>
                 <div class="btn-group">
                     <a href="control-de-peso.html" class="btn btn-more"
                         style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver
@@ -779,7 +942,7 @@
             <div class="service-card category-card" data-cat="mujer"
                 data-keywords="pastilla dia siguiente anticoncepcion emergencia">
                 <span class="cat-tag">Apoyo Inmediato</span>
-                <h3 class="service-title">Anticoncepción de Emergencia <span aria-hidden='true'>💊</span></h3>
+                <h3 class="service-title">Anticoncepción de Emergencia <span>💊</span></h3>
                 <p class="service-preview">Atención sin juicios, confidencial y empática. Te guiamos para protegerte a
                     tiempo, porque es tu derecho decidir.</p>
                 <div class="price-text">Consulta Confidencial</div>
@@ -926,7 +1089,7 @@
             <div class="service-card category-card" data-cat="paquete mujer"
                 data-keywords="paquete mujer integral saludable completo combo">
                 <span class="cat-tag">Combo Preventivo</span>
-                <h3 class="service-title">Mujer Saludable Integral <span aria-hidden='true'>🌸</span></h3>
+                <h3 class="service-title">Mujer Saludable Integral <span>🌸</span></h3>
                 <p class="service-preview">El escudo protector definitivo. Cubrimos todas tus necesidades preventivas
                     anuales en una sola visita, porque tu salud lo vale.</p>
                 <div class="price-combo">$500 m.n.</div>
@@ -952,7 +1115,7 @@
             <div class="service-card category-card" data-cat="paquete hombre"
                 data-keywords="mantenimiento hombre paquete anual motor">
                 <span class="cat-tag">Combo Preventivo</span>
-                <h3 class="service-title">Mantenimiento Anual Masculino <span aria-hidden='true'>🚙</span></h3>
+                <h3 class="service-title">Mantenimiento Anual Masculino <span>🚙</span></h3>
                 <p class="service-preview">Un chequeo preventivo a tiempo hace la diferencia. Protege tu próstata y
                     previene la diabetes con este panel enfocado en el hombre.</p>
                 <div class="price-combo">$300 m.n.</div>
@@ -1047,7 +1210,7 @@
             <div class="service-card category-card" data-cat="sexual"
                 data-keywords="juntos es mejor pareja descuento amigos vecino">
                 <span class="cat-tag">Paquete ITS</span>
-                <h3 class="service-title">Juntos es Mejor <span aria-hidden='true'>👩‍❤️‍👨</span></h3>
+                <h3 class="service-title">Juntos es Mejor <span>👩‍❤️‍👨</span></h3>
                 <p class="service-preview">Cuidarse mutuamente es una muestra de responsabilidad. Panel completo para
                     dos personas con un excelente descuento.</p>
                 <div class="price-combo">$1,000 m.n. (x2 personas)</div>
@@ -1074,7 +1237,7 @@
 
             <div class="service-card category-card" data-cat="lab mujer" data-keywords="embarazo sangre prueba hcg">
                 <span class="cat-tag">Laboratorio / Mujer</span>
-                <h3 class="service-title">Prueba Embarazo (Sangre) <span aria-hidden='true'>🩸</span></h3>
+                <h3 class="service-title">Prueba Embarazo (Sangre) <span>🩸</span></h3>
                 <p class="service-preview">Sal de dudas hoy mismo. La prueba más precisa y confiable con resultados en
                     solo 10 minutos. Te acompañamos en cada paso.</p>
                 <div class="price-text">Cuota: $150 m.n.</div>
@@ -1136,7 +1299,7 @@
             <div class="service-card category-card" data-cat="hombre lab"
                 data-keywords="psa prostata hombre cancer caballero antígeno">
                 <span class="cat-tag">Hombre / Laboratorio</span>
-                <h3 class="service-title">Antígeno Prostático (PSA) <span aria-hidden='true'>🚙</span></h3>
+                <h3 class="service-title">Antígeno Prostático (PSA) <span>🚙</span></h3>
                 <p class="service-preview">El cáncer de próstata es silencioso pero 100% curable a tiempo. Una prueba de
                     sangre basta para proteger tu vida, ¡agenda tu chequeo!</p>
                 <div class="price-text">Cuota: $150 m.n.</div>
@@ -1150,8 +1313,8 @@
              PSICOLOGIA
         =============================== -->
             <div class="full-width-box category-card" data-cat="psico">
-                <h2 class="hand-drawn" style="text-align: center; color: var(--pc-rosa-fuerte);">Psicología Celene <span
-                        aria-hidden='true'>🧠</span></h2>
+                <h2 class="hand-drawn" style="text-align: center; color: var(--pc-rosa-fuerte);">Psicología Celene
+                    <span>🧠</span></h2>
                 <h3 style="text-align: center; margin-bottom: 20px;">Hablar con un profesional hace toda la diferencia.
                 </h3>
                 <p style="text-align: center; max-width: 800px; margin: 0 auto 20px;">El estrés, la enfermedad y la vida
@@ -1200,10 +1363,9 @@
                 <div class="btn-group" style="flex-wrap: wrap; gap: 8px;">
                     <a href="sobador-tony.html" class="btn btn-more" style="width: 100%;">Leer Más Detalles ➔</a>
                     <a href="tel:6611232010" class="btn"
-                        style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);"><span
-                            aria-hidden='true'>📞</span> Llamar</a>
-                    <a href="https://wa.me/526611232010" class="btn btn-wa" target="_blank"><span
-                            aria-hidden='true'>💬</span> WhatsApp</a>
+                        style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);"><span>📞</span>
+                        Llamar</a>
+                    <a href="https://wa.me/526611232010" class="btn btn-wa" target="_blank"><span>💬</span> WhatsApp</a>
                     <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ATony%3BSobador%0AFN%3ASobador%20Tony%0ATEL%3BTYPE%3DCELL%3A6611232010%0AEND%3AVCARD"
                         download="Sobador_Tony.vcf" class="btn"
                         style="background:var(--pc-amarillo); border-color:var(--pc-negro); color:var(--pc-negro); width: 100%;">📇
@@ -1222,10 +1384,9 @@
                     <a href="fisioterapeuta-lupita.html" class="btn btn-more" style="width: 100%;">Leer Más Detalles
                         ➔</a>
                     <a href="tel:6611232826" class="btn"
-                        style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);"><span
-                            aria-hidden='true'>📞</span> Llamar</a>
-                    <a href="https://wa.me/526611232826" class="btn btn-wa" target="_blank"><span
-                            aria-hidden='true'>💬</span> WhatsApp</a>
+                        style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);"><span>📞</span>
+                        Llamar</a>
+                    <a href="https://wa.me/526611232826" class="btn btn-wa" target="_blank"><span>💬</span> WhatsApp</a>
                     <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ALupita%3BFisioterapeuta%0AFN%3AFisioterapeuta%20Lupita%0ATEL%3BTYPE%3DCELL%3A6611232826%0AEND%3AVCARD"
                         download="Fisioterapeuta_Lupita.vcf" class="btn"
                         style="background:var(--pc-amarillo); border-color:var(--pc-negro); color:var(--pc-negro); width: 100%;">📇
@@ -1386,7 +1547,7 @@
             <div
                 style="background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 30px;">
                 <button class="quiz-toggle-btn" onclick="toggleQuiz()">¿Necesito una prueba de ITS? Haz el test privado
-                    <span aria-hidden='true'>🔍</span></button>
+                    <span>🔍</span></button>
 
                 <div id="quizContent"
                     style="display: none; margin-top: 25px; padding-top: 15px; border-top: 2px dashed #ccc;">
@@ -1426,7 +1587,8 @@
             <h2 class="hand-drawn" style="text-align: center; color: var(--pc-rosa-fuerte);">PROTÉGETE Y CHÉCATE 🛡️
             </h2>
             <p style="text-align: center; color:#555; font-size: 1.1rem; margin-bottom: 20px;">No sentir nada
-                <strong>NO</strong> significa estar sano. Conoce la verdad detrás del enemigo invisible:</p>
+                <strong>NO</strong> significa estar sano. Conoce la verdad detrás del enemigo invisible:
+            </p>
             <div class="its-grid">
                 <div class="its-item">
                     <h4>VIH</h4>
@@ -1512,8 +1674,7 @@
                 <textarea id="sm_duda" rows="2"
                     placeholder="¿Tienes alguna duda o quieres agendar directamente?"></textarea>
                 <button onclick="sendServiceWa()" class="btn btn-wa"
-                    style="width: 100%; border-color:var(--pc-negro);">Enviar Mensaje <span
-                        aria-hidden='true'>💬</span></button>
+                    style="width: 100%; border-color:var(--pc-negro);">Enviar Mensaje <span>💬</span></button>
             </div>
 
             <p style="text-align: center; margin-top: 25px; font-weight: 800; color: #555;">Puedes acudir directamente
@@ -1544,11 +1705,12 @@
            BASE DE DATOS COMPLETA DE SERVICIOS
         ========================================= */
         let currentServiceWaMsg = "";
+        let currentServiceId = "";
 
         const servicesInfo = {
             // --- MUJER & ANCLAS ---
             mastografia: {
-                title: "Mastografía Gratis <span aria-hidden='true'>🎗</span>",
+                title: "Mastografía Gratis <span>🎗</span>",
                 desc: "Un estudio de imagen clave para detectar anomalías antes de que sean palpables. Una detección temprana salva vidas.",
                 why: "En Proyecto Celene hemos detectado cientos de casos a tiempo. No dejes que el costo sea una barrera, ¡queremos verte sana!",
                 include: ["Vale para clínica de imagen externa.", "Interpretación por radiólogo certificado.", "Seguimiento médico personalizado."],
@@ -1557,30 +1719,35 @@
                 eduLink: "mastografia-gratuita.html"
             },
             consulta_gen: {
-                title: "Consulta Médica General <span aria-hidden='true'>🩺</span>",
+                title: "Consulta Médica General <span>🩺</span>",
                 desc: "Nuestra gran diferencia es que te escuchamos de verdad. De nada sirve recetarte la medicina más cara del mundo si por tu estilo de vida no podrás tomarla.",
                 why: "El Dr. Carlos Donato, nuestro Director Médico Operativo, tiene años de trayectoria en el servicio comunitario. Su enfoque se basa en ciencia y evidencia, pero siempre considerando tus capacidades económicas y tu entorno para darte un apoyo integral y realista.",
                 include: ["Valoración cálida y humana por el Dr. Carlos Donato.", "Plan de tratamiento ajustado a tu estilo de vida.", "Receta médica y explicación clara.", "Interpretación de laboratorios sin prisas.", "Canalización oportuna a especialistas."],
                 reqs: "Cuota de Recuperación: $150 m.n. <br><br>Atención sin cita: L-D de 9am a 4pm por orden de llegada.",
-                waMsg: "Consulta Médica General"
+                waMsg: "Consulta Médica General",
+                price: 150,
+                mpLink: "https://mpago.la/2RrwWdd"
             },
             control_peso: {
-                title: "Clínica de Control de Peso <span aria-hidden='true'>⚖️</span>",
+                title: "Clínica de Control de Peso <span>⚖️</span>",
                 desc: "Tu salud no se mide solo en tallas, se mide en bienestar integral. Logra tus metas con un acompañamiento médico y humano.",
                 why: "Bajar de peso no se trata de dejar de comer ni de seguir dietas extremas (efecto rebote). Nuestro objetivo es prevenir enfermedades como diabetes o hipertensión.",
                 include: ["Historia Clínica Detallada.", "Toma de Medidas (IMC).", "Asesoría Nutricional realista.", "Apoyo Farmacológico (si es necesario).", "Revisión de Laboratorios."],
-                reqs: "Cuota de Consulta Médica: $150 m.n.",
+                reqs: "Cuota de Consulta Médica: $200 m.n.",
                 waMsg: "Consulta de Control de Peso",
                 eduLink: "control-de-peso.html",
-                img: "https://i.ibb.co/BVbcyxJB/snoopy-control-de-peso.png"
+                img: "https://i.ibb.co/BVbcyxJB/snoopy-control-de-peso.png",
+                price: 200,
+                mpLink: "https://mpago.la/2LNJkin"
             },
             papa: {
-                title: "Papanicolaou (Citología) <span aria-hidden='true'>🌸</span>",
+                title: "Papanicolaou (Citología) <span>🌸</span>",
                 desc: "Detecta a tiempo cambios celulares en el cuello del útero antes de que se conviertan en cáncer.",
                 why: "Es una prueba de rutina que ha salvado millones de vidas a nivel mundial. Cuidarte es el acto de amor propio más grande.",
                 include: ["Toma de muestra confidencial.", "Material estéril.", "Entrega de resultados y consejería."],
                 reqs: "Cuota: $150 m.n. Requisitos: No tener relaciones 2 días antes, no aplicar óvulos ni estar menstruando.",
-                waMsg: "Papanicolaou"
+                waMsg: "Papanicolaou",
+                price: 150
             },
             implante_col: {
                 title: "Colocación de Implante (ISD) 💉",
@@ -1598,7 +1765,9 @@
                 include: ["Anestesia local.", "Retiro médico meticuloso.", "Parche de curación."],
                 reqs: "Cuota: $450 m.n.",
                 waMsg: "Retiro de Implante",
-                eduLink: "retiro-isd.html"
+                eduLink: "retiro-isd.html",
+                price: 450,
+                mpLink: "https://mpago.la/1xZdVDs"
             },
             isd_ret: {
                 title: "Retiro de Implante (ISD)",
@@ -1607,7 +1776,9 @@
                 include: ["Anestesia local.", "Insumos estériles.", "Retiro profesional."],
                 reqs: "Cuota: $450 m.n.",
                 waMsg: "Cita para Retiro de Implante (ISD)",
-                eduLink: "retiro-isd.html"
+                eduLink: "retiro-isd.html",
+                price: 450,
+                mpLink: "https://mpago.la/1xZdVDs"
             },
             diu_col: {
                 title: "Colocación de DIU 🛡",
@@ -1625,7 +1796,9 @@
                 include: ["Retiro clínico seguro.", "Consejería para tu próximo método si lo requieres."],
                 reqs: "Cuota: $450 m.n.",
                 waMsg: "Retiro de DIU",
-                eduLink: "retiro-diu.html"
+                eduLink: "retiro-diu.html",
+                price: 450,
+                mpLink: "https://mpago.la/1rySRcU"
             },
             inyeccion: {
                 title: "Inyección Anticonceptiva",
@@ -1633,7 +1806,8 @@
                 why: "Práctico y seguro para quienes prefieren no tomar píldoras diarias y desean protección confiable.",
                 include: ["Insumos estériles.", "Aplicación amable por enfermería o médico."],
                 reqs: "Cuota: $50 m.n. Tú debes traer la ampolleta de la farmacia.",
-                waMsg: "Aplicación de Inyección Anticonceptiva"
+                waMsg: "Aplicación de Inyección Anticonceptiva",
+                price: 50
             },
             dismenorrea: {
                 title: "Control del Dolor Menstrual",
@@ -1641,15 +1815,17 @@
                 why: "Buscamos descartar miomas o endometriosis, y te damos tratamiento real para que recuperes tu tranquilidad esos días del mes.",
                 include: ["Consulta médica detallada.", "Plan farmacológico.", "Referencia a ecografía si se requiere."],
                 reqs: "Costo de consulta médica ($150).",
-                waMsg: "Consulta por dolor menstrual"
+                waMsg: "Consulta por dolor menstrual",
+                price: 150
             },
             emergencia: {
-                title: "Anticoncepción de Emergencia <span aria-hidden='true'>💊</span>",
+                title: "Anticoncepción de Emergencia <span>💊</span>",
                 desc: "Orientación profesional para la pastilla del día siguiente. Te ofrecemos un espacio libre de juicios, regaños y lleno de empatía.",
                 why: "Los accidentes pasan (rotura de condón, olvido). Actuar antes de 72h es fundamental para proteger tus decisiones.",
                 include: ["Orientación sobre cómo actúa en tu cuerpo.", "Manejo de efectos secundarios.", "Consejería de método a largo plazo."],
                 reqs: "Acudir a consulta médica confidencial ($150).",
-                waMsg: "Orientación Anticoncepción de Emergencia"
+                waMsg: "Orientación Anticoncepción de Emergencia",
+                price: 150
             },
             anticon_gratis: {
                 title: "Métodos Anticonceptivos Sin Costo",
@@ -1665,7 +1841,8 @@
                 why: "No tienes que sufrir esta etapa en silencio. Existen terapias hormonales y no hormonales que te devuelven el bienestar.",
                 include: ["Evaluación clínica exhaustiva.", "Orden de labs hormonales.", "Tratamiento personalizado."],
                 reqs: "Costo de consulta médica ($150).",
-                waMsg: "Consulta para Menopausia"
+                waMsg: "Consulta para Menopausia",
+                price: 150
             },
             prenatal: {
                 title: "Control Prenatal",
@@ -1673,7 +1850,8 @@
                 why: "Detectar factores de riesgo previene complicaciones graves como preeclampsia y asegura que tu bebé nazca fuerte.",
                 include: ["Revisión de latidos.", "Medición de fondo uterino.", "Receta de vitaminas.", "Control de peso y presión."],
                 reqs: "Costo de consulta médica ($150).",
-                waMsg: "Agendar Control Prenatal"
+                waMsg: "Agendar Control Prenatal",
+                price: 150
             },
             infecciones_fem: {
                 title: "Infecciones Urinarias / Vaginales",
@@ -1681,7 +1859,8 @@
                 why: "Una infección no tratada puede volverse dolorosa y afectar órganos internos. Te damos la solución hoy mismo.",
                 include: ["Diagnóstico clínico.", "Receta de antibióticos u óvulos específicos.", "Recomendaciones de higiene."],
                 reqs: "Costo de consulta médica ($150).",
-                waMsg: "Consulta por infección vaginal/urinaria"
+                waMsg: "Consulta por infección vaginal/urinaria",
+                price: 150
             },
             ref_gineco: {
                 title: "Referencia a Ginecología",
@@ -1689,7 +1868,8 @@
                 why: "Trabajamos en red con médicos especialistas para asegurar que nunca te quedes a la deriva en tu tratamiento.",
                 include: ["Hoja de referencia formal y detallada.", "Historial clínico resumido."],
                 reqs: "El documento se entrega durante tu consulta médica ($150).",
-                waMsg: "Más información sobre Referencias a Ginecología"
+                waMsg: "Más información sobre Referencias a Ginecología",
+                price: 150
             },
 
             // --- HOMBRES ---
@@ -1699,7 +1879,8 @@
                 why: "Mejoramos tu flujo urinario con medicamento para que dejes de levantarte tantas veces por la noche y descanses mejor.",
                 include: ["Cuestionario IPSS de gravedad.", "Revisión clínica.", "Tratamiento médico."],
                 reqs: "Costo de consulta médica ($150).",
-                waMsg: "Consulta por próstata"
+                waMsg: "Consulta por próstata",
+                price: 150
             },
             disfuncion: {
                 title: "Disfunción Eréctil",
@@ -1707,7 +1888,8 @@
                 why: "Es un problema médico increíblemente común y NO debes avergonzarte. Tienes derecho a recuperar tu vida sexual plena.",
                 include: ["Interrogatorio confidencial.", "Detección de causas físicas.", "Receta médica probada."],
                 reqs: "Consulta médica, 100% confidencialidad ($150).",
-                waMsg: "Consulta de salud masculina (confidencial)"
+                waMsg: "Consulta de salud masculina (confidencial)",
+                price: 150
             },
             eyaculacion: {
                 title: "Eyaculación Precoz",
@@ -1715,7 +1897,8 @@
                 why: "Genera frustración y afecta la autoestima. Te ayudamos con técnicas modernas y medicamentos temporales eficaces.",
                 include: ["Plan terapéutico.", "Manejo de la ansiedad de desempeño."],
                 reqs: "Consulta médica confidencial ($150).",
-                waMsg: "Consulta de salud masculina (confidencial)"
+                waMsg: "Consulta de salud masculina (confidencial)",
+                price: 150
             },
             cuestionario_prost: {
                 title: "Test de Síntomas Prostáticos",
@@ -1735,7 +1918,7 @@
             },
 
             psicologia: {
-                title: "Sesión de Psicología <span aria-hidden='true'>🧠</span>",
+                title: "Sesión de Psicología <span>🧠</span>",
                 desc: "Encuentra un espacio seguro, confidencial y sin juicios para sanar tus emociones y recuperar tu paz mental.",
                 why: "El estrés, la enfermedad y la vida diaria pueden abrumarnos. Hablar con un profesional hace toda la diferencia.",
                 include: ["Acompañamiento Oncológico", "Manejo de Duelo", "Ansiedad y Depresión", "Terapia de Pareja/Familiar"],
@@ -1745,12 +1928,13 @@
 
             // --- COMBOS ---
             paquete_mujer_int: {
-                title: "Mujer Saludable Integral <span aria-hidden='true'>🌸</span>",
+                title: "Mujer Saludable Integral <span>🌸</span>",
                 desc: "El chequeo preventivo más completo y profundo. Un verdadero escudo protector para tu salud anual.",
                 why: "Encontrar signos de cáncer o diabetes a tiempo no solo salva tu vida, sino que asegura el bienestar de toda tu familia.",
                 include: ["Consulta Médica General.", "Toma de Papanicolaou.", "Exploración clínica de mamas.", "Vale para Mastografía (40+ años).", "Examen de Orina.", "Prueba de VIH.", "Toma de Presión y Glucosa."],
                 reqs: "Cuota de Recuperación: $500 m.n. Venir con 4h de ayuno si es posible.",
-                waMsg: "Paquete Mujer Saludable Integral"
+                waMsg: "Paquete Mujer Saludable Integral",
+                price: 500
             },
             paquete_mujer_bas: {
                 title: "Mujer Saludable Básico",
@@ -1758,15 +1942,17 @@
                 why: "Revisar oportunamente las mamas y el cuello uterino es la medida más inteligente que puedes tomar hoy por ti.",
                 include: ["Consulta Médica General.", "Toma de Papanicolaou.", "Exploración de mamas.", "Vale Mastografía.", "Prueba de VIH.", "Toma de Presión y Glucosa."],
                 reqs: "Cuota de Recuperación: $300 m.n.",
-                waMsg: "Paquete Mujer Saludable Básico"
+                waMsg: "Paquete Mujer Saludable Básico",
+                price: 300
             },
             mant_hombre: {
-                title: "Mantenimiento Anual Masculino <span aria-hidden='true'>🚙</span>",
+                title: "Mantenimiento Anual Masculino <span>🚙</span>",
                 desc: "Un servicio completo a tu cuerpo. Especialmente diseñado para detectar problemas prostáticos y enfermedades metabólicas silenciosas.",
                 why: "El cáncer de próstata no duele al principio, pero un piquete en el dedo puede detectarlo a tiempo y hacerte ganar la batalla.",
                 include: ["Consulta Médica.", "Cuestionario Prostático.", "Prueba PSA (Antígeno Prostático).", "Prueba VIH.", "Revisión: Glucosa, Presión, Peso."],
                 reqs: "Cuota de Recuperación: $300 m.n. Especial para mayores de 40 años.",
-                waMsg: "Mantenimiento Anual Masculino"
+                waMsg: "Mantenimiento Anual Masculino",
+                price: 300
             },
 
             // --- SALUD SEXUAL ---
@@ -1800,7 +1986,9 @@
                 why: "El chequeo ideal de rutina cuando inicias con una nueva pareja para que ambos se sientan 100% seguros.",
                 include: ["VIH.", "Sífilis (VDRL).", "Hepatitis B y C."],
                 reqs: "Cuota de Recuperación: $400 m.n.",
-                waMsg: "Paquete ITS Básico Seguro"
+                waMsg: "Paquete ITS Básico Seguro",
+                price: 400,
+                mpLink: "https://mpago.la/2N4tgs1"
             },
             pareja_atenta: {
                 title: "Paquete Pareja Atenta (ITS)",
@@ -1808,7 +1996,9 @@
                 why: "Atención: La clamidia no tratada es la principal causa de infertilidad prevenible. Proteger tu fertilidad es vital.",
                 include: ["Prueba para Gonorrea.", "Prueba para Clamidia."],
                 reqs: "Cuota de Recuperación: $350 m.n.",
-                waMsg: "Paquete ITS Pareja Atenta"
+                waMsg: "Paquete ITS Pareja Atenta",
+                price: 350,
+                mpLink: "https://mpago.la/2dkejGv"
             },
             completo_tranquilo: {
                 title: "Paquete Completo Tranquilo",
@@ -1816,15 +2006,19 @@
                 why: "Cubres de una sola vez el espectro completo de las infecciones curables y controlables más comunes del país.",
                 include: ["VIH.", "Sífilis.", "Hepatitis B y C.", "Gonorrea.", "Clamidia."],
                 reqs: "Cuota de Recuperación: $600 m.n. Tu información está segura.",
-                waMsg: "Paquete ITS Completo Tranquilo"
+                waMsg: "Paquete ITS Completo Tranquilo",
+                price: 600,
+                mpLink: "https://mpago.la/2p4C1bD"
             },
             juntos_mejor: {
-                title: "Paquete Juntos es Mejor <span aria-hidden='true'>👩‍❤️‍👨</span>",
+                title: "Paquete Juntos es Mejor <span>👩‍❤️‍👨</span>",
                 desc: "El paquete 'Completo Tranquilo' multiplicado por dos. Cuidarse en pareja fortalece la confianza.",
                 why: "Venir juntos es un acto de amor maduro. Además, Proyecto Celene les premia con un ahorro de $200 pesos.",
                 include: ["Panel completo para ti.", "Panel completo para tu acompañante."],
                 reqs: "Cuota de Recuperación: $1,000 m.n. (Costo total por ambas personas).",
-                waMsg: "Paquete ITS Juntos es Mejor"
+                waMsg: "Paquete ITS Juntos es Mejor",
+                price: 1000,
+                mpLink: "https://mpago.la/25FscCo"
             },
 
             // --- LABS ---
@@ -1834,15 +2028,17 @@
                 why: "Una opción rápida y económica si tienes varios días de retraso menstrual y buscas una respuesta inmediata.",
                 include: ["Recolección de muestra higiénica.", "Lectura profesional en clínica."],
                 reqs: "Cuota de Recuperación: $50 m.n.",
-                waMsg: "Prueba de Embarazo en Orina"
+                waMsg: "Prueba de Embarazo en Orina",
+                price: 50
             },
             embarazo_sangre: {
-                title: "Prueba de Embarazo (Sangre) <span aria-hidden='true'>🩸</span>",
+                title: "Prueba de Embarazo (Sangre) <span>🩸</span>",
                 desc: "Test sérico avanzado que detecta la hormona hCG mucho antes que cualquier prueba de farmacia.",
                 why: "Para cuando necesitas salir de dudas de inmediato, incluso antes de que llegue la fecha de tu regla. Precisión absoluta.",
                 include: ["Extracción suave por profesional.", "Resultado confiable en 10 min."],
                 reqs: "Cuota de Recuperación: $150 m.n.",
-                waMsg: "Prueba de Embarazo en Sangre"
+                waMsg: "Prueba de Embarazo en Sangre",
+                price: 150
             },
             covid: {
                 title: "Prueba Rápida COVID-19",
@@ -1850,7 +2046,8 @@
                 why: "Si tienes síntomas gripales, confirmar el diagnóstico es clave para no contagiar a tus adultos mayores en casa.",
                 include: ["Hisopado nasal seguro y rápido.", "Constancia oficial de resultado."],
                 reqs: "Cuota de Recuperación: $150 m.n.",
-                waMsg: "Prueba COVID"
+                waMsg: "Prueba COVID",
+                price: 150
             },
             glucosa: {
                 title: "Glucosa Capilar",
@@ -1858,7 +2055,8 @@
                 why: "Ideal para monitoreos de rutina o si repentinamente te sientes mareado, sediento o débil.",
                 include: ["Prueba en tira reactiva de calidad.", "Entrega de resultado al momento."],
                 reqs: "Cuota de Recuperación: $30 m.n. Se recomienda ayuno, pero no es obligatorio en urgencias.",
-                waMsg: "Prueba de Glucosa"
+                waMsg: "Prueba de Glucosa",
+                price: 30
             },
             hba1c: {
                 title: "Hemoglobina Glucosilada (HbA1c)",
@@ -1866,7 +2064,8 @@
                 why: "A diferencia del piquete en el dedo, esta prueba no se altera si comiste algo dulce ayer. Es la única forma real de controlar la diabetes.",
                 include: ["Extracción sanguínea.", "Posibilidad de interpretación si agendas consulta."],
                 reqs: "Cuota de Recuperación: $150 m.n.",
-                waMsg: "Prueba Hemoglobina Glucosilada (HbA1c)"
+                waMsg: "Prueba Hemoglobina Glucosilada (HbA1c)",
+                price: 150
             },
             orina: {
                 title: "Examen General de Orina (EGO)",
@@ -1874,7 +2073,8 @@
                 why: "Detecta infecciones de riñón, pequeñas hemorragias microscópicas o pérdida de proteínas antes de que causen dolor.",
                 include: ["Análisis de laboratorio completo.", "Entrega de resultados impresos."],
                 reqs: "Cuota de Recuperación: $50 m.n. Requiere llevar primera orina de la mañana o recolectarla en clínica.",
-                waMsg: "Examen General de Orina"
+                waMsg: "Examen General de Orina",
+                price: 50
             },
             psa: {
                 title: "Antígeno Prostático (PSA)",
@@ -1882,7 +2082,8 @@
                 why: "Niveles altos son la primera alerta médica de inflamación o cáncer. El cáncer de próstata es de los más curables si te checas a tiempo.",
                 include: ["Extracción rápida.", "Entrega de resultado."],
                 reqs: "Cuota de Recuperación: $150 m.n. Exclusivo para Hombres.",
-                waMsg: "Prueba de Antígeno Prostático"
+                waMsg: "Prueba de Antígeno Prostático",
+                price: 150
             },
 
             // --- PROCEDIMIENTOS Y OTROS ---
@@ -1892,7 +2093,9 @@
                 why: "Evita traslados innecesarios. Perfecto para revisar tus resultados de laboratorio, pedir segunda opinión o ajustar tus medicinas.",
                 include: ["Videollamada privada y segura.", "Receta digital válida enviada a tu WhatsApp."],
                 reqs: "Cuota de Recuperación: $150 m.n. Previo depósito o transferencia.",
-                waMsg: "Agendar Consulta Virtual"
+                waMsg: "Agendar Consulta Virtual",
+                price: 150,
+                mpLink: "https://mpago.la/21pzKjP"
             },
             certificado: {
                 title: "Certificado Médico",
@@ -1900,7 +2103,8 @@
                 why: "Es un requisito obligatorio que te solicitan para ingresar a escuelas, nuevos trabajos o competencias deportivas.",
                 include: ["Exploración física rápida.", "Toma de signos (peso, talla, presión).", "Certificado físico original."],
                 reqs: "Cuota de Recuperación: $100 m.n. Puedes traer fotografía si tu escuela la pide.",
-                waMsg: "Certificado Médico"
+                waMsg: "Certificado Médico",
+                price: 100
             },
             signos: {
                 title: "Toma de Signos Vitales",
@@ -1916,7 +2120,8 @@
                 why: "Que te inyecte alguien sin experiencia puede lastimar gravemente tu nervio ciático. Deja tu salud en manos de enfermeras profesionales.",
                 include: ["Uso de jeringas nuevas y estériles.", "Técnica clínica sin dolor excesivo."],
                 reqs: "Cuota de Recuperación: $40 m.n. Por seguridad, DEBES TRAER TU RECETA MÉDICA.",
-                waMsg: "Aplicación de Inyección"
+                waMsg: "Aplicación de Inyección",
+                price: 40
             },
             puntos_gatillo: {
                 title: "Inyección de Puntos Gatillo (TPI)",
@@ -1925,7 +2130,8 @@
                 include: ["Valoración médica para mapear el dolor.", "Material estéril (aguja muy fina y segura).", "Aplicación de anestésico local (lidocaína).", "Recomendaciones de estiramientos."],
                 reqs: "Cuota de Recuperación: $300 m.n. (Por sesión).",
                 waMsg: "Cita para Inyección de Puntos Gatillo",
-                eduLink: "puntos-gatillo.html" // Enlace a su subpágina educativa específica
+                eduLink: "puntos-gatillo.html",
+                price: 300
             },
             curacion: {
                 title: "Curación de Heridas",
@@ -1933,7 +2139,8 @@
                 why: "Una curación a tiempo y bien hecha previene gangrenas o infecciones severas que ponen en riesgo tus extremidades.",
                 include: ["Material estéril (gasas, antiséptico, vendajes).", "Maniobra cuidadosa por enfermería."],
                 reqs: "Cuota de Recuperación aprox: $250 m.n. (El costo exacto se indica valorando el tamaño de la herida).",
-                waMsg: "Curación de Heridas"
+                waMsg: "Curación de Heridas",
+                price: 250
             },
             sutura: {
                 title: "Sutura de Heridas",
@@ -1941,7 +2148,8 @@
                 why: "Frenamos hemorragias, evitamos que entren bacterias y aseguramos una cicatrización mucho más estética.",
                 include: ["Aplicación de anestesia local.", "Aseo profundo.", "Puntos de sutura profesionales."],
                 reqs: "Cuota de Recuperación: $350 m.n.",
-                waMsg: "Sutura de Heridas (Urgencia menor)"
+                waMsg: "Sutura de Heridas (Urgencia menor)",
+                price: 350
             },
             retiro_puntos: {
                 title: "Retiro de Puntos (Suturas)",
@@ -1949,7 +2157,8 @@
                 why: "Dejar los puntos más tiempo del indicado provoca que la piel los encarne, generando dolor, marca y posible infección.",
                 include: ["Corte de material quirúrgico.", "Valoración final de la cicatriz."],
                 reqs: "Cuota de Recuperación: $150 m.n.",
-                waMsg: "Retiro de Puntos"
+                waMsg: "Retiro de Puntos",
+                price: 150
             },
             oidos: {
                 title: "Lavado de Oídos",
@@ -1957,7 +2166,8 @@
                 why: "¡No uses cotonetes! Empujan la cera y pueden romper el tímpano. Nuestro método es seguro y te devuelve la audición al instante.",
                 include: ["Revisión del tímpano con otoscopio.", "Lavado clínico y limpieza."],
                 reqs: "Cuota de Recuperación: $250 m.n. (Incluye ambos oídos si es necesario).",
-                waMsg: "Lavado de Oídos"
+                waMsg: "Lavado de Oídos",
+                price: 250
             },
             absceso: {
                 title: "Drenaje de Absceso",
@@ -1965,7 +2175,8 @@
                 why: "La pus encapsulada no se quita solo tomando antibióticos; el cuerpo necesita que se abra, drene y se limpie la zona desde adentro para calmar el dolor.",
                 include: ["Anestesia local alrededor de la lesión.", "Drenaje y lavado interno.", "Empaquetamiento médico."],
                 reqs: "Cuota de Recuperación: $400 m.n.",
-                waMsg: "Drenaje de Absceso"
+                waMsg: "Drenaje de Absceso",
+                price: 400
             },
             verrugas: {
                 title: "Eliminación de Verrugas",
@@ -1973,7 +2184,8 @@
                 why: "Si te molestan al roce de la ropa o por estética, las retiramos de forma rápida y cuidando tu piel.",
                 include: ["Aplicación de anestesia local pequeña.", "Retiro con electrocauterio o técnica segura."],
                 reqs: "Cuota de Recuperación: $350 m.n. (Costo por unidad o zona, requiere valoración previa).",
-                waMsg: "Eliminación de Verrugas"
+                waMsg: "Eliminación de Verrugas",
+                price: 350
             }
         };
 
@@ -1984,18 +2196,53 @@
             return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         }
 
-        function searchServices() {
+        function applyFilters() {
             let input = removeAccents(document.getElementById('serviceSearch').value.toLowerCase());
-            let cards = document.getElementsByClassName('category-card');
+            let activeBtn = document.querySelector('.filter-btn.active');
+            let cat = activeBtn ? activeBtn.getAttribute('onclick').match(/'([^']+)'/)[1] : 'all';
+            
+            let cards = document.querySelectorAll('.category-card');
+            
             for (let card of cards) {
+                let tags = card.getAttribute('data-cat') || "";
                 let keywords = removeAccents((card.getAttribute('data-keywords') || "").toLowerCase());
-                let title = removeAccents(card.querySelector('.service-title').innerText.toLowerCase());
-                if (keywords.includes(input) || title.includes(input)) {
-                    card.style.display = "";
+                
+                let titleEl = card.querySelector('.service-title') || card.querySelector('h2') || card.querySelector('h3');
+                let title = titleEl ? removeAccents(titleEl.innerText.toLowerCase()) : "";
+                
+                let matchesSearch = input === "" || keywords.includes(input) || title.includes(input);
+                let matchesCat = cat === 'all' || tags.includes(cat);
+                
+                let isBanner = (card.id === 'labPromoBanner' || card.id === 'sexualEducationalModule' || card.id === 'sexPromoBanner');
+                
+                if (isBanner) {
+                    if (input === "") {
+                        if (card.id === 'labPromoBanner' && cat === 'lab') card.style.display = "block";
+                        else if (card.id === 'sexualEducationalModule' && cat === 'sexual') card.style.display = "block";
+                        else if (card.id === 'sexPromoBanner' && cat === 'sexual') card.style.display = "block";
+                        else card.style.display = "none";
+                    } else {
+                        card.style.display = "none";
+                    }
                 } else {
-                    card.style.display = "none";
+                    if (matchesSearch && matchesCat) {
+                        card.style.display = "";
+                    } else {
+                        card.style.display = "none";
+                    }
                 }
             }
+        }
+
+        function searchServices() {
+            let input = document.getElementById('serviceSearch').value;
+            if (input.length > 0) {
+                let btns = document.querySelectorAll('.filter-btn');
+                btns.forEach(btn => btn.classList.remove('active'));
+                let allBtn = Array.from(btns).find(btn => btn.getAttribute('onclick').includes(`'all'`));
+                if(allBtn) allBtn.classList.add('active');
+            }
+            applyFilters();
         }
 
         function filterCategory(cat) {
@@ -2005,32 +2252,8 @@
             let targetBtn = Array.from(btns).find(btn => btn.getAttribute('onclick').includes(`'${cat}'`));
             if (targetBtn) targetBtn.classList.add('active');
 
-            let cards = document.querySelectorAll('.category-card');
-
-            for (let card of cards) {
-                let tags = card.getAttribute('data-cat');
-
-                // Lógica para mostrar todo excepto banners exclusivos en "Todos"
-                if (cat === 'all') {
-                    if (card.id === 'labPromoBanner' || card.id === 'sexualEducationalModule' || card.id === 'sexPromoBanner') {
-                        card.style.display = "none";
-                    } else {
-                        card.style.display = "";
-                    }
-                }
-                // Si la tarjeta contiene la categoría y NO es 'all'
-                else if (tags && tags.includes(cat)) {
-                    card.style.display = "";
-                }
-                else {
-                    card.style.display = "none";
-                }
-            }
-
-            // Forzar visibilidad explícita de los banners especiales por tab
-            document.getElementById('labPromoBanner').style.display = (cat === 'lab') ? "block" : "none";
-            document.getElementById('sexualEducationalModule').style.display = (cat === 'sexual') ? "block" : "none";
-            document.getElementById('sexPromoBanner').style.display = (cat === 'sexual') ? "block" : "none";
+            document.getElementById('serviceSearch').value = ""; // Limpiar busqueda al cambiar categoría
+            applyFilters();
         }
 
         /* =========================================
@@ -2072,6 +2295,30 @@
         /* =========================================
            FUNCIONES DEL MODAL
         ========================================= */
+        function copyToClipboard(inputId, btn) {
+            var copyText = document.getElementById(inputId);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value).then(() => {
+                let originalHTML = btn.innerHTML;
+                btn.innerHTML = "¡Copiado! ✅";
+                btn.style.background = "var(--pc-rosa-fuerte)";
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.background = "";
+                }, 2000);
+            });
+        }
+
+        function togglePaymentInstructions(id) {
+            let paymentMethodElement = document.querySelector(`input[name="paymentMethod_${id}"]:checked`);
+            let paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'efectivo';
+
+            document.getElementById(`instructionsEfectivo_${id}`).style.display = paymentMethod === 'efectivo' ? 'block' : 'none';
+            document.getElementById(`instructionsTransferencia_${id}`).style.display = paymentMethod === 'transferencia' ? 'block' : 'none';
+            document.getElementById(`instructionsMercadoPago_${id}`).style.display = paymentMethod === 'mercadopago' ? 'block' : 'none';
+        }
+
         function openInfo(id) {
             const info = servicesInfo[id];
             if (!info) return;
@@ -2087,9 +2334,63 @@
 
             bodyHtml += `<h4 style="margin-top:20px; color:var(--pc-rosa-fuerte);">Inversión en tu Salud</h4><p style="font-size:1.05rem; font-weight:800; color:var(--pc-negro); background:var(--pc-amarillo); padding:10px; border-radius:10px; border:2px dashed var(--pc-negro); text-align:center;">${info.reqs}</p>`;
 
+            if (info.price && info.price > 0) {
+                let precioOriginal = info.price;
+                let precioOnline = (precioOriginal * 1.0422) + 4.84;
+                let mpLink = info.mpLink || "https://link.mercadopago.com.mx/drdonato";
+                
+                bodyHtml += `
+                    <div class="payment-methods">
+                        <h4 style="margin-bottom: 10px; font-size: 1.1rem; text-align: center; color: var(--pc-rosa-fuerte);">Opciones de Pago</h4>
+                        
+                        <div class="payment-option" onclick="document.getElementById('payEfectivo_${id}').click()">
+                            <input type="radio" name="paymentMethod_${id}" id="payEfectivo_${id}" value="efectivo" checked onchange="togglePaymentInstructions('${id}')">
+                            <label for="payEfectivo_${id}" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px;">
+                                <span>💵 <strong>Efectivo en Consultorio</strong><br><small style="color: #666;">(Sin comisión: $${precioOriginal.toFixed(2)} MN)</small></span>
+                                <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" style="margin: 0;" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                            </label>
+                        </div>
+                        
+                        <div class="payment-option" onclick="document.getElementById('payTransferencia_${id}').click()">
+                            <input type="radio" name="paymentMethod_${id}" id="payTransferencia_${id}" value="transferencia" onchange="togglePaymentInstructions('${id}')">
+                            <label for="payTransferencia_${id}">
+                                🏦 <strong>Transferencia SPEI / CLABE</strong><br><small style="color: #666;">(Sin comisión: $${precioOriginal.toFixed(2)} MN)</small>
+                            </label>
+                        </div>
+                        
+                        <div class="payment-option" onclick="document.getElementById('payMercadoPago_${id}').click()">
+                            <input type="radio" name="paymentMethod_${id}" id="payMercadoPago_${id}" value="mercadopago" onchange="togglePaymentInstructions('${id}')">
+                            <label for="payMercadoPago_${id}">
+                                💳 <strong>Pago en línea (Mercado Pago)</strong> <br>
+                                <span style="font-size: 0.85rem; font-weight: 600; color: #555;">(Incluye comisión de plataforma: $${precioOnline.toFixed(2)} MN)</span>
+                            </label>
+                        </div>
+
+                        <div id="instructionsEfectivo_${id}" style="display: block; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                            <p style="font-size: 0.95rem;"><strong>1.</strong> Envíanos un mensaje por WhatsApp para agendar tu cita y menciona que pagarás en efectivo en el consultorio.</p>
+                        </div>
+
+                        <div id="instructionsTransferencia_${id}" style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                            <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">Total a transferir: $${precioOriginal.toFixed(2)} MN</p>
+                            <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe_${id}" value="722969010854962949" readonly><button type="button" onclick="copyToClipboard('clabe_${id}', this)"><span>📋</span> Copiar</button></div>
+                            <div class="copy-box-modern"><span class="label">Beneficiario</span><input type="text" id="benef_${id}" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef_${id}', this)"><span>📋</span> Copiar</button></div>
+                            <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco_${id}" value="Mercado Pago W" readonly><button type="button" onclick="copyToClipboard('banco_${id}', this)"><span>📋</span> Copiar</button></div>
+                            <ul class="step-list" style="margin-top: 10px;"><li>Realiza la transferencia (guarda tu comprobante).</li><li>Envíanos un mensaje por WhatsApp con tu comprobante para confirmar tu cita.</li></ul>
+                        </div>
+
+                        <div id="instructionsMercadoPago_${id}" style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                            <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">Total a pagar en línea: $${precioOnline.toFixed(2)} MN</p>
+                            ${!info.mpLink ? `<div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal_${id}" value="${precioOnline.toFixed(2).replace('.', ',')}" readonly><button type="button" onclick="copyToClipboard('mpTotal_${id}', this)"><span>📋</span> Copiar</button></div><p style="color: #e65100; font-size: 0.85rem; font-weight: 800; margin-bottom: 10px;">⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>` : ''}
+                            <a href="${mpLink}" target="_blank" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 10px; font-size: 1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro);">Pagar en Mercado Pago ➔</a>
+                            <ul class="step-list" style="margin-top: 15px;"><li>Realiza el pago en el enlace (guarda captura de pantalla).</li><li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li></ul>
+                        </div>
+                    </div>
+                `;
+            }
+
             // Agregar botón de guía educativa si el servicio lo tiene configurado
             if (info.eduLink) {
-                bodyHtml += `<div style="text-align: center; margin-top: 20px;"><a href="${info.eduLink}" class="btn" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); width: 100%; box-shadow: 0 4px 0 var(--pc-negro); display: block;"><span aria-hidden='true'>📖</span> Leer Guía Educativa</a></div>`;
+                bodyHtml += `<div style="text-align: center; margin-top: 20px;"><a href="${info.eduLink}" class="btn" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); width: 100%; box-shadow: 0 4px 0 var(--pc-negro); display: block;"><span>📖</span> Leer Guía Educativa</a></div>`;
             }
 
             if (id === 'papa') {
@@ -2100,6 +2401,7 @@
 
             document.getElementById('modalBody').innerHTML = bodyHtml;
             currentServiceWaMsg = info.waMsg;
+            currentServiceId = id;
 
             document.getElementById('serviceModal').style.display = "flex";
         }
@@ -2124,6 +2426,16 @@
             if (duda) {
                 msg += `\n\nMi comentario/duda es: "${duda}"`;
             }
+            
+            let paymentMethodElement = document.querySelector(`input[name="paymentMethod_${currentServiceId}"]:checked`);
+            if (paymentMethodElement) {
+                let paymentText = "";
+                if (paymentMethodElement.value === 'efectivo') paymentText = "Efectivo en Consultorio";
+                if (paymentMethodElement.value === 'transferencia') paymentText = "Transferencia Bancaria";
+                if (paymentMethodElement.value === 'mercadopago') paymentText = "Pago en Línea (Mercado Pago)";
+                msg += `\n\n*Método de Pago seleccionado:* ${paymentText}`;
+            }
+            
             window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
             closeModal();
         }

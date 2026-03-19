@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Integral de Diabetes | Dr. Carlos Donato - Proyecto Celene</title>
+    <meta name="description" content="Guía interactiva para vivir plenamente con diabetes, desarrollada por el Dr. Carlos Donato en Proyecto Celene, Rosarito. Aprende sobre nutrición, insulinas y cuidado de pies.">
+    <meta name="author" content="Dr. Carlos Donato">
+    
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/guia-diabetes.html">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/guia-diabetes.html">
+    <meta property="og:title" content="Guía Integral de Diabetes | Dr. Carlos Donato">
+    <meta property="og:description" content="Guía interactiva para vivir plenamente con diabetes. Aprende sobre nutrición, insulinas y cuidado de pies.">
+    <meta property="og:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/guia-diabetes.html">
+    <meta property="twitter:title" content="Guía Integral de Diabetes | Dr. Carlos Donato">
+    <meta property="twitter:description" content="Guía interactiva para vivir plenamente con diabetes. Aprende sobre nutrición, insulinas y cuidado de pies.">
+    <meta property="twitter:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde: #25d366;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        /* HEADER */
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-rosa-pastell); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); position: relative; overflow: hidden; }
+        .header h1 { font-size: 2.8rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; line-height: 1.1; }
+        .author-badge { display: inline-block; background: var(--pc-negro); color: var(--pc-amarillo); padding: 5px 15px; border-radius: 50px; font-weight: 900; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* CAJAS Y PILARES */
+        .content-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-amarillo); position: relative; overflow: hidden; }
+        .content-box h2 { color: var(--pc-rosa-fuerte); margin-bottom: 15px; font-size: 1.8rem; }
+        .content-box p { margin-bottom: 15px; font-size: 1.1rem; color: #444; font-weight: 600; }
+        .content-box ul { margin-left: 20px; margin-bottom: 15px; font-weight: 600; color: #444; font-size: 1.05rem; }
+        .content-box li { margin-bottom: 8px; }
+
+        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0 30px; }
+        .pillar-card { background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 35px 20px 20px; text-align: center; position: relative; box-shadow: 6px 6px 0 var(--pc-azul-suave); transition: 0.3s; z-index: 1; }
+        .pillar-icon { width: 60px; height: 60px; background: var(--pc-amarillo); border: 3px solid var(--pc-negro); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; position: absolute; top: -30px; left: 50%; transform: translateX(-50%); }
+
+        /* PERFIL DEL DOCTOR */
+        .doctor-profile { display: flex; flex-wrap: wrap; gap: 25px; align-items: center; background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 25px; box-shadow: 8px 8px 0 var(--pc-azul-suave); margin-bottom: 30px; }
+        .doc-photo { width: 140px; height: 140px; border-radius: 50%; border: 4px solid var(--pc-rosa-fuerte); object-fit: cover; background: #eee; flex-shrink: 0; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; font-size: 3rem; overflow: hidden;}
+        .doc-info { flex: 1; min-width: 250px; }
+        .doc-info h3 { font-size: 1.8rem; color: var(--pc-negro); margin-bottom: 5px; line-height: 1.1; }
+        .doc-info h4 { color: var(--pc-rosa-fuerte); font-size: 1.1rem; margin-bottom: 10px; font-weight: 800; }
+        .doc-info p { font-size: 1rem; color: #555; margin-bottom: 0; }
+
+        /* TABS */
+        .tabs-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .tab-btn { background: var(--pc-blanco); border: 3px solid var(--pc-negro); padding: 12px 20px; border-radius: 50px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); transition: 0.2s; }
+        .tab-btn:hover { background: var(--pc-rosa-pastell); transform: translateY(-2px); box-shadow: 0 6px 0 var(--pc-negro); }
+        .tab-btn.active { background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 0px 0 var(--pc-negro); transform: translateY(4px); }
+        .tab-content { display: none; animation: fadeInTab 0.4s ease-out; }
+        @keyframes fadeInTab { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ACORDEON Y BOTONES */
+        .accordion-item { border: 3px solid var(--pc-negro); border-radius: 15px; margin-bottom: 15px; box-shadow: 4px 4px 0 var(--pc-blanco); background: white; }
+        .accordion-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 15px 20px; background: none; width: 100%; border: none; font-size: 1.15rem; font-weight: 800; text-align: left; color: var(--pc-rosa-fuerte); font-family: 'Nunito', sans-serif;}
+        .accordion-content { padding: 0 20px 20px; display: none; font-weight: 600; color: #444; }
+        
+        .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 15px 30px; border-radius: 50px; border: 4px solid var(--pc-negro); font-weight: 800; font-size: 1.2rem; background: var(--pc-verde); color: white; box-shadow: 0 6px 0 #1b9c4b; cursor: pointer; font-family: 'Nunito', sans-serif; transition: 0.1s; text-decoration: none;}
+        .btn:active { transform: translateY(6px); box-shadow: 0 0 0 transparent; }
+
+        /* ANIMACIÓN ANALOGÍA DIABETES (LLAVE Y CERRADURA) */
+        .analogy-container { background: var(--pc-azul-suave); padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro); text-align: center; position: relative; margin: 25px 0; }
+        .animation-box { display: flex; justify-content: center; align-items: center; gap: 20px; margin: 30px 0; font-size: 3rem; position: relative; height: 80px;}
+        .glucose { position: absolute; left: 10%; animation: floatG 3s infinite alternate ease-in-out; }
+        .insulin { position: absolute; left: 40%; animation: floatI 2.5s infinite alternate ease-in-out; }
+        .cell-door { position: absolute; right: 20%; background: white; border: 4px solid var(--pc-negro); border-radius: 10px; width: 60px; height: 80px; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; transition: 0.3s; }
+        
+        .analogy-container:hover .insulin { animation: openDoor 2s forwards; }
+        .analogy-container:hover .glucose { animation: enterCell 2s 1s forwards; }
+        .analogy-container:hover .cell-door { animation: doorOpenBg 0.5s 1.5s forwards; }
+
+        @keyframes floatG { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
+        @keyframes floatI { 0% { transform: translateY(0); } 100% { transform: translateY(10px); } }
+        @keyframes openDoor { 0% { left: 40%; transform: rotate(0deg); } 100% { left: calc(80% - 90px); transform: rotate(90deg); } }
+        @keyframes enterCell { 0% { left: 10%; opacity: 1; } 100% { left: 80%; opacity: 0; transform: scale(0.5); } }
+        @keyframes doorOpenBg { 100% { background: #e8f5e9; border-color: #2e7d32; } }
+
+        /* JUEGO DEL PLATO */
+        .plate-game-wrapper { background: var(--pc-gris-suave); padding: 25px; border-radius: 20px; border: 3px solid var(--pc-negro); box-shadow: inset 0 0 20px rgba(0,0,0,0.05); }
+        .plate-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: center; margin-top: 20px; }
+        .plate { width: 300px; height: 300px; border-radius: 50%; border: 12px solid #fff; position: relative; overflow: hidden; background: #f0f0f0; box-shadow: 0 10px 20px rgba(0,0,0,0.1), inset 0 5px 15px rgba(0,0,0,0.1); border-style: double; border-width: 15px; border-color: var(--pc-negro); }
+        .plate::after { content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; border-radius: 50%; border: 2px dashed rgba(0,0,0,0.1); pointer-events: none;}
+        .zone-veg { position: absolute; left: 0; top: 0; width: 50%; height: 100%; background: rgba(232, 245, 233, 0.8); border-right: 4px solid var(--pc-negro); display: flex; align-items: center; justify-content: center; flex-direction: column; font-weight: 900; color: #2e7d32; transition: 0.3s; }
+        .zone-pro { position: absolute; right: 0; top: 0; width: 50%; height: 50%; background: rgba(255, 235, 238, 0.8); border-bottom: 4px solid var(--pc-negro); display: flex; align-items: center; justify-content: center; flex-direction: column; font-weight: 900; color: #c62828; transition: 0.3s; }
+        .zone-carb { position: absolute; right: 0; bottom: 0; width: 50%; height: 50%; background: rgba(255, 243, 224, 0.8); display: flex; align-items: center; justify-content: center; flex-direction: column; font-weight: 900; color: #ef6c00; transition: 0.3s; }
+        .drop-zone.hovered { background: var(--pc-amarillo); transform: scale(1.02); }
+        .food-items { display: flex; flex-wrap: wrap; gap: 12px; max-width: 320px; justify-content: center; }
+        .food-item { background: white; border: 3px solid var(--pc-negro); padding: 10px 18px; border-radius: 50px; font-weight: 800; cursor: grab; font-size: 1rem; box-shadow: 4px 4px 0 var(--pc-negro); transition: transform 0.2s, box-shadow 0.2s; user-select: none; }
+        .food-item:hover { transform: translateY(-3px) scale(1.05); box-shadow: 6px 6px 0 var(--pc-rosa-fuerte); }
+        .food-item:active { cursor: grabbing; transform: scale(0.95); box-shadow: 0 0 0 transparent; }
+        .zone-veg .food-item, .zone-pro .food-item, .zone-carb .food-item { margin: 4px; padding: 5px 10px; font-size: 0.85rem; box-shadow: none; border-width: 2px; animation: popDrop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: default;}
+        .zone-veg .food-item:hover, .zone-pro .food-item:hover, .zone-carb .food-item:hover { transform: none; box-shadow: none; }
+        @keyframes popDrop { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        
+        /* CHECKLIST Y PIE ANIMADO */
+        .foot-care-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
+        @media (max-width: 600px) { .foot-care-grid { grid-template-columns: 1fr; } }
+        .checklist-container { background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-azul-suave); }
+        .check-item { display: flex; align-items: center; margin-bottom: 15px; cursor: pointer; font-size: 1.1rem; font-weight: 700; color: #444; transition: 0.2s; }
+        .check-item input { display: none; }
+        .custom-checkbox { width: 28px; height: 28px; border: 3px solid var(--pc-negro); border-radius: 6px; margin-right: 15px; display: flex; align-items: center; justify-content: center; transition: 0.2s; flex-shrink: 0; }
+        .check-item input:checked + .custom-checkbox { background: var(--pc-verde); border-color: var(--pc-verde); }
+        .check-item input:checked + .custom-checkbox::after { content: '✔'; color: white; font-size: 1.2rem; font-weight: 900; animation: popDrop 0.3s ease-out; }
+        .check-item input:checked ~ .check-text { text-decoration: line-through; color: #aaa; }
+        .check-item:hover .custom-checkbox { transform: scale(1.1); }
+        .foot-animation-box { height: 250px; background: var(--pc-rosa-pastell); border-radius: 15px; border: 3px dashed var(--pc-rosa-fuerte); display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; }
+        .foot-svg { width: 120px; fill: #ffe0b2; stroke: var(--pc-negro); stroke-width: 4px; filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.1)); }
+        .pulse-dot { position: absolute; width: 15px; height: 15px; background: #e53935; border-radius: 50%; box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.7); animation: pulseAlert 1.5s infinite; border: 2px solid white; }
+        .dot-toes { top: 45%; left: 45%; }
+        .dot-heel { bottom: 20%; left: 50%; }
+        .dot-sole { top: 65%; left: 48%; }
+        @keyframes pulseAlert { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(229, 57, 53, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(229, 57, 53, 0); } }
+
+        /* ANIMACIÓN DE INSULINAS */
+        .insulin-race-track { background: #333; padding: 20px; border-radius: 15px; border: 4px solid var(--pc-negro); margin-top: 20px; box-shadow: inset 0 5px 15px rgba(0,0,0,0.5); overflow: hidden; }
+        .track-lane { display: flex; align-items: center; margin-bottom: 20px; position: relative; }
+        .track-lane:last-child { margin-bottom: 0; }
+        .lane-label { width: 100px; color: white; font-weight: 900; font-size: 0.9rem; flex-shrink: 0; line-height: 1.2; text-shadow: 1px 1px 0 #000; }
+        .lane-path { flex-grow: 1; height: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; position: relative; border: 1px dashed rgba(255,255,255,0.3); }
+        .racer { font-size: 2rem; position: absolute; top: -15px; left: 0; filter: drop-shadow(2px 2px 0px #000); }
+        .insulin-race-track:hover .racer-rapid { animation: raceRapid 3s forwards cubic-bezier(0.1, 0.9, 0.2, 1); }
+        .insulin-race-track:hover .racer-inter { animation: raceInter 4s forwards ease-in-out; }
+        .insulin-race-track:hover .racer-basal { animation: raceBasal 6s forwards linear; }
+        @keyframes raceRapid { 0% { left: 0; opacity: 1;} 30% { left: 40%; opacity: 1;} 60% { left: 80%; opacity: 0; transform: scale(0.5); } 100% { left: 80%; opacity: 0; transform: scale(0.5);} }
+        @keyframes raceInter { 0% { left: 0; } 50% { left: 50%; } 100% { left: 90%; opacity: 0.3;} }
+        @keyframes raceBasal { 0% { left: 0; } 100% { left: 95%; } }
+
+        /* CALCULADORA */
+        .calc-box { background: var(--pc-azul-suave); border: 4px dashed var(--pc-negro); padding: 25px; border-radius: 20px; margin-top: 20px; }
+        .calc-input-group { margin-bottom: 15px; font-weight: 700; text-align: left; }
+        .calc-input-group label { display: block; margin-bottom: 5px; }
+        .calc-input-group input[type="number"] { width: 100%; padding: 12px; border: 3px solid var(--pc-negro); border-radius: 10px; font-size: 1rem; outline: none; font-family: 'Nunito', sans-serif; }
+        .radio-group { display: flex; gap: 15px; }
+        .radio-label { background: white; border: 2px solid var(--pc-negro); padding: 8px 20px; border-radius: 10px; cursor: pointer; font-weight: 800; transition: 0.2s;}
+        input[type="radio"]:checked + .radio-label { background: var(--pc-rosa-fuerte); color: white; }
+        #calcResult { display: none; padding: 20px; border-radius: 15px; border: 4px solid var(--pc-negro); margin-top: 20px; font-weight: 800; font-size: 1.2rem; text-align: center; }
+
+        /* MODALES */
+        .modal-wa, .modal-sos { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; padding: 15px; }
+        .modal-wa-content, .modal-sos-content { background: white; border: 4px solid var(--pc-negro); border-radius: 25px; max-width: 450px; width: 100%; padding: 35px; position: relative; box-shadow: 12px 12px 0px var(--pc-amarillo); animation: popInWa 0.3s ease-out; }
+        .modal-sos-content { border-color: #e53935; box-shadow: 0 0 30px rgba(229, 57, 53, 0.5); text-align: center; }
+        .close-modal-wa { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; font-weight: 900; color: var(--pc-negro); }
+        .btn-sos { position: fixed; bottom: 20px; left: 20px; background: #e53935; color: white; border: 4px solid var(--pc-negro); padding: 15px 20px; border-radius: 50px; font-weight: 900; font-size: 1.1rem; box-shadow: 4px 4px 0 var(--pc-negro); z-index: 9998; cursor: pointer; transition: 0.2s; font-family: 'Nunito', sans-serif; display: flex; align-items: center; gap: 8px; }
+        .sos-option { display: block; width: 100%; background: #f5f5f5; border: 3px solid var(--pc-negro); padding: 15px; margin-bottom: 15px; border-radius: 15px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: 0.2s; font-family: 'Nunito', sans-serif; }
+        .timer-display { font-size: 4rem; font-weight: 900; font-family: 'Courier Prime', monospace; color: #e53935; margin: 20px 0; }
+        
+        /* FOOTER DE AUTOR */
+        .author-footer { text-align: center; padding: 25px; border-top: 3px dashed #ccc; margin-top: 40px; color: #555; font-size: 0.95rem; font-weight: 600; }
+        .author-footer strong { color: var(--pc-negro); }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        
+        <header class="header fade-in">
+            <span class="author-badge">👨‍⚕️ Desarrollado por el Dr. Carlos Donato</span>
+            <h1 class="hand-drawn">Viviendo Bien con la Diabetes <span>🩸</span></h1>
+            <p style="font-weight:600; font-size:1.15rem; max-width: 700px; margin: 0 auto;">Tu Guía Integral de Cuidado. El manejo de la diabetes no se trata de seguir órdenes, sino de empoderarte. Aquí encontrarás la ciencia médica explicada de forma sencilla para tomar el control de tu salud.</p>
+        </header>
+
+        <div class="tabs-wrapper fade-in">
+            <button class="tab-btn active" onclick="openTab('tab-intro', this)">📖 Qué es</button>
+            <button class="tab-btn" onclick="openTab('tab-nutricion', this)">🥗 Nutrición</button>
+            <button class="tab-btn" onclick="openTab('tab-pies', this)">👣 Cuidado de Pies</button>
+            <button class="tab-btn" onclick="openTab('tab-insulina', this)">💉 Insulinas</button>
+            <button class="tab-btn" onclick="openTab('tab-servicios', this)">🩺 Conoce a tu Médico</button>
+        </div>
+
+        <div id="tab-intro" class="tab-content" style="display: block;">
+            <div class="content-box">
+                <h2 class="hand-drawn">1. La Ciencia de la Diabetes (Sin Regaños)</h2>
+                <p>Lo primero que debes saber al recibir un diagnóstico es que <strong>no es tu culpa</strong>. Es una condición metabólica compleja.</p>
+                
+                <div class="analogy-container">
+                    <h3 style="color: var(--pc-negro); margin-bottom: 5px;">La Analogía de la Puerta y la Llave</h3>
+                    <p style="font-size: 0.95rem;">Pasa el cursor por aquí o toca la caja para ver la animación 👇</p>
+                    <div class="animation-box">
+                        <span class="glucose" title="Glucosa (Azúcar)">🍬</span>
+                        <span class="insulin" title="Insulina">🔑</span>
+                        <div class="cell-door" title="Célula">🚪</div>
+                    </div>
+                    <p style="text-align: left; font-size: 1rem; margin-top: 15px;">
+                        <strong>¿Qué pasa en tu cuerpo?</strong> Imagina que tus células son casas con una puerta cerrada (🚪). Para tener energía, necesitan que entre el azúcar (🍬). La Insulina (🔑) es la llave que abre esa puerta.<br><br>
+                        En la <strong>Diabetes Tipo 2</strong>, la cerradura se oxida (resistencia a la insulina) o faltan llaves. En la <strong>Diabetes Tipo 1</strong>, el cuerpo deja de fabricar llaves. ¡Mi trabajo como médico es ayudarte a arreglar la cerradura o darte las llaves necesarias!
+                    </p>
+                </div>
+
+                <h2 class="hand-drawn" style="margin-top:40px;">2. Los 4 Pilares de tu Bienestar</h2>
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon"><span>🥗</span></div>
+                        <h4 style="color: var(--pc-rosa-fuerte);">Nutrición Realista</h4>
+                        <p style="font-size: 0.9rem;">Combinar carbohidratos con proteínas y grasas saludables para evitar picos.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon" style="background: var(--pc-azul-suave);"><span>🏃‍♀️</span></div>
+                        <h4 style="color: var(--pc-rosa-fuerte);">Movimiento</h4>
+                        <p style="font-size: 0.9rem;">El músculo consume glucosa. 15 min de caminata post-comida es magia pura.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon" style="background: #e8f5e9;"><span>💊</span></div>
+                        <h4 style="color: var(--pc-rosa-fuerte);">Tratamiento</h4>
+                        <p style="font-size: 0.9rem;">Pastillas o insulina protegen tus órganos vitales de la oxidación.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon" style="background: #ffebee;"><span>📊</span></div>
+                        <h4 style="color: var(--pc-rosa-fuerte);">Monitoreo</h4>
+                        <p style="font-size: 0.9rem;">Conocer tus niveles nos dice si el plan médico funciona o si hay que ajustar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-nutricion" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn">Nutrición Realista 🥗</h2>
+                <p>No se trata de prohibir, sino de estructurar. Enfatiza vegetales, granos integrales y proteínas. Evita bebidas azucaradas (los líquidos se absorben en minutos, creando picos peligrosos).</p>
+                
+                <div class="plate-game-wrapper">
+                    <h3 class="hand-drawn" style="text-align: center; color: var(--pc-rosa-fuerte); font-size: 1.5rem;">Juego: Arma tu Plato Ideal 🍽️</h3>
+                    <p style="text-align: center; font-size: 0.9rem; margin-bottom: 20px;">Arrastra cada alimento a su zona correspondiente. (50% Vegetales, 25% Proteína, 25% Carbohidratos).</p>
+                    
+                    <div class="plate-container">
+                        <div class="food-items" id="foodBank">
+                            <div class="food-item" draggable="true" id="f1" data-type="veg">🥦 Brócoli / Espinaca</div>
+                            <div class="food-item" draggable="true" id="f2" data-type="veg">🥗 Ensalada Verde</div>
+                            <div class="food-item" draggable="true" id="f3" data-type="pro">🍗 Pechuga Pollo</div>
+                            <div class="food-item" draggable="true" id="f4" data-type="pro">🥚 Huevo / Queso</div>
+                            <div class="food-item" draggable="true" id="f5" data-type="carb">🍚 Arroz Integral</div>
+                            <div class="food-item" draggable="true" id="f6" data-type="carb">🌮 Tortilla Maíz</div>
+                        </div>
+
+                        <div class="plate">
+                            <div class="zone-veg drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" data-accept="veg">50%<br>Vegetales</div>
+                            <div class="zone-pro drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" data-accept="pro">25%<br>Proteína</div>
+                            <div class="zone-carb drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" data-accept="carb">25%<br>Carbos</div>
+                        </div>
+                    </div>
+                    
+                    <div id="plateResult" style="margin-top: 25px; padding: 15px; background: #e8f5e9; border: 3px dashed #2e7d32; border-radius: 10px; color: #2e7d32; font-weight: 800; text-align: center; display: none; animation: popDrop 0.5s;">
+                        🎉 ¡Excelente trabajo! Al combinar así tus alimentos, logras que el azúcar de los carbohidratos entre lentamente a tu sangre.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-pies" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn">El Cuidado de tus Pies 👣</h2>
+                <p>Con el azúcar alta crónica, los nervios pierden sensibilidad y la circulación disminuye. Una simple piedrita en el zapato puede causar una herida que no sientes y que no sana. <strong>La prevención diaria es tu mejor defensa.</strong></p>
+                
+                <div class="foot-care-grid" style="margin-top: 30px;">
+                    <div class="checklist-container">
+                        <h4 style="margin-bottom: 15px; color: var(--pc-rosa-fuerte);">Mi Rutina de Hoy (Haz clic):</h4>
+                        <label class="check-item"><input type="checkbox" onclick="checkAllDone()"><div class="custom-checkbox"></div><span class="check-text">Revisé visualmente ambos pies (con espejo si es necesario).</span></label>
+                        <label class="check-item"><input type="checkbox" onclick="checkAllDone()"><div class="custom-checkbox"></div><span class="check-text">Secado perfecto, especialmente entre los dedos.</span></label>
+                        <label class="check-item"><input type="checkbox" onclick="checkAllDone()"><div class="custom-checkbox"></div><span class="check-text">Apliqué crema humectante (NUNCA entre los dedos).</span></label>
+                        <label class="check-item"><input type="checkbox" onclick="checkAllDone()"><div class="custom-checkbox"></div><span class="check-text">Revisé el interior de mis zapatos con la mano.</span></label>
+                        <div id="footSuccessMsg" style="color: #2e7d32; font-weight: 900; margin-top: 15px; font-size: 1.1rem; display: none; text-align: center;">¡Tus pies están protegidos hoy! ✅</div>
+                    </div>
+
+                    <div class="foot-animation-box">
+                        <h4 style="position: absolute; top: 10px; left: 15px; margin:0; color: var(--pc-rosa-fuerte); font-size: 0.9rem;">Puntos Críticos de Revisión:</h4>
+                        <svg class="foot-svg" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 30 20 C 30 10, 45 5, 50 15 C 65 5, 80 15, 75 30 C 85 30, 95 45, 85 55 C 90 60, 90 70, 80 75 C 80 85, 75 95, 60 95 C 60 130, 80 150, 70 180 C 60 195, 40 195, 30 180 C 20 150, 30 130, 35 95 C 20 95, 15 85, 15 75 C 5 70, 5 60, 10 55 C 0 45, 10 30, 20 30 C 15 15, 30 5, 30 20 Z" />
+                        </svg>
+                        <div class="pulse-dot dot-toes" title="Entre los dedos (Humedad/Hongos)"></div>
+                        <div class="pulse-dot dot-heel" title="Talones (Grietas)"></div>
+                        <div class="pulse-dot dot-sole" title="Planta del pie (Ampollas/Callos)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-insulina" class="tab-content">
+            <div class="content-box" style="background: white;">
+                <h2 class="hand-drawn">El Mundo de las Insulinas 💉</h2>
+                <p>La insulina no es un castigo, es la herramienta más poderosa para proteger tus órganos. Existen diferentes tipos que actúan a diferentes velocidades.</p>
+                
+                <div class="insulin-race-track">
+                    <p style="color: #aaa; font-size: 0.8rem; text-align: center; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px;">(Pasa el cursor por esta caja para iniciar la carrera)</p>
+                    <div class="track-lane"><div class="lane-label" style="color: #ff5252;">Rápida<br><span style="font-size: 0.7rem; font-weight: 400;">(Para comer)</span></div><div class="lane-path"><span class="racer racer-rapid">🏎️</span></div></div>
+                    <div class="track-lane"><div class="lane-label" style="color: #4fc3f7;">Intermedia<br><span style="font-size: 0.7rem; font-weight: 400;">(Base con picos)</span></div><div class="lane-path"><span class="racer racer-inter">🚌</span></div></div>
+                    <div class="track-lane"><div class="lane-label" style="color: #81c784;">Prolongada<br><span style="font-size: 0.7rem; font-weight: 400;">(Piloto automático)</span></div><div class="lane-path"><span class="racer racer-basal">🐢</span></div></div>
+                </div>
+
+                <div class="accordion" style="margin-top: 25px;">
+                    <div class="accordion-item"><button class="accordion-header">🏎️ Rápida (El Acelerador)</button>
+                        <div class="accordion-content"><p style="margin-top: 15px;">Se usa <strong>solo para cubrir las comidas</strong>. Entra rápido al torrente sanguíneo, baja el azúcar como un Fórmula 1 y desaparece en horas.</p></div>
+                    </div>
+                    <div class="accordion-item"><button class="accordion-header">🚌 Intermedia (El Autobús)</button>
+                        <div class="accordion-content"><p style="margin-top: 15px;">Actúa como base pero tiene "picos" de máxima fuerza a las 4-8 horas. Es como un autobús que hace paradas, requiriendo que a veces comas colaciones.</p></div>
+                    </div>
+                    <div class="accordion-item"><button class="accordion-header">🐢 Prolongada (Piloto Automático)</button>
+                        <div class="accordion-content"><p style="margin-top: 15px;">Marcas como Glargina. Es constante, sin picos. Mantiene tu velocidad estable 24 horas. <strong>La regla de oro: Misma dosis, misma hora todos los días.</strong></p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-box" style="background: var(--pc-amarillo);">
+                <h2 class="hand-drawn" style="color: var(--pc-negro);">Calculadora de Ajuste (Glargina) 📊</h2>
+                <p>Usa tus lecturas de glucosa <strong>en ayuno</strong> de los últimos 3 días para calcular tu ajuste de insulina Basal.</p>
+                <div class="calc-box">
+                    <div class="calc-input-group">
+                        <label>1. ¿Han pasado al menos 3 días desde tu último ajuste?</label>
+                        <div class="radio-group">
+                            <input type="radio" name="c_days" id="d_yes" value="yes" style="display:none;"><label class="radio-label" for="d_yes">Sí</label>
+                            <input type="radio" name="c_days" id="d_no" value="no" style="display:none;"><label class="radio-label" for="d_no">No</label>
+                        </div>
+                    </div>
+                    <div class="calc-input-group"><label>2. Dosis actual de insulina (Unidades):</label><input type="number" id="c_dose" placeholder="Ej. 14"></div>
+                    <div style="display: flex; gap: 10px;">
+                        <div class="calc-input-group" style="flex: 1;"><label>Día 1:</label><input type="number" id="c_g1" placeholder="120"></div>
+                        <div class="calc-input-group" style="flex: 1;"><label>Día 2:</label><input type="number" id="c_g2" placeholder="135"></div>
+                        <div class="calc-input-group" style="flex: 1;"><label>Día 3:</label><input type="number" id="c_g3" placeholder="128"></div>
+                    </div>
+                    <div class="calc-input-group">
+                        <label>3. ¿Tuviste episodios de hipoglucemia (&lt; 70) en la madrugada?</label>
+                        <div class="radio-group">
+                            <input type="radio" name="c_hypo" id="h_yes" value="yes" style="display:none;"><label class="radio-label" for="h_yes">Sí</label>
+                            <input type="radio" name="c_hypo" id="h_no" value="no" style="display:none;"><label class="radio-label" for="h_no">No</label>
+                        </div>
+                    </div>
+                    <button onclick="calculateDose()" class="btn" style="width: 100%; margin-top: 10px; background: var(--pc-negro); box-shadow: 0 5px 0 #000;">Calcular mi ajuste</button>
+                    <div id="calcResult"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-servicios" class="tab-content">
+            
+            <div class="doctor-profile fade-in">
+                <div class="doc-photo">👨‍⚕️</div>
+                <div class="doc-info">
+                    <h3>Dr. Carlos Donato</h3>
+                    <h4>Medicina General y Control Metabólico</h4>
+                    <p style="margin-bottom: 15px;">Creador de esta guía y firme creyente de que <strong>la medicina no se basa en regaños, sino en educación y empatía</strong>. Mi objetivo es darte las herramientas científicas más actualizadas para que tomes el control de tu diabetes sin miedo y vivas una vida plena.</p>
+                    <a href="https://proyectocelene.org/dr-donato.html" target="_blank" class="btn" style="padding: 10px 25px; font-size: 1.05rem; margin: 0; background: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-rosa-fuerte);">Ver mi perfil completo 👨‍⚕️</a>
+                </div>
+            </div>
+
+            <div class="content-box" style="background: var(--pc-rosa-pastell);">
+                <h2 class="hand-drawn">Atención Médica en Proyecto Celene</h2>
+                <p>Me encuentro brindando consulta en <strong>Rosarito, Baja California</strong>, apoyando a la comunidad a través de la fundación Proyecto Celene para asegurar que el costo no sea una barrera para tu salud:</p>
+                <ul>
+                    <li><span>🩺</span> <strong>Consulta de Control de Diabetes:</strong> $150 m.n.<br>Revisión detallada, ajuste de plan y resolución de dudas directamente conmigo.</li>
+                    <li><span>🩸</span> <strong>Glucosa Capilar:</strong> $30 m.n.</li>
+                    <li><span>🧪</span> <strong>Hemoglobina Glucosilada (HbA1c):</strong> $150 m.n.</li>
+                </ul>
+
+                <div style="text-align: center; margin-top: 40px; background: white; padding: 25px; border-radius: 15px; border: 3px dashed var(--pc-negro);">
+                    <h3 class="hand-drawn" style="color: var(--pc-negro); margin-bottom: 15px;">Inicia tu control hoy mismo</h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                        <button onclick="openModalWaDiabetes()" class="btn" style="width: 100%; max-width: 400px; margin: 0;">Agendar Consulta por WhatsApp <span>💬</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="author-footer">
+            <p><strong>© 2026 Dr. Carlos Donato.</strong> Todos los derechos reservados.<br>
+            El contenido interactivo, calculadoras y redacción clínica de este portal son propiedad intelectual original desarrollada para el empoderamiento del paciente.</p>
+            <p style="font-size: 0.8rem; margin-top: 15px; color: #888;">Descargo: La información y herramientas de este sitio son educativas y no sustituyen la consulta médica profesional presencial. Consulte siempre antes de realizar ajustes a su tratamiento.</p>
+        </footer>
+
+    </div>
+
+    <div class="btn-sos" onclick="openSosModal()"><span>🚨</span> ¿Azúcar &lt; 70? (S.O.S)</div>
+
+    <div id="sosModal" class="modal-sos">
+        <div class="modal-sos-content">
+            <div id="sos-step-1">
+                <h2 class="hand-drawn" style="color: #e53935; font-size: 2rem; margin-bottom: 10px;">¡Actúa rápido!</h2>
+                <p style="font-weight: 800; color: #444; margin-bottom: 20px;">Consume 15g de carbohidratos rápidos:</p>
+                <button class="sos-option" onclick="startSosTimer()">🧃 1/2 vaso de Jugo</button>
+                <button class="sos-option" onclick="startSosTimer()">🥤 1/2 vaso Refresco Normal</button>
+                <button class="sos-option" onclick="startSosTimer()">🍯 1 cda sopera de Miel/Azúcar</button>
+                <button onclick="closeSosModal()" style="background: none; border: none; text-decoration: underline; color: #888; margin-top: 15px; cursor: pointer; font-weight: bold; font-family: 'Nunito', sans-serif;">Cerrar S.O.S.</button>
+            </div>
+            <div id="sos-step-2" style="display: none;">
+                <h2 class="hand-drawn">Espera y Reposa</h2>
+                <p>No comas nada más. Espera 15 mins.</p>
+                <div class="timer-display" id="sosTimer">15:00</div>
+                <button onclick="skipTimer()" class="btn" style="background: #333; font-size: 0.9rem; padding: 10px 20px;">Saltar (Prueba)</button>
+            </div>
+            <div id="sos-step-3" style="display: none;">
+                <h2 class="hand-drawn" style="color: #1b9c4b;">¡Hora de revisar!</h2>
+                <p>Mídete la glucosa. <strong>¿Ya está arriba de 70?</strong></p>
+                <button class="sos-option" style="background: #e8f5e9; color: #2e7d32; border-color: #2e7d32;" onclick="sosSuccess()">✅ SÍ, ya subió</button>
+                <button class="sos-option" style="background: #ffebee; color: #c62828; border-color: #c62828;" onclick="sosFail()">❌ NO, sigue baja</button>
+            </div>
+            <div id="sos-step-4" style="display: none;">
+                <h2 class="hand-drawn" style="color: #1b9c4b;">¡Excelente! 🎉</h2>
+                <p>Saliste de la hipoglucemia. Si falta >1hr para tu comida, come un snack pequeño.</p>
+                <button onclick="closeSosModal()" class="btn" style="width: 100%;">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalWaDiabetes" class="modal-wa" onclick="if(event.target==this) this.style.display='none'">
+        <div class="modal-wa-content">
+            <span class="close-modal-wa" onclick="document.getElementById('modalWaDiabetes').style.display='none'">✕</span>
+            <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-top: 0;">Agenda tu Cita <span>💬</span></h3>
+            <p style="font-size: 0.9rem; margin-bottom: 15px;">Envía un mensaje para agendar tu consulta de control con el Dr. Carlos Donato.</p>
+            <input type="text" id="wa_diab_nombre" placeholder="Nombre Completo">
+            <input type="number" id="wa_diab_edad" placeholder="Edad">
+            <input type="text" id="wa_diab_dx" placeholder="Diagnóstico">
+            <textarea id="wa_diab_duda" rows="3" placeholder="Motivo de consulta"></textarea>
+            <button onclick="enviarWaDiabetesForm()" class="btn" style="width:100%;">Enviar a WhatsApp <span>📲</span></button>
+        </div>
+    </div>
+
+    <script>
+        // TABS Y ACORDEONES
+        function openTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).style.display = 'block';
+            if (btnElement) btnElement.classList.add('active');
+        }
+
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                const isActive = item.classList.toggle('active');
+                item.querySelector('.accordion-content').style.display = isActive ? 'block' : 'none';
+            });
+        });
+
+        // CUIDADO DE PIES CHECKLIST
+        function checkAllDone() {
+            let checkboxes = document.querySelectorAll('.check-item input[type="checkbox"]');
+            let allChecked = true;
+            checkboxes.forEach(cb => { if(!cb.checked) allChecked = false; });
+            let msgBox = document.getElementById('footSuccessMsg');
+            if(allChecked) { msgBox.style.display = 'block'; msgBox.style.animation = 'popDrop 0.5s'; } 
+            else { msgBox.style.display = 'none'; }
+        }
+
+        // DRAG AND DROP: PLATO
+        function allowDrop(ev) { ev.preventDefault(); }
+        function dragEnter(ev) { ev.target.classList.add('hovered'); }
+        function dragLeave(ev) { ev.target.classList.remove('hovered'); }
+
+        document.querySelectorAll('.food-item').forEach(item => {
+            item.addEventListener('dragstart', function(ev) {
+                ev.dataTransfer.setData("text/plain", ev.target.id);
+                ev.dataTransfer.setData("type", ev.target.dataset.type);
+            });
+        });
+
+        function drop(ev) {
+            ev.preventDefault();
+            let dataId = ev.dataTransfer.getData("text/plain");
+            let type = ev.dataTransfer.getData("type");
+            let dropTarget = ev.target;
+            while(dropTarget && !dropTarget.classList.contains('drop-zone')) { dropTarget = dropTarget.parentElement; }
+
+            if (dropTarget) {
+                dropTarget.classList.remove('hovered');
+                let acceptedType = dropTarget.dataset.accept;
+                if (type === acceptedType) {
+                    dropTarget.appendChild(document.getElementById(dataId));
+                    checkPlateComplete();
+                } else {
+                    dropTarget.style.backgroundColor = "#ffcdd2";
+                    setTimeout(() => { dropTarget.style.backgroundColor = ""; }, 300);
+                }
+            }
+        }
+
+        function checkPlateComplete() {
+            let bank = document.getElementById('foodBank');
+            if (bank.children.length === 0) { document.getElementById('plateResult').style.display = 'block'; }
+        }
+
+        // LÓGICA CALCULADORA DOSIS
+        function calculateDose() {
+            let dDays = document.querySelector('input[name="c_days"]:checked');
+            let dHypo = document.querySelector('input[name="c_hypo"]:checked');
+            let currentDose = parseInt(document.getElementById('c_dose').value);
+            let g1 = parseInt(document.getElementById('c_g1').value);
+            let g2 = parseInt(document.getElementById('c_g2').value);
+            let g3 = parseInt(document.getElementById('c_g3').value);
+            let resBox = document.getElementById('calcResult');
+            
+            if(!dDays || !dHypo || !currentDose || !g1 || !g2 || !g3) { alert("Por favor completa todos los campos del formulario."); return; }
+            if(dDays.value === 'no') {
+                resBox.innerHTML = "Espera 3 días con la misma dosis antes de hacer un ajuste.";
+                resBox.style.background = "#f5f5f5"; resBox.style.borderColor = "#9e9e9e"; resBox.style.color = "#424242";
+                resBox.style.display = "block"; return;
+            }
+
+            let avg = Math.round((g1 + g2 + g3) / 3);
+            if(dHypo.value === 'yes') {
+                resBox.innerHTML = "🚨 ALERTA: Disminuya 4 unidades. Contacte a su médico.";
+                resBox.style.background = "#ffebee"; resBox.style.borderColor = "#c62828"; resBox.style.color = "#c62828";
+            } else if (avg < 70 || g1 < 70 || g2 < 70 || g3 < 70) {
+                resBox.innerHTML = `🚨 HIPOGLUCEMIA: Disminuya de 2 a 4 unidades inmediatamente.`;
+                resBox.style.background = "#ffebee"; resBox.style.borderColor = "#c62828"; resBox.style.color = "#c62828";
+            } else if (avg >= 70 && avg <= 130) {
+                resBox.innerHTML = `✅ ¡Felicidades! Promedio: ${avg}. Mantenga su dosis.`;
+                resBox.style.background = "#e8f5e9"; resBox.style.borderColor = "#2e7d32"; resBox.style.color = "#2e7d32";
+            } else if (avg >= 131 && avg <= 180) {
+                resBox.innerHTML = `⚠️ Promedio: ${avg}. AUMENTE de 2 a 4 unidades.`;
+                resBox.style.background = "#fff3e0"; resBox.style.borderColor = "#f57f17"; resBox.style.color = "#f57f17";
+            } else if (avg > 180) {
+                resBox.innerHTML = `⚠️ Promedio: ${avg}. AUMENTE de 4 a 6 unidades.`;
+                resBox.style.background = "#fff3e0"; resBox.style.borderColor = "#e65100"; resBox.style.color = "#e65100";
+            }
+            resBox.style.display = "block";
+        }
+
+        // WHATSAPP Y S.O.S
+        function openModalWaDiabetes() { document.getElementById('modalWaDiabetes').style.display = 'flex'; }
+        function enviarWaDiabetesForm() {
+            let n = document.getElementById('wa_diab_nombre').value || 'N/A';
+            let e = document.getElementById('wa_diab_edad').value || 'N/A';
+            let dx = document.getElementById('wa_diab_dx').value || 'N/A';
+            let du = document.getElementById('wa_diab_duda').value || 'Deseo agendar consulta con el Dr. Carlos Donato.';
+            let msg = `Hola Proyecto Celene 🌸.\nLeí la guía del Dr. Carlos Donato y me interesa agendar una consulta.\n\n*Nombre:* ${n}\n*Edad:* ${e}\n*Dx:* ${dx}\n*Consulta:* ${du}`;
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+            document.getElementById('modalWaDiabetes').style.display = 'none';
+        }
+
+        let sosTimerInterval, timeLeft = 900;
+        function openSosModal() {
+            document.getElementById('sosModal').style.display = 'flex';
+            document.getElementById('sos-step-1').style.display = 'block'; document.getElementById('sos-step-2').style.display = 'none';
+            document.getElementById('sos-step-3').style.display = 'none'; document.getElementById('sos-step-4').style.display = 'none';
+            clearInterval(sosTimerInterval);
+        }
+        function closeSosModal() { document.getElementById('sosModal').style.display = 'none'; clearInterval(sosTimerInterval); }
+        function startSosTimer() {
+            document.getElementById('sos-step-1').style.display = 'none'; document.getElementById('sos-step-2').style.display = 'block';
+            timeLeft = 900; updateTimerDisplay();
+            sosTimerInterval = setInterval(() => {
+                timeLeft--; updateTimerDisplay();
+                if (timeLeft <= 0) { clearInterval(sosTimerInterval); document.getElementById('sos-step-2').style.display = 'none'; document.getElementById('sos-step-3').style.display = 'block'; }
+            }, 1000);
+        }
+        function updateTimerDisplay() { let m = Math.floor(timeLeft / 60), s = timeLeft % 60; document.getElementById('sosTimer').innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`; }
+        function skipTimer() { timeLeft = 0; }
+        function sosSuccess() { document.getElementById('sos-step-3').style.display = 'none'; document.getElementById('sos-step-4').style.display = 'block'; }
+        function sosFail() { document.getElementById('sos-step-3').style.display = 'none'; document.getElementById('sos-step-1').style.display = 'block'; }
+    </script>
+</body>
+</html>

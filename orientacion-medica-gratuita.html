@@ -1,88 +1,327 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orientación Médica - Proyecto Celene</title>
+    <meta name="description" content="Resuelve dudas rápidas, conoce a qué especialista acudir o recibe información preventiva sin salir de casa.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/orientacion-medica-gratuita.html">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://proyectocelene.org/orientacion-medica-gratuita.html">
     <meta property="og:title" content="Orientación Médica Gratuita - Proyecto Celene">
-    <meta property="og:description" content="Resuelve dudas rápidas, conoce a qué especialista acudir o recibe información preventiva sin salir de casa.">
+    <meta property="og:description"
+        content="Resuelve dudas rápidas, conoce a qué especialista acudir o recibe información preventiva sin salir de casa.">
     <meta property="og:image" content="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://proyectocelene.org/orientacion-medica-gratuita.html">
     <meta property="twitter:title" content="Orientación Médica Gratuita - Proyecto Celene">
-    <meta property="twitter:description" content="Resuelve dudas rápidas, conoce a qué especialista acudir o recibe información preventiva sin salir de casa.">
+    <meta property="twitter:description"
+        content="Resuelve dudas rápidas, conoce a qué especialista acudir o recibe información preventiva sin salir de casa.">
     <meta property="twitter:image" content="https://i.ibb.co/Y7JyQgKp/CLINICA-VIRTUAL.jpg">
 
-    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
     <style>
-        :root { --pc-rosa-pastell:#fce4ec; --pc-rosa-fuerte:#d81b60; --pc-negro:#333; --pc-blanco:#fff; --pc-amarillo:#fff9c4; --pc-azul-suave:#e3f2fd; }
-        * { box-sizing:border-box; margin:0; padding:0; }
-        body { font-family:'Nunito',sans-serif; background:var(--pc-blanco); color:var(--pc-negro); line-height:1.6; padding-bottom:50px; }
-        .hand-drawn { font-family:'Handlee',cursive; }
-        .container { max-width:900px; margin:0 auto; padding:15px; }
-        .main-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:30px; padding:15px; background:var(--pc-blanco); border:3px solid var(--pc-negro); border-radius:20px; box-shadow:6px 6px 0 var(--pc-rosa-pastell); }
-        .main-nav a { text-decoration:none; color:var(--pc-negro); font-weight:800; font-size:1.05rem; padding:8px 15px; border-radius:15px; transition:0.2s; border:2px solid transparent; }
-        .main-nav a:hover { background:var(--pc-rosa-fuerte); color:white; border-color:var(--pc-negro); transform:translateY(-2px); box-shadow:3px 3px 0 var(--pc-negro); }
-        .header { text-align:center; padding:40px 20px; background:#e3f2fd; border:4px solid var(--pc-negro); border-radius:20px; margin-bottom:30px; box-shadow:8px 8px 0 var(--pc-negro); }
-        .header img { max-width:100%; width:400px; border-radius:15px; border:3px solid var(--pc-negro); margin-bottom:15px; background:white; }
-        .header h1 { font-size:2.8rem; color:var(--pc-rosa-fuerte); margin-bottom:10px; line-height:1.1; }
-        .content-box { background:white; border:3px solid var(--pc-negro); border-radius:20px; padding:30px; margin-bottom:30px; box-shadow:6px 6px 0 var(--pc-rosa-pastell); }
-        .content-box h2 { color:var(--pc-rosa-fuerte); margin-bottom:15px; font-size:1.8rem; }
-        .content-box ul { margin-left:20px; margin-bottom:15px; font-weight:600; color:#444; }
-        .content-box li { margin-bottom:8px; }
-        .btn { display:block; text-align:center; padding:15px; border-radius:50px; border:4px solid var(--pc-negro); font-weight:800; text-decoration:none; font-size:1.2rem; background:#25d366; color:white; box-shadow:0 6px 0 #1b9c4b; margin:20px auto 0; max-width:400px; transition:0.1s; }
-        .btn:active { top:6px; box-shadow:0 0 0 transparent; }
-        
-        /* ESTILOS DEL MODAL */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); align-items: center; justify-content: center; padding: 15px; }
-        .modal-content { background: white; border: 4px solid var(--pc-negro); border-radius: 25px; max-width: 500px; width: 100%; padding: 35px; position: relative; box-shadow: 12px 12px 0px var(--pc-rosa-pastell); animation: popIn 0.3s ease-out; }
-        @keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .close-modal { position: absolute; top: 15px; right: 25px; font-size: 2rem; cursor: pointer; font-weight: 900; color: var(--pc-negro); transition: 0.2s; }
-        .close-modal:hover { color: var(--pc-rosa-fuerte); transform: scale(1.1); }
-        
-        .modal input, .modal select, .modal textarea {
-            width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 3px solid var(--pc-negro);
-            border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none;
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333;
+            --pc-blanco: #fff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
         }
-        .modal input:focus, .modal select:focus, .modal textarea:focus { border-color: var(--pc-rosa-fuerte); }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            border-color: var(--pc-negro);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: #e3f2fd;
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-negro);
+        }
+
+        .header img {
+            max-width: 100%;
+            width: 400px;
+            border-radius: 15px;
+            border: 3px solid var(--pc-negro);
+            margin-bottom: 15px;
+            background: white;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .content-box {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+        }
+
+        .content-box h2 {
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .content-box li {
+            margin-bottom: 8px;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 15px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.2rem;
+            background: #25d366;
+            color: white;
+            box-shadow: 0 6px 0 #1b9c4b;
+            margin: 20px auto 0;
+            max-width: 400px;
+            transition: 0.1s;
+        }
+
+        .btn:active {
+            top: 6px;
+            box-shadow: 0 0 0 transparent;
+        }
+
+        /* ESTILOS DEL MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            max-width: 500px;
+            width: 100%;
+            padding: 35px;
+            position: relative;
+            box-shadow: 12px 12px 0px var(--pc-rosa-pastell);
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: 900;
+            color: var(--pc-negro);
+            transition: 0.2s;
+        }
+
+        .close-modal:hover {
+            color: var(--pc-rosa-fuerte);
+            transform: scale(1.1);
+        }
+
+        .modal input,
+        .modal select,
+        .modal textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .modal input:focus,
+        .modal select:focus,
+        .modal textarea:focus {
+            border-color: var(--pc-rosa-fuerte);
+        }
 
         .video-container {
-            display: flex; justify-content: center; margin: 30px 0; overflow: hidden;
-            border-radius: 15px; border: 4px solid var(--pc-negro);
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 4px solid var(--pc-negro);
         }
 
         .warning-box {
-            background: #fff3e0; border: 3px dashed #ff9800; padding: 20px; border-radius: 15px;
-            margin-top: 30px; font-size: 0.95rem; color: #e65100;
+            background: #fff3e0;
+            border: 3px dashed #ff9800;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: #e65100;
         }
 
         /* DIAGRAMA DE PASOS */
-        .steps-container { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; }
-        .step-row { display: flex; align-items: flex-start; gap: 15px; background: var(--pc-gris-suave); padding: 15px; border-radius: 15px; border: 2px solid var(--pc-negro); box-shadow: 4px 4px 0 var(--pc-azul-suave); transition: transform 0.2s;}
-        .step-row:hover { transform: translateX(10px); background: white; }
-        .step-icon { background: var(--pc-rosa-fuerte); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem; border: 2px solid var(--pc-negro); flex-shrink: 0; font-family: 'Handlee', cursive;}
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .step-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: var(--pc-gris-suave);
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid var(--pc-negro);
+            box-shadow: 4px 4px 0 var(--pc-azul-suave);
+            transition: transform 0.2s;
+        }
+
+        .step-row:hover {
+            transform: translateX(10px);
+            background: white;
+        }
+
+        .step-icon {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            border: 2px solid var(--pc-negro);
+            flex-shrink: 0;
+            font-family: 'Handlee', cursive;
+        }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
     <div class="container">
         <div id="navbar-container" class="main-nav"></div>
         <header class="header">
-            <h1 class="hand-drawn">Orientación Médica Gratuita <span aria-hidden='true'>💬</span></h1>
-            <p style="font-weight:800; font-size:1.3rem; color: var(--pc-rosa-fuerte); background: white; border: 3px dashed var(--pc-negro); padding: 10px; display: inline-block; border-radius: 15px; margin-top: 10px;">¡Servicio Exclusivo en Línea / Virtual!</p>
-            <p style="font-weight:600; font-size:1.1rem; margin-top: 15px;">Resuelve dudas rápidas, conoce a qué especialista acudir o recibe información preventiva sin salir de casa.</p>
+            <h1 class="hand-drawn">Orientación Médica Gratuita <span>💬</span></h1>
+            <p
+                style="font-weight:800; font-size:1.3rem; color: var(--pc-rosa-fuerte); background: white; border: 3px dashed var(--pc-negro); padding: 10px; display: inline-block; border-radius: 15px; margin-top: 10px;">
+                ¡Servicio Exclusivo en Línea / Virtual!</p>
+            <p style="font-weight:600; font-size:1.1rem; margin-top: 15px;">Resuelve dudas rápidas, conoce a qué
+                especialista acudir o recibe información preventiva sin salir de casa.</p>
         </header>
         <div class="content-box">
             <h2 class="hand-drawn">¿Cómo funciona?</h2>
-            <p>A veces solo necesitas que un profesional te escuche y te indique qué paso debes tomar. A través de este servicio <strong>100% virtual gratuito</strong>, nuestro equipo médico evalúa tus síntomas iniciales para orientarte.</p>
-            
+            <p>A veces solo necesitas que un profesional te escuche y te indique qué paso debes tomar. A través de este
+                servicio <strong>100% virtual gratuito</strong>, nuestro equipo médico evalúa tus síntomas iniciales
+                para orientarte.</p>
+
             <div class="steps-container">
                 <div class="step-row">
                     <div class="step-icon">1</div>
@@ -94,53 +333,73 @@
                 </div>
                 <div class="step-row">
                     <div class="step-icon">3</div>
-                    <div><strong>Orientación:</strong> Te respondemos indicándote qué estudios hacerte, si necesitas ir a urgencias, o con qué especialista acudir (Ginecología, Urología, etc).</div>
+                    <div><strong>Orientación:</strong> Te respondemos indicándote qué estudios hacerte, si necesitas ir
+                        a urgencias, o con qué especialista acudir (Ginecología, Urología, etc).</div>
                 </div>
             </div>
-            
+
             <ul style="margin-top: 20px;">
-                <li><span aria-hidden='true'>✅</span> Dudas rápidas sobre síntomas leves o medicamentos.</li>
-                <li><span aria-hidden='true'>✅</span> Saber con qué especialista acudir según lo que sientes.</li>
-                <li><span aria-hidden='true'>✅</span> Revisar resultados o estudios (como mastografías o laboratorios).</li>
-                <li><span aria-hidden='true'>✅</span> Asesoría en control de peso y educación en salud sexual (ITS).</li>
+                <li><span>✅</span> Dudas rápidas sobre síntomas leves o medicamentos.</li>
+                <li><span>✅</span> Saber con qué especialista acudir según lo que sientes.</li>
+                <li><span>✅</span> Revisar resultados o estudios (como mastografías o laboratorios).</li>
+                <li><span>✅</span> Asesoría en control de peso y educación en salud sexual (ITS).</li>
             </ul>
 
             <div class="warning-box">
-                <h3 class="hand-drawn" style="color:#e65100; font-size: 1.5rem; margin-bottom: 10px;">Límites de la Orientación Gratuita</h3>
+                <h3 class="hand-drawn" style="color:#e65100; font-size: 1.5rem; margin-bottom: 10px;">Límites de la
+                    Orientación Gratuita</h3>
                 <p>🚫 <strong>NO se emiten Recetas Médicas, NO hay orientación presencial gratis.</strong><br>
-                Por normatividad legal en México (NOM-004-SSA3-2012), recetar un medicamento requiere realizar un diagnóstico profundo, una exploración y abrir un <strong>expediente clínico formal</strong>.</p>
-                
+                    Por normatividad legal en México (NOM-004-SSA3-2012), recetar un medicamento requiere realizar un
+                    diagnóstico profundo, una exploración y abrir un <strong>expediente clínico formal</strong>.</p>
+
                 <p style="margin-top: 10px;"><strong>¿Ocupas valoración física o receta oficial?</strong><br>
-                Si al orientarte notamos que requieres una exploración, te invitaremos a acudir presencialmente. Si no puedes venir pero necesitas receta, puedes agendar una <strong>Consulta Virtual Formal (Costo: $150 pesos)</strong>, la cual incluye tu expediente y receta digital con la cédula del médico titular.</p>
+                    Si al orientarte notamos que requieres una exploración, te invitaremos a acudir presencialmente. Si
+                    no puedes venir pero necesitas receta, puedes agendar una <strong>Consulta Virtual Formal (Costo:
+                        $150 pesos)</strong>, la cual incluye tu expediente y receta digital con la cédula del médico
+                    titular.</p>
             </div>
 
             <h2 class="hand-drawn" style="text-align: center; margin-top: 30px;">Accede al Servicio</h2>
-            <p style="text-align: center; font-weight: 600; margin-bottom: 20px;">Envíanos tu caso por mensaje o consulta los horarios disponibles para tu videollamada / llamada de orientación gratuita:</p>
+            <p style="text-align: center; font-weight: 600; margin-bottom: 20px;">Envíanos tu caso por mensaje o
+                consulta los horarios disponibles para tu videollamada / llamada de orientación gratuita:</p>
 
-            <button onclick="openModal('modalOrientacion')" class="btn">Iniciar Orientación por Mensaje <span aria-hidden='true'>💬</span></button>
-            
+            <button onclick="openModal('modalOrientacion')" class="btn">Iniciar Orientación por Mensaje
+                <span>💬</span></button>
+
             <!-- Botón Calendario Google -->
             <div style="text-align: center; margin-top: 15px; display: flex; justify-content: center;">
                 <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
                 <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
                 <script>
-                (function() {
-                  var target = document.currentScript;
-                  window.addEventListener('load', function() {
-                    calendar.schedulingButton.load({
-                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
-                      color: '#fff9c4', /* Amarillo */
-                  label: '<span aria-hidden="true">📅</span> Consultar horarios disponibles',
-                      target,
-                    });
-                  });
-                })();
+                    (function () {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function () {
+                            calendar.schedulingButton.load({
+                                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
+                                color: '#fff9c4', /* Amarillo */
+                                label: '<span>📅</span> Consultar horarios disponibles',
+                                target,
+                            });
+                        });
+                    })();
                 </script>
             </div>
             <!-- Ajuste CSS manual para que el botón amarillo parezca parte de la página -->
             <style>
-                .X81W0b { border: 4px solid var(--pc-negro) !important; color: var(--pc-negro) !important; font-family: 'Nunito', sans-serif !important; font-weight: 800 !important; border-radius: 50px !important; padding: 12px 20px !important; box-shadow: 0 6px 0 var(--pc-negro) !important; }
-                .X81W0b:active { box-shadow: 0 0 0 transparent !important; transform: translateY(6px); }
+                .X81W0b {
+                    border: 4px solid var(--pc-negro) !important;
+                    color: var(--pc-negro) !important;
+                    font-family: 'Nunito', sans-serif !important;
+                    font-weight: 800 !important;
+                    border-radius: 50px !important;
+                    padding: 12px 20px !important;
+                    box-shadow: 0 6px 0 var(--pc-negro) !important;
+                }
+
+                .X81W0b:active {
+                    box-shadow: 0 0 0 transparent !important;
+                    transform: translateY(6px);
+                }
             </style>
 
         </div>
@@ -150,9 +409,12 @@
     <div id="modalOrientacion" class="modal" onclick="closeOnOutside(event, 'modalOrientacion')">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('modalOrientacion')">✕</span>
-            <h3 class="modal-title hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Ficha de Orientación <span aria-hidden='true'>🩺</span></h3>
-            <p style="margin-bottom:20px; font-weight: 600; color: #555;">Ayúdanos con esta información para que nuestro equipo médico entienda tu caso antes de contactarte.</p>
-            
+            <h3 class="modal-title hand-drawn"
+                style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Ficha de
+                Orientación <span>🩺</span></h3>
+            <p style="margin-bottom:20px; font-weight: 600; color: #555;">Ayúdanos con esta información para que nuestro
+                equipo médico entienda tu caso antes de contactarte.</p>
+
             <input type="text" id="ori_nombre" placeholder="Nombre completo del paciente">
             <div style="display: flex; gap: 10px;">
                 <input type="number" id="ori_edad" placeholder="Edad" style="flex: 1;">
@@ -165,15 +427,16 @@
             <textarea id="ori_motivo" rows="3" placeholder="¿Cuál es tu duda o síntoma principal?"></textarea>
             <input type="text" id="ori_enfermedades" placeholder="¿Padeces alguna enfermedad? (Ej. Diabetes)">
             <input type="text" id="ori_medicamentos" placeholder="¿Tomas algún medicamento actualmente?">
-            
-            <button onclick="sendWa()" class="btn" style="width:100%; margin-top: 10px;">Enviar a WhatsApp <span aria-hidden='true'>💬</span></button>
+
+            <button onclick="sendWa()" class="btn" style="width:100%; margin-top: 10px;">Enviar a WhatsApp
+                <span>💬</span></button>
         </div>
     </div>
 
     <script>
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        function closeOnOutside(event, id) { if(event.target.id === id) closeModal(id); }
+        function closeOnOutside(event, id) { if (event.target.id === id) closeModal(id); }
 
         function sendWa() {
             let nombre = document.getElementById('ori_nombre').value || 'No especificado';
@@ -184,11 +447,12 @@
             let med = document.getElementById('ori_medicamentos').value || 'Ninguno';
 
             let msg = `*FICHA DE ORIENTACIÓN MÉDICA*\n\n👤 *Paciente:* ${nombre}\n🎂 *Edad:* ${edad} | *Sexo:* ${sexo}\n\n💬 *Motivo de Orientación:*\n${motivo}\n\n🩺 *Enfermedades previas:* ${enf}\n💊 *Medicamentos actuales:* ${med}\n\nSolicito apoyo con orientación médica gratuita, por favor.`;
-            
+
             window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
             closeModal('modalOrientacion');
         }
     </script>
-<script src="js/global.js"></script>
+    <script src="js/global.js"></script>
 </body>
+
 </html>
