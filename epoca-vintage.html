@@ -1,177 +1,886 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estilo Vintage 50s y 60s - Proyecto Celene</title>
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Shrikhand&family=Special+Elite&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --pop-orange: #FF5938;
-            --pop-yellow: #FFD23F;
-            --pop-blue: #118AB2;
-            --pop-pink: #EF476F;
-            --pop-bg: #F4F1EA; 
-            --pop-dark: #2D232E;
-            --pc-blanco: #ffffff;
+            --bg-crema: #f5f0e1;
+            --rosa-causa: #e06c9f;
+            --rojo-50s: #c71585;
+            --naranja-60s: #ff6600;
+            --texto-oscuro: #2b2b2b;
+            --azul-retro: #4a90e2;
+            --papel-periodico: #eee6d8; /* Color de papel envejecido */
+            --tinta-periodico: #1a1a1a;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--pop-bg);
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            background-color: var(--bg-crema);
             background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.06"/></svg>');
-            color: var(--pop-dark); 
-            line-height: 1.5; padding-bottom: 50px; overflow-x: hidden;
+            color: var(--texto-oscuro);
+            line-height: 1.8;
+            overflow-x: hidden;
         }
 
-        .font-groovy { font-family: 'Shrikhand', cursive; font-weight: normal; letter-spacing: 1px; }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
 
         /* NAVEGACIÓN PRINCIPAL */
-        .main-nav {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-            margin-bottom: 30px; padding: 15px; background: var(--pop-yellow);
-            border: 3px solid var(--pop-dark); border-radius: 50px;
-            box-shadow: 4px 4px 0px var(--pop-dark);
+        #navbar-container {
+            position: absolute; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: rgba(245, 240, 225, 0.95); display: flex; flex-wrap: wrap;
+            justify-content: center; gap: 10px; padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); border-bottom: 2px solid var(--texto-oscuro);
         }
-        .main-nav a {
-            text-decoration: none; color: var(--pop-dark); font-weight: 800;
-            font-size: 1.05rem; padding: 8px 15px; border-radius: 15px;
-            transition: all 0.2s; border: 2px solid transparent;
-        }
-        .main-nav a:hover { background: var(--pop-pink); color: var(--pc-blanco); border-color: var(--pop-dark); box-shadow: 3px 3px 0 var(--pop-dark); }
 
-        /* HERO */
-        .hero {
-            background: var(--pop-blue); color: white; border: 4px solid var(--pop-dark);
-            border-radius: 50px 15px 50px 15px; padding: 50px 30px; text-align: center;
-            box-shadow: 12px 12px 0px var(--pop-dark); margin-bottom: 50px;
+        #navbar-container a {
+            text-decoration: none; color: var(--texto-oscuro); font-weight: bold;
+            font-family: 'Courier New', monospace; padding: 5px 15px; transition: 0.3s;
         }
-        .hero h1 { font-size: 3.5rem; color: var(--pop-pink); text-shadow: 3px 3px 0px var(--pop-yellow); margin-bottom: 15px; line-height: 1.1; }
-        .hero p { font-size: 1.2rem; font-weight: 600; max-width: 700px; margin: 0 auto; }
 
-        /* SECCIONES DE MODA */
-        .fashion-section {
-            background: var(--pc-blanco); border: 4px solid var(--pop-dark);
-            border-radius: 20px; padding: 40px; margin-bottom: 40px;
-            position: relative; box-shadow: 8px 8px 0px var(--pop-orange);
+        #navbar-container a:hover { color: var(--rojo-50s); }
+
+        /* FUENTE MÁQUINA DE ESCRIBIR (VISUAL) */
+        .type-title {
+            font-family: 'Special Elite', monospace, serif !important;
+            min-height: 1.2em; border-right: 3px solid transparent;
         }
-        .fashion-section.men { box-shadow: 8px 8px 0px var(--pop-blue); }
+        .type-title.typing { border-right: 3px solid var(--rojo-50s); animation: blink-caret 0.75s step-end infinite; }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--rojo-50s); } }
+
+        /* ANIMACIONES Y EFECTOS BASE */
+        .fade-in { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+        .slide-in-left { opacity: 0; transform: translateX(-60px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+        .slide-in-right { opacity: 0; transform: translateX(60px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+        .visible { opacity: 1; transform: translate(0, 0); }
+
+        /* HERO SECTION */
+        #hero {
+            position: relative; height: 100vh; min-height: 600px; display: flex;
+            align-items: center; justify-content: center; overflow: hidden; padding-top: 60px;
+        }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 120%;
+            background-image: url('https://www.imer.mx/rmi/wp-content/uploads/sites/3/2014/05/radio-y-familia-1950.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            z-index: 1; filter: sepia(0.6) brightness(0.4);
+        }
+        .hero-content { position: relative; z-index: 2; text-align: center; color: white; padding: 20px; max-width: 900px; }
         
-        .fashion-section h2 { font-size: 2.5rem; color: var(--pop-dark); margin-bottom: 20px; border-bottom: 4px dashed var(--pop-yellow); padding-bottom: 10px; display: inline-block; }
+        .top-actions { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+        .btn-mini {
+            background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            color: white; border: 2px solid rgba(255, 255, 255, 0.8); padding: 8px 24px; border-radius: 50px;
+            text-decoration: none; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 0.95rem;
+            transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-mini:hover { background: var(--rosa-causa); border-color: var(--rosa-causa); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(224, 108, 159, 0.5); }
+        .btn-mini.donate:hover { background: var(--naranja-60s); border-color: var(--naranja-60s); box-shadow: 0 6px 20px rgba(255, 102, 0, 0.5); }
+
+        .hero-content h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); color: var(--bg-crema); }
         
-        .fashion-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px;
+        .btn-retro {
+            display: inline-block; padding: 15px 35px; border: 2px solid white; color: white;
+            text-decoration: none; font-family: 'Courier New', monospace; font-weight: bold;
+            font-size: 1.2rem; text-transform: uppercase; transition: all 0.3s;
+            background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(5px); position: relative; overflow: hidden;
+        }
+        .btn-retro::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: rgba(255,255,255,0.2); transition: all 0.4s; skewX(-45deg); }
+        .btn-retro:hover::before { left: 100%; }
+        .btn-retro:hover { background: var(--rojo-50s); border-color: var(--rojo-50s); transform: scale(1.05); }
+
+        /* GUÍA DE VESTIMENTA (FOTOS POLAROID) */
+        .style-selector {
+            background: white; border: 4px dashed var(--rojo-50s); border-radius: 20px;
+            padding: 40px 20px; text-align: center; max-width: 1000px;
+            margin: -50px auto 60px; position: relative; z-index: 10;
+            box-shadow: 10px 10px 0 var(--rosa-causa);
+        }
+        .style-selector h2 { font-size: 2.5rem; color: var(--texto-oscuro); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .style-selector p { font-size: 1.2rem; margin-bottom: 25px; font-weight: 500; }
+        
+        .outfit-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 20px; }
+        .polaroid {
+            background: #fff; padding: 10px 10px 20px 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+            text-align: center; text-decoration: none; color: var(--texto-oscuro);
+            display: block; width: calc(50% - 20px); max-width: 200px; border: 1px solid #eee;
+        }
+        .polaroid:nth-child(1) { transform: rotate(-3deg); }
+        .polaroid:nth-child(2) { transform: rotate(2deg); }
+        .polaroid:nth-child(3) { transform: rotate(-2deg); }
+        .polaroid:nth-child(4) { transform: rotate(3deg); }
+        .polaroid:hover { transform: scale(1.08) rotate(0deg); box-shadow: 0 12px 24px rgba(0,0,0,0.25); z-index: 10; position: relative; border-color: var(--rojo-50s); }
+        .polaroid img { width: 100%; height: 220px; object-fit: cover; filter: sepia(0.2) contrast(1.1); border-radius: 2px; }
+        .polaroid h3 { font-family: 'Special Elite', cursive; margin-top: 15px; font-size: 1.2rem; }
+        
+        .historia-btn { 
+            display: inline-block; margin-top: 30px; background: var(--texto-oscuro); color: white;
+            border: 2px solid var(--texto-oscuro); padding: 12px 35px; font-weight: 700; text-decoration: none;
+            border-radius: 50px; transition: 0.3s; font-size: 1.1rem;
+        }
+        .historia-btn:hover { background: var(--rojo-50s); color: white; border-color: var(--rojo-50s); transform: translateY(-4px); box-shadow: 4px 4px 0 rgba(0,0,0,0.2); }
+
+        /* SECCIONES MAGAZINE GENERAL */
+        .magazine-section { padding: 80px 20px; max-width: 1000px; margin: 0 auto; position: relative; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 3.5rem; margin-bottom: 15px; color: var(--rojo-50s); }
+
+        /* ==========================================================================
+           DISEÑO: PERIÓDICOS VIEJOS APILADOS (VINTAGE NEWSPAPER FRONT PAGE)
+           ========================================================================== */
+        .newspaper-stack { 
+            display: flex; flex-direction: column; align-items: center; gap: 40px; margin-bottom: 60px; 
+        }
+        .news-item {
+            width: 100%; max-width: 850px; position: relative; transition: all 0.4s ease;
+            box-shadow: 12px 12px 0px rgba(0,0,0,0.15); /* Sombra dura retro */
         }
         
-        .tip-card {
-            background: var(--pop-bg); border: 2px solid var(--pop-dark); padding: 20px;
-            border-radius: 15px; text-align: left;
+        /* Rotaciones intercaladas para efecto de pila desordenada */
+        .news-item:nth-child(odd) { transform: rotate(-1.5deg); }
+        .news-item:nth-child(even) { transform: rotate(1deg); }
+        .news-item:hover { transform: rotate(0deg) scale(1.02); z-index: 10; box-shadow: 18px 18px 0px rgba(0,0,0,0.2); }
+        
+        .news-inner {
+            background-color: var(--papel-periodico);
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.08"/></svg>');
+            border: 2px solid var(--tinta-periodico);
+            padding: 30px; position: relative; z-index: 1; display: block;
         }
-        .tip-card h3 { color: var(--pop-pink); font-size: 1.4rem; margin-bottom: 10px; font-family: 'Shrikhand', cursive; }
-        .tip-card.men-tip h3 { color: var(--pop-blue); }
-        .tip-card p { font-size: 1.05rem; color: #444; font-weight: 600; }
+        
+        /* Borde interior doble (Clásico periódico) */
+        .news-inner::before {
+            content: ''; position: absolute; top: 5px; left: 5px; right: 5px; bottom: 5px;
+            border: 1px solid var(--tinta-periodico); pointer-events: none;
+        }
+        
+        .news-check { display: none; }
+        
+        .news-meta {
+            font-family: 'Courier New', Courier, monospace; font-size: 0.85rem; font-weight: bold;
+            text-transform: uppercase; color: #444; display: flex; justify-content: space-between;
+            border-bottom: 2px solid var(--tinta-periodico); padding-bottom: 5px; margin-bottom: 20px;
+        }
+        .news-meta span.vol { letter-spacing: 2px; }
 
-        /* GALERIA DE INSPIRACION (PLACEHOLDERS) */
-        .moodboard {
-            display: flex; gap: 15px; overflow-x: auto; padding-bottom: 15px; margin-top: 30px;
-        }
-        .moodboard img {
-            width: 200px; height: 250px; object-fit: cover; border: 3px solid var(--pop-dark);
-            border-radius: 10px; flex-shrink: 0; box-shadow: 4px 4px 0px var(--pop-dark);
+        /* Estructura de la "Portada" Interactiva */
+        .news-frontpage {
+            display: block; cursor: pointer;
         }
 
-        .btn-action {
-            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            background: var(--pop-yellow); border: 3px solid var(--pop-dark); color: var(--pop-dark);
-            padding: 15px 35px; font-weight: 900; font-size: 1.2rem; border-radius: 50px;
-            cursor: pointer; transition: transform 0.2s; text-decoration: none; font-family: 'Inter', sans-serif;
-            box-shadow: 6px 6px 0px var(--pop-dark); margin-top: 20px;
+        .news-headline {
+            font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900;
+            color: var(--tinta-periodico); text-align: center; line-height: 1.1;
+            text-transform: uppercase; border-bottom: 4px double var(--tinta-periodico);
+            padding-bottom: 15px; margin-bottom: 20px; display: block; transition: color 0.3s;
         }
-        .btn-action:hover { transform: translateY(-3px); box-shadow: 9px 9px 0px var(--pop-dark); background: var(--pop-orange); color: white; }
+        .news-frontpage:hover .news-headline { color: var(--rojo-50s); }
 
+        .news-preview-body {
+            display: flex; gap: 25px; align-items: stretch;
+        }
+
+        .news-cover-wrapper { flex: 1; max-width: 45%; }
+        .news-cover-img {
+            width: 100%; height: 220px; object-fit: cover;
+            filter: grayscale(100%) contrast(1.2) sepia(0.2); /* Filtro de imprenta antigua */
+            border: 2px solid var(--tinta-periodico);
+        }
+        .caption {
+            display: block; font-size: 0.85rem; font-style: italic; color: #444;
+            margin-top: 5px; font-family: 'Courier New', monospace;
+        }
+
+        .news-excerpt-wrapper {
+            flex: 1; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .news-excerpt {
+            font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 1.25rem;
+            color: #222; text-align: justify; line-height: 1.5; margin-bottom: 15px;
+        }
+        
+        .read-more-btn {
+            display: inline-block; align-self: flex-start; padding: 8px 18px;
+            border: 2px solid var(--tinta-periodico); font-family: 'Courier New', monospace;
+            font-size: 0.95rem; font-weight: bold; text-transform: uppercase;
+            background: transparent; color: var(--tinta-periodico); transition: all 0.3s;
+        }
+        .read-more-btn::before { content: '📰 Leer artículo completo ▼'; }
+        .news-frontpage:hover .read-more-btn { background: var(--tinta-periodico); color: var(--papel-periodico); }
+        .news-check:checked ~ .news-inner .read-more-btn::before { content: '🗞️ Ocultar artículo ▲'; }
+
+        /* Contenido expandido */
+        .news-content {
+            max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.8s ease, opacity 0.5s ease;
+            font-family: Georgia, 'Times New Roman', serif; text-align: justify; font-size: 1.15rem; line-height: 1.6; color: #111;
+        }
+        .news-check:checked ~ .news-inner .news-content {
+            max-height: 3000px; opacity: 1; margin-top: 30px; padding-top: 25px;
+            border-top: 4px double var(--tinta-periodico);
+        }
+
+        /* Letra Capital (Drop Cap) para el primer párrafo al expandir */
+        .news-check:checked ~ .news-inner .news-content > p:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900;
+            float: left; line-height: 0.8; margin-right: 10px; margin-top: 5px; color: var(--tinta-periodico);
+        }
+
+        /* Columnas para texto largo en PC */
+        @media (min-width: 768px) {
+            .news-content { column-count: 2; column-gap: 30px; column-rule: 1px solid #ccc; }
+        }
+
+        /* ESTILOS ESPECÍFICOS SECCIÓN 60S (Fondo Naranja) */
+        .s1960s { background-color: var(--naranja-60s); color: white; border-radius: 40px; box-shadow: 10px 10px 0 var(--texto-oscuro); margin-top: 40px; margin-bottom: 40px; }
+        .s1960s .section-header h2 { color: #ffe0b2; }
+        .s1960s .news-inner { background-color: #fffcf0; border-color: var(--texto-oscuro); }
+        .s1960s .news-frontpage:hover .news-headline { color: var(--naranja-60s); }
+        .s1960s .news-frontpage:hover .read-more-btn { background: var(--naranja-60s); border-color: var(--naranja-60s); color: white; }
+
+        /* ==========================================================================
+           INTERACTIVE TIMELINES DE MODA (MANTENIDOS)
+           ========================================================================== */
+        .css-timeline { position: relative; background: rgba(255, 255, 255, 0.5); padding: 40px 20px; border-radius: 20px; border: 2px dashed currentColor; margin-top: 30px; box-shadow: inset 0 0 20px rgba(0,0,0,0.05); }
+        .s1960s .css-timeline { background: rgba(0, 0, 0, 0.2); }
+        .css-timeline input[type="radio"] { display: none; }
+        .tl-nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+        .tl-nav label { padding: 10px 25px; border: 2px solid currentColor; border-radius: 50px; cursor: pointer; font-weight: bold; transition: all 0.3s; font-family: 'Courier New', monospace; background: transparent; }
+        .tl-nav label:hover { transform: translateY(-3px); box-shadow: 0 5px 10px rgba(0,0,0,0.2); }
+        
+        .tl-content { display: grid; align-items: start; justify-items: center; position: relative; min-height: 400px; }
+        .tl-slide { grid-area: 1 / 1; width: 100%; opacity: 0; transform: translateY(20px) scale(0.95); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .tl-slide img { max-height: 350px; width: auto; border-radius: 10px; border: 8px solid white; box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2); margin-bottom: 20px; transition: transform 0.3s; }
+        .tl-slide img:hover { transform: scale(1.05) rotate(2deg); }
+
+        #tl-50-1:checked~.tl-nav label[for="tl-50-1"], #tl-50-2:checked~.tl-nav label[for="tl-50-2"], #tl-50-3:checked~.tl-nav label[for="tl-50-3"], #tl-50-4:checked~.tl-nav label[for="tl-50-4"],
+        #tl-60-1:checked~.tl-nav label[for="tl-60-1"], #tl-60-2:checked~.tl-nav label[for="tl-60-2"], #tl-60-3:checked~.tl-nav label[for="tl-60-3"] {
+            background: var(--rojo-50s); color: white; border-color: var(--rojo-50s); box-shadow: inset 0 -3px 0 rgba(0,0,0,0.3);
+        }
+        .s1960s #tl-60-1:checked~.tl-nav label[for="tl-60-1"], .s1960s #tl-60-2:checked~.tl-nav label[for="tl-60-2"], .s1960s #tl-60-3:checked~.tl-nav label[for="tl-60-3"] {
+            background: white; color: var(--texto-oscuro); border-color: white;
+        }
+
+        #tl-50-1:checked~.tl-content #slide-50-1, #tl-50-2:checked~.tl-content #slide-50-2, #tl-50-3:checked~.tl-content #slide-50-3, #tl-50-4:checked~.tl-content #slide-50-4,
+        #tl-60-1:checked~.tl-content #slide-60-1, #tl-60-2:checked~.tl-content #slide-60-2, #tl-60-3:checked~.tl-content #slide-60-3 {
+            opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; z-index: 5;
+        }
+
+        /* EXPANSOR CSS ADICIONAL PARA CULTURA POP 60S */
+        .expand-check { display: none; }
+        .expand-content { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.6s ease, opacity 0.6s ease, margin-top 0.4s ease; text-align: left; padding: 0 10px; }
+        .expand-check:checked ~ .expand-content { max-height: 800px; opacity: 1; margin-top: 15px; padding: 10px; border-top: 1px solid rgba(255,255,255,0.3);}
+        .expand-btn { display: inline-block; margin-top: 10px; padding: 8px 20px; background: rgba(255,255,255,0.2); color: white; border-radius: 50px; cursor: pointer; transition: 0.3s; border: 1px solid white; font-size: 0.9rem;}
+        .expand-btn:hover { background: white; color: var(--texto-oscuro); }
+        .expand-check:checked ~ .expand-btn::after { content: " ⬆️ Ocultar"; }
+        .expand-check:not(:checked) ~ .expand-btn::after { content: " ⬇️ Leer más"; }
+
+        /* 3D TILT CARDS (CÁNCER DE MAMA) */
+        .hope-section { padding: 80px 20px; text-align: center; }
+        .hope-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 50px; }
+        .tilt-card { background: white; border: 4px solid var(--texto-oscuro); padding: 40px 20px; border-radius: 20px; flex: 1; min-width: 280px; max-width: 350px; position: relative; box-shadow: 10px 10px 0 var(--azul-retro); transform-style: preserve-3d; transition: box-shadow 0.3s ease; text-align: left; }
+        .tilt-card:hover { box-shadow: 15px 15px 0 var(--rojo-50s); }
+        .tilt-card-content { transform: translateZ(30px); }
+        .tilt-card h3 { font-size: 2.5rem; color: var(--rosa-causa); margin-bottom: 15px; text-align: center; }
+        .tilt-card p { font-size: 1.1rem; }
+        .tilt-card::before { content: '📌'; position: absolute; top: -20px; left: 50%; transform: translateX(-50%) translateZ(40px); font-size: 2rem; }
+
+        /* GALA CTA */
+        .gala-cta { background: var(--texto-oscuro); color: white; text-align: center; padding: 100px 20px; border-top: 10px dashed var(--rosa-causa); position: relative; overflow: hidden; }
+        .gala-cta h2 { font-size: 4rem; color: var(--bg-crema); margin-bottom: 20px; font-family: 'Shrikhand', cursive; }
+        .btn-gala { display: inline-block; padding: 20px 40px; background: var(--rosa-causa); color: white; text-decoration: none; font-size: 1.5rem; font-weight: bold; border-radius: 50px; text-transform: uppercase; letter-spacing: 2px; border: 4px solid white; transition: 0.3s; box-shadow: 0 0 20px rgba(224, 108, 159, 0.5); margin: 10px; position: relative; z-index: 2; }
+        .btn-gala:hover { background: white; color: var(--rosa-causa); transform: scale(1.1) rotate(-2deg); }
+
+        /* SCROLL OFFSET */
+        #moda-mujeres-50s, #moda-mujeres-60s, #s1950s, #s1960s { scroll-margin-top: 100px; }
+
+        /* LIGHTBOX ZOOM */
+        .img-zoomable { cursor: zoom-in; position: relative; z-index: 1; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .img-zoomable.zoomed { cursor: zoom-out; position: fixed !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) scale(1) !important; z-index: 99999 !important; max-width: 90vw !important; max-height: 90vh !important; box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.85) !important; border: 5px solid white !important; border-radius: 10px !important; object-fit: contain !important; animation: none !important; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .polaroid { width: 45%; }
+            .news-headline { font-size: 1.8rem; }
+            .news-preview-body { flex-direction: column; gap: 15px; }
+            .news-cover-wrapper { max-width: 100%; }
+            .news-meta { font-size: 0.7rem; flex-direction: column; align-items: center; gap: 5px;}
+            .style-selector { margin: -30px 20px 40px; padding: 30px 15px; }
+            .style-selector h2 { font-size: 1.8rem; }
+            .gala-cta h2 { font-size: 2.5rem; }
+            .btn-gala { font-size: 1.2rem; padding: 15px 30px; }
+            #hero { padding-top: 80px; }
+        }
     </style>
-    <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
 
-<div class="container">
+    <!-- MENÚ -->
     <div id="navbar-container" class="main-nav"></div>
+    <script src="js/global.js"></script>
 
-    <div class="hero">
-        <h1 class="font-groovy">Guía de Estilo: 50s y 60s <span>👗</span><span>🎙️</span></h1>
-        <p>¿No sabes qué ponerte para nuestra Noche de Gala? ¡No te preocupes! Aquí te dejamos la guía definitiva para lucir espectacular, al estilo de las décadas más glamurosas y rebeldes de la historia.</p>
-    </div>
-
-    <!-- MUJERES -->
-    <div class="fashion-section">
-        <h2 class="font-groovy">Moda Femenina 🎀</h2>
-        <p style="font-size: 1.1rem; font-weight: 600;">Desde la elegancia de Marilyn Monroe hasta la rebeldía chic de Audrey Hepburn. Aquí están las claves:</p>
-        
-        <div class="fashion-grid">
-            <div class="tip-card">
-                <h3>1. Silueta de Reloj de Arena</h3>
-                <p>Usa vestidos ajustados en la cintura con faldas amplias (corte circular) o faldas tipo lápiz ajustadas hasta la rodilla.</p>
+    <!-- 1. HERO SECTION -->
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="top-actions fade-in">
+                <a href="aniversario.html#comprar" class="btn-mini">🎟️ Comprar Boletos</a>
+                <a href="unete-a-nuestro-equipo.html" class="btn-mini donate">💖 Hacer un Donativo</a>
             </div>
-            <div class="tip-card">
-                <h3>2. Estampados Divertidos</h3>
-                <p>¡Los lunares (polka dots) son los reyes! También funcionan muy bien las rayas, los cuadros vichy y colores pastel o rojo brillante.</p>
-            </div>
-            <div class="tip-card">
-                <h3>3. Maquillaje y Peinado</h3>
-                <p>El delineado "Cat Eye" negro bien marcado, labios rojos intensos y peinados con volumen, ondas suaves o diademas en el cabello.</p>
-            </div>
+            <h1 class="type-title" data-text="1950-1960: Del Silencio Elegante al Grito de Libertad"></h1>
+            <p class="fade-in">Historia completa del mundo, México, el cáncer de mama y la revolución de la mujer. Una gala para honrar el pasado y salvar vidas hoy.</p>
+            <a href="#guia-vestimenta" class="btn-retro fade-in internal-link">Comienza el Viaje →</a>
         </div>
+    </section>
 
-        <!-- Moodboard Mujeres -->
-        <div class="moodboard">
-            <img src="https://images.unsplash.com/photo-1610484826967-09c5720778c7?auto=format&fit=crop&w=400&q=80" alt="Inspiración Mujer 1">
-            <img src="https://images.unsplash.com/photo-1596455607563-ad6193f76b19?auto=format&fit=crop&w=400&q=80" alt="Inspiración Mujer 2">
-            <img src="https://images.unsplash.com/photo-1549471013-3364d7220b75?auto=format&fit=crop&w=400&q=80" alt="Inspiración Mujer 3">
-        </div>
-    </div>
+    <!-- NAVEGADOR RÁPIDO DE MODA (FOTOS POLAROID) -->
+    <div style="padding: 0 20px;" id="guia-vestimenta">
+        <div class="style-selector fade-in">
+            <h2>¿No sabes qué vestirte? 👗🎩</h2>
+            <p>Elige tu estilo y época para la Gala. ¡Haz clic en las fotos para ir a la inspiración!</p>
+            
+            <div class="outfit-grid">
+                <!-- Tarjeta Ellas 50s -->
+                <a href="#moda-mujeres-50s" class="polaroid internal-link" data-tab="tl-50-1">
+                    <img src="https://i.pinimg.com/1200x/52/96/7b/52967be6f102f2cdd1ac81ae43c8a772.jpg" alt="Ellas 1950">
+                    <h3>Ellas 50s</h3>
+                </a>
+                
+                <!-- Tarjeta Ellos 50s -->
+                <a href="#moda-mujeres-50s" class="polaroid internal-link" data-tab="tl-50-4">
+                    <img src="https://i.pinimg.com/736x/bd/a1/a3/bda1a390eab6d74085a89983fd93baab.jpg" alt="Ellos 1950">
+                    <h3>Ellos 50s</h3>
+                </a>
 
-    <!-- HOMBRES -->
-    <div class="fashion-section men">
-        <h2 class="font-groovy" style="border-color: var(--pop-blue);">Moda Masculina 🕶️</h2>
-        <p style="font-size: 1.1rem; font-weight: 600;">Puedes elegir entre el estilo elegante "Mad Men" o el estilo rebelde rockabilly tipo "Vaselina".</p>
-        
-        <div class="fashion-grid">
-            <div class="tip-card men-tip">
-                <h3>1. El Estilo Elegante</h3>
-                <p>Trajes sastre de corte ajustado, corbatas delgadas, sombreros fedora y tirantes. Los colores sobrios como gris, azul marino o negro son ideales.</p>
-            </div>
-            <div class="tip-card men-tip">
-                <h3>2. El Chico Rebelde (Greaser)</h3>
-                <p>Pantalones de mezclilla ajustados (dobladillo hacia afuera), camiseta blanca básica fajada y la clásica chamarra de cuero negra.</p>
-            </div>
-            <div class="tip-card men-tip">
-                <h3>3. Peinado Inconfundible</h3>
-                <p>Mucho gel o pomada. El peinado "Pompadour" (copete alto) hacia atrás es el sello definitivo de la época para el hombre.</p>
-            </div>
-        </div>
+                <!-- Tarjeta Ellas 60s -->
+                <a href="#moda-mujeres-60s" class="polaroid internal-link" data-tab="tl-60-1">
+                    <img src="https://i.pinimg.com/736x/8b/32/19/8b32195d218d793f1b3f74d0edbbfdfe.jpg" alt="Ellas 1960">
+                    <h3>Ellas 60s</h3>
+                </a>
 
-        <!-- Moodboard Hombres -->
-        <div class="moodboard">
-            <img src="https://images.unsplash.com/photo-1512354734891-628469d76c9b?auto=format&fit=crop&w=400&q=80" alt="Inspiración Hombre 1">
-            <img src="https://images.unsplash.com/photo-1550246140-5119ae4790b8?auto=format&fit=crop&w=400&q=80" alt="Inspiración Hombre 2">
-            <img src="https://images.unsplash.com/photo-1620002093551-78c66e2c3fb6?auto=format&fit=crop&w=400&q=80" alt="Inspiración Hombre 3">
+                <!-- Tarjeta Ellos 60s -->
+                <a href="#moda-mujeres-60s" class="polaroid internal-link" data-tab="tl-60-3" data-exp="exp-3">
+                    <img src="https://i.pinimg.com/1200x/e3/8d/38/e38d381d3d66bc953bb5977dda4dee2e.jpg" alt="Ellos 1960">
+                    <h3>Ellos 60s</h3>
+                </a>
+            </div>
+
+            <a href="#s1950s" class="historia-btn internal-link">📜 Leer la Historia Completa</a>
         </div>
     </div>
 
-    <div style="text-align: center; margin-top: 40px; background: var(--pc-blanco); border: 4px dashed var(--pop-dark); padding: 30px; border-radius: 20px;">
-        <h2 class="font-groovy" style="color: var(--pop-orange); margin-bottom: 15px;">¿Ya tienes tu atuendo en mente?</h2>
-        <p style="font-size: 1.2rem; font-weight: 800; margin-bottom: 20px;">¡No te quedes sin lugar en este evento histórico!</p>
-        <a href="aniversario.html#comprar" class="btn-action"><span>🎟️</span> Comprar Boletos de Gala</a>
-    </div>
+    <!-- 2. SECCIÓN 1950s (PERIÓDICOS VINTAGE APILADOS) -->
+    <section id="s1950s" class="magazine-section">
+        <div class="section-header fade-in">
+            <h2 class="type-title" data-text="Los Años 50: Tradición y Silencio"></h2>
+            <p style="font-style: italic; font-size: 1.2rem;">Una época de posguerra, elegancia estricta y descubrimientos científicos.</p>
+        </div>
 
-</div>
+        <div class="newspaper-stack fade-in">
+            
+            <!-- Noticia 1 -->
+            <div class="news-item">
+                <input type="checkbox" id="n50-1" class="news-check">
+                <div class="news-inner">
+                    <div class="news-meta">
+                        <span class="vol">VOL. I - NO. 201</span>
+                        <span>Mundo Global</span>
+                        <span>Precio: 5 Centavos</span>
+                    </div>
+                    <label for="n50-1" class="news-frontpage">
+                        <span class="news-headline">EL MUNDO EN LOS AÑOS 50</span>
+                        <div class="news-preview-body">
+                            <div class="news-cover-wrapper">
+                                <img src="https://www.fabio.com.ar/images/reviews32/sputnik6.jpg" alt="Sputnik 1" class="news-cover-img">
+                                <span class="caption">Sputnik 1: Arranca la carrera espacial.</span>
+                            </div>
+                            <div class="news-excerpt-wrapper">
+                                <p class="news-excerpt">La posguerra trae tensión y reconstrucción. La ciencia da un salto monumental con el ADN y la Unión Soviética inicia la carrera hacia las estrellas.</p>
+                                <div class="read-more-btn"></div>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="news-content">
+                        <p>La posguerra trajo reconstrucción y tensión. Entre 1950 y 1953 estalló la Guerra de Corea, el primer gran conflicto de la Guerra Fría. En 1953, con la muerte de Stalin, Kruschev asume el poder en la URSS. Ese mismo año, la ciencia dio un salto monumental cuando Crick y Watson descubrieron la doble hélice del ADN.</p>
+                        <p>Para 1955, la vacuna contra la polio de Jonas Salk salvaba a millones. En 1957, el Sputnik 1 de la URSS iniciaba la carrera espacial. Nacían inventos cotidianos como las tarjetas de crédito, el hula-hoop y la muñeca Barbie (1959). En la música, surgía el estallido del Rock & Roll con Elvis Presley, Chuck Berry y Little Richard.</p>
+                    </div>
+                </div>
+            </div>
 
-<script src="js/global.js"></script>
+            <!-- Noticia 2 -->
+            <div class="news-item">
+                <input type="checkbox" id="n50-2" class="news-check">
+                <div class="news-inner">
+                    <div class="news-meta">
+                        <span class="vol">VOL. II - NO. 042</span>
+                        <span>Ciudad de México, 1955</span>
+                        <span>Edición Nacional</span>
+                    </div>
+                    <label for="n50-2" class="news-frontpage">
+                        <span class="news-headline">EL "MILAGRO MEXICANO"</span>
+                        <div class="news-preview-body">
+                            <div class="news-cover-wrapper">
+                                <img src="https://www.imer.mx/rmi/wp-content/uploads/sites/3/2014/05/radio-y-familia-1950.jpg" alt="Familia mexicana" class="news-cover-img">
+                                <span class="caption">La radio, centro indiscutible del hogar.</span>
+                            </div>
+                            <div class="news-excerpt-wrapper">
+                                <p class="news-excerpt">Crecimiento económico acelerado, nace la TV comercial, la UNAM florece majestuosa y las mujeres obtienen al fin el derecho al voto pleno.</p>
+                                <div class="read-more-btn"></div>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="news-content">
+                        <p>México vivió una era de crecimiento económico acelerado y urbanización. En 1950 inició la construcción de la majestuosa Ciudad Universitaria (UNAM) y nació la televisión comercial (Canal 4). Un logro histórico llegó en 1953: la reforma constitucional que otorgó el voto pleno a las mujeres, ejerciendo su derecho por primera vez en 1955.</p>
+                        <p>La cultura brillaba: Luis Buñuel estrenaba "Los Olvidados" (1950) y Octavio Paz publicaba "El laberinto de la soledad". En el deporte, México participaba en el Mundial de Brasil 1950 con la leyenda "La Tota" Carbajal. Sin embargo, hacia finales de la década, el gobierno comenzaba a mostrar una cara más represiva contra los movimientos sindicales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Noticia 3 -->
+            <div class="news-item">
+                <input type="checkbox" id="n50-3" class="news-check">
+                <div class="news-inner">
+                    <div class="news-meta">
+                        <span class="vol">VOL. III - NO. 118</span>
+                        <span>Salud y Sociedad</span>
+                        <span>El Tabú de la Época</span>
+                    </div>
+                    <label for="n50-3" class="news-frontpage">
+                        <span class="news-headline">CÁNCER DE MAMA: ERA DEL SILENCIO</span>
+                        <div class="news-preview-body">
+                            <div class="news-cover-wrapper">
+                                <img src="https://oncologia.mx/wp-content/uploads/2022/07/WhatsApp-Image-2022-07-17-at-4.16.53-PM-660x330.jpeg" alt="Instituto de Cancerología" class="news-cover-img">
+                                <span class="caption">Inicios de la oncología en México.</span>
+                            </div>
+                            <div class="news-excerpt-wrapper">
+                                <p class="news-excerpt">Un estigma inmenso envuelve a la enfermedad. El miedo a hablar domina los hogares, mientras los diagnósticos continúan llegando demasiado tarde.</p>
+                                <div class="read-more-btn"></div>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="news-content">
+                        <p>En el mundo, la mastectomía radical de Halsted era el estándar: una cirugía brutal donde se extirpaba la mama, los músculos pectorales y los ganglios. El estigma era inmenso; las mujeres no hablaban de la enfermedad por miedo a "perder su feminidad".</p>
+                        <p>En México, el Instituto Nacional de Cancerología (INC), fundado en 1946, operaba con recursos limitados. Los diagnósticos eran invariablemente tardíos. No existía la mamografía poblacional; la revisión era puramente clínica. La mortalidad subía silenciosamente al ritmo de la urbanización de la mujer mexicana.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Noticia 4 (Destacada) -->
+            <div class="news-item">
+                <input type="checkbox" id="n50-4" class="news-check">
+                <div class="news-inner">
+                    <div class="news-meta">
+                        <span class="vol">EXTRA! EXTRA!</span>
+                        <span>15 de Octubre, 1951</span>
+                        <span>Ciencia de Primer Nivel</span>
+                    </div>
+                    <label for="n50-4" class="news-frontpage">
+                        <span class="news-headline">EL HITO QUE CAMBIÓ EL MUNDO</span>
+                        <div class="news-preview-body">
+                            <div class="news-cover-wrapper">
+                                <img src="https://emprendedor.com/wp-content/uploads/2025/09/luis-enernesto-miramontes-anticonceptivos.jpg" alt="Miramontes" class="news-cover-img">
+                                <span class="caption">Luis E. Miramontes, Orgullo Nacional.</span>
+                            </div>
+                            <div class="news-excerpt-wrapper">
+                                <p class="news-excerpt">Joven químico mexicano de tan solo 26 años inventa la base de la píldora anticonceptiva en laboratorios de la capital del país.</p>
+                                <div class="read-more-btn"></div>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="news-content">
+                        <p>El 15 de octubre de 1951, un joven químico mexicano de 26 años, Luis Ernesto Miramontes, logró un avance monumental en los laboratorios Syntex de la Ciudad de México: sintetizó la noretisterona usando el barbasco, una raíz de Oaxaca. Había creado la primera progestina oral activa.</p>
+                        <p>Este descubrimiento fue la base de la píldora anticonceptiva. En 1960, la FDA aprobaría Enovid, desatando la revolución sexual global y permitiendo a las mujeres decidir sobre su maternidad. La Academia Mexicana de Ciencias lo cataloga como "la mayor contribución científica de México al siglo XX".</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TIMELINE MODA 50s -->
+        <div id="moda-mujeres-50s" class="css-timeline fade-in">
+            <h3 class="type-title" data-text="Pasarela de los 50s" style="text-align: center; display: block; margin-bottom: 20px;"></h3>
+            <p style="text-align: center; margin-bottom: 20px;"><em>(Cintura de avispa = símbolo de la época)</em></p>
+
+            <input type="radio" name="f50" id="tl-50-1" checked>
+            <input type="radio" name="f50" id="tl-50-2">
+            <input type="radio" name="f50" id="tl-50-3">
+            <input type="radio" name="f50" id="tl-50-4">
+
+            <div class="tl-nav">
+                <label for="tl-50-1">Ellas: 50-53</label>
+                <label for="tl-50-2">Ellas: 54-57</label>
+                <label for="tl-50-3">Ellas: 58-59</label>
+                <label for="tl-50-4" id="moda-hombres-50s">🎩 Ellos 50s</label>
+            </div>
+
+            <div class="tl-content">
+                <div class="tl-slide" id="slide-50-1">
+                    <img src="https://i.pinimg.com/1200x/49/b6/5d/49b65d334389a4042d628e4fd7292ad4.jpg" alt="New Look Dior">
+                    <div style="background: white; padding: 20px; border-radius: 10px; border: 2px solid var(--texto-oscuro); max-width: 600px;">
+                        <h4>El New Look de Dior</h4>
+                        <p>Cinturas de avispa extremas, faldas enormes sostenidas con crinolina. Las costureras mexicanas replicaban estos vestidos usando telas locales, siempre con tacones y guantes.</p>
+                    </div>
+                </div>
+                <div class="tl-slide" id="slide-50-2">
+                    <img src="https://i.pinimg.com/564x/fe/72/0c/fe720c451f10ef5c49c374f933a53300.jpg" alt="María Félix Glamour">
+                    <div style="background: white; padding: 20px; border-radius: 10px; border: 2px solid var(--texto-oscuro); max-width: 600px;">
+                        <h4>El Regreso de Chanel</h4>
+                        <p>Trajes sastre sumamente elegantes, labios rojos perfectos y el clásico delineado de ojo de gato. El máximo ícono de poder y estilo en México era María Félix.</p>
+                    </div>
+                </div>
+                <div class="tl-slide" id="slide-50-3">
+                    <img src="https://i.pinimg.com/1200x/52/96/7b/52967be6f102f2cdd1ac81ae43c8a772.jpg" alt="Vestido Reloj de Arena">
+                    <div style="background: white; padding: 20px; border-radius: 10px; border: 2px solid var(--texto-oscuro); max-width: 600px;">
+                        <h4>Elegancia Clásica</h4>
+                        <p>Hacia finales de la década, el ideal seguía siendo la silueta de "reloj de arena", complementada obligatoriamente con collares de perlas y delicados velos.</p>
+                    </div>
+                </div>
+                <div class="tl-slide" id="slide-50-4">
+                    <img src="https://i.pinimg.com/736x/bd/a1/a3/bda1a390eab6d74085a89983fd93baab.jpg" alt="Moda masculina 1950s">
+                    <div style="background: white; padding: 20px; border-radius: 10px; border: 2px solid var(--texto-oscuro); max-width: 600px;">
+                        <h4>Moda Masculina y Cultura</h4>
+                        <p>Hombres de oficina con trajes anchos, tirantes y sombrero fedora. La juventud rebelde adoptó jeans, camiseta blanca y chaqueta de cuero.</p>
+                        <p style="margin-top: 10px; font-size: 0.95rem; color: #555;">La Época de Oro del cine estaba en su apogeo con Pedro Infante y el mambo de Pérez Prado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECCIÓN 1960s (PERIÓDICOS APILADOS) -->
+    <section id="s1960s" class="magazine-section s1960s">
+        <div class="section-header fade-in">
+            <h2 class="type-title" data-text="Los Años 60: Revolución y Sombras"></h2>
+            <p style="font-style: italic; font-size: 1.2rem;">Liberación sexual, minifaldas, rock and roll y fuertes movimientos sociales.</p>
+        </div>
+
+        <div class="newspaper-stack fade-in">
+            
+            <!-- Noticia 1 -->
+            <div class="news-item">
+                <input type="checkbox" id="n60-1" class="news-check">
+                <div class="news-inner">
+                    <div class="news-meta">
+                        <span class="vol">VOL. IV - NO. 305</span>
+                        <span>Crisis Internacional</span>
+                        <span>10 Centavos</span>
+                    </div>
+                    <label for="n60-1" class="news-frontpage">
+                        <span class="news-headline">UN MUNDO EN EBULLICIÓN</span>
+                        <div class="news-preview-body">
+                            <div class="news-cover-wrapper">
+                                <img src="https://www.nasa.gov/wp-content/uploads/2019/07/edu_srch_celebrate_the_50th_anniversary_apollo11.jpg?w=1024" alt="Llegada a la Luna" class="news-cover-img">
+                                <span class="caption">1969: El hombre conquista la Luna.</span>
+                            </div>
+                            <div class="news-excerpt-wrapper">
+                                <p class="news-excerpt">La década de contrastes brutales. De la crisis de misiles y tensiones de Vietnam a la asombrosa llegada del hombre a la Luna y Woodstock.</p>
+                                <div class="read-more-btn"></div>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="news-content">
+                        <p>La década de los contrastes brutales. En 1962, la Crisis de los misiles en Cuba puso al mundo al borde de una guerra nuclear. Fue la era de los asesinatos trágicos: JFK (1963), Malcolm X (1965), Martin Luther King y Robert Kennedy (1968). La Guerra de Vietnam se convirtió en el primer conflicto televisado.</p>
+                        <p>Pero también fue la era de la esperanza: el primer trasplante de corazón (1967), el festival de Woodstock y el "Verano del Amor" (1969), y el momento en que Neil Armstrong pisó la Luna a bordo del Apolo 11. Y por supuesto, la Beatlemanía conquistó el planeta desde 1963.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Noticia 2 -->
+            <div class="news-item">
+                <input type="checkbox" id="n60-2" class="news-check">
+                <div class="news-inner">
+                    <div class="news-meta">
+                        <span class="vol">VOL. V - NO. 412</span>
+                        <span>México al Día</span>
+                        <span>Octubre, 1968</span>
+                    </div>
+                    <label for="n60-2" class="news-frontpage">
+                        <span class="news-headline">MODERNIDAD VS REPRESIÓN</span>
+                        <div class="news-preview-body">
+                            <div class="news-cover-wrapper">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Ex%C3%A8rcit_al_Z%C3%B3calo-28_d%27agost.jpg" alt="Movimiento Estudiantil 1968" class="news-cover-img">
+                                <span class="caption">Tropas en el Zócalo, tensión estudiantil.</span>
+                            </div>
+                            <div class="news-excerpt-wrapper">
+                                <p class="news-excerpt">El "Milagro" avanza velozmente con el nuevo Metro y las Olimpiadas del 68, pero una tragedia deja una herida imborrable en el país.</p>
+                                <div class="read-more-btn"></div>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="news-content">
+                        <p>México se modernizaba rápidamente: el presidente López Mateos nacionalizó la industria eléctrica (1960), se inauguró el imponente Museo Nacional de Antropología (1964) y comenzaron las obras del Metro (1969). En 1968, México fue el primer país latinoamericano en hospedar los Juegos Olímpicos.</p>
+                        <p style="font-weight: bold; margin-top: 10px; color: var(--rojo-50s);">Sin embargo, fue una década de profunda represión gubernamental. El 2 de octubre de 1968, en la Plaza de las Tres Culturas en Tlatelolco, estudiantes pacíficos que exigían libertades democráticas fueron masacrados, dejando una herida imborrable en la historia nacional.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Noticia 3 -->
+            <div class="news-item">
+                <input type="checkbox" id="n60-3" class="news-check">
+                <div class="news-inner">
+                    <div class="news-meta">
+                        <span class="vol">VOL. VI - NO. 550</span>
+                        <span>Salud y Liberación</span>
+                        <span>La Mujer Decide</span>
+                    </div>
+                    <label for="n60-3" class="news-frontpage">
+                        <span class="news-headline">CÁNCER Y LA PÍLDORA</span>
+                        <div class="news-preview-body">
+                            <div class="news-cover-wrapper">
+                                <img src="https://www.pikaramagazine.com/wp-content/uploads/2013/04/feminism-4-e1366280115548.jpg" alt="Marcha Femenina" class="news-cover-img">
+                                <span class="caption">El movimiento por los derechos y la libertad.</span>
+                            </div>
+                            <div class="news-excerpt-wrapper">
+                                <p class="news-excerpt">Nace la mamografía como estudio vital para salvar vidas, mientras la píldora detona por fin la liberación femenina global.</p>
+                                <div class="read-more-btn"></div>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="news-content">
+                        <p>En oncología, la década de los 60 vio el nacimiento del primer estudio masivo de mamografía (HIP Study en 1962, por Strax y Shapiro), demostrando que la detección temprana salvaba vidas. Aunque en México la mamografía seguía siendo limitada a mujeres ya sintomáticas y la mortalidad se disparaba (de 2 a 9 muertes por cada 100 mil mujeres), la ciencia avanzaba: la quimioterapia se expandía y el Tamoxifeno fue sintetizado en 1962.</p>
+                        <p><strong>La Liberación:</strong> La píldora anticonceptiva, hija del talento mexicano en la década anterior, se comercializó masivamente. A pesar de la fuerte oposición religiosa, la clase media mexicana la adoptó, empoderando a las mujeres para retrasar la maternidad, estudiar, trabajar y cambiar sus roles en la sociedad para siempre.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TIMELINE MODA 60s EXPANDIBLE -->
+        <div id="moda-mujeres-60s" class="css-timeline fade-in">
+            <h3 class="type-title" data-text="La Revolución de la Moda" style="text-align: center; display: block; color: white; margin-bottom: 20px;"></h3>
+            
+            <input type="radio" name="f60" id="tl-60-1" checked>
+            <input type="radio" name="f60" id="tl-60-2">
+            <input type="radio" name="f60" id="tl-60-3">
+
+            <div class="tl-nav">
+                <label for="tl-60-1">Transición</label>
+                <label for="tl-60-2">Minifalda</label>
+                <label for="tl-60-3" id="moda-hombres-60s">Psicodélico & Ellos</label>
+            </div>
+
+            <div class="tl-content">
+                <div class="tl-slide" id="slide-60-1">
+                    <img src="https://i.pinimg.com/736x/8b/32/19/8b32195d218d793f1b3f74d0edbbfdfe.jpg" alt="Transición 60s">
+                    <div style="background: var(--texto-oscuro); color: white; padding: 20px; border-radius: 10px; max-width: 600px; width: 100%;">
+                        <h4 style="color: var(--naranja-60s); font-size: 1.3rem;">La Transición</h4>
+                        <p>Los primeros años mantuvieron parte de la elegancia de la década anterior, pero los vestidos comenzaron a ser menos estructurados, anunciando la libertad.</p>
+                        
+                        <input type="checkbox" id="exp-1" class="expand-check">
+                        <div class="expand-content">
+                            <p><strong>Cultura Pop:</strong> En el cine nacional destacaba el glamour de actrices como Silvia Pinal, marcando la pauta estética antes de la gran ruptura juvenil.</p>
+                        </div>
+                        <label for="exp-1" class="expand-btn"></label>
+                    </div>
+                </div>
+
+                <div class="tl-slide" id="slide-60-2">
+                    <img src="https://www.mexicodesconocido.com.mx/wp-content/uploads/2019/07/minifalda.jpg" alt="Minifalda en México">
+                    <div style="background: var(--texto-oscuro); color: white; padding: 20px; border-radius: 10px; max-width: 600px; width: 100%;">
+                        <h4 style="color: var(--naranja-60s); font-size: 1.3rem;">¡La Explosión de la Minifalda!</h4>
+                        <p>Creada por Mary Quant y popularizada por Twiggy. En México causó furor y escándalo. Las jóvenes encargaban a sus costureras recortar los dobladillos.</p>
+                        
+                        <input type="checkbox" id="exp-2" class="expand-check">
+                        <div class="expand-content">
+                            <p><strong>El Estilo Completo:</strong> Se combinaban con flores y botas Go-Go. La juventud bailaba al ritmo de Los Teen Tops y Enrique Guzmán, separándose definitivamente de los gustos de sus padres.</p>
+                        </div>
+                        <label for="exp-2" class="expand-btn"></label>
+                    </div>
+                </div>
+
+                <div class="tl-slide" id="slide-60-3">
+                    <img src="https://i.pinimg.com/1200x/e3/8d/38/e38d381d3d66bc953bb5977dda4dee2e.jpg" alt="Ellos 1960s">
+                    <div style="background: var(--texto-oscuro); color: white; padding: 20px; border-radius: 10px; max-width: 600px; width: 100%;">
+                        <h4 style="color: var(--naranja-60s); font-size: 1.3rem;">Hippie y Pavo Real (Ellos)</h4>
+                        <p>Dominaban colores vibrantes y peinados altísimos para ellas. Para ellos, la "Peacock Revolution" trajo pantalones de campana y botas Chelsea impulsados por The Beatles.</p>
+                        
+                        <input type="checkbox" id="exp-3" class="expand-check">
+                        <div class="expand-content">
+                            <p><strong>Rebeldía Mexicana:</strong> Los jóvenes mexicanos adoptaron las campanas como símbolo de rebeldía total contra el sistema conservador de la época.</p>
+                            <p style="margin-top:10px;"><strong>Literatura:</strong> El Boom Latinoamericano explotó globalmente cuando Gabriel García Márquez publicó "Cien años de soledad" en 1967.</p>
+                        </div>
+                        <label for="exp-3" class="expand-btn"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN CÁNCER DE MAMA (3D TILT CARDS) -->
+    <section class="hope-section">
+        <h2 class="type-title fade-in" data-text="Del Silencio a la Esperanza" style="font-size: 3.5rem; color: var(--rojo-50s); margin-bottom: 10px;"></h2>
+        <p class="fade-in" style="font-size: 1.2rem; font-weight: bold; max-width: 800px; margin: 0 auto;">"En esa época muchas mujeres callaban por miedo. Nuestra fundación honra ese pasado para salvar el futuro."</p>
+
+        <div class="hope-cards">
+            <div class="tilt-card fade-in slide-in-left">
+                <div class="tilt-card-content">
+                    <h3>1950s</h3>
+                    <p><strong>El Tabú Absoluto:</strong> Cirugías radicales mutilantes sin opciones. Diagnósticos puramente palpables en etapas avanzadas. Sufrir en silencio era la norma.</p>
+                </div>
+            </div>
+            <div class="tilt-card fade-in">
+                <div class="tilt-card-content">
+                    <h3 style="color: var(--naranja-60s);">1960s</h3>
+                    <p><strong>La Luz de la Ciencia:</strong> Inician los primeros estudios poblacionales con mamografías. Se sintetizan medicamentos clave, aunque el estigma social seguía intacto.</p>
+                </div>
+            </div>
+            <div class="tilt-card fade-in slide-in-right">
+                <div class="tilt-card-content">
+                    <h3 style="color: var(--azul-retro);">Hoy</h3>
+                    <p><strong>Revolución y Vida:</strong> Con detección temprana gratuita (como la que ofrece Proyecto Celene), la supervivencia supera el 90% en etapas tempranas. ¡La información y la comunidad salvan vidas!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. GALA CTA -->
+    <section class="gala-cta fade-in">
+        <h2 class="type-title" data-text="La Gran Noche de Gala"></h2>
+        <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto 40px; position: relative; z-index: 2;">
+            Vístete de la elegancia de los 50s o la rebeldía de los 60s. Apoya directamente los tratamientos y mamografías de cientos de mujeres en Rosarito.
+        </p>
+
+        <div>
+            <a href="aniversario.html#comprar" class="btn-gala">Comprar Boletos 🎟️</a>
+            <a href="unete-a-nuestro-equipo.html" class="btn-gala" style="background: transparent; color: var(--rosa-causa);">Hacer un Donativo 💖</a>
+        </div>
+    </section>
+
+    <script>
+        /* === EFECTO MÁQUINA DE ESCRIBIR (VISUAL SOLAMENTE) === */
+        function typeWriterEffect(element, text, index = 0) {
+            if (index === 0) {
+                element.innerHTML = '';
+                element.classList.add('typing');
+            }
+            if (index < text.length) {
+                element.innerHTML += text.charAt(index);
+                let delay = Math.random() * 50 + 30; 
+                setTimeout(() => typeWriterEffect(element, text, index + 1), delay);
+            } else {
+                element.classList.remove('typing');
+            }
+        }
+
+        /* === GESTIÓN DE ENLACES INTERNOS Y TABS === */
+        document.querySelectorAll('.internal-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if(!targetId || targetId === '#') return;
+                
+                // Si la tarjeta tiene un atributo data-tab, activamos el input de radio correspondiente
+                const tabToActivate = this.getAttribute('data-tab');
+                if (tabToActivate) {
+                    const radioBtn = document.getElementById(tabToActivate);
+                    if(radioBtn) radioBtn.checked = true;
+                }
+                
+                // Si la tarjeta tiene un atributo data-exp (para expandir contenido de los 60s)
+                const expToActivate = this.getAttribute('data-exp');
+                if (expToActivate) {
+                    const checkBtn = document.getElementById(expToActivate);
+                    if(checkBtn) checkBtn.checked = true;
+                }
+
+                // Hacer scroll suave hacia la sección
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        /* === OBSERVERS === */
+        document.addEventListener("DOMContentLoaded", function () {
+            
+            const animObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .top-actions, .newspaper-stack').forEach(el => animObserver.observe(el));
+
+            const typeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const text = el.getAttribute('data-text');
+                        if(!el.classList.contains('typed-done')) {
+                            el.classList.add('typed-done');
+                            typeWriterEffect(el, text);
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.type-title').forEach(el => typeObserver.observe(el));
+
+            /* === EFECTO 3D TILT === */
+            const tiltCards = document.querySelectorAll('.tilt-card');
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -15;
+                    const rotateY = ((x - centerX) / centerX) * 15;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                });
+            });
+
+            /* === LIGHTBOX DE IMÁGENES === */
+            const images = document.querySelectorAll('.tl-content img, .img-newspaper');
+            images.forEach(img => {
+                img.classList.add('img-zoomable');
+            });
+
+            document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('zoomed')) {
+                    e.target.classList.remove('zoomed');
+                    document.body.style.overflow = 'auto';
+                } else if (e.target.classList.contains('img-zoomable')) {
+                    document.querySelectorAll('.zoomed').forEach(i => i.classList.remove('zoomed'));
+                    e.target.classList.add('zoomed');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    let zoomedImg = document.querySelector('.zoomed');
+                    if (zoomedImg) {
+                        zoomedImg.classList.remove('zoomed');
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

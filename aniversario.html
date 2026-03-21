@@ -951,6 +951,21 @@
             transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
+        .guests-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .guests-list li {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--pop-pink);
+            font-size: 1.05rem;
+        }
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
@@ -984,9 +999,10 @@
                 <div class="issue-badge">VOL. 18 - EDICIÓN ESPECIAL</div>
                 <h1 class="font-groovy">18° Aniversario</h1>
                 <h2>Proyecto Celene</h2>
-                <p>Acompáñanos a vivir todo un día de festejo, arrancando con actividades deportivas y médicas por la
-                    mañana, y culminando con una espectacular Gran Noche de Gala Vintage. ¡Solidaridad y elegancia en un
-                    solo día!</p>
+                <strong style="display:block; font-size:1.3rem; color:var(--pop-yellow); margin-bottom:10px;">18 Años Transformando Vidas: Tu Presencia Salva a una Guerrera.</strong>
+                <p>Acompáñanos este sábado 28 de marzo de 2026 en el Palacio Municipal de Playas de Rosarito. Celebremos la vida, la salud y la esperanza con un día lleno de actividades solidarias. 
+                   <br><strong>¡Únete a nuestra Jornada Deportiva y a la majestuosa Gala Vintage 50s-60s!</strong>
+                </p>
                 <div
                     style="font-family: 'Courier Prime', monospace; font-weight: bold; font-size: 1.2rem; margin-bottom: 25px; background:var(--pop-dark); color:white; display:inline-block; padding:8px 20px; border-radius:10px;">
                     <span>📅</span> 28 Marzo 2026 | <span>📍</span> Rosarito
@@ -1019,9 +1035,9 @@
         </header>
 
         <div class="emotional-hook fade-in">
-            <strong class="font-groovy">Por amor a ellas.</strong>
-            ¿Sabías que tu entrada a este evento se traduce directamente en mastografías gratuitas? Hoy te diviertes,
-            celebras y mañana, salvas una vida.
+            <strong class="font-groovy">Todo lo hacemos por amor a ellas 💕</strong>
+            Desde hace 18 años, Proyecto Celene nació de una promesa familiar y se convirtió en el refugio de cientos de mujeres en Rosarito. Pero no podemos hacerlo solos. Al asistir a nuestro aniversario, tú te conviertes en el guía que acompaña a una mujer en su lucha contra el cáncer de mama.<br><br>
+            <strong>Cada boleto de la Carrera o la Noche de Gala se transforma directamente en mastografías gratuitas, medicamentos accesibles y pelucas que devuelven sonrisas.</strong>
         </div>
 
         <!-- LÍNEA DEL TIEMPO INTERACTIVA -->
@@ -1047,7 +1063,7 @@
 
             <div class="timeline-item" onclick="openModal('modalZumba')">
                 <div class="timeline-content">
-                    <div class="timeline-time"><span>☀️</span> 09:00 A.M.</div>
+                    <div class="timeline-time"><span>☀️</span> 08:00 / 09:00 A.M.</div>
                     <h3 class="timeline-title"><span>💃</span> Gran Zumbatón</h3>
                     <span class="click-hint">Toca para más detalles 👆</span>
                 </div>
@@ -1086,21 +1102,27 @@
                     <p><span>📍</span> Patio Central del Palacio Municipal de Rosarito.</p>
                     <p style="font-size: 1.3rem; font-weight: 800; color: var(--pop-yellow);">Cerraremos con broche de
                         oro.</p>
-                    <p>Disfruta de un majestuoso <strong>Desfile de Modas</strong> con talento local y alta costura
-                        inspirada en la época de los 50s y 60s. ¡Habrá venta exclusiva de ropa de diseñador creada por
-                        mujeres emprendedoras!</p>
+                    <p>Disfruta de un majestuoso <strong>Desfile de Modas "Pasarela Rosa"</strong> donde nuestras valientes mujeres sobrevivientes de cáncer brillarán en la pasarela, vistiendo alta costura de emprendedoras locales inspirada en la época de los 50s y 60s. <br>¡Además, habrá venta exclusiva de ropa de diseñador durante el evento!</p>
 
-                    <div class="guest-box">
-                        👑 Invitada Especial: Paloma Ríos<br>
-                        <span style="font-size:0.9rem; font-weight:normal;">Reina de Belleza Suprema Internacional &
-                            Señora México 2025</span>
+                    <div class="guests-container" style="margin-top: 30px; text-align: left;">
+                        <h4 class="font-groovy" style="color: var(--pop-yellow); font-size: 1.8rem; margin-bottom: 15px; text-align: center;">Invitados de Honor y Elenco ✨</h4>
+                        <p style="text-align: center; margin-bottom: 15px;">Nos enorgullece contar con un talento excepcional unido por una misma causa:</p>
+                        <ul class="guests-list">
+                            <li>🎤 <strong>Patricia Ruiz:</strong> Nuestra talentosa conductora de espectáculos que guiará la Noche Vintage (Inicia 7:00 p.m.).</li>
+                            <li>👑 <strong>Lic. Carmen Viluz:</strong> Invitada de Honor. Fashionista, Directora Gral. de "Pasarela Rosa con Causa" y un ejemplo de fuerza y altruismo.</li>
+                            <li>🤝 <strong>Fundación Mujeres que Viven (Mexicali):</strong> Nuestras hermanas de causa y aliadas especiales desde 2011.</li>
+                            <li>🎶 <strong>Fanny Moreno:</strong> Nuestra invitada especial musical de la noche (9:00 p.m.).</li>
+                            <li>🎙️ <strong>Francisca López (Doña Panchita):</strong> Estrella de la canción vernácula (Sello Mudar) y, más importante aún, una invencible sobreviviente de cáncer que nos deleitará con su voz (9:30 p.m.).</li>
+                            <li>🎵 <strong>Lluvia Valeria:</strong> Presentando su emotivo show "Contando canciones del ayer" (9:30 p.m.).</li>
+                            <li>💖 <strong>Itzel González:</strong> La voz romántica que cerrará con broche de oro esta mágica velada.</li>
+                        </ul>
                     </div>
 
                     <p style="font-weight:900; font-size:1.2rem; margin-top:10px;"><span>👗</span>
                         Código de Vestimenta: Estilo 50s - 60s</p>
 
                     <div class="action-row" style="margin-top: 30px;">
-                        <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action"
+                        <a href="https://maps.app.goo.gl/65B3sCUuieu8Nhua7" target="_blank" class="btn-action"
                             style="background:var(--pop-yellow); color:var(--pop-dark);"><span>📍</span> Ver en Mapa</a>
                         <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gala+Vintage+Celene&dates=20260328T190000/20260328T235900&ctz=America/Tijuana&details=Gala+Aniversario&location=Palacio+Municipal+Rosarito"
                             target="_blank" class="btn-action" style="background:var(--pc-blanco);"><span>📅</span> Agendar en Calendario</a>
@@ -1296,12 +1318,13 @@
                 <p class="modal-text">Únete con toda la familia para arrancar el día con energía. Recorre Rosarito
                     apoyando la prevención del cáncer de mama.</p>
                 <ul style="margin-left: 20px; font-weight: 600; line-height:1.8; margin-bottom: 20px;">
-                    <li><strong>Ruta:</strong> Palacio Municipal hasta Viveros La Nena (Blvd. Guerrero).</li>
+                    <li><strong>Ruta:</strong> Palacio Municipal de Rosarito ➔ Viveros La Nena (Blvd. Guerrero) ➔ Regreso.</li>
+                    <li><strong>Incluye:</strong> Medalla conmemorativa e hidratación.</li>
                     <li><strong>Distancia:</strong> Aprox 2.5 km.</li>
                     <li><strong>Costo:</strong> $200.00 MN</li>
                 </ul>
                 <div class="action-row">
-                    <a href="https://maps.app.goo.gl/PALACIO_MUNICIPAL_ROSARITO" target="_blank" class="btn-action"
+                    <a href="https://maps.app.goo.gl/65B3sCUuieu8Nhua7" target="_blank" class="btn-action"
                         style="background:var(--pc-blanco);"><span>📍</span> Mapa</a>
                     <a href="#comprar" class="btn-action" onclick="closeModal('modalCarrera')"><span>🎟️</span> Comprar</a>
                 </div>
@@ -1314,14 +1337,11 @@
                 <span class="close-modal" onclick="closeModal('modalJornada')">✕</span>
                 <h3 class="modal-title"><span>🩺</span> Jornada y Mercadito</h3>
                 <p class="event-time" style="display:inline-block;">08:00 A.M. - 02:00 P.M.</p>
-                <p class="modal-text"><span>📍</span> Estacionamiento del Palacio
-                    Municipal.<br><strong>Servicios Gratuitos:</strong> Entrega de Vales para Mastografías,
-                    Papanicolaou, Presión Arterial, Glucosa y Pláticas de prevención. ¡Obtén tu Pasaporte de Salud!</p>
+                <p class="modal-text"><span>📍</span> Estacionamiento del Palacio Municipal de Rosarito.<br><strong>Servicios Gratuitos:</strong> Acércate a nuestra jornada de prevención donde entregaremos vales gratuitos para Mastografías y pruebas de Papanicolaou sin costo alguno.</p>
                 <div
                     style="background:var(--pop-bg); border:3px dashed var(--pop-orange); padding:15px; border-radius:10px; margin-top:15px;">
                     <h4 class="font-groovy" style="color:var(--pop-orange);">Mercadito Emprendedor</h4>
-                    <p style="font-size:0.95rem; margin-bottom:10px;">Apoya la economía local. Venta de ropa, comida,
-                        artesanías, plantas y dulces.</p>
+                    <p style="font-size:0.95rem; margin-bottom:10px;">¡Entrada Libre de 8:00 a.m. a 2:00 p.m.! Apoya el talento local: venta de artesanías, dulces, ropa, comida y plantas.</p>
                     <button class="btn-action" style="font-size:0.9rem; padding:8px 15px;"
                         onclick="openModal('vendorModal'); closeModal('modalJornada');"><span>🎪</span> ¡Quiero Exponer!</button>
                 </div>
@@ -1333,9 +1353,8 @@
             <div class="modal-content">
                 <span class="close-modal" onclick="closeModal('modalZumba')">✕</span>
                 <h3 class="modal-title"><span>💃</span> Gran Zumbatón</h3>
-                <p class="event-time" style="display:inline-block;">09:00 A.M.</p>
-                <p class="modal-text">Activación física con mucha música, baile y diversión para despertar el cuerpo.
-                    <strong>¡Conoce los beneficios!</strong></p>
+                <p class="event-time" style="display:inline-block;">08:00 A.M. y 09:00 A.M.</p>
+                <p class="modal-text">Clase masiva con nuestras instructoras de Zumba para arrancar con toda la energía y actitud. <strong>¡Es un evento totalmente gratuito!</strong></p>
                 <ul style="margin-left: 20px; font-weight: 600; line-height:1.6; font-size:0.95rem;">
                     <li>Quema calorías divirtiéndote (hasta 500 cal por sesión).</li>
                     <li>Mejora la coordinación y el equilibrio.</li>
@@ -1351,21 +1370,16 @@
                 <span class="close-modal" onclick="closeModal('modalPlatica')">✕</span>
                 <h3 class="modal-title"><span>🎤</span> Plática de Honor</h3>
                 <p class="event-time" style="display:inline-block;">11:00 A.M.</p>
-                <p class="modal-text">Con nuestra madrina de honor <strong>Luz C. Ruiz</strong>. Una charla íntima sobre
-                    prevención, resiliencia y amor propio.</p>
+                <p class="modal-text">Charla de concientización y prevención a cargo de nuestra Madrina invitada. Un espacio dedicado al amor propio, prevención y detección oportuna.</p>
 
                 <div
                     style="background:var(--pop-yellow); border:3px solid var(--pop-dark); padding:15px; border-radius:10px; margin-top:15px;">
-                    <h4 style="font-weight:900; margin-bottom:5px;">Sobre la invitada:</h4>
+                    <h4 style="font-weight:900; margin-bottom:5px;">Invitada Especial:</h4>
                     <ul style="font-size:0.9rem; margin-left:20px; font-weight:600;">
-                        <li>Fashionista y Mujer Altruista.</li>
-                        <li>Diseñadora en Alta Costura.</li>
-                        <li>Directora Gral. de Pasarela Rosa con Causa.</li>
+                        <li>Lic. Carmen Viluz</li>
+                        <li>Fashionista y Diseñadora de Alta Costura.</li>
+                        <li>Directora Gral. de "Pasarela Rosa con Causa".</li>
                     </ul>
-                </div>
-                <div class="action-row">
-                    <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20asistir%20a%20la%20plática%20de%20las%2011am"
-                        target="_blank" class="btn-action"><span>💬</span> Confirmar Asistencia</a>
                 </div>
             </div>
         </div>
