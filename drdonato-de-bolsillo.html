@@ -4,12 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Dr. Donato de Bolsillo</title>
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
     
     <!-- Etiquetas PWA para que sea "Instalable" en el celular -->
     <meta name="theme-color" content="#3b82f6">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22Dr.%20Donato%20de%20Bolsillo%22%2C%22short_name%22%3A%22Doc%20Donato%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23f8fafc%22%2C%22theme_color%22%3A%22%233b82f6%22%7D">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/drdonato-de-bolsillo.html">
+    <meta property="og:title" content="Dr. Donato de Bolsillo - Proyecto Celene">
+    <meta property="og:description" content="Tu bitácora médica personal. Registra tus síntomas, medicamentos y signos vitales fácilmente.">
+    <meta property="og:image" content="https://i.ibb.co/cSrRx1Jp/520345259-1172823848212097-7382126732029185704-n.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/drdonato-de-bolsillo.html">
+    <meta property="twitter:title" content="Dr. Donato de Bolsillo - Proyecto Celene">
+    <meta property="twitter:description" content="Tu bitácora médica personal. Registra tus síntomas, medicamentos y signos vitales fácilmente.">
+    <meta property="twitter:image" content="https://i.ibb.co/cSrRx1Jp/520345259-1172823848212097-7382126732029185704-n.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -325,7 +340,7 @@
             <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 w-full text-left">
                 
                 <div class="flex items-center gap-4 mb-5 border-b border-slate-100 pb-5">
-                    <img src="https://i.ibb.co/gLgnFxnR/DR-DONATO-CUADRADO.png" alt="Dr. Donato" class="w-16 h-16 rounded-full shadow-inner shrink-0 border border-blue-200 object-cover">
+                    <img src="https://i.ibb.co/gbWytScw/cuadrado-foto-carlos.jpg" alt="Dr. Donato" class="w-16 h-16 rounded-full shadow-inner shrink-0 border border-blue-200 object-cover">
                     <div>
                         <h3 class="font-black text-slate-800 text-xl leading-tight">Dr. Donato</h3>
                         <p class="text-sm text-blue-600 font-bold">Proyecto Celene</p>
@@ -461,6 +476,21 @@
     <!-- Toast de guardado -->
     <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-6 py-3 rounded-full text-sm font-medium opacity-0 transition-opacity pointer-events-none z-50 shadow-2xl">
         ¡Acción guardada!
+    </div>
+
+    <!-- Banner de Instalación PWA Automático -->
+    <div id="install-banner" class="hidden fixed bottom-4 left-4 right-4 bg-blue-600 text-white p-4 rounded-2xl shadow-2xl z-[100] flex-col sm:flex-row items-center justify-between gap-4 border-2 border-white max-w-md mx-auto">
+        <div class="flex items-center gap-3">
+            <img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" class="w-12 h-12 bg-white rounded-full p-1" alt="Logo">
+            <div>
+                <h4 class="font-bold text-lg leading-tight">Instalar App</h4>
+                <p class="text-xs text-blue-100">Agrega Dr. Donato a tu celular para entrar más rápido.</p>
+            </div>
+        </div>
+        <div class="flex gap-2 w-full sm:w-auto">
+            <button id="install-btn" class="flex-1 bg-white text-blue-600 font-black py-2 px-4 rounded-xl shadow-md hover:bg-blue-50 transition-colors">Instalar</button>
+            <button onclick="document.getElementById('install-banner').classList.add('hidden'); document.getElementById('install-banner').classList.remove('flex');" class="bg-blue-800 text-white font-bold py-2 px-4 rounded-xl hover:bg-blue-900 transition-colors">Cerrar</button>
+        </div>
     </div>
 
     <script>
@@ -1315,6 +1345,46 @@
             let s = (timerSegundos % 60).toString().padStart(2, '0');
             document.getElementById('timerDisplay').innerText = `${m}:${s}`;
         }
+
+        // --- PWA: REGISTRO DE SERVICE WORKER E INSTALACIÓN ---
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker registrado con éxito.', reg))
+                    .catch(err => console.log('Error al registrar Service Worker', err));
+            });
+        }
+
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevenir que Chrome muestre el aviso pequeño por defecto
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Mostrar nuestro propio banner atractivo
+            const installBanner = document.getElementById('install-banner');
+            installBanner.classList.remove('hidden');
+            installBanner.classList.add('flex');
+        });
+
+        document.getElementById('install-btn')?.addEventListener('click', async () => {
+            const installBanner = document.getElementById('install-banner');
+            installBanner.classList.add('hidden');
+            installBanner.classList.remove('flex');
+            
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                deferredPrompt = null;
+            }
+        });
+
+        window.addEventListener('appinstalled', () => {
+            const installBanner = document.getElementById('install-banner');
+            installBanner.classList.add('hidden');
+            installBanner.classList.remove('flex');
+            showToast("¡Aplicación Instalada con éxito!");
+        });
     </script>
 </body>
 </html>

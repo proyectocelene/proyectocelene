@@ -16,14 +16,14 @@
     <meta property="og:url" content="https://proyectocelene.org/reservar-consulta.html">
     <meta property="og:title" content="Reservar Consulta Médica - Dr. Donato">
     <meta property="og:description" content="Agenda tu cita médica rápida y fácilmente en línea.">
-    <meta property="og:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+    <meta property="og:image" content="https://i.ibb.co/cSrRx1Jp/520345259-1172823848212097-7382126732029185704-n.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://proyectocelene.org/reservar-consulta.html">
     <meta property="twitter:title" content="Reservar Consulta Médica - Dr. Donato">
     <meta property="twitter:description" content="Agenda tu cita médica rápida y fácilmente en línea.">
-    <meta property="twitter:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+    <meta property="twitter:image" content="https://i.ibb.co/cSrRx1Jp/520345259-1172823848212097-7382126732029185704-n.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
         rel="stylesheet">
@@ -363,15 +363,20 @@
                 espacio arriba, elige cómo prefieres realizar tu pago:</p>
 
             <div class="payment-methods" style="max-width: 650px; margin: 0 auto;">
+                <h4 style="margin-bottom: 15px; font-size: 1.2rem; text-align: center; color: var(--pc-rosa-fuerte);">
+                    Selecciona tu método de pago</h4>
+
                 <div class="payment-option" onclick="document.getElementById('payEfectivo').click()">
                     <input type="radio" name="paymentMethod" id="payEfectivo" value="efectivo" checked
                         onchange="togglePaymentInstructions()">
                     <label for="payEfectivo"
-                        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px;">
-                        <span>💵 <strong>Efectivo en Consultorio</strong><br><small style="color: #666;">(Sin comisión:
-                                $150.00 MN)</small></span>
+                        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                            <span style="font-size: 1.1rem;">💵 <strong>Efectivo en Consultorio</strong></span><br>
+                            <small style="color: #666; font-size: 0.9rem;">Sin comisión: $150.00 MN</small>
+                        </div>
                         <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction"
-                            style="margin: 0;" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                            onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
                     </label>
                 </div>
 
@@ -379,8 +384,8 @@
                     <input type="radio" name="paymentMethod" id="payTransferencia" value="transferencia"
                         onchange="togglePaymentInstructions()">
                     <label for="payTransferencia">
-                        🏦 <strong>Transferencia SPEI / CLABE</strong><br><small style="color: #666;">(Sin comisión:
-                            $150.00 MN)</small>
+                        <span style="font-size: 1.1rem;">🏦 <strong>Transferencia SPEI / CLABE</strong></span><br>
+                        <small style="color: #666; font-size: 0.9rem;">Sin comisión: $150.00 MN</small>
                     </label>
                 </div>
 
@@ -388,28 +393,28 @@
                     <input type="radio" name="paymentMethod" id="payMercadoPago" value="mercadopago"
                         onchange="togglePaymentInstructions()">
                     <label for="payMercadoPago">
-                        💳 <strong>Pago en línea (Mercado Pago)</strong> <br>
-                        <span style="font-size: 0.85rem; font-weight: 600; color: #555;">(Incluye comisión de
-                            plataforma: $162.00 MN)</span>
+                        <span style="font-size: 1.1rem;">💳 <strong>Pago en línea (Mercado Pago)</strong></span><br>
+                        <small style="color: #666; font-size: 0.9rem;">Incluye comisión: $162.00 MN</small>
                     </label>
                 </div>
 
                 <!-- Instrucciones Dinámicas -->
                 <div id="instructionsEfectivo"
-                    style="display: block; margin-top: 15px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    style="display: block; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
                     <p style="font-size: 1rem; font-weight: 600; color: #444;"><strong>¡Perfecto!</strong> Al momento de
                         agendar en el calendario, tus datos quedan registrados. Solo preséntate el día de tu cita y
                         realiza tu pago directamente en recepción.</p>
                 </div>
 
                 <div id="instructionsTransferencia"
-                    style="display: none; margin-top: 15px; padding-top: 15px; border-top: 2px dashed #ccc;">
-                    <p style="font-size: 1rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">
+                    style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p
+                        style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">
                         Total a transferir: $150.00 MN</p>
                     <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe"
                             value="722969010854962949" readonly><button type="button"
                             onclick="copyToClipboard('clabe', this)"><span>📋</span> Copiar</button></div>
-                    <div class="copy-box-modern"><span class="label">Beneficiario</span><input type="text" id="benef"
+                    <div class="copy-box-modern"><span class="label">Titular</span><input type="text" id="benef"
                             value="Carlos Donato Dueñas Prieto" readonly><button type="button"
                             onclick="copyToClipboard('benef', this)"><span>📋</span> Copiar</button></div>
                     <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco"
@@ -420,24 +425,31 @@
                         <li>Envíanos tu comprobante por WhatsApp mencionando la fecha de la cita que acabas de agendar.
                         </li>
                     </ul>
-                    <button onclick="sendReceiptWa()"
-                        style="background: #25d366; color: white; border: 3px solid var(--pc-negro); padding: 12px 20px; font-weight: 800; border-radius: 50px; font-size: 1rem; cursor: pointer; display: block; width: 100%; text-align: center; box-shadow: 0 4px 0 #1b9c4b; font-family: 'Nunito', sans-serif;">Enviar
+                    <button onclick="sendReceiptWa()" class="btn-wa"
+                        style="width: 100%; margin-top: 10px; padding: 12px 20px; font-weight: 800; border-radius: 50px; font-size: 1.1rem; cursor: pointer; display: block; text-align: center; border: 3px solid var(--pc-negro); box-shadow: 0 4px 0 #1b9c4b; font-family: 'Nunito', sans-serif; transition: 0.2s;">Enviar
                         Comprobante <span>💬</span></button>
                 </div>
 
                 <div id="instructionsMercadoPago"
-                    style="display: none; margin-top: 15px; padding-top: 15px; border-top: 2px dashed #ccc;">
-                    <p style="font-size: 1rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">
+                    style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p
+                        style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">
                         Total a pagar en línea: $162.00 MN</p>
+                    <div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal"
+                            value="162.00" readonly><button type="button"
+                            onclick="copyToClipboard('mpTotal', this)"><span>📋</span> Copiar</button></div>
+                    <p
+                        style="color: #e65100; font-size: 0.9rem; font-weight: 800; margin-bottom: 15px; text-align: center;">
+                        ⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>
                     <a href="https://mpago.la/2RrwWdd" target="_blank"
-                        style="display: block; text-align: center; border-radius: 15px; padding: 15px; font-size: 1.1rem; font-weight: 800; width: 100%; border: 3px solid var(--pc-negro); box-shadow: 4px 4px 0 var(--pc-negro); background: var(--pc-azul-suave); color: var(--pc-negro); text-decoration: none; margin-bottom: 15px;">Pagar
+                        style="display: block; text-align: center; border-radius: 10px; padding: 12px; font-size: 1.1rem; width: 100%; border: 3px solid var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); background: var(--pc-azul-suave); color: var(--pc-negro); text-decoration: none; font-weight: 800; margin-bottom: 15px;">Pagar
                         en Mercado Pago ➔</a>
                     <ul class="step-list">
                         <li>Realiza el pago en el enlace y toma una captura de pantalla.</li>
                         <li>Envíanos tu captura por WhatsApp para ligarla a tu cita agendada.</li>
                     </ul>
-                    <button onclick="sendReceiptWa()"
-                        style="background: #25d366; color: white; border: 3px solid var(--pc-negro); padding: 12px 20px; font-weight: 800; border-radius: 50px; font-size: 1rem; cursor: pointer; display: block; width: 100%; text-align: center; box-shadow: 0 4px 0 #1b9c4b; font-family: 'Nunito', sans-serif;">Enviar
+                    <button onclick="sendReceiptWa()" class="btn-wa"
+                        style="width: 100%; margin-top: 10px; padding: 12px 20px; font-weight: 800; border-radius: 50px; font-size: 1.1rem; cursor: pointer; display: block; text-align: center; border: 3px solid var(--pc-negro); box-shadow: 0 4px 0 #1b9c4b; font-family: 'Nunito', sans-serif; transition: 0.2s;">Enviar
                         Comprobante <span>💬</span></button>
                 </div>
             </div>

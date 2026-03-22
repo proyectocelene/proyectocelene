@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa de la Menopausia | Dr. Carlos Donato - Proyecto Celene</title>
+    <meta name="description"
+        content="Guía interactiva sobre la menopausia. Todo lo que necesitas saber sobre síntomas, terapia hormonal y opciones no hormonales.">
+    <meta name="author" content="Dr. Carlos Donato">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/guia-menopausia.html">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/guia-menopausia.html">
+    <meta property="og:title" content="Guía Completa de la Menopausia | Dr. Carlos Donato - Proyecto Celene">
+    <meta property="og:description" content="Guía interactiva sobre la menopausia. Todo lo que necesitas saber sobre síntomas, terapia hormonal y opciones no hormonales.">
+    <meta property="og:image" content="https://i.ibb.co/8DndhCcv/bochornos.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/guia-menopausia.html">
+    <meta property="twitter:title" content="Guía Completa de la Menopausia | Dr. Carlos Donato - Proyecto Celene">
+    <meta property="twitter:description" content="Guía interactiva sobre la menopausia. Todo lo que necesitas saber sobre síntomas, terapia hormonal y opciones no hormonales.">
+    <meta property="twitter:image" content="https://i.ibb.co/8DndhCcv/bochornos.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde: #25d366;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-gris-suave);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-rosa-pastell);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-negro);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .author-badge {
+            display: inline-block;
+            background: var(--pc-negro);
+            color: var(--pc-amarillo);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* TABS */
+        .tabs-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            color: var(--pc-negro);
+            box-shadow: 0 4px 0 var(--pc-negro);
+            transition: 0.2s;
+        }
+
+        .tab-btn:hover {
+            background: var(--pc-rosa-pastell);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 var(--pc-negro);
+        }
+
+        .tab-btn.active {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            box-shadow: 0 0px 0 var(--pc-negro);
+            transform: translateY(4px);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeInTab 0.4s ease-out;
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CAJAS */
+        .content-box {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 var(--pc-amarillo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-box h2 {
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #444;
+            font-size: 1.05rem;
+        }
+
+        .content-box li {
+            margin-bottom: 8px;
+        }
+
+        .info-panel {
+            padding: 20px;
+            border-radius: 15px;
+            border: 3px dashed var(--pc-negro);
+            margin-bottom: 20px;
+        }
+
+        .info-panel h4 {
+            font-size: 1.2rem;
+            color: var(--pc-negro);
+            margin-bottom: 5px;
+        }
+
+        /* ESTILOS DE CUESTIONARIOS (QUIZ) */
+        .quiz-box {
+            background: var(--pc-azul-suave);
+            padding: 25px;
+            border-radius: 20px;
+            border: 4px dashed var(--pc-negro);
+            margin-bottom: 30px;
+        }
+
+        .quiz-box h3 {
+            font-family: 'Handlee', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #444;
+            transition: 0.2s;
+        }
+
+        .check-item input {
+            display: none;
+        }
+
+        .custom-checkbox {
+            width: 25px;
+            height: 25px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 6px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            flex-shrink: 0;
+            background: white;
+        }
+
+        .check-item input:checked+.custom-checkbox {
+            background: var(--pc-rosa-fuerte);
+            border-color: var(--pc-rosa-fuerte);
+        }
+
+        .check-item input:checked+.custom-checkbox::after {
+            content: '✔';
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 900;
+        }
+
+        .check-item:hover .custom-checkbox {
+            transform: scale(1.1);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid var(--pc-negro);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .radio-label:hover {
+            background: var(--pc-rosa-pastell);
+        }
+
+        .radio-label input {
+            margin-right: 15px;
+            transform: scale(1.3);
+            accent-color: var(--pc-rosa-fuerte);
+        }
+
+        /* TABLA DE OPCIONES */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .thm-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+            font-weight: 600;
+        }
+
+        .thm-table th,
+        .thm-table td {
+            padding: 15px;
+            border: 2px solid var(--pc-negro);
+            font-size: 0.95rem;
+        }
+
+        .thm-table th {
+            background: var(--pc-negro);
+            color: white;
+            text-align: left;
+        }
+
+        .thm-table tbody tr {
+            transition: background-color 0.2s;
+        }
+
+        .thm-table tbody tr:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        /* BOTONES */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.1rem;
+            background: var(--pc-negro);
+            color: white;
+            box-shadow: 0 6px 0 #000;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            transition: 0.1s;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .btn:active {
+            transform: translateY(6px);
+            box-shadow: 0 0 0 transparent;
+        }
+
+        .btn-wa {
+            background: var(--pc-verde);
+            box-shadow: 0 6px 0 #1b9c4b;
+        }
+
+        /* MODALES */
+        .modal-wa {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .modal-wa-content {
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            max-width: 450px;
+            width: 100%;
+            padding: 35px;
+            position: relative;
+            box-shadow: 12px 12px 0px var(--pc-amarillo);
+            animation: popInWa 0.3s ease-out;
+        }
+
+        @keyframes popInWa {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-modal-wa {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            font-weight: 900;
+            color: var(--pc-negro);
+        }
+
+        .modal-wa input,
+        .modal-wa textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .modal-wa input:focus,
+        .modal-wa textarea:focus {
+            border-color: var(--pc-rosa-fuerte);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ANIMACIONES EXTRA Y COMPONENTES VISUALES */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .float-anim {
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulseIcon {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse-anim {
+            animation: pulseIcon 2s infinite;
+        }
+
+        /* SÍNTOMAS GRID */
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .symp-card {
+            background: var(--pc-rosa-pastell);
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 20px 10px;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1rem;
+            box-shadow: 4px 4px 0 var(--pc-negro);
+            transition: transform 0.2s;
+            cursor: default;
+        }
+
+        .symp-card:nth-child(even) {
+            background: var(--pc-amarillo);
+        }
+
+        .symp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 6px 6px 0 var(--pc-negro);
+        }
+
+        .symp-card span {
+            font-size: 2.8rem;
+            display: block;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .symp-card:hover span {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* LIFESTYLE BANNER */
+        .lifestyle-banner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            background: white;
+            border: 4px dashed var(--pc-azul-suave);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .ls-item {
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--pc-negro);
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .ls-item span {
+            display: block;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .ls-item:hover span {
+            animation: pulseIcon 1s infinite;
+        }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <header class="header fade-in">
+            <img src="https://i.ibb.co/8DndhCcv/bochornos.png" alt="Guía de Menopausia" style="max-width:100%; width:300px; border-radius:15px; border:3px solid var(--pc-negro); margin-bottom:15px; background:white; object-fit:cover; display:block; margin-left:auto; margin-right:auto;">
+            <span class="author-badge">👨‍⚕️ Por el Dr. Carlos Donato</span>
+            <h1 class="hand-drawn">Guía Completa de la Menopausia <span>🌸</span></h1>
+            <p style="font-weight:600; font-size:1.15rem; max-width: 700px; margin: 0 auto;">Todo lo que necesitas saber
+                para esta nueva etapa, de forma clara, científica y sin estigmas.</p>
+        </header>
+
+        <div class="tabs-wrapper fade-in">
+            <button class="tab-btn active" onclick="openTab('tab-intro', this)">📖 Qué es y Mitos</button>
+            <button class="tab-btn" onclick="openTab('tab-sintomas', this)">✅ Síntomas y Alertas</button>
+            <button class="tab-btn" onclick="openTab('tab-tratamientos', this)">💊 Tratamientos y Test</button>
+            <button class="tab-btn" onclick="openTab('tab-tabla', this)">⚖️ Opciones a Detalle</button>
+        </div>
+
+        <!-- TAB 1: INTRO Y MITOS -->
+        <div id="tab-intro" class="tab-content" style="display: block;">
+            <div class="content-box">
+                <div style="text-align: center; margin-bottom: 15px;"><span class="float-anim"
+                        style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-amarillo));">🦋</span></div>
+                <p style="text-align: center; font-size: 1.25rem; font-weight: 800; color: var(--pc-rosa-fuerte);">
+                    ¡Bienvenida a tu nueva etapa de libertad!</p>
+                <p>Bienvenida a esta guía. A lo largo de mi consulta, he notado que la menopausia es una etapa que
+                    genera muchas dudas, miedos y, sobre todo, preguntas en silencio. Históricamente se nos ha enseñado
+                    a ver este proceso como una enfermedad o el fin de la juventud, pero la realidad médica y científica
+                    es muy distinta. He preparado este documento para explicarte qué está pasando en tu cuerpo, qué
+                    debes esperar y qué herramientas tenemos hoy en día para que vivas esta transición con plenitud y
+                    calidad de vida.</p>
+
+                <!-- VIDEO 1: GUÍA CLARA DE LA MENOPAUSIA -->
+                <div style="display: flex; justify-content: center; margin: 30px 0;">
+                    <div
+                        style="max-width: 560px; width: 100%; aspect-ratio: 16 / 9; border: 4px solid var(--pc-negro); border-radius: 15px; overflow: hidden; box-shadow: 8px 8px 0px var(--pc-azul-suave); background: white;">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/za8cZrYbeco"
+                            title="Una guía clara de la menopausia" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <h2 class="hand-drawn" style="margin-top: 30px;">1. ¿Qué es la menopausia y por qué ocurre?</h2>
+                <p>Para entender la menopausia, hay que mirar hacia los ovarios. Desde tu juventud, los ovarios han sido
+                    la "fábrica" de tus óvulos y de dos hormonas fundamentales: <strong>los estrógenos y la
+                        progesterona</strong>. Estas hormonas no solo regulan tu regla, sino que protegen tu corazón,
+                    tus huesos y mantienen la salud de tu piel y zona íntima.</p>
+                <p>Con el paso de los años, la reserva de óvulos se va agotando de manera natural. La menopausia es,
+                    simplemente, el momento biológico en el que los ovarios dejan de producir estas hormonas y, como
+                    consecuencia, <strong>desaparece la menstruación de forma definitiva</strong>. Oficialmente, los
+                    médicos decimos que estás en la menopausia cuando has pasado <strong>12 meses consecutivos sin tener
+                        la regla</strong>. Este evento ocurre, en promedio, alrededor de los 50 o 51 años.</p>
+
+                <h2 class="hand-drawn" style="margin-top: 30px;">2. Los Mitos del Pasado vs. La Ciencia Actual</h2>
+                <p>Durante años hemos arrastrado creencias que solo han perjudicado a las mujeres. Es hora de
+                    derribarlas:</p>
+
+                <!-- VIDEO 2: DESMITIFICANDO LA MENOPAUSIA -->
+                <div style="display: flex; justify-content: center; margin: 30px 0;">
+                    <div
+                        style="max-width: 560px; width: 100%; aspect-ratio: 16 / 9; border: 4px solid var(--pc-negro); border-radius: 15px; overflow: hidden; box-shadow: 8px 8px 0px var(--pc-rosa-pastell); background: white;">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/B5b68buQt8w"
+                            title="Desmitificando la menopausia" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-rosa-pastell);">
+                    <h4>Mito: "La menopausia es el fin de tu vida como mujer y una enfermedad".</h4>
+                    <p><strong>Realidad:</strong> Es una etapa biológica natural, no una enfermedad. Pasarás un tercio
+                        de tu vida en la postmenopausia; es una época para priorizar tu salud y bienestar, libre de las
+                        preocupaciones reproductivas.</p>
+                </div>
+                <div class="info-panel" style="background: var(--pc-azul-suave);">
+                    <h4>Mito: "La Terapia Hormonal es malísima y causa infartos y cáncer en todas las mujeres".</h4>
+                    <p><strong>Realidad:</strong> A principios de los años 2000, un estudio generó pánico mundial al
+                        decir esto, pero hoy sabemos que esos riesgos dependían de la edad. La ciencia actual ha
+                        demostrado la <strong>"Hipótesis de la Ventana de Oportunidad"</strong>: si iniciamos el
+                        tratamiento hormonal en mujeres sanas <strong>antes de los 60 años o en los primeros 10 años
+                            tras la menopausia</strong>, los beneficios (alivio de sofocos, protección del corazón y
+                        huesos) superan por mucho a los riesgos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: SINTOMAS Y ALERTAS -->
+        <div id="tab-sintomas" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn">¿Qué es normal? (Lo que puedes sentir)</h2>
+                <p>La caída de los estrógenos afecta a todo el cuerpo. Aquí tienes los síntomas más comunes que podrías
+                    experimentar:</p>
+
+                <div class="symptoms-grid">
+                    <div class="symp-card"><span>🔥</span>Sofocos y sudores</div>
+                    <div class="symp-card"><span>🌵</span>Sequedad vaginal</div>
+                    <div class="symp-card"><span>😴</span>Insomnio o fatiga</div>
+                    <div class="symp-card"><span>🎢</span>Cambios de humor</div>
+                    <div class="symp-card"><span>🦴</span>Riesgo de huesos frágiles</div>
+                </div>
+
+                <h2 class="hand-drawn" style="margin-top: 30px; color: var(--pc-negro);">CUESTIONARIO 1: Mi cuerpo está
+                    cambiando...</h2>
+                <p>¿Esto es normal o debo preocuparme? Marca con un toque lo que estás experimentando actualmente:</p>
+
+                <div class="quiz-box">
+                    <h3 style="color: var(--pc-rosa-fuerte);">SECCIÓN A: Lo que es NORMAL (Molesto, pero esperado)</h3>
+                    <p style="margin-bottom: 15px; font-size: 0.95rem;">Estos síntomas ocurren por la fluctuación y
+                        caída de los estrógenos.</p>
+                    <label class="check-item"><input type="checkbox" class="q1-normal">
+                        <div class="custom-checkbox"></div><span class="check-text">Sofocos o bochornos (calores
+                            repentinos en cara, cuello y pecho)</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="q1-normal">
+                        <div class="custom-checkbox"></div><span class="check-text">Sudoración nocturna que interrumpe
+                            mi sueño</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="q1-normal">
+                        <div class="custom-checkbox"></div><span class="check-text">Cambios de humor, irritabilidad o
+                            sentirme más sensible</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="q1-normal">
+                        <div class="custom-checkbox"></div><span class="check-text">Sequedad vaginal, picor o ardor en
+                            la zona íntima</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="q1-normal">
+                        <div class="custom-checkbox"></div><span class="check-text">Dolor o molestias durante las
+                            relaciones sexuales</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="q1-normal">
+                        <div class="custom-checkbox"></div><span class="check-text">Dificultad para dormir o
+                            insomnio</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="q1-normal">
+                        <div class="custom-checkbox"></div><span class="check-text">En la perimenopausia: Reglas
+                            irregulares (más cortas, largas, se saltan)</span>
+                    </label>
+
+                    <h3 style="color: #c62828; margin-top: 30px;">SECCIÓN B: Señales de ALERTA (Lo que NO es normal)
+                    </h3>
+                    <p style="margin-bottom: 15px; font-size: 0.95rem;">Si marcas alguna de estas casillas, es
+                        importante que lo hables con tu médico lo antes posible.</p>
+                    <label class="check-item"><input type="checkbox" class="q1-alert">
+                        <div class="custom-checkbox"></div><span class="check-text">Sangrado posmenopáusico: He vuelto a
+                            sangrar o manchar después de haber pasado 12 meses completos sin regla</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="q1-alert">
+                        <div class="custom-checkbox"></div><span class="check-text">Sangrados extremadamente abundantes
+                            o con coágulos grandes antes de que se me retire la regla del todo</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="q1-alert">
+                        <div class="custom-checkbox"></div><span class="check-text">Depresión profunda, pérdida total de
+                            interés en vivir o ataques de pánico que no puedo controlar</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="q1-alert">
+                        <div class="custom-checkbox"></div><span class="check-text">Un dolor de huesos intenso o haber
+                            sufrido una fractura por un golpe leve o una caída desde mi propia altura</span>
+                    </label>
+
+                    <button onclick="evaluarSintomas()" class="btn" style="margin-top: 15px;">Evaluar mis
+                        síntomas</button>
+                    <div id="q1-result"
+                        style="display:none; margin-top:15px; padding: 20px; border-radius:10px; font-size: 1.1rem;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: TRATAMIENTOS -->
+        <div id="tab-tratamientos" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn">¿Qué opciones de tratamiento tenemos?</h2>
+                <p>¡No tienes que sufrir en silencio! Como tu médico, mi objetivo es hacerte un "traje a la medida".
+                    Tenemos muchas opciones escalonadas:</p>
+
+                <h3 style="color: var(--pc-negro); margin-top: 25px; font-size: 1.4rem;">A. Tu Estilo de Vida (El pilar
+                    fundamental):</h3>
+                <div class="lifestyle-banner">
+                    <div class="ls-item"><span>🥗</span> Dieta Saludable</div>
+                    <div class="ls-item"><span>🏋️‍♀️</span> Fuerza (Pesas)</div>
+                    <div class="ls-item"><span>🧘‍♀️</span> Salud Mental</div>
+                </div>
+                <p style="margin-bottom: 30px;">Una dieta rica en vegetales y baja en procesados reduce los sofocos. El
+                    <strong>entrenamiento de fuerza</strong> es innegociable para proteger tus huesos de la osteoporosis
+                    y evitar que la grasa se acumule en tu abdomen. La Terapia Cognitiva te ayuda a dominar el estrés y
+                    recuperar tu sueño reparador.</p>
+
+                <h2 class="hand-drawn" style="margin-top: 30px;">CUESTIONARIO 2: ¿Soy candidata a la Terapia Hormonal
+                    (THM)?</h2>
+                <div class="quiz-box" style="background: var(--pc-amarillo);">
+                    <p style="margin-bottom: 20px;">La Terapia Hormonal es el tratamiento más eficaz para los sofocos y
+                        la sequedad vaginal. Para saber si es segura para ti, contesta lo siguiente:</p>
+
+                    <h3 style="color: var(--pc-negro);">1. La "Ventana de Oportunidad"</h3>
+                    <label class="check-item"><input type="checkbox" id="thm_w1">
+                        <div class="custom-checkbox"></div><span class="check-text">Tengo menos de 60 años.</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" id="thm_w2">
+                        <div class="custom-checkbox"></div><span class="check-text">Hace menos de 10 años que tuve mi
+                            última regla.</span>
+                    </label>
+
+                    <h3 style="color: var(--pc-negro); margin-top: 20px;">2. Mis Síntomas</h3>
+                    <label class="check-item"><input type="checkbox" id="thm_sym">
+                        <div class="custom-checkbox"></div><span class="check-text">Mis sofocos o síntomas vaginales son
+                            de moderados a severos y afectan mi calidad de vida.</span>
+                    </label>
+
+                    <h3 style="color: #c62828; margin-top: 20px;">3. Mis Antecedentes (Contraindicaciones)</h3>
+                    <p style="margin-bottom: 10px; font-size: 0.95rem;">Por favor, marca si alguna vez has tenido:</p>
+                    <label class="check-item"><input type="checkbox" class="thm_contra">
+                        <div class="custom-checkbox"></div><span class="check-text">Cáncer de mama (personal)</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="thm_contra">
+                        <div class="custom-checkbox"></div><span class="check-text">Cáncer de endometrio (matriz)</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="thm_contra">
+                        <div class="custom-checkbox"></div><span class="check-text">Coágulos de sangre en las venas
+                            (trombosis) o embolia pulmonar</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="thm_contra">
+                        <div class="custom-checkbox"></div><span class="check-text">Un infarto al corazón o accidente
+                            cerebrovascular (ictus/derrame)</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="thm_contra">
+                        <div class="custom-checkbox"></div><span class="check-text">Enfermedad del hígado activa</span>
+                    </label>
+                    <label class="check-item"><input type="checkbox" class="thm_contra">
+                        <div class="custom-checkbox"></div><span class="check-text">Sangrado vaginal que el médico aún
+                            no ha estudiado</span>
+                    </label>
+
+                    <button onclick="evaluarTHM()" class="btn" style="margin-top: 15px;">Evaluar mi caso</button>
+                    <div id="q2-result"
+                        style="display:none; margin-top:15px; padding: 20px; border-radius:10px; font-size: 1.1rem;">
+                    </div>
+                </div>
+
+                <h2 class="hand-drawn" style="margin-top: 40px;">CUESTIONARIO 3: ¿Qué otras opciones No Hormonales
+                    tengo?</h2>
+                <div class="quiz-box" style="background: var(--pc-gris-suave);">
+                    <p style="margin-bottom: 20px;">Si no puedes o no deseas tomar hormonas, la ciencia tiene fármacos
+                        muy efectivos. Selecciona el perfil que mejor te describa para ver tu fármaco ideal:</p>
+
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="q3" value="p1">
+                            <div><strong>PERFIL 1:</strong> "Mis sofocos son terribles, pero no quiero/puedo tomar
+                                hormonas ni antidepresivos".</div>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="q3" value="p2">
+                            <div><strong>PERFIL 2:</strong> "Además de sofocos, estoy pasando por mucha ansiedad,
+                                cambios de humor o tristeza profunda".</div>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="q3" value="p3">
+                            <div><strong>PERFIL 3:</strong> "Los sofocos me dan sobre todo de noche y me causan un
+                                insomnio espantoso".</div>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="q3" value="p4">
+                            <div><strong>PERFIL 4:</strong> "Mi problema no son los sofocos, sino que tengo mucha
+                                sequedad vaginal y me duele tener relaciones (y tuve cáncer de mama)".</div>
+                        </label>
+                    </div>
+
+                    <button onclick="evaluarNoHormonal()" class="btn" style="margin-top: 5px;">Ver mi opción
+                        ideal</button>
+                    <div id="q3-result"
+                        style="display:none; margin-top:15px; padding: 20px; border-radius:10px; font-size: 1.1rem;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: TABLA -->
+        <div id="tab-tabla" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn">Riesgos y Beneficios de mis opciones</h2>
+                <p>Repasa esta tabla con tu médico para tomar la Decisión Clínica Compartida:</p>
+
+                <div class="table-responsive">
+                    <table class="thm-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Tratamiento</th>
+                                <th>Fármaco / Opción</th>
+                                <th>Sus Beneficios (Lo Bueno)</th>
+                                <th>Sus Riesgos o Efectos Secundarios</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: bold;">Hormonal (THM)</td>
+                                <td>Estrógenos + Progesterona (Parche, gel o pastilla)</td>
+                                <td style="background: #e8f5e9;">Alivia >80% de sofocos. Previene la pérdida de hueso
+                                    (osteoporosis). Quita la sequedad vaginal.</td>
+                                <td style="background: #ffebee;">Riesgo de coágulos (menor con parche/gel). Ligero
+                                    aumento de riesgo de cáncer de mama si se usa por más de 5 años combinada. Tensión
+                                    mamaria.</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">No Hormonal (Neuroquinina)</td>
+                                <td>Fezolinetant (Pastilla diaria)</td>
+                                <td style="background: #e8f5e9;">Reduce drásticamente la frecuencia y severidad de
+                                    sofocos casi tan bien como las hormonas. Acción muy rápida (1 semana).</td>
+                                <td style="background: #ffebee;">Puede elevar transitoriamente las enzimas del hígado
+                                    (requiere análisis de sangre para control). Posible dolor de cabeza o diarrea leve.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">No Hormonal (Modulador del ánimo)</td>
+                                <td>ISRS / IRSN (Venlafaxina, Paroxetina, Escitalopram)</td>
+                                <td style="background: #e8f5e9;">Reducen sofocos (40-65%). Mejoran la ansiedad,
+                                    depresión y calidad de vida. Seguros si hay riesgo cardiovascular.</td>
+                                <td style="background: #ffebee;">Pueden causar náuseas al principio. Algunos pueden
+                                    disminuir el deseo sexual o dificultar el orgasmo. Sequedad de boca.</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">No Hormonal (Neuromodulador)</td>
+                                <td>Gabapentina / Pregabalina</td>
+                                <td style="background: #e8f5e9;">Reducen sofocos y mejoran enormemente la calidad del
+                                    sueño si hay despertares nocturnos.</td>
+                                <td style="background: #ffebee;">Pueden causar mareo, somnolencia diurna, sensación de
+                                    torpeza o dolor de cabeza, por lo que se inician a dosis bajitas.</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">No Hormonal (Vaginal/Oral)</td>
+                                <td>Ospemifeno (Pastilla) / Ácido Hialurónico (Gel)</td>
+                                <td style="background: #e8f5e9;"><strong>Ospemifeno:</strong> Revierte la atrofia
+                                    vaginal y el dolor sin usar estrógenos (seguro tras cáncer de
+                                    mama).<br><strong>Ácido Hialurónico:</strong> Hidrata profundamente sin riesgo.</td>
+                                <td style="background: #ffebee;"><strong>Ospemifeno:</strong> Puede causar o empeorar
+                                    los sofocos como efecto secundario.<br><strong>Ácido Hialurónico:</strong> Requiere
+                                    aplicación constante.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div
+                    style="text-align: center; margin-top: 40px; background: var(--pc-rosa-pastell); padding: 25px; border-radius: 15px; border: 3px dashed var(--pc-negro);">
+                    <h3 class="hand-drawn" style="color: var(--pc-negro); margin-bottom: 15px;">Mi compromiso como tu
+                        médico</h3>
+                    <p style="margin-bottom: 20px;">La menopausia marca el inicio de una nueva etapa vital. Mi trabajo
+                        es escucharte, evaluar tus riesgos personales mediante exámenes rutinarios y decidir juntas el
+                        camino que te brinde la mejor calidad de vida. No dudes en preguntar y expresar todo lo que
+                        sientes; estamos aquí para acompañarte en cada paso.</p>
+                    <button onclick="document.getElementById('modalWaMenopausia').style.display='flex'"
+                        class="btn btn-wa" style="max-width: 400px; font-size: 1.1rem;">Agendar Consulta Médica por
+                        WhatsApp 💬</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCIÓN FINAL GLOBAL -->
+        <div class="fade-in" style="background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-top: 40px; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte); text-align: center;">
+            <h2 class="hand-drawn" style="color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 10px;">¡Toma el control de tu salud hoy! 🌸</h2>
+            <p style="font-weight: 600; font-size: 1.1rem; color: #444; margin-bottom: 20px;">Puedes agendar tu consulta médica para una revisión y tratamiento personalizado.</p>
+            
+            <p style="font-weight: 800; color: #555; font-size: 1.05rem; margin-bottom: 15px;">Puedes acudir directamente sin cita de Lunes a Domingo (9am - 4pm) o asegurar tu espacio:</p>
+
+            <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <!-- Botón Calendario Google -->
+                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                <script>
+                    (function () {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function () {
+                            calendar.schedulingButton.load({
+                                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
+                                color: '#d81b60',
+                                label: '🗓️ Consultar horarios y Agendar',
+                                target,
+                            });
+                        });
+                    })();
+                </script>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+                <button onclick="document.getElementById('modalWaMenopausia').style.display='flex'" class="btn btn-wa" style="margin: 0; max-width: 350px;">Agendar 💬</button>
+            </div>
+            
+            <style>
+                .X81W0b {
+                    border: 4px solid var(--pc-negro) !important;
+                    font-family: 'Nunito', sans-serif !important;
+                    font-weight: 800 !important;
+                    border-radius: 50px !important;
+                    padding: 12px 25px !important;
+                    box-shadow: 0 6px 0 var(--pc-negro) !important;
+                    font-size: 1.1rem !important;
+                }
+                .X81W0b:active {
+                    box-shadow: 0 0 0 transparent !important;
+                    transform: translateY(6px);
+                }
+            </style>
+        </div>
+
+    </div>
+
+    <!-- MODAL WHATSAPP CITAS -->
+    <div id="modalWaMenopausia" class="modal-wa" onclick="if(event.target==this) this.style.display='none'">
+        <div class="modal-wa-content" style="max-height: 90vh; overflow-y: auto;">
+            <span class="close-modal-wa"
+                onclick="document.getElementById('modalWaMenopausia').style.display='none'">✕</span>
+            
+            <h2 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:1.8rem; line-height:1.1; margin-top:0;">Manejo de Menopausia</h2>
+            <p style="font-size:1.05rem; font-weight:600; margin-bottom:15px; color:#333;">Acompañamiento médico experto en el climaterio. Controlamos la sudoración, insomnio y cambios hormonales.</p>
+
+            <h4 style="color:var(--pc-rosa-fuerte); margin-bottom: 5px;">¿Por qué es importante?</h4>
+            <p style="font-size:0.95rem; margin-bottom:15px; color:#444; font-weight: 600;">No tienes que sufrir esta etapa en silencio. Existen terapias hormonales y no hormonales que te devuelven el bienestar.</p>
+
+            <h4 style="color:var(--pc-rosa-fuerte); margin-bottom: 5px;">¿Qué te ofrecemos?</h4>
+            <ul style="color:#444; margin-left: 20px; font-weight: 600; font-size: 0.95rem; margin-bottom: 15px;">
+                <li>Evaluación clínica exhaustiva.</li>
+                <li>Orden de labs hormonales.</li>
+                <li>Tratamiento personalizado.</li>
+            </ul>
+
+            <h4 style="margin-top:20px; color:var(--pc-rosa-fuerte); margin-bottom: 5px;">Inversión en tu Salud</h4>
+            <p style="font-size:1.05rem; font-weight:800; color:var(--pc-negro); background:var(--pc-amarillo); padding:10px; border-radius:10px; border:2px dashed var(--pc-negro); text-align:center;">Costo de consulta médica ($150).</p>
+
+            <div class="payment-methods">
+                <h4 style="margin-bottom: 15px; font-size: 1.2rem; text-align: center; color: var(--pc-rosa-fuerte);">Selecciona tu método de pago</h4>
+                
+                <div class="payment-option" onclick="document.getElementById('payEfectivo_meno').click()">
+                    <input type="radio" name="paymentMethod_meno" id="payEfectivo_meno" value="efectivo" checked onchange="togglePaymentInstructions_meno()">
+                    <label for="payEfectivo_meno" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                            <span style="font-size: 1.1rem;">💵 <strong>Efectivo en Consultorio</strong></span><br>
+                            <small style="color: #666; font-size: 0.9rem;">Sin comisión: $150.00 MN</small>
+                        </div>
+                        <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                    </label>
+                </div>
+                
+                <div class="payment-option" onclick="document.getElementById('payTransferencia_meno').click()">
+                    <input type="radio" name="paymentMethod_meno" id="payTransferencia_meno" value="transferencia" onchange="togglePaymentInstructions_meno()">
+                    <label for="payTransferencia_meno">
+                        <span style="font-size: 1.1rem;">🏦 <strong>Transferencia SPEI / CLABE</strong></span><br>
+                        <small style="color: #666; font-size: 0.9rem;">Sin comisión: $150.00 MN</small>
+                    </label>
+                </div>
+                
+                <div class="payment-option" onclick="document.getElementById('payMercadoPago_meno').click()">
+                    <input type="radio" name="paymentMethod_meno" id="payMercadoPago_meno" value="mercadopago" onchange="togglePaymentInstructions_meno()">
+                    <label for="payMercadoPago_meno">
+                        <span style="font-size: 1.1rem;">💳 <strong>Pago en línea (Mercado Pago)</strong></span><br>
+                        <small style="color: #666; font-size: 0.9rem;">Incluye comisión: $161.17 MN</small>
+                    </label>
+                </div>
+
+                <div id="instructionsEfectivo_meno" style="display: block; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 1rem; font-weight: 600; color: #444;"><strong>1.</strong> Envíanos un mensaje por WhatsApp para agendar tu cita y menciona que pagarás en efectivo en el consultorio.</p>
+                </div>
+
+                <div id="instructionsTransferencia_meno" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a transferir: $150.00 MN</p>
+                    <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe_meno" value="722969010854962949" readonly><button type="button" onclick="copyToClipboard('clabe_meno', this)"><span>📋</span> Copiar</button></div>
+                    <div class="copy-box-modern"><span class="label">Titular</span><input type="text" id="benef_meno" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef_meno', this)"><span>📋</span> Copiar</button></div>
+                    <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco_meno" value="Mercado Pago W" readonly><button type="button" onclick="copyToClipboard('banco_meno', this)"><span>📋</span> Copiar</button></div>
+                    <ul class="step-list">
+                        <li>Realiza la transferencia (guarda tu comprobante).</li>
+                        <li>Envíanos un mensaje por WhatsApp con tu comprobante para confirmar tu cita.</li>
+                    </ul>
+                </div>
+
+                <div id="instructionsMercadoPago_meno" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a pagar en línea: $161.17 MN</p>
+                    <div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal_meno" value="161.17" readonly><button type="button" onclick="copyToClipboard('mpTotal_meno', this)"><span>📋</span> Copiar</button></div>
+                    <p style="color: #e65100; font-size: 0.9rem; font-weight: 800; margin-bottom: 15px; text-align: center;">⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>
+                    <a href="https://link.mercadopago.com.mx/drdonato" target="_blank" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 12px; font-size: 1.1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); text-decoration: none; font-weight: 800;">Pagar en Mercado Pago ➔</a>
+                    <ul class="step-list">
+                        <li>Realiza el pago en el enlace (guarda captura de pantalla).</li>
+                        <li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: var(--pc-gris-suave); padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-top: 20px;">
+                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;">💬 Tengo más dudas</h3>
+                <p style="font-weight: 600; color: #555; margin-bottom: 15px; font-size: 0.95rem;">Si algo no te quedó claro sobre el programa o tus requisitos, mándanos un mensaje y te ayudamos con gusto.</p>
+                
+                <input type="text" id="wa_meno_nombre" placeholder="Tu Nombre Completo" style="width: 100%; padding: 12px 15px; margin-bottom: 10px; border: 2px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none;">
+                <input type="number" id="wa_meno_edad" placeholder="Tu Edad" style="width: 100%; padding: 12px 15px; margin-bottom: 10px; border: 2px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none;">
+                <textarea id="wa_meno_duda" rows="2" placeholder="¿Tienes alguna duda o quieres agendar directamente?" style="width: 100%; padding: 12px 15px; margin-bottom: 10px; border: 2px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none;"></textarea>
+                
+                <button onclick="enviarWaMenopausiaForm()" class="btn btn-wa" style="width: 100%; border-color:var(--pc-negro);">Enviar Mensaje <span>💬</span></button>
+            </div>
+
+            <p style="text-align: center; margin-top: 25px; font-weight: 800; color: #555; font-size: 0.95rem;">Puedes acudir directamente sin cita de Lunes a Domingo (9am - 4pm) o asegurar tu espacio:</p>
+
+            <div style="text-align: center; margin-top: 15px; display: flex; justify-content: center;">
+                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                <script>
+                    (function () {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function () {
+                            calendar.schedulingButton.load({
+                                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
+                                color: '#d81b60',
+                                label: '🗓️ Consultar horarios y Agendar',
+                                target,
+                            });
+                        });
+                    })();
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica de Tabs
+        function openTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).style.display = 'block';
+            if (btnElement) btnElement.classList.add('active');
+        }
+
+        // Lógica de Pagos en Modal
+        function togglePaymentInstructions_meno() {
+            let paymentMethodElement = document.querySelector(`input[name="paymentMethod_meno"]:checked`);
+            let paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'efectivo';
+            document.getElementById(`instructionsEfectivo_meno`).style.display = paymentMethod === 'efectivo' ? 'block' : 'none';
+            document.getElementById(`instructionsTransferencia_meno`).style.display = paymentMethod === 'transferencia' ? 'block' : 'none';
+            document.getElementById(`instructionsMercadoPago_meno`).style.display = paymentMethod === 'mercadopago' ? 'block' : 'none';
+        }
+
+        function copyToClipboard(inputId, btn) {
+            var copyText = document.getElementById(inputId);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value).then(() => {
+                let originalHTML = btn.innerHTML;
+                btn.innerHTML = "¡Copiado! ✅";
+                btn.style.background = "var(--pc-rosa-fuerte)";
+                setTimeout(() => { btn.innerHTML = originalHTML; btn.style.background = ""; }, 2000);
+            });
+        }
+
+        // Lógica de Cuestionarios
+        function enviarResultadosSintomasWa() {
+            let n = prompt("Por favor, ingresa tu nombre para enviarle tus resultados al Dr. Donato:", "");
+            if(n === null) return; 
+            
+            const alerts = Array.from(document.querySelectorAll('.q1-alert:checked')).map(el => el.nextElementSibling.nextElementSibling.innerText);
+            const normals = Array.from(document.querySelectorAll('.q1-normal:checked')).map(el => el.nextElementSibling.nextElementSibling.innerText);
+            
+            let msg = `Hola Dr. Donato 🌸.\nSoy *${n || 'Paciente'}* y acabo de hacer el Test de Menopausia en la página web.\n\n*Mis Síntomas Registrados:*`;
+            
+            if(normals.length > 0) {
+                msg += `\n\n✅ Normales / Esperados:\n- ${normals.join('\n- ')}`;
+            }
+            if(alerts.length > 0) {
+                msg += `\n\n🚨 *DE ALERTA (Requieren revisión):*\n- ${alerts.join('\n- ')}`;
+            }
+            
+            if(alerts.length === 0 && normals.length === 0) {
+                msg += `\n(No marqué ningún síntoma, pero quiero agendar consulta).`;
+            }
+            
+            msg += `\n\nMe gustaría agendar una consulta para evaluar mi caso y mejorar mi calidad de vida.`;
+            
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function evaluarSintomas() {
+            const alerts = document.querySelectorAll('.q1-alert:checked');
+            const normals = document.querySelectorAll('.q1-normal:checked');
+            const res = document.getElementById('q1-result');
+
+            if (alerts.length > 0) {
+                res.style.display = 'block';
+                res.style.background = '#ffebee';
+                res.style.border = '2px solid #c62828';
+                res.style.color = '#c62828';
+                res.innerHTML = '🚨 <strong>Atención:</strong> Has marcado síntomas de alerta. Es muy importante que agendes una consulta médica pronto para evaluar tu caso de forma segura y descartar otros problemas.<br><br><button onclick="enviarResultadosSintomasWa()" class="btn btn-wa" style="max-width:350px; font-size:1rem; padding:12px; margin-top:10px;">Enviar Resultados al Dr. Donato 📲</button>';
+            } else if (normals.length > 0) {
+                res.style.display = 'block';
+                res.style.background = '#e8f5e9';
+                res.style.border = '2px solid #2e7d32';
+                res.style.color = '#2e7d32';
+                res.innerHTML = '✅ <strong>Todo dentro de lo normal:</strong> Los síntomas que presentas son esperados en la menopausia. Si afectan tu calidad de vida, tenemos tratamientos excelentes para ti. Ve a la pestaña de "Tratamientos y Test".<br><br><button onclick="enviarResultadosSintomasWa()" class="btn btn-wa" style="max-width:350px; font-size:1rem; padding:12px; margin-top:10px;">Enviar Resultados al Dr. Donato 📲</button>';
+            } else {
+                res.style.display = 'none';
+            }
+        }
+
+        function evaluarTHM() {
+            const w1 = document.getElementById('thm_w1').checked;
+            const w2 = document.getElementById('thm_w2').checked;
+            const sym = document.getElementById('thm_sym').checked;
+            const contra = document.querySelectorAll('.thm_contra:checked');
+            const res = document.getElementById('q2-result');
+
+            if (contra.length > 0) {
+                res.style.display = 'block';
+                res.style.background = '#ffebee';
+                res.style.border = '2px solid #c62828';
+                res.style.color = '#c62828';
+                res.innerHTML = '⚠️ <strong>Precaución:</strong> Por tus antecedentes, la Terapia Hormonal sistémica clásica generalmente NO es recomendable para ti. Pero tranquila, ve al siguiente cuestionario para conocer excelentes opciones No Hormonales.';
+            } else if ((w1 || w2) && sym) {
+                res.style.display = 'block';
+                res.style.background = '#e8f5e9';
+                res.style.border = '2px solid #2e7d32';
+                res.style.color = '#2e7d32';
+                res.innerHTML = '🌟 <strong>¡Eres una excelente candidata!</strong> Estás dentro de la ventana de oportunidad segura y tienes síntomas que se beneficiarán enormemente de la THM. Agenda una consulta para diseñar tu tratamiento.';
+            } else {
+                res.style.display = 'block';
+                res.style.background = '#e3f2fd';
+                res.style.border = '2px solid #1565c0';
+                res.style.color = '#1565c0';
+                res.innerHTML = 'ℹ️ <strong>Valoración requerida:</strong> Tu caso requiere una evaluación médica personalizada para decidir si la THM u otra opción es la mejor para ti.';
+            }
+        }
+
+        function evaluarNoHormonal() {
+            const sel = document.querySelector('input[name="q3"]:checked');
+            const res = document.getElementById('q3-result');
+            if (!sel) {
+                alert('Por favor, selecciona el perfil que mejor te describa.');
+                return;
+            }
+
+            res.style.display = 'block';
+            res.style.background = '#fff9c4';
+            res.style.border = '2px solid #f57f17';
+            res.style.color = '#333';
+
+            if (sel.value === 'p1') {
+                res.innerHTML = '👉 <strong>Tu posible opción: FEZOLINETANT.</strong> Es el fármaco no hormonal más nuevo. Actúa directamente en el "termostato" del cerebro bloqueando las señales que causan los sofocos, sin ser una hormona.';
+            } else if (sel.value === 'p2') {
+                res.innerHTML = '👉 <strong>Tu posible opción: ANTIDEPRESIVOS (ISRS / IRSN)</strong> como Paroxetina, Venlafaxina o Escitalopram. A dosis bajitas, no solo mejoran el estado de ánimo, sino que reducen los sofocos hasta en un 65% <br><small><em>(Nota: Si tomas Tamoxifeno para el cáncer de mama, no debes tomar Paroxetina).</em></small>';
+            } else if (sel.value === 'p3') {
+                res.innerHTML = '👉 <strong>Tu posible opción: GABAPENTINA o PREGABALINA.</strong> Son moduladores nerviosos que calman los sofocos y, como su efecto secundario principal es dar sueño, son excelentes para tomar de noche y ayudarte a descansar.';
+            } else if (sel.value === 'p4') {
+                res.innerHTML = '👉 <strong>Tu posible opción: OSPEMIFENO.</strong> Es una pastilla no hormonal que actúa sanando el tejido de la vagina sin estimular el tejido de las mamas (por lo que es seguro si ya terminaste tu tratamiento oncológico). Otra opción local son los hidratantes de ácido hialurónico.';
+            }
+        }
+
+        // Enviar WhatsApp
+        function enviarWaMenopausiaForm() {
+            let n = document.getElementById('wa_meno_nombre').value || 'N/A';
+            let e = document.getElementById('wa_meno_edad').value || 'N/A';
+            let du = document.getElementById('wa_meno_duda').value || 'Deseo agendar consulta sobre menopausia con el Dr. Carlos Donato.';
+            
+            let paymentMethodElement = document.querySelector(`input[name="paymentMethod_meno"]:checked`);
+            let paymentText = "";
+            if (paymentMethodElement) {
+                if (paymentMethodElement.value === 'efectivo') paymentText = "Efectivo en Consultorio";
+                if (paymentMethodElement.value === 'transferencia') paymentText = "Transferencia Bancaria";
+                if (paymentMethodElement.value === 'mercadopago') paymentText = "Pago en Línea (Mercado Pago)";
+            }
+
+            let msg = `Hola Proyecto Celene 🌸.\nLeí la guía de Menopausia y me interesa agendar una consulta médica.\n\n*Nombre:* ${n}\n*Edad:* ${e}\n*Síntomas/Duda:* ${du}`;
+            if(paymentText) msg += `\n\n*Método de Pago seleccionado:* ${paymentText}`;
+            
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+            document.getElementById('modalWaMenopausia').style.display = 'none';
+        }
+
+        // Animaciones
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+    <script src="js/global.js"></script>
+</body>
+
+</html>

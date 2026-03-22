@@ -15,14 +15,14 @@
     <meta property="og:url" content="https://proyectocelene.org/retiro-isd.html">
     <meta property="og:title" content="Guía Integral: Retiro de Implante (ISD) - Proyecto Celene">
     <meta property="og:description" content="Entendemos tus nervios. Aquí te explicamos el procedimiento paso a paso para que te sientas segura, informada y cuidada.">
-    <meta property="og:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
+    <meta property="og:image" content="https://i.ibb.co/cSrRx1Jp/520345259-1172823848212097-7382126732029185704-n.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://proyectocelene.org/retiro-isd.html">
     <meta property="twitter:title" content="Guía Integral: Retiro de Implante (ISD) - Proyecto Celene">
     <meta property="twitter:description" content="Entendemos tus nervios. Aquí te explicamos el procedimiento paso a paso para que te sientas segura, informada y cuidada.">
-    <meta property="twitter:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
+    <meta property="twitter:image" content="https://i.ibb.co/cSrRx1Jp/520345259-1172823848212097-7382126732029185704-n.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
         rel="stylesheet">
@@ -592,48 +592,60 @@
             <p style="font-size: 1.15rem; font-weight: 600; margin-bottom: 25px;">La cuota de recuperación por el Retiro
                 de Implante (ISD) es de <strong>$450 m.n.</strong></p>
 
-            <div class="payment-methods" style="max-width: 600px; margin: 0 auto 25px auto;">
-                <h4 style="margin-bottom: 10px; font-size: 1.1rem; text-align: center; color: var(--pc-rosa-fuerte);">Opciones de Pago</h4>
+            <div class="payment-methods" style="max-width: 650px; margin: 0 auto 25px auto;">
+                <h4 style="margin-bottom: 15px; font-size: 1.2rem; text-align: center; color: var(--pc-rosa-fuerte);">Selecciona tu método de pago</h4>
                 
                 <div class="payment-option" onclick="document.getElementById('payEfectivo').click()">
                     <input type="radio" name="paymentMethod" id="payEfectivo" value="efectivo" checked onchange="togglePaymentInstructions()">
-                    <label for="payEfectivo" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; margin-bottom: 0;">
-                        <span>💵 <strong>Efectivo en Consultorio</strong><br><small style="color: #666;">(Sin comisión: $450.00 MN)</small></span>
-                        <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" style="margin: 0;" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                    <label for="payEfectivo" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                            <span style="font-size: 1.1rem;">💵 <strong>Efectivo en Consultorio</strong></span><br>
+                            <small style="color: #666; font-size: 0.9rem;">Sin comisión: $450.00 MN</small>
+                        </div>
+                        <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
                     </label>
                 </div>
                 
                 <div class="payment-option" onclick="document.getElementById('payTransferencia').click()">
                     <input type="radio" name="paymentMethod" id="payTransferencia" value="transferencia" onchange="togglePaymentInstructions()">
-                    <label for="payTransferencia" style="margin-bottom: 0;">
-                        🏦 <strong>Transferencia SPEI / CLABE</strong><br><small style="color: #666;">(Sin comisión: $450.00 MN)</small>
+                    <label for="payTransferencia">
+                        <span style="font-size: 1.1rem;">🏦 <strong>Transferencia SPEI / CLABE</strong></span><br>
+                        <small style="color: #666; font-size: 0.9rem;">Sin comisión: $450.00 MN</small>
                     </label>
                 </div>
                 
                 <div class="payment-option" onclick="document.getElementById('payMercadoPago').click()">
                     <input type="radio" name="paymentMethod" id="payMercadoPago" value="mercadopago" onchange="togglePaymentInstructions()">
-                    <label for="payMercadoPago" style="margin-bottom: 0;">
-                        💳 <strong>Pago en línea (Mercado Pago)</strong> <br>
-                        <span style="font-size: 0.85rem; font-weight: 600; color: #555;">(Incluye comisión: $473.83 MN)</span>
+                    <label for="payMercadoPago">
+                        <span style="font-size: 1.1rem;">💳 <strong>Pago en línea (Mercado Pago)</strong></span><br>
+                        <small style="color: #666; font-size: 0.9rem;">Incluye comisión: $473.83 MN</small>
                     </label>
                 </div>
 
-                <div id="instructionsEfectivo" style="display: block; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
-                    <p style="font-size: 0.95rem;"><strong>1.</strong> Agenda tu cita usando nuestro calendario o envíanos un mensaje y menciona que pagarás en efectivo en el consultorio.</p>
+                <div id="instructionsEfectivo" style="display: block; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 1rem; font-weight: 600; color: #444;"><strong>1.</strong> Envíanos un mensaje por WhatsApp para agendar tu cita y menciona que pagarás en efectivo en el consultorio.</p>
                 </div>
 
-                <div id="instructionsTransferencia" style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
-                    <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">Total a transferir: $450.00 MN</p>
+                <div id="instructionsTransferencia" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a transferir: $450.00 MN</p>
                     <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe" value="722969010854962949" readonly><button type="button" onclick="copyToClipboard('clabe', this)"><span>📋</span> Copiar</button></div>
-                    <div class="copy-box-modern"><span class="label">Beneficiario</span><input type="text" id="benef" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef', this)"><span>📋</span> Copiar</button></div>
+                    <div class="copy-box-modern"><span class="label">Titular</span><input type="text" id="benef" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef', this)"><span>📋</span> Copiar</button></div>
                     <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco" value="Mercado Pago W" readonly><button type="button" onclick="copyToClipboard('banco', this)"><span>📋</span> Copiar</button></div>
-                    <ul class="step-list" style="margin-top: 10px; text-align:left;"><li>Realiza la transferencia (guarda tu comprobante).</li><li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li></ul>
+                    <ul class="step-list">
+                        <li>Realiza la transferencia (guarda tu comprobante).</li>
+                        <li>Envíanos un mensaje por WhatsApp con tu comprobante para confirmar tu cita.</li>
+                    </ul>
                 </div>
 
-                <div id="instructionsMercadoPago" style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
-                    <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">Total a pagar en línea: $473.83 MN</p>
-                    <a href="https://mpago.la/1xZdVDs" target="_blank" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 10px; font-size: 1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); margin-bottom:15px;">Pagar en Mercado Pago ➔</a>
-                    <ul class="step-list" style="margin-top: 10px; text-align:left;"><li>Realiza el pago en el enlace (guarda captura de pantalla).</li><li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li></ul>
+                <div id="instructionsMercadoPago" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a pagar en línea: $473.83 MN</p>
+                    <div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal" value="473.83" readonly><button type="button" onclick="copyToClipboard('mpTotal', this)"><span>📋</span> Copiar</button></div>
+                    <p style="color: #e65100; font-size: 0.9rem; font-weight: 800; margin-bottom: 15px; text-align: center;">⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>
+                    <a href="https://mpago.la/1xZdVDs" target="_blank" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 12px; font-size: 1.1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); text-decoration: none; font-weight: 800;">Pagar en Mercado Pago ➔</a>
+                    <ul class="step-list">
+                        <li>Realiza el pago en el enlace (guarda captura de pantalla).</li>
+                        <li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li>
+                    </ul>
                 </div>
             </div>
 

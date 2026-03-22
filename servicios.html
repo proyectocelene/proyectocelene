@@ -17,7 +17,7 @@
     <meta property="og:title" content="Catálogo de Servicios - Proyecto Celene A.C.">
     <meta property="og:description"
         content="Explora nuestros servicios: mastografías, consultas, papanicolaou, salud sexual, laboratorios y más, con cuotas accesibles y un trato humano.">
-    <meta property="og:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
+    <meta property="og:image" content="https://i.ibb.co/cSrRx1Jp/520345259-1172823848212097-7382126732029185704-n.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -25,7 +25,7 @@
     <meta property="twitter:title" content="Catálogo de Servicios - Proyecto Celene A.C.">
     <meta property="twitter:description"
         content="Explora nuestros servicios: mastografías, consultas, papanicolaou, salud sexual, laboratorios y más, con cuotas accesibles y un trato humano.">
-    <meta property="twitter:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
+    <meta property="twitter:image" content="https://i.ibb.co/cSrRx1Jp/520345259-1172823848212097-7382126732029185704-n.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&display=swap"
         rel="stylesheet">
@@ -118,6 +118,8 @@
             overflow-x: auto;
             /* Permite hacer scroll horizontal en celular */
             justify-content: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 10px;
             margin-bottom: 35px;
             padding-bottom: 10px;
@@ -685,6 +687,7 @@
             .filter-container {
                 justify-content: flex-start;
                 -webkit-overflow-scrolling: touch;
+                justify-content: center;
             }
         }
 
@@ -974,7 +977,7 @@
                 <div class="price-text">Consulta Médica</div>
                 <div class="btn-group">
                     <button class="btn btn-more" onclick="openInfo('menopausia')">Detalles</button>
-                    <button onclick="openInfo('menopausia')" class="btn btn-wa">Agendar</button>
+                    <a href="guia-menopausia.html" class="btn btn-wa" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Guía y Agendar</a>
                 </div>
             </div>
 
@@ -1842,7 +1845,8 @@
                 include: ["Evaluación clínica exhaustiva.", "Orden de labs hormonales.", "Tratamiento personalizado."],
                 reqs: "Costo de consulta médica ($150).",
                 waMsg: "Consulta para Menopausia",
-                price: 150
+                price: 150,
+                eduLink: "guia-menopausia.html"
             },
             prenatal: {
                 title: "Control Prenatal",
