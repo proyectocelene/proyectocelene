@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Atención Médica Gratuita | Proyecto Celene</title>
+    <meta name="description"
+        content="En Proyecto Celene a nadie se le niega el servicio. Conoce nuestro programa de Trabajo Social para exentar cuotas de recuperación a personas vulnerables.">
+    <meta name="author" content="Dr. Carlos Donato">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/atencion-medica-gratuita.html">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde: #25d366;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-gris-suave);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* NAVEGACIÓN PRINCIPAL */
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0px var(--pc-rosa-pastell);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte);
+            color: var(--pc-blanco);
+            border-color: var(--pc-negro);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+            transform: translateY(-2px);
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-rosa-pastell);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-negro);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .author-badge {
+            display: inline-block;
+            background: var(--pc-negro);
+            color: var(--pc-amarillo);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* MENSAJE PRINCIPAL (BARRERA) */
+        .barrier-message {
+            background: var(--pc-amarillo);
+            border: 4px dashed var(--pc-negro);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 8px 8px 0 var(--pc-rosa-fuerte);
+            transform: rotate(-1deg);
+        }
+
+        .barrier-message h2 {
+            font-size: 1.4rem;
+            color: var(--pc-negro);
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .barrier-message strong {
+            color: var(--pc-rosa-fuerte);
+            font-size: 1.8rem;
+            display: block;
+            margin: 15px 0;
+            font-family: 'Handlee', cursive;
+            line-height: 1.3;
+        }
+
+        /* CAJAS DE CONTENIDO */
+        .content-box {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 var(--pc-azul-suave);
+            position: relative;
+        }
+
+        .content-box h3 {
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #444;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        /* QUIZ (CUESTIONARIO) */
+        .quiz-box {
+            background: var(--pc-azul-suave);
+            padding: 30px;
+            border-radius: 20px;
+            border: 4px dashed var(--pc-negro);
+            margin: 40px 0;
+            box-shadow: 6px 6px 0 var(--pc-negro);
+        }
+
+        .quiz-question {
+            background: white;
+            border: 2px solid var(--pc-negro);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quiz-options {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .quiz-radio {
+            display: none;
+        }
+
+        .quiz-lbl {
+            padding: 8px 20px;
+            border: 2px solid var(--pc-negro);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            background: var(--pc-gris-suave);
+            font-size: 1rem;
+        }
+
+        .quiz-radio:checked+.quiz-lbl {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+        }
+
+        #quizResult {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px solid var(--pc-negro);
+            background: white;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* BOTONES */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.1rem;
+            background: var(--pc-negro);
+            color: white;
+            box-shadow: 0 6px 0 #000;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            transition: 0.1s;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .btn:active {
+            transform: translateY(6px);
+            box-shadow: 0 0 0 transparent;
+        }
+
+        .btn-wa {
+            background: var(--pc-verde);
+            box-shadow: 0 6px 0 #1b9c4b;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="navbar-container" class="main-nav"></div>
+
+        <header class="header fade-in">
+            <span class="author-badge">👨‍⚕️ Programa coordinado por el Dr. Carlos Donato</span>
+            <h1 class="hand-drawn">Programa de Atención Médica Gratuita <span>🤝</span></h1>
+            <p style="font-weight:600; font-size:1.15rem; max-width: 700px; margin: 0 auto;">Nuestra misión en Proyecto
+                Celene es clara: Salvar vidas garantizando que todos tengan acceso a un diagnóstico y tratamiento
+                oportuno, sin importar su situación económica.</p>
+        </header>
+
+        <div class="barrier-message fade-in">
+            <h2>Nuestras cuotas de recuperación son simbólicas, subsidiadas por donadores y patrocinios. Pero queremos
+                que sepas algo muy importante:</h2>
+            <strong>"En ningún momento son una barrera para que alguien que venga a Proyecto Celene tenga acceso a la
+                salud."</strong>
+            <p style="font-size: 1.1rem; font-weight: 600; color: #444; margin-top: 15px;">Si necesitas una revisión
+                médica y no puedes pagarla, no te preocupes, acércate, nosotros siempre te vamos a atender.<br><small
+                    style="color: #666;">(Nota: No somos un hospital, por lo que <strong>no atendemos urgencias
+                        médicas</strong>, únicamente consulta externa).</small></p>
+        </div>
+
+        <div class="content-box fade-in">
+            <h3 class="hand-drawn">¿Por qué cobramos una cuota de recuperación?</h3>
+            <p>A diferencia de instituciones públicas, Proyecto Celene es una Asociación Civil. La cuota simbólica que
+                pedimos (que es muchísimo menor al precio del mercado privado) nos sirve estrictamente para mantener
+                nuestras operaciones activas.</p>
+            <p>Con ese pequeño aporte logramos pagar la luz, el agua, el internet, y los insumos médicos diarios (como
+                guantes, jeringas, gasas) que muchas veces no logramos cubrir solo con donativos en especie. Al pagar tu
+                cuota, no solo cubres tu consulta, <strong>estás ayudando a mantener la clínica abierta para
+                    todos.</strong></p>
+            <p style="margin-top: 15px; color: var(--pc-rosa-fuerte);"><strong>Todo nuestro equipo es
+                    voluntario:</strong> Ningún médico, como el Dr. Carlos Donato, ni el personal directivo recibe un
+                sueldo. Trabajamos por amor a nuestra comunidad y las cuotas son íntegramente para la operación de la
+                fundación.</p>
+        </div>
+
+        <div class="content-box fade-in" style="background: var(--pc-rosa-pastell); border-color: var(--pc-negro);">
+            <h3 class="hand-drawn" style="color: var(--pc-negro);">El papel de Trabajo Social</h3>
+            <p>A nadie se le niega el servicio. Por eso, contamos con un área de Trabajo Social.</p>
+            <p>Si te acercas a la clínica porque ocupas el servicio médico y realmente no puedes pagarlo, no sientas
+                pena ni que la cuota es una barrera. Pide hablar con Trabajo Social. Nuestro equipo evaluará tu caso de
+                manera empática y humana para exentarte de los costos y apoyarte con medicamentos de la Farmacia
+                Solidaria.</p>
+        </div>
+
+        <!-- CUESTIONARIO -->
+        <div class="quiz-box fade-in">
+            <h2 class="hand-drawn" style="color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 10px;">Cuestionario
+                de Valoración Social</h2>
+            <p style="margin-bottom: 25px; font-weight: 600; color: #444;">Responde brevemente a estas preguntas para
+                saber si calificas directamente para el apoyo gratuito en tu próxima consulta:</p>
+
+            <div class="quiz-question">
+                <span>1. ¿Actualmente te encuentras desempleado(a) o tus ingresos son insuficientes para cubrir tus
+                    necesidades básicas (alimentación/vivienda)?</span>
+                <div class="quiz-options">
+                    <input type="radio" name="q1" id="q1_y" value="yes" class="quiz-radio"><label for="q1_y"
+                        class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q1" id="q1_n" value="no" class="quiz-radio"><label for="q1_n"
+                        class="quiz-lbl">No</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <span>2. ¿Eres madre soltera, viuda, o el principal sostén económico absoluto de tu familia?</span>
+                <div class="quiz-options">
+                    <input type="radio" name="q2" id="q2_y" value="yes" class="quiz-radio"><label for="q2_y"
+                        class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q2" id="q2_n" value="no" class="quiz-radio"><label for="q2_n"
+                        class="quiz-lbl">No</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <span>3. ¿Cuentas con algún servicio médico público vigente (IMSS, ISSSTE, ISSSTECALI)?</span>
+                <div class="quiz-options">
+                    <input type="radio" name="q3" id="q3_y" value="yes" class="quiz-radio"><label for="q3_y"
+                        class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q3" id="q3_n" value="no" class="quiz-radio"><label for="q3_n"
+                        class="quiz-lbl">No</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <span>4. ¿Padeces alguna enfermedad crónica severa (cáncer, diabetes complicada, discapacidad) que
+                    dificulte tu economía para buscar atención?</span>
+                <div class="quiz-options">
+                    <input type="radio" name="q4" id="q4_y" value="yes" class="quiz-radio"><label for="q4_y"
+                        class="quiz-lbl">Sí</label>
+                    <input type="radio" name="q4" id="q4_n" value="no" class="quiz-radio"><label for="q4_n"
+                        class="quiz-lbl">No</label>
+                </div>
+            </div>
+
+            <button onclick="evaluarSocial()" class="btn" style="margin-top: 15px;">Evaluar mi caso 📋</button>
+            <div id="quizResult"></div>
+        </div>
+
+        <!-- BOTÓN PARA VER TODOS LOS SERVICIOS -->
+        <div class="fade-in" style="text-align: center; margin-top: 40px; margin-bottom: 20px;">
+            <h3 class="hand-drawn" style="color: var(--pc-negro); margin-bottom: 15px; font-size: 1.8rem;">Descubre todo
+                lo que hacemos por ti</h3>
+            <a href="servicios.html" class="btn"
+                style="background: var(--pc-rosa-fuerte); border-color: var(--pc-negro); color: white; box-shadow: 0 6px 0 var(--pc-negro);">📋
+                Conoce Todos Nuestros Servicios ➔</a>
+        </div>
+
+    </div>
+
+    <script>
+        function evaluarSocial() {
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            const q4 = document.querySelector('input[name="q4"]:checked');
+            const res = document.getElementById('quizResult');
+
+            if (!q1 || !q2 || !q3 || !q4) {
+                alert('Por favor, responde todas las preguntas para darte una respuesta precisa.');
+                return;
+            }
+
+            res.style.display = 'block';
+
+            // Lógica sencilla: Si es vulnerable (no tiene dinero, no tiene seguro, o tiene enfermedad crónica)
+            if (q1.value === 'yes' || q2.value === 'yes' || q3.value === 'no' || q4.value === 'yes') {
+                res.style.background = '#e8f5e9';
+                res.style.borderColor = '#2e7d32';
+                res.style.color = '#1b5e20';
+                res.innerHTML = `
+                    ✅ <strong>¡Podemos apoyarte!</strong><br>
+                    De acuerdo a tus respuestas, calificas para ser evaluado(a) por nuestra área de Trabajo Social para recibir atención médica gratuita o apoyos en nuestra Farmacia Solidaria.<br><br>
+                    No dejes tu salud para después, mándanos un mensaje por WhatsApp mencionando tu situación o ven directamente a la clínica.
+                    <button onclick="window.open('https://wa.me/526611044050?text=Hola,%20hice%20el%20test%20de%20Trabajo%20Social%20en%20su%20página%20y%20necesito%20apoyo%20con%20atención%20médica.%20¿Me%20pueden%20orientar?', '_blank')" class="btn btn-wa" style="margin-top: 15px;">Contactar a Trabajo Social 💬</button>
+                `;
+            } else {
+                res.style.background = '#fff9c4';
+                res.style.borderColor = '#f57f17';
+                res.style.color = '#333';
+                res.innerHTML = `
+                    ℹ️ <strong>Apoyo Comunitario</strong><br>
+                    Al parecer cuentas con recursos básicos o seguro médico. Te invitamos a utilizar nuestra consulta general con la cuota simbólica de $150 m.n., lo cual nos ayuda a sostener el servicio para quienes no tienen nada.<br><br>
+                    <em>Sin embargo, si aún así sientes que el costo es una barrera en este momento específico de tu vida, ¡escríbenos! A nadie le negamos el servicio.</em>
+                    <br><br>
+                    <a href="consulta-general.html" class="btn" style="background: var(--pc-negro); border-color: var(--pc-negro); margin-top: 10px;">Ver detalles de Consulta General</a>
+                `;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+    <script src="js/global.js"></script>
+</body>
+
+</html>

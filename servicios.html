@@ -25,7 +25,8 @@
     <meta property="twitter:title" content="Catálogo de Servicios - Proyecto Celene A.C.">
     <meta property="twitter:description"
         content="Explora nuestros servicios: mastografías, consultas, papanicolaou, salud sexual, laboratorios y más, con cuotas accesibles y un trato humano.">
-    <meta property="twitter:image" content="https://i.ibb.co/cSrRx1Jp/520345259-1172823848212097-7382126732029185704-n.jpg">
+    <meta property="twitter:image"
+        content="https://i.ibb.co/cSrRx1Jp/520345259-1172823848212097-7382126732029185704-n.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&display=swap"
         rel="stylesheet">
@@ -689,6 +690,23 @@
                 -webkit-overflow-scrolling: touch;
                 justify-content: center;
             }
+
+            .copy-box-modern {
+                flex-wrap: wrap;
+            }
+
+            .copy-box-modern .label {
+                width: 100%;
+                border-right: none;
+                border-bottom: 2px solid var(--pc-negro);
+                justify-content: center;
+                padding: 8px;
+            }
+
+            .copy-box-modern input {
+                text-align: center;
+                font-size: 0.95rem;
+            }
         }
 
         /* NAVEGACIÓN PRINCIPAL */
@@ -977,7 +995,9 @@
                 <div class="price-text">Consulta Médica</div>
                 <div class="btn-group">
                     <button class="btn btn-more" onclick="openInfo('menopausia')">Detalles</button>
-                    <a href="guia-menopausia.html" class="btn btn-wa" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Guía y Agendar</a>
+                    <a href="guia-menopausia.html" class="btn btn-wa"
+                        style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver
+                        Guía y Agendar</a>
                 </div>
             </div>
 
@@ -1317,7 +1337,8 @@
         =============================== -->
             <div class="full-width-box category-card" data-cat="psico">
                 <h2 class="hand-drawn" style="text-align: center; color: var(--pc-rosa-fuerte);">Psicología Celene
-                    <span>🧠</span></h2>
+                    <span>🧠</span>
+                </h2>
                 <h3 style="text-align: center; margin-bottom: 20px;">Hablar con un profesional hace toda la diferencia.
                 </h3>
                 <p style="text-align: center; max-width: 800px; margin: 0 auto 20px;">El estrés, la enfermedad y la vida
@@ -2204,21 +2225,21 @@
             let input = removeAccents(document.getElementById('serviceSearch').value.toLowerCase());
             let activeBtn = document.querySelector('.filter-btn.active');
             let cat = activeBtn ? activeBtn.getAttribute('onclick').match(/'([^']+)'/)[1] : 'all';
-            
+
             let cards = document.querySelectorAll('.category-card');
-            
+
             for (let card of cards) {
                 let tags = card.getAttribute('data-cat') || "";
                 let keywords = removeAccents((card.getAttribute('data-keywords') || "").toLowerCase());
-                
+
                 let titleEl = card.querySelector('.service-title') || card.querySelector('h2') || card.querySelector('h3');
                 let title = titleEl ? removeAccents(titleEl.innerText.toLowerCase()) : "";
-                
+
                 let matchesSearch = input === "" || keywords.includes(input) || title.includes(input);
                 let matchesCat = cat === 'all' || tags.includes(cat);
-                
+
                 let isBanner = (card.id === 'labPromoBanner' || card.id === 'sexualEducationalModule' || card.id === 'sexPromoBanner');
-                
+
                 if (isBanner) {
                     if (input === "") {
                         if (card.id === 'labPromoBanner' && cat === 'lab') card.style.display = "block";
@@ -2244,7 +2265,7 @@
                 let btns = document.querySelectorAll('.filter-btn');
                 btns.forEach(btn => btn.classList.remove('active'));
                 let allBtn = Array.from(btns).find(btn => btn.getAttribute('onclick').includes(`'all'`));
-                if(allBtn) allBtn.classList.add('active');
+                if (allBtn) allBtn.classList.add('active');
             }
             applyFilters();
         }
@@ -2342,7 +2363,7 @@
                 let precioOriginal = info.price;
                 let precioOnline = (precioOriginal * 1.0422) + 4.84;
                 let mpLink = info.mpLink || "https://link.mercadopago.com.mx/drdonato";
-                
+
                 bodyHtml += `
                     <div class="payment-methods">
                         <h4 style="margin-bottom: 10px; font-size: 1.1rem; text-align: center; color: var(--pc-rosa-fuerte);">Opciones de Pago</h4>
@@ -2430,7 +2451,7 @@
             if (duda) {
                 msg += `\n\nMi comentario/duda es: "${duda}"`;
             }
-            
+
             let paymentMethodElement = document.querySelector(`input[name="paymentMethod_${currentServiceId}"]:checked`);
             if (paymentMethodElement) {
                 let paymentText = "";
@@ -2439,7 +2460,7 @@
                 if (paymentMethodElement.value === 'mercadopago') paymentText = "Pago en Línea (Mercado Pago)";
                 msg += `\n\n*Método de Pago seleccionado:* ${paymentText}`;
             }
-            
+
             window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
             closeModal();
         }

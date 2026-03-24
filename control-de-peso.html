@@ -199,7 +199,7 @@
         .bmi-gauge-container {
             width: 100%;
             height: 35px;
-            background: linear-gradient(to right, #81d4fa 0%, #81d4fa 18.5%, #a5d6a7 18.5%, #a5d6a7 24.9%, #fff59d 24.9%, #fff59d 29.9%, #ffcc80 29.9%, #ffcc80 34.9%, #ef9a9a 34.9%, #ef9a9a 100%);
+            background: linear-gradient(to right, #81d4fa 0%, #81d4fa 20%, #a5d6a7 20%, #a5d6a7 40%, #fff59d 40%, #fff59d 60%, #ffcc80 60%, #ffcc80 80%, #ef9a9a 80%, #ef9a9a 100%);
             border: 3px solid var(--pc-negro);
             border-radius: 20px;
             position: relative;
@@ -237,6 +237,11 @@
             font-size: 0.75rem;
             font-weight: 800;
             color: #555;
+            text-align: center;
+        }
+        
+        .bmi-labels span {
+            flex: 1;
         }
 
         #bmiResultText {
@@ -486,6 +491,23 @@
         .step-list { list-style: none; font-size: 1rem; font-weight: 600; counter-reset: steps; margin-bottom: 15px; margin-top: 15px; padding-left: 0; }
         .step-list li { margin-bottom: 15px; position: relative; padding-left: 40px; }
         .step-list li::before { counter-increment: steps; content: counter(steps); position: absolute; left: 0; top: -2px; background: var(--pc-negro); color: var(--pc-blanco); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'Handlee', cursive; }
+
+        @media (max-width: 600px) {
+            .copy-box-modern {
+                flex-wrap: wrap;
+            }
+            .copy-box-modern .label {
+                width: 100%;
+                border-right: none;
+                border-bottom: 2px solid var(--pc-negro);
+                justify-content: center;
+                padding: 8px;
+            }
+            .copy-box-modern input {
+                text-align: center;
+                font-size: 0.95rem;
+            }
+        }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
@@ -538,7 +560,8 @@
                     <span>Bajo</span>
                     <span>Normal</span>
                     <span>Sobrepeso</span>
-                    <span>Obesidad I, II, III</span>
+                    <span>Obesidad I</span>
+                    <span>Obesidad II+</span>
                 </div>
 
                 <div id="bmiResultText"></div>
@@ -796,19 +819,14 @@
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 30px;">
-                <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 15px;">¡Da el primer paso hacia una vida
-                    más ligera y saludable!</p>
-                <button onclick="document.getElementById('modalWaPeso').style.display='flex'" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); border-color: var(--pc-negro);">¿Tienes más dudas? Envíanos un mensaje <span
-                        >💬</span></button>
+            <!-- ACCIÓN FINAL GLOBAL -->
+            <div class="fade-in" style="background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-top: 40px; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte); text-align: center;">
+                <h2 class="hand-drawn" style="color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 10px;">¡Toma el control de tu salud hoy! ⚖️</h2>
+                <p style="font-weight: 600; font-size: 1.1rem; color: #444; margin-bottom: 20px;">Da el primer paso hacia una vida más ligera y saludable con nuestro acompañamiento médico.</p>
+                
+                <p style="font-weight: 800; color: #555; font-size: 1.05rem; margin-bottom: 15px;">Puedes acudir directamente sin cita de Lunes a Domingo (9am - 4pm) o asegurar tu espacio:</p>
 
-                <div style="background: var(--pc-amarillo); border: 2px dashed var(--pc-negro); border-radius: 10px; padding: 20px; max-width: 600px; margin: 30px auto 20px auto; text-align: left;">
-                    <p style="font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;"><span aria-hidden='true'>🏥</span> Horarios de Atención:</p>
-                    <p style="font-weight: 600; margin-bottom: 10px;">Lunes a Domingo de <strong>9:00 am a 4:00 pm</strong>.</p>
-                    <p style="font-size: 0.95rem; line-height: 1.4; color: #444;">Puedes acudir directamente sin cita y serás atendido(a) por orden de llegada, o si lo prefieres, conoce los horarios disponibles y aparta tu lugar:</p>
-                </div>
-
-                <div style="margin-top: 20px; display: flex; justify-content: center;">
+                <div style="display: flex; justify-content: center; margin-bottom: 20px;">
                     <!-- Botón Calendario Google -->
                     <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
                     <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
@@ -819,12 +837,16 @@
                                 calendar.schedulingButton.load({
                                     url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
                                     color: '#d81b60',
-                                    label: '🗓️ Consultar horarios disponibles y agendar',
+                                    label: '🗓️ Consultar horarios y Agendar',
                                     target,
                                 });
                             });
                         })();
                     </script>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <button onclick="document.getElementById('modalWaPeso').style.display='flex'" class="btn btn-wa" style="margin: 0; max-width: 350px;">Agendar o Dudas 💬</button>
                 </div>
             </div>
         </div>
@@ -862,14 +884,20 @@
             let pesoIdealMin = (18.5 * (alturaM * alturaM)).toFixed(1);
             let pesoIdealMax = (24.9 * (alturaM * alturaM)).toFixed(1);
 
-            // Lógica del Marker (CSS)
-            // Escala aprox: 15 a 40+. Mapeamos a 0-100%
             let percent = 0;
-            if (imc < 18.5) percent = (imc / 18.5) * 18.5;
-            else if (imc < 25) percent = 18.5 + ((imc - 18.5) / 6.4) * (24.9 - 18.5);
-            else if (imc < 30) percent = 25 + ((imc - 25) / 5) * (29.9 - 25);
-            else if (imc < 40) percent = 30 + ((imc - 30) / 10) * 30; // Spread obesity
-            else percent = 95;
+            if (imc < 18.5) {
+                percent = (imc / 18.5) * 20;
+            } else if (imc < 25) {
+                percent = 20 + ((imc - 18.5) / 6.5) * 20;
+            } else if (imc < 30) {
+                percent = 40 + ((imc - 25) / 5) * 20;
+            } else if (imc < 35) {
+                percent = 60 + ((imc - 30) / 5) * 20;
+            } else {
+                let over = imc - 35;
+                if(over > 15) over = 15;
+                percent = 80 + (over / 15) * 20;
+            }
 
             if (percent > 98) percent = 98;
             if (percent < 2) percent = 2;
@@ -883,9 +911,9 @@
             if (imc < 18.5) { categoria = "Bajo de Peso"; color = "#0288d1"; }
             else if (imc < 25) { categoria = "Peso Normal (Saludable)"; color = "#2e7d32"; }
             else if (imc < 30) { categoria = "Sobrepeso"; color = "#f57f17"; }
-            else if (imc < 35) { categoria = "Obesidad Grado I"; color = "#c62828"; }
-            else if (imc < 40) { categoria = "Obesidad Grado II"; color = "#b71c1c"; }
-            else { categoria = "Obesidad Grado III (Mórbida)"; color = "#880e4f"; }
+            else if (imc < 35) { categoria = "Obesidad Grado I"; color = "#ff9800"; }
+            else if (imc < 40) { categoria = "Obesidad Grado II"; color = "#e53935"; }
+            else { categoria = "Obesidad Grado III (Mórbida)"; color = "#b71c1c"; }
 
             let resBox = document.getElementById('bmiResultText');
             resBox.innerHTML = `Tu IMC es: <span style="color:${color}; font-size:1.5rem;">${imcRounded}</span> (${categoria})<br><br><span style="font-size:1rem; font-weight:600; color:#555;">Tu rango de peso saludable (metabólico) estimado para tu altura está entre <strong>${pesoIdealMin} kg y ${pesoIdealMax} kg.</strong><br><em>*Nota: El IMC es una guía, la valoración final requiere evaluar masa muscular y grasa corporal con el médico.</em></span>`;

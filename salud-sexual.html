@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clínica de Salud Sexual - Proyecto Celene</title>
-    <meta name="description" content="Tu salud íntima es importante. Espacio seguro, confidencial y sin juicios para pruebas ITS y consejería.">
+    <meta name="description"
+        content="Tu salud íntima es importante. Espacio seguro, confidencial y sin juicios para pruebas ITS y consejería.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://proyectocelene.org/salud-sexual.html">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
@@ -313,6 +314,152 @@
             margin-top: 30px;
         }
 
+        /* JUEGOS Y SECCIONES INTERACTIVAS */
+        .game-box {
+            background: var(--pc-blanco);
+            border: 4px dashed var(--pc-rosa-fuerte);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 8px 8px 0 var(--pc-amarillo);
+        }
+        .game-box h4 { font-family: 'Handlee', cursive; font-size: 1.8rem; color: var(--pc-negro); margin-bottom: 15px; }
+        
+        .progress-bar {
+            background: var(--pc-gris-suave);
+            border: 2px solid var(--pc-negro);
+            border-radius: 50px;
+            height: 25px;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--pc-verde-wa);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            color: var(--pc-negro);
+            font-weight: 900;
+            font-size: 0.85rem;
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .method-card {
+            background: white; border: 3px solid var(--pc-negro); border-radius: 15px;
+            padding: 20px; text-align: left; box-shadow: 6px 6px 0 var(--pc-azul-suave);
+        }
+        .method-card h4 { color: var(--pc-rosa-fuerte); font-size: 1.4rem; margin-bottom: 10px; }
+        
+        .sim-btn {
+            background: var(--pc-azul-suave); border: 2px solid var(--pc-negro); padding: 10px 20px;
+            border-radius: 10px; font-weight: 800; cursor: pointer; transition: 0.2s; margin: 5px;
+        }
+        .sim-btn:hover { background: var(--pc-rosa-fuerte); color: white; }
+
+        /* FLIP CARDS MITOS */
+        .flip-card {
+            background-color: transparent; width: 100%; height: 220px; perspective: 1000px; margin-bottom: 20px;
+        }
+        .flip-card-inner {
+            position: relative; width: 100%; height: 100%; text-align: center;
+            transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer;
+        }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back {
+            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden;
+            display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 20px 15px;
+            border: 3px solid var(--pc-negro); border-radius: 15px; font-weight: 800; font-size: 0.95rem;
+            overflow-y: auto;
+        }
+        .flip-card-front { background-color: var(--pc-amarillo); color: var(--pc-negro); box-shadow: 6px 6px 0 var(--pc-rosa-pastell); }
+        .flip-card-back { background-color: var(--pc-verde-wa); color: white; transform: rotateY(180deg); box-shadow: -6px 6px 0 var(--pc-negro); }
+
+        /* IMAGE FLIP CARDS (Tarjetas de imágenes que giran) */
+        .img-flip-card {
+            background-color: transparent; 
+            perspective: 1000px; 
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+        .img-flip-card-inner {
+            position: relative; 
+            width: 100%; 
+            height: 100%; 
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); 
+            transform-style: preserve-3d;
+        }
+        .img-flip-card.flipped .img-flip-card-inner { transform: rotateY(180deg); }
+        .img-flip-front, .img-flip-back {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            width: 100%; height: 100%; 
+            -webkit-backface-visibility: hidden; backface-visibility: hidden;
+            border-radius: 15px; border: 4px solid var(--pc-negro); overflow: hidden;
+        }
+        .img-flip-front { display: block; background: white; }
+        .img-flip-front img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+        .img-flip-back {
+            background-color: var(--pc-amarillo); color: var(--pc-negro); transform: rotateY(180deg); 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            padding: 20px; text-align: center; overflow-y: auto;
+        }
+        .tap-hint {
+            position: absolute; bottom: 10px; right: 10px;
+            background: var(--pc-rosa-fuerte); color: white;
+            padding: 5px 12px; border-radius: 50px; font-size: 0.85rem; font-weight: 900;
+            border: 2px solid var(--pc-negro); box-shadow: 2px 2px 0 var(--pc-negro);
+            z-index: 10; animation: bounce-hint 2s infinite;
+        }
+        @keyframes bounce-hint {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-3px); }
+        }
+
+        .its-encyclopedia {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;
+        }
+
+        /* ESTILOS DEL NUEVO QUIZ DE MÉTODOS */
+        .quiz-options-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .quiz-pill-label {
+            display: flex;
+            flex: 1;
+            min-width: 150px;
+            cursor: pointer;
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 12px 15px;
+            font-weight: 800;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            box-shadow: 4px 4px 0 var(--pc-azul-suave);
+            color: var(--pc-negro);
+        }
+        .quiz-pill-label input { display: none; }
+        .quiz-pill-label:has(input:checked) {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            box-shadow: 0 0 0 transparent;
+            transform: translateY(4px);
+        }
+
         /* TABS INTERACTIVOS */
         .tabs-wrapper {
             display: flex;
@@ -386,15 +533,24 @@
         </header>
 
         <div class="tabs-wrapper">
-            <button class="tab-btn active" onclick="openTab(event, 'tab-prevencion')">🛡️ Prevención e ITS</button>
             <button class="tab-btn" onclick="openTab(event, 'tab-inicio')">🏠 Inicio y Clínica</button>
+            <button class="tab-btn active" onclick="openTab(event, 'tab-prevencion')">🛡️ Prevención e ITS</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-planificacion')">💊 Planificación Familiar</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-prenatal')">🤰 Control Prenatal</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-ile')">⚖️ Interrupción Segura (ILE)</button>
             <button class="tab-btn" onclick="openTab(event, 'tab-esi')">📄 ESI y Derechos</button>
             <button class="tab-btn" onclick="openTab(event, 'tab-anatomia')">🧠 Tu Cuerpo</button>
             <button class="tab-btn" onclick="openTab(event, 'tab-digital')">🌐 Era Digital</button>
         </div>
 
         <div id="tab-prevencion" class="tab-content" style="display: block;">
-            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">Gestión de Riesgos y Salud Práctica</h2>
+            <div style="background: var(--pc-rosa-fuerte); color: white; padding: 20px; border-radius: 15px; text-align: center; border: 4px solid var(--pc-negro); margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-negro); animation: pulse 2s infinite;">
+                <h2 class="hand-drawn" style="font-size: clamp(1.6rem, 5vw, 2.2rem); margin-bottom: 5px; line-height: 1.2;">🆓 ¡La Prueba de VIH es Totalmente Gratis!</h2>
+                <p style="font-size: 1.05rem; font-weight: 800; line-height: 1.4;">Conoce tu estado de salud en minutos de forma 100% confidencial y sin costo alguno en Proyecto Celene.</p>
+            </div>
+
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.2rem;">Gestión de Riesgos y Salud
+                Práctica</h2>
 
             <div
                 style="background: var(--pc-gris-suave); padding: 25px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-top: 20px; margin-bottom: 30px;">
@@ -431,44 +587,224 @@
             </div>
 
             <div
-                style="background: var(--pc-azul-suave); padding: 20px; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 30px;">
-                <h3 style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;">El "Accidente en la Cocina" (Hablemos de
-                    ITS)</h3>
-                <p>Si te cortas cocinando, no te escondes por vergüenza; simplemente vas al médico y curas la herida.
-                    Una Infección de Transmisión Sexual (ITS) es exactamente lo mismo: <strong>un riesgo inherente a una
-                        actividad.</strong></p>
-                <p><strong>No te juzgamos:</strong> Si tuviste una práctica de riesgo, acude. Tenemos pruebas rápidas de
-                    VIH, Sífilis y tratamiento para Gonorrea y VPH.</p>
-                <p><strong>Pruebas de Rutina:</strong> La fidelidad percibida no siempre es igual a bajo riesgo. Hazte
-                    tu panel de ITS anualmente como parte de tu amor propio.</p>
+                style="background: var(--pc-amarillo); padding: 30px; border-radius: 20px; border: 4px dashed var(--pc-negro); margin-bottom: 30px;">
+                <h3 class="hand-drawn" style="color:var(--pc-negro); font-size: 2rem; margin-bottom: 15px;">El
+                    "Accidente en la Cocina" 🔪</h3>
+                <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 15px;">Imaginen una escena cotidiana:
+                    están cocinando con su pareja o un amigo y, por descuido, se hacen una cortada fea con un cuchillo.
+                    ¿Cuál es la reacción lógica?</p>
+                <p style="margin-bottom: 15px;">¿Sentir una profunda vergüenza? ¿Esconder la herida? ¿Echarle la culpa
+                    al otro? ¡NO! Lo normal es decir: <em>"Tranquilo, a cualquiera le pasa. Vamos a limpiar la herida y
+                        ver si necesita atención médica."</em></p>
+                <p style="font-weight: 800; color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 15px;">
+                    Llevemos esa misma lógica a nuestra salud sexual.</p>
+                <p style="margin-bottom: 15px;">¿Por qué hemos aprendido a tratar una cortada en la mano con
+                    solidaridad, pero una <strong>Infección de Transmisión Sexual (ITS)</strong> con vergüenza y
+                    estigma? Nadie estigmatiza un accidente casero, es igual de irracional estigmatizar un problema de
+                    salud sexual.</p>
+                <p style="font-weight: 600;">Adquirir una ITS no es un castigo por irresponsabilidad, sino <strong>un
+                        riesgo inherente a una actividad</strong>. La reacción debe ser gestionar con madurez, acudir a
+                    consulta sin miedo y tomar profilaxis o tratamientos adecuados. ¡En nuestro consultorio jamás te
+                    diremos "te lo dije"!</p>
             </div>
 
-            <h3 style="color:var(--pc-negro);">Higiene Sexual Práctica</h3>
-            <ul style="margin-left: 20px; line-height: 1.6; margin-bottom: 25px;">
-                <li><strong>Antes:</strong> Aseo con agua y jabón neutro (solo zona externa). ¡Y manos limpias!</li>
-                <li><strong>Durante:</strong> Uso de condón y MUCHO lubricante (especialmente en sexo anal, para evitar
-                    desgarres e infecciones).</li>
-                <li><strong>Después:</strong> ¡ORINAR! Es la mejor forma de limpiar la uretra y prevenir infecciones
-                    urinarias.</li>
+            <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 15px;">
+                Explorando Prácticas Sexuales de Forma Segura</h3>
+            <p style="margin-bottom: 20px; font-weight: 600;">No podemos hablar de prevención si ignoramos las prácticas
+                que la mayoría realiza. Hablemos claro:</p>
+
+            <div class="esi-grid">
+                <div class="esi-card">
+                    <h4 style="font-size: 1.4rem;">👅 Sexo Oral</h4>
+                    <p style="margin-bottom: 10px;"><strong>La Práctica:</strong> Es un acto sexual completo y
+                        placentero, no solo un "preliminar".</p>
+                    <p style="margin-bottom: 10px;"><strong>El Riesgo:</strong> No es sexo sin riesgo. Transmite
+                        Gonorrea, Herpes, Sífilis y VPH.</p>
+                    <p style="color: var(--pc-rosa-fuerte);"><strong>Prevención:</strong> Usar condones para felación y
+                        barreras de látex (o condón cortado) para cunnilingus/anilingus.</p>
+                </div>
+                <div class="esi-card">
+                    <h4 style="font-size: 1.4rem;">🍑 Sexo Anal</h4>
+                    <p style="margin-bottom: 10px;"><strong>La Práctica:</strong> Disfrutada por todos los géneros.
+                        Requiere alta comunicación y cuidado.</p>
+                    <p style="margin-bottom: 10px;"><strong>El Riesgo:</strong> El ano no se autolubrica y su tejido es
+                        frágil. Mayor riesgo de desgarres y transmisión de ITS (VIH/VPH).</p>
+                    <p style="color: var(--pc-rosa-fuerte);"><strong>Prevención (4 Pilares):</strong> Consentimiento
+                        explícito + MUCHO Lubricante (agua/silicona) + Condón SIEMPRE + Comunicación constante.</p>
+                </div>
+            </div>
+
+            <h3 class="hand-drawn" style="color:var(--pc-negro); margin-top: 30px; font-size: 1.8rem;">Higiene Sexual
+                Práctica 🚿</h3>
+            <ul style="margin-left: 20px; line-height: 1.6; margin-bottom: 25px; font-weight: 600; color: #444;">
+                <li style="margin-bottom: 10px;"><strong>Antes:</strong> Aseo personal con agua y jabón neutro (solo
+                    zona externa). ¡Manos limpias! 🚫 <strong>Evitar:</strong> Duchas vaginales (alteran el pH y causan
+                    infecciones).</li>
+                <li style="margin-bottom: 10px;"><strong>Durante:</strong> Uso de condón y lubricante para evitar
+                    microlesiones por fricción. <em>(Nota: Si usan juguetes, siempre con condón y lavarlos
+                        antes/después).</em></li>
+                <li style="margin-bottom: 10px;"><strong>Después:</strong> ¡ORINAR! Es la mejor forma de limpiar la
+                    uretra y prevenir infecciones de vías urinarias. Aseo suave con agua y usar ropa interior de
+                    algodón. <em>(Sobre el sexo anal: el recto se limpia solo, si desean aseo, que sea superficial con
+                        agua tibia, sin excederse).</em></li>
             </ul>
+
+            <h3 class="hand-drawn" style="color:var(--pc-negro); margin-top: 40px; font-size: 2.2rem; border-top: 3px dashed var(--pc-negro); padding-top: 20px;">Enciclopedia Interactiva de ITS 🦠</h3>
+            <p style="font-weight: 600; margin-bottom: 20px;">Conoce a los enemigos silenciosos. Muchas infecciones no presentan síntomas al principio. ¡Detectarlas es curarlas o controlarlas!</p>
+
+            <div class="its-encyclopedia">
+                <div class="method-card">
+                    <h4>🔴 Sífilis</h4>
+                    <p><strong>¿Qué es?</strong> Infección bacteriana. Inicia con una úlcera indolora (chancro) y puede causar erupciones en todo el cuerpo.</p>
+                    <p><strong>Detección en Celene:</strong> Prueba rápida de sangre (VDRL).</p>
+                    <p style="color: var(--pc-rosa-fuerte); font-weight: 800;">Tratamiento: 100% Curable con antibiótico.</p>
+                </div>
+                <div class="method-card">
+                    <h4>🟢 Gonorrea y Clamidia</h4>
+                    <p><strong>¿Qué es?</strong> Bacterias extremadamente silenciosas. Causan ardor al orinar o secreción anormal, pero hasta 70% de mujeres no sienten nada.</p>
+                    <p><strong>Detección en Celene:</strong> Cuestionario clínico y estudios específicos.</p>
+                    <p style="color: var(--pc-rosa-fuerte); font-weight: 800;">Peligro: Causa principal de infertilidad si no se trata.</p>
+                </div>
+                <div class="method-card">
+                    <h4>🟣 Virus del Papiloma Humano (VPH)</h4>
+                    <p><strong>¿Qué es?</strong> La ITS más común del mundo. Puede causar verrugas genitales o alteraciones celulares que llevan a cáncer cervicouterino.</p>
+                    <p><strong>Detección en Celene:</strong> Papanicolaou regular ($150 m.n.).</p>
+                    <p style="color: var(--pc-rosa-fuerte); font-weight: 800;">Prevención: Uso de condón y Vacuna.</p>
+                </div>
+                <div class="method-card" style="border-color: var(--pc-rosa-fuerte);">
+                    <h4>🎀 Costos de Detección en Celene</h4>
+                    <p>Nuestros paquetes son muchísimo más económicos que en laboratorios privados:</p>
+                    <ul style="margin-left: 20px; font-weight: 700; margin-top: 10px;">
+                        <li>VIH: <strong style="color: #2e7d32;">¡GRATIS!</strong></li>
+                        <li>Paquete Básico Seguro: $400 m.n.</li>
+                        <li>Paquete Completo (Toda ITS): $600 m.n.</li>
+                        <li>Paquete Parejas: $1,000 m.n. (por ambos).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- JUEGO INTERACTIVO ITS -->
+            <div class="game-box">
+                <h4>🎮 Juego: ¿Riesgo o Seguro?</h4>
+                <p style="margin-bottom: 15px;">Selecciona la práctica para descubrir su nivel de riesgo de ITS.</p>
+                <div id="riskGameContainer">
+                    <button class="sim-btn" onclick="showRiskResult('Beso profundo', '🟢 Riesgo Bajo', 'El VIH no se transmite por saliva, pero herpes o sífilis (si hay llagas bucales) sí podrían.')">Beso profundo</button>
+                    <button class="sim-btn" onclick="showRiskResult('Sexo oral sin condón', '🟡 Riesgo Moderado', 'La gonorrea y clamidia pueden infectar la garganta. Usa barreras de látex.')">Sexo oral sin condón</button>
+                    <button class="sim-btn" onclick="showRiskResult('Sexo anal sin condón', '🔴 Riesgo Alto', 'Es la práctica con mayor riesgo de transmisión de VIH debido a microlesiones en la mucosa anal.')">Sexo anal sin condón</button>
+                    <button class="sim-btn" onclick="showRiskResult('Compartir juguetes sexuales', '🟠 Riesgo Medio-Alto', 'Si no se lavan o no se cubren con un condón nuevo cada vez, transmiten fluidos y bacterias.')">Compartir juguetes sexuales</button>
+                </div>
+                <div id="riskResult" style="display: none; margin-top: 20px; padding: 15px; border-radius: 10px; background: var(--pc-gris-suave); border: 2px solid var(--pc-negro); font-weight: 800;"></div>
+                <script>
+                    function showRiskResult(action, level, desc) {
+                        const res = document.getElementById('riskResult');
+                        res.style.display = 'block';
+                        res.innerHTML = `<span style="font-size: 1.2rem;">${level}</span><br><strong style="color: var(--pc-rosa-fuerte);">${action}:</strong> ${desc}`;
+                    }
+                </script>
+            </div>
         </div>
 
-        <div id="tab-inicio" class="tab-content">
-            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom: 15px;">El Contrato sin Leer</h2>
-            <p style="font-size: 1.05rem; font-weight: 600; color: #444; margin-bottom: 15px;">¿Alguna vez te han dado
-                un contrato de 20 páginas y lo has firmado sin leerlo? Probablemente no, porque es riesgoso. Sin
-                embargo, muchos entramos en nuestra vida íntima sin haber "leído el manual" de nuestro propio cuerpo.
-            </p>
-            <p style="font-size: 1.05rem; font-weight: 600; color: #444; margin-bottom: 25px;">Soy el Dr. Carlos Donato.
-                Mi trabajo no es sermonearte ni ser una autoridad moral. Mi objetivo es ser un recurso para ti. Trabajo
-                desde la prevención para que tomes decisiones informadas sobre tu salud y tu vida, desde la infancia
-                hasta la plenitud de la edad adulta.</p>
+        <div id="tab-inicio" class="tab-content" style="display: none;">
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 15px;">
+                ¡Bienvenid@! Hablemos sin tapujos</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch; margin-bottom: 30px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <p style="font-size: 1.15rem; font-weight: 800; color: var(--pc-negro); margin-bottom: 15px;">Soy el Dr. Carlos Donato, tengo 25 años y coordino los esfuerzos médicos en Proyecto Celene. Todo mi trabajo se enfoca en la prevención, desde niños hasta abuelitos.</p>
+                    <p style="font-size: 1.05rem; font-weight: 600; color: #444; margin-bottom: 25px;">Mi objetivo no es darte un sermón moral ni decirte qué hacer con tu vida. Mi objetivo es que me veas como <strong>un recurso</strong> para compartirte información clara, honesta y científica para que tengas el poder de tomar tus propias decisiones.</p>
+                </div>
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <div class="img-flip-card" onclick="this.classList.toggle('flipped')" style="width: 100%; aspect-ratio: 4/3; box-shadow: 6px 6px 0 var(--pc-azul-suave);">
+                        <div class="img-flip-card-inner">
+                            <div class="img-flip-front">
+                                <img src="https://i.ibb.co/yF7RFQGQ/dr-donato-impartiendo-platica-esi.jpg" alt="Dr. Donato impartiendo plática">
+                                <div class="tap-hint" style="background: var(--pc-rosa-fuerte);">👆 Toca para girar</div>
+                            </div>
+                            <div class="img-flip-back" style="background: white;">
+                                <div style="width: 100%; margin-top: 10px;">
+                                    <h4 class="hand-drawn" style="font-size: 1.5rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px;">Sin Miedos, Solo Ciencia</h4>
+                                    <p style="font-weight: 600; font-size: 1.05rem;">Impartiendo talleres en escuelas y centros de trabajo. Nuestra meta es que nos veas como un recurso seguro para aclarar tus dudas sin recibir sermones.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <h3 style="color: var(--pc-negro); margin-bottom: 15px;">¿Por qué estamos aquí?</h3>
-            <p style="margin-bottom: 25px;">A mi consulta llegan jóvenes asustados por mitos de internet, adultos que
-                desconocen su anatomía y personas mayores que creen que su deseo tiene fecha de caducidad. La falta de
-                educación sexual nos afecta a todos. Aquí, la sexualidad se vive de forma científica, comprensiva y
-                profesional.</p>
+            <!-- Certificado a todo el ancho de la pantalla disponible -->
+            <div class="img-flip-card" onclick="this.classList.toggle('flipped')" style="width: 100%; aspect-ratio: 1.4; max-height: 500px; box-shadow: 8px 8px 0 var(--pc-rosa-fuerte); margin-bottom: 40px;">
+                <div class="img-flip-card-inner">
+                    <div class="img-flip-front" style="background: var(--pc-gris-suave);">
+                        <img src="https://i.ibb.co/Kx4mdVB3/certificado-donato-educador-sexual.jpg" alt="Certificado Educador Sexual" style="object-fit: contain; padding: 15px;">
+                        <div class="tap-hint" style="background: var(--pc-negro);">👆 Toca para girar</div>
+                    </div>
+                    <div class="img-flip-back" style="background: var(--pc-amarillo);">
+                        <div style="width: 100%; margin-top: 10px;">
+                            <h4 class="hand-drawn" style="font-size: 1.3rem; color: var(--pc-rosa-fuerte); margin-bottom: 5px; line-height: 1.2;">Universidad Autónoma de Baja California</h4>
+                            <p style="font-weight: 800; font-size: 0.95rem; margin-bottom: 5px; text-transform: uppercase;">Centro de Estudios Rosarito</p>
+                            <p style="font-weight: 600; font-size: 0.85rem; margin-bottom: 10px;">Otorga el presente RECONOCIMIENTO Y AGRADECIMIENTO a:</p>
+                            <h5 style="font-size: 1.1rem; font-weight: 900; color: var(--pc-negro); margin-bottom: 10px; background: white; border: 2px solid var(--pc-negro); padding: 5px 15px; border-radius: 10px; display: inline-block;">Dr. Carlos Donato Dueñas Prieto</h5>
+                            <p style="font-weight: 600; font-size: 0.85rem; margin-bottom: 10px;">Por brindar a los estudiantes del turno matutino la plática:<br><strong style="color: var(--pc-rosa-fuerte); font-size: 1rem;">"SEXUALIDAD Y JUVENTUDES"</strong></p>
+                            <p style="font-size: 0.8rem; color: #555; margin-bottom: 10px;">Playas de Rosarito, B.C. a 8 de octubre del 2025.<br><em>"Por la realización plena del Ser"</em></p>
+                            <p style="font-size: 0.8rem; font-weight: 800; border-top: 2px dashed #ccc; padding-top: 10px; width: 100%; max-width: 250px; margin: 0 auto;">Mtra. Mariana Domínguez Graniel<br><span style="font-weight: 600;">Jefa Académica</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="background: var(--pc-rosa-pastell); border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 40px; box-shadow: 8px 8px 0 var(--pc-azul-suave);">
+                <h3 class="hand-drawn" style="font-size: 2rem; color: var(--pc-negro); margin-bottom: 15px;">El Contrato
+                    Sin Leer 📜</h3>
+                <p style="font-weight: 600; margin-bottom: 15px;">Imagina que te ofrecen el trabajo de tus sueños y te
+                    ponen un contrato de 20 páginas enfrente. <strong>¿Lo firmarías sin leerlo?</strong> Probablemente
+                    no, porque sabemos que firmar algo sin entenderlo es riesgoso.</p>
+                <p style="font-weight: 600; margin-bottom: 15px;">Ahora, pensemos en nuestra vida íntima. Cada encuentro
+                    sexual es, en esencia, un "contrato". La pregunta es: <em>¿Por qué a menudo entramos en contratos
+                        sexuales sin haber "leído" el manual de nuestro propio cuerpo?</em></p>
+                <p style="font-weight: 800; color: var(--pc-rosa-fuerte); font-size: 1.2rem; text-align: center;">¿Qué
+                    valor tiene un "sí", si no entendemos completamente a qué estamos diciendo que sí?</p>
+            </div>
+
+            <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 20px;">Casos Reales
+                en el Consultorio</h3>
+            <p style="font-weight: 600; margin-bottom: 20px;">La carencia de educación sexual nos afecta a todas las
+                edades. Todos estos son casos reales a los que pudimos ayudar <strong>sin juzgarlos</strong>:</p>
+            <ul style="margin-left: 20px; font-weight: 600; color: #444; line-height: 1.8; margin-bottom: 30px;">
+                <li><strong>El susto del embarazo:</strong> Joven de 17 años con dolor abdominal intenso que juraba que
+                    era imposible estar embarazada porque "solo fue tantito y no acabó adentro". Terminó siendo un
+                    embarazo ectópico de urgencia.</li>
+                <li><strong>Sangrado repentino:</strong> Joven de 19 años asustado porque su pene comenzó a sangrar tras
+                    masturbarse. Pensaba que iba a morir. Realidad: Solo se desgarró por tener el frenillo corto (algo
+                    súper común y curable).</li>
+                <li><strong>Mitos de la edad:</strong> Un taxista de 78 años preocupado porque aún tenía erecciones y
+                    pensaba que "a su edad ya no era normal". (Spoiler: ¡La sexualidad no tiene fecha de caducidad!).
+                </li>
+                <li><strong>Infecciones misteriosas:</strong> Joven con una infección de garganta de semanas que nadie
+                    curaba... hasta que le preguntamos sobre sus prácticas de sexo oral sin protección y descubrimos que
+                    era gonorrea.</li>
+                <li><strong>La prueba de ITS:</strong> Pacientes que piden "estudios de todo" pero se niegan a hacerse
+                    el panel de ITS porque "solo tienen una pareja". <em>(La fidelidad percibida no siempre equivale a
+                        bajo riesgo).</em></li>
+            </ul>
+
+            <!-- JUEGO INTERACTIVO MITOS INICIO -->
+            <div class="game-box">
+                <h4>🃏 Juego: Toca las tarjetas para descubrir el Mito vs Realidad</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: "No me puedo embarazar si es mi primera vez."</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Realidad: ¡Falso! Si hay ovulación y espermatozoides, el embarazo es posible desde la primera relación.</div></div>
+                        </div>
+                    </div>
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: "El coito interrumpido (sacarlo antes) es súper seguro."</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Realidad: El líquido preseminal también contiene espermatozoides. Tiene una alta tasa de falla (hasta 22%).</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 30px;">
@@ -509,133 +845,558 @@
                 </div>
             </div>
 
-            <h3 class="hand-drawn" style="border-top: 3px dashed var(--pc-negro); padding-top: 20px; margin-top: 20px;">
-                Nuestros Servicios y Clínica</h3>
-            <p style="margin-bottom: 15px;">Trabajamos en Proyecto Celene desde una perspectiva de género para promover
-                el bienestar en Baja California.</p>
+            <h3 class="hand-drawn"
+                style="border-top: 3px dashed var(--pc-negro); padding-top: 30px; margin-top: 20px; font-size: 2rem;">
+                Misión de Proyecto Celene en Salud Sexual</h3>
+            <p style="margin-bottom: 15px; font-weight: 600; font-size: 1.1rem;">Promovemos la salud integral y el
+                bienestar de las personas, por medio del ejercicio libre e informado de sus derechos sexuales y
+                reproductivos. En nuestro espacio seguro puedes acceder a:</p>
             <ul style="margin-left: 20px; font-weight: 600; color: #444; line-height: 1.8;">
-                <li><strong>Consultas Privadas:</strong> Orientación médica, salud reproductiva y planificación.</li>
-                <li><strong>Métodos Anticonceptivos:</strong> Entrega de preservativos (femeninos/masculinos) gratis y
-                    anticoncepción de emergencia.</li>
-                <li><strong>Pruebas Rápidas:</strong> Detección gratuita y confidencial de VIH y paquetes ITS.</li>
-                <li><strong>Salud Menopáusica:</strong> Acompañamiento en cambios hormonales y físicos.</li>
+                <li><strong>Pruebas de Detección ITS:</strong> Un chequeo rutinario, como ir al dentista. Es un acto de
+                    responsabilidad y amor propio.</li>
+                <li><strong>Consultas Médicas Privadas:</strong> Para resolver dudas sobre anatomía, síntomas o
+                    cualquier inquietud.</li>
+                <li><strong>Métodos Anticonceptivos:</strong> Anticoncepción de emergencia y entrega de condones
+                    gratuitos.</li>
+                <li><strong>Asesoría y Acompañamiento:</strong> Con nosotros no hay estigma. Nosotros te ayudamos, no
+                    estás sol@.</li>
             </ul>
+        </div>
+
+        <!-- NUEVA TAB: PLANIFICACION FAMILIAR -->
+        <div id="tab-planificacion" class="tab-content">
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 15px;">En Proyecto Celene cuidarte es GRATIS 🎁</h2>
+            
+            <div style="background: var(--pc-amarillo); border: 4px dashed var(--pc-negro); padding: 25px; border-radius: 20px; margin-bottom: 30px;">
+                <p style="font-weight: 800; font-size: 1.15rem; color: var(--pc-negro); text-align: center;">Creemos firmemente que el acceso a métodos anticonceptivos es un derecho humano.</p>
+                <p style="font-weight: 600; margin-top: 15px;">Todos nuestros métodos (condones, pastillas, inyecciones, implantes y DIU) son donados y <strong>te los entregamos sin costo</strong>. Únicamente solicitamos una cuota de recuperación simbólica ($150 - $450 m.n. dependiendo el método) para cubrir el material de curación estéril, anestesia y la consulta de inserción médica.</p>
+                <p style="font-weight: 900; color: var(--pc-rosa-fuerte); font-size: 1.2rem; text-align: center; margin-top: 15px; border-top: 2px solid var(--pc-negro); padding-top: 15px;">"En ningún momento las cuotas de recuperación son justificación para no tener acceso a tu planificación. ¡Si no tienes el recurso, acércate y Trabajo Social te apoyará!"</p>
+            </div>
+
+            <!-- CATALOGO VISUAL DE MÉTODOS COMPLETO -->
+            <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 10px; border-bottom: 3px dashed var(--pc-negro); padding-bottom: 10px;">Catálogo de Métodos Disponibles</h3>
+            
+            <!-- Larga Duración -->
+            <h4 style="font-size: 1.4rem; font-weight: 900; color: var(--pc-rosa-fuerte); margin: 20px 0 15px;">⏳ Larga Duración (LARC - Te olvidas de ellos)</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                
+                <div class="method-card" style="background: #c8e6c9; border-color: #1b5e20; box-shadow: 6px 6px 0 #1b5e20;">
+                    <h4 style="color: #1b5e20;">🩹 Implante Subdérmico (ISD)</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;">Varilla pequeña en el brazo que libera hormonas. Dura 3 a 5 años.</p>
+                    <div class="progress-bar"><div class="progress-fill fill-anim" data-width="99.9%" style="background: #4caf50;">Efectividad: 99.9%</div></div>
+                    <p style="font-size: 0.9rem;"><strong>✅ Ventajas:</strong> Cero margen de error por olvido. Disminuye cólicos.</p>
+                    <p style="font-size: 0.9rem;"><strong>⚠️ Desventajas:</strong> Puede generar sangrado irregular al inicio.</p>
+                </div>
+
+                <div class="method-card" style="background: #c8e6c9; border-color: #1b5e20; box-shadow: 6px 6px 0 #1b5e20;">
+                    <h4 style="color: #1b5e20;">🩱 DIU de Cobre (T)</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;">Dispositivo sin hormonas colocado en la matriz. Dura hasta 10 años.</p>
+                    <div class="progress-bar"><div class="progress-fill fill-anim" data-width="99%" style="background: #4caf50;">Efectividad: 99%</div></div>
+                    <p style="font-size: 0.9rem;"><strong>✅ Ventajas:</strong> No altera tus hormonas naturales.</p>
+                    <p style="font-size: 0.9rem;"><strong>⚠️ Desventajas:</strong> Puede hacer tu regla más abundante o dolorosa.</p>
+                </div>
+
+                <div class="method-card" style="background: #c8e6c9; border-color: #1b5e20; box-shadow: 6px 6px 0 #1b5e20;">
+                    <h4 style="color: #1b5e20;">💠 DIU Hormonal (Mirena/Kyleena)</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;">Dispositivo que libera dosis bajas de hormona directo en el útero.</p>
+                    <div class="progress-bar"><div class="progress-fill fill-anim" data-width="99.8%" style="background: #4caf50;">Efectividad: 99.8%</div></div>
+                    <p style="font-size: 0.9rem;"><strong>✅ Ventajas:</strong> Reduce muchísimo el sangrado y cólicos.</p>
+                    <p style="font-size: 0.9rem;"><strong>⚠️ Desventajas:</strong> Costo de adquisición inicial suele ser mayor.</p>
+                </div>
+            </div>
+
+            <!-- Corta Duración -->
+            <h4 style="font-size: 1.4rem; font-weight: 900; color: var(--pc-rosa-fuerte); margin: 20px 0 15px;">📅 Corto Plazo (Requieren disciplina)</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                
+                <div class="method-card" style="background: #e8f5e9; border-color: #2e7d32; box-shadow: 6px 6px 0 #2e7d32;">
+                    <h4 style="color: #2e7d32;">💊 Pastillas Anticonceptivas</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;">Se debe tomar una píldora todos los días a la misma hora.</p>
+                    <div class="progress-bar"><div class="progress-fill fill-anim" data-width="91%" style="background: #81c784;">Efectividad Típica: 91-94%</div></div>
+                    <p style="font-size: 0.9rem;"><strong>✅ Ventajas:</strong> Ayudan a regular acné y ovarios poliquísticos.</p>
+                    <p style="font-size: 0.9rem;"><strong>⚠️ Desventajas:</strong> Si se te olvida tomarla, baja la efectividad radicalmente.</p>
+                </div>
+
+                <div class="method-card" style="background: #e8f5e9; border-color: #2e7d32; box-shadow: 6px 6px 0 #2e7d32;">
+                    <h4 style="color: #2e7d32;">💉 Inyección (1 a 3 meses)</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;">Inyección intramuscular que te pones mensual o trimestralmente.</p>
+                    <div class="progress-bar"><div class="progress-fill fill-anim" data-width="94%" style="background: #81c784;">Efectividad Típica: 94%</div></div>
+                    <p style="font-size: 0.9rem;"><strong>✅ Ventajas:</strong> Te olvidas de la pastilla diaria.</p>
+                    <p style="font-size: 0.9rem;"><strong>⚠️ Desventajas:</strong> Retraso en el retorno a la fertilidad al suspenderla.</p>
+                </div>
+
+                <div class="method-card" style="background: #e8f5e9; border-color: #2e7d32; box-shadow: 6px 6px 0 #2e7d32;">
+                    <h4 style="color: #2e7d32;">🩹 Parche y Anillo Vaginal</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;">Se cambian semanalmente o mensualmente absorbiendo hormonas.</p>
+                    <div class="progress-bar"><div class="progress-fill fill-anim" data-width="91%" style="background: #81c784;">Efectividad Típica: 91%</div></div>
+                    <p style="font-size: 0.9rem;"><strong>✅ Ventajas:</strong> Fáciles de usar tú misma en casa.</p>
+                    <p style="font-size: 0.9rem;"><strong>⚠️ Desventajas:</strong> El parche puede despegarse con el sudor excesivo.</p>
+                </div>
+            </div>
+
+            <!-- Barrera y Emergencia -->
+            <h4 style="font-size: 1.4rem; font-weight: 900; color: var(--pc-rosa-fuerte); margin: 20px 0 15px;">🛡️ Métodos de Barrera y Emergencia</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                
+                <div class="method-card" style="background: #fff9c4; border-color: #f57f17; box-shadow: 6px 6px 0 #f57f17;">
+                    <h4 style="color: #f57f17;">🍌 Condón (M/F)</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;">Funda de látex/poliuretano. <strong>EL ÚNICO QUE PREVIENE ITS.</strong></p>
+                    <div class="progress-bar"><div class="progress-fill fill-anim" data-width="85%" style="background: #ffb300;">Efectividad Típica: 85%</div></div>
+                    <p style="font-size: 0.9rem;"><strong>✅ Ventajas:</strong> Evita enfermedades e infecciones. ¡Son gratis en la clínica!</p>
+                    <p style="font-size: 0.9rem;"><strong>⚠️ Desventajas:</strong> Requiere uso correcto y puede romperse.</p>
+                </div>
+                
+                <div class="method-card" style="background: #ffebee; border-color: #d32f2f; box-shadow: 6px 6px 0 #d32f2f;">
+                    <h4 style="color: #d32f2f;">🚨 Pastilla del Día Siguiente</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;">Emergencia. Tomar antes de 72h del acto de riesgo.</p>
+                    <div class="progress-bar"><div class="progress-fill fill-anim" data-width="75%" style="background: #ef5350; color: white;">Baja con horas</div></div>
+                    <p style="font-size: 0.9rem;"><strong>✅ Ventajas:</strong> Evita embarazo tras un accidente (ej. condón roto).</p>
+                    <p style="font-size: 0.9rem;"><strong>⚠️ Desventajas:</strong> Dosis alta hormonal. NO debe usarse como método regular.</p>
+                </div>
+            </div>
+
+            <!-- Definitivos -->
+            <h4 style="font-size: 1.4rem; font-weight: 900; color: var(--pc-rosa-fuerte); margin: 20px 0 15px;">✂️ Métodos Definitivos (Permanentes)</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                <div class="method-card" style="background: #c8e6c9; border-color: #1b5e20; box-shadow: 6px 6px 0 #1b5e20;">
+                    <h4 style="color: #1b5e20;">👩 Salpingoclasia (OTB)</h4>
+                    <p style="font-size: 0.9rem;">Cirugía para ligar o cortar las trompas de Falopio en mujeres que ya no desean tener hijos bajo ninguna circunstancia. Efectividad superior al 99%.</p>
+                    <div class="progress-bar" style="margin-top: 10px;"><div class="progress-fill fill-anim" data-width="99.9%" style="background: #4caf50;">Efectividad: >99%</div></div>
+                </div>
+                <div class="method-card" style="background: #c8e6c9; border-color: #1b5e20; box-shadow: 6px 6px 0 #1b5e20;">
+                    <h4 style="color: #1b5e20;">👨 Vasectomía</h4>
+                    <p style="font-size: 0.9rem;">Cirugía menor, rápida y ambulatoria para hombres. Corta los conductos deferentes. No afecta la virilidad ni el desempeño sexual. Efectividad superior al 99%.</p>
+                    <div class="progress-bar" style="margin-top: 10px;"><div class="progress-fill fill-anim" data-width="99.9%" style="background: #4caf50;">Efectividad: >99%</div></div>
+                </div>
+            </div>
+
+            <!-- QUIZ: MÉTODO IDEAL (REDESIGN) -->
+            <div class="game-box" style="background: var(--pc-azul-suave); border-color: var(--pc-negro);">
+                <h4>🎯 Cuestionario: ¿Cuál es mi Método Ideal?</h4>
+                <p style="margin-bottom: 25px; font-weight: 600; font-size: 1.1rem;">Contesta estas 3 preguntas sencillas y te daremos una recomendación clínica como punto de partida.</p>
+                
+                <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 800; display: block; font-size: 1.1rem; margin-bottom: 5px;">1. ¿Qué tan buena eres recordando tomar cosas diario? 🧠</label>
+                        <div class="quiz-options-row">
+                            <label class="quiz-pill-label"><input type="radio" name="q_memoria" value="mala">Súper olvidadiza 🙈</label>
+                            <label class="quiz-pill-label"><input type="radio" name="q_memoria" value="buena">Soy muy puntual ⏰</label>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 800; display: block; font-size: 1.1rem; margin-bottom: 5px;">2. ¿Deseas un método CON o SIN hormonas? 🧬</label>
+                        <div class="quiz-options-row">
+                            <label class="quiz-pill-label"><input type="radio" name="q_hormonas" value="no">Sin hormonas 🚫</label>
+                            <label class="quiz-pill-label"><input type="radio" name="q_hormonas" value="si">Con hormonas ✅</label>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 800; display: block; font-size: 1.1rem; margin-bottom: 5px;">3. ¿Para cuánto tiempo quieres la protección? ⏳</label>
+                        <div class="quiz-options-row">
+                            <label class="quiz-pill-label"><input type="radio" name="q_tiempo" value="largo">Años (Largo Plazo) 📆</label>
+                            <label class="quiz-pill-label"><input type="radio" name="q_tiempo" value="corto">Meses (Corto Plazo) ⏱️</label>
+                        </div>
+                    </div>
+
+                    <button onclick="calcularMetodo()" class="btn" style="width: 100%; margin-top: 10px; font-size: 1.2rem;">Descubrir mi Método Ideal 🔍</button>
+                </div>
+
+                <div id="resultado-metodo" style="display: none; margin-top: 20px; padding: 15px; background: white; border: 3px dashed var(--pc-rosa-fuerte); border-radius: 10px; font-weight: 800; font-size: 1.1rem;"></div>
+
+                <script>
+                    function calcularMetodo() {
+                        let mem = document.querySelector('input[name="q_memoria"]:checked')?.value;
+                        let hor = document.querySelector('input[name="q_hormonas"]:checked')?.value;
+                        let tie = document.querySelector('input[name="q_tiempo"]:checked')?.value;
+                        
+                        if(!mem || !hor || !tie) {
+                            alert("Por favor selecciona una opción en las 3 preguntas para darte un buen resultado.");
+                            return;
+                        }
+
+                        let res = "";
+
+                        if (mem === 'mala' && hor === 'no' && tie === 'largo') res = "Tu método ideal podría ser el <strong>DIU de Cobre (T de Cobre)</strong>. Te olvidas por 10 años y no tiene hormonas.";
+                        else if (mem === 'buena' && hor === 'no' && tie === 'corto') res = "Al no querer hormonas y buscar algo corto, tu mejor opción son los <strong>Métodos de Barrera (Condón)</strong> en cada relación.";
+                        else if (mem === 'mala' && hor === 'si' && tie === 'largo') res = "Tu método ideal podría ser el <strong>Implante Subdérmico o DIU Hormonal (Mirena)</strong>. Te protegen de 3 a 5 años sin tener que recordar pastillas.";
+                        else if (mem === 'buena' && hor === 'si' && tie === 'corto') res = "Las <strong>Pastillas Anticonceptivas</strong> o el <strong>Parche</strong> son excelentes para ti.";
+                        else if (mem === 'mala' && hor === 'si' && tie === 'corto') res = "La <strong>Inyección mensual o trimestral</strong> o el <strong>Anillo Vaginal</strong> te quitan el estrés de la pastilla diaria pero no te atan por años.";
+                        else res = "Tienes muchas opciones viables. ¡Te recomendamos agendar una orientación gratis en la clínica para evaluarte físicamente y decidir juntas!";
+                        
+                        let box = document.getElementById('resultado-metodo');
+                        box.innerHTML = `✨ <strong>Análisis:</strong><br>${res}<br><small style="color: #666; font-weight: 600; display: block; margin-top: 10px;">(Nota médica: Ningún método hormonal previene ITS, ¡siempre acompáñalo con Condón para doble protección!).</small>`;
+                        box.style.display = 'block';
+                    }
+                </script>
+            </div>
+
+            <!-- SECCIÓN NOVEDADES E INVESTIGACIÓN (HOMBRES) -->
+            <div class="game-box" style="background: var(--pc-negro); color: white; border-color: var(--pc-amarillo); box-shadow: 8px 8px 0 var(--pc-rosa-fuerte);">
+                <h3 class="hand-drawn" style="color: var(--pc-amarillo); font-size: 2.2rem; margin-bottom: 10px;">El Futuro: Novedades Médicas 🔬</h3>
+                <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 20px;">Históricamente, la carga física y química de la planificación ha recaído en la mujer. ¡Pero la ciencia por fin avanza hacia la equidad para los hombres!</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; text-align: left;">
+                    <div style="background: rgba(255,255,255,0.1); border: 2px solid var(--pc-amarillo); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--pc-amarillo); font-size: 1.2rem; margin-bottom: 5px; font-family: 'Nunito', sans-serif;">Píldora Masculina (YCT529/DMAU)</h4>
+                        <p style="font-size: 0.9rem;">Pastillas en fase avanzada de ensayos clínicos que suprimen temporalmente los espermatozoides o su movilidad sin afectar severamente la testosterona ni el deseo sexual.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); border: 2px solid var(--pc-amarillo); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--pc-amarillo); font-size: 1.2rem; margin-bottom: 5px; font-family: 'Nunito', sans-serif;">Gel NES/T</h4>
+                        <p style="font-size: 0.9rem;">Un gel hormonal que el hombre se unta diariamente en los hombros. Reduce la producción de esperma casi a cero, siendo completamente reversible al dejar de usarlo.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); border: 2px solid var(--pc-amarillo); padding: 15px; border-radius: 10px;">
+                        <h4 style="color: var(--pc-amarillo); font-size: 1.2rem; margin-bottom: 5px; font-family: 'Nunito', sans-serif;">Vasalgel (RISUG)</h4>
+                        <p style="font-size: 0.9rem;">Una inyección de polímero directamente en los conductos deferentes que actúa como "tapón" físico para los espermatozoides. Es como una vasectomía pero reversible disolviendo el tapón con otra inyección.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.95rem; font-style: italic; color: #ccc;">* Estos métodos están en ensayos clínicos mundiales (Fase II y III) y se espera su aprobación comercial en los próximos años.</p>
+            </div>
+        </div>
+
+        <!-- NUEVA TAB: CONTROL PRENATAL -->
+        <div id="tab-prenatal" class="tab-content">
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 15px;">Control Prenatal Humanizado 🤰</h2>
+            <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 15px;">En Proyecto Celene celebramos la vida. Un embarazo seguro requiere seguimiento mes a mes para proteger tu salud y la de tu bebé.</p>
+            
+            <ul style="margin-left: 20px; font-weight: 600; line-height: 1.6; margin-bottom: 30px;">
+                <li><strong>Prevención de Preeclampsia:</strong> Medimos tu presión arterial meticulosamente cada visita.</li>
+                <li><strong>Nutrición y Vitaminas:</strong> Te orientamos y apoyamos con ácido fólico y suplementos de nuestra Farmacia Solidaria.</li>
+                <li><strong>Ecografías y Labs:</strong> Te canalizamos oportunamente a nuestros laboratorios aliados con descuentos (Alianza Plata).</li>
+            </ul>
+
+            <!-- CALCULADORA DE EMBARAZO INTERACTIVA -->
+            <div class="game-box" style="background: var(--pc-rosa-pastell);">
+                <h4>🗓️ Calculadora Interactiva de Semanas</h4>
+                <p style="font-weight: 600; margin-bottom: 15px;">Ingresa el <strong>primer día</strong> de tu última regla (FUM) para saber cuántas semanas de embarazo tienes y tu posible fecha de parto.</p>
+                
+                <input type="date" id="fum-date" style="padding: 10px; border-radius: 10px; border: 2px solid var(--pc-negro); font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1.1rem;">
+                <button onclick="calcularFUM()" class="btn" style="background: var(--pc-negro); margin-left: 10px;">Calcular 👶</button>
+
+                <div id="res-fum" style="display: none; margin-top: 20px; padding: 15px; background: white; border: 2px dashed var(--pc-negro); border-radius: 10px; font-weight: 800; font-size: 1.2rem; color: var(--pc-rosa-fuerte);"></div>
+
+                <script>
+                    function calcularFUM() {
+                        let fumInput = document.getElementById('fum-date').value;
+                        if(!fumInput) { alert("Selecciona la fecha de tu última regla."); return; }
+                        let fum = new Date(fumInput);
+                        let hoy = new Date();
+                        
+                        // Fix timezone issues
+                        fum = new Date(fum.getTime() + Math.abs(fum.getTimezoneOffset()*60000));
+                        
+                        let diffTime = Math.abs(hoy - fum);
+                        let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        let semanas = Math.floor(diffDays / 7);
+                        let diasExtra = diffDays % 7;
+
+                        // Fecha probable de parto (FUM + 280 días / Naegele)
+                        let fpp = new Date(fum);
+                        fpp.setDate(fpp.getDate() + 280);
+                        let opcionesFecha = { year: 'numeric', month: 'long', day: 'numeric' };
+
+                        let box = document.getElementById('res-fum');
+                        box.innerHTML = `Tienes aprox: <span style="font-size: 1.8rem; color: var(--pc-negro);">${semanas} semanas con ${diasExtra} días</span><br><br>Fecha Probable de Parto:<br><span style="color: var(--pc-negro); text-decoration: underline;">${fpp.toLocaleDateString('es-ES', opcionesFecha)}</span>`;
+                        box.style.display = 'block';
+                    }
+                </script>
+            </div>
+        </div>
+
+        <!-- NUEVA TAB: ILE -->
+        <div id="tab-ile" class="tab-content">
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 15px;">Interrupción Legal y Segura (ILE) ⚖️</h2>
+            
+            <div style="background: white; border: 4px solid var(--pc-negro); padding: 25px; border-radius: 20px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-azul-suave);">
+                <p style="font-weight: 800; font-size: 1.2rem; margin-bottom: 15px;">Tú decides sobre tu cuerpo y tu futuro. No estás sola.</p>
+                <p style="margin-bottom: 15px; font-weight: 600;">En Baja California, la Interrupción Legal del Embarazo (ILE) <strong>es un derecho garantizado y legal hasta las 12 semanas de gestación</strong>.</p>
+                <p style="margin-bottom: 15px;">En Proyecto Celene, nuestro equipo médico está certificado por la OPS. Ofrecemos un espacio de absoluta confidencialidad, libre de violencia, estigmas y regaños morales, para brindarte orientación clínica, valoración ecográfica y canalización segura a los centros hospitalarios oficiales.</p>
+            </div>
+
+            <!-- JUEGO MITOS ILE -->
+            <div class="game-box" style="background: var(--pc-amarillo); border-color: var(--pc-negro);">
+                <h4>🃏 Toca para destapar la realidad del Aborto Seguro</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front" style="background: white;"><div style="width: 100%; margin-top: 10px;">Mito: "Te vas a quedar estéril si abortas."</div></div>
+                            <div class="flip-card-back" style="background: var(--pc-negro);"><div style="width: 100%; margin-top: 10px;">Realidad: Un aborto seguro, guiado por médicos o con medicamentos avalados por la OMS, NO afecta tu fertilidad futura.</div></div>
+                        </div>
+                    </div>
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front" style="background: white;"><div style="width: 100%; margin-top: 10px;">Mito: "Es una cirugía súper peligrosa."</div></div>
+                            <div class="flip-card-back" style="background: var(--pc-negro);"><div style="width: 100%; margin-top: 10px;">Realidad: Antes de las 12 semanas, la mayoría de las ILE se realizan en casa con pastillas (Mifepristona y Misoprostol) de forma muy segura.</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="tab-esi" class="tab-content">
-            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">La ESI como Herramienta de Supervivencia</h2>
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.2rem;">Educación Sexual Integral
+                (ESI)</h2>
 
-            <h3 style="margin-top:20px; color:var(--pc-negro);">¿Qué es la Sexualidad?</h3>
-            <p>Según la OMS, es una dimensión central del ser humano. Incluye el sexo, la identidad, los roles de
-                género, el placer, la intimidad y la reproducción. No es solo "tener relaciones"; es quiénes somos y
-                cómo nos vinculamos.</p>
+            <h3 style="margin-top:20px; color:var(--pc-negro); font-size: 1.5rem;">¿De dónde aprendiste?</h3>
+            <p style="font-weight: 600; margin-bottom: 15px;">Si pensamos en nuestra primera fuente de información
+                sexual, para muchos no fue la escuela ni los padres. Fue internet, películas o amigos. Hemos aprendido
+                más de <em>"los silencios incómodos y los temas que se saltaron"</em> que de lo que se dijo
+                explícitamente.</p>
+            <p style="font-weight: 600; margin-bottom: 25px;">Hoy queremos dejar atrás esa educación basada en el miedo
+                y la abstinencia. Vamos a tener un conocimiento completo. La sexualidad abarca lo biológico, psicológico
+                y social. Sus funciones son: <strong>Reproducción, Placer y Comunicación (afecto).</strong></p>
 
-            <div class="law-box" style="margin: 25px 0;">
-                <h3 style="color: var(--pc-negro); margin-bottom: 10px;">📜 Tus Derechos Sexuales en México</h3>
-                <p>En nuestro país, tus derechos están respaldados por la Constitución.</p>
-                <ul style="margin-left: 20px; margin-bottom: 0;">
-                    <li><strong>Adolescentes y Privacidad:</strong> Según la NOM-047, los adolescentes tienen derecho a
-                        acudir a consulta de salud sexual y reproductiva sin supervisión de sus padres, recibiendo
-                        orientación de forma confidencial.</li>
-                    <li><strong>Derecho a la Información:</strong> Tienes derecho a recibir educación sexual basada en
-                        evidencia científica, no en dogmas.</li>
-                </ul>
-            </div>
-
-            <h3 style="margin-top:30px; color:var(--pc-rosa-fuerte);">Conceptos Básicos para Hablar el Mismo Idioma</h3>
+            <h3 class="hand-drawn" style="margin-top:30px; color:var(--pc-rosa-fuerte); font-size: 1.8rem;">Conceptos
+                Básicos (Para hablar el mismo idioma)</h3>
             <div class="esi-grid">
                 <div class="esi-card">
                     <h4>⚙️ Sexo Biológico</h4>
-                    <p>Características físicas, genéticas y hormonales (XX, XY, Intersexualidad). Es biología, no
-                        ideología.</p>
+                    <p>Características físicas, genéticas y hormonales. El cuerpo humano es diverso, no es un
+                        interruptor de "encendido/apagado" de hombre/mujer. Reconocer condiciones como la
+                        intersexualidad es biología, no ideología.</p>
                 </div>
                 <div class="esi-card">
                     <h4>🧍‍♂️🧍‍♀️ Género</h4>
-                    <p>El "guion social" que nos dicen cómo debemos actuar o comportarnos en sociedad.</p>
+                    <p>El constructo social y cultural. Es el "guion" de cómo debemos comportarnos. Ejemplo: Nunca se
+                        descubrió en la ciencia que el rosa es de niñas y el azul de niños; fue una decisión comercial.
+                    </p>
                 </div>
                 <div class="esi-card">
                     <h4>💭 Identidad de Género</h4>
-                    <p>Cómo te sientes por dentro (Hombre, Mujer, No binario).</p>
+                    <p>Es cómo te sientes por dentro (Hombre, Mujer, No binario, etc). La OMS la reconoce como una
+                        expresión natural de la condición humana, no como una desviación o enfermedad.</p>
                 </div>
                 <div class="esi-card">
                     <h4>❤️ Orientación Sexual</h4>
-                    <p>Hacia quién sientes atracción. Es como ser zurdo o diestro: no se elige, se descubre.</p>
+                    <p>Hacia quién sientes atracción física y romántica. Tiene base biológica y neurológica. Igual que
+                        escribir con la mano izquierda o derecha: <strong>no se decide, se descubre.</strong></p>
                 </div>
             </div>
 
-            <h3 style="margin-top:30px; color:var(--pc-rosa-fuerte);">¿Qué es el Consentimiento?</h3>
-            <p>El consentimiento no es la ausencia de un "NO", es la presencia entusiasta de un "SÍ".</p>
-            <ul style="margin-left: 20px; font-weight: 600; line-height: 1.6; margin-bottom: 10px;">
-                <li><strong>Free (Libre):</strong> Sin presión, manipulación ni bajo efecto de sustancias.</li>
-                <li><strong>Reversible:</strong> Puedes decir "para" en cualquier momento, aunque ya haya empezado el
-                    acto.</li>
-                <li><strong>Informed (Informado):</strong> Saber a qué consientes (ej. si hay riesgo de ITS o si se
-                    usará protección).</li>
-                <li><strong>Enthusiastic (Entusiasta):</strong> Si no hay ganas mutuas, no hay consentimiento.</li>
-                <li><strong>Specific (Específico):</strong> Decir sí a una cosa no es decir sí a todo.</li>
-            </ul>
+            <h3 class="hand-drawn" style="margin-top:40px; color:var(--pc-rosa-fuerte); font-size: 2rem;">¿Qué es la "Ideología" o Perspectiva de Género? 🌈</h3>
+            <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 15px;">Frecuentemente escuchamos el término "Ideología de Género" usado para desinformar o asustar. En medicina, ciencia y derechos humanos le llamamos <strong>Perspectiva de Género</strong>.</p>
+            <p style="margin-bottom: 25px;">¿Por qué es vital en una clínica? Porque nos permite ver cómo las expectativas sociales enferman o discriminan. Aplicar la perspectiva de género garantiza que mujeres y hombres reciban una atención equitativa, evitando que el médico asuma que el dolor de una mujer es "pura exageración hormonal" o que un hombre "no debe llorar" y por ende no busque ayuda psicológica.</p>
+
+            <!-- JUEGO ROMPE EL ESTEREOTIPO -->
+            <div class="game-box" style="background: var(--pc-negro); border-color: var(--pc-amarillo); color: white;">
+                <h4 style="color: var(--pc-amarillo);">🔨 Juego: Rompe el Estereotipo</h4>
+                <p style="margin-bottom: 15px;">Toca las frases tóxicas para transformarlas con la Perspectiva de Género.</p>
+                
+                <button class="btn" style="background: white; color: var(--pc-negro); border: 2px solid var(--pc-rosa-fuerte); margin: 5px; width: 90%; text-transform: none; font-size: 1rem;" onclick="this.innerHTML='¡El hombre también debe ser vulnerable, ir a terapia y pedir ayuda médica sin ser juzgado!'; this.style.background='var(--pc-verde-wa)'; this.style.color='white';">"Los hombres no lloran ni se enferman, tienen que aguantar."</button>
+                
+                <button class="btn" style="background: white; color: var(--pc-negro); border: 2px solid var(--pc-rosa-fuerte); margin: 5px; width: 90%; text-transform: none; font-size: 1rem;" onclick="this.innerHTML='¡La mujer es dueña de su deseo y su sexualidad, y tiene derecho a explorarla con placer!'; this.style.background='var(--pc-verde-wa)'; this.style.color='white';">"Las mujeres puras no tienen iniciativa ni deseo sexual."</button>
+                
+                <button class="btn" style="background: white; color: var(--pc-negro); border: 2px solid var(--pc-rosa-fuerte); margin: 5px; width: 90%; text-transform: none; font-size: 1rem;" onclick="this.innerHTML='¡El dolor menstrual extremo NO es normal! Hay que investigar endometriosis o miomas.'; this.style.background='var(--pc-verde-wa)'; this.style.color='white';">"El dolor que sientes por la regla es normal, estás exagerando."</button>
+            </div>
+
+            <div class="law-box" style="margin: 30px 0; background: var(--pc-amarillo);">
+                <h3 class="hand-drawn" style="color: var(--pc-negro); margin-bottom: 15px; font-size: 1.8rem;">El Mundo
+                    al Revés 🙃</h3>
+                <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 10px;">¿Qué pasaría si invirtiéramos los
+                    roles de género?</p>
+                <p style="margin-bottom: 10px;">Imagina un mundo donde los hombres fueran juzgados por tener muchas
+                    parejas y les dijeran que son "fáciles", mientras que las mujeres fueran celebradas por su
+                    experiencia.</p>
+                <p style="font-weight: 800; color: var(--pc-rosa-fuerte);">¿Cómo cambiarían las pláticas en los
+                    vestidores? Cuando invertimos el doble estándar, se vuelve evidente lo absurdo del sistema. Hacer
+                    las cosas por uno mismo, sin guiones impuestos, es el acto más grande de libertad.</p>
+            </div>
+
+            <h3 class="hand-drawn" style="margin-top:30px; color:var(--pc-rosa-fuerte); font-size: 2rem;">¿Qué es
+                realmente el Consentimiento?</h3>
+            <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 15px;">El consentimiento NO es la ausencia de
+                un "NO". Es la presencia entusiasta de un "SÍ".</p>
+            <p style="margin-bottom: 15px;">Frases como <em>"quizá deberíamos esperar"</em>, <em>"no estoy segura"</em>,
+                <em>"ya no quiero"</em> o el silencio total, tienen algo en común: NO hay un "sí" entusiasta.</p>
+
+            <div
+                style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 25px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-azul-suave);">
+                <h4 style="font-size: 1.3rem; margin-bottom: 15px;">Las 5 Reglas F.R.I.E.S. 🍟</h4>
+                <ul style="margin-left: 20px; font-weight: 600; line-height: 1.6;">
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--pc-rosa-fuerte);">Free (Libre y
+                            Voluntario):</strong> Sin presión, amenazas o bajo efecto de drogas/alcohol que alteren el
+                        juicio.</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--pc-rosa-fuerte);">Reversible:</strong>
+                        Puedes cambiar de opinión en CUALQUIER momento, incluso si ya se quitó la ropa o ya empezó el
+                        acto.</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--pc-rosa-fuerte);">Informed
+                            (Informado):</strong> Saber a qué consientes. Ocultar información (como quitarse el condón
+                        sin avisar o tener una ITS) invalida el consentimiento. Es delito según el Art. 160.</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--pc-rosa-fuerte);">Enthusiastic
+                            (Entusiasta):</strong> Busca un "¡Sí!" claro y con ganas, no un "supongo" incómodo.</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--pc-rosa-fuerte);">Specific
+                            (Específico):</strong> Decir sí a besarse no significa decir sí a penetración.</li>
+                </ul>
+            </div>
+
+            <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px;">La ESI es
+                Supervivencia, no Incitación</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-bottom: 20px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <p style="font-weight: 600; margin-bottom: 15px;">Existe el mito de que "hablar de sexo" incita a los jóvenes a tener relaciones tempranas. La evidencia científica muestra lo contrario: <strong>La ESI retrasa la iniciación sexual y, cuando deciden tenerla, lo hacen con mayor protección.</strong></p>
+                    <p style="font-weight: 600; margin-bottom: 15px;">Lamentablemente, la mayoría de las víctimas de abuso sexual son menores de edad, y los agresores suelen ser familiares o personas cercanas. Por eso los espacios como Proyecto Celene y la escuela son vitales: enseñamos a reconocer límites, diferenciar secretos buenos de malos, y que <strong>tienen derecho a pedir ayuda</strong>.</p>
+                </div>
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <div class="img-flip-card" onclick="this.classList.toggle('flipped')" style="width: 100%; aspect-ratio: 4/3; box-shadow: 6px 6px 0 var(--pc-amarillo);">
+                        <div class="img-flip-card-inner">
+                            <div class="img-flip-front">
+                                <img src="https://i.ibb.co/GQgLFWW8/foto-grupo-platica-esi.jpg" alt="Grupo Plática ESI">
+                                <div class="tap-hint" style="background: var(--pc-negro);">👆 Toca para girar</div>
+                            </div>
+                            <div class="img-flip-back" style="background: var(--pc-azul-suave);">
+                                <div style="width: 100%; margin-top: 10px;">
+                                    <h4 class="hand-drawn" style="font-size: 1.5rem; color: var(--pc-negro); margin-bottom: 10px;">Comunidad Empoderada</h4>
+                                    <p style="font-weight: 600; font-size: 1.05rem;">Alumnos y participantes tras una sesión de Educación Sexual Integral. Hablar de estos temas abiertamente rompe el ciclo de abuso y desinformación.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="tab-anatomia" class="tab-content">
-            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">Conocer es Poder 🧠</h2>
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.2rem; margin-bottom: 15px;">Puntos
+                Ciegos y el Autoerotismo 🧠</h2>
 
-            <h3 style="margin-top:20px; color:var(--pc-negro);">Anatomía Femenina: Rompiendo el Silencio</h3>
-            <p>Durante siglos, el cuerpo femenino se explicó desde la mirada masculina. Es hora de actualizar el mapa:
-            </p>
-            <ul style="margin-left: 20px; font-weight: 600; line-height: 1.6; margin-bottom: 25px;">
-                <li><strong>El Clítoris:</strong> No es un "botón". Es un órgano grande con 8,000 terminaciones
-                    nerviosas dedicado exclusivamente al placer.</li>
-                <li><strong>El Mito del Punto G:</strong> No es un botón mágico. El placer proviene de la estimulación
-                    del Complejo Clito-Uretro-Vaginal.</li>
-                <li><strong>La Realidad del Orgasmo:</strong> Solo el 25% de las mujeres llega al orgasmo únicamente
-                    mediante la penetración. El 75% restante necesita estimulación directa del clítoris. Esto no es un
-                    "error de diseño", es nuestra biología real.</li>
-            </ul>
+            <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 20px;">La falta de educación real crea enormes
+                "puntos ciegos". Es momento de romper el tabú.</p>
 
-            <h3 style="color:var(--pc-negro);">Anatomía Masculina y Salud</h3>
-            <ul style="margin-left: 20px; font-weight: 600; line-height: 1.6; margin-bottom: 25px;">
-                <li><strong>Fimosis y Frenillo Corto:</strong> Muchas personas sufren dolor en silencio creyendo que es
-                    normal. Estas son condiciones médicas comunes, tratables y prevenibles.</li>
-                <li><strong>Salud a Largo Plazo:</strong> Las erecciones son un signo de salud vascular. No importa si
-                    tienes 19 o 78 años, tu salud sexual importa.</li>
-            </ul>
+            <h3 class="hand-drawn" style="color:var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px;">Anatomía
+                Femenina: Rompiendo el Silencio</h3>
+            <p style="margin-bottom: 15px;">Durante siglos, el cuerpo femenino se explicó desde la mirada masculina.
+                ¡Dato histórico! <strong>No fue hasta 1998</strong> (cuando ya existía el Game Boy y el Nintendo) que la
+                uróloga Helen O'Connell descubrió por completo la anatomía interna del clítoris.</p>
+
+            <div class="esi-grid" style="margin-bottom: 30px;">
+                <div class="esi-card" style="border-color: var(--pc-rosa-fuerte);">
+                    <h4>🌷 El Clítoris Real</h4>
+                    <p>No es un "botón" externo. Es un órgano grande, análogo al pene, con 6,000 a 8,000 terminaciones
+                        nerviosas. Su <strong>única función en el cuerpo</strong> es generar placer.</p>
+                </div>
+                <div class="esi-card" style="border-color: var(--pc-azul-suave);">
+                    <h4>🎯 El Mito del Punto G y Orgasmos</h4>
+                    <p>El Punto G no es un botón mágico en la vagina. Durante la penetración se estimula indirectamente
+                        el <em>Complejo Clito-Uretro-Vaginal</em>. Por biología, <strong>3 de cada 4 mujeres (75%) NO
+                            llega al orgasmo solo con penetración</strong>, necesitan estimulación directa. No es "error
+                        de diseño", es ciencia.</p>
+                </div>
+            </div>
+
+        <!-- JUEGO VERDADERO O FALSO ANATOMIA -->
+        <div class="game-box">
+            <h4>🎯 Juego: Verdadero o Falso</h4>
+            <p id="vf-question" style="font-size: 1.2rem; font-weight: 800; margin-bottom: 15px;">¿Las mujeres orinan por el mismo agujero por donde sale el bebé (la vagina)?</p>
+            <div id="vf-buttons">
+                <button class="sim-btn" onclick="checkAnatomy(false)">Verdadero</button>
+                <button class="sim-btn" onclick="checkAnatomy(true)">Falso</button>
+            </div>
+            <div id="vf-result" style="display: none; margin-top: 15px; font-weight: 800; color: var(--pc-rosa-fuerte);"></div>
+            <script>
+                function checkAnatomy(isCorrect) {
+                    let res = document.getElementById('vf-result');
+                    if(isCorrect) { res.innerHTML = "¡Correcto! Hay TRES orificios: La uretra (orina), la vagina (canal de parto/menstruación) y el ano."; res.style.color = "var(--pc-verde-wa)"; }
+                    else { res.innerHTML = "¡Incorrecto! A diferencia de los hombres, las mujeres tienen orificios separados: la uretra es por donde orinan, y está por encima de la vagina."; res.style.color = "var(--pc-rosa-fuerte)"; }
+                    res.style.display = "block";
+                }
+            </script>
+        </div>
+
+            <h3 class="hand-drawn" style="color:var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px;">Anatomía
+                Masculina y Salud</h3>
+            <p style="font-weight: 600; margin-bottom: 15px;">Es crucial entender condiciones como la
+                <strong>Fimosis</strong> (prepucio demasiado estrecho) o el <strong>Frenillo Corto</strong>. Generan
+                dolor durante la actividad sexual o masturbación y muchos sufren en silencio creyendo que "es normal".
+                Son condiciones médicas muy comunes con solución rápida.</p>
+            <p style="font-weight: 600; margin-bottom: 30px;">Además, a nivel general, las erecciones son un signo
+                clínico directo de <strong>salud vascular y cardíaca</strong>.</p>
 
             <div
-                style="background: var(--pc-amarillo); padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro);">
-                <h3 style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;">La Relación Contigo Mismo (Autoerotismo)
-                </h3>
-                <p>Imagina que vas a manejar un coche nuevo en una autopista. ¿No sería mejor leer el manual y dar una
-                    vuelta a la manzana primero? La masturbación es una práctica natural y saludable que permite:</p>
-                <ul style="margin-left: 20px; margin-bottom: 0;">
-                    <li>Conocer tus límites y preferencias.</li>
-                    <li>Detectar cambios anatómicos (bolitas, alteraciones) a tiempo.</li>
-                    <li>Es la práctica sexual 100% segura (sin riesgo de ITS o embarazo).</li>
+                style="background: var(--pc-amarillo); padding: 30px; border-radius: 20px; border: 4px dashed var(--pc-negro); box-shadow: 6px 6px 0 var(--pc-rosa-fuerte);">
+                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size: 2rem; margin-bottom: 15px;">El
+                    Autoerotismo: Leer el Manual del Coche 🚗</h3>
+                <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 15px;">Imaginen que están a punto de
+                    emprender un viaje largo en un coche que nunca han manejado. ¿Qué sería más inteligente? ¿Tomarse un
+                    tiempo a solas para <strong>leer el manual y dar una vuelta a la manzana</strong> o salir a la
+                    autopista con un pasajero y esperar lo mejor?</p>
+                <p style="margin-bottom: 15px;">El autoerotismo (masturbación) ha sido un tabú enorme. Desde la
+                    medicina, lo vemos como la forma más segura de "leer tu manual":</p>
+                <ul style="margin-left: 20px; font-weight: 800; line-height: 1.6; color: var(--pc-negro);">
+                    <li>Es la práctica sexual 100% segura: cero riesgo de embarazo o ITS.</li>
+                    <li>Te permite conocer tus preferencias, límites y manifestación de deseo.</li>
+                    <li>El conocimiento es poder: tocarte te permite detectar cambios (bolitas en testículos o mamas) y
+                        buscar ayuda a tiempo.</li>
                 </ul>
             </div>
         </div>
 
         <div id="tab-digital" class="tab-content">
-            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">El Algoritmo vs. La Realidad 📱</h2>
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.2rem; margin-bottom: 15px;">El
+                Algoritmo vs. La Realidad 📱</h2>
 
-            <h3 style="margin-top:20px; color:var(--pc-negro);">Pornografía vs. Deporte</h3>
-            <p>Imagina que quieres aprender un deporte: buscas un entrenador que te enseñe la técnica correcta. En la
-                sexualidad, el "entrenador" más popular para los jóvenes suele ser la pornografía.</p>
-            <p><strong>El problema:</strong> La pornografía es un <em>espectáculo</em>, no educación. Entrenar con porno
-                crea expectativas irreales, centrándose en el desempeño físico y visual, ignorando el placer real
-                (especialmente el femenino) y generando ansiedad.</p>
+            <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 20px;">Hoy en día, el primer contacto de los
+                jóvenes con la sexualidad suele ser un algoritmo de TikTok o YouTube. Esto genera información rápida,
+                pero muchas veces falsa o violenta.</p>
 
-            <h3 style="margin-top:20px; color:var(--pc-negro);">Sexting Seguro y Consentimiento</h3>
-            <p>El sexting es una práctica sexual común en la adultez, pero requiere reglas claras para no convertirse en
-                un riesgo inmenso:</p>
-            <ul style="margin-left: 20px; font-weight: 600; line-height: 1.6;">
-                <li><strong>Ley Olimpia:</strong> En Baja California y México, difundir contenido íntimo sin permiso es
-                    un delito penado por la ley. Recuerda: <em>El "SÍ" de tomar la foto no es un "SÍ" para
-                        compartirla.</em></li>
-                <li><strong>Protege tu identidad:</strong> Si decides hacerlo, nunca muestres tu rostro, marcas de
-                    nacimiento distintivas o tatuajes.</li>
-                <li><strong>Usa apps seguras:</strong> Que notifiquen capturas de pantalla o eliminen los mensajes
-                    automáticamente, aunque la confianza mutua debe ser el primer filtro.</li>
+            <div
+                style="background: var(--pc-gris-suave); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 25px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte);">
+                <h3 class="hand-drawn" style="color:var(--pc-negro); font-size: 1.8rem; margin-bottom: 10px;">
+                    Pornografía vs. Deporte 🏀</h3>
+                <p style="margin-bottom: 15px;">Para aprender un deporte, buscas un entrenador para evitar lesiones.
+                    Pero en la sexualidad, el "entrenador" de millones es la pornografía. ¿Qué "lesiones" emocionales y
+                    expectativas nos causa este manual?</p>
+                <p style="margin-bottom: 15px;">La pornografía es un <strong>espectáculo</strong>, no educación. Estar
+                    expuesto desde edades tempranas a este contenido (cuyas búsquedas principales mundiales son
+                    <em>"teen, rough, forced"</em>) genera personas que creen que el sexo debe verse así o debe incluir
+                    violencia para ser excitante.</p>
+                <p style="font-weight: 800; color: var(--pc-rosa-fuerte);">Consecuencias en consulta: Hombres jóvenes
+                    que no logran mantener una erección si hay conexión emocional / visual con su pareja, o mujeres que
+                    normalizan el dolor.</p>
+            </div>
+
+            <h3 class="hand-drawn" style="color:var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px;">Sexting Seguro
+                y la Ley 📸</h3>
+            <p style="margin-bottom: 15px; font-weight: 600;">El intercambio de mensajes, fotos o videos íntimos
+                (sexting) es una práctica sexual común en la adultez. Entre personas que consienten, es una forma de
+                intimidad. El problema surge cuando se rompe ese contrato.</p>
+            <ul style="margin-left: 20px; font-weight: 600; line-height: 1.6; margin-bottom: 20px;">
+                <li style="margin-bottom: 10px;"><strong>Difusión No Consentida (Porno Venganza):</strong> Compartir
+                    material íntimo de alguien sin su permiso es un delito penado por la <strong>Ley Olimpia</strong> en
+                    Baja California. <em>El "SÍ" para tomar la foto NO es un "SÍ" para compartirla.</em></li>
+                <li style="margin-bottom: 10px;"><strong>Sextorsión y Grooming:</strong> Amenazar a alguien con publicar
+                    su material o adultos manipulando menores por fotos (abuso infantil).</li>
+                <li style="margin-bottom: 10px;"><strong>Reducción de Riesgos:</strong> La única forma 100% segura es no
+                    enviarlo. Pero si decides hacerlo: <strong>Protege tu identidad</strong> (evita rostro, tatuajes,
+                    fondos reconocibles), <strong>usa apps con borrado automático y notificación de screenshot</strong>,
+                    y exige <strong>comunicación absoluta</strong>.</li>
             </ul>
+            <p style="font-style: italic; font-weight: 800; text-align: center; color: var(--pc-rosa-fuerte);">"Navegar
+                la sexualidad digital requiere un nuevo nivel de responsabilidad. Cuidar nuestra intimidad digital
+                también es salud sexual."</p>
+
+            <!-- SIMULADOR SEXTING SEGURO -->
+            <div class="game-box" style="background: var(--pc-negro); border-color: var(--pc-amarillo); color: white;">
+                <h4 style="color: var(--pc-amarillo);">📱 Simulador: Decisiones Digitales</h4>
+                <p style="margin-bottom: 15px;">Escenario: Acabas de conocer a alguien en línea, hay confianza y te pide una foto íntima. ¿Qué haces?</p>
+                
+                <div id="sim-options">
+                    <button class="sim-btn" onclick="playSimulator(1)">La tomo mostrando mi cara para que sepa que soy yo.</button>
+                    <button class="sim-btn" onclick="playSimulator(2)">Se la mando por WhatsApp normal sin borrarla.</button>
+                    <button class="sim-btn" onclick="playSimulator(3)">Tapo mis tatuajes, no muestro la cara y uso una app que avisa si toma captura (o fotos de una sola vista).</button>
+                </div>
+                <div id="sim-result" style="display: none; margin-top: 20px; font-weight: 800; font-size: 1.1rem;"></div>
+
+                <script>
+                    function playSimulator(choice) {
+                        let res = document.getElementById('sim-result');
+                        res.style.display = 'block';
+                        if(choice === 1) { res.innerHTML = "❌ <strong>¡Peligro!</strong> Nunca muestres tu rostro. Si se filtra, arruina tu privacidad."; res.style.color = "#ff5252"; }
+                        else if (choice === 2) { res.innerHTML = "⚠️ <strong>Arriesgado:</strong> En los chats normales la foto se guarda en la galería del otro. Podrían hackearle el celular o compartirla por 'venganza'."; res.style.color = "#ffb300"; }
+                        else if (choice === 3) { res.innerHTML = "✅ <strong>¡Excelente decisión!</strong> Redujiste el riesgo al máximo protegiendo tu identidad. (Recuerda que si la filtra sin tu permiso, puedes denunciar por la Ley Olimpia)."; res.style.color = "var(--pc-verde-wa)"; }
+                    }
+                </script>
+            </div>
         </div>
 
         <div class="banner-orientacion">
@@ -643,7 +1404,8 @@
                 qué prueba necesitas? <span>💬</span></h3>
             <p style="font-weight: 600; margin-bottom: 15px;">Hablar de salud sexual puede ser difícil. Usa nuestra
                 <strong>Orientación Médica Gratuita</strong> por WhatsApp. Te escucharemos sin juicios y te guiaremos
-                sobre qué pasos tomar.</p>
+                sobre qué pasos tomar.
+            </p>
             <a href="orientacion-medica-gratuita.html" class="btn"
                 style="background: white; color: var(--pc-negro); border-color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); margin-top: 0; padding: 12px; font-size: 1.1rem;">Ir
                 a Orientación Gratuita ➔</a>
@@ -799,6 +1561,22 @@
             resultDiv.innerHTML = html;
             resultDiv.style.display = "block";
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const fillObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetWidth = entry.target.getAttribute('data-width');
+                        if (targetWidth) {
+                            entry.target.style.width = targetWidth;
+                        }
+                    } else {
+                        entry.target.style.width = '0%';
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fill-anim').forEach(el => fillObserver.observe(el));
+        });
     </script>
     <script src="js/global.js"></script>
 </body>
