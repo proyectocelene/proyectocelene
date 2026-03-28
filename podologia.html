@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="es" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica de Podología - Proyecto Celene</title>
+    <meta name="description"
+        content="Atención clínica, integral y basada en evidencia científica para el cuidado de tus pies en Rosarito.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/podologia.html">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/podologia.html">
+    <meta property="og:title" content="Clínica de Podología - Proyecto Celene">
+    <meta property="og:description"
+        content="Atención profesional para el cuidado de tus pies: uñas encarnadas, pie diabético, callosidades y hongos.">
+    <meta property="og:image" content="https://i.ibb.co/Nff2v3Q/podologia-clinica-imagen.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/podologia.html">
+    <meta property="twitter:title" content="Clínica de Podología - Proyecto Celene">
+    <meta property="twitter:description"
+        content="Atención profesional para el cuidado de tus pies: uñas encarnadas, pie diabético, callosidades y hongos.">
+    <meta property="twitter:image" content="https://i.ibb.co/Nff2v3Q/podologia-clinica-imagen.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333;
+            --pc-blanco: #fff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde-wa: #25d366;
+            --pd-turquesa: #00bcd4;
+            --pd-turquesa-claro: #e0f7fa;
+            --pc-gris-suave: #f5f5f5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* NAVEGACIÓN */
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            border-color: var(--pc-negro);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        /* HEADER HERO */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pd-turquesa-claro);
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0px var(--pc-negro);
+        }
+
+        .header img {
+            max-width: 100%;
+            width: 450px;
+            border-radius: 15px;
+            border: 3px solid var(--pc-negro);
+            margin-bottom: 15px;
+            background: white;
+            object-fit: cover;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* PÍLDORA FLOTANTE STICKY */
+        .sticky-pill-container {
+            position: sticky;
+            top: 15px;
+            z-index: 1000;
+            text-align: center;
+            margin-bottom: 30px;
+            pointer-events: none;
+        }
+
+        .sticky-pill {
+            pointer-events: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--pc-negro);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            border: 4px solid white;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .sticky-pill:hover {
+            background: var(--pc-rosa-fuerte);
+            transform: scale(1.05);
+        }
+
+        .sticky-pill:active {
+            transform: scale(0.95);
+        }
+
+        /* ANIMACIONES Y UTILIDADES */
+        .fade-in {
+            animation: fadeInTab 0.6s ease-out;
+        }
+
+        @keyframes fadeInTab {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--pc-negro);
+            box-shadow: 6px 6px 0 var(--pd-turquesa);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        /* PERFIL PROFESIONAL */
+        .profile-section {
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 10px 10px 0 var(--pd-turquesa-claro);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        /* BUSCADOR LOCAL */
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            outline: none;
+            box-shadow: 4px 4px 0 var(--pd-turquesa-claro);
+            font-family: 'Nunito', sans-serif;
+            margin-bottom: 25px;
+            transition: 0.2s;
+        }
+
+        .search-box:focus {
+            border-color: var(--pc-rosa-fuerte);
+        }
+
+        /* GRID DE SERVICIOS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .service-card {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 4px 4px 0 var(--pd-turquesa-claro);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 6px 6px 0 var(--pc-amarillo);
+        }
+
+        .service-card h3 {
+            color: var(--pd-turquesa);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 600;
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        .price-badge {
+            display: inline-block;
+            background: var(--pc-amarillo);
+            border: 2px dashed var(--pc-negro);
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
+
+        /* BOTONES */
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.2rem;
+            background: var(--pc-verde-wa);
+            color: white;
+            box-shadow: 0 6px 0 var(--pc-negro);
+            margin: 10px auto 0;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn:active {
+            transform: translateY(6px);
+            box-shadow: 0 0 0 transparent !important;
+        }
+
+        /* MODAL WHATSAPP */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background: white;
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            max-width: 500px;
+            width: 100%;
+            padding: 25px;
+            position: relative;
+            box-shadow: 12px 12px 0px var(--pd-turquesa-claro);
+            animation: popIn 0.3s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            font-weight: 900;
+            color: var(--pc-negro);
+            transition: 0.2s;
+        }
+
+        .close-modal:hover {
+            color: var(--pc-rosa-fuerte);
+            transform: scale(1.1);
+        }
+
+        .modal input,
+        .modal textarea,
+        .modal select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 2px solid var(--pc-negro);
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .modal input:focus,
+        .modal textarea:focus,
+        .modal select:focus {
+            border-color: var(--pd-turquesa);
+        }
+
+        /* ESTILOS DE CUESTIONARIO Y ACORDEÓN */
+        .btn-quiz {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid var(--pc-negro);
+            border-radius: 10px;
+            background: white;
+            font-weight: 800;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        .btn-quiz:hover {
+            background: var(--pd-turquesa-claro);
+            transform: translateY(-2px);
+            box-shadow: 5px 5px 0 var(--pc-negro);
+        }
+
+        .btn-quiz:active {
+            transform: translateY(3px);
+            box-shadow: 0 0 0 transparent;
+        }
+
+        .accordion-item {
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 6px 6px 0 var(--pc-gris-suave);
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 18px 20px;
+            background-color: var(--pc-blanco);
+            width: 100%;
+            border: none;
+            font-size: 1.15rem;
+            font-weight: 800;
+            text-align: left;
+            font-family: 'Nunito', sans-serif;
+            color: var(--pc-rosa-fuerte);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--pc-rosa-pastell);
+        }
+
+        .accordion-header::after {
+            content: '▼';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            color: var(--pc-negro);
+        }
+
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 0 20px 20px;
+            background-color: var(--pc-blanco);
+            display: none;
+            font-weight: 600;
+            color: #444;
+            font-size: 1.05rem;
+            animation: popIn 0.3s ease-out;
+        }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav id="navbar-container" class="main-nav"></nav>
+
+        <header class="header fade-in">
+            <img src="https://i.ibb.co/Nff2v3Q/podologia-clinica-imagen.png" alt="Clínica de Podología">
+            <h1 class="hand-drawn"
+                style="font-size: 2.8rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; line-height: 1.1;">Clínica
+                de Podología 🦶</h1>
+            <p style="font-weight:600; font-size:1.15rem; max-width: 700px; margin: 0 auto; color: var(--pc-negro);">Tus
+                pies merecen atención clínica, no solo estética. En Proyecto Celene cuidamos tu movilidad y tu salud con
+                verdaderos estándares hospitalarios. Especialistas en prevención, confort y pie diabético.</p>
+            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
+                <button onclick="openPodoModal('Valoración General')" class="btn"
+                    style="margin:0; background: var(--pc-rosa-fuerte); color: white; width: auto; padding: 12px 25px;">📅
+                    Agendar Cita</button>
+                <button onclick="openPodoModal('Atención a Domicilio')" class="btn"
+                    style="margin:0; background: var(--pd-turquesa); border-color: var(--pc-negro); color: white; width: auto; padding: 12px 25px;">🏡
+                    Solicitar a Domicilio</button>
+            </div>
+        </header>
+
+        <!-- PÍLDORA FLOTANTE STICKY -->
+        <div class="sticky-pill-container fade-in">
+            <button onclick="scrollToCatalog()" class="sticky-pill">📋 Catálogo de Servicios y Precios ▼</button>
+        </div>
+
+        <section class="content-box fade-in"
+            style="background: var(--pc-amarillo); text-align: center; border-radius: 25px; border: 4px dashed var(--pc-negro); padding: 40px 20px; margin-bottom: 40px; box-shadow: 8px 8px 0 var(--pc-negro);">
+            <h2 class="hand-drawn" style="color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 10px;">¿Es momento
+                de visitar al podólogo?</h2>
+            <p style="font-size: 1.1rem; font-weight: 600; color: #555; margin-bottom: 25px;">Descúbrelo en 15 segundos
+                respondiendo lo siguiente:</p>
+
+            <div class="quiz-container" style="max-width: 600px; margin: 0 auto; text-align: left;">
+                <div class="quiz-question"
+                    style="background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; box-shadow: 6px 6px 0 var(--pc-rosa-pastell); transition: all 0.3s ease;">
+                    <p style="font-weight: 800; font-size: 1.15rem; margin-bottom: 15px; color: var(--pc-negro);">1.
+                        ¿Sientes dolor constante al caminar, usar zapatos o tienes uñas encarnadas?</p>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-quiz" onclick="showPodoQuizResult()">Sí</button>
+                        <button class="btn-quiz" onclick="nextPodoQuestion(this)">No</button>
+                    </div>
+                </div>
+                <div class="quiz-question"
+                    style="display: none; background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; box-shadow: 6px 6px 0 var(--pd-turquesa-claro); transition: all 0.3s ease;">
+                    <p style="font-weight: 800; font-size: 1.15rem; margin-bottom: 15px; color: var(--pc-negro);">2.
+                        ¿Has notado cambios en el color o grosor de tus uñas, o callosidades dolorosas?</p>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-quiz" onclick="showPodoQuizResult()">Sí</button>
+                        <button class="btn-quiz" onclick="nextPodoQuestion(this)">No</button>
+                    </div>
+                </div>
+                <div class="quiz-question"
+                    style="display: none; background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; box-shadow: 6px 6px 0 var(--pc-gris-suave); transition: all 0.3s ease;">
+                    <p style="font-weight: 800; font-size: 1.15rem; margin-bottom: 15px; color: var(--pc-negro);">3.
+                        ¿Vives con diabetes y hace más de 6 meses que no revisan tus pies profesionalmente?</p>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-quiz" onclick="showPodoQuizResult()">Sí</button>
+                        <button class="btn-quiz" onclick="showPodoQuizHealthy()">No</button>
+                    </div>
+                </div>
+
+                <div id="podo-quiz-result"
+                    style="display: none; text-align: center; padding: 30px; background: white; border: 4px dashed var(--pc-rosa-fuerte); border-radius: 15px; animation: popIn 0.3s ease-out; box-shadow: 6px 6px 0 var(--pc-rosa-pastell);">
+                    <p style="font-weight: 900; font-size: 1.4rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px;">
+                        ¡No esperes a que empeore!</p>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: #555; margin-bottom: 20px;">Prevenir es más
+                        fácil y económico que curar. Atender a tiempo evita complicaciones graves y dolor crónico.</p>
+                    <button onclick="openPodoModal('Valoración General (Por Quiz)')" class="btn"
+                        style="margin: 0; width: 100%; max-width: 300px;">Agendar Valoración Hoy ➔</button>
+                </div>
+
+                <div id="podo-quiz-healthy"
+                    style="display: none; text-align: center; padding: 30px; background: var(--pd-turquesa-claro); border: 4px dashed var(--pd-turquesa); border-radius: 15px; animation: popIn 0.3s ease-out; box-shadow: 6px 6px 0 var(--pd-turquesa);">
+                    <p
+                        style="font-weight: 900; font-size: 1.4rem; color: var(--pd-turquesa); margin-bottom: 10px; text-shadow: 1px 1px 0 white;">
+                        ¡Tus pies parecen estar sanos!</p>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: #444; margin-bottom: 20px;">Recuerda que un
+                        corte clínico preventivo al mes es ideal para mantenerlos así y consentirte. Estamos a tus
+                        órdenes.</p>
+                    <button onclick="openPodoModal('Corte Clínico Preventivo')" class="btn"
+                        style="margin: 0; background: var(--pd-turquesa); width: 100%; max-width: 300px;">Agendar
+                        Profilaxis ➔</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="profile-section fade-in">
+            <img src="https://i.ibb.co/LdP2JJLM/sara-podologa-cuadrada.png" alt="Podóloga Sara" class="profile-img">
+            <div class="profile-info">
+                <h3 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-rosa-fuerte); margin-bottom: 5px;">
+                    Conoce a Sara de la Rosa</h3>
+                <p
+                    style="font-weight: 900; font-size: 1.1rem; color: var(--pd-turquesa); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">
+                    Tu Podóloga Clínica</p>
+                <p style="font-weight: 600; color: #555; margin-bottom: 15px; font-size: 1.05rem;">Con formación
+                    integral en Podología Clínica e Intervención Social, Sara comprende que cada paciente es único. Su
+                    experiencia trabajando con adultos mayores y población vulnerable le permite ofrecer un trato
+                    humano, cálido y profundamente ético.</p>
+                <ul style="list-style: none; font-weight: 700; color: var(--pc-negro); font-size: 1rem;">
+                    <li style="margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><span>🎓</span>
+                        Certificada por INCAP, CONOCER y SEP.</li>
+                    <li style="margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><span>🩺</span>
+                        Especialista en manejo preventivo del pie diabético.</li>
+                    <li style="margin-bottom: 5px; display: flex; align-items: center; gap: 8px;"><span>🌿</span>
+                        Experta en terapias complementarias (Reflexología).</li>
+                </ul>
+                <a href="perfil-sara.html" class="btn"
+                    style="background: var(--pc-blanco); color: var(--pc-negro); margin-top: 20px; font-size: 1.05rem; padding: 12px 25px; width: auto;">Ver
+                    Perfil Profesional Completo ➔</a>
+            </div>
+        </section>
+
+        <section class="content-box fade-in"
+            style="padding: 0; background: transparent; border: none; box-shadow: none; margin-bottom: 50px;">
+            <h2 class="hand-drawn"
+                style="text-align: center; color: var(--pc-negro); font-size: 2.8rem; margin-bottom: 30px;">Nuestros
+                Servicios</h2>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-bottom: 35px;">
+                <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px 25px; box-shadow: 6px 6px 0 var(--pd-turquesa-claro); transition: all 0.3s ease; text-align: center;"
+                    onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='8px 8px 0 var(--pd-turquesa)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='6px 6px 0 var(--pd-turquesa-claro)';">
+                    <div
+                        style="font-size: 3.5rem; margin-bottom: 15px; filter: drop-shadow(2px 2px 0 var(--pc-negro));">
+                        🦶</div>
+                    <h3
+                        style="color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; font-size: 1.6rem; margin-bottom: 10px; line-height: 1.2;">
+                        Podología Preventiva</h3>
+                    <p style="font-weight: 600; color: #555; font-size: 1rem;">Corte clínico profesional, manejo seguro
+                        de callosidades y reducción de uñas engrosadas.</p>
+                </div>
+                <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px 25px; box-shadow: 6px 6px 0 var(--pc-rosa-pastell); transition: all 0.3s ease; text-align: center;"
+                    onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='8px 8px 0 var(--pc-rosa-fuerte)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='6px 6px 0 var(--pc-rosa-pastell)';">
+                    <div
+                        style="font-size: 3.5rem; margin-bottom: 15px; filter: drop-shadow(2px 2px 0 var(--pc-negro));">
+                        🩸</div>
+                    <h3
+                        style="color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; font-size: 1.6rem; margin-bottom: 10px; line-height: 1.2;">
+                        Pie Diabético</h3>
+                    <p style="font-weight: 600; color: #555; font-size: 1rem;">Revisión de sensibilidad y circulación.
+                        Cuidado y profilaxis para prevenir complicaciones.</p>
+                </div>
+                <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px 25px; box-shadow: 6px 6px 0 var(--pc-amarillo); transition: all 0.3s ease; text-align: center;"
+                    onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='8px 8px 0 #f57f17';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='6px 6px 0 var(--pc-amarillo)';">
+                    <div
+                        style="font-size: 3.5rem; margin-bottom: 15px; filter: drop-shadow(2px 2px 0 var(--pc-negro));">
+                        🩹</div>
+                    <h3
+                        style="color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; font-size: 1.6rem; margin-bottom: 10px; line-height: 1.2;">
+                        Alivio Inmediato</h3>
+                    <p style="font-weight: 600; color: #555; font-size: 1rem;">Tratamiento conservador y extracción
+                        segura para uña encarnada, deteniendo el dolor.</p>
+                </div>
+                <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px 25px; box-shadow: 6px 6px 0 #e8f5e9; transition: all 0.3s ease; text-align: center;"
+                    onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='8px 8px 0 #2e7d32';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='6px 6px 0 #e8f5e9';">
+                    <div
+                        style="font-size: 3.5rem; margin-bottom: 15px; filter: drop-shadow(2px 2px 0 var(--pc-negro));">
+                        🏡</div>
+                    <h3
+                        style="color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; font-size: 1.6rem; margin-bottom: 10px; line-height: 1.2;">
+                        A Domicilio</h3>
+                    <p style="font-weight: 600; color: #555; font-size: 1rem;">Llevamos la clínica hasta tu casa en
+                        Rosarito. Ideal para adultos mayores con poca movilidad.</p>
+                </div>
+            </div>
+
+            <!-- BOTÓN PARA DESPLEGAR EL CATÁLOGO DETALLADO -->
+            <div style="text-align: center; margin-bottom: 30px;">
+                <button id="btnToggleCat" onclick="toggleCat(this)" class="btn" style="background: var(--pc-negro); color: white; width: auto; padding: 12px 30px; font-size: 1.1rem;">📋 Ver catálogo detallado y precios ▼</button>
+            </div>
+
+            <div id="full-catalog"
+                style="display: none; background: white; border: 4px dashed var(--pc-negro); border-radius: 25px; padding: 30px; margin-bottom: 40px; scroll-margin-top: 90px; animation: popIn 0.4s ease-out;">
+                <h2 class="hand-drawn"
+                    style="color: var(--pc-negro); margin-bottom: 15px; text-align: center; font-size: 2rem;">Catálogo
+                    de Procedimientos</h2>
+                <input type="text" id="podoSearch" class="search-box"
+                    placeholder="Buscar servicio (ej. uña encarnada, hongos, diabético)..." onkeyup="filterPodo()">
+
+                <div class="services-grid" id="podoGrid">
+                    <div class="service-card">
+                        <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);"><span>✂️</span> Corte Clínico</h3>
+                        <p>Corte preventivo y estético con instrumental estéril. Ideal para prevenir uñas encarnadas o
+                            para personas mayores que ya no pueden alcanzar sus pies.</p>
+                        <div class="price-badge">Cuota: $380 m.n.</div>
+                        <button class="btn" style="margin-top: auto;"
+                            onclick="openPodoModal('Corte Clínico de Uñas')">Agendar <span>💬</span></button>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);"><span>🩹</span> Extracción de Uña
+                        </h3>
+                        <p>Retiro seguro y clínico del borde de la uña que penetró la piel, causando inflamación y dolor
+                            punzante (onicocriptosis).</p>
+                        <div class="price-badge">Cuota: $350 m.n.</div>
+                        <button class="btn" style="margin-top: auto;"
+                            onclick="openPodoModal('Extracción de Uña Encarnada')">Agendar <span>💬</span></button>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);"><span>🧪</span> Óxido Nítrico</h3>
+                        <p>Tratamiento químico de cauterización para secar la matriz afectada, ideal si sufres de la
+                            misma uña encarnada repetitivamente.</p>
+                        <div class="price-badge">Cuota: $400 m.n.</div>
+                        <button class="btn" style="margin-top: auto;"
+                            onclick="openPodoModal('Uña Encarnada con Óxido Nítrico')">Agendar <span>💬</span></button>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);"><span>🦶</span> Deslaminación</h3>
+                        <p>Retiro mecánico profundo de durezas severas en la planta o talón del pie. Devuelve la
+                            suavidad y previene grietas que pueden sangrar.</p>
+                        <div class="price-badge">Cuota: $350 m.n.</div>
+                        <button class="btn" style="margin-top: auto;"
+                            onclick="openPodoModal('Deslaminación de Durezas')">Agendar <span>💬</span></button>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);"><span>👟</span> Callosidades</h3>
+                        <p>Eliminación del núcleo duro del callo generado por la presión del calzado, aliviando el dolor
+                            punzante al caminar de manera inmediata.</p>
+                        <div class="price-badge">Cuota: $350 m.n.</div>
+                        <button class="btn" style="margin-top: auto;"
+                            onclick="openPodoModal('Tratamiento de Callosidades')">Agendar <span>💬</span></button>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);"><span>🍄</span> Hongos y Pie Atleta
+                        </h3>
+                        <p>Tratamiento, limpieza y fresado para infecciones por hongos en las uñas (onicomicosis) y en
+                            la piel, aliviando descamación y picor.</p>
+                        <div class="price-badge">Cuota: $350 m.n.</div>
+                        <button class="btn" style="margin-top: auto;"
+                            onclick="openPodoModal('Manejo Estético de Hongos / Pie de Atleta')">Agendar
+                            <span>💬</span></button>
+                    </div>
+                    <div class="service-card" style="border-color: var(--pc-rosa-fuerte);">
+                        <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);"><span>🩸</span> Pie Diabético (1ra)
+                        </h3>
+                        <p>Valoración exhaustiva de sensibilidad neuropática, circulación, corte de riesgo y educación
+                            preventiva.</p>
+                        <div class="price-badge" style="background: var(--pc-rosa-pastell);">Cuota: $400 m.n.</div>
+                        <button class="btn" style="margin-top: auto;"
+                            onclick="openPodoModal('Pie Diabético (Primera Valoración)')">Agendar
+                            <span>💬</span></button>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);"><span>💆‍♀️</span> Reflexología
+                        </h3>
+                        <p>Terapia complementaria de masaje con presión en puntos reflejos del pie. Ayuda a liberar la
+                            tensión extrema y estimula la circulación.</p>
+                        <div class="price-badge">Cuota: $450 m.n.</div>
+                        <button class="btn" style="margin-top: auto;"
+                            onclick="openPodoModal('Reflexología Podal')">Agendar <span>💬</span></button>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);"><span>🪹</span> Ventosas</h3>
+                        <p>Aplicación de ventosas para descompresión de tejidos cansados o inflamados, mejorando el
+                            flujo sanguíneo y la oxigenación en el pie/pantorrilla.</p>
+                        <div class="price-badge">Cuota: $300 m.n.</div>
+                        <button class="btn" style="margin-top: auto;"
+                            onclick="openPodoModal('Terapia con Ventosas')">Agendar <span>💬</span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-box fade-in"
+            style="background: white; border: 4px solid var(--pc-negro); border-radius: 25px; padding: 40px; margin-bottom: 50px; box-shadow: 10px 10px 0 var(--pc-gris-suave);">
+            <h2 class="hand-drawn"
+                style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 15px; text-align: center;">Por qué
+                somos tu opción más segura en Rosarito</h2>
+            <p
+                style="font-size: 1.1rem; font-weight: 600; color: #555; margin-bottom: 30px; text-align: center; max-width: 700px; margin-inline: auto;">
+                No tomamos atajos con tu salud. Nuestro modelo único te protege al integrar podología y medicina general
+                en el mismo lugar.</p>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">🛡️ Bioseguridad Nivel Hospitalario</button>
+                    <div class="accordion-content">
+                        <p style="margin-top: 15px;">Tu tranquilidad es primero. Todo nuestro instrumental de acero pasa
+                            por lavado quirúrgico, desinfección química y esterilización total en autoclave. Utilizamos
+                            material desechable y equipo de protección personal completo en cada consulta para prevenir
+                            cualquier tipo de contaminación cruzada.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">👨‍⚕️ Respaldo Médico Inmediato</button>
+                    <div class="accordion-content">
+                        <p style="margin-top: 15px;">No estás sola o solo con el podólogo. Si detectamos cualquier
+                            lesión sospechosa (como verrugas virales), infecciones complejas o un descontrol metabólico
+                            severo en pacientes diabéticos, nuestro médico general titular interviene de inmediato para
+                            brindarte el tratamiento farmacológico necesario. Tu salud no se queda a medias.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">⚖️ Ética y Transparencia Clínica</button>
+                    <div class="accordion-content">
+                        <p style="margin-top: 15px;">Conocemos nuestros límites para protegerte. Si tu condición
+                            requiere manejo hospitalario de urgencia o médico especializado (como úlceras diabéticas
+                            avanzadas), te canalizamos de forma ética, segura y oportuna a las instituciones
+                            correspondientes. Nuestra meta es siempre tu bienestar absoluto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="fade-in"
+            style="background: var(--pc-amarillo); border: 4px dashed var(--pc-negro); border-radius: 25px; padding: 40px 20px; text-align: center; margin-bottom: 40px; box-shadow: 8px 8px 0 var(--pc-rosa-fuerte);">
+            <h3 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 20px;">Agenda tu
+                Cita Hoy</h3>
+            <p style="font-size: 1.15rem; font-weight: 800; color: var(--pc-negro); margin-bottom: 5px;">🏥 Horarios en
+                Clínica:</p>
+            <p style="font-size: 1.1rem; font-weight: 600; color: #444; margin-bottom: 20px;">Lunes a Domingo de
+                <strong>9:00 am a 3:00 pm</strong>.</p>
+            <p style="font-size: 1.15rem; font-weight: 800; color: var(--pc-negro); margin-bottom: 5px;">📍 Ubicación:
+            </p>
+            <p style="font-size: 1.1rem; font-weight: 600; color: #444; margin-bottom: 25px;">Clínica Proyecto Celene,
+                Calle Gral. Guadalupe Victoria, Rosarito B.C.</p>
+            <button onclick="openPodoModal('Información General')" class="btn"
+                style="background: var(--pc-verde-wa); color: white; border-color: var(--pc-negro); font-size: 1.3rem; padding: 15px 40px; width: auto;">Contáctanos
+                por WhatsApp 💬</button>
+        </footer>
+
+    </div>
+    <div id="modalWaPodo" class="modal"
+        onclick="if(event.target==this) { this.style.display='none'; document.body.style.overflow='auto'; }">
+        <div class="modal-content">
+            <span class="close-modal"
+                onclick="document.getElementById('modalWaPodo').style.display='none'; document.body.style.overflow='auto';">✕</span>
+            <h3 class="hand-drawn"
+                style="color:var(--pd-turquesa); font-size:2rem; margin-bottom:10px; margin-top: 0; line-height: 1.1;">
+                Agenda tu Sesión 🦶</h3>
+            <p style="margin-bottom:20px; font-weight: 600; color: #555;">Déjanos tus datos clínicos para que Sara
+                (Podóloga) esté preparada para recibirte.</p>
+
+            <input type="text" id="podo_nombre" placeholder="Nombre completo del paciente">
+            <input type="number" id="podo_edad" placeholder="Edad del paciente">
+            <input type="text" id="podo_patologias"
+                placeholder="¿Enfermedades crónicas? (Ej. Diabetes, Hipertensión, Ninguna)">
+
+            <select id="podo_servicio">
+                <option value="">Servicio de Interés...</option>
+                <option value="Valoración General">Valoración General / Información</option>
+                <option value="Corte Clínico de Uñas">Corte Clínico de Uñas</option>
+                <option value="Extracción de Uña Encarnada">Extracción de Uña Encarnada</option>
+                <option value="Uña Encarnada con Óxido Nítrico">Uña Encarnada con Óxido Nítrico</option>
+                <option value="Deslaminación de Durezas">Deslaminación de Durezas</option>
+                <option value="Tratamiento de Callosidades">Tratamiento de Callosidades</option>
+                <option value="Manejo Estético de Hongos / Pie de Atleta">Manejo de Hongos (Uñas) y Pie de Atleta
+                </option>
+                <option value="Pie Diabético (Primera Valoración)">Pie Diabético (Primera Valoración)</option>
+                <option value="Reflexología Podal">Reflexología Podal</option>
+                <option value="Terapia con Ventosas">Terapia con Ventosas</option>
+            </select>
+
+            <textarea id="podo_problema" rows="2"
+                placeholder="Describe brevemente qué te duele o cuál es el problema..."></textarea>
+
+            <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                <button onclick="enviarWaPodo('clinica')" class="btn" style="flex: 1; margin: 0;">Cita en Clínica
+                    <span>🏥</span></button>
+                <button onclick="enviarWaPodo('domicilio')" class="btn"
+                    style="flex: 1; margin: 0; background: var(--pd-turquesa); border-color: var(--pc-negro);">Cita a
+                    Domicilio <span>🏡</span></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function removeAccents(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function filterPodo() {
+            let input = removeAccents(document.getElementById('podoSearch').value.toLowerCase());
+            let cards = document.getElementById('podoGrid').getElementsByClassName('service-card');
+
+            for (let card of cards) {
+                let title = removeAccents(card.querySelector('h3').innerText.toLowerCase());
+                let desc = removeAccents(card.querySelector('p').innerText.toLowerCase());
+
+                if (title.includes(input) || desc.includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+        }
+
+        // LÓGICA DEL CUESTIONARIO Y CATÁLOGO
+        function nextPodoQuestion(btn) {
+            const currentQ = btn.closest('.quiz-question');
+            const nextQ = currentQ.nextElementSibling;
+            currentQ.style.display = 'none';
+            if (nextQ && nextQ.classList.contains('quiz-question')) {
+                nextQ.style.display = 'block';
+            }
+        }
+
+        function showPodoQuizResult() {
+            document.querySelectorAll('.quiz-question').forEach(el => el.style.display = 'none');
+            document.getElementById('podo-quiz-result').style.display = 'block';
+        }
+
+        function showPodoQuizHealthy() {
+            document.querySelectorAll('.quiz-question').forEach(el => el.style.display = 'none');
+            document.getElementById('podo-quiz-healthy').style.display = 'block';
+        }
+
+        function scrollToCatalog() {
+            const cat = document.getElementById('full-catalog');
+            cat.style.display = 'block';
+            const btn = document.getElementById('btnToggleCat');
+            if(btn) btn.innerHTML = '📋 Ocultar catálogo detallado ▲';
+            cat.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function toggleCat(btnElement) {
+            const cat = document.getElementById('full-catalog');
+            if(cat.style.display === 'none' || cat.style.display === '') {
+                cat.style.display = 'block';
+                btnElement.innerHTML = '📋 Ocultar catálogo detallado ▲';
+                cat.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                cat.style.display = 'none';
+                btnElement.innerHTML = '📋 Ver catálogo detallado y precios ▼';
+            }
+        }
+
+        // LÓGICA DEL ACORDEÓN
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const isActive = item.classList.toggle('active');
+                    const content = item.querySelector('.accordion-content');
+                    content.style.display = isActive ? 'block' : 'none';
+                });
+            });
+        });
+
+        // MODAL WHATSAPP
+        function openPodoModal(serviceName) {
+            let select = document.getElementById('podo_servicio');
+
+            // Si el servicio no existe exacto en el select, ponemos la opción por defecto
+            let optionExists = Array.from(select.options).some(opt => opt.value === serviceName);
+            select.value = optionExists ? serviceName : "";
+
+            document.getElementById('modalWaPodo').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function enviarWaPodo(tipoAtencion) {
+            let nombre = document.getElementById('podo_nombre').value.trim();
+            let edad = document.getElementById('podo_edad').value.trim() || '?';
+            let patologias = document.getElementById('podo_patologias').value.trim() || 'No especificado';
+            let servicio = document.getElementById('podo_servicio').value;
+            let problema = document.getElementById('podo_problema').value.trim();
+
+            if (!nombre || !servicio) {
+                alert("Por favor, llena tu nombre y selecciona el servicio de interés.");
+                return;
+            }
+
+            let modalidadStr = tipoAtencion === 'domicilio' ? 'A Domicilio 🏡' : 'En Clínica Celene 🏥';
+            let saludo = tipoAtencion === 'domicilio' ? 'Hola Podóloga Sara 🦶' : 'Hola Proyecto Celene 🦶';
+
+            let msg = `${saludo}.\nQuiero agendar una cita de Podología para el servicio de: *${servicio}*\n\n*Modalidad:* ${modalidadStr}\n*Paciente:* ${nombre} (${edad} años)\n*Enfermedades crónicas:* ${patologias}`;
+
+            if (problema) {
+                msg += `\n*Mi problema actual es:* ${problema}`;
+            }
+
+            if (tipoAtencion === 'domicilio') {
+                window.open(`https://wa.me/525521300344?text=${encodeURIComponent(msg)}`, '_blank');
+            } else {
+                window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+            }
+
+            document.getElementById('modalWaPodo').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+    <script src="js/global.js"></script>
+</body>
+
+</html>

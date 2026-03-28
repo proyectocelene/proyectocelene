@@ -105,3 +105,41 @@
         opacity: 1;
     }
 }
+
+/* PÍLDORA FLOTANTE PARA VOLVER ARRIBA (GLOBAL) */
+.global-top-pill {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: var(--pc-negro, #333333);
+    color: var(--pc-blanco, #ffffff);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    border: 3px solid var(--pc-blanco, #ffffff);
+    box-shadow: 4px 4px 0 var(--pc-rosa-fuerte, #d81b60);
+    z-index: 9998;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.global-top-pill.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.global-top-pill:hover {
+    background: var(--pc-rosa-fuerte, #d81b60);
+    color: var(--pc-blanco, #ffffff);
+    transform: translateY(-5px);
+    box-shadow: 4px 8px 0 var(--pc-negro, #333333);
+}

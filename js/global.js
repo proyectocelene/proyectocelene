@@ -49,7 +49,15 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </div>
     `;
-    document.body.insertAdjacentHTML('beforeend', globalWaHTML);
+
+    // Inyectar Píldora para Volver Arriba
+    const globalTopPillHTML = `
+        <a href="#" class="global-top-pill" id="globalTopPill" title="Volver arriba">
+            <span>⬆️</span> Inicio
+        </a>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', globalWaHTML + globalTopPillHTML);
 
     window.openGlobalWaModal = function () {
         document.getElementById('globalWaModal').style.display = 'flex';
@@ -67,4 +75,21 @@ document.addEventListener("DOMContentLoaded", function () {
         window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
         document.getElementById('globalWaModal').style.display = 'none';
     };
+
+    // Lógica para la píldora de Volver Arriba
+    const topPill = document.getElementById('globalTopPill');
+    if (topPill) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                topPill.classList.add('visible');
+            } else {
+                topPill.classList.remove('visible');
+            }
+        });
+
+        topPill.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });

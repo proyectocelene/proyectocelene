@@ -780,6 +780,7 @@
             <button class="filter-btn" onclick="filterCategory('lab')">Laboratorios</button>
             <button class="filter-btn" onclick="filterCategory('psico')">Psicología</button>
             <button class="filter-btn" onclick="filterCategory('fisio')">Fisioterapia</button>
+            <button class="filter-btn" onclick="filterCategory('podologia')">Podología</button>
             <button class="filter-btn" onclick="filterCategory('proc')">Procedimientos</button>
         </nav>
 
@@ -1419,6 +1420,108 @@
             </div>
 
             <!-- ==============================
+             PODOLOGÍA
+        =============================== -->
+            <div class="service-card category-card" data-cat="podologia" data-keywords="podologo uñas corte clinico limpieza pies">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Corte Clínico de Uñas <span>✂️</span></h3>
+                <p class="service-preview">Corte preventivo profesional con instrumental estéril, ideal para evitar encarnaciones o para personas mayores que no pueden alcanzar sus pies con seguridad.</p>
+                <div class="price-text">Cuota: $380 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_corte')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia proc" data-keywords="uña encarnada dolor extraccion sacar uña podologo">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Extracción de Uña Encarnada</h3>
+                <p class="service-preview">Retiro clínico y seguro del fragmento de uña que está causando dolor, inflamación e infección (onicocriptosis) en el borde de tu dedo.</p>
+                <div class="price-text">Cuota: $350 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_extraccion')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia proc" data-keywords="uña encarnada oxido nitrico cauterizar raiz podologo">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Uña Encarnada (Óxido Nítrico)</h3>
+                <p class="service-preview">Tratamiento especializado que utiliza óxido nítrico para evitar que la uña vuelva a encarnarse de forma repetitiva en el mismo borde.</p>
+                <div class="price-text">Cuota: $400 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_nitrico')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia" data-keywords="deslaminacion hiperqueratosis durezas talones agrietados">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Deslaminación / Hiperqueratosis</h3>
+                <p class="service-preview">Retiro profundo y clínico de durezas severas en la planta o talón del pie para devolver la suavidad y prevenir grietas dolorosas y profundas.</p>
+                <div class="price-text">Cuota: $350 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_hiper')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia" data-keywords="callos callosidades dolor pie roce zapato">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Tratamiento de Callosidades</h3>
+                <p class="service-preview">Eliminación segura y sin dolor de callos (helomas) causados por la fricción o presión constante del calzado, recuperando tu comodidad al caminar.</p>
+                <div class="price-text">Cuota: $350 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_callos')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia" data-keywords="hongos uñas onicomicosis amarillas gruesas pie atleta descamacion podologo">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Hongos y Pie de Atleta <span>🍄</span></h3>
+                <p class="service-preview">Tratamiento, limpieza y fresado para infecciones por hongos en las uñas (onicomicosis) y en la piel (pie de atleta), aliviando la descamación, mal olor y picor.</p>
+                <div class="price-text">Cuota: $350 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_hongos')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia" data-keywords="pie diabetico diabetes prevencion neuropatia podologo">
+                <span class="cat-tag">Podología Especializada</span>
+                <h3 class="service-title">Pie Diabético (1ra Consulta) <span>🩸</span></h3>
+                <p class="service-preview">Valoración vital para pacientes con diabetes: revisión de sensibilidad, pulsos, corte preventivo y educación para evitar complicaciones graves o úlceras.</p>
+                <div class="price-text">Cuota: $400 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_diabetico')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia fisio" data-keywords="reflexologia masaje pies relajacion estres podologo">
+                <span class="cat-tag">Terapias Complementarias</span>
+                <h3 class="service-title">Reflexología Podal</h3>
+                <p class="service-preview">Terapia de masaje y presión en puntos específicos del pie que conectan con tu sistema nervioso, ideal para aliviar la tensión extrema y promover el bienestar.</p>
+                <div class="price-text">Cuota: $450 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('podo_reflexologia')">Más Info</button>
+                    <button onclick="openInfo('podo_reflexologia')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia fisio" data-keywords="ventosas cupping descompresion muscular terapia">
+                <span class="cat-tag">Terapias Complementarias</span>
+                <h3 class="service-title">Terapia con Ventosas</h3>
+                <p class="service-preview">Aplicación de ventosas para generar succión y descompresión tisular, favoreciendo el flujo sanguíneo y la relajación muscular profunda.</p>
+                <div class="price-text">Cuota: $300 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('podo_ventosas')">Más Info</button>
+                    <button onclick="openInfo('podo_ventosas')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <!-- ==============================
              PROCEDIMIENTOS Y OTROS (CLÍNICA)
         =============================== -->
             <div class="service-card category-card" data-cat="consulta"
@@ -1697,8 +1800,12 @@
 
                 <textarea id="sm_duda" rows="2"
                     placeholder="¿Tienes alguna duda o quieres agendar directamente?"></textarea>
-                <button onclick="sendServiceWa()" class="btn btn-wa"
-                    style="width: 100%; border-color:var(--pc-negro);">Enviar Mensaje <span>💬</span></button>
+                <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                    <button onclick="sendServiceWa(false)" class="btn btn-wa"
+                        style="flex: 1; border-color:var(--pc-negro); margin: 0;">Cita en Clínica <span>🏥</span></button>
+                    <button id="btn_domicilio" onclick="sendServiceWa(true)" class="btn"
+                        style="flex: 1; background: #00bcd4; color: white; border-color:var(--pc-negro); margin: 0; display: none;">Cita a Domicilio <span>🏡</span></button>
+                </div>
             </div>
 
             <p style="text-align: center; margin-top: 25px; font-weight: 800; color: #555;">Puedes acudir directamente
@@ -1949,6 +2056,98 @@
                 include: ["Acompañamiento Oncológico", "Manejo de Duelo", "Ansiedad y Depresión", "Terapia de Pareja/Familiar"],
                 reqs: "Cuota de Recuperación y sesiones sujetas a valoración.",
                 waMsg: "Agendar Sesión de Psicología"
+            },
+
+            // --- PODOLOGÍA ---
+            podo_corte: {
+                title: "Corte Clínico de Uñas <span>✂️</span>",
+                desc: "Corte preventivo y estético realizado bajo protocolos de bioseguridad. Evita malformaciones, uñas encarnadas y lesiones accidentales.",
+                why: "Con los años o debido a problemas de movilidad, cortar las uñas de los pies se vuelve riesgoso. Un mal corte es la causa #1 de infecciones y dolor.",
+                include: ["Valoración podológica inicial.", "Corte recto y pulido de bordes.", "Instrumental esterilizado en autoclave."],
+                reqs: "Cuota de Recuperación: $380 m.n.",
+                waMsg: "Cita para Corte Clínico de Uñas",
+                price: 380,
+                eduLink: "podologia.html"
+            },
+            podo_extraccion: {
+                title: "Extracción de Uña Encarnada",
+                desc: "Retiro seguro del borde ungueal que penetró la piel, causando dolor intenso o infección (onicocriptosis).",
+                why: "Una uña encarnada no sana sola. Intentar sacarla en casa suele agravar la infección y dañar el tejido permanentemente.",
+                include: ["Técnica aséptica profesional.", "Retiro del fragmento doloroso.", "Curación y vendaje inicial.", "Instrucciones de cuidado en casa."],
+                reqs: "Cuota de Recuperación: $350 m.n. <br><br>🚨 Si hay infección severa, requerirá valoración médica previa para recetar antibiótico.",
+                waMsg: "Cita para Extracción de Uña Encarnada",
+                price: 350,
+                eduLink: "podologia.html"
+            },
+            podo_nitrico: {
+                title: "Uña Encarnada (Óxido Nítrico)",
+                desc: "Tratamiento de cauterización química para pacientes que sufren de uñas que se encarnan de manera repetitiva en el mismo sitio.",
+                why: "Al aplicar óxido nítrico en la matriz del canal afectado, evitamos que esa esquina específica de la uña vuelva a crecer y encarnarse a futuro.",
+                include: ["Extracción de la espícula (borde encarnado).", "Aplicación de Óxido Nítrico en la matriz.", "Seguimiento podológico."],
+                reqs: "Cuota de Recuperación: $400 m.n.",
+                waMsg: "Cita para Uña Encarnada con Óxido Nítrico",
+                price: 400,
+                eduLink: "podologia.html"
+            },
+            podo_hiper: {
+                title: "Deslaminación / Hiperqueratosis",
+                desc: "Retiro mecánico y cuidadoso del exceso de piel dura y engrosada (hiperqueratosis) que se forma comúnmente en los talones y plantas.",
+                why: "Si no se atiende, la piel dura pierde elasticidad y se agrieta, causando fisuras muy dolorosas que pueden sangrar e infectarse.",
+                include: ["Ablandamiento del tejido.", "Deslaminación con bisturí podológico.", "Pulido e hidratación profunda."],
+                reqs: "Cuota de Recuperación: $350 m.n.",
+                waMsg: "Cita para Deslaminación de Durezas",
+                price: 350,
+                eduLink: "podologia.html"
+            },
+            podo_callos: {
+                title: "Tratamiento de Callosidades",
+                desc: "Eliminación de los helomas (callos profundos con un núcleo duro) generados por el roce constante de los huesos contra el calzado.",
+                why: "Un callo es como tener una pequeña piedra enterrada bajo la piel. Retirar el núcleo alivia la presión y el dolor punzante al instante al caminar.",
+                include: ["Enucleación (retiro del núcleo) del callo.", "Pulido de la zona.", "Orientación sobre calzado adecuado."],
+                reqs: "Cuota de Recuperación: $350 m.n.",
+                waMsg: "Cita para Retiro de Callosidades",
+                price: 350,
+                eduLink: "podologia.html"
+            },
+            podo_hongos: {
+                title: "Hongos y Pie de Atleta <span>🍄</span>",
+                desc: "Atención especializada para tratar infecciones fúngicas tanto en las uñas (onicomicosis) como en la piel (pie de atleta).",
+                why: "Los hongos causan dolor, mal olor, descamación y engrosamiento de la uña. El tratamiento médico (gotas) no penetra si la uña está demasiado gruesa, por lo que el fresado podológico es fundamental.",
+                include: ["Fresado clínico para adelgazar la uña afectada.", "Limpieza profunda de la zona.", "Tratamiento tópico inicial.", "Canalización al médico para receta antifúngica si se requiere."],
+                reqs: "Cuota de Recuperación: $350 m.n. <br><br>⚠️ La podóloga realiza el manejo estético/físico, los medicamentos en pastillas (si se ocupan) deben ser recetados por el médico.",
+                waMsg: "Cita para Manejo de Hongos / Pie de Atleta",
+                price: 350,
+                eduLink: "podologia.html"
+            },
+            podo_diabetico: {
+                title: "Pie Diabético (1ra Consulta) <span>🩸</span>",
+                desc: "Atención especializada y preventiva para pacientes diabéticos. El cuidado de tus pies en esta condición no es estético, ¡es de supervivencia!",
+                why: "La diabetes daña los nervios (neuropatía) y la circulación. Puedes tener una herida o una uña enterrada y no sentirla hasta que esté gravemente infectada. La revisión mensual salva extremidades.",
+                include: ["Valoración de sensibilidad neuropática.", "Corte y limado preventivo.", "Atención a pequeñas lesiones sin infección activa.", "Educación en salud."],
+                reqs: "Cuota de Primera Consulta: $400 m.n. <br><br>🚨 Pacientes descontrolados, con úlceras avanzadas o infecciones activas severas, requieren valoración con el médico general antes de tocar el pie.",
+                waMsg: "Cita de Primera Vez para Pie Diabético",
+                price: 400,
+                eduLink: "podologia.html"
+            },
+            podo_reflexologia: {
+                title: "Reflexología Podal",
+                desc: "Terapia de masaje profundo que aplica presión en zonas reflejas del pie correspondientes a distintos órganos del cuerpo.",
+                why: "Alivia el estrés, mejora la circulación sanguínea y estimula el sistema nervioso para lograr una relajación profunda y alivio del dolor crónico.",
+                include: ["Sesión de reflexología manual.", "Aromaterapia o ambiente relajante.", "Mejora del retorno venoso."],
+                reqs: "Cuota de Recuperación: $450 m.n.",
+                waMsg: "Cita para Reflexología Podal",
+                price: 450,
+                eduLink: "podologia.html"
+            },
+            podo_ventosas: {
+                title: "Terapia con Ventosas",
+                desc: "Terapia milenaria que utiliza succión sobre la piel para generar descompresión en los tejidos, aliviar contracturas y estimular el flujo de sangre.",
+                why: "Excelente técnica para soltar tensión extrema, reducir inflamación local y oxigenar tejidos dañados o cansados.",
+                include: ["Valoración de la tensión.", "Aplicación clínica de ventosas neumáticas o térmicas.", "Masaje liberador."],
+                reqs: "Cuota de Recuperación: $300 m.n.",
+                waMsg: "Cita para Terapia con Ventosas",
+                price: 300,
+                eduLink: "podologia.html"
             },
 
             // --- COMBOS ---
@@ -2424,6 +2623,12 @@
                 document.getElementById('papa_extra_fields').style.display = 'none';
             }
 
+            if (id.startsWith('podo_')) {
+                document.getElementById('btn_domicilio').style.display = 'block';
+            } else {
+                document.getElementById('btn_domicilio').style.display = 'none';
+            }
+
             document.getElementById('modalBody').innerHTML = bodyHtml;
             currentServiceWaMsg = info.waMsg;
             currentServiceId = id;
@@ -2433,11 +2638,11 @@
 
         function closeModal() { document.getElementById('serviceModal').style.display = "none"; }
 
-        function sendServiceWa() {
+        function sendServiceWa(isDomicilio = false) {
             let nombre = document.getElementById('sm_nombre').value.trim() || "No especificado";
             let edad = document.getElementById('sm_edad').value.trim() || "-";
             let duda = document.getElementById('sm_duda').value.trim();
-            let msg = `Hola Proyecto Celene 🌸.\nSoy *${nombre}* (${edad} años).\nMe interesa agendar/información sobre: *${currentServiceWaMsg}*.`;
+            let msg = isDomicilio ? `Hola Podóloga Sara 🦶.\nSoy *${nombre}* (${edad} años).\nMe interesa el servicio: *${currentServiceWaMsg}*.` : `Hola Proyecto Celene 🌸.\nSoy *${nombre}* (${edad} años).\nMe interesa agendar/información sobre: *${currentServiceWaMsg}*.`;
 
             if (currentServiceWaMsg === 'Papanicolaou') {
                 let mtv = document.getElementById('sm_papa_motivo').value.trim() || "No especificó";
@@ -2461,7 +2666,14 @@
                 msg += `\n\n*Método de Pago seleccionado:* ${paymentText}`;
             }
 
-            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+            if (isDomicilio) {
+                msg += `\n\n*Modalidad:* Atención a Domicilio 🏡`;
+                window.open(`https://wa.me/525521300344?text=${encodeURIComponent(msg)}`, '_blank');
+            } else {
+                if (currentServiceId.startsWith('podo_')) msg += `\n\n*Modalidad:* En Clínica Celene 🏥`;
+                window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+            }
+            
             closeModal();
         }
         window.onclick = function (event) { if (event.target == document.getElementById('serviceModal')) closeModal(); }

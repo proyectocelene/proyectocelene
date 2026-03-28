@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pod. Sara de la Rosa - Proyecto Celene</title>
+    <meta name="description"
+        content="Conoce a Sara de la Rosa, Podóloga Clínica de Proyecto Celene especializada en el cuidado integral y preventivo del pie.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/perfil-sara.html">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/perfil-sara.html">
+    <meta property="og:title" content="Pod. Sara de la Rosa - Proyecto Celene">
+    <meta property="og:description"
+        content="Especialista en podología clínica, pie diabético y bienestar. Conoce su perfil completo.">
+    <meta property="og:image" content="https://i.ibb.co/Q31RbgcH/sara-podologa-vertical.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde-wa: #25d366;
+            --pd-turquesa: #00bcd4;
+            --pd-turquesa-claro: #e0f7fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pd-turquesa-claro);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* NAV */
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0px var(--pd-turquesa);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            border-color: var(--pc-negro);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        /* HERO */
+        .hero-profile {
+            background: var(--pc-blanco);
+            border: 4px solid var(--pc-negro);
+            border-radius: 25px;
+            padding: 40px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 10px 10px 0 var(--pc-rosa-pastell);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-img-box {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 20px;
+            border: 4px solid var(--pc-negro);
+            box-shadow: 8px 8px 0 var(--pd-turquesa);
+            transform: rotate(-2deg);
+            object-fit: cover;
+        }
+
+        .hero-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            color: var(--pc-rosa-fuerte);
+            line-height: 1.1;
+            margin-bottom: 5px;
+        }
+
+        .hero-text h2 {
+            font-size: 1.4rem;
+            color: var(--pd-turquesa);
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .quote-bubble {
+            background: var(--pc-amarillo);
+            border: 3px dashed var(--pc-negro);
+            padding: 20px;
+            border-radius: 15px 15px 15px 0;
+            font-family: 'Handlee', cursive;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            color: var(--pc-negro);
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: 3px solid var(--pc-negro);
+            font-weight: 900;
+            text-decoration: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.1s;
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            box-shadow: 0 5px 0 var(--pc-negro);
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn:active {
+            top: 5px;
+            box-shadow: 0 0px 0 transparent !important;
+        }
+
+        .btn-turquesa {
+            background: var(--pd-turquesa);
+            color: white;
+        }
+
+        /* SECTIONS */
+        .content-section {
+            background: var(--pc-blanco);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 8px 8px 0 var(--pc-amarillo);
+        }
+
+        .content-section.dark {
+            background: var(--pd-turquesa);
+            color: var(--pc-blanco);
+            box-shadow: 8px 8px 0 var(--pc-negro);
+        }
+
+        .content-section h3 {
+            font-size: 2rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--pd-turquesa-claro);
+            padding-bottom: 10px;
+        }
+
+        .content-section.dark h3 {
+            color: var(--pc-amarillo);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* GRID DE ÁREAS Y CERTIFICACIONES */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tag-card {
+            background: var(--pd-turquesa-claro);
+            border: 2px solid var(--pc-negro);
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <!-- HERO -->
+        <header class="hero-profile fade-in">
+            <div class="hero-img-box">
+                <img src="https://i.ibb.co/Q31RbgcH/sara-podologa-vertical.png" alt="Pod. Sara de la Rosa"
+                    class="hero-img">
+            </div>
+            <div class="hero-text">
+                <h1 class="hand-drawn">Sara de la Rosa</h1>
+                <h2>Podóloga Clínica</h2>
+
+                <div class="quote-bubble">
+                    "Los pies son la base que sostiene toda nuestra vida. Mi compromiso es brindar una atención que no
+                    sea únicamente estética, sino verdaderamente clínica, preventiva y profundamente coordinada para
+                    proteger tu movilidad."
+                </div>
+
+                <a href="podologia.html" class="btn btn-turquesa">Ver Clínica de Podología 🦶</a>
+                <a href="servicios.html" class="btn">Todos los Servicios 🩺</a>
+            </div>
+        </header>
+
+        <!-- BIOGRAFÍA -->
+        <section class="content-section fade-in">
+            <h3 class="hand-drawn">Trayectoria y Vocación</h3>
+            <p>Con una sólida formación técnica inicial en Trabajo Social (CETIS No. 5), he desarrollado una gran
+                sensibilidad para identificar y apoyar a pacientes en situación de vulnerabilidad. Posteriormente,
+                dediqué mi camino profesional a la salud física completando mi formación en <strong>Podología Clínica en
+                    INCAP</strong>, avalada por las certificaciones oficiales de CONOCER y la SEP.</p>
+            <p>A lo largo de mi carrera, he colaborado en diversos centros de rehabilitación y entornos clínicos. Mi
+                experiencia está fuertemente arraigada en la atención de adultos y adultos mayores, siempre con el
+                enfoque principal de brindar un manejo seguro, prevenir complicaciones y mejorar drásticamente su
+                calidad de vida.</p>
+        </section>
+
+        <!-- EL MODELO -->
+        <section class="content-section dark fade-in">
+            <h3 class="hand-drawn">El Modelo de Atención Integral</h3>
+            <p>En Proyecto Celene no realizamos intervenciones podológicas aisladas. Comprendo la gran responsabilidad
+                que conlleva tocar la base de tu cuerpo, por lo que mi práctica se rige bajo un enfoque
+                interdisciplinario.</p>
+            <p style="color: var(--pd-turquesa-claro);">Al estar integrados en la misma clínica con médicos generales,
+                si detecto riesgos severos (como diabetes descontrolada o infecciones activas de alto riesgo),
+                realizamos una evaluación y derivación médica inmediata. Esto asegura que tus tratamientos sean siempre
+                seguros y plenamente justificados bajo evidencia científica.</p>
+        </section>
+
+        <!-- ÁREAS DE ATENCIÓN -->
+        <section class="content-section fade-in">
+            <h3 class="hand-drawn">Áreas de Especialidad</h3>
+            <div class="grid-2" style="margin-bottom: 30px;">
+                <div class="tag-card">🩸 Manejo Preventivo del Pie Diabético</div>
+                <div class="tag-card">🩹 Extracción de Uña Encarnada</div>
+                <div class="tag-card">✂️ Perfilado y Corte Clínico de Uñas</div>
+                <div class="tag-card">🍄 Manejo Estético de Onicomicosis</div>
+                <div class="tag-card">💆‍♀️ Terapia de Reflexología Podal</div>
+                <div class="tag-card">🪹 Tratamiento con Ventosas</div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="js/global.js"></script>
+</body>
+
+</html>
