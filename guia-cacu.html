@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Clara de Cáncer Cervicouterino y VPH | Proyecto Celene</title>
+    <meta name="description"
+        content="Guía interactiva sobre prevención, tamizaje y tratamiento del Cáncer Cervicouterino (CaCu). Papanicolaou, Pruebas VPH e IVAA explicados paso a paso.">
+    <meta name="author" content="Dr. Carlos Donato">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/guia-cacu.html">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/guia-cacu.html">
+    <meta property="og:title" content="Guía de Cáncer Cervicouterino y VPH | Proyecto Celene">
+    <meta property="og:description" content="Aprende sin miedo sobre el VPH, los diferentes estudios (Papanicolaou, Molecular, IVAA) y cómo proteger tu salud.">
+    <meta property="og:image" content="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde: #25d366;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        /* HEADER */
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-rosa-pastell); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); position: relative; overflow: hidden; }
+        .header h1 { font-size: 2.8rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; line-height: 1.1; }
+        .author-badge { display: inline-block; background: var(--pc-negro); color: var(--pc-blanco); padding: 5px 15px; border-radius: 50px; font-weight: 900; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* TABS */
+        .tabs-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .tab-btn { background: var(--pc-blanco); border: 3px solid var(--pc-negro); padding: 12px 20px; border-radius: 50px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); transition: 0.2s; }
+        .tab-btn:hover { background: var(--pc-rosa-pastell); transform: translateY(-2px); box-shadow: 0 6px 0 var(--pc-negro); }
+        .tab-btn.active { background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 0px 0 var(--pc-negro); transform: translateY(4px); }
+        .tab-content { display: none; animation: fadeInTab 0.4s ease-out; }
+        @keyframes fadeInTab { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* CAJAS */
+        .content-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-amarillo); position: relative; overflow: hidden; }
+        .content-box h2 { color: var(--pc-rosa-fuerte); margin-bottom: 15px; font-size: 1.8rem; }
+        .content-box p { margin-bottom: 15px; font-size: 1.05rem; color: #444; font-weight: 600; }
+        .content-box ul { margin-left: 20px; margin-bottom: 15px; font-weight: 600; color: #444; font-size: 1.05rem; }
+        .content-box li { margin-bottom: 8px; }
+
+        .info-panel { padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-bottom: 20px; }
+        .info-panel h4 { font-size: 1.2rem; color: var(--pc-negro); margin-bottom: 5px; }
+
+        /* COMPARATIVE TABLE */
+        .table-responsive { overflow-x: auto; margin-top: 20px; border-radius: 15px; border: 3px solid var(--pc-negro); }
+        .thm-table { width: 100%; border-collapse: collapse; min-width: 700px; font-weight: 600; background: white; }
+        .thm-table th, .thm-table td { padding: 15px; border-bottom: 2px solid var(--pc-negro); border-right: 2px solid var(--pc-negro); font-size: 0.95rem; }
+        .thm-table th { background: var(--pc-rosa-fuerte); color: white; text-align: center; font-size: 1.1rem; }
+        .thm-table tbody tr:last-child td { border-bottom: none; }
+        .thm-table td:last-child { border-right: none; }
+        .thm-table td.pro { background: #e8f5e9; }
+        .thm-table td.con { background: #ffebee; }
+        
+        /* INTERACTIVE ALGORITHM */
+        .algo-box { background: var(--pc-azul-suave); padding: 25px; border-radius: 20px; border: 4px dashed var(--pc-negro); margin-bottom: 30px; text-align: center; }
+        .algo-box h3 { font-family: 'Handlee', cursive; font-size: 1.8rem; margin-bottom: 15px; color: var(--pc-negro); }
+        .algo-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+        .btn-algo { background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 15px 25px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.2s; box-shadow: 4px 4px 0 var(--pc-negro); font-family: 'Nunito', sans-serif;}
+        .btn-algo:hover { transform: translateY(-3px); box-shadow: 6px 6px 0 var(--pc-negro); }
+        .btn-algo:active { transform: translateY(4px); box-shadow: 0 0 0 transparent; }
+        
+        .algo-result { display: none; background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; text-align: left; box-shadow: 4px 4px 0 var(--pc-rosa-fuerte); animation: popIn 0.3s ease-out; }
+        @keyframes popIn { 0% { transform: scale(0.95); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+        /* STEPS LIST */
+        .step-list { list-style: none; padding-left: 0; margin-top: 20px; }
+        .step-list li { margin-bottom: 20px; position: relative; padding-left: 50px; }
+        .step-list li::before { content: counter(steps); counter-increment: steps; position: absolute; left: 0; top: -5px; background: var(--pc-negro); color: var(--pc-blanco); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'Handlee', cursive; font-size: 1.2rem; }
+        .step-list { counter-reset: steps; }
+
+        /* BUTTONS */
+        .btn-action { display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 15px 30px; border-radius: 50px; border: 4px solid var(--pc-negro); font-weight: 800; font-size: 1.1rem; background: var(--pc-negro); color: white; box-shadow: 0 6px 0 #000; cursor: pointer; font-family: 'Nunito', sans-serif; transition: 0.1s; text-decoration: none; }
+        .btn-action:active { transform: translateY(6px); box-shadow: 0 0 0 transparent; }
+        .btn-wa { background: var(--pc-verde); box-shadow: 0 6px 0 #1b9c4b; }
+        .btn-rosa { background: var(--pc-rosa-fuerte); box-shadow: 0 6px 0 var(--pc-negro); }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
+            <a href="recursos-educativos.html" class="btn-action" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px;">
+                ⬅️ Volver a Recursos Educativos
+            </a>
+        </div>
+
+        <header class="header fade-in">
+            <span class="author-badge">🩺 Educación Médica | Proyecto Celene</span>
+            <h1 class="hand-drawn">Guía: Cáncer Cervicouterino (CaCu) y VPH <span>🌸</span></h1>
+            <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: var(--pc-negro);">Todo lo que necesitas saber sobre el Virus del Papiloma Humano, el Papanicolaou y los tratamientos modernos. ¡Con información, no hay miedo!</p>
+        </header>
+
+        <!-- NAVEGACIÓN TABS -->
+        <div class="tabs-wrapper fade-in">
+            <button class="tab-btn active" onclick="openTab('tab-intro', this)">📖 Qué es el CaCu y VPH</button>
+            <button class="tab-btn" onclick="openTab('tab-estudios', this)">🔬 Opciones de Detección</button>
+            <button class="tab-btn" onclick="openTab('tab-algoritmo', this)">📋 Tu Protocolo Ideal</button>
+            <button class="tab-btn" onclick="openTab('tab-tratamiento', this)">⚡ Inspección y Tratamiento</button>
+        </div>
+
+        <!-- TAB 1: ¿QUÉ ES? -->
+        <div id="tab-intro" class="tab-content" style="display: block;">
+            <div class="content-box">
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <span style="font-size: 4.5rem; display: inline-block; filter: drop-shadow(4px 4px 0px var(--pc-rosa-pastell));">🛡️</span>
+                </div>
+                <h2 class="hand-drawn" style="text-align: center;">¿Qué es el Cáncer Cervicouterino (CaCu)?</h2>
+                <p>El Cáncer Cervicouterino (cáncer de matriz) es una alteración celular en el "cuello del útero". Lo más importante que debes saber es que <strong>no aparece de la noche a la mañana</strong>. Primero pasa por una fase de "lesiones precursoras" (displasias) que evolucionan muy lentamente. ¡Esa es nuestra gran ventana para detectarlo y curarlo al 100%!</p>
+
+                <div class="info-panel" style="background: var(--pc-rosa-pastell); border-color: var(--pc-rosa-fuerte);">
+                    <h4 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.5rem;">El Culpable: El Virus del Papiloma Humano (VPH) 🦠</h4>
+                    <p>La causa principal y necesaria para que se desarrolle este cáncer es una <strong>infección persistente</strong> por genotipos de "alto riesgo" del VPH (como los tipos 16 y 18).</p>
+                    <ul>
+                        <li><strong>No te asustes:</strong> Casi todas las personas sexualmente activas tendrán VPH en algún momento de su vida.</li>
+                        <li><strong>Defensa Natural:</strong> La gran mayoría de estas infecciones son eliminadas naturalmente por el sistema inmunológico del cuerpo en menos de 2 años.</li>
+                        <li><strong>El Riesgo:</strong> El problema surge cuando la infección <em>no se quita</em> y persiste, porque el virus comienza a alterar y "secuestrar" las células del cérvix. ¡Por eso nos checamos!</li>
+                    </ul>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-negro); margin-top: 30px; font-size: 1.5rem;">Factores de Riesgo Clínico</h3>
+                <p>El VPH requiere de "ayudantes" (cofactores) para evolucionar más rápido a un cáncer. Toma nota de ellos:</p>
+                <ul style="color: var(--pc-negro);">
+                    <li>Tabaquismo activo (el humo debilita las células del cérvix).</li>
+                    <li>Deficiencias nutricionales severas (falta de vitaminas A, C, E o ácido fólico).</li>
+                    <li>Inicio de vida sexual antes de los 19 años.</li>
+                    <li>No haber acudido <strong>nunca</strong> a un estudio de Papanicolaou.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TAB 2: ESTUDIOS DE DETECCIÓN -->
+        <div id="tab-estudios" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn" style="text-align: center;">Tus Opciones Médicas para Detectarlo 🔬</h2>
+                <p style="text-align: center; margin-bottom: 30px;">La ciencia ha avanzado muchísimo. Hoy tenemos varias herramientas para protegerte, cada una con un propósito específico.</p>
+
+                <div class="table-responsive">
+                    <table class="thm-table">
+                        <thead>
+                            <tr>
+                                <th>Estudio</th>
+                                <th>¿Cómo funciona?</th>
+                                <th>Ventajas ✅</th>
+                                <th>Desventajas ⚠️</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: 800; color: var(--pc-negro);">1. Papanicolaou (Tradicional)</td>
+                                <td>Se toman células del cérvix con un cepillito y se untan en un cristal para verlas al microscopio.</td>
+                                <td class="pro">Es la técnica más accesible, económica y probada a nivel mundial. Alta especificidad (detecta muy bien cuando hay células malas).</td>
+                                <td class="con">Si hay flujo, moco o sangre, el cristal puede verse borroso y la muestra puede ser "insatisfactoria" o dar falsos negativos.</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 800; color: var(--pc-negro);">2. Citología en Base Líquida (CBL)</td>
+                                <td>Evolución del Papanicolaou. El cepillito no se unta en cristal, se enjuaga en un frasco con líquido conservante.</td>
+                                <td class="pro">El líquido "lava" la muestra de moco/sangre, dando una imagen clarísima. <strong>Dato clave:</strong> Del mismo líquido se puede pedir prueba de VPH sin volverte a explorar.</td>
+                                <td class="con">Suele tener un costo un poco mayor en los laboratorios privados.</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 800; color: var(--pc-rosa-fuerte);">3. Prueba Molecular de VPH (ADN / ARNm)</td>
+                                <td>Máquina automatizada (PCR) que busca genéticamente si tienes el virus de alto riesgo presente y activo.</td>
+                                <td class="pro">Sensibilidad casi del 100%. <strong>¡Un resultado negativo te garantiza estar a salvo de cáncer de 5 a 10 años!</strong> El estándar de oro moderno.</td>
+                                <td class="con">Saber que tienes VPH da nervios, pero recuerda: tener el virus NO significa tener cáncer. Solo requiere vigilancia.</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 800; color: var(--pc-negro);">4. Inspección Visual (IVAA)</td>
+                                <td>Se aplica Ácido Acético (vinagre médico al 5%) directo en el cérvix. Las células enfermas se pintan de blanco de inmediato.</td>
+                                <td class="pro">Es inmediato, se ve en la misma consulta. Permite el modelo "Ver y Tratar" (destruir la lesión ese mismo día). Excelente para zonas rurales.</td>
+                                <td class="con">Puede pintar de blanco por inflamaciones benignas (falso positivo). No sirve en mujeres en menopausia avanzada.</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 800; color: var(--pc-negro);">5. Colposcopia</td>
+                                <td>Estudio detallado donde el médico usa un microscopio grande para ver el cérvix de forma amplificada.</td>
+                                <td class="pro">Permite ver exactamente dónde está la lesión, su tamaño, y guiar la toma de un "pellizquito" de tejido (Biopsia) para el diagnóstico final.</td>
+                                <td class="con"><strong>No es prueba de chequeo general (tamizaje).</strong> Solo debe hacerse si tu Papanicolaou o Prueba VPH salió anormal.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: ALGORITMO INTERACTIVO -->
+        <div id="tab-algoritmo" class="tab-content">
+            <div class="content-box" style="background: var(--pc-amarillo); border-color: var(--pc-negro);">
+                <h2 class="hand-drawn" style="color: var(--pc-negro); text-align: center;">¿Qué estudio me toca? 📋</h2>
+                <p style="text-align: center;">La Norma Oficial Mexicana y la Organización Mundial de la Salud tienen reglas claras para protegerte según tu edad y riesgo. ¡Descubre tu plan de acción!</p>
+
+                <div class="algo-box">
+                    <h3>Selecciona tu Rango de Edad:</h3>
+                    <div class="algo-buttons">
+                        <button class="btn-algo" onclick="showAlgo('joven')">Menos de 30 años (Con vida sexual)</button>
+                        <button class="btn-algo" onclick="showAlgo('adulta')">De 30 a 69 años</button>
+                    </div>
+
+                    <!-- RESULTADO JOVEN -->
+                    <div id="algo-joven" class="algo-result">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.4rem; margin-bottom: 10px;">Tu Plan: Papanicolaou Anual 🔬</h4>
+                        <p><strong>¿Por qué?</strong> A esta edad es súper común adquirir el VPH, pero tu sistema inmunológico es joven y fuerte, y en el 90% de los casos eliminará el virus solo. Si te hiciéramos prueba de VPH a esta edad, saldría positiva casi siempre, causándote mucho pánico innecesario o tratamientos que no requieres.</p>
+                        <p style="margin-top: 10px; font-weight: 800; color: var(--pc-negro);">El Protocolo Médico Oficial:</p>
+                        <ul style="margin-left: 20px; font-weight: 600; color: #444;">
+                            <li>Debes realizarte una Citología (Papanicolaou) una vez al año.</li>
+                            <li>Si tienes <strong>2 resultados anuales negativos</strong> seguidos, ¡excelente! puedes espaciar tus revisiones y hacerte el Papanicolaou <strong>cada 3 años</strong>.</li>
+                            <li>Si sale alguna alteración, tu médico te pasará al área de Colposcopia para revisarte a fondo.</li>
+                        </ul>
+                    </div>
+
+                    <!-- RESULTADO ADULTA -->
+                    <div id="algo-adulta" class="algo-result">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.4rem; margin-bottom: 10px;">Tu Plan Ideal: Prueba Molecular VPH 🧬</h4>
+                        <p><strong>¿Por qué?</strong> A partir de los 30 años, si el virus sigue en tu cuerpo, significa que es una "infección persistente" y el riesgo de que altere tus células es mucho mayor. Aquí, el Papanicolaou ya no es suficiente por sí solo.</p>
+                        <p style="margin-top: 10px; font-weight: 800; color: var(--pc-negro);">El Protocolo "Tamizar, Triar y Tratar" (OMS):</p>
+                        <ul class="step-list">
+                            <li><strong>Paso 1:</strong> Solicita una Prueba Molecular de VPH de Alto Riesgo (se hace igualito que el Papanicolaou). Si sale <strong>NEGATIVA</strong>, estás increíblemente segura y solo necesitas repetirla hasta dentro de <strong>5 AÑOS</strong>.</li>
+                            <li><strong>Paso 2 (Si sale positiva):</strong> ¡No te asustes! El doctor pedirá un Papanicolaou o Inspección Visual para ver si el virus ya hizo algún cambio físico.</li>
+                            <li><strong>Paso 3:</strong> Si ambas salen alteradas, pasarás a Colposcopia para recibir un tratamiento curativo sencillo (como congelar la lesión) y eliminar el riesgo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: INSPECCIÓN Y TRATAMIENTO -->
+        <div id="tab-tratamiento" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn">La Inspección Visual y el Modelo "Ver y Tratar"</h2>
+                <p>En lugares donde no hay acceso rápido a laboratorios sofisticados, la Organización Mundial de la Salud impulsa la <strong>Inspección Visual con Ácido Acético (IVAA)</strong>. Es una herramienta médica fascinante y poderosa.</p>
+
+                <div class="info-panel" style="background: var(--pc-azul-suave); border-color: var(--pc-negro);">
+                    <h4 style="font-family: 'Handlee', cursive; font-size: 1.5rem; color: var(--pc-rosa-fuerte);">¿Qué hace el "Vinagre Médico"?</h4>
+                    <p>Cuando el médico rocía ácido acético al 5% en el cuello del útero, el líquido reacciona con las células enfermas (displasias) que tienen un exceso de proteínas debido al VPH. <strong>En exactamente 1 minuto</strong>, el ácido deshidrata las células malas y las pinta temporalmente de un color <strong>Blanco Intenso (Acetoblanqueo)</strong>.</p>
+                    <p style="margin-top: 10px;">Si el cuello del útero está sano y rosado, la prueba es negativa (y tiene una precisión casi del 100% de que no hay lesiones).</p>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-negro); margin-top: 30px; font-size: 1.6rem;">¿Qué es el Tratamiento "Ver y Tratar"? 🧊</h3>
+                <p>Si la prueba IVAA sale positiva (se pinta de blanco opaco), en esa misma cita, sin que tengas que regresar otro día ni hacer filas, el médico puede realizar un procedimiento llamado <strong>Crioterapia</strong>.</p>
+                
+                <ul class="step-list" style="margin-top: 20px;">
+                    <li><strong>La Herramienta:</strong> Se utiliza una pistola metálica especial (criosonda) conectada a un tanque de gas muy frío.</li>
+                    <li><strong>El Proceso:</strong> El médico apoya el metal frío contra la mancha blanca en tu cérvix. El frío extremo (congelación) destruye el tejido enfermo.</li>
+                    <li><strong>La Recuperación:</strong> Durante las siguientes semanas, la costra congelada se caerá sola como flujo acuoso, y tu cuerpo creará tejido totalmente nuevo, limpio y sano. ¡Problema resuelto en minutos!</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;" class="fade-in">
+                <h3 class="hand-drawn" style="color: var(--pc-negro); margin-bottom: 20px;">Tu salud está en tus manos</h3>
+                <p style="font-weight: 600; font-size: 1.1rem; color: #555; margin-bottom: 25px;">Acudir a tu revisión ginecológica no debe causarte pánico. En Proyecto Celene te acompañamos con empatía y ciencia.</p>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                    <a href="consulta-general.html" class="btn-action btn-rosa" style="margin: 0; box-shadow: 4px 4px 0 var(--pc-negro);">Agendar mi Chequeo (Papanicolaou) 🩺</a>
+                    <a href="salud-sexual.html" class="btn-action btn-wa" style="margin: 0; box-shadow: 4px 4px 0 var(--pc-negro);">Dudas de Salud Sexual 💬</a>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- FIN CONTAINER -->
+
+    <script>
+        // Animaciones Iniciales
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
+        // Funciones de Pestañas (Tabs)
+        function openTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).style.display = 'block';
+            if (btnElement) btnElement.classList.add('active');
+        }
+
+        // Función Algoritmo
+        function showAlgo(type) {
+            document.getElementById('algo-joven').style.display = 'none';
+            document.getElementById('algo-adulta').style.display = 'none';
+            
+            let res = document.getElementById('algo-' + type);
+            res.style.display = 'block';
+        }
+    </script>
+    
+    <script src="js/global.js"></script>
+</body>
+</html>

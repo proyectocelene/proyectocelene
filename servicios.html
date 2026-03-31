@@ -867,6 +867,20 @@
                 </div>
             </div>
 
+            <div class="service-card category-card" data-cat="mujer proc"
+                data-keywords="ivaa acido acetico vinagre colposcopia cacu cancer cervicouterino mujer">
+                <span class="cat-tag">Procedimientos / Mujer</span>
+                <h3 class="service-title">Inspección Visual (IVAA) 🔬</h3>
+                <p class="service-preview">Prueba rápida para detectar lesiones precancerosas en el cuello uterino
+                    usando ácido acético. Permite un diagnóstico y tratamiento en la misma visita.</p>
+                <div class="price-text">Cuota: $150 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('ivaa')">Más Info</button>
+                    <a href="guia-ivaa.html" class="btn btn-wa"
+                        style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Guía Completa</a>
+                </div>
+            </div>
+
             <div class="service-card category-card" data-cat="mujer"
                 data-keywords="implante subdermico colocacion brazo anticonceptivo">
                 <span class="cat-tag">Planificación Familiar</span>
@@ -877,19 +891,6 @@
                 <div class="btn-group">
                     <button class="btn btn-more" onclick="openInfo('implante_col')">Detalles</button>
                     <button onclick="openInfo('implante_col')" class="btn btn-wa">Agendar</button>
-                </div>
-            </div>
-
-            <div class="service-card category-card" data-cat="mujer"
-                data-keywords="implante subdermico retiro sacar brazo">
-                <span class="cat-tag">Planificación Familiar</span>
-                <h3 class="service-title">Retiro de Implante Subdérmico</h3>
-                <p class="service-preview">¿Cumplió su tiempo o deseas embarazarte? Realizamos la extracción de forma
-                    clínica, rápida y segura con anestesia local.</p>
-                <div class="price-text">Cuota: $400 m.n.</div>
-                <div class="btn-group">
-                    <button class="btn btn-more" onclick="openInfo('implante_ret')">Detalles</button>
-                    <button onclick="openInfo('implante_ret')" class="btn btn-wa">Agendar</button>
                 </div>
             </div>
 
@@ -926,7 +927,7 @@
                 <h3 class="service-title">Retiro de Implante (ISD)</h3>
                 <p class="service-preview">Extracción segura con anestesia local. Hacemos que sea un procedimiento
                     amigable y sin dolor.</p>
-                <div class="price-text">Cuota: $450 m.n.</div>
+                <div class="price-text">Cuota: $400 m.n.</div>
                 <div class="btn-group">
                     <a href="retiro-isd.html" class="btn btn-more"
                         style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver
@@ -1880,6 +1881,16 @@
                 waMsg: "Papanicolaou",
                 price: 150
             },
+            ivaa: {
+                title: "Inspección Visual con Ácido Acético (IVAA) 🔬",
+                desc: "La IVAA es una prueba de tamizaje visual que permite detectar lesiones precancerosas en el cuello uterino de forma inmediata, aplicando una solución de ácido acético que tiñe las células anormales de blanco.",
+                why: "Es una herramienta poderosa recomendada por la OMS, especialmente en estrategias de 'Ver y Tratar', ya que permite un diagnóstico presuntivo y un tratamiento (como crioterapia) en la misma visita, evitando pérdidas en el seguimiento.",
+                include: ["Valoración médica previa.", "Aplicación de ácido acético.", "Inspección visual por médico capacitado.", "Resultado inmediato en consulta."],
+                reqs: "Cuota de Recuperación: $150 m.n. <br><br>⚠️ <strong>Importante:</strong> Este procedimiento se realiza posterior a una Consulta Médica de valoración (no incluida) para determinar si eres candidata y no existen contraindicaciones.",
+                waMsg: "Inspección Visual (IVAA)",
+                eduLink: "guia-ivaa.html",
+                price: 150
+            },
             implante_col: {
                 title: "Colocación de Implante (ISD) 💉",
                 desc: "⚠️ <strong>NO DISPONIBLE POR EL MOMENTO.</strong><br>Estamos renovando inventario. Por favor, obtén una orientación médica gratuita para conocer tus alternativas.",
@@ -1889,27 +1900,16 @@
                 waMsg: "Orientación sobre Alternativas al Implante",
                 eduLink: "orientacion-medica-gratuita.html"
             },
-            implante_ret: {
-                title: "Retiro de Implante (ISD)",
-                desc: "Extracción clínica del dispositivo de tu brazo una vez que caduca o si deseas embarazarte.",
-                why: "Nunca intentes retirarlo tú misma. Nosotros lo hacemos de forma profesional con una incisión mínima y segura.",
-                include: ["Anestesia local.", "Retiro médico meticuloso.", "Parche de curación."],
-                reqs: "Cuota: $450 m.n.",
-                waMsg: "Retiro de Implante",
-                eduLink: "retiro-isd.html",
-                price: 450,
-                mpLink: "https://mpago.la/1xZdVDs"
-            },
             isd_ret: {
                 title: "Retiro de Implante (ISD)",
                 desc: "Retiro seguro del implante del brazo usando anestesia local para tu comodidad.",
                 why: "Sabemos que las agujas pueden dar nervios. Te explicamos todo paso a paso en un ambiente relajado y empático.",
                 include: ["Anestesia local.", "Insumos estériles.", "Retiro profesional."],
-                reqs: "Cuota: $450 m.n.",
+                reqs: "Cuota: $400 m.n.",
                 waMsg: "Cita para Retiro de Implante (ISD)",
                 eduLink: "retiro-isd.html",
-                price: 450,
-                mpLink: "https://mpago.la/1xZdVDs"
+                price: 400,
+                mpLink: "https://mpago.la/2N4tgs1"
             },
             diu_col: {
                 title: "Colocación de DIU 🛡",

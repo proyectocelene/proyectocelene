@@ -376,12 +376,12 @@
         .modal-wa-content {
             background: white;
             border: 4px solid var(--pc-negro);
-            border-radius: 25px;
+            border-radius: 20px;
             max-width: 450px;
             width: 100%;
-            padding: 35px;
+            padding: 25px 20px;
             position: relative;
-            box-shadow: 12px 12px 0px var(--pc-amarillo);
+            box-shadow: 8px 8px 0px var(--pc-amarillo);
             animation: popInWa 0.3s ease-out;
         }
 
@@ -399,18 +399,33 @@
 
         .close-modal-wa {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.8rem;
+            top: -12px;
+            right: -12px;
+            font-size: 1.2rem;
             cursor: pointer;
             font-weight: 900;
             color: var(--pc-negro);
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 0 var(--pc-negro);
+            z-index: 20;
+            transition: 0.2s;
+        }
+        .close-modal-wa:hover {
+            background: var(--pc-rosa-fuerte);
+            color: white;
         }
 
         .modal-wa input,
         .modal-wa textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 10px 15px;
             margin-bottom: 15px;
             border: 3px solid var(--pc-negro);
             border-radius: 10px;
@@ -545,6 +560,70 @@
         .ls-item:hover span {
             animation: pulseIcon 1s infinite;
         }
+
+        /* ESTILOS DE MÉTODOS DE PAGO Y COPIA */
+        .payment-methods { margin-bottom: 20px; text-align: left; background: var(--pc-gris-suave); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; margin-top: 15px; }
+        .payment-option { background: var(--pc-blanco); border: 2px solid var(--pc-negro); border-radius: 10px; padding: 12px 15px; margin-bottom: 10px; cursor: pointer; transition: 0.2s; display: flex; align-items: flex-start; gap: 10px; }
+        .payment-option:hover { background: var(--pc-amarillo); box-shadow: 4px 4px 0 var(--pc-negro); transform: translateY(-2px); }
+        .payment-option input[type="radio"] { transform: scale(1.4); accent-color: var(--pc-rosa-fuerte); cursor: pointer; flex-shrink: 0; margin-top: 4px; }
+        .payment-option .label-content { flex-grow: 1; display: flex; flex-direction: column; gap: 3px; }
+        .payment-option .label-content span { font-size: 1rem; font-weight: 600; color: var(--pc-negro); }
+        
+        .btn-mp {
+            background-color: #009EE3 !important; color: white !important; border: 3px solid #007ab8 !important; box-shadow: 0 5px 0 #005a88 !important; display: flex; gap: 10px; justify-content: center; align-items: center; font-weight: 900 !important;
+        }
+        .btn-mp:active { transform: translateY(5px); box-shadow: 0 0 0 transparent !important; }
+
+        .copy-box-modern { display: flex; flex-wrap: nowrap; align-items: stretch; background: white; border: 2px solid var(--pc-negro); border-radius: 10px; overflow: hidden; margin-bottom: 10px; width: 100%; }
+        .copy-box-modern .label { background: var(--pc-gris-suave); padding: 8px 12px; font-weight: 800; border-right: 2px solid var(--pc-negro); display: flex; align-items: center; white-space: nowrap; font-size: 0.9rem; }
+        .copy-box-modern input { flex: 1; min-width: 0; border: none; padding: 8px 12px; font-size: 1rem; font-weight: bold; outline: none; background: transparent; color: var(--pc-negro); text-overflow: ellipsis; margin-bottom: 0 !important; border-radius: 0 !important; }
+        .copy-box-modern button { background: var(--pc-negro); color: white; border: none; border-left: 2px solid var(--pc-negro); padding: 8px 15px; cursor: pointer; font-weight: 800; transition: 0.2s; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 5px; white-space: nowrap; }
+        .copy-box-modern button:hover { background: var(--pc-rosa-fuerte); }
+        .btn-direction { background: var(--pc-amarillo); color: var(--pc-negro); border: 2px solid var(--pc-negro); border-radius: 50px; padding: 5px 10px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; font-size: 0.85rem; box-shadow: 2px 2px 0 var(--pc-negro); transition: 0.2s; margin-top: 5px; }
+        .btn-direction:hover { background: var(--pc-rosa-fuerte); color: white; transform: translateY(-2px); box-shadow: 3px 3px 0 var(--pc-negro); }
+        .step-list { list-style: none; font-size: 1rem; font-weight: 600; counter-reset: steps; margin-bottom: 15px; margin-top: 15px; padding-left: 0; }
+        .step-list li { margin-bottom: 15px; position: relative; padding-left: 40px; }
+        .step-list li::before { counter-increment: steps; content: counter(steps); position: absolute; left: 0; top: -2px; background: var(--pc-negro); color: var(--pc-blanco); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'Handlee', cursive; }
+
+        /* Ajuste CSS para disfrazar el botón de Google y que no rompa la cohesión visual */
+        .X81W0b {
+            border: 4px solid var(--pc-negro) !important;
+            font-family: 'Nunito', sans-serif !important;
+            font-weight: 800 !important;
+            border-radius: 50px !important;
+            padding: 12px 25px !important;
+            box-shadow: 0 6px 0 var(--pc-negro) !important;
+            font-size: 1.1rem !important;
+        }
+        .X81W0b:active {
+            box-shadow: 0 0 0 transparent !important;
+            transform: translateY(6px);
+        }
+
+        @media (max-width: 600px) {
+            .modal-wa { padding: 10px; }
+            .modal-wa-content { padding: 20px 15px; border-radius: 15px; }
+            .payment-methods { padding: 15px; margin-bottom: 15px; }
+            .payment-option { padding: 8px 10px; margin-bottom: 8px; }
+            .payment-option label { font-size: 0.95rem; }
+            .payment-option input[type="radio"] { transform: scale(1.2); margin-right: 10px; }
+            .btn-direction { padding: 6px 10px; font-size: 0.85rem; width: 100%; justify-content: center; margin-top: 8px; }
+            .step-list { padding-left: 0; margin-top: 10px; margin-bottom: 5px; }
+            .step-list li { padding-left: 35px; margin-bottom: 10px; font-size: 0.9rem; }
+            .step-list li::before { width: 24px; height: 24px; font-size: 0.85rem; top: -1px; }
+            .X81W0b { width: 100% !important; box-sizing: border-box !important; padding: 12px 15px !important; font-size: 1rem !important; }
+            
+            .copy-box-modern { flex-wrap: wrap; margin-bottom: 8px; }
+            .copy-box-modern .label {
+                width: 100%;
+                border-right: none;
+                border-bottom: 2px solid var(--pc-negro);
+                justify-content: center;
+                padding: 6px;
+            }
+            .copy-box-modern input { text-align: center; font-size: 0.95rem; padding: 6px; }
+            .copy-box-modern button { width: 100%; border-left: none; border-top: 2px solid var(--pc-negro); padding: 8px; }
+        }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
@@ -552,6 +631,12 @@
 <body>
     <div class="container">
         <div id="navbar-container" class="main-nav"></div>
+
+        <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
+            <a href="recursos-educativos.html" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px;">
+                ⬅️ Volver a Recursos Educativos
+            </a>
+        </div>
 
         <header class="header fade-in">
             <img src="https://i.ibb.co/8DndhCcv/bochornos.png" alt="Guía de Menopausia" style="max-width:100%; width:300px; border-radius:15px; border:3px solid var(--pc-negro); margin-bottom:15px; background:white; object-fit:cover; display:block; margin-left:auto; margin-right:auto;">
@@ -900,175 +985,168 @@
                         es escucharte, evaluar tus riesgos personales mediante exámenes rutinarios y decidir juntas el
                         camino que te brinde la mejor calidad de vida. No dudes en preguntar y expresar todo lo que
                         sientes; estamos aquí para acompañarte en cada paso.</p>
-                    <button onclick="document.getElementById('modalWaMenopausia').style.display='flex'"
-                        class="btn btn-wa" style="max-width: 400px; font-size: 1.1rem;">Agendar Consulta Médica por
-                        WhatsApp 💬</button>
+        <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
+            <a href="recursos-educativos.html" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px;">
+                ⬅️ Volver a Recursos Educativos
+            </a>
+        </div>
+                    <button onclick="document.getElementById('action-container-menopausia').scrollIntoView({ behavior: 'smooth' });"
+                        class="btn btn-wa" style="max-width: 400px; font-size: 1.1rem;">Agendar Consulta Médica 💬</button>
                 </div>
             </div>
         </div>
 
         <!-- ACCIÓN FINAL GLOBAL -->
-        <div class="fade-in" style="background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-top: 40px; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte); text-align: center;">
-            <h2 class="hand-drawn" style="color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 10px;">¡Toma el control de tu salud hoy! 🌸</h2>
-            <p style="font-weight: 600; font-size: 1.1rem; color: #444; margin-bottom: 20px;">Puedes agendar tu consulta médica para una revisión y tratamiento personalizado.</p>
-            
-            <p style="font-weight: 800; color: #555; font-size: 1.05rem; margin-bottom: 15px;">Puedes acudir directamente sin cita de Lunes a Domingo (9am - 4pm) o asegurar tu espacio:</p>
-
-            <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-                <!-- Botón Calendario Google -->
-                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-                <script>
-                    (function () {
-                        var target = document.currentScript;
-                        window.addEventListener('load', function () {
-                            calendar.schedulingButton.load({
-                                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
-                                color: '#d81b60',
-                                label: '🗓️ Consultar horarios y Agendar',
-                                target,
-                            });
-                        });
-                    })();
-                </script>
-            </div>
-
-            <div style="display: flex; justify-content: center;">
-                <button onclick="document.getElementById('modalWaMenopausia').style.display='flex'" class="btn btn-wa" style="margin: 0; max-width: 350px;">Agendar 💬</button>
-            </div>
-            
-            <style>
-                .X81W0b {
-                    border: 4px solid var(--pc-negro) !important;
-                    font-family: 'Nunito', sans-serif !important;
-                    font-weight: 800 !important;
-                    border-radius: 50px !important;
-                    padding: 12px 25px !important;
-                    box-shadow: 0 6px 0 var(--pc-negro) !important;
-                    font-size: 1.1rem !important;
-                }
-                .X81W0b:active {
-                    box-shadow: 0 0 0 transparent !important;
-                    transform: translateY(6px);
-                }
-            </style>
-        </div>
-
-    </div>
-
-    <!-- MODAL WHATSAPP CITAS -->
-    <div id="modalWaMenopausia" class="modal-wa" onclick="if(event.target==this) this.style.display='none'">
-        <div class="modal-wa-content" style="max-height: 90vh; overflow-y: auto;">
-            <span class="close-modal-wa"
-                onclick="document.getElementById('modalWaMenopausia').style.display='none'">✕</span>
-            
-            <h2 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:1.8rem; line-height:1.1; margin-top:0;">Manejo de Menopausia</h2>
-            <p style="font-size:1.05rem; font-weight:600; margin-bottom:15px; color:#333;">Acompañamiento médico experto en el climaterio. Controlamos la sudoración, insomnio y cambios hormonales.</p>
-
-            <h4 style="color:var(--pc-rosa-fuerte); margin-bottom: 5px;">¿Por qué es importante?</h4>
-            <p style="font-size:0.95rem; margin-bottom:15px; color:#444; font-weight: 600;">No tienes que sufrir esta etapa en silencio. Existen terapias hormonales y no hormonales que te devuelven el bienestar.</p>
-
-            <h4 style="color:var(--pc-rosa-fuerte); margin-bottom: 5px;">¿Qué te ofrecemos?</h4>
-            <ul style="color:#444; margin-left: 20px; font-weight: 600; font-size: 0.95rem; margin-bottom: 15px;">
-                <li>Evaluación clínica exhaustiva.</li>
-                <li>Orden de labs hormonales.</li>
-                <li>Tratamiento personalizado.</li>
-            </ul>
-
-            <h4 style="margin-top:20px; color:var(--pc-rosa-fuerte); margin-bottom: 5px;">Inversión en tu Salud</h4>
-            <p style="font-size:1.05rem; font-weight:800; color:var(--pc-negro); background:var(--pc-amarillo); padding:10px; border-radius:10px; border:2px dashed var(--pc-negro); text-align:center;">Costo de consulta médica ($150).</p>
-
-            <div class="payment-methods">
+        <div id="action-container-menopausia" class="action-container fade-in" style="text-align: center; padding: 40px 20px; background: var(--pc-blanco); border: 4px solid var(--pc-negro); border-radius: 25px; box-shadow: 8px 8px 0 var(--pc-rosa-fuerte); margin-top: 40px;">
+            <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 15px;">¿Lista para agendar tu cita?</h2>
+            <p style="font-size: 1.15rem; font-weight: 600; margin-bottom: 25px;">La cuota de recuperación por la Consulta Médica es de <strong>$150 m.n.</strong></p>
+        
+            <!-- Payment Methods -->
+            <div class="payment-methods" style="max-width: 650px; margin: 0 auto 25px auto;">
                 <h4 style="margin-bottom: 15px; font-size: 1.2rem; text-align: center; color: var(--pc-rosa-fuerte);">Selecciona tu método de pago</h4>
                 
-                <div class="payment-option" onclick="document.getElementById('payEfectivo_meno').click()">
-                    <input type="radio" name="paymentMethod_meno" id="payEfectivo_meno" value="efectivo" checked onchange="togglePaymentInstructions_meno()">
-                    <label for="payEfectivo_meno" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                        <div>
-                            <span style="font-size: 1.1rem;">💵 <strong>Efectivo en Consultorio</strong></span><br>
-                            <small style="color: #666; font-size: 0.9rem;">Sin comisión: $150.00 MN</small>
+                <label class="payment-option" for="payEfectivo_meno_main">
+                    <input type="radio" name="paymentMethod_meno_main" id="payEfectivo_meno_main" value="efectivo" checked onchange="togglePaymentInstructions_meno_main()">
+                    <div class="label-content">
+                        <span>💵 <strong>Efectivo en Clínica</strong></span>
+                        <small style="font-size: 0.85rem; color: #555; font-weight: 600;">Sin comisión: $150.00 MN</small>
+                        <div style="margin-top: 5px;">
+                            <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" style="margin: 0;" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
                         </div>
-                        <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
-                    </label>
-                </div>
+                    </div>
+                </label>
                 
-                <div class="payment-option" onclick="document.getElementById('payTransferencia_meno').click()">
-                    <input type="radio" name="paymentMethod_meno" id="payTransferencia_meno" value="transferencia" onchange="togglePaymentInstructions_meno()">
-                    <label for="payTransferencia_meno">
-                        <span style="font-size: 1.1rem;">🏦 <strong>Transferencia SPEI / CLABE</strong></span><br>
-                        <small style="color: #666; font-size: 0.9rem;">Sin comisión: $150.00 MN</small>
-                    </label>
-                </div>
+                <label class="payment-option" for="payTransferencia_meno_main">
+                    <input type="radio" name="paymentMethod_meno_main" id="payTransferencia_meno_main" value="transferencia" onchange="togglePaymentInstructions_meno_main()">
+                    <div class="label-content">
+                        <span>🏦 <strong>Transferencia SPEI</strong></span>
+                        <small style="font-size: 0.85rem; color: #555; font-weight: 600;">Sin comisión: $150.00 MN</small>
+                    </div>
+                </label>
                 
-                <div class="payment-option" onclick="document.getElementById('payMercadoPago_meno').click()">
-                    <input type="radio" name="paymentMethod_meno" id="payMercadoPago_meno" value="mercadopago" onchange="togglePaymentInstructions_meno()">
-                    <label for="payMercadoPago_meno">
-                        <span style="font-size: 1.1rem;">💳 <strong>Pago en línea (Mercado Pago)</strong></span><br>
-                        <small style="color: #666; font-size: 0.9rem;">Incluye comisión: $161.17 MN</small>
-                    </label>
-                </div>
-
-                <div id="instructionsEfectivo_meno" style="display: block; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
-                    <p style="font-size: 1rem; font-weight: 600; color: #444;"><strong>1.</strong> Envíanos un mensaje por WhatsApp para agendar tu cita y menciona que pagarás en efectivo en el consultorio.</p>
-                </div>
-
-                <div id="instructionsTransferencia_meno" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
-                    <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a transferir: $150.00 MN</p>
-                    <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe_meno" value="722969010854962949" readonly><button type="button" onclick="copyToClipboard('clabe_meno', this)"><span>📋</span> Copiar</button></div>
-                    <div class="copy-box-modern"><span class="label">Titular</span><input type="text" id="benef_meno" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef_meno', this)"><span>📋</span> Copiar</button></div>
-                    <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco_meno" value="Mercado Pago W" readonly><button type="button" onclick="copyToClipboard('banco_meno', this)"><span>📋</span> Copiar</button></div>
-                    <ul class="step-list">
-                        <li>Realiza la transferencia (guarda tu comprobante).</li>
-                        <li>Envíanos un mensaje por WhatsApp con tu comprobante para confirmar tu cita.</li>
-                    </ul>
-                </div>
-
-                <div id="instructionsMercadoPago_meno" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
-                    <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a pagar en línea: $161.17 MN</p>
-                    <div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal_meno" value="161.17" readonly><button type="button" onclick="copyToClipboard('mpTotal_meno', this)"><span>📋</span> Copiar</button></div>
-                    <p style="color: #e65100; font-size: 0.9rem; font-weight: 800; margin-bottom: 15px; text-align: center;">⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>
-                    <a href="https://link.mercadopago.com.mx/drdonato" target="_blank" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 12px; font-size: 1.1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); text-decoration: none; font-weight: 800;">Pagar en Mercado Pago ➔</a>
-                    <ul class="step-list">
-                        <li>Realiza el pago en el enlace (guarda captura de pantalla).</li>
-                        <li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li>
-                    </ul>
+                <label class="payment-option" for="payMercadoPago_meno_main">
+                    <input type="radio" name="paymentMethod_meno_main" id="payMercadoPago_meno_main" value="mercadopago" onchange="togglePaymentInstructions_meno_main()">
+                    <div class="label-content">
+                        <span>💳 <strong>Pago en línea (Mercado Pago)</strong></span>
+                        <small style="font-size: 0.85rem; color: #555; font-weight: 600;">Incluye comisión: $161.17 MN</small>
+                    </div>
+                </label>
+            </div>
+        
+            <!-- Instructions -->
+            <div id="instructionsEfectivo_meno_main" style="display: block; margin-top: 15px; max-width: 650px; margin-inline: auto;">
+                <div style="background: white; padding: 15px; border-radius: 15px; border: 2px dashed var(--pc-negro);">
+                    <h4 style="color:var(--pc-rosa-fuerte); margin-bottom: 10px; font-size: 1.1rem; text-align: center; font-weight: 800;">Completa tus datos para agendar</h4>
+                    <input type="text" id="wa_meno_nombre_efectivo_main" placeholder="Tu Nombre Completo" style="width: 100%; padding: 10px 12px; margin-bottom: 8px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 0.95rem; outline: none;">
+                    <input type="date" id="wa_meno_fecha_efectivo_main" style="width: 100%; padding: 10px 12px; margin-bottom: 10px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 0.95rem; outline: none;">
+                    <button onclick="enviarWaEfectivoMain()" class="btn btn-wa" style="width: 100%; border-color:var(--pc-negro); padding: 12px; font-size: 1.05rem; box-shadow: 3px 3px 0 var(--pc-negro); margin: 0;">Solicitar Cita (Pago en clínica) 💬</button>
                 </div>
             </div>
-
-            <div style="background: var(--pc-gris-suave); padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-top: 20px;">
-                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;">💬 Tengo más dudas</h3>
-                <p style="font-weight: 600; color: #555; margin-bottom: 15px; font-size: 0.95rem;">Si algo no te quedó claro sobre el programa o tus requisitos, mándanos un mensaje y te ayudamos con gusto.</p>
-                
-                <input type="text" id="wa_meno_nombre" placeholder="Tu Nombre Completo" style="width: 100%; padding: 12px 15px; margin-bottom: 10px; border: 2px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none;">
-                <input type="number" id="wa_meno_edad" placeholder="Tu Edad" style="width: 100%; padding: 12px 15px; margin-bottom: 10px; border: 2px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none;">
-                <textarea id="wa_meno_duda" rows="2" placeholder="¿Tienes alguna duda o quieres agendar directamente?" style="width: 100%; padding: 12px 15px; margin-bottom: 10px; border: 2px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none;"></textarea>
-                
-                <button onclick="enviarWaMenopausiaForm()" class="btn btn-wa" style="width: 100%; border-color:var(--pc-negro);">Enviar Mensaje <span>💬</span></button>
+        
+            <div id="instructionsTransferencia_meno_main" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc; max-width: 650px; margin-inline: auto;">
+                <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a transferir: $150.00 MN</p>
+                <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe_meno_main" value="722969010854962949" readonly><button type="button" onclick="copyToClipboard('clabe_meno_main', this)"><span>📋</span> Copiar</button></div>
+                <div class="copy-box-modern"><span class="label">Titular</span><input type="text" id="benef_meno_main" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef_meno_main', this)"><span>📋</span> Copiar</button></div>
+                <button onclick="enviarWaComprobanteMain('Transferencia')" class="btn btn-wa" style="width: 100%; margin: 10px 0 0 0; padding: 15px; font-size: 1.1rem;">Ya transferí, enviar comprobante 💬</button>
             </div>
-
-            <p style="text-align: center; margin-top: 25px; font-weight: 800; color: #555; font-size: 0.95rem;">Puedes acudir directamente sin cita de Lunes a Domingo (9am - 4pm) o asegurar tu espacio:</p>
-
-            <div style="text-align: center; margin-top: 15px; display: flex; justify-content: center;">
-                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-                <script>
-                    (function () {
-                        var target = document.currentScript;
-                        window.addEventListener('load', function () {
-                            calendar.schedulingButton.load({
-                                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
-                                color: '#d81b60',
-                                label: '🗓️ Consultar horarios y Agendar',
-                                target,
+        
+            <div id="instructionsMercadoPago_meno_main" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc; max-width: 650px; margin-inline: auto;">
+                <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a pagar en línea: $161.17 MN</p>
+                <div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal_meno_main" value="161.17" readonly><button type="button" onclick="copyToClipboard('mpTotal_meno_main', this)"><span>📋</span> Copiar</button></div>
+                <p style="color: #e65100; font-size: 0.9rem; font-weight: 800; margin-bottom: 15px; text-align: center;">⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>
+                <a href="https://link.mercadopago.com.mx/drdonato" target="_blank" class="btn btn-mp" style="width: 100%; margin: 0 0 15px 0; padding: 15px; font-size: 1.1rem; border-radius: 10px; text-decoration: none;">💳 Pagar con Mercado Pago</a>
+                <button onclick="enviarWaComprobanteMain('Mercado Pago')" class="btn btn-wa" style="width: 100%; margin: 0; padding: 15px; font-size: 1.1rem;">Ya pagué, enviar comprobante 💬</button>
+            </div>
+        
+            <!-- Horarios -->
+            <div style="background: var(--pc-amarillo); border: 2px dashed var(--pc-negro); border-radius: 15px; padding: 20px; max-width: 600px; margin: 30px auto; text-align: left;">
+                <p style="font-size: 1.1rem; font-weight: 800; margin-bottom: 10px;"><span>🏥</span> Horarios de Atención:</p>
+                <p style="font-weight: 600; margin-bottom: 10px;">Lunes a Domingo de <strong>9:00 am a 4:00 pm</strong>.</p>
+                <p style="font-size: 0.95rem; line-height: 1.4; color: #444;">Puedes acudir directamente sin cita y serás atendida por orden de llegada, o agendar para asegurar tu espacio.</p>
+            </div>
+        
+            <!-- Google Calendar -->
+            <div style="margin-bottom: 30px;">
+                <p style="font-weight: 800; margin-bottom: 15px;">Horarios Disponibles:</p>
+                <div style="display: flex; justify-content: center;">
+                    <!-- Script original de Google para conservar la ventana emergente -->
+                    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                    <script>
+                        (function () {
+                            var target = document.currentScript;
+                            window.addEventListener('load', function () {
+                                calendar.schedulingButton.load({
+                                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
+                                    color: '#d81b60', /* var(--pc-rosa-fuerte) */
+                                    label: '🗓️ Ver Horarios y Agendar',
+                                    target,
+                                });
                             });
-                        });
-                    })();
-                </script>
+                        })();
+                    </script>
+                </div>
+            </div>
+        
+            <!-- Dudas -->
+            <div style="background: var(--pc-gris-suave); padding: 25px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-top: 30px; text-align: left; max-width: 650px; margin-inline: auto;">
+                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px; text-align:center; font-size: 1.8rem;">¿Tienes más dudas?</h3>
+                <p style="font-weight: 600; color: #555; margin-bottom: 15px; text-align:center;">Si algo no te quedó claro sobre la guía o los tratamientos, mándanos un mensaje y te ayudamos con gusto.</p>
+                
+                <div class="input-group" style="margin-bottom: 10px;">
+                    <label style="font-weight: 800; margin-bottom: 5px; font-size: 0.9rem;">Tu Nombre:</label>
+                    <input type="text" id="dudas_nombre" placeholder="Escribe tu nombre" style="width: 100%; padding: 12px 15px; border: 2px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none;">
+                </div>
+                <div class="input-group">
+                    <label style="font-weight: 800; margin-bottom: 5px; font-size: 0.9rem;">Tu Pregunta:</label>
+                    <textarea id="dudas_texto" rows="3" placeholder="Escribe aquí tu pregunta..." style="width: 100%; padding: 12px 15px; border: 2px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; resize: vertical;"></textarea>
+                </div>
+                
+                <button onclick="enviarDudasGenerales()" class="btn btn-wa" style="width: 100%; margin: 10px auto 0; padding: 15px; font-size: 1.1rem;">Enviar Duda por WhatsApp <span>💬</span></button>
             </div>
         </div>
+
     </div>
 
     <script>
+        // --- NUEVAS FUNCIONES PARA LA SECCIÓN DE PAGO EN PÁGINA ---
+        function enviarDudasGenerales() {
+            let nombre = document.getElementById('dudas_nombre').value.trim() || 'Anónimo';
+            let duda = document.getElementById('dudas_texto').value.trim();
+            if (!duda) {
+                alert('Por favor, escribe tu duda antes de enviar.');
+                return;
+            }
+            let msg = `Hola Dr. Donato 🌸.\nSoy *${nombre}* y tengo una duda sobre la Guía de Menopausia:\n\n"${duda}"`;
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function togglePaymentInstructions_meno_main() {
+            let paymentMethodElement = document.querySelector(`input[name="paymentMethod_meno_main"]:checked`);
+            let paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'efectivo';
+            document.getElementById(`instructionsEfectivo_meno_main`).style.display = paymentMethod === 'efectivo' ? 'block' : 'none';
+            document.getElementById(`instructionsTransferencia_meno_main`).style.display = paymentMethod === 'transferencia' ? 'block' : 'none';
+            document.getElementById(`instructionsMercadoPago_meno_main`).style.display = paymentMethod === 'mercadopago' ? 'block' : 'none';
+        }
+
+        function enviarWaEfectivoMain() {
+            let nombre = document.getElementById('wa_meno_nombre_efectivo_main').value.trim();
+            let fecha = document.getElementById('wa_meno_fecha_efectivo_main').value;
+            if (!nombre || !fecha) {
+                alert('Por favor, ingresa tu nombre y la fecha que te gustaría agendar.');
+                return;
+            }
+            let msg = `Hola Dr. Donato 🌸.\nSoy *${nombre}* y leí la guía de Menopausia.\n\nQuiero agendar una consulta para el día *${fecha}*.\n\n*Método de Pago seleccionado:* Pagaré en efectivo en la clínica.`;
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function enviarWaComprobanteMain(metodo) {
+            let nombre = prompt("Por favor, ingresa tu nombre para identificar tu pago:", "");
+            if (nombre === null) return; // User cancelled
+            let msg = `Hola Dr. Donato 🌸.\nSoy *${nombre}* y leí la guía de Menopausia.\n\nAcabo de realizar mi pago para la consulta por *${metodo}*.\n\nAdjunto mi comprobante para confirmar mi cita. ¡Gracias!`;
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
         // Lógica de Tabs
         function openTab(tabId, btnElement) {
             document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
@@ -1077,15 +1155,7 @@
             if (btnElement) btnElement.classList.add('active');
         }
 
-        // Lógica de Pagos en Modal
-        function togglePaymentInstructions_meno() {
-            let paymentMethodElement = document.querySelector(`input[name="paymentMethod_meno"]:checked`);
-            let paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'efectivo';
-            document.getElementById(`instructionsEfectivo_meno`).style.display = paymentMethod === 'efectivo' ? 'block' : 'none';
-            document.getElementById(`instructionsTransferencia_meno`).style.display = paymentMethod === 'transferencia' ? 'block' : 'none';
-            document.getElementById(`instructionsMercadoPago_meno`).style.display = paymentMethod === 'mercadopago' ? 'block' : 'none';
-        }
-
+        // Lógica de Pagos
         function copyToClipboard(inputId, btn) {
             var copyText = document.getElementById(inputId);
             copyText.select();
@@ -1198,27 +1268,6 @@
             }
         }
 
-        // Enviar WhatsApp
-        function enviarWaMenopausiaForm() {
-            let n = document.getElementById('wa_meno_nombre').value || 'N/A';
-            let e = document.getElementById('wa_meno_edad').value || 'N/A';
-            let du = document.getElementById('wa_meno_duda').value || 'Deseo agendar consulta sobre menopausia con el Dr. Carlos Donato.';
-            
-            let paymentMethodElement = document.querySelector(`input[name="paymentMethod_meno"]:checked`);
-            let paymentText = "";
-            if (paymentMethodElement) {
-                if (paymentMethodElement.value === 'efectivo') paymentText = "Efectivo en Consultorio";
-                if (paymentMethodElement.value === 'transferencia') paymentText = "Transferencia Bancaria";
-                if (paymentMethodElement.value === 'mercadopago') paymentText = "Pago en Línea (Mercado Pago)";
-            }
-
-            let msg = `Hola Proyecto Celene 🌸.\nLeí la guía de Menopausia y me interesa agendar una consulta médica.\n\n*Nombre:* ${n}\n*Edad:* ${e}\n*Síntomas/Duda:* ${du}`;
-            if(paymentText) msg += `\n\n*Método de Pago seleccionado:* ${paymentText}`;
-            
-            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
-            document.getElementById('modalWaMenopausia').style.display = 'none';
-        }
-
         // Animaciones
         document.addEventListener("DOMContentLoaded", function () {
             const observer = new IntersectionObserver((entries) => {
@@ -1233,6 +1282,7 @@
         });
     </script>
     <script src="js/global.js"></script>
+
 </body>
 
 </html>
