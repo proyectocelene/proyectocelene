@@ -92,4 +92,11 @@ document.addEventListener("DOMContentLoaded", function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // Actualizar fecha en los botones de calendario globales
+    const dateElements = document.querySelectorAll('.date-today');
+    if (dateElements.length > 0) {
+        const today = new Date().getDate();
+        dateElements.forEach(el => el.innerText = today);
+    }
 });

@@ -717,104 +717,6 @@
             border-color: var(--pc-rosa-fuerte);
         }
 
-        /* ANIMACIÓN AGENDA */
-        .agenda-pulse {
-            animation: pulseBg 2s infinite;
-        }
-
-        @keyframes pulseBg {
-            0% {
-                box-shadow: 0 0 0 0 rgba(216, 27, 96, 0.4);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(216, 27, 96, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(216, 27, 96, 0);
-            }
-        }
-
-        /* BOTON CALENDARIO ANIMADO CSS */
-        .calendar-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            background: var(--pc-rosa-fuerte);
-            color: white;
-            border: 4px solid var(--pc-negro);
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-size: 1.3rem;
-            font-weight: 900;
-            text-decoration: none;
-            box-shadow: 6px 6px 0 var(--pc-negro);
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            font-family: 'Nunito', sans-serif;
-        }
-
-        .calendar-btn:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 8px 12px 0 var(--pc-negro);
-            background: var(--pc-rosa-medio);
-        }
-
-        .calendar-btn:active {
-            transform: translateY(4px);
-            box-shadow: 0 0 0 transparent;
-        }
-
-        .calendar-icon {
-            width: 40px;
-            height: 45px;
-            background: white;
-            border: 3px solid var(--pc-negro);
-            border-radius: 8px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            animation: bounce-calendar 2s infinite;
-        }
-
-        .calendar-top {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background: var(--pc-negro);
-        }
-        
-        .calendar-top::before, .calendar-top::after {
-            content: '';
-            position: absolute;
-            top: -4px;
-            width: 6px;
-            height: 10px;
-            background: white;
-            border: 2px solid var(--pc-negro);
-            border-radius: 4px;
-        }
-
-        .calendar-top::before { left: 6px; }
-        .calendar-top::after { right: 6px; }
-
-        .calendar-date {
-            margin-top: 8px;
-            font-size: 1.1rem;
-            font-weight: 900;
-            color: var(--pc-negro);
-            font-family: 'Courier Prime', monospace;
-        }
-
-        @keyframes bounce-calendar {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
@@ -956,7 +858,7 @@
                 <a href="reservar-consulta.html" class="calendar-btn">
                     <div class="calendar-icon">
                         <div class="calendar-top"></div>
-                        <div class="calendar-date" id="current-date">--</div>
+                        <div class="calendar-date date-today">--</div>
                     </div>
                     <span>¡Agendar mi Cita Ahora!</span>
                 </a>
@@ -1101,16 +1003,6 @@
         </div>
 
     </div>
-
-    <script>
-        // Poner el día actual en el iconito de calendario
-        document.addEventListener("DOMContentLoaded", function () {
-            const dateEl = document.getElementById('current-date');
-            if(dateEl) {
-                dateEl.innerText = new Date().getDate();
-            }
-        });
-    </script>
 
     <script src="js/global.js"></script>
 </body>

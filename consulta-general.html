@@ -35,6 +35,7 @@
             --pc-blanco: #fff;
             --pc-amarillo: #fff9c4;
             --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
         }
 
         * {
@@ -119,6 +120,17 @@
             line-height: 1.1;
         }
 
+        /* ANIMACIONES */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .content-box {
             background: white;
             border: 3px solid var(--pc-negro);
@@ -134,16 +146,33 @@
             font-size: 1.8rem;
         }
 
-        .content-box ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-            font-weight: 600;
-            color: #444;
+        /* TARJETAS DE INCLUSIÓN */
+        .inclusions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
         }
 
-        .content-box li {
-            margin-bottom: 8px;
+        .inclusion-card {
+            background: var(--pc-rosa-pastell);
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            padding: 20px 15px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 4px 4px 0 var(--pc-negro);
+            transition: transform 0.2s;
         }
+
+        .inclusion-card:nth-child(even) { background: var(--pc-amarillo); }
+        
+        .inclusion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 6px 6px 0 var(--pc-negro);
+        }
+
+        .inclusion-card span { font-size: 2.2rem; display: block; margin-bottom: 10px; }
 
         .btn {
             display: block;
@@ -167,6 +196,14 @@
             box-shadow: 0 0 0 transparent;
         }
 
+        .btn-cuestionario {
+            background: var(--pc-azul-suave);
+            color: var(--pc-negro);
+            box-shadow: 0 6px 0 var(--pc-negro);
+            border-color: var(--pc-negro);
+            margin-top: 15px;
+        }
+
         .info-panel {
             background: var(--pc-gris-suave);
             border: 3px dashed var(--pc-negro);
@@ -180,72 +217,6 @@
             font-size: 1.4rem;
             margin-bottom: 10px;
         }
-
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-        }
-
-        .modal-content {
-            background: white;
-            border: 4px solid var(--pc-negro);
-            border-radius: 25px;
-            max-width: 500px;
-            width: 100%;
-            padding: 35px;
-            position: relative;
-            box-shadow: 12px 12px 0px var(--pc-azul-suave);
-            animation: popIn 0.3s ease-out;
-        }
-
-        @keyframes popIn {
-            0% {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            font-size: 2rem;
-            cursor: pointer;
-            font-weight: 900;
-            color: var(--pc-negro);
-        }
-
-        .modal input,
-        .modal textarea {
-            width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 15px;
-            border: 3px solid var(--pc-negro);
-            border-radius: 10px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .modal input:focus,
-        .modal textarea:focus {
-            border-color: var(--pc-rosa-fuerte);
-        }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
@@ -253,129 +224,73 @@
 <body>
     <div class="container">
         <div id="navbar-container" class="main-nav"></div>
-        <header class="header">
+        <header class="header fade-in">
             <img src="https://i.ibb.co/zhSRq5hX/CONSULTA-GENERAL.jpg" alt="Consulta General">
             <h1 class="hand-drawn">Consulta Médica General <span>🩺</span></h1>
             <p style="font-weight:600; font-size:1.1rem;">Atención profesional, empática y humana con cuota accesible.
             </p>
         </header>
-        <div class="content-box">
+        <div class="content-box fade-in">
             <h2 class="hand-drawn">Medicina centrada en ti</h2>
             <p>Nuestra gran diferencia es que en Proyecto Celene <strong>te escuchamos de verdad</strong>. Curar el
                 cuerpo pero entender el entorno del paciente es la base de nuestra vocación. Recibe un diagnóstico
                 preciso y el trato humano que mereces.</p>
-            <h2 class="hand-drawn" style="margin-top:30px;">¿Qué incluye la consulta? ($150 MXN)</h2>
-            <ul>
-                <li>Valoración clínica detallada y sin prisas.</li>
-                <li>Toma de signos vitales (presión, peso, temperatura).</li>
-                <li>Expedición de receta médica oficial.</li>
-                <li>Interpretación de laboratorios previos si los tienes.</li>
-            </ul>
+            
+            <h2 class="hand-drawn" style="margin-top:35px; border-top: 3px dashed #eee; padding-top: 25px;">¿Qué incluye la consulta? <span style="background: var(--pc-rosa-fuerte); color: white; padding: 5px 12px; border-radius: 12px; font-size: 1.4rem; display: inline-block; transform: rotate(-3deg); box-shadow: 3px 3px 0 var(--pc-negro); border: 2px solid var(--pc-negro); margin-left: 10px;">$150 MXN</span></h2>
+            
+            <div class="inclusions-grid">
+                <div class="inclusion-card"><span>⏱️</span> Valoración clínica detallada y sin prisas.</div>
+                <div class="inclusion-card"><span>🩺</span> Toma de signos vitales.</div>
+                <div class="inclusion-card"><span>📝</span> Expedición de receta médica oficial.</div>
+                <div class="inclusion-card"><span>🔬</span> Interpretación de laboratorios previos.</div>
+            </div>
+
+            <div class="fade-in" style="background: var(--pc-gris-suave); border: 3px dashed var(--pc-negro); border-radius: 20px; padding: 25px; text-align: center; margin-top: 35px; box-shadow: 6px 6px 0 var(--pc-rosa-pastell);">
+                <h3 class="hand-drawn" style="font-size: 1.8rem; margin-bottom: 10px;">¡Ahorra tiempo en tu visita! 📋</h3>
+                <p style="font-weight: 600; color: #444; margin-bottom: 10px;">Llenar tu historial médico antes de venir nos ayuda a brindarte una mejor atención desde el primer minuto.</p>
+                <a href="cuestionario-pre-consulta.html" class="btn btn-cuestionario">Llenar Cuestionario Pre-consulta ➔</a>
+            </div>
 
             <p
                 style="text-align: center; font-weight: 800; font-size: 1.1rem; margin-top: 25px; color: var(--pc-rosa-fuerte);">
                 Puedes acudir presencialmente sin cita de Lunes a Domingo de 9:00 am a 4:00 pm, o asegurar tu lugar
                 agendando aquí:</p>
 
-            <!-- Botón Calendario Google -->
+            <!-- Botón Calendario -->
             <div style="text-align: center; margin-top: 15px; display: flex; justify-content: center;">
-                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-                <script>
-                    (function () {
-                        var target = document.currentScript;
-                        window.addEventListener('load', function () {
-                            calendar.schedulingButton.load({
-                                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
-                                color: '#d81b60', /* Rosa Fuerte */
-                                label: '🗓️ Consultar horarios y Agendar',
-                                target,
-                            });
-                        });
-                    })();
-                </script>
+                <a href="reservar-consulta.html" class="calendar-btn">
+                    <div class="calendar-icon">
+                        <div class="calendar-top"></div>
+                        <div class="calendar-date date-today">--</div>
+                    </div>
+                    <span>Consultar horarios y Agendar</span>
+                </a>
             </div>
-            <!-- Ajuste CSS para unificar Google Btn -->
-            <style>
-                .X81W0b {
-                    border: 4px solid var(--pc-negro) !important;
-                    font-family: 'Nunito', sans-serif !important;
-                    font-weight: 800 !important;
-                    border-radius: 50px !important;
-                    padding: 15px 20px !important;
-                    box-shadow: 0 6px 0 var(--pc-negro) !important;
-                    font-size: 1.1rem !important;
-                }
 
-                .X81W0b:active {
-                    box-shadow: 0 0 0 transparent !important;
-                    transform: translateY(6px);
-                }
-            </style>
-
-            <div class="info-panel">
-                <h3 class="hand-drawn">📱 ¿Necesitas una Consulta Virtual Formal?</h3>
-                <p>Ideal para seguimientos crónicos (como diabetes), revisión de resultados o si necesitas una
-                    <strong>Receta Médica oficial</strong> sin salir de casa.</p>
-                <p style="margin-top: 10px;"><strong>¿Por qué tiene costo ($150) a diferencia de la orientación
-                        gratuita?</strong><br>
-                    Porque por normatividad legal (NOM-004), la emisión de recetas médicas requiere que el médico
-                    dedique el tiempo para abrir un <strong>expediente clínico completo</strong> y responsabilizarse
-                    legalmente del tratamiento usando su cédula profesional.</p>
-
-                <button onclick="openModal('modalVirtual')" class="btn"
-                    style="background:var(--pc-azul-suave); color:var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); margin-bottom: 15px;">Agendar
-                    Consulta Virtual <span>💬</span></button>
-
-                <!-- Botón Calendario Google -->
-                <div style="text-align: center; display: flex; justify-content: center;">
-                    <script>
-                        (function () {
-                            var target = document.currentScript;
-                            window.addEventListener('load', function () {
-                                calendar.schedulingButton.load({
-                                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
-                                    color: '#118AB2', /* Azul Suave oscuro */
-                                    label: '🗓️ Consultar horarios y Agendar',
-                                    target,
-                                });
-                            });
-                        })();
-                    </script>
+            <!-- BANNER DE TELEMEDICINA -->
+            <div class="fade-in" style="background: var(--pc-azul-suave); border: 4px dashed var(--pc-negro); border-radius: 25px; padding: 35px 25px; margin-top: 50px; position: relative; text-align: center; box-shadow: 8px 8px 0 var(--pc-rosa-pastell);">
+                <div style="position: absolute; top: -22px; left: 50%; transform: translateX(-50%); background: var(--pc-negro); color: var(--pc-amarillo); padding: 8px 25px; border-radius: 50px; font-weight: 900; font-size: 1.1rem; border: 3px solid white; box-shadow: 0 4px 0 var(--pc-rosa-fuerte); white-space: nowrap;">
+                    🌐 TELEMEDICINA
                 </div>
+
+                <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); text-align: center; margin-top: 10px; margin-bottom: 5px;">Tu médico a distancia 💻</h2>
+                <p style="text-align: center; font-weight: 800; font-size: 1.2rem; margin-bottom: 25px; color: var(--pc-rosa-fuerte);">¿Ocupas consulta médica pero no puedes salir de casa?</p>
+                <a href="telemedicina.html" class="btn" style="background: var(--pc-negro); color: white; border-color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-rosa-fuerte); margin: 0 auto; display: inline-block;">Conoce la Consulta Virtual ➔</a>
             </div>
 
-        </div>
-    </div>
-
-    <!-- MODAL VIRTUAL -->
-    <div id="modalVirtual" class="modal" onclick="closeOnOutside(event, 'modalVirtual')">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('modalVirtual')">✕</span>
-            <h3 class="hand-drawn"
-                style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Consulta
-                Virtual 💻</h3>
-            <p style="margin-bottom:20px; font-weight: 600; color: #555;">Llena estos datos para agilizar la apertura de
-                tu expediente médico.</p>
-            <input type="text" id="cv_nombre" placeholder="Nombre completo del paciente">
-            <textarea id="cv_motivo" rows="3"
-                placeholder="Motivo de tu consulta virtual (seguimiento, receta, dolor...)"></textarea>
-            <button onclick="sendVirtualWa()" class="btn" style="width:100%; background: #25d366; color: white;">Enviar
-                Solicitud a WhatsApp <span>💬</span></button>
         </div>
     </div>
 
     <script>
-        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
-        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        function closeOnOutside(event, id) { if (event.target.id === id) closeModal(id); }
-        function sendVirtualWa() {
-            let nombre = document.getElementById('cv_nombre').value.trim() || 'No especificado';
-            let motivo = document.getElementById('cv_motivo').value.trim() || 'Ninguno';
-            let msg = `*SOLICITUD DE CONSULTA VIRTUAL*\n\n👤 *Paciente:* ${nombre}\n📝 *Motivo:* ${motivo}\n\nDeseo agendar mi consulta médica virtual con costo de $150 m.n.`;
-            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
-            closeModal('modalVirtual');
-        }
+        // Observador de Scroll para animaciones fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
     <script src="js/global.js"></script>
 </body>

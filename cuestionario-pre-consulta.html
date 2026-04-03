@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario Pre-Consulta - Proyecto Celene</title>
+    <meta name="description" content="Llenar tu historial médico antes de tu visita nos ayuda a brindarte una mejor atención desde el primer minuto.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/cuestionario-pre-consulta.html">
+    <meta property="og:title" content="Cuestionario Pre-Consulta - Proyecto Celene">
+    <meta property="og:description" content="Llenar tu historial médico antes de tu visita nos ayuda a brindarte una mejor atención desde el primer minuto.">
+    <meta property="og:image" content="https://i.ibb.co/Fk49CMjB/cuestionario-imagen.png">
+    <meta property="og:image:secure_url" content="https://i.ibb.co/Fk49CMjB/cuestionario-imagen.png">
+    <meta property="og:image:type" content="image/png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/cuestionario-pre-consulta.html">
+    <meta property="twitter:title" content="Cuestionario Pre-Consulta - Proyecto Celene">
+    <meta property="twitter:description" content="Llenar tu historial médico antes de tu visita nos ayuda a brindarte una mejor atención desde el primer minuto.">
+    <meta property="twitter:image" content="https://i.ibb.co/Fk49CMjB/cuestionario-imagen.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333;
+            --pc-blanco: #fff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-azul-suave);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-negro);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .content-box {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+        }
+
+        /* ANIMACIONES */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Imagen animada en el encabezado */
+        .header-image-animated {
+            max-width: 100%;
+            width: 150px; /* Ajusta el tamaño según sea necesario */
+            height: auto;
+            margin: 0 auto 20px;
+            animation: float-image 3s ease-in-out infinite;
+            display: block; /* Asegura que la imagen sea un bloque para el margen auto */
+        }
+
+        @keyframes float-image {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+
+
+        /* BANNERS PROMOCIONALES */
+        .promo-banner {
+            background: var(--pc-blanco);
+            border: 3px dashed var(--pc-negro);
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 15px;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .promo-banner:hover { transform: translateY(-3px); }
+
+        /* DIAGRAMA DE PASOS */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        /* PURE CSS ART ADICIONAL */
+        .css-heart {
+            background-color: var(--pc-rosa-fuerte);
+            display: inline-block;
+            height: 20px;
+            margin: 0 10px;
+            position: relative;
+            top: 0;
+            transform: rotate(-45deg);
+            width: 20px;
+            animation: heartbeat 1.2s infinite;
+            vertical-align: middle;
+        }
+        .css-heart:before, .css-heart:after {
+            content: "";
+            background-color: var(--pc-rosa-fuerte);
+            border-radius: 50%;
+            height: 20px;
+            position: absolute;
+            width: 20px;
+        }
+        .css-heart:before { top: -10px; left: 0; }
+        .css-heart:after { left: 10px; top: 0; }
+        @keyframes heartbeat {
+            0% { transform: rotate(-45deg) scale(1); }
+            14% { transform: rotate(-45deg) scale(1.3); }
+            28% { transform: rotate(-45deg) scale(1); }
+            42% { transform: rotate(-45deg) scale(1.3); }
+            70% { transform: rotate(-45deg) scale(1); }
+        }
+
+        .css-drop {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: #d50000;
+            border-radius: 0 50% 50% 50%;
+            transform: rotate(45deg);
+            margin-right: 10px;
+            animation: pulse-drop 2s infinite;
+            vertical-align: middle;
+        }
+        @keyframes pulse-drop {
+            0% { transform: rotate(45deg) scale(1); }
+            50% { transform: rotate(45deg) scale(1.2); }
+            100% { transform: rotate(45deg) scale(1); }
+        }
+
+        .btn-print { background: white; color: var(--pc-negro); box-shadow: 0 8px 0 var(--pc-negro); border-color: var(--pc-negro); }
+
+        .step-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--pc-gris-suave);
+            padding: 15px 20px;
+            border-radius: 15px;
+            border: 2px solid var(--pc-negro);
+            transition: transform 0.2s;
+        }
+
+        .step-row:hover {
+            transform: translateX(10px);
+            background: white;
+        }
+
+        .step-icon {
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            border: 2px solid var(--pc-negro);
+            flex-shrink: 0;
+            font-family: 'Handlee', cursive;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--pc-negro);
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 12px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+            background: var(--pc-gris-suave);
+            box-shadow: inset 3px 3px 6px rgba(0,0,0,0.05);
+        }
+
+        .form-control:focus {
+            border-color: var(--pc-rosa-fuerte);
+            background: white;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* CHECKBOXES ESTILO PÍLDORA INTERACTIVA 3D */
+        .pill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .pill-label {
+            flex: 1;
+            min-width: 130px; /* Ajustado para celular */
+            background: white;
+            border: 3px solid var(--pc-negro);
+            padding: 12px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 900;
+            transition: all 0.1s;
+            text-align: center;
+            box-shadow: 0 6px 0 var(--pc-negro), 0 10px 10px rgba(0,0,0,0.1);
+            color: var(--pc-negro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            user-select: none;
+            transform: translateY(0);
+        }
+
+        .pill-label input {
+            display: none;
+        }
+
+        .pill-label:active, .pill-label:has(input:checked) {
+            background: var(--pc-rosa-fuerte) !important;
+            color: white !important;
+            border-color: var(--pc-negro);
+            box-shadow: 0 0 0 var(--pc-negro), inset 0 4px 8px rgba(0,0,0,0.3) !important;
+            transform: translateY(6px);
+        }
+
+        @media (max-width: 600px) {
+            .pill-label { min-width: 100%; } /* Apilar en pantallas muy pequeñas */
+        }
+
+        /* SECCIONES (TARJETAS) */
+        .section-card {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 6px 6px 0 var(--pc-azul-suave);
+            transition: all 0.3s ease;
+        }
+
+        .section-card h2 {
+            font-family: 'Handlee', cursive;
+            color: var(--pc-rosa-fuerte);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed #eee;
+            padding-bottom: 10px;
+        }
+
+        .conditional-section {
+            display: none;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.95) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.2rem;
+            background: #25d366;
+            color: white;
+            box-shadow: 0 8px 0 #1b9c4b, 0 12px 10px rgba(0,0,0,0.15);
+            margin: 30px auto 0;
+            max-width: 400px;
+            transition: 0.1s;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:active {
+            transform: translateY(8px);
+            box-shadow: 0 0 0 transparent, inset 0 4px 8px rgba(0,0,0,0.2) !important;
+        }
+
+        .btn-back {
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            box-shadow: 0 4px 0 var(--pc-negro);
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-width: 3px;
+            margin: 0 0 20px 0;
+            display: inline-block;
+        }
+        .btn-back:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 transparent;
+        }
+
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <a href="consulta-general.html" class="btn btn-back fade-in">⬅️ Volver a Consulta General</a>
+
+        <header class="header fade-in">
+            <img src="https://i.ibb.co/Fk49CMjB/cuestionario-imagen.png" alt="Cuestionario Pre-Consulta" class="header-image-animated">
+            <h1 class="hand-drawn">Historial Pre-Consulta</h1>
+            <p style="font-weight:600; font-size:1.1rem; color: #444;">Ayúdanos a conocerte mejor. Llenar esto antes de tu consulta nos permite dedicar más tiempo a escucharte y menos a escribir.</p>
+        </header>
+
+        <div class="content-box">
+            <h2 class="hand-drawn fade-in" style="color: var(--pc-negro); margin-bottom: 20px; font-size: 2rem; text-align: center;">¿Cómo funciona? 🚀</h2>
+            <div class="steps-container fade-in">
+                <div class="step-row" style="box-shadow: 4px 4px 0 var(--pc-amarillo);">
+                    <div class="step-icon" style="background: var(--pc-rosa-fuerte);">1</div>
+                    <div style="font-size: 1.05rem; color: #444;"><strong>Llena el cuestionario:</strong> Completa tus datos y antecedentes médicos aquí abajo.</div>
+                </div>
+                <div class="step-row" style="box-shadow: 4px 4px 0 #25d366;">
+                    <div class="step-icon" style="background: #25d366;">2</div>
+                    <div style="font-size: 1.05rem; color: #444;"><strong>Envía tu historial:</strong> Usa el botón verde al final para mandarlo por WhatsApp.</div>
+                </div>
+                <div class="step-row" style="box-shadow: 4px 4px 0 #118AB2;">
+                    <div class="step-icon" style="background: #118AB2;">3</div>
+                    <div style="font-size: 1.05rem; color: #444;"><strong>Agenda tu cita:</strong> En la misma página, usa el calendario al final para apartar tu lugar.</div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 1: DATOS -->
+            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-amarillo);">
+                <h2>👤 Datos de Identificación</h2>
+                
+                <div class="form-group">
+                    <label>Nombre completo:</label>
+                    <input type="text" id="cp_nombre" class="form-control" placeholder="Ej. Ana María López">
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                    <div class="form-group" style="flex: 2; min-width: 200px;">
+                        <label>Fecha de nacimiento:</label>
+                        <input type="date" id="cp_fecha_nac" class="form-control" onchange="calcularEdadAutomatica()">
+                    </div>
+                    <div class="form-group" style="flex: 1; min-width: 80px;">
+                        <label>Edad (Auto):</label>
+                        <input type="number" id="cp_edad" class="form-control" placeholder="Años" readonly style="background: #e0e0e0; font-weight: bold; text-align: center;">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Sexo / Género:</label>
+                    <div class="pill-group">
+                        <label class="pill-label" style="background: #fce4ec; color: var(--pc-negro);"><input type="radio" name="cp_sexo" value="Femenino" onchange="toggleGenderSections()"> 👩 Femenino</label>
+                        <label class="pill-label" style="background: #e3f2fd; color: var(--pc-negro);"><input type="radio" name="cp_sexo" value="Masculino" onchange="toggleGenderSections()"> 👨 Masculino</label>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Handlee', cursive; color: var(--pc-rosa-fuerte); font-size: 1.5rem; margin-top: 20px; margin-bottom: 15px; border-bottom: 2px dashed #eee;">Contacto de Emergencia 🚨</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Tu Teléfono (WhatsApp):</label>
+                        <input type="tel" id="cp_telefono" class="form-control" placeholder="Ej. 661 123 4567 (El tuyo)">
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Nombre (Emergencia):</label>
+                        <input type="text" id="cp_emerg_nombre" class="form-control" placeholder="Ej. Juan Pérez (Esposo)">
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>WhatsApp (Emergencia):</label>
+                        <input type="tel" id="cp_emerg_tel" class="form-control" placeholder="Ej. 661 987 6543">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: MOTIVO -->
+            <div class="section-card fade-in">
+                <h2>🩺 Historial Médico</h2>
+                <div class="form-group">
+                    <label>¿Cuál es el motivo principal de tu consulta hoy?</label>
+                    <textarea id="cp_motivo" class="form-control" placeholder="Describe brevemente tus síntomas o si es revisión general..." style="min-height: 80px;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>¿Desde cuándo presentas estas molestias?</label>
+                    <input type="text" id="cp_tiempo" class="form-control" placeholder="Ej. Hace 3 días, 1 semana, meses...">
+                </div>
+
+                <div class="form-group" style="background: var(--pc-gris-suave); padding: 15px; border-radius: 15px; border: 2px dashed #ccc; margin-bottom: 20px;">
+                    <label>🚭 Hábitos Básicos (Confidencial):</label>
+                    <div class="pill-group">
+                        <label class="pill-label" style="background: white;"><input type="checkbox" class="hab-check" value="Fuma" onchange="toggleHabitos()"> Fumo / Vapeo 🚬</label>
+                        <label class="pill-label" style="background: white;"><input type="checkbox" class="hab-check" value="Toma Alcohol" onchange="toggleHabitos()"> Bebo Alcohol 🍺</label>
+                        <label class="pill-label" style="background: white;"><input type="checkbox" class="hab-check" value="Sustancias" onchange="toggleHabitos()"> Uso Sustancias 🍄</label>
+                    </div>
+                    <input type="text" id="cp_habitos_txt" class="form-control conditional-section" placeholder="¿Qué consumes y con qué frecuencia? (Ej. 5 cigarros al día, alcohol fines de semana)..." style="margin-top: 15px;">
+                </div>
+
+                <div class="form-group">
+                    <label>¿Padeces alguna enfermedad crónica? (Puedes marcar varias)</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="checkbox" class="enf-check" value="Diabetes" onchange="toggleTratamiento()"> 🩸 Diabetes</label>
+                        <label class="pill-label"><input type="checkbox" class="enf-check" value="Hipertensión" onchange="toggleTratamiento()"> 💓 Hipertensión</label>
+                        <label class="pill-label"><input type="checkbox" class="enf-check" value="Obesidad" onchange="toggleTratamiento()"> ⚖️ Obesidad</label>
+                        <label class="pill-label"><input type="checkbox" class="enf-check" value="Asma/Alergias" onchange="toggleTratamiento()"> 🫁 Asma/Alergias</label>
+                        <label class="pill-label"><input type="checkbox" class="enf-check" value="Problema de Tiroides" onchange="toggleTratamiento()"> 🦋 Tiroides</label>
+                        <label class="pill-label"><input type="checkbox" class="enf-check" value="Otra" onchange="toggleOtraEnf()"> ➕ Otra</label>
+                        <label class="pill-label" style="background: #e0e0e0; color: var(--pc-negro);"><input type="checkbox" id="enf_ninguna" value="Ninguna" onchange="toggleNingunaEnf()"> 🟢 Ninguna</label>
+                    </div>
+                    <input type="text" id="cp_otra_enf_txt" class="form-control conditional-section" placeholder="¿Qué otra enfermedad tienes diagnosticada?" style="margin-top: 15px;">
+                </div>
+                
+                <div class="form-group" style="margin-top: 25px; border-top: 2px dashed #eee; padding-top: 15px;">
+                    <label><div class="css-drop"></div> Laboratorios (Glucosa, Colesterol, Triglicéridos)</label>
+                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 10px;">Conocer tus niveles es clave para prevenir infartos. ¿Conoces tus números recientes o te gustaría que el doctor te dé una orden para laboratorio?</p>
+                    <div class="pill-group">
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="rad_labs" value="Conoce niveles: Normales"> Todo normal 👍</label>
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="rad_labs" value="Conoce niveles: Altos"> Salieron Altos ⚠️</label>
+                        <label class="pill-label" style="background: #fff9c4; color: var(--pc-negro);"><input type="radio" name="rad_labs" value="Ocupa orden médica de laboratorio" checked> Ocupo orden médica 📝</label>
+                    </div>
+                </div>
+
+                <div class="form-group conditional-section" id="box_tratamiento">
+                    <label style="color: var(--pc-rosa-fuerte);">💊 ¿Qué medicamentos o tratamiento tomas para esto?</label>
+                    <textarea id="cp_medicamentos" class="form-control" placeholder="Anota los nombres (Ej. Metformina 850mg, Losartán...)" style="min-height: 60px;"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>¿Tienes alergias? ⚠️</label>
+                    <div class="pill-group" style="margin-bottom: 10px;">
+                        <label class="pill-label"><input type="radio" name="rad_alergia" value="no" onchange="toggleAlergia()" checked> No / Ninguna</label>
+                        <label class="pill-label"><input type="radio" name="rad_alergia" value="si" onchange="toggleAlergia()"> Sí tengo alergias</label>
+                    </div>
+                    <input type="text" id="cp_alergias_txt" class="form-control conditional-section" placeholder="Escribe aquí a qué eres alérgico(a)...">
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2.5: HISTORIAL FAMILIAR -->
+            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-azul-suave);">
+                <h2>👨‍👩‍👧‍👦 Antecedentes Familiares</h2>
+                <p style="font-weight: 600; color: #555; margin-bottom: 15px; font-size: 0.95rem;">¿Alguien en tu familia directa (padres, abuelos, hermanos) padece o ha padecido alguna de estas enfermedades?</p>
+                
+                <div class="form-group">
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="checkbox" class="fam-check" value="Diabetes" onchange="document.getElementById('fam_ninguna').checked = false;"> 🩸 Diabetes</label>
+                        <label class="pill-label"><input type="checkbox" class="fam-check" value="Hipertensión" onchange="document.getElementById('fam_ninguna').checked = false;"> 💓 Hipertensión</label>
+                        <label class="pill-label"><input type="checkbox" class="fam-check" value="Cáncer" onchange="document.getElementById('fam_ninguna').checked = false;"> 🎗️ Cáncer</label>
+                        <label class="pill-label"><input type="checkbox" class="fam-check" value="Enfermedad del Corazón" onchange="document.getElementById('fam_ninguna').checked = false;"> ❤️ Enf. del Corazón</label>
+                        <label class="pill-label"><input type="checkbox" class="fam-check" value="Enfermedad Tiroidea" onchange="document.getElementById('fam_ninguna').checked = false;"> 🦋 Tiroides</label>
+                        <label class="pill-label" style="background: #e0e0e0; color: var(--pc-negro);"><input type="checkbox" id="fam_ninguna" value="Ninguna / Desconozco" onchange="toggleNingunaFam()"> 🟢 Ninguna / Desconozco</label>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>¿Alguna otra enfermedad familiar importante?</label>
+                    <input type="text" id="cp_fam_otra_txt" class="form-control" placeholder="Ej. Asma, artritis, etc...">
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3: PESO Y NUTRICION -->
+            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 #25d366;">
+                <h2>⚖️ Nutrición y Peso</h2>
+                <p style="font-weight: 600; color: #555; margin-bottom: 15px; font-size: 0.95rem;">Si no los conoces con exactitud, pon un aproximado; en consulta te pesaremos y mediremos gratis.</p>
+                
+                <div style="display: flex; gap: 15px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Peso actual (kg):</label>
+                        <input type="number" id="cp_peso" class="form-control" placeholder="Ej. 70" oninput="calcBMI()">
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Estatura (metros):</label>
+                        <input type="number" step="0.01" id="cp_estatura" class="form-control" placeholder="Ej. 1.65" oninput="calcBMI()">
+                    </div>
+                </div>
+                
+                <div id="bmi_box" class="conditional-section" style="background: var(--pc-gris-suave); padding: 15px; border-radius: 15px; border: 2px dashed #444; margin-bottom: 20px; font-weight: 600; font-size: 0.95rem; text-align: center;"></div>
+
+                <div class="form-group">
+                    <label>¿Te gustaría aprovechar tu consulta para abordar temas de nutrición y peso?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="checkbox" class="cp_nutricion" value="Plan nutricional"> 🥗 Plan nutricional (Comer mejor)</label>
+                        <label class="pill-label"><input type="checkbox" class="cp_nutricion" value="Bajar/Subir peso"> 📉 Apoyo para bajar/subir de peso</label>
+                        <label class="pill-label"><input type="checkbox" class="cp_nutricion" value="Medicamento para peso"> 💊 Opciones de medicina para peso</label>
+                        <label class="pill-label"><input type="checkbox" class="cp_nutricion" value="Conforme con mi peso"> 👍 No, estoy conforme con mi peso</label>
+                    </div>
+                </div>
+                
+                <div class="promo-banner" style="border-color: #118AB2; box-shadow: 4px 4px 0 #e3f2fd; margin-top: 20px; text-align: center;">
+                    <h4 style="color: #118AB2; font-family: 'Handlee', cursive; font-size: 1.4rem; margin-bottom: 5px;">⚖️ Clínica de Control de Peso</h4>
+                    <p style="font-size: 0.95rem; color: #444; line-height: 1.4; margin-bottom: 15px;">Bajar de peso no se trata de fuerza de voluntad, es metabolismo. Contamos con acompañamiento médico, planes nutricionales y opciones de medicamento seguro para ayudarte a llegar a tu meta sin estigmas.</p>
+                    <a href="control-de-peso.html" class="btn" style="background: #118AB2; border-color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); padding: 10px 20px; font-size: 1rem; width: auto; margin: 0 auto; display: inline-block;">Conoce el Programa ➔</a>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 4: FEMENINA (CONDICIONAL) -->
+            <div id="sec-mujer" class="section-card conditional-section" style="box-shadow: 6px 6px 0 var(--pc-rosa-pastell); border-color: var(--pc-rosa-fuerte);">
+                <h2>🌸 Salud Femenina</h2>
+
+                <div class="form-group" style="border-bottom: 2px dashed #eee; padding-bottom: 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--pc-rosa-fuerte); font-family: 'Nunito', sans-serif; font-size: 1.3rem; margin-bottom: 10px; font-weight: 900;">🔬 Prevención del Cáncer</h3>
+                    <label style="font-size: 1rem;">¿Cuándo fue tu último estudio de Papanicolaou?</label>
+                    <div class="pill-group" style="margin-bottom: 15px;">
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="rad_pap" value="Hace menos de 1 año"> Menos de 1 año</label>
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="rad_pap" value="Entre 1 y 3 años"> De 1 a 3 años</label>
+                        <label class="pill-label" style="background: #ffebee; color: var(--pc-negro);"><input type="radio" name="rad_pap" value="Más de 3 años o Nunca" checked> Más de 3 años / Nunca</label>
+                    </div>
+
+                    <div class="promo-banner" style="border-color: var(--pc-rosa-fuerte); background: #fce4ec; box-shadow: none;">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-weight: 900; margin-bottom: 5px;">💡 Conoce la IVAA (Inspección Visual)</h4>
+                        <p style="font-size: 0.95rem; color: #444; line-height: 1.4; margin-bottom: 10px;">A diferencia del Papanicolaou, la <strong>Inspección Visual con Ácido Acético (IVAA)</strong> es un estudio rapidísimo que te da tu resultado preventivo <strong>en ese mismo instante</strong>. ¡Ideal para salir de dudas hoy mismo!</p>
+                        <label class="pill-label" style="background: white;"><input type="checkbox" id="chk_ivaa" value="Sí"> Quiero pedir la IVAA en mi consulta 🙋‍♀️</label>
+                    </div>
+                </div>
+
+                <div class="form-group" style="border-bottom: 2px dashed #eee; padding-bottom: 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--pc-rosa-fuerte); font-family: 'Nunito', sans-serif; font-size: 1.3rem; margin-bottom: 10px; font-weight: 900;">🩸 Menstruación y Fertilidad</h3>
+                    
+                    <label style="font-size: 1rem;">¿Estás embarazada o hay posibilidad de estarlo?</label>
+                    <div class="pill-group" style="margin-bottom: 20px;">
+                        <label class="pill-label" style="background: #fff3e0; color: var(--pc-negro);"><input type="radio" name="rad_embarazo" value="Sí/Posiblemente"> Sí / Posiblemente</label>
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="rad_embarazo" value="No"> No</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave); color: var(--pc-negro);"><input type="radio" name="rad_embarazo" value="No aplica"> No aplica</label>
+                    </div>
+
+                    <label style="font-size: 1rem;">¿Cómo es tu menstruación habitualmente?</label>
+                    <div class="pill-group">
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="rad_regla" value="Regular sin dolor"> Regular (Normal)</label>
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="rad_regla" value="Muy dolorosa"> Muy dolorosa 😖</label>
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="rad_regla" value="Muy abundante"> Muy abundante 🩸</label>
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="rad_regla" value="Irregular/Ausente"> Irregular/Ausente 🤷‍♀️</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave); color: var(--pc-negro);"><input type="radio" name="rad_regla" value="Ya no menstrúo"> Ya no menstrúo</label>
+                    </div>
+                    <div class="pill-group" style="margin-top:15px;">
+                        <label class="pill-label" style="background: #e3f2fd; color: var(--pc-negro);"><input type="checkbox" id="chk_hablar_regla" value="Sí"> 👩‍⚕️ Deseo abordar estos temas en consulta</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>¿Te gustaría llenar el cuestionario rápido de Menopausia y Climaterio? (Nos ayuda a entender tus cambios hormonales)</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="rad_meno" value="si" onchange="toggleMeno()"> Sí, me interesa</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave); color: var(--pc-negro);"><input type="radio" name="rad_meno" value="no" onchange="toggleMeno()" checked> No por ahora</label>
+                    </div>
+                </div>
+                
+                <div id="box_menopausia" class="conditional-section" style="background: var(--pc-gris-suave); padding: 15px; border-radius: 15px; border: 2px dashed var(--pc-rosa-fuerte);">
+                    <p style="font-weight: 600; color: #555; margin-bottom: 15px; font-size: 0.95rem;">Marca los síntomas que has sentido en los últimos meses para ofrecerte opciones de alivio:</p>
+                    <div class="form-group">
+                        <label style="color: var(--pc-rosa-fuerte);">🔥 Calor y Sudoración:</label>
+                        <div class="pill-group">
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Bochornos"> Bochornos / Calores</label>
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Sudores fríos nocturnos"> Sudores nocturnos</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: var(--pc-rosa-fuerte);">🧠 Sueño y Ánimo:</label>
+                        <div class="pill-group">
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Insomnio"> Insomnio</label>
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Cambios de humor/Llanto"> Cambios de humor</label>
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Ansiedad/Tristeza"> Ansiedad / Tristeza</label>
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Falta de memoria"> Dificultad de memoria</label>
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Cansancio extremo"> Cansancio extremo</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: var(--pc-rosa-fuerte);">🧬 Físicos e Íntimos:</label>
+                        <div class="pill-group">
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Resequedad vaginal"> Resequedad vaginal</label>
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Pérdida de deseo (libido)"> Baja libido</label>
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Dolor en relaciones"> Dolor en relaciones</label>
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Escapes de orina"> Escapes de orina</label>
+                            <label class="pill-label"><input type="checkbox" class="cp_meno" value="Dolores articulares"> Dolores articulares</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="promo-banner" style="border-color: var(--pc-negro); background: #fff9c4; box-shadow: none; margin-top: 20px;">
+                    <h4 style="color: var(--pc-negro); font-family: 'Handlee', cursive; font-size: 1.4rem; margin-bottom: 5px;">🌸 Programa de Transición a la Menopausia</h4>
+                    <p style="font-size: 0.95rem; color: #444; line-height: 1.4;">No tienes que sufrir los bochornos, la sequedad ni el insomnio en silencio. El Dr. Donato te guiará con opciones hormonales y no hormonales súper efectivas para vivir esta etapa en plenitud.</p>
+                </div>
+                
+                <div class="form-group" style="margin-top: 20px; border-top: 2px dashed #eee; padding-top: 15px;">
+                    <label style="color: var(--pc-rosa-fuerte);">💬 ¿Tienes alguna duda o preocupación sobre tus genitales (externos o internos), flujo, o salud íntima que quieras discutir?</label>
+                    <textarea id="cp_mujer_dudas" class="form-control" placeholder="Escribe aquí cualquier molestia, bolita, picazón o duda que tengas..." style="min-height: 60px;"></textarea>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 5: PROSTATA (CONDICIONAL) -->
+            <div id="sec-hombre" class="section-card conditional-section" style="box-shadow: 6px 6px 0 #118AB2; border-color: #118AB2;">
+                <h2 style="color: #118AB2;">🧔 Salud Prostática (Test IPSS)</h2>
+                <p style="font-weight: 600; color: #555; margin-bottom: 20px; font-size: 0.95rem;">Contesta las siguientes preguntas pensando en cómo ha sido tu forma de orinar <strong>en el último mes</strong>.</p>
+                
+                <style>
+                    .ipss-select { width: 100%; padding: 10px; border: 2px solid var(--pc-negro); border-radius: 8px; font-weight: 700; margin-bottom: 5px; outline: none; background: #f9f9f9; }
+                    .ipss-select:focus { border-color: #118AB2; }
+                    .ipss-feedback { display: none; margin-bottom: 15px; font-size: 0.9rem; color: #118AB2; font-weight: 700; background: #e3f2fd; padding: 10px; border-radius: 8px; border-left: 4px solid #118AB2; }
+                </style>
+
+                <label style="font-weight: 800;">1. ¿Sensación de no vaciar por completo?</label>
+                <p style="font-size: 0.9rem; color: #555; margin-bottom: 5px; line-height: 1.3;"><em>Ej. Terminas de orinar, te subes el cierre y sientes que aún te quedaron ganas en la vejiga.</em></p>
+                <select class="ipss-select ipss-score" onchange="feedbackIpss(this, 'fb_ipss_1')">
+                    <option value="0">0 - Nunca</option><option value="1">1 - Casi nunca (1 de 5 veces)</option><option value="2">2 - A veces</option><option value="3">3 - La mitad de las veces</option><option value="4">4 - Frecuentemente</option><option value="5">5 - Casi siempre</option>
+                </select>
+                <div id="fb_ipss_1" class="ipss-feedback"></div>
+
+                <label style="font-weight: 800;">2. ¿Tener que volver a orinar en menos de 2 horas?</label>
+                <p style="font-size: 0.9rem; color: #555; margin-bottom: 5px; line-height: 1.3;"><em>Ej. Acabas de ir al baño, pasa muy poco tiempo y ya tienes que regresar de nuevo.</em></p>
+                <select class="ipss-select ipss-score" onchange="feedbackIpss(this, 'fb_ipss_2')">
+                    <option value="0">0 - Nunca</option><option value="1">1 - Casi nunca (1 de 5 veces)</option><option value="2">2 - A veces</option><option value="3">3 - La mitad de las veces</option><option value="4">4 - Frecuentemente</option><option value="5">5 - Casi siempre</option>
+                </select>
+                <div id="fb_ipss_2" class="ipss-feedback"></div>
+
+                <label style="font-weight: 800;">3. ¿El chorro se detiene y vuelve a empezar (pausas)?</label>
+                <p style="font-size: 0.9rem; color: #555; margin-bottom: 5px; line-height: 1.3;"><em>Ej. Sale un poco de orina, se pausa tu chorro, tienes que esperar, y vuelve a salir.</em></p>
+                <select class="ipss-select ipss-score" onchange="feedbackIpss(this, 'fb_ipss_3')">
+                    <option value="0">0 - Nunca</option><option value="1">1 - Casi nunca (1 de 5 veces)</option><option value="2">2 - A veces</option><option value="3">3 - La mitad de las veces</option><option value="4">4 - Frecuentemente</option><option value="5">5 - Casi siempre</option>
+                </select>
+                <div id="fb_ipss_3" class="ipss-feedback"></div>
+
+                <label style="font-weight: 800;">4. ¿Es muy difícil "aguantarse" las ganas (urgencia)?</label>
+                <p style="font-size: 0.9rem; color: #555; margin-bottom: 5px; line-height: 1.3;"><em>Ej. Sientes el aviso repentino y tienes que correr al baño casi a punto de un accidente.</em></p>
+                <select class="ipss-select ipss-score" onchange="feedbackIpss(this, 'fb_ipss_4')">
+                    <option value="0">0 - Nunca</option><option value="1">1 - Casi nunca (1 de 5 veces)</option><option value="2">2 - A veces</option><option value="3">3 - La mitad de las veces</option><option value="4">4 - Frecuentemente</option><option value="5">5 - Casi siempre</option>
+                </select>
+                <div id="fb_ipss_4" class="ipss-feedback"></div>
+
+                <label style="font-weight: 800;">5. ¿Chorro débil, lento o sin fuerza?</label>
+                <p style="font-size: 0.9rem; color: #555; margin-bottom: 5px; line-height: 1.3;"><em>Ej. Ya no sale con la presión de antes, el chorro cae muy cerquita casi goteando a tus pies.</em></p>
+                <select class="ipss-select ipss-score" onchange="feedbackIpss(this, 'fb_ipss_5')">
+                    <option value="0">0 - Nunca</option><option value="1">1 - Casi nunca (1 de 5 veces)</option><option value="2">2 - A veces</option><option value="3">3 - La mitad de las veces</option><option value="4">4 - Frecuentemente</option><option value="5">5 - Casi siempre</option>
+                </select>
+                <div id="fb_ipss_5" class="ipss-feedback"></div>
+
+                <label style="font-weight: 800;">6. ¿Tener que hacer fuerza o empujar para empezar a orinar?</label>
+                <p style="font-size: 0.9rem; color: #555; margin-bottom: 5px; line-height: 1.3;"><em>Ej. Llegas al baño y no sale sola de inmediato; tienes que pujar o apretar el abdomen.</em></p>
+                <select class="ipss-select ipss-score" onchange="feedbackIpss(this, 'fb_ipss_6')">
+                    <option value="0">0 - Nunca</option><option value="1">1 - Casi nunca (1 de 5 veces)</option><option value="2">2 - A veces</option><option value="3">3 - La mitad de las veces</option><option value="4">4 - Frecuentemente</option><option value="5">5 - Casi siempre</option>
+                </select>
+                <div id="fb_ipss_6" class="ipss-feedback"></div>
+
+                <label style="font-weight: 800;">7. ¿Cuántas veces te levantas por la noche para orinar?</label>
+                <p style="font-size: 0.9rem; color: #555; margin-bottom: 5px; line-height: 1.3;"><em>Desde que te duermes hasta que despiertas por la mañana.</em></p>
+                <select class="ipss-select ipss-score" onchange="feedbackIpss(this, 'fb_ipss_7')">
+                    <option value="0">0 veces</option><option value="1">1 vez</option><option value="2">2 veces</option><option value="3">3 veces</option><option value="4">4 veces</option><option value="5">5 o más veces</option>
+                </select>
+                <div id="fb_ipss_7" class="ipss-feedback"></div>
+
+                <div style="background: var(--pc-gris-suave); padding: 15px; border-radius: 10px; border: 2px dashed #118AB2; text-align: center; margin-top: 15px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 5px;">Puntos Totales: <span id="ipss-total" style="color: #118AB2; font-size: 2rem; font-weight: 900;">0</span></h3>
+                    <p id="ipss-interpretacion" style="font-weight: 800; color: #2e7d32;">Síntomas Leves (0-7): Sigue con tus chequeos preventivos.</p>
+                </div>
+
+                <h3 style="font-family: 'Handlee', cursive; color: #118AB2; font-size: 1.5rem; margin-top: 25px; margin-bottom: 15px; border-bottom: 2px dashed #eee; padding-bottom: 10px;">Salud Íntima Masculina 🍆</h3>
+                <div class="form-group">
+                    <label>¿Sientes dolor, ardor o molestia física en alguno de los siguientes casos?</label>
+                    <div class="pill-group">
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="checkbox" class="cp_hombre_dolor" value="Al eyacular"> Al eyacular</label>
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="checkbox" class="cp_hombre_dolor" value="Erecciones dolorosas"> Erecciones dolorosas</label>
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="checkbox" class="cp_hombre_dolor" value="Al masturbarse"> Al masturbarte</label>
+                        <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="checkbox" class="cp_hombre_dolor" value="En los testículos"> En testículos</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label style="color: #118AB2;">💬 ¿Tienes alguna duda o preocupación sobre tus genitales o desempeño que quieras discutir con el médico?</label>
+                    <textarea id="cp_hombre_dudas" class="form-control" placeholder="Escribe aquí cualquier molestia, bolita, falta de erección, o duda que tengas... (Todo es confidencial y sin juicios)" style="min-height: 60px;"></textarea>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 6: SALUD SEXUAL -->
+            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 #d50000; border-color: #d50000;">
+                <h2 style="color: #d50000;"><div class="css-heart"></div> Salud Sexual</h2>
+                
+                <div class="form-group">
+                    <label>¿Te gustaría abordar temas de salud sexual o planificación en la consulta?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="rad_sex" value="si" onchange="toggleSex()"> Sí, me interesa</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave); color: var(--pc-negro);"><input type="radio" name="rad_sex" value="no" onchange="toggleSex()" checked> No por ahora</label>
+                    </div>
+                </div>
+
+                <div id="box_sexual" class="conditional-section" style="background: #ffebee; padding: 15px; border-radius: 15px; border: 2px dashed #d50000;">
+                    <div class="form-group">
+                        <label>¿Disfrutas plenamente de tu sexualidad sin dolor y con satisfacción?</label>
+                        <div class="pill-group">
+                            <label class="pill-label" style="background: #e8f5e9; color: var(--pc-negro);"><input type="radio" name="sex_placer" value="Sí" onchange="feedbackPlacer()"> Sí 😊</label>
+                            <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="sex_placer" value="No/Con dolor" onchange="feedbackPlacer()"> No / Hay dolor 😕</label>
+                        </div>
+                        <div id="fb_placer" class="conditional-section" style="background: white; padding: 15px; border-radius: 10px; color: #c62828; font-weight: 800; margin-top: 15px; border: 3px dashed #c62828; text-align: center;">¡Atención! Sentir dolor durante las relaciones sexuales NO es normal. Puede ser señal de infecciones, endometriosis o resequedad. ¡Qué bueno que estás aquí para revisarlo!</div>
+                    </div>
+                    <div class="form-group">
+                        <label>¿Usas algún método anticonceptivo / planificación? (MPF)</label>
+                        <div class="pill-group">
+                            <label class="pill-label"><input type="radio" name="sex_mpf" value="Pastillas/Inyecciones"> Pastillas/Inyectable</label>
+                            <label class="pill-label"><input type="radio" name="sex_mpf" value="DIU/Implante"> DIU / Implante</label>
+                            <label class="pill-label"><input type="radio" name="sex_mpf" value="Condón"> Condón</label>
+                            <label class="pill-label"><input type="radio" name="sex_mpf" value="Ninguno/Otro" onchange="toggleOtroMpf()"> Ninguno / Otro</label>
+                        </div>
+                        <input type="text" id="sex_mpf_otro_txt" class="form-control conditional-section" placeholder="¿Cuál método usas o por qué no usas?" style="margin-top: 15px;">
+                    </div>
+                    <div class="form-group">
+                        <label>¿Cuándo fue tu última prueba de VIH / ITS (Tamizaje)?</label>
+                        <div class="pill-group">
+                            <label class="pill-label" style="background: #e8f5e9; color: var(--pc-negro);"><input type="radio" name="sex_vih" value="Hace menos de 1 año" onchange="feedbackVih()"> Menos de 1 año</label>
+                            <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="sex_vih" value="Hace más de 1 año" onchange="feedbackVih()"> Más de 1 año</label>
+                            <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="sex_vih" value="Nunca" onchange="feedbackVih()"> Nunca me he hecho</label>
+                        </div>
+                        <div id="fb_vih" class="conditional-section" style="background: white; padding: 15px; border-radius: 10px; color: #e65100; font-weight: 800; margin-top: 15px; border: 3px dashed #e65100; text-align: center;">¿Sabías que la mayoría de infecciones de transmisión sexual no dan síntomas al principio? Hacerte una prueba de rutina es un acto de amor propio. ¡En la clínica te la podemos hacer GRATIS y de forma confidencial!</div>
+                    </div>
+                    <div class="form-group" style="margin-top: 25px; border-top: 3px dashed #d50000; padding-top: 20px;">
+                        <label style="font-size: 1.3rem;">Test de Riesgo de ITS 🦠</label>
+                        <p style="font-size: 0.95rem; color: #d50000; font-weight: 800; margin-bottom: 15px;">Marca las casillas que apliquen a tu caso (tu información no se guarda):</p>
+                        <div class="pill-group" style="flex-direction: column; gap: 10px;">
+                            <label class="pill-label" style="justify-content: flex-start; text-align: left; background: white; color: var(--pc-negro);"><input type="checkbox" class="its-quiz" onchange="calcItsRisk()"> ⚠️ Tuviste relaciones sin condón</label>
+                            <label class="pill-label" style="justify-content: flex-start; text-align: left; background: white; color: var(--pc-negro);"><input type="checkbox" class="its-quiz" onchange="calcItsRisk()"> 👥 Más de una pareja sexual en 12 meses</label>
+                            <label class="pill-label" style="justify-content: flex-start; text-align: left; background: white; color: var(--pc-negro);"><input type="checkbox" class="its-quiz" onchange="calcItsRisk()"> ❓ No sabes si tu pareja se ha hecho pruebas</label>
+                            <label class="pill-label" style="justify-content: flex-start; text-align: left; background: white; color: var(--pc-negro);"><input type="checkbox" class="its-quiz" onchange="calcItsRisk()"> 🔥 Tienes síntomas (ardor, comezón, flujo raro)</label>
+                        </div>
+                        <div id="its-risk-result" style="display:none; margin-top: 20px; padding: 20px; border-radius: 15px; font-weight: 800; text-align: center; border: 4px solid var(--pc-negro); box-shadow: 4px 4px 0 var(--pc-negro);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 7: SALUD DE LA PIEL -->
+            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 #fb8c00; border-color: #fb8c00;">
+                <h2 style="color: #ef6c00;">✨ Piel y Dermatología</h2>
+                <div class="form-group">
+                    <label>¿Te gustaría revisar algo de tu piel con el médico?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="rad_piel" value="si" onchange="togglePiel()"> Sí, por favor</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave); color: var(--pc-negro);"><input type="radio" name="rad_piel" value="no" onchange="togglePiel()" checked> No</label>
+                    </div>
+                </div>
+                <div id="box_piel" class="conditional-section" style="background: #fff3e0; padding: 15px; border-radius: 15px; border: 2px dashed #fb8c00;">
+                    <label style="font-weight: 800; margin-bottom: 10px; display: block;">Marca lo que te interesa consultar:</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="checkbox" class="piel-check" value="Acné/Granitos"> Acné o Granitos</label>
+                        <label class="pill-label"><input type="checkbox" class="piel-check" value="Verrugas/Lunares"> Verrugas / Lunares</label>
+                        <label class="pill-label"><input type="checkbox" class="piel-check" value="Manchas/Arrugas"> Manchas / Arrugas</label>
+                        <label class="pill-label"><input type="checkbox" class="piel-check" value="Estrías/Cicatrices"> Estrías / Cicatrices</label>
+                        <label class="pill-label"><input type="checkbox" class="piel-check" value="Caída de cabello"> Caída de Cabello</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 8: SALUD EMOCIONAL -->
+            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 #8e24aa; border-color: #8e24aa;">
+                <h2 style="color: #8e24aa;">🧠 Salud Emocional</h2>
+                
+                <div class="form-group">
+                    <label>Por favor, permítenos conocer tu estado de ánimo. Tu mente es tan importante como tu cuerpo y queremos apoyarte de forma integral.</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="rad_emo" value="si" onchange="toggleEmo()"> Sí, quiero contestar</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave); color: var(--pc-negro);"><input type="radio" name="rad_emo" value="no" onchange="toggleEmo()" checked> Omitir por ahora</label>
+                    </div>
+                </div>
+                
+                <div id="box_emo" class="conditional-section" style="background: #f3e5f5; padding: 20px; border-radius: 15px; border: 3px dashed #8e24aa; margin-top: 15px;">
+                    <div class="form-group">
+                        <label>¿Cómo te has sentido emocionalmente en el último mes?</label>
+                        <div class="pill-group" style="flex-direction: column;">
+                            <label class="pill-label" style="background: white; color: var(--pc-negro); justify-content: flex-start;"><input type="radio" name="emo_estado" value="Feliz / Tranquilo(a)"> Feliz / Tranquilo(a) 😊</label>
+                            <label class="pill-label" style="background: white; color: var(--pc-negro); justify-content: flex-start;"><input type="radio" name="emo_estado" value="Con Ansiedad / Estrés"> Ansiedad / Estrés constante 😰</label>
+                            <label class="pill-label" style="background: white; color: var(--pc-negro); justify-content: flex-start;"><input type="radio" name="emo_estado" value="Tristeza / Depresión"> Tristeza profunda / Depresión 😔</label>
+                            <label class="pill-label" style="background: white; color: var(--pc-negro); justify-content: flex-start;"><input type="radio" name="emo_estado" value="Problemas para dormir"> Insomnio o problemas de Sueño 😴</label>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 20px; border-top: 2px solid #ce93d8; padding-top: 15px;">
+                        <label>¿Te gustaría recibir información sobre nuestro apoyo psicológico y terapia segura?</label>
+                        <div class="pill-group">
+                            <label class="pill-label"><input type="radio" name="emo_apoyo" value="Sí"> Sí, por favor</label>
+                            <label class="pill-label" style="background: white; color: var(--pc-negro);"><input type="radio" name="emo_apoyo" value="No"> No por el momento</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 9: OTROS SERVICIOS -->
+            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-negro);">
+                <h2 style="color: var(--pc-negro);">🌟 Detección de Necesidades Extras</h2>
+                <p style="font-weight: 600; color: #555; margin-bottom: 15px; font-size: 0.95rem;">En Celene cuidamos de todo tu cuerpo. Marca si deseas información sobre:</p>
+                <div class="pill-group">
+                    <label class="pill-label"><input type="checkbox" class="cp_otros" value="Podología"> 🦶 Clínica de Podología (Uñas, hongos)</label>
+                    <label class="pill-label"><input type="checkbox" class="cp_otros" value="Fisioterapia"> 👐 Fisioterapia y Manejo del Dolor</label>
+                    <label class="pill-label"><input type="checkbox" class="cp_otros" value="Control Prenatal"> 🤰 Control Prenatal / Embarazo</label>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 10: NOTAS GENERALES -->
+            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-gris-suave);">
+                <h2 style="color: var(--pc-negro);">💬 Notas o Dudas Generales</h2>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>¿Hay alguna duda, miedo o información extra que el doctor deba saber antes de tu consulta?</label>
+                    <textarea id="cp_notas_generales" class="form-control" placeholder="Escribe aquí cualquier cosa que te preocupe... (Opcional)" style="min-height: 80px;"></textarea>
+                </div>
+            </div>
+
+            <div class="fade-in" style="background: var(--pc-amarillo); border: 3px dashed var(--pc-negro); padding: 20px; border-radius: 15px; margin-top: 30px; text-align: center;">
+                <p style="font-weight: 800; color: #444; margin-bottom: 10px;">¡Casi listo!</p>
+                <p style="font-weight: 600; font-size: 0.95rem;">Al hacer clic en el botón de abajo, tus respuestas se enviarán por WhatsApp a nuestro consultorio para ir abriendo tu expediente.</p>
+            </div>
+
+            <div class="fade-in" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px;">
+                <button onclick="imprimirCuestionario()" class="btn btn-print" style="flex: 1; margin: 0;">Imprimir para llevar <span>🖨️</span></button>
+                <button onclick="enviarCuestionario()" class="btn" style="flex: 1; margin: 0;">Enviar por WhatsApp <span>💬</span></button>
+            </div>
+
+            <div class="fade-in" style="margin-top: 45px; padding-top: 35px; border-top: 4px dashed var(--pc-negro); text-align: center;">
+                <span style="background: var(--pc-negro); color: white; padding: 5px 15px; border-radius: 10px; font-weight: 900; font-size: 1rem;">Paso 3</span>
+                <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-top: 15px; margin-bottom: 10px; font-size: 2rem;">¡Asegura tu Cita! 📅</h2>
+                <p style="font-weight: 600; color: #444; margin-bottom: 25px;">Una vez que hayas enviado tu historial al WhatsApp, haz clic aquí para elegir el día y la hora de tu consulta.</p>
+                
+                <a href="reservar-consulta.html" class="calendar-btn" style="background: #118AB2; justify-content: center; width: 100%; max-width: 400px; box-sizing: border-box; margin: 0 auto;">
+                    <div class="calendar-icon">
+                        <div class="calendar-top"></div>
+                        <div class="calendar-date date-today">--</div>
+                    </div>
+                    <span>Consultar horarios y Agendar</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- FUNCIONES CENTRALIZADAS DE DATOS ---
+        function obtenerDatosPaciente() {
+            let nombre = document.getElementById('cp_nombre').value.trim();
+            let edad = document.getElementById('cp_edad').value.trim();
+            let sexoRadio = document.querySelector('input[name="cp_sexo"]:checked');
+            let sexo = sexoRadio ? sexoRadio.value : '';
+            let motivo = document.getElementById('cp_motivo').value.trim();
+
+            let fechaInput = document.getElementById('cp_fecha_nac').value;
+            let fecha_nac = fechaInput ? fechaInput.split('-').reverse().join('/') : 'No especificada';
+            
+            let tel = document.getElementById('cp_telefono').value.trim() || 'No especificó';
+            let emerg_nom = document.getElementById('cp_emerg_nombre').value.trim() || 'No especificó';
+            let emerg_tel = document.getElementById('cp_emerg_tel').value.trim() || 'No especificó';
+            let tiempo = document.getElementById('cp_tiempo').value.trim() || 'No especificó';
+            
+            let habitosArr = Array.from(document.querySelectorAll('.hab-check:checked')).map(cb => cb.value);
+            let habitosTxt = document.getElementById('cp_habitos_txt').value.trim();
+            let habitos = habitosArr.length > 0 ? `${habitosArr.join(', ')} (${habitosTxt})` : 'Ninguno';
+            
+            let cronicasArr = Array.from(document.querySelectorAll('.enf-check:checked')).map(cb => cb.value);
+            let otraEnf = document.getElementById('cp_otra_enf_txt').value.trim();
+            let cronicas = cronicasArr.map(c => c === 'Otra' ? `Otra (${otraEnf})` : c).join(', ') || 'Ninguna';
+            if(document.getElementById('enf_ninguna').checked) cronicas = 'Ninguna declarada';
+            
+            let radLabsEl = document.querySelector('input[name="rad_labs"]:checked');
+            let laboratorios = radLabsEl ? radLabsEl.value : 'No especificó';
+            let medicamentos = document.getElementById('cp_medicamentos').value.trim() || 'Ninguno';
+            
+            let alergiaRadEl = document.querySelector('input[name="rad_alergia"]:checked');
+            let alergiaRad = alergiaRadEl ? alergiaRadEl.value : 'no';
+            let alergias = alergiaRad === 'si' ? document.getElementById('cp_alergias_txt').value.trim() : 'Ninguna';
+            
+            let peso = document.getElementById('cp_peso').value.trim() || '?';
+            let talla = document.getElementById('cp_estatura').value.trim() || '?';
+            let nutri = Array.from(document.querySelectorAll('.cp_nutricion:checked')).map(cb => cb.value).join(', ') || 'Ninguno';
+            
+            let embarazoEl = document.querySelector('input[name="rad_embarazo"]:checked');
+            let embarazo = embarazoEl ? embarazoEl.value : 'No especificó';
+            
+            let reglaEl = document.querySelector('input[name="rad_regla"]:checked');
+            let regla = reglaEl ? reglaEl.value : 'No especificó';
+            
+            let chkHablarReglaEl = document.getElementById('chk_hablar_regla');
+            let hablarRegla = (chkHablarReglaEl && chkHablarReglaEl.checked) ? 'Sí' : 'No';
+            
+            let papEl = document.querySelector('input[name="rad_pap"]:checked');
+            let pap = papEl ? papEl.value : 'No especificó';
+            
+            let chkIvaaEl = document.getElementById('chk_ivaa');
+            let pideIvaa = (chkIvaaEl && chkIvaaEl.checked) ? 'Sí' : 'No';
+            let meno = Array.from(document.querySelectorAll('.cp_meno:checked')).map(cb => cb.value).join(', ') || 'Ninguno';
+            let dudasMujer = document.getElementById('cp_mujer_dudas').value.trim() || 'Ninguna';
+            
+            let ipssScore = document.getElementById('ipss-total').innerText;
+            let doloresHombre = Array.from(document.querySelectorAll('.cp_hombre_dolor:checked')).map(cb => cb.value).join(', ') || 'Ninguno';
+            let dudasHombre = document.getElementById('cp_hombre_dudas').value.trim() || 'Ninguna descrita';
+            
+            let sPlacerEl = document.querySelector('input[name="sex_placer"]:checked');
+            let s_placer = sPlacerEl ? sPlacerEl.value : '?';
+            
+            let sMpfEl = document.querySelector('input[name="sex_mpf"]:checked');
+            let s_mpf = sMpfEl ? sMpfEl.value : '?';
+            if (s_mpf === 'Ninguno/Otro') s_mpf = `Otro (${document.getElementById('sex_mpf_otro_txt').value.trim()})`;
+            
+            let sVihEl = document.querySelector('input[name="sex_vih"]:checked');
+            let s_vih = sVihEl ? sVihEl.value : '?';
+            let itsChecks = document.querySelectorAll('.its-quiz:checked').length;
+            let itsRiesgo = itsChecks <= 1 ? (itsChecks === 0 ? 'Bajo' : 'Leve/Moderado') : 'Alto';
+            
+            let interesSexualEl = document.querySelector('input[name="rad_sex"]:checked');
+            let interesSexual = interesSexualEl ? (interesSexualEl.value === 'si') : false;
+            
+            let radPielEl = document.querySelector('input[name="rad_piel"]:checked');
+            let pielVals = (radPielEl && radPielEl.value === 'si') ? (Array.from(document.querySelectorAll('.piel-check:checked')).map(cb => cb.value).join(', ') || 'General') : '';
+            
+            let famArr = Array.from(document.querySelectorAll('.fam-check:checked')).map(cb => cb.value);
+            let famOtra = document.getElementById('cp_fam_otra_txt').value.trim();
+            let historialFamiliar = famArr.join(', ') || '';
+            if(famOtra) historialFamiliar += (historialFamiliar ? ', ' : '') + `Otra (${famOtra})`;
+            if(!historialFamiliar && document.getElementById('fam_ninguna').checked) historialFamiliar = 'Ninguna / Desconozco';
+            else if (!historialFamiliar) historialFamiliar = 'No especificó';
+            
+            let emoEstado = '', emoApoyo = '';
+            let radEmoEl = document.querySelector('input[name="rad_emo"]:checked');
+            if (radEmoEl && radEmoEl.value === 'si') {
+                let emoEstadoEl = document.querySelector('input[name="emo_estado"]:checked');
+                emoEstado = emoEstadoEl ? emoEstadoEl.value : 'No especificó';
+                let emoApoyoEl = document.querySelector('input[name="emo_apoyo"]:checked');
+                emoApoyo = emoApoyoEl ? emoApoyoEl.value : 'No';
+            }
+            
+            let otros = Array.from(document.querySelectorAll('.cp_otros:checked')).map(cb => cb.value).join(', ') || 'Ninguno';
+            let notasG = document.getElementById('cp_notas_generales').value.trim() || '';
+
+            return {
+                nombre, edad, sexo, motivo, fecha_nac, tel, emerg_nom, emerg_tel, tiempo, habitos, cronicas, laboratorios, medicamentos, alergias, peso, talla, nutri, embarazo, regla, hablarRegla, pap, pideIvaa, meno, dudasMujer, ipssScore, doloresHombre, dudasHombre, interesSexual, s_placer, s_mpf, s_vih, itsChecks, itsRiesgo, pielVals, historialFamiliar, emoEstado, emoApoyo, otros, notasG
+            };
+        }
+
+        // --- GENERAR REPORTE PARA IMPRIMIR ---
+        function imprimirCuestionario() {
+            let data = obtenerDatosPaciente();
+            if (!data.nombre || !data.edad) {
+                alert("Por favor, llena al menos tu Nombre y Edad para generar el reporte de impresión."); return;
+            }
+
+            let extraHTML = "";
+            if (data.sexo === 'Femenino') {
+                extraHTML += `
+                <div class="print-section">
+                    <h3>🌸 Salud Femenina</h3>
+                    <p><strong>Embarazo/Riesgo:</strong> ${data.embarazo} | <strong>Tipo de regla:</strong> ${data.regla}</p>
+                    <p><strong>Último Papanicolaou:</strong> ${data.pap} | <strong>¿Solicita IVAA?:</strong> ${data.pideIvaa}</p>
+                    <p><strong>Menopausia/Síntomas:</strong> ${data.meno}</p>
+                    <p><strong>Dudas/Molestias:</strong> ${data.dudasMujer}</p>
+                </div>`;
+            } else if (data.sexo === 'Masculino') {
+                extraHTML += `
+                <div class="print-section">
+                    <h3>🧔 Salud Prostática y Masculina</h3>
+                    <p><strong>Score IPSS (Próstata):</strong> ${data.ipssScore} puntos.</p>
+                    <p><strong>Molestias físicas:</strong> ${data.doloresHombre}</p>
+                    <p><strong>Dudas:</strong> ${data.dudasHombre}</p>
+                </div>`;
+            }
+
+            if (data.interesSexual) {
+                extraHTML += `
+                <div class="print-section">
+                    <h3>❤️ Salud Sexual e Íntima</h3>
+                    <p><strong>Placer/Dolor:</strong> ${data.s_placer} | <strong>MPF:</strong> ${data.s_mpf}</p>
+                    <p><strong>Última prueba VIH/ITS:</strong> ${data.s_vih}</p>
+                    <p><strong>Nivel de Riesgo ITS Test:</strong> ${data.itsRiesgo} (${data.itsChecks} factores marcados)</p>
+                </div>`;
+            }
+
+            let htmlContent = `
+            <!DOCTYPE html>
+            <html lang="es">
+            <head>
+                <meta charset="UTF-8">
+                <title>Reporte Clínico - ${data.nombre}</title>
+                <style>
+                    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #333; line-height: 1.5; padding: 20px; font-size: 11pt; }
+                    h1 { color: #d81b60; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; text-align: center; }
+                    h2 { font-size: 13pt; margin-top: 0; margin-bottom: 10px; text-align: center; }
+                    h3 { font-size: 12pt; color: #d81b60; margin-top: 15px; margin-bottom: 8px; border-bottom: 1px dashed #ccc; padding-bottom: 4px; }
+                    .print-header { text-align: center; margin-bottom: 30px; }
+                    .print-section { margin-bottom: 15px; padding: 15px; border: 2px solid #333; border-radius: 8px; page-break-inside: avoid; }
+                    p { margin: 5px 0; }
+                    strong { color: #000; }
+                    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+                    @media print { body { padding: 0; } }
+                </style>
+            </head>
+            <body onload="window.print()">
+                <div class="print-header">
+                    <h1>Reporte Integral de Salud Pre-Consulta</h1>
+                    <h2>Proyecto Celene A.C.</h2>
+                    <p><em>Documento confidencial generado por el paciente para su expediente.</em></p>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="print-section">
+                        <h3>👤 Datos del Paciente</h3>
+                        <p><strong>Nombre:</strong> ${data.nombre}</p>
+                        <p><strong>Edad / Sexo:</strong> ${data.edad} años, ${data.sexo}</p>
+                        <p><strong>Fecha Nacimiento:</strong> ${data.fecha_nac}</p>
+                        <p><strong>Teléfono:</strong> ${data.tel}</p>
+                        <p><strong>Contacto Emergencia:</strong> ${data.emerg_nom} (${data.emerg_tel})</p>
+                    </div>
+                    <div class="print-section">
+                        <h3>⚖️ Composición Física</h3>
+                        <p><strong>Peso:</strong> ${data.peso} kg | <strong>Estatura:</strong> ${data.talla} m.</p>
+                        <p><strong>Interés Control Peso:</strong> ${data.nutri}</p>
+                    </div>
+                </div>
+
+                <div class="print-section">
+                    <h3>🩺 Historial Clínico Base</h3>
+                    <p><strong>Motivo Principal:</strong> ${data.motivo} (Desde: ${data.tiempo})</p>
+                    <p><strong>Antecedentes Familiares:</strong> ${data.historialFamiliar}</p>
+                    <p><strong>Hábitos (Fuma/Bebe/Sustancias):</strong> ${data.habitos}</p>
+                    <p><strong>Enfermedades Crónicas:</strong> ${data.cronicas}</p>
+                    <p><strong>Medicamentos Actuales:</strong> ${data.medicamentos}</p>
+                    <p><strong>Alergias:</strong> ${data.alergias}</p>
+                    <p><strong>Laboratorios:</strong> ${data.laboratorios}</p>
+                </div>
+
+                ${extraHTML}
+
+                <div class="print-section">
+                    <h3>🌟 Otros Intereses y Notas</h3>
+                    ${data.pielVals ? `<p><strong>Dermatología:</strong> ${data.pielVals}</p>` : ''}
+                    ${data.emoEstado ? `<p><strong>Salud Emocional:</strong> ${data.emoEstado} (Información Terapia: ${data.emoApoyo})</p>` : ''}
+                    <p><strong>Otros Servicios:</strong> ${data.otros}</p>
+                    <p><strong>Notas Generales:</strong> ${data.notasG || 'Ninguna.'}</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px; font-size: 10pt; color: #777;">
+                    Firma del Paciente: ____________________________________ &nbsp;&nbsp;&nbsp; Fecha: _____________________
+                </div>
+            </body>
+            </html>
+            `;
+
+            let printWindow = window.open('', '_blank');
+            printWindow.document.open();
+            printWindow.document.write(htmlContent);
+            printWindow.document.close();
+        }
+
+        // Calcular edad automáticamente
+        function calcularEdadAutomatica() {
+            const dobValue = document.getElementById('cp_fecha_nac').value;
+            if (dobValue) {
+                const today = new Date();
+                const birthDate = new Date(dobValue);
+                let age = today.getFullYear() - birthDate.getFullYear();
+                const m = today.getMonth() - birthDate.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                    age--;
+                }
+                document.getElementById('cp_edad').value = age > 0 ? age : 0;
+            }
+        }
+
+        // Toggles visuales de secciones
+        function toggleOtraEnf() {
+            let check = document.querySelector('.enf-check[value="Otra"]').checked;
+            document.getElementById('cp_otra_enf_txt').style.display = check ? 'block' : 'none';
+            toggleTratamiento();
+        }
+        
+        function toggleHabitos() {
+            let checks = document.querySelectorAll('.hab-check:checked');
+            document.getElementById('cp_habitos_txt').style.display = checks.length > 0 ? 'block' : 'none';
+        }
+        
+        function calcBMI() {
+            let peso = parseFloat(document.getElementById('cp_peso').value);
+            let talla = parseFloat(document.getElementById('cp_estatura').value);
+            let box = document.getElementById('bmi_box');
+
+            if(talla > 0) {
+                let minW = (18.5 * (talla * talla)).toFixed(1);
+                let maxW = (24.9 * (talla * talla)).toFixed(1);
+
+                if(peso > 0) {
+                    let imc = (peso / (talla * talla)).toFixed(1);
+                    let cat = ""; let clr = ""; let msg = "";
+                    if(imc < 18.5) { cat="Bajo peso"; clr="#0288d1"; msg="Es importante platicar con el médico para asegurar una buena nutrición.";}
+                    else if(imc < 25) { cat="Peso Saludable"; clr="#2e7d32"; msg="¡Excelente! Estás en tu rango ideal.";}
+                    else if(imc < 30) { cat="Sobrepeso"; clr="#f57f17"; msg="Te recomendamos abordar opciones preventivas en tu consulta.";}
+                    else { cat="Obesidad"; clr="#c62828"; msg="Es muy importante que hables con el médico sobre tu peso hoy para prevenir riesgos severos a tu salud.";}
+
+                    box.innerHTML = `Tu IMC estimado es <span style="color:${clr}; font-size:1.4rem; font-weight:900;">${imc}</span> (${cat}). <br>Tu rango de peso ideal estimado es de <strong>${minW} kg a ${maxW} kg</strong>.<br><span style="color:${clr}; font-weight:800; display:block; margin-top:8px;">${msg}</span>`;
+                    box.style.display = 'block';
+                    box.style.borderColor = clr;
+                } else {
+                    box.innerHTML = `💡 Para tu estatura de ${talla}m, tu rango de peso saludable estimado debe estar entre <strong>${minW} kg y ${maxW} kg</strong>.`;
+                    box.style.display = 'block';
+                    box.style.borderColor = "#444";
+                }
+            } else {
+                box.style.display = 'none';
+            }
+        }
+
+        function toggleNingunaEnf() {
+            if(document.getElementById('enf_ninguna').checked) {
+                document.querySelectorAll('.enf-check').forEach(cb => cb.checked = false);
+                toggleTratamiento();
+                toggleOtraEnf();
+            }
+        }
+
+        function toggleNingunaFam() {
+            if(document.getElementById('fam_ninguna').checked) {
+                document.querySelectorAll('.fam-check').forEach(cb => cb.checked = false);
+            }
+        }
+
+        function toggleTratamiento() {
+            let checks = document.querySelectorAll('.enf-check:checked');
+            if(checks.length > 0) document.getElementById('enf_ninguna').checked = false;
+            document.getElementById('box_tratamiento').style.display = checks.length > 0 ? 'block' : 'none';
+        }
+        function toggleAlergia() {
+            let op = document.querySelector('input[name="rad_alergia"]:checked').value;
+            document.getElementById('cp_alergias_txt').style.display = op === 'si' ? 'block' : 'none';
+        }
+        function toggleMeno() {
+            document.getElementById('box_menopausia').style.display = document.querySelector('input[name="rad_meno"]:checked').value === 'si' ? 'block' : 'none';
+        }
+        function toggleSex() {
+            document.getElementById('box_sexual').style.display = document.querySelector('input[name="rad_sex"]:checked').value === 'si' ? 'block' : 'none';
+        }
+        function togglePiel() {
+            document.getElementById('box_piel').style.display = document.querySelector('input[name="rad_piel"]:checked').value === 'si' ? 'block' : 'none';
+        }
+        function toggleEmo() {
+            document.getElementById('box_emo').style.display = document.querySelector('input[name="rad_emo"]:checked').value === 'si' ? 'block' : 'none';
+        }
+        function toggleOtroMpf() {
+            let sMpfEl = document.querySelector('input[name="sex_mpf"]:checked');
+            document.getElementById('sex_mpf_otro_txt').style.display = (sMpfEl && sMpfEl.value === 'Ninguno/Otro') ? 'block' : 'none';
+        }
+
+        // Feedback Salud Sexual
+        function feedbackPlacer() {
+            let sPlacerEl = document.querySelector('input[name="sex_placer"]:checked');
+            document.getElementById('fb_placer').style.display = (sPlacerEl && sPlacerEl.value === 'No/Con dolor') ? 'block' : 'none';
+        }
+        function feedbackVih() {
+            let sVihEl = document.querySelector('input[name="sex_vih"]:checked');
+            document.getElementById('fb_vih').style.display = (sVihEl && sVihEl.value === 'Nunca') ? 'block' : 'none';
+        }
+        function calcItsRisk() {
+            let checks = document.querySelectorAll('.its-quiz:checked').length;
+            let res = document.getElementById('its-risk-result');
+            if (checks === 0) {
+                res.style.display = 'none';
+            } else if (checks <= 1) {
+                res.style.display = 'block';
+                res.style.background = 'white'; res.style.color = '#e65100'; res.style.borderColor = '#e65100';
+                res.innerHTML = "Riesgo Leve/Moderado. Te sugerimos realizarte una prueba rápida de VIH y Sífilis por precaución. ¡Son gratis y confidenciales!";
+            } else {
+                res.style.display = 'block';
+                res.style.background = 'white'; res.style.color = '#c62828'; res.style.borderColor = '#c62828';
+                res.innerHTML = "Riesgo Alto. Es muy importante que lo platiques hoy con el médico. Te recomendaremos el 'Paquete Completo Tranquilo' para descartar cualquier infección y proteger tu salud. ¡No te juzgaremos!";
+            }
+        }
+
+        // Mostrar secciones condicionales según sexo
+        function toggleGenderSections() {
+            let sexoRadio = document.querySelector('input[name="cp_sexo"]:checked');
+            let sexo = sexoRadio ? sexoRadio.value : '';
+            let secMujer = document.getElementById('sec-mujer');
+            let secHombre = document.getElementById('sec-hombre');
+            
+            if (sexo === 'Femenino') {
+                secMujer.style.display = 'block';
+                secHombre.style.display = 'none';
+            } else if (sexo === 'Masculino') {
+                secMujer.style.display = 'none';
+                secHombre.style.display = 'block';
+            } else {
+                secMujer.style.display = 'none';
+                secHombre.style.display = 'none';
+            }
+        }
+
+        // Feedback de Test Prostático (IPSS)
+        function feedbackIpss(selectEl, idFb) {
+            let val = selectEl.value;
+            let fb = document.getElementById(idFb);
+            if (val == 0) {
+                fb.style.display = 'none';
+            } else {
+                fb.style.display = 'block';
+                let txt = "";
+                if (idFb === 'fb_ipss_7') {
+                    let msgs = [
+                        "",
+                        "Te levantas 1 vez por noche. Empieza a afectar tu descanso profundo.",
+                        "Te levantas 2 veces. Tu cuerpo no está descansando adecuadamente.",
+                        "Te levantas 3 veces. Es un síntoma claro de inflamación prostática.",
+                        "Te levantas 4 veces. Esto genera fatiga crónica durante el día.",
+                        "Te levantas 5 o más veces. Esto es agotador y requiere atención médica prioritaria."
+                    ];
+                    txt = msgs[val];
+                } else {
+                    let msgs = [
+                        "",
+                        "Significa que te ocurre rara vez, aproximadamente 1 de cada 5 veces que vas al baño.",
+                        "Significa que te pasa a veces, menos de la mitad de las veces.",
+                        "Significa que te ocurre muy seguido, casi la mitad de las veces que orinas.",
+                        "Significa que es un problema frecuente, te pasa más de la mitad de las veces.",
+                        "Significa que es una molestia constante, te pasa prácticamente siempre que vas al baño."
+                    ];
+                    txt = msgs[val];
+                }
+                fb.innerHTML = `💡 <strong>¿Qué significa tu respuesta?</strong><br>En el último mes, ${txt}`;
+            }
+            calcProstata();
+        }
+
+        // Calcular puntos de Próstata en tiempo real
+        function calcProstata() {
+            let selects = document.querySelectorAll('.ipss-score');
+            let total = 0;
+            selects.forEach(s => total += parseInt(s.value));
+            
+            document.getElementById('ipss-total').innerText = total;
+            let interprete = document.getElementById('ipss-interpretacion');
+            
+            if(total <= 7) {
+                interprete.innerHTML = "Síntomas Leves (0-7): Sigue con tus chequeos preventivos anuales.";
+                interprete.style.color = "#2e7d32";
+            } else if (total <= 19) {
+                interprete.innerHTML = "Síntomas Moderados (8-19): Es posible que la próstata esté inflamada. Es importante revisarlo hoy.";
+                interprete.style.color = "#f57f17";
+            } else {
+                interprete.innerHTML = "Síntomas Severos (20-35): Requiere atención médica para evitar complicaciones. ¡Qué bueno que estás aquí hoy!";
+                interprete.style.color = "#c62828";
+            }
+        }
+
+        function enviarCuestionario() {
+            let data = obtenerDatosPaciente();
+            
+            if (!data.nombre || !data.edad || !data.sexo || !data.motivo) {
+                alert("Por favor, llena al menos tu Nombre, Edad, Sexo y el Motivo principal de tu consulta.");
+                return;
+            }
+
+            // Validar Edad real
+            let edadNum = parseInt(data.edad);
+            if (isNaN(edadNum) || edadNum < 0 || edadNum > 110) {
+                alert("Por favor, ingresa una edad válida."); return;
+            }
+
+            let msg = `*HISTORIAL PRE-CONSULTA (CELENE)* 📋\n\n`;
+            msg += `👤 *Paciente:* ${data.nombre}\n`;
+            msg += `🎂 *Edad:* ${data.edad} años\n`;
+            msg += `📅 *Fecha Nac:* ${data.fecha_nac}\n`;
+            msg += `⚧️ *Sexo:* ${data.sexo}\n`;
+            msg += `📞 *WhatsApp:* ${data.tel}\n🚨 *Emergencia:* ${data.emerg_nom} (${data.emerg_tel})\n\n`;
+            
+            msg += `🩺 *MOTIVO DE CONSULTA:*\n_${data.motivo}_\n`;
+            msg += `⏱️ *Tiempo de evolución:* ${data.tiempo}\n`;
+            msg += `👨‍👩‍👧‍👦 *Antecedentes Familiares:* ${data.historialFamiliar}\n`;
+            msg += `🚭 *Hábitos:* ${data.habitos}\n`;
+            msg += `🦠 *Condiciones crónicas:* ${data.cronicas}\n`;
+            msg += `💊 *Medicamentos:* ${data.medicamentos}\n`;
+            msg += `⚠️ *Alergias:* ${data.alergias}\n`;
+            msg += `🩸 *Laboratorios:* ${data.laboratorios}\n`;
+            
+            msg += `\n⚖️ *COMPOSICIÓN FISICA:*\n`;
+            msg += `- Peso: ${data.peso} kg | Talla: ${data.talla} m.\n`;
+            msg += `- Interés Control Peso: ${data.nutri}\n`;
+
+            if (data.sexo === 'Femenino') {
+                msg += `\n🩸 *MENSTRUACIÓN Y EMBARAZO:*\n- Embarazo/Riesgo: ${data.embarazo}\n- Tipo de regla: ${data.regla}\n- Desea abordarlo: ${data.hablarRegla}\n`;
+                msg += `\n🔬 *PREVENCIÓN:*\n- Último Pap: ${data.pap}\n- Pide IVAA: ${data.pideIvaa}\n`;
+                if (data.meno !== 'Ninguno') msg += `\n🌸 *SÍNTOMAS HORMONALES/MENOPAUSIA:*\n- ${data.meno}\n`;
+                if (data.dudasMujer !== 'Ninguna') msg += `\n💬 *DUDAS/SALUD ÍNTIMA (Mujer):*\n- ${data.dudasMujer}\n`;
+            }
+
+            if (data.sexo === 'Masculino') {
+                if (parseInt(data.ipssScore) > 0) msg += `\n🧔 *SALUD PROSTÁTICA (IPSS):*\n- Puntuación Total: *${data.ipssScore} puntos*\n`;
+                if (data.doloresHombre !== 'Ninguno' || data.dudasHombre !== 'Ninguna descrita') {
+                    msg += `\n🍆 *SALUD ÍNTIMA (Hombre):*\n- Dolor al: ${data.doloresHombre}\n- Dudas: ${data.dudasHombre}\n`;
+                }
+            }
+
+            if (data.interesSexual) {
+                msg += `\n❤️ *SALUD SEXUAL E ÍNTIMA:*\n- Placer/Dolor: ${data.s_placer}\n- MPF: ${data.s_mpf}\n- Última prueba VIH: ${data.s_vih}\n- *Nivel de Riesgo ITS Test:* ${data.itsRiesgo} (${data.itsChecks} factores)\n`;
+            }
+
+            if (data.pielVals) {
+                msg += `\n✨ *SALUD DE LA PIEL:*\n- Interesa revisar: ${data.pielVals}\n`;
+            }
+
+            if (data.emoEstado) {
+                msg += `\n🧠 *SALUD EMOCIONAL:*\n- Estado general: ${data.emoEstado}\n- Desea info sobre terapia: ${data.emoApoyo}\n`;
+            }
+
+            if (data.otros !== 'Ninguno') {
+                msg += `\n🌟 *OTROS SERVICIOS:*\n- ${data.otros}\n`;
+            }
+
+            if (data.notasG) {
+                msg += `\n📝 *NOTAS/DUDAS GENERALES:*\n_${data.notasG}_\n`;
+            }
+
+            msg += `_Información enviada desde el formulario web._`;
+
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // Nota: El observador de scroll para las animaciones (.fade-in)
+        // ahora es gestionado de manera global por js/global.js
+    </script>
+    <script src="js/global.js"></script>
+</body>
+
+</html>

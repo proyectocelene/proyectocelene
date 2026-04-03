@@ -668,28 +668,14 @@
             <div style="margin-bottom: 30px;">
                 <p style="font-weight: 800; margin-bottom: 15px;">Horarios Disponibles:</p>
                 <div style="display: flex; justify-content: center;">
-                    <!-- Script original de Google para conservar la ventana emergente -->
-                    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-                    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-                    <script>
-                        (function () {
-                            var target = document.currentScript;
-                            window.addEventListener('load', function () {
-                                calendar.schedulingButton.load({
-                                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
-                                    color: '#d81b60', /* var(--pc-rosa-fuerte) */
-                                    label: '🗓️ Ver Horarios y Agendar',
-                                    target,
-                                });
-                            });
-                        })();
-                    </script>
+                    <a href="reservar-consulta.html" class="calendar-btn">
+                        <div class="calendar-icon">
+                            <div class="calendar-top"></div>
+                            <div class="calendar-date date-today">--</div>
+                        </div>
+                        <span>Ver Horarios y Agendar</span>
+                    </a>
                 </div>
-                <!-- Ajuste CSS para disfrazar el botón de Google y que no rompa la cohesión visual -->
-                <style>
-                    .X81W0b { border: 4px solid var(--pc-negro) !important; font-family: 'Nunito', sans-serif !important; font-weight: 800 !important; border-radius: 50px !important; padding: 15px 25px !important; box-shadow: 0 6px 0 var(--pc-negro) !important; font-size: 1.1rem !important; }
-                    .X81W0b:active { box-shadow: 0 0 0 transparent !important; transform: translateY(6px); }
-                </style>
             </div>
 
             <div style="margin-bottom: 40px;">

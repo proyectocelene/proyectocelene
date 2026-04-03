@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemedicina (Consulta Virtual) - Proyecto Celene</title>
+    <meta name="description" content="Recibe atención médica profesional, validez oficial y recetas desde la comodidad de tu casa.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333;
+            --pc-blanco: #fff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-gris-suave);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn { font-family: 'Handlee', cursive; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--pc-azul-suave);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-negro);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: var(--pc-negro);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        /* ANIMACIONES */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .content-box {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+        }
+
+        .btn {
+            display: inline-block;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: 4px solid var(--pc-negro);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.1s;
+            cursor: pointer;
+        }
+
+        .btn:active { transform: translateY(6px); box-shadow: 0 0 0 transparent !important; }
+
+        .btn-back {
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            box-shadow: 0 4px 0 var(--pc-negro);
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-width: 3px;
+            margin: 0 0 20px 0;
+            display: inline-block;
+        }
+
+        /* ACORDEON PREGUNTAS FRECUENTES */
+        .accordion-item {
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 6px 6px 0 var(--pc-rosa-pastell);
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 18px 20px;
+            background-color: var(--pc-blanco);
+            width: 100%;
+            border: none;
+            font-size: 1.15rem;
+            font-weight: 800;
+            text-align: left;
+            font-family: 'Nunito', sans-serif;
+            color: var(--pc-rosa-fuerte);
+        }
+
+        .accordion-header:hover { background-color: var(--pc-gris-suave); }
+        .accordion-header::after { content: '▼'; font-size: 1.2rem; transition: transform 0.3s ease; color: var(--pc-negro); }
+        .accordion-item.active .accordion-header::after { transform: rotate(180deg); }
+        
+        .accordion-content {
+            padding: 0 20px 20px;
+            background-color: var(--pc-blanco);
+            display: none;
+            font-weight: 600;
+            color: #444;
+            font-size: 1.05rem;
+        }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <a href="consulta-general.html" class="btn btn-back fade-in">⬅️ Volver a Consulta General</a>
+
+        <header class="header fade-in">
+            <div style="font-size: 4rem; margin-bottom: 10px; animation: bounce-calendar 2s infinite;">💻</div>
+            <h1 class="hand-drawn">Tu Médico a Distancia</h1>
+            <p style="font-weight:800; font-size:1.3rem; color: var(--pc-rosa-fuerte);">¿Ocupas consulta pero no puedes salir de casa?</p>
+        </header>
+
+        <div class="content-box fade-in" style="border-color: var(--pc-negro);">
+            <p style="font-weight: 600; margin-bottom: 25px; font-size: 1.15rem;">Nuestra <strong>Consulta Virtual Formal</strong> te permite recibir atención profesional mediante videollamada o chat, con total validez oficial y legal para tu tratamiento.</p>
+            
+            <div style="background: var(--pc-gris-suave); border-left: 5px solid var(--pc-rosa-fuerte); padding: 20px; border-radius: 0 15px 15px 0;">
+                <p style="font-weight: 900; font-size: 1.2rem; margin-bottom: 5px; color: var(--pc-negro);">🩺 ¿Por qué tiene un costo de $150 MXN (a diferencia de la orientación gratis)?</p>
+                <p style="color: #444; font-size: 1.05rem; font-weight: 600; margin: 0;">Porque bajo la norma legal (NOM-004), emitir una <strong>Receta Médica Oficial</strong> (con cédula profesional válida en cualquier farmacia) requiere que el médico dedique el tiempo necesario para interrogarte, abrir tu expediente clínico completo y responsabilizarse legalmente de tu salud.</p>
+            </div>
+        </div>
+
+        <!-- CÓMO FUNCIONA -->
+        <div class="fade-in" style="margin-bottom: 40px;">
+            <h3 class="hand-drawn" style="text-align: center; color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 20px;">¿Cómo funciona el proceso? 📱</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 4px 4px 0 var(--pc-amarillo);">
+                    <div style="background: var(--pc-rosa-fuerte); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; margin: 0 auto 10px; border: 2px solid var(--pc-negro);">1</div>
+                    <h4 style="font-size: 1.2rem; color: var(--pc-negro); margin-bottom: 10px; font-weight: 800;">Tu Expediente</h4>
+                    <p style="font-size: 0.95rem; color: #555; font-weight: 600;">Llenas un breve cuestionario en línea y agendas tu espacio en el calendario.</p>
+                </div>
+                <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 4px 4px 0 var(--pc-azul-suave);">
+                    <div style="background: var(--pc-rosa-fuerte); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; margin: 0 auto 10px; border: 2px solid var(--pc-negro);">2</div>
+                    <h4 style="font-size: 1.2rem; color: var(--pc-negro); margin-bottom: 10px; font-weight: 800;">La Videollamada</h4>
+                    <p style="font-size: 0.95rem; color: #555; font-weight: 600;">El médico te contactará por WhatsApp en tu horario para evaluar tu caso sin prisas.</p>
+                </div>
+                <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 4px 4px 0 #25d366;">
+                    <div style="background: var(--pc-rosa-fuerte); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; margin: 0 auto 10px; border: 2px solid var(--pc-negro);">3</div>
+                    <h4 style="font-size: 1.2rem; color: var(--pc-negro); margin-bottom: 10px; font-weight: 800;">Tu Receta PDF</h4>
+                    <p style="font-size: 0.95rem; color: #555; font-weight: 600;">Recibirás tu receta oficial en PDF directamente en tu chat, lista para surtir.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="fade-in" style="margin-bottom: 40px;">
+            <h3 class="hand-drawn" style="text-align: center; color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 20px;">¿Es la telemedicina para mí? 🤔</h3>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                <!-- SI ES PARA TI -->
+                <div style="background: #e8f5e9; border: 4px solid #2e7d32; border-radius: 20px; padding: 25px; box-shadow: 8px 8px 0 #2e7d32; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h4 style="color: #1b5e20; font-size: 1.4rem; font-weight: 900; margin-bottom: 15px; border-bottom: 3px dashed #2e7d32; padding-bottom: 10px;"><span>✅</span> SÍ ES PARA TI SI:</h4>
+                    <ul style="list-style: none; margin: 0; padding: 0; color: #1b5e20; font-weight: 800; font-size: 1.05rem; line-height: 1.6;">
+                        <li style="margin-bottom: 12px;">✔️ Necesitas una <strong>Receta Médica oficial</strong>.</li>
+                        <li style="margin-bottom: 12px;">✔️ Requieres seguimiento (diabetes, hipertensión, control de peso).</li>
+                        <li style="margin-bottom: 12px;">✔️ Tienes síntomas leves (resfriado, alergias, malestar estomacal).</li>
+                        <li>✔️ Necesitas que un médico revise y explique tus laboratorios.</li>
+                    </ul>
+                </div>
+
+                <!-- NO ES PARA TI -->
+                <div style="background: #ffebee; border: 4px solid #c62828; border-radius: 20px; padding: 25px; box-shadow: 8px 8px 0 #c62828; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <h4 style="color: #b71c1c; font-size: 1.4rem; font-weight: 900; margin-bottom: 15px; border-bottom: 3px dashed #c62828; padding-bottom: 10px;"><span>❌</span> NO ES PARA TI SI:</h4>
+                    <ul style="list-style: none; margin: 0; padding: 0; color: #b71c1c; font-weight: 800; font-size: 1.05rem; line-height: 1.6;">
+                        <li style="margin-bottom: 12px;">❌ Tienes una <strong>URGENCIA</strong> (dificultad para respirar, dolor de pecho fuerte, sangrado abundante). <br><em>¡Ve a un hospital!</em></li>
+                        <li style="margin-bottom: 12px;">❌ Requieres exploración física estricta (tocar abdomen, escuchar pulmones).</li>
+                        <li>❌ Necesitas un procedimiento físico (suturas, curaciones, inyecciones).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- PREGUNTAS FRECUENTES -->
+        <div class="fade-in" style="background: white; border: 4px dashed var(--pc-negro); border-radius: 25px; padding: 35px 25px; margin-bottom: 40px;">
+            <h3 class="hand-drawn" style="text-align: center; color: var(--pc-negro); font-size: 2rem; margin-bottom: 20px;">Dudas Comunes 🙋‍♀️</h3>
+            
+            <div class="accordion-item">
+                <button class="accordion-header">¿La receta digital me la aceptan en cualquier farmacia?</button>
+                <div class="accordion-content"><br><strong>¡Sí, en todas!</strong> Tu receta se genera en formato PDF e incluye la firma digital y la Cédula Profesional del médico, cumpliendo con todos los requisitos de COFEPRIS. Puedes mostrarla desde tu celular o imprimirla. <br><em>(Nota: Medicamentos controlados como psicotrópicos o antibióticos muy específicos requieren receta física original).</em></div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">¿Por dónde me van a marcar?</button>
+                <div class="accordion-content"><br>Para tu comodidad, la mayoría de las consultas se realizan por <strong>Videollamada de WhatsApp</strong> al número que nos proporciones, o bien a través de un enlace de Google Meet si lo prefieres.</div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">¿Y si el doctor decide que necesito revisión presencial?</button>
+                <div class="accordion-content"><br>Si durante la videollamada el doctor nota que tu caso requiere tocar el abdomen, escuchar los pulmones o una exploración más a fondo por tu seguridad, <strong>tu pago de $150 queda abonado</strong> para que asistas presencialmente a la clínica sin pagar doble.</div>
+            </div>
+        </div>
+
+        <!-- ALTERNATIVA ORIENTACIÓN GRATUITA -->
+        <div class="fade-in" style="background: var(--pc-gris-suave); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 25px; text-align: center; margin-bottom: 40px; box-shadow: 6px 6px 0 var(--pc-azul-suave);">
+            <h4 style="font-size: 1.4rem; color: var(--pc-negro); font-weight: 900; margin-bottom: 10px;">¿Solo tienes una duda rápida? 💬</h4>
+            <p style="font-size: 1.05rem; font-weight: 600; color: #555; margin-bottom: 15px;">
+                Si no necesitas una receta médica ni abrir expediente, y solamente ocupas que un médico te oriente sobre a qué especialista acudir o resolver una pregunta sencilla de salud...
+            </p>
+            <p style="font-weight: 800; color: var(--pc-rosa-fuerte); margin-bottom: 15px;">¡Utiliza nuestro servicio gratuito!</p>
+            <a href="orientacion-medica-gratuita.html" class="btn" style="background: white; color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); padding: 10px 20px; margin: 0;">Ir a Orientación Gratuita ➔</a>
+        </div>
+
+        <!-- PASOS DE ACCIÓN -->
+        <div class="fade-in" style="background: var(--pc-amarillo); border: 4px solid var(--pc-negro); border-radius: 25px; padding: 40px 20px; text-align: center; box-shadow: 10px 10px 0 var(--pc-negro);">
+            <h3 class="hand-drawn" style="font-size: 2.2rem; margin-bottom: 15px; color: var(--pc-rosa-fuerte);">Si tu caso aplica, ¡comencemos! 🚀</h3>
+            <p style="font-weight: 800; font-size: 1.15rem; color: #444; margin-bottom: 30px; max-width: 600px; margin-inline: auto;">Sigue estos dos sencillos pasos para asegurar que el médico ya tenga tus antecedentes leídos cuando se conecten a la llamada:</p>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <div style="width: 100%; max-width: 500px; background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--pc-negro); text-align: left;">
+                    <span style="background: var(--pc-negro); color: white; padding: 5px 15px; border-radius: 15px; font-weight: 900; font-size: 0.9rem;">Paso 1</span>
+                    <p style="font-weight: 800; font-size: 1.1rem; color: var(--pc-negro); margin-top: 10px; margin-bottom: 15px;">Abre tu expediente llenando tus datos y síntomas previos:</p>
+                    <a href="cuestionario-pre-consulta.html" class="btn" style="background: white; color: var(--pc-negro); border-color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); margin: 0; width: 100%;">📋 Llenar Cuestionario Pre-consulta</a>
+                </div>
+
+                <div style="color: var(--pc-negro); font-size: 2.5rem; font-weight: 900; line-height: 0.5;">⬇️</div>
+
+                <div style="width: 100%; max-width: 500px; background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--pc-negro); text-align: left;">
+                    <span style="background: var(--pc-negro); color: white; padding: 5px 15px; border-radius: 15px; font-weight: 900; font-size: 0.9rem;">Paso 2</span>
+                    <p style="font-weight: 800; font-size: 1.1rem; color: var(--pc-negro); margin-top: 10px; margin-bottom: 15px;">Asegura tu espacio y realiza el pago para la videollamada:</p>
+                    <a href="reservar-consulta.html" class="calendar-btn" style="background: #118AB2; width: 100%; justify-content: center; margin: 0; box-sizing: border-box;">
+                        <div class="calendar-icon">
+                            <div class="calendar-top"></div>
+                            <div class="calendar-date date-today">--</div>
+                        </div>
+                        <span>Agendar Consulta Virtual</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Lógica del Acordeón para Preguntas Frecuentes
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const isActive = item.classList.toggle('active');
+                    const content = item.querySelector('.accordion-content');
+                    content.style.display = isActive ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+
+    <script src="js/global.js"></script>
+</body>
+
+</html>
