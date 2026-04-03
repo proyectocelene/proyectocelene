@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Daniela Huerta - Proyecto Celene</title>
+    <meta name="description" content="Conoce a la Dra. Erika Daniela Huerta Rivas, Coordinadora de Telemedicina, Agente de Salud Digital y Médica General en Proyecto Celene.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/dra-daniela.html">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/dra-daniela.html">
+    <meta property="og:title" content="Dra. Daniela Huerta - Proyecto Celene">
+    <meta property="og:description"
+        content="Coordinadora de Telemedicina y Agente de Salud Digital. Llevando la medicina a la palma de tu mano con empatía.">
+    <meta property="og:image" content="https://i.ibb.co/Rp9ZpYJ3/dra-daniela-huerta-vertical.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/dra-daniela.html">
+    <meta property="twitter:title" content="Dra. Daniela Huerta - Proyecto Celene">
+    <meta property="twitter:description"
+        content="Coordinadora de Telemedicina y Agente de Salud Digital. Llevando la medicina a la palma de tu mano con empatía.">
+    <meta property="twitter:image" content="https://i.ibb.co/Rp9ZpYJ3/dra-daniela-huerta-vertical.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
+            /* Colores específicos del perfil digital */
+            --dh-morado: #9c27b0;
+            --dh-morado-claro: #f3e5f5;
+            --dh-cyan: #00e5ff;
+            --dh-cyan-oscuro: #00b8d4;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-gris-suave);
+            background-image: radial-gradient(var(--dh-morado-claro) 20%, transparent 20%);
+            background-size: 20px 20px;
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* NAV */
+        .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            box-shadow: 6px 6px 0px var(--dh-morado-claro);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--pc-negro);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .main-nav a:hover {
+            background: var(--dh-morado);
+            color: white;
+            border-color: var(--pc-negro);
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+
+        /* HERO SKEUOMORPHIC */
+        .hero-profile {
+            background: linear-gradient(135deg, var(--pc-blanco) 0%, var(--dh-morado-claro) 100%);
+            border-radius: 30px;
+            padding: 40px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            /* Skeuomorphism: Soft inner light and hard drop shadow */
+            border: 4px solid var(--pc-negro);
+            box-shadow: inset 5px 5px 15px rgba(255,255,255,0.8), inset -5px -5px 15px rgba(0,0,0,0.05), 10px 10px 0 var(--dh-morado);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decoración Digital CSS */
+        .css-pixel {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--dh-cyan);
+            border: 2px solid var(--pc-negro);
+            animation: float-pixel 4s ease-in-out infinite alternate;
+            opacity: 0.8;
+        }
+        .css-pixel.p1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .css-pixel.p2 { bottom: 15%; right: 8%; background: var(--pc-rosa-fuerte); animation-delay: 1s; }
+        .css-pixel.p3 { top: 20%; right: 15%; background: var(--pc-amarillo); animation-delay: 2s; border-radius: 50%; }
+
+        @keyframes float-pixel {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-20px) rotate(45deg); }
+        }
+
+        .hero-img-box {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Borde simulando una tablet */
+        .hero-img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 20px;
+            border: 12px solid var(--pc-negro);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 8px 8px 0 var(--dh-cyan);
+            object-fit: cover;
+            object-position: top;
+            background: white;
+        }
+
+        .live-badge {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: #ff1744;
+            color: white;
+            font-weight: 900;
+            font-size: 0.85rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 2px solid var(--pc-negro);
+            box-shadow: 2px 2px 0 var(--pc-negro);
+            animation: blink 1.5s infinite;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero-text {
+            flex: 2;
+            min-width: 300px;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 3.2rem);
+            color: var(--dh-morado);
+            line-height: 1.1;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 0px white;
+        }
+
+        .hero-text h2 {
+            font-size: 1.2rem;
+            color: var(--dh-cyan-oscuro);
+            margin-bottom: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quote-bubble {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            padding: 20px;
+            border-radius: 20px 20px 20px 0;
+            font-family: 'Handlee', cursive;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: var(--pc-negro);
+            position: relative;
+            margin-bottom: 25px;
+            box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05), 4px 4px 0 var(--pc-amarillo);
+        }
+
+        .quote-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: -3px;
+            border-width: 15px 15px 0 0;
+            border-style: solid;
+            border-color: var(--pc-negro) transparent transparent transparent;
+        }
+
+        /* Botones Skeuomorphic */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: 3px solid var(--pc-negro);
+            font-weight: 900;
+            text-decoration: none;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.1s;
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            box-shadow: inset -3px -3px 5px rgba(0,0,0,0.1), inset 3px 3px 5px rgba(255,255,255,1), 0 6px 0 var(--pc-negro);
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn:active {
+            top: 6px;
+            box-shadow: inset 3px 3px 5px rgba(0,0,0,0.2), inset -3px -3px 5px rgba(255,255,255,0.5), 0 0px 0 transparent !important;
+        }
+
+        .btn-morado {
+            background: var(--dh-morado);
+            color: white;
+            box-shadow: inset -3px -3px 5px rgba(0,0,0,0.2), inset 3px 3px 5px rgba(255,255,255,0.3), 0 6px 0 var(--pc-negro);
+        }
+
+        .btn-cyan {
+            background: var(--dh-cyan);
+            color: var(--pc-negro);
+            box-shadow: inset -3px -3px 5px rgba(0,0,0,0.1), inset 3px 3px 5px rgba(255,255,255,0.5), 0 6px 0 var(--pc-negro);
+        }
+
+        /* SECTIONS */
+        .content-section {
+            background: var(--pc-blanco);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: inset 3px 3px 10px rgba(255,255,255,1), inset -3px -3px 10px rgba(0,0,0,0.05), 8px 8px 0 var(--pc-rosa-pastell);
+        }
+
+        .content-section.dark {
+            background: var(--pc-negro);
+            color: var(--pc-blanco);
+            box-shadow: 8px 8px 0 var(--dh-cyan);
+        }
+
+        .content-section h3 {
+            font-size: 2rem;
+            color: var(--dh-morado);
+            margin-bottom: 20px;
+            border-bottom: 2px dashed var(--pc-gris-suave);
+            padding-bottom: 10px;
+        }
+
+        .content-section.dark h3 {
+            color: var(--dh-cyan);
+            border-color: #555;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* GRID DE ÁREAS Y PROGRAMAS */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tag-card {
+            background: var(--dh-morado-claro);
+            border: 2px solid var(--pc-negro);
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            box-shadow: inset 2px 2px 5px white, 3px 3px 0 var(--pc-negro);
+        }
+
+        .program-card {
+            background: var(--pc-blanco);
+            border: 3px solid var(--pc-negro);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 6px 6px 0 var(--pc-negro);
+            transition: 0.2s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-card strong {
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* LISTA FORMACIÓN */
+        .xp-list {
+            list-style: none;
+            font-weight: 600;
+            color: #444;
+            font-size: 1.1rem;
+        }
+        .xp-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+        .xp-list li::before {
+            content: '🎓';
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.2rem;
+        }
+
+        /* PURE CSS ART: MICRÓFONO PODCAST / STREAMING */
+        .css-mic {
+            width: 30px;
+            height: 45px;
+            border: 3px solid var(--pc-negro);
+            border-radius: 15px;
+            background: linear-gradient(180deg, #ccc 50%, #999 100%);
+            position: relative;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .css-mic::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: -8px;
+            width: 40px;
+            height: 25px;
+            border: 3px solid var(--pc-negro);
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+        }
+        .css-mic::after {
+            content: '';
+            position: absolute;
+            bottom: -18px;
+            left: 12px;
+            width: 3px;
+            height: 8px;
+            background: var(--pc-negro);
+        }
+
+        /* ANIMACIONES Y COPY */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <!-- HERO -->
+        <header class="hero-profile fade-in">
+            <div class="css-pixel p1"></div>
+            <div class="css-pixel p2"></div>
+            <div class="css-pixel p3"></div>
+            
+            <div class="hero-img-box">
+                <div class="live-badge">🔴 ON AIR</div>
+                <img src="https://i.ibb.co/Rp9ZpYJ3/dra-daniela-huerta-vertical.png" alt="Dra. Daniela Huerta" class="hero-img">
+            </div>
+            <div class="hero-text">
+                <h1 class="hand-drawn">Dra. Daniela Huerta</h1>
+                <h2>Coordinadora del Programa de Telemedicina</h2>
+
+                <div class="quote-bubble">
+                    "La medicina más efectiva es aquella que no solo cura el cuerpo, sino que escucha, conecta y dignifica a la persona. Mi misión es que el cuidado de la salud sea un espacio seguro, empático y accesible para todos, en cualquier plataforma."
+                </div>
+
+                <a href="unete-a-nuestro-equipo.html" class="btn btn-morado">Súmate a mi visión 🤝</a>
+                <a href="telemedicina.html" class="btn btn-cyan">Conoce Telemedicina 💻</a>
+                <a href="orientacion-medica-gratuita.html" class="btn" style="background: var(--pc-amarillo); box-shadow: inset -3px -3px 5px rgba(0,0,0,0.1), inset 3px 3px 5px rgba(255,255,255,0.5), 0 6px 0 var(--pc-negro);">Orientación Gratuita 💬</a>
+            </div>
+        </header>
+
+        <!-- BIOGRAFÍA -->
+        <section class="content-section fade-in">
+            <h3 class="hand-drawn">Raíces, Datos y Vocación</h3>
+            <p>Soy Médico General egresada de la Universidad Autónoma de Baja California (UABC), Unidad Valle de las Palmas. Durante mi formación académica obtuve <strong>mención honorífica</strong>, lo que refleja mi compromiso inquebrantable con la excelencia médica y el bienestar de mis pacientes.</p>
+            <p>Mi práctica clínica se caracteriza por la empatía, la ética profesional y, sobre todo, por un trato profundamente humanizado. He descubierto que mi verdadera vocación radica en proteger a las poblaciones vulnerables, desde el acompañamiento a mujeres sobrevivientes de violencia, el cuidado digno de adultos mayores, hasta la educación en salud de las nuevas generaciones.</p>
+        </section>
+
+        <!-- EL MODELO DIGITAL -->
+        <section class="content-section dark fade-in">
+            <h3 class="hand-drawn">Nuestro Camino: Salud a través de la Tecnología</h3>
+            <p>Como Coordinadora del Programa de Telemedicina, mi labor es materializar la visión de Proyecto Celene: derribar las paredes del consultorio tradicional. Entiendo que trasladarse a una clínica representa a veces un reto físico, económico o emocional.</p>
+            <p style="color: var(--dh-cyan);">Bajo la dirección médica, opero y gestiono los canales de orientación y seguimiento digital, asegurando que la atención de alta calidad llegue directamente a los hogares de nuestra comunidad. Trabajamos para consolidar un sistema de salud sin barreras, a solo un clic de distancia.</p>
+        </section>
+
+        <!-- ÁREAS DE ATENCIÓN -->
+        <section class="content-section fade-in">
+            <h3 class="hand-drawn">Áreas de Atención Integral</h3>
+            <div class="grid-2" style="margin-bottom: 30px;">
+                <div class="tag-card">🩺 Medicina General y Atención Primaria</div>
+                <div class="tag-card" style="background: var(--pc-azul-suave);">🎮 Salud Digital y Bienestar Juvenil</div>
+                <div class="tag-card" style="background: var(--pc-amarillo);">👵 Atención Geriátrica Integral</div>
+                <div class="tag-card" style="background: var(--pc-rosa-pastell);">🌸 Salud Femenina y Acompañamiento</div>
+                <div class="tag-card" style="background: #e8f5e9;">📊 Control de Enfermedades Crónicas</div>
+                <div class="tag-card">💼 Vigilancia de la Salud en el Trabajo</div>
+            </div>
+
+            <h3 class="hand-drawn" style="margin-top: 40px; border: none; font-size: 2.2rem; color: var(--pc-negro);">Programas e Iniciativas 🚀</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 25px;">Impulso iniciativas diseñadas para transformar realidades con empatía y ciencia:</p>
+
+            <div style="display: grid; gap: 20px;">
+                <div class="program-card" style="border-color: var(--dh-morado); box-shadow: 6px 6px 0 var(--dh-morado-claro);">
+                    <strong style="color: var(--dh-morado);">🌐 Red de Telemedicina Celene</strong>
+                    <p>Me encargo de la operación diaria de las consultas virtuales para garantizar que la prescripción y el seguimiento médico no se interrumpan por distancias geográficas. Llevamos el control hasta la palma de tu mano.</p>
+                </div>
+                
+                <div class="program-card" style="border-color: var(--dh-cyan-oscuro); box-shadow: 6px 6px 0 var(--pc-azul-suave);">
+                    <strong style="color: var(--dh-cyan-oscuro);"><div class="css-mic"></div> Orientación Médica Gratuita y Salud Digital</strong>
+                    <p>Soy el primer punto de contacto en la línea de Orientación Médica Gratuita. Resuelvo dudas y traduzco términos médicos complejos a un lenguaje accesible, fomentando espacios seguros para hablar sobre prevención, higiene del sueño y bienestar digital.</p>
+                </div>
+
+                <div class="program-card" style="border-color: var(--pc-rosa-fuerte); box-shadow: 6px 6px 0 var(--pc-rosa-pastell);">
+                    <strong style="color: var(--pc-rosa-fuerte);">🛡️ Atención Segura para la Mujer</strong>
+                    <p>Basada en mi labor en refugios para víctimas de violencia, brindo un control médico seguro, libre de juicios. Aseguramos el seguimiento en un consultorio que funciona como un espacio seguro para sanar integralmente.</p>
+                </div>
+
+                <div class="program-card" style="border-color: #2e7d32; box-shadow: 6px 6px 0 #c8e6c9;">
+                    <strong style="color: #2e7d32;">👴 Envejecimiento Exitoso y Autonomía</strong>
+                    <p>Realizo valoraciones para detectar riesgos tempranos como fragilidad o deterioro cognitivo. Diseño programas de ejercicio y alimentación que previenen enfermedades y prolongan la autonomía de nuestros adultos mayores.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMACIÓN Y CONTACTO -->
+        <div class="grid-2">
+            <section class="content-section fade-in" style="margin-bottom: 0;">
+                <h3 class="hand-drawn">Formación y Experiencia</h3>
+                <ul class="xp-list">
+                    <li><strong>Licenciatura en Medicina General:</strong> UABC, Mención Honorífica (2019-2025).</li>
+                    <li><strong>Experiencia Hospitalaria:</strong> Internado rotatorio abarcando Urgencias, Cirugía, Pediatría, Ginecología y Medicina Familiar.</li>
+                    <li><strong>Salud Ocupacional:</strong> Formación avalada por el Gob. de México e IMSS en Enfermedades del Trabajo.</li>
+                    <li><strong>Idiomas:</strong> Español Nativo e Inglés Intermedio.</li>
+                </ul>
+            </section>
+
+            <section class="content-section fade-in" style="background: var(--pc-amarillo); border-style: dashed; margin-bottom: 0;">
+                <h3 class="hand-drawn" style="color: var(--pc-negro);">¡Hagamos equipo! 🤝</h3>
+                <p style="color: #444;">Si buscas una consulta compasiva, deseas integrarte a nuestros programas de telemedicina o necesitas orientación, estoy a tu disposición.</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                    <a href="mailto:dra.danielahuerta@outlook.com" class="btn" style="width: 100%; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); font-size: 1rem;">📧 dra.danielahuerta@outlook.com</a>
+                    <a href="https://wa.me/526644377834" target="_blank" class="btn btn-morado" style="width: 100%; margin: 0; font-size: 1rem;">📞 WhatsApp: (664) 437-7834</a>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <script src="js/global.js"></script>
+</body>
+
+</html>
