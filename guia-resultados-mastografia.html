@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interpretación de Mastografía (BI-RADS) | Proyecto Celene</title>
+    <meta name="description" content="Simulador clínico para interpretar tus resultados de mastografía y clasificación BI-RADS de forma clara y sin miedo.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 800px; margin: 0 auto; padding: 15px; }
+
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-azul-suave); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); }
+        .header h1 { font-size: 2.6rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; line-height: 1.1; }
+        .author-badge { display: inline-block; background: var(--pc-negro); color: var(--pc-blanco); padding: 5px 15px; border-radius: 50px; font-weight: 900; font-size: 0.9rem; margin-bottom: 15px; text-transform: uppercase; }
+
+        .content-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-amarillo); }
+        
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; color: var(--pc-negro); }
+        .input-group input, .input-group select { width: 100%; padding: 15px; border: 3px solid var(--pc-negro); border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 600; outline: none; transition: 0.2s; }
+        .input-group input:focus, .input-group select:focus { border-color: var(--pc-rosa-fuerte); box-shadow: 0 0 0 3px var(--pc-rosa-pastell); }
+
+        .btn-action { display: block; width: 100%; text-align: center; padding: 18px; border-radius: 50px; border: 4px solid var(--pc-negro); font-weight: 900; font-size: 1.3rem; background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 6px 0 var(--pc-negro); cursor: pointer; transition: 0.1s; margin-top: 20px; font-family: 'Nunito', sans-serif; }
+        .btn-action:active { transform: translateY(6px); box-shadow: 0 0 0 transparent; }
+        .btn-secondary { background: white; color: var(--pc-negro); }
+        .btn-wa { background: #25d366; border-color: var(--pc-negro); box-shadow: 0 6px 0 #1b9c4b; }
+
+        /* REPORT CARD STYLES */
+        .report-card { display: none; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-top: 30px; box-shadow: 8px 8px 0 rgba(0,0,0,0.1); background: white; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
+        @keyframes popIn { 0% { transform: scale(0.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        
+        .rc-header { display: flex; justify-content: space-between; align-items: center; border-b-3 dashed var(--pc-negro); padding-bottom: 20px; margin-bottom: 20px; border-bottom: 3px dashed rgba(0,0,0,0.2); }
+        .rc-logo { width: 60px; height: 60px; border: 2px solid var(--pc-negro); border-radius: 50%; background: white; padding: 2px; }
+        .rc-title { text-align: right; }
+        .rc-title h3 { font-size: 1.4rem; font-weight: 900; text-transform: uppercase; color: var(--pc-negro); line-height: 1.1; }
+        .rc-title p { font-size: 0.85rem; font-weight: 800; color: #555; }
+        
+        .rc-patient-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; background: rgba(255,255,255,0.6); padding: 15px; border-radius: 10px; border: 2px solid rgba(0,0,0,0.1); }
+        .rc-field { font-size: 0.9rem; color: #444; font-weight: 600; }
+        .rc-value { font-size: 1.1rem; font-weight: 900; color: var(--pc-negro); display: block; border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 5px; }
+
+        .rc-birads-badge { display: inline-block; padding: 10px 20px; border-radius: 12px; font-weight: 900; font-size: 1.8rem; border: 3px solid var(--pc-negro); margin-bottom: 20px; background: white; }
+        
+        .rc-section { margin-bottom: 20px; }
+        .rc-section h4 { font-family: 'Handlee', cursive; font-size: 1.5rem; margin-bottom: 5px; }
+        .rc-section p { font-weight: 600; font-size: 1.05rem; line-height: 1.5; }
+
+        /* THEMES PARA BI-RADS */
+        .theme-green { background-color: #e8f5e9; border-color: #2e7d32; box-shadow: 8px 8px 0 #c8e6c9; }
+        .theme-green .rc-birads-badge { color: #1b5e20; border-color: #1b5e20; }
+        .theme-green h4 { color: #2e7d32; }
+
+        .theme-yellow { background-color: #fffde7; border-color: #f57f17; box-shadow: 8px 8px 0 #fff9c4; }
+        .theme-yellow .rc-birads-badge { color: #e65100; border-color: #e65100; }
+        .theme-yellow h4 { color: #f57f17; }
+
+        .theme-red { background-color: #ffebee; border-color: #c62828; box-shadow: 8px 8px 0 #ffcdd2; }
+        .theme-red .rc-birads-badge { color: #b71c1c; border-color: #b71c1c; }
+        .theme-red h4 { color: #c62828; }
+        
+        .theme-orange { background-color: #fff3e0; border-color: #e65100; box-shadow: 8px 8px 0 #ffe0b2; }
+        .theme-orange .rc-birads-badge { color: #e65100; border-color: #e65100; }
+        .theme-orange h4 { color: #ef6c00; }
+
+        /* PRINT STYLES */
+        @media print {
+            body * { visibility: hidden; }
+            #report-card, #report-card * { visibility: visible; }
+            #report-card { position: absolute; left: 0; top: 0; width: 100%; margin: 0; padding: 20px; box-shadow: none !important; border: 4px solid black !important; background: white !important; }
+            .no-print { display: none !important; }
+            .rc-birads-badge { border-color: black !important; color: black !important; }
+            h4 { color: black !important; }
+        }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav no-print"></div>
+
+        <div class="fade-in no-print" style="margin-bottom: 15px;">
+            <a href="recursos-educativos.html" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; border: 3px solid var(--pc-negro); border-radius: 50px; font-weight: 800; text-decoration: none; display: inline-block; box-shadow: 4px 4px 0 var(--pc-negro);">
+                ⬅️ Volver a Recursos Educativos
+            </a>
+        </div>
+
+        <header class="header fade-in no-print">
+            <span class="author-badge">🩺 Herramienta Clínica | Dr. Donato</span>
+            <h1 class="hand-drawn">Tus Resultados de Mastografía 📊</h1>
+            <p style="font-weight: 800; font-size: 1.15rem; color: var(--pc-negro);">Traducimos la clasificación médica (BI-RADS) a un lenguaje claro para ti. Llena tus datos para conocer tus siguientes pasos.</p>
+        </header>
+
+        <div class="content-box fade-in no-print">
+            <div class="input-group">
+                <label>Nombre de la Paciente (Opcional):</label>
+                <input type="text" id="ipt-nombre" placeholder="Ej. Ana López">
+            </div>
+            <div class="input-group">
+                <label>Edad (Años):</label>
+                <input type="number" id="ipt-edad" placeholder="Ej. 45" min="18" max="100">
+            </div>
+            <div class="input-group">
+                <label>Fecha en que te hiciste el estudio:</label>
+                <input type="date" id="ipt-fecha">
+            </div>
+            <div class="input-group">
+                <label>Densidad Mamaria (Opcional):</label>
+                <select id="ipt-densidad">
+                    <option value="">No lo sé / No especificado en el reporte</option>
+                    <option value="A">Tipo A (Tejido casi todo graso)</option>
+                    <option value="B">Tipo B (Áreas dispersas de tejido denso)</option>
+                    <option value="C">Tipo C (Heterogéneamente densa)</option>
+                    <option value="D">Tipo D (Extremadamente densa)</option>
+                </select>
+                <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">* Las mamas densas (C y D) pueden ocultar lesiones pequeñas en la mastografía.</p>
+            </div>
+            <div class="input-group">
+                <label>Factores de Riesgo / Antecedentes (Opcional):</label>
+                <select id="ipt-riesgo">
+                    <option value="Riesgo Promedio">Ninguno / Riesgo Promedio</option>
+                    <option value="Antecedente Familiar (1er grado)">Familiar directo con Cáncer de Mama (Madre, hermana, hija)</option>
+                    <option value="Biopsia Previa con Atipia">Biopsia previa con células atípicas</option>
+                    <option value="Mutación Genética (BRCA)">Mutación genética conocida (BRCA1 / BRCA2)</option>
+                    <option value="Radioterapia en Tórax previa">Radioterapia en tórax antes de los 30 años</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Clasificación BI-RADS reportada:</label>
+                <select id="ipt-birads">
+                    <option value="">Selecciona tu resultado...</option>
+                    <option value="0">BI-RADS 0 (Incompleto)</option>
+                    <option value="1">BI-RADS 1 (Negativo / Normal)</option>
+                    <option value="2">BI-RADS 2 (Benigno)</option>
+                    <option value="3">BI-RADS 3 (Probablemente Benigno)</option>
+                    <option value="4A">BI-RADS 4A (Baja sospecha)</option>
+                    <option value="4B">BI-RADS 4B (Sospecha intermedia)</option>
+                    <option value="4C">BI-RADS 4C (Alta sospecha)</option>
+                    <option value="5">BI-RADS 5 (Altamente sugestivo de cáncer)</option>
+                    <option value="6">BI-RADS 6 (Cáncer ya comprobado)</option>
+                </select>
+            </div>
+
+            <button class="btn-action" onclick="interpretarResultados()">Generar Interpretación ➔</button>
+        </div>
+
+        <!-- TARJETA DE REPORTE (Se muestra al calcular) -->
+        <div id="report-card" class="report-card">
+            <div class="rc-header">
+                <img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Celene Logo" class="rc-logo">
+                <div class="rc-title">
+                    <h3>Guía de Resultados</h3>
+                    <p>Prevención Proyecto Celene</p>
+                </div>
+            </div>
+
+            <div class="rc-patient-grid">
+                <div>
+                    <span class="rc-field">Paciente:</span>
+                    <span class="rc-value" id="rc-nombre">-</span>
+                </div>
+                <div>
+                    <span class="rc-field">Edad:</span>
+                    <span class="rc-value" id="rc-edad">-</span>
+                </div>
+                <div style="grid-column: span 2;">
+                    <span class="rc-field">Fecha de Estudio:</span>
+                    <span class="rc-value" id="rc-fecha">-</span>
+                </div>
+                <div style="grid-column: span 2;">
+                    <span class="rc-field">Densidad Mamaria:</span>
+                    <span class="rc-value" id="rc-densidad">-</span>
+                </div>
+                <div style="grid-column: span 2;">
+                    <span class="rc-field">Riesgo / Antecedentes:</span>
+                    <span class="rc-value" id="rc-riesgo">-</span>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <div class="rc-birads-badge" id="rc-birads">BI-RADS -</div>
+            </div>
+
+            <div class="rc-section">
+                <h4>¿Qué significa esto?</h4>
+                <p id="rc-significado" style="color: var(--pc-negro);">-</p>
+            </div>
+
+            <div class="rc-section">
+                <h4>Acción Médica Recomendada 👩‍⚕️</h4>
+                <p id="rc-recomendacion" style="color: var(--pc-negro);">-</p>
+            </div>
+
+            <div class="rc-section" style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 10px; border: 2px dashed rgba(0,0,0,0.2);">
+                <h4 style="font-size: 1.2rem; margin-bottom: 0;">📅 ¿Cuándo me toca el siguiente?</h4>
+                <p id="rc-proximo" style="color: var(--pc-negro); font-weight: 800; font-size: 1.1rem; margin-top: 5px;">-</p>
+            </div>
+
+            <p class="no-print" style="font-size: 0.85rem; color: #666; font-style: italic; text-align: center; margin-top: 20px;">* Esta herramienta es orientativa. No sustituye la revisión física de tu médico especialista.</p>
+
+            <div class="no-print" style="display: flex; gap: 10px; margin-top: 30px;">
+                <button class="btn-action btn-wa" style="margin-top: 0; padding: 15px; font-size: 1.1rem;" onclick="enviarWa()">Enviar a WhatsApp 💬</button>
+                <button class="btn-action btn-secondary" style="margin-top: 0; padding: 15px; font-size: 1.1rem;" onclick="window.print()">Imprimir Reporte 🖨️</button>
+            </div>
+        </div>
+
+    </div> <!-- Fin Container -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
+        function calcularProximo(edad, fechaActual, esNormal) {
+            if (!esNormal) return "Sigue las indicaciones inmediatas de tu médico antes de agendar uno nuevo.";
+            
+            let f = new Date(fechaActual);
+            f.setMinutes(f.getMinutes() + f.getTimezoneOffset()); // Arregla problema de zona horaria
+
+            if (edad >= 75) {
+                return "A partir de los 75 años, si tus estudios previos han sido sanos, puedes suspender las mastografías (consúltalo con tu doctor).";
+            } else if (edad >= 40 && edad <= 49) {
+                f.setFullYear(f.getFullYear() + 1);
+                return "En 1 año. (Alrededor de " + f.toLocaleDateString('es-MX', { month: 'long', year: 'numeric' }) + "). En este rango de edad se recomienda anualmente.";
+            } else if (edad >= 50) {
+                f.setFullYear(f.getFullYear() + 1);
+                let f2 = new Date(f);
+                f2.setFullYear(f2.getFullYear() + 1);
+                return "En 1 a 2 años. (Entre " + f.toLocaleDateString('es-MX', { month: 'long', year: 'numeric' }) + " y " + f2.toLocaleDateString('es-MX', { month: 'long', year: 'numeric' }) + ").";
+            } else {
+                return "En menores de 40 años, la mastografía no es de rutina. Realiza solo Ultrasonido anual a menos que tu doctor indique lo contrario.";
+            }
+        }
+
+        function interpretarResultados() {
+            let nombre = document.getElementById('ipt-nombre').value.trim() || 'Paciente';
+            let edad = parseInt(document.getElementById('ipt-edad').value);
+            let fecha = document.getElementById('ipt-fecha').value;
+            let birads = document.getElementById('ipt-birads').value;
+            let densidad = document.getElementById('ipt-densidad').value;
+            let riesgo = document.getElementById('ipt-riesgo').value;
+
+            if (!edad || !fecha || !birads) {
+                alert("Por favor ingresa tu edad, la fecha y el resultado BI-RADS para poder interpretarlo.");
+                return;
+            }
+
+            let sig = "", rec = "", prox = "", tema = "";
+            let esNormal = false;
+
+            switch(birads) {
+                case "0":
+                    sig = "Estudio Incompleto. Faltó información.";
+                    rec = "La máquina no pudo ver todo con claridad (tal vez por mamas muy densas). Necesitas hacerte un Ultrasonido Mamario u otra toma extra para que el doctor pueda darte un diagnóstico final. ¡No te asustes, solo falta información!";
+                    prox = "Lo antes posible (Ultrasonido Complementario).";
+                    tema = "theme-orange";
+                    break;
+                case "1":
+                    sig = "Negativo (¡Totalmente Sano!).";
+                    rec = "Tus senos están sanos. No se encontró ninguna bolita, asimetría ni alteración. ¡Felicidades!";
+                    esNormal = true;
+                    tema = "theme-green";
+                    break;
+                case "2":
+                    sig = "Hallazgo 100% Benigno.";
+                    rec = "Se encontraron cositas (como quistes de agua, ganglios normales o calcificaciones por edad), pero todas tienen características BENIGNAS. Es decir, NO es cáncer y no hay de qué preocuparse.";
+                    esNormal = true;
+                    tema = "theme-green";
+                    break;
+                case "3":
+                    sig = "Probablemente Benigno (Vigilancia).";
+                    rec = "Hay una bolita o hallazgo que tiene un 98% de probabilidad de ser bueno. Sin embargo, por protocolo de seguridad médica, el doctor prefiere no quitarle el ojo de encima y revisarlo en 6 meses para confirmar que no cambie de tamaño.";
+                    let f3 = new Date(fecha); f3.setMinutes(f3.getMinutes() + f3.getTimezoneOffset()); f3.setMonth(f3.getMonth() + 6);
+                    prox = "En 6 meses (Aprox: " + f3.toLocaleDateString('es-MX', { month: 'long', year: 'numeric' }) + ").";
+                    tema = "theme-yellow";
+                    break;
+                case "4A":
+                case "4B":
+                case "4C":
+                    sig = "Sospecha de Malignidad (Biopsia Necesaria).";
+                    rec = "Se encontró una alteración con forma o bordes sospechosos. NO significa que sea cáncer seguro, pero es OBLIGATORIO hacer una BIOPSIA (sacar un pedacito de tejido con aguja) para mandarlo al laboratorio y salir de dudas.";
+                    prox = "Acudir Inmediatamente con Ginecólogo/Oncólogo para Biopsia.";
+                    tema = "theme-red";
+                    break;
+                case "5":
+                    sig = "Alta Sospecha de Malignidad.";
+                    rec = "El hallazgo tiene características muy clásicas de cáncer de mama. Es URGENTE acudir con el especialista Oncóologo para confirmar con BIOPSIA e iniciar el tratamiento adecuado a la brevedad.";
+                    prox = "Atención Urgente con Oncología.";
+                    tema = "theme-red";
+                    break;
+                case "6":
+                    sig = "Malignidad ya Confirmada.";
+                    rec = "Este resultado se usa cuando tú ya sabías que tenías cáncer (por una biopsia anterior). Este estudio solo se hizo para ver cómo va tu tratamiento o tumor.";
+                    prox = "Seguir protocolo estricto de tu Oncólogo.";
+                    tema = "theme-red";
+                    break;
+            }
+
+            // Ajustes Inteligentes por Densidad Mamaria
+            if (densidad === 'C' || densidad === 'D') {
+                rec += `<br><br><span style="color: #e65100;">⚠️ <strong>Atención a la Densidad:</strong> Tu tejido mamario es denso (Tipo ${densidad}). Esto significa que la mastografía por sí sola puede "esconder" algunas bolitas blancas sobre el fondo blanco del tejido. <strong>Es muy recomendable complementar este estudio con un Ultrasonido Mamario.</strong></span>`;
+            }
+
+            // Ajustes Inteligentes por Alto Riesgo
+            if(esNormal) {
+                prox = calcularProximo(edad, fecha, esNormal);
+                if (riesgo !== 'Riesgo Promedio') {
+                    prox = "⚠️ Alto Riesgo: Por tus antecedentes, no aplica la regla de chequeo normal. Debes tener un plan personalizado (que puede incluir Resonancia Magnética o ultrasonidos anuales sin importar tu edad). Consulta a tu especialista.";
+                }
+            }
+
+            // Llenar Report Card
+            document.getElementById('rc-nombre').innerText = nombre;
+            document.getElementById('rc-edad').innerText = edad + " años";
+            let f = new Date(fecha); f.setMinutes(f.getMinutes() + f.getTimezoneOffset());
+            document.getElementById('rc-fecha').innerText = f.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+            
+            document.getElementById('rc-densidad').innerText = densidad ? `Tipo ${densidad}` : 'No especificada';
+            document.getElementById('rc-riesgo').innerText = riesgo;
+            document.getElementById('rc-birads').innerText = "BI-RADS " + birads;
+            document.getElementById('rc-significado').innerText = sig;
+            document.getElementById('rc-recomendacion').innerText = rec;
+            document.getElementById('rc-proximo').innerText = prox;
+
+            let card = document.getElementById('report-card');
+            card.className = "report-card " + tema;
+            card.style.display = "block";
+            
+            // Scroll hacia la tarjeta
+            setTimeout(() => { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
+        }
+
+        function enviarWa() {
+            let nombre = document.getElementById('rc-nombre').innerText;
+            let edad = document.getElementById('rc-edad').innerText;
+            let fecha = document.getElementById('rc-fecha').innerText;
+            let densidad = document.getElementById('rc-densidad').innerText;
+            let riesgo = document.getElementById('rc-riesgo').innerText;
+            let birads = document.getElementById('rc-birads').innerText;
+            let sig = document.getElementById('rc-significado').innerText;
+            let rec = document.getElementById('rc-recomendacion').innerText;
+            let prox = document.getElementById('rc-proximo').innerText;
+
+            let msg = `*REPORTE CLÍNICO - MASTOGRAFÍA*%0A%0A`;
+            msg += `👤 Paciente: ${nombre} (${edad})%0A`;
+            msg += `📅 Fecha del Estudio: ${fecha}%0A%0A`;
+            msg += `🧬 Densidad: ${densidad}%0A`;
+            msg += `⚠️ Riesgo: ${riesgo}%0A%0A`;
+            msg += `🚨 *RESULTADO: ${birads}*%0A`;
+            msg += `_¿Qué significa?:_ ${sig}%0A%0A`;
+            msg += `👩‍⚕️ *ACCIÓN MÉDICA:*%0A${rec}%0A%0A`;
+            msg += `⏳ *Próximo Estudio:* ${prox}%0A%0A`;
+            msg += `_Generado vía Herramientas Clínicas Proyecto Celene🌸_`;
+            
+            window.open(`https://wa.me/526611044050?text=${msg}`, '_blank');
+        }
+    </script>
+    
+    <script src="js/global.js"></script>
+</body>
+</html>

@@ -293,39 +293,18 @@
             accent-color: var(--pc-rosa-fuerte);
         }
 
-        /* TABLA DE OPCIONES */
-        .table-responsive {
-            overflow-x: auto;
-            margin-top: 20px;
-        }
+        /* TARJETAS (REEMPLAZO DE TABLAS PARA MÓVILES) */
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { background: var(--pc-blanco); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-gris-suave); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 6px 6px 0 var(--pc-negro); }
+        .card.success { border-color: #2e7d32; box-shadow: 4px 4px 0 #c8e6c9; }
+        .card.info { border-color: #1565c0; box-shadow: 4px 4px 0 #bbdefb; }
+        .card.warning { border-color: #f57f17; box-shadow: 4px 4px 0 #fff9c4; }
 
-        .thm-table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 700px;
-            font-weight: 600;
-        }
-
-        .thm-table th,
-        .thm-table td {
-            padding: 15px;
-            border: 2px solid var(--pc-negro);
-            font-size: 0.95rem;
-        }
-
-        .thm-table th {
-            background: var(--pc-negro);
-            color: white;
-            text-align: left;
-        }
-
-        .thm-table tbody tr {
-            transition: background-color 0.2s;
-        }
-
-        .thm-table tbody tr:hover {
-            background-color: rgba(0, 0, 0, 0.03);
-        }
+        /* BOTON SIGUIENTE GAMIFICADO */
+        .btn-next { display: block; width: 100%; max-width: 400px; margin: 30px auto 0; text-align: center; background: var(--pc-rosa-fuerte); color: white; border: 3px solid var(--pc-negro); padding: 15px 25px; border-radius: 50px; font-weight: 900; font-size: 1.2rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: 0 6px 0 var(--pc-negro); font-family: 'Nunito', sans-serif; text-decoration: none; }
+        .btn-next:hover { transform: scale(1.03) translateY(-3px); box-shadow: 0 9px 0 var(--pc-negro); }
+        .btn-next:active { transform: translateY(6px); box-shadow: 0 0px 0 var(--pc-negro); }
 
         /* BOTONES */
         .btn {
@@ -647,10 +626,11 @@
         </header>
 
         <div class="tabs-wrapper fade-in">
-            <button class="tab-btn active" onclick="openTab('tab-intro', this)">📖 Qué es y Mitos</button>
+            <button class="tab-btn active" onclick="openTab('tab-intro', this)">📖 Inicio y Mitos</button>
             <button class="tab-btn" onclick="openTab('tab-sintomas', this)">✅ Síntomas y Alertas</button>
-            <button class="tab-btn" onclick="openTab('tab-tratamientos', this)">💊 Tratamientos y Test</button>
-            <button class="tab-btn" onclick="openTab('tab-tabla', this)">⚖️ Opciones a Detalle</button>
+            <button class="tab-btn" onclick="openTab('tab-sexualidad', this)">❤️ Sexualidad y Mente</button>
+            <button class="tab-btn" onclick="openTab('tab-tratamientos', this)">💊 Tratamientos</button>
+            <button class="tab-btn" onclick="openTab('tab-evidencia', this)">🔬 Noticias y Fuentes</button>
         </div>
 
         <!-- TAB 1: INTRO Y MITOS -->
@@ -712,13 +692,20 @@
                 </div>
                 <div class="info-panel" style="background: var(--pc-azul-suave);">
                     <h4>Mito: "La Terapia Hormonal es malísima y causa infartos y cáncer en todas las mujeres".</h4>
-                    <p><strong>Realidad:</strong> A principios de los años 2000, un estudio generó pánico mundial al
-                        decir esto, pero hoy sabemos que esos riesgos dependían de la edad. La ciencia actual ha
-                        demostrado la <strong>"Hipótesis de la Ventana de Oportunidad"</strong>: si iniciamos el
-                        tratamiento hormonal en mujeres sanas <strong>antes de los 60 años o en los primeros 10 años
-                            tras la menopausia</strong>, los beneficios (alivio de sofocos, protección del corazón y
-                        huesos) superan por mucho a los riesgos.</p>
+                    <p><strong>Realidad:</strong> A principios de los 2000, el estudio WHI generó pánico mundial por errores en su diseño. Hoy, la ciencia ha corregido esto. De hecho, en <strong>noviembre de 2025, la FDA anunció el retiro de las advertencias de "caja negra"</strong> (riesgos de infarto, cáncer o demencia) de los estrógenos, reconociendo que, si se inician a tiempo, los beneficios superan ampliamente a los riesgos.</p>
+                    <p style="margin-top: 10px; font-size: 0.95rem; color: #444;"><em>*La terapia sigue sin recomendarse si se inicia por primera vez en mayores de 65 años o si hay antecedentes de ciertos cánceres activos, pero ya no es el "veneno" que nos hicieron creer.</em></p>
                 </div>
+
+                <div class="info-panel" style="background: var(--pc-amarillo); border-color: var(--pc-negro);">
+                    <h4>Mito: "A los 45 años, mis periodos fallaron dos meses. ¡Ya estoy en menopausia!"</h4>
+                    <p><strong>Realidad:</strong> Oficialmente estás en menopausia hasta que cumples <strong>12 meses consecutivos sin regla</strong>. La etapa previa (perimenopausia) tiene ciclos irregulares, pero <strong>aún puedes quedar embarazada</strong>. ¡No suspendas tus métodos anticonceptivos precipitadamente!</p>
+                </div>
+                <div class="info-panel" style="background: var(--pc-blanco); border-color: var(--pc-negro);">
+                    <h4>⚠️ Especial: Menopausia Prematura (< 40 años) y VIH</h4>
+                    <p>Si tu regla se detuvo antes de los 40 años, tienes un riesgo 40% mayor de padecer enfermedades coronarias (JAMA, 2026) debido a la pérdida temprana de protección estrogénica. Asimismo, <strong>las pacientes que viven con VIH</strong> suelen presentar la menopausia unos 3 años antes del promedio. En ambos casos, el tratamiento hormonal oportuno es fundamental para proteger tu corazón y huesos.</p>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-sintomas', document.querySelectorAll('.tab-btn')[1])">Siguiente: Síntomas y Alertas ➔</button>
             </div>
         </div>
 
@@ -735,6 +722,88 @@
                     <div class="symp-card"><span>😴</span>Insomnio o fatiga</div>
                     <div class="symp-card"><span>🎢</span>Cambios de humor</div>
                     <div class="symp-card"><span>🦴</span>Riesgo de huesos frágiles</div>
+                    <div class="symp-card"><span>🦵</span>Dolor articular y muscular</div>
+                    <div class="symp-card"><span>⚖️</span>Aumento grasa abdominal</div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-amarillo); border-color: var(--pc-negro); margin-top: 30px;">
+                    <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.6rem;">El Síndrome Musculoesquelético y Metabólico 📉</h4>
+                    <p style="font-size: 0.95rem; margin-top: 10px;">La caída de estrógenos causa un <strong>"Triple Golpe"</strong> en tu cuerpo: aumenta la resistencia a la insulina, acelera la pérdida de masa muscular (bajando tu metabolismo) y eleva el cortisol por la falta de sueño. Esto provoca que acumules <strong>grasa abdominal (visceral)</strong> de forma más rápida (JCM, 2026).</p>
+                    <p style="font-size: 0.95rem; margin-top: 10px;">Además, cerca del 70% de las mujeres experimentan dolor o debilidad en articulaciones, tendones y ligamentos. ¡No es que estés "envejeciendo mal", es una condición real vinculada a tus hormonas!</p>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); margin-top: 30px;">
+                    <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.6rem;">🫀 Tu Corazón y la Presión Arterial</h4>
+                    <p style="font-size: 0.95rem; margin-top: 10px;">Durante la juventud, los estrógenos actúan como un escudo protector para las mujeres. Sin embargo, la ciencia reciente (AHA 2025) demuestra que la pérdida de esta hormona al llegar la menopausia invierte el patrón: las mujeres pierden su ventaja y su riesgo de <strong>enfermedad cardiovascular ateroesclerótica (ASCVD)</strong> aumenta drásticamente (18% más). Es vital checar tu colesterol y presión arterial en esta etapa.</p>
+                </div>
+
+                <!-- NUEVO: MINI TEST DE APNEA DEL SUEÑO -->
+                <div class="quiz-box" style="background: white; border-color: var(--pc-rosa-fuerte); margin-top: 30px; box-shadow: 6px 6px 0 var(--pc-rosa-pastell);">
+                    <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem;">Cansancio Crónico: ¿Insomnio o Apnea del Sueño? 💤</h3>
+                    <p style="margin-bottom: 15px; font-size: 0.95rem; font-weight: 600;">Descubrimientos recientes indican que las mujeres sufren la <strong>Apnea del Sueño</strong> de forma diferente a los hombres. En la menopausia, la pérdida de progesterona debilita los músculos de la garganta. A menudo, las mujeres no roncan fuerte, sino que tienen micro-despertares que confunden con "bochornos".</p>
+                    <p style="margin-bottom: 15px; font-size: 0.95rem; color: #444;">Selecciona si presentas esto:</p>
+                    
+                    <label class="check-item"><input type="checkbox" class="q-apnea"><div class="custom-checkbox"></div><span class="check-text">Siento una fatiga o "niebla mental" persistente en el día (más que simple sueño).</span></label>
+                    <label class="check-item"><input type="checkbox" class="q-apnea"><div class="custom-checkbox"></div><span class="check-text">Me despierto constantemente sintiendo el sueño intranquilo o agitado.</span></label>
+                    <label class="check-item"><input type="checkbox" class="q-apnea"><div class="custom-checkbox"></div><span class="check-text">Me han diagnosticado ansiedad o depresión recientemente.</span></label>
+                    
+                    <button onclick="evaluarApnea()" class="btn" style="background: var(--pc-rosa-fuerte); margin-top: 15px; max-width: 300px; padding: 10px; font-size: 1rem;">Evaluar mi descanso</button>
+                    <div id="res-apnea" style="display:none; margin-top:15px; padding: 15px; border-radius:10px; font-size: 1rem; background: var(--pc-amarillo); border: 2px dashed var(--pc-negro); font-weight: 800;"></div>
+                    <script>
+                        function evaluarApnea() {
+                            const checks = document.querySelectorAll('.q-apnea:checked').length;
+                            const res = document.getElementById('res-apnea');
+                            if(checks > 0) { res.innerHTML = "⚠️ Tienes síntomas que podrían indicar Apnea del Sueño o Resistencia de la Vía Aérea Superior. Comenta esto con tu médico, ya que un tratamiento (como CPAP) podría devolverte tu energía y proteger tu corazón.<br><br><button onclick='enviarPerfilMenopausiaWa()' class='btn btn-wa' style='padding:10px; font-size:1rem; margin-top:5px; width:100%; box-shadow: 0 4px 0 #1b9c4b;'>Añadir a mi perfil y enviar al Dr. 📲</button>"; }
+                            else { res.innerHTML = "✅ Al parecer no tienes síntomas clásicos femeninos de Apnea. Sin embargo, si tu descanso no es bueno, repórtalo en tu consulta.<br><br><button onclick='enviarPerfilMenopausiaWa()' class='btn btn-wa' style='padding:10px; font-size:1rem; margin-top:5px; width:100%; box-shadow: 0 4px 0 #1b9c4b;'>Añadir a mi perfil y enviar al Dr. 📲</button>"; }
+                            res.style.display = "block";
+                        }
+                    </script>
+                </div>
+
+                <!-- NUEVO: MINI TEST DE IMPACTO EN LA VIDA DIARIA (PRODUCTIVIDAD) -->
+                <div class="quiz-box" style="background: var(--pc-blanco); border-color: #1565c0; margin-top: 30px; box-shadow: 6px 6px 0 var(--pc-azul-suave);">
+                    <h3 class="hand-drawn" style="color: #1565c0; font-size: 1.8rem;">Impacto en tu Calidad de Vida y Trabajo 📉</h3>
+                    <p style="margin-bottom: 15px; font-size: 0.95rem; font-weight: 600;">Un estudio reciente (Flo Health, 2025) demostró que las mujeres en perimenopausia pierden hasta un 22.5% de su productividad laboral debido a síntomas no tratados. <strong>No estás exagerando, lo que sientes es real.</strong></p>
+                    <p style="margin-bottom: 15px; font-size: 0.95rem; color: #444;">¿Te identificas con alguna de estas situaciones?</p>
+                    
+                    <label class="check-item"><input type="checkbox" class="q-impacto"><div class="custom-checkbox" style="border-color: #1565c0;"></div><span class="check-text">Siento que me cuesta mucho más trabajo concentrarme o recordar cosas ("niebla mental").</span></label>
+                    <label class="check-item"><input type="checkbox" class="q-impacto"><div class="custom-checkbox" style="border-color: #1565c0;"></div><span class="check-text">El cansancio y los dolores articulares me impiden rendir igual en mi trabajo o en casa.</span></label>
+                    <label class="check-item"><input type="checkbox" class="q-impacto"><div class="custom-checkbox" style="border-color: #1565c0;"></div><span class="check-text">Siento que nadie en mi entorno laboral o familiar entiende por qué estoy tan irritable o agotada.</span></label>
+                    
+                    <button onclick="evaluarImpacto()" class="btn" style="background: #1565c0; margin-top: 15px; max-width: 300px; padding: 10px; font-size: 1rem; box-shadow: 0 5px 0 #0d47a1;">Analizar mi impacto</button>
+                    <div id="res-impacto" style="display:none; margin-top:15px; padding: 15px; border-radius:10px; font-size: 1rem; background: #e3f2fd; border: 2px dashed #1565c0; font-weight: 800; color: #0d47a1;"></div>
+                    <script>
+                        function evaluarImpacto() {
+                            const checks = document.querySelectorAll('.q-impacto:checked').length;
+                            const res = document.getElementById('res-impacto');
+                            if(checks > 0) { res.innerHTML = "Tus síntomas somáticos y psicológicos están afectando tu vida diaria. Ignorarlos puede empeorar tu salud general. Existen tratamientos seguros que pueden devolverte tu vitalidad; no tienes que 'aguantar' en silencio.<br><br><button onclick='enviarPerfilMenopausiaWa()' class='btn btn-wa' style='padding:10px; font-size:1rem; margin-top:5px; width:100%; box-shadow: 0 4px 0 #1b9c4b;'>Añadir a mi perfil y enviar al Dr. 📲</button>"; }
+                            else { res.innerHTML = "Tus síntomas parecen no interferir gravemente con tu rutina, ¡lo cual es excelente! Aún así, mantén tus chequeos preventivos al día.<br><br><button onclick='enviarPerfilMenopausiaWa()' class='btn btn-wa' style='padding:10px; font-size:1rem; margin-top:5px; width:100%; box-shadow: 0 4px 0 #1b9c4b;'>Añadir a mi perfil y enviar al Dr. 📲</button>"; }
+                            res.style.display = "block";
+                        }
+                    </script>
+                </div>
+
+                <!-- NUEVO: MINI TEST DE NIEBLA MENTAL -->
+                <div class="quiz-box" style="background: var(--pc-rosa-pastell); border-color: var(--pc-rosa-fuerte); margin-top: 30px; box-shadow: 6px 6px 0 var(--pc-negro);">
+                    <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem;">¿Demencia o Niebla Mental (Brain Fog)? 🧠</h3>
+                    <p style="margin-bottom: 15px; font-size: 0.95rem; font-weight: 600;">Muchas mujeres se asustan pensando que desarrollan Alzheimer. La "niebla mental" es un síntoma de la menopausia causado por la fluctuación de estrógenos (que modulan la dopamina y serotonina), el estrés y el mal sueño.</p>
+                    <p style="margin-bottom: 15px; font-size: 0.95rem; color: #444;">Selecciona si te pasa esto seguido:</p>
+                    
+                    <label class="check-item"><input type="checkbox" class="q-niebla"><div class="custom-checkbox" style="border-color: var(--pc-rosa-fuerte);"></div><span class="check-text">Olvido por completo la palabra que iba a decir a mitad de una frase.</span></label>
+                    <label class="check-item"><input type="checkbox" class="q-niebla"><div class="custom-checkbox" style="border-color: var(--pc-rosa-fuerte);"></div><span class="check-text">Entro a una habitación y no me acuerdo a qué iba.</span></label>
+                    <label class="check-item"><input type="checkbox" class="q-niebla"><div class="custom-checkbox" style="border-color: var(--pc-rosa-fuerte);"></div><span class="check-text">Me cuesta mucho concentrarme en mis tareas laborales habituales.</span></label>
+                    
+                    <button onclick="evaluarNiebla()" class="btn" style="background: var(--pc-rosa-fuerte); margin-top: 15px; max-width: 300px; padding: 10px; font-size: 1rem; box-shadow: 0 5px 0 var(--pc-negro);">Descubrir qué pasa</button>
+                    <div id="res-niebla" style="display:none; margin-top:15px; padding: 15px; border-radius:10px; font-size: 1rem; background: white; border: 2px dashed var(--pc-rosa-fuerte); font-weight: 800; color: var(--pc-negro);"></div>
+                    <script>
+                        function evaluarNiebla() {
+                            const checks = document.querySelectorAll('.q-niebla:checked').length;
+                            const res = document.getElementById('res-niebla');
+                            if(checks > 0) { res.innerHTML = "Tranquila. La verdadera demencia antes de los 65 años es <strong>extremadamente rara</strong> (menos de 92 casos por cada 100,000). Lo que sientes es Niebla Mental. Se mejora tratando el insomnio, los bochornos y controlando la ansiedad.<br><br><button onclick='enviarPerfilMenopausiaWa()' class='btn btn-wa' style='padding:10px; font-size:1rem; margin-top:5px; width:100%; box-shadow: 0 4px 0 #1b9c4b;'>Añadir a mi perfil y enviar al Dr. 📲</button>"; }
+                            else { res.innerHTML = "¡Excelente! Tu agudeza mental se mantiene estable. Mantén tu mente activa y cuida tu descanso.<br><br><button onclick='enviarPerfilMenopausiaWa()' class='btn btn-wa' style='padding:10px; font-size:1rem; margin-top:5px; width:100%; box-shadow: 0 4px 0 #1b9c4b;'>Añadir a mi perfil y enviar al Dr. 📲</button>"; }
+                            res.style.display = "block";
+                        }
+                    </script>
                 </div>
 
                 <h2 class="hand-drawn" style="margin-top: 30px; color: var(--pc-negro);">CUESTIONARIO 1: Mi cuerpo está
@@ -795,12 +864,65 @@
                             sufrido una fractura por un golpe leve o una caída desde mi propia altura</span>
                     </label>
 
-                    <button onclick="evaluarSintomas()" class="btn" style="margin-top: 15px;">Evaluar mis
-                        síntomas</button>
+                    <button onclick="evaluarSintomas()" class="btn" style="margin-top: 15px;">Evaluar mis síntomas</button>
                     <div id="q1-result"
                         style="display:none; margin-top:15px; padding: 20px; border-radius:10px; font-size: 1.1rem;">
                     </div>
                 </div>
+
+                <button class="btn-next" onclick="openTab('tab-sexualidad', document.querySelectorAll('.tab-btn')[2])">Siguiente: Sexualidad y Mente ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 3: SEXUALIDAD Y MENTE (NUEVO) -->
+        <div id="tab-sexualidad" class="tab-content">
+            <div class="content-box">
+                <div style="text-align: center; margin-bottom: 15px;"><span class="float-anim" style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-rosa-pastell));">❤️</span></div>
+                <h2 class="hand-drawn" style="text-align: center;">El Deseo no se apaga, se transforma</h2>
+                <p style="font-weight: 600; text-align: center; margin-bottom: 25px;">Históricamente se ha dicho que la menopausia marca el fin del deseo sexual. La ciencia moderna y la sexología demuestran que esto es <strong>falso</strong>.</p>
+
+                <div class="grid-cards">
+                    <div class="card" style="background: var(--pc-rosa-pastell); border-color: var(--pc-rosa-fuerte);">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; font-size: 1.4rem; margin-bottom: 10px;">Tu deseo es Biopsicosocial 🧠</h4>
+                        <p style="font-size: 0.95rem;">Expertos en sexología afirman que el deseo sexual no depende solo de un nivel hormonal. Es una mezcla de tu cuerpo (biología), tus emociones (psicología) y tu entorno o pareja (social).</p>
+                        <p style="font-size: 0.95rem;">Un estudio del Instituto Kinsey (2025) demostró que <strong>la mayoría de las mujeres posmenopáusicas experimentan orgasmos con la misma frecuencia</strong> que las más jóvenes, y muchas reportaron una mejor calidad orgásmica en la última década gracias al autoconocimiento.</p>
+                    </div>
+                    
+                    <div class="card" style="background: var(--pc-amarillo);">
+                        <h4 style="color: var(--pc-negro); font-family: 'Handlee', cursive; font-size: 1.4rem; margin-bottom: 10px;">Las verdaderas barreras 🚧</h4>
+                        <p style="font-size: 0.95rem;">Lo que realmente disminuye el deseo son los síntomas no tratados: el <strong>insomnio severo</strong> (que causa disfunción y cansancio crónico), el dolor por <strong>sequedad vaginal</strong> y una <strong>baja autoimagen sexual</strong> (distress psicológico).</p>
+                        <p style="font-size: 0.95rem; margin-top: 10px;">⚠️ <strong>Atención Clínica (GSM):</strong> Ignorar la resequedad y atrofia no solo afecta tu vida sexual. En mujeres mayores, la falta de estrógenos locales es la causa #1 de <strong>Infecciones Urinarias (UTIs)</strong> recurrentes graves y resultados <strong>falsos anormales</strong> en el Papanicolaou.</p>
+                    </div>
+
+                    <div class="card" style="border-color: #7b1fa2; box-shadow: 4px 4px 0 #e1bee7;">
+                        <h4 style="color: #7b1fa2; font-family: 'Handlee', cursive; font-size: 1.4rem; margin-bottom: 10px;">La Autoexploración Placentera ✨</h4>
+                        <p style="font-size: 0.95rem;">El Instituto Kinsey (Nov 2025) confirmó que la <strong>masturbación regular</strong> (especialmente con juguetes clitorianos) es una terapia natural excelente. Las mujeres reportaron mejoras contundentes en su estado de ánimo, facilidad para conciliar el sueño y aumento en la lubricación vaginal.</p>
+                        <p style="font-size: 0.95rem; margin-top: 10px;">¡Libérate del tabú! Llegar al orgasmo libera neuroquímicos (oxitocina y serotonina) y mejora el tono vagal, reduciendo enormemente el estrés.</p>
+                    </div>
+                </div>
+
+                <h3 class="hand-drawn" style="margin-top: 30px; font-size: 1.8rem; color: var(--pc-negro);">Nuevas opciones de tratamiento emocional e íntimo:</h3>
+                
+                <div class="grid-cards" style="margin-top: 15px;">
+                    <div class="card info">
+                        <h4 style="color: #1565c0; font-family: 'Handlee', cursive; font-size: 1.3rem; margin-bottom: 5px;">Terapia Cognitivo-Conductual</h4>
+                        <p style="font-size: 0.9rem;">Presentada en *The Menopause Society (2024)* como la herramienta no farmacológica <strong>más segura y efectiva</strong> para manejar la ansiedad y aliviar problemas sexuales durante esta etapa.</p>
+                    </div>
+                    <div class="card success">
+                        <h4 style="color: #2e7d32; font-family: 'Handlee', cursive; font-size: 1.3rem; margin-bottom: 5px;">Terapias Digitales (Apps)</h4>
+                        <p style="font-size: 0.9rem;">Existen nuevas plataformas validadas científicamente (como eSense) que brindan módulos de *mindfulness* y terapia guiada desde el celular a bajo costo.</p>
+                    </div>
+                    <div class="card" style="border-color: #f57f17; box-shadow: 4px 4px 0 #fff9c4;">
+                        <h4 style="color: #f57f17; font-family: 'Handlee', cursive; font-size: 1.3rem; margin-bottom: 5px;">Investigación Actual</h4>
+                        <ul style="font-size: 0.85rem; margin-left: 15px;">
+                            <li><strong>Testosterona:</strong> Solo indicada para el Trastorno de Deseo Sexual Hipoactivo severo (no es para uso general).</li>
+                            <li><strong>Cannabis:</strong> Datos observacionales sugieren que ayuda a facilitar orgasmos por su efecto vasodilatador y antiinflamatorio (aún en estudio).</li>
+                            <li><strong>Probióticos:</strong> Estudios recientes (2025) ligan una flora intestinal y vaginal sana con mejor calidad de vida íntima.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-tratamientos', document.querySelectorAll('.tab-btn')[3])">Siguiente: Opciones de Tratamiento ➔</button>
             </div>
         </div>
 
@@ -816,12 +938,30 @@
                 <div class="lifestyle-banner">
                     <div class="ls-item"><span>🥗</span> Dieta Saludable</div>
                     <div class="ls-item"><span>🏋️‍♀️</span> Fuerza (Pesas)</div>
-                    <div class="ls-item"><span>🧘‍♀️</span> Salud Mental</div>
+                    <div class="ls-item"><span>🥩</span> Meta de Proteína</div>
                 </div>
-                <p style="margin-bottom: 30px;">Una dieta rica en vegetales y baja en procesados reduce los sofocos. El
-                    <strong>entrenamiento de fuerza</strong> es innegociable para proteger tus huesos de la osteoporosis
-                    y evitar que la grasa se acumule en tu abdomen. La Terapia Cognitiva te ayuda a dominar el estrés y
-                    recuperar tu sueño reparador.</p>
+                <p style="margin-bottom: 20px;">Una dieta alta en proteínas es crucial para evitar perder músculo en esta etapa. El <strong>entrenamiento de fuerza con pesas o resistencia</strong> es innegociable (la caminata sola ya no es suficiente); necesitas estímulos mecánicos para proteger tus huesos de la osteoporosis y evitar que la grasa se acumule en tu abdomen.</p>
+
+                <!-- CALCULADORA DE PROTEINA -->
+                <div class="quiz-box" style="background: white; border-color: #2e7d32; margin-top: 30px; box-shadow: 6px 6px 0 #c8e6c9;">
+                    <h3 class="hand-drawn" style="color: #2e7d32; font-size: 1.8rem;">Calculadora de Proteína Diaria 🥩</h3>
+                    <p style="margin-bottom: 15px; font-size: 0.95rem; font-weight: 600;">Para proteger tus músculos y huesos (evitando la fragilidad), los expertos en medicina de la obesidad recomiendan un consumo de 1.5 a 2.0 g/kg en esta etapa. Ingresa tu peso:</p>
+                    <div style="display: flex; gap: 10px; max-width: 400px; margin: 0 auto;">
+                        <input type="number" id="calc_peso_prot" placeholder="Peso en kg" style="padding: 10px; border: 2px solid var(--pc-negro); border-radius: 8px; width: 100%; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none;">
+                        <button onclick="calcularProteina()" class="btn" style="background: #2e7d32; margin: 0; padding: 10px 20px; font-size: 1rem; box-shadow: 0 4px 0 #1b5e20;">Calcular</button>
+                    </div>
+                    <div id="res_proteina" style="display: none; margin-top: 15px; padding: 15px; background: #e8f5e9; border: 2px dashed #2e7d32; border-radius: 10px; font-weight: 800; color: #1b5e20; text-align: center;"></div>
+                    <script>
+                        function calcularProteina() {
+                            let peso = parseFloat(document.getElementById('calc_peso_prot').value);
+                            if(!peso) return;
+                            let min = (peso * 1.5).toFixed(0); let max = (peso * 2.0).toFixed(0);
+                            let res = document.getElementById('res_proteina');
+                            res.innerHTML = `Tu meta diaria óptima es de <strong>${min}g a ${max}g</strong> de proteína.<br><span style="font-size: 0.85rem; color: #444; font-weight: 600;">Lograrlo te dará saciedad y protegerá tu tasa metabólica.</span><br><button onclick='enviarPerfilMenopausiaWa()' class='btn btn-wa' style='padding:10px; font-size:1rem; margin-top:15px; width:100%; box-shadow: 0 4px 0 #1b9c4b;'>Añadir a mi perfil y enviar al Dr. 📲</button>`;
+                            res.style.display = 'block';
+                        }
+                    </script>
+                </div>
 
                 <h2 class="hand-drawn" style="margin-top: 30px;">CUESTIONARIO 2: ¿Soy candidata a la Terapia Hormonal
                     (THM)?</h2>
@@ -837,6 +977,10 @@
                         <div class="custom-checkbox"></div><span class="check-text">Hace menos de 10 años que tuve mi
                             última regla.</span>
                     </label>
+                    
+                    <div style="background: white; padding: 15px; border-radius: 10px; border: 2px solid #c62828; margin-top: 10px; margin-bottom: 20px;">
+                        <p style="color: #c62828; font-size: 0.9rem; font-weight: 800; margin-bottom: 0;">⚠️ Regla de Oro Médica (Guías 2026): Iniciar la terapia de reemplazo hormonal (sistémica) por primera vez después de los 65 años está formalmente desaconsejado, ya que duplica el riesgo de eventos cerebrovasculares y ciertos cánceres.</p>
+                    </div>
 
                     <h3 style="color: var(--pc-negro); margin-top: 20px;">2. Mis Síntomas</h3>
                     <label class="check-item"><input type="checkbox" id="thm_sym">
@@ -909,72 +1053,58 @@
                         style="display:none; margin-top:15px; padding: 20px; border-radius:10px; font-size: 1.1rem;">
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- TAB 4: TABLA -->
-        <div id="tab-tabla" class="tab-content">
-            <div class="content-box">
-                <h2 class="hand-drawn">Riesgos y Beneficios de mis opciones</h2>
-                <p>Repasa esta tabla con tu médico para tomar la Decisión Clínica Compartida:</p>
+                <h2 class="hand-drawn" style="margin-top: 40px; border-top: 3px dashed #ccc; padding-top: 20px;">Riesgos y Beneficios a Detalle ⚖️</h2>
+                <p style="margin-bottom: 20px;">Repasa esta información con tu médico para tomar la <strong>Decisión Clínica Compartida</strong>. La medicina moderna ya no usa el "modelo universal", nos adaptamos a tus riesgos únicos.</p>
 
-                <div class="table-responsive">
-                    <table class="thm-table">
-                        <thead>
-                            <tr>
-                                <th>Tipo de Tratamiento</th>
-                                <th>Fármaco / Opción</th>
-                                <th>Sus Beneficios (Lo Bueno)</th>
-                                <th>Sus Riesgos o Efectos Secundarios</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="font-weight: bold;">Hormonal (THM)</td>
-                                <td>Estrógenos + Progesterona (Parche, gel o pastilla)</td>
-                                <td style="background: #e8f5e9;">Alivia >80% de sofocos. Previene la pérdida de hueso
-                                    (osteoporosis). Quita la sequedad vaginal.</td>
-                                <td style="background: #ffebee;">Riesgo de coágulos (menor con parche/gel). Ligero
-                                    aumento de riesgo de cáncer de mama si se usa por más de 5 años combinada. Tensión
-                                    mamaria.</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: bold;">No Hormonal (Neuroquinina)</td>
-                                <td>Fezolinetant (Pastilla diaria)</td>
-                                <td style="background: #e8f5e9;">Reduce drásticamente la frecuencia y severidad de
-                                    sofocos casi tan bien como las hormonas. Acción muy rápida (1 semana).</td>
-                                <td style="background: #ffebee;">Puede elevar transitoriamente las enzimas del hígado
-                                    (requiere análisis de sangre para control). Posible dolor de cabeza o diarrea leve.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: bold;">No Hormonal (Modulador del ánimo)</td>
-                                <td>ISRS / IRSN (Venlafaxina, Paroxetina, Escitalopram)</td>
-                                <td style="background: #e8f5e9;">Reducen sofocos (40-65%). Mejoran la ansiedad,
-                                    depresión y calidad de vida. Seguros si hay riesgo cardiovascular.</td>
-                                <td style="background: #ffebee;">Pueden causar náuseas al principio. Algunos pueden
-                                    disminuir el deseo sexual o dificultar el orgasmo. Sequedad de boca.</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: bold;">No Hormonal (Neuromodulador)</td>
-                                <td>Gabapentina / Pregabalina</td>
-                                <td style="background: #e8f5e9;">Reducen sofocos y mejoran enormemente la calidad del
-                                    sueño si hay despertares nocturnos.</td>
-                                <td style="background: #ffebee;">Pueden causar mareo, somnolencia diurna, sensación de
-                                    torpeza o dolor de cabeza, por lo que se inician a dosis bajitas.</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: bold;">No Hormonal (Vaginal/Oral)</td>
-                                <td>Ospemifeno (Pastilla) / Ácido Hialurónico (Gel)</td>
-                                <td style="background: #e8f5e9;"><strong>Ospemifeno:</strong> Revierte la atrofia
-                                    vaginal y el dolor sin usar estrógenos (seguro tras cáncer de
-                                    mama).<br><strong>Ácido Hialurónico:</strong> Hidrata profundamente sin riesgo.</td>
-                                <td style="background: #ffebee;"><strong>Ospemifeno:</strong> Puede causar o empeorar
-                                    los sofocos como efecto secundario.<br><strong>Ácido Hialurónico:</strong> Requiere
-                                    aplicación constante.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="grid-cards">
+                    <!-- THM TRANSDERMICA (NUEVA EVIDENCIA) -->
+                    <div class="card success">
+                        <h4 style="color: #2e7d32; font-family: 'Handlee', cursive; font-size: 1.4rem;">💊 THM Transdérmica</h4>
+                        <p style="font-size: 0.95rem;"><strong>Fármaco:</strong> Estrógenos en Parches o Geles (+ Progesterona si tienes matriz).</p>
+                        <div style="background: #e8f5e9; padding: 10px; border-radius: 8px; margin-bottom: 10px; font-size: 0.9rem;"><strong>✅ Beneficios:</strong> Alivia sofocos. Previene poderosamente la osteoporosis. Estudios recientes indican que la vía transdérmica <strong>reduce la ansiedad y mejora la memoria episódica</strong> (Neurology, 2025).</div>
+                        <div style="background: #ffebee; padding: 10px; border-radius: 8px; font-size: 0.9rem; color: #c62828;"><strong>⚠️ Riesgos:</strong> No se debe iniciar por primera vez después de los 65 años (aumenta riesgo vascular).</div>
+                    </div>
+                    
+                    <!-- THM ORAL -->
+                    <div class="card success" style="border-color: #388e3c; box-shadow: 4px 4px 0 #c8e6c9;">
+                        <h4 style="color: #388e3c; font-family: 'Handlee', cursive; font-size: 1.4rem;">💊 THM Oral</h4>
+                        <p style="font-size: 0.95rem;"><strong>Fármaco:</strong> Pastillas de Estrógenos.</p>
+                        <div style="background: #e8f5e9; padding: 10px; border-radius: 8px; margin-bottom: 10px; font-size: 0.9rem;"><strong>✅ Beneficios:</strong> Muy efectiva. Reduce hasta un 30% el riesgo de cáncer gástrico, disminuye la grasa abdominal y mejora la <em>Memoria Prospectiva</em>.</div>
+                        <div style="background: #ffebee; padding: 10px; border-radius: 8px; font-size: 0.9rem; color: #c62828;"><strong>⚠️ Riesgos:</strong> Mayor riesgo de coágulos. Cuidado clínico extra si la paciente tiene mamas extremadamente densas o placas en las arterias.</div>
+                    </div>
+                    
+                    <!-- Neuroquinina -->
+                    <div class="card info">
+                        <h4 style="color: #1565c0; font-family: 'Handlee', cursive; font-size: 1.4rem;">🔬 No Hormonal Nuevo</h4>
+                        <p style="font-size: 0.95rem;"><strong>Fármaco:</strong> Fezolinetant (Neuroquinina).</p>
+                        <div style="background: #e8f5e9; padding: 10px; border-radius: 8px; margin-bottom: 10px; font-size: 0.9rem;"><strong>✅ Beneficios:</strong> Reduce drásticamente la frecuencia y severidad de sofocos casi tan bien como las hormonas. ¡Acción rápida!</div>
+                        <div style="background: #ffebee; padding: 10px; border-radius: 8px; font-size: 0.9rem; color: #c62828;"><strong>⚠️ Riesgos:</strong> Puede elevar las enzimas del hígado (requiere análisis). Posible dolor de cabeza.</div>
+                    </div>
+
+                    <!-- Antidepresivos -->
+                    <div class="card" style="border-color: #6a1b9a; box-shadow: 4px 4px 0 #e1bee7;">
+                        <h4 style="color: #6a1b9a; font-family: 'Handlee', cursive; font-size: 1.4rem;">🧠 Moduladores del Ánimo</h4>
+                        <p style="font-size: 0.95rem;"><strong>Fármaco:</strong> ISRS / IRSN (Paroxetina, Escitalopram).</p>
+                        <div style="background: #e8f5e9; padding: 10px; border-radius: 8px; margin-bottom: 10px; font-size: 0.9rem;"><strong>✅ Beneficios:</strong> Reducen sofocos (40-65%). Mejoran ansiedad, depresión y calidad de vida. Seguros para el corazón.</div>
+                        <div style="background: #ffebee; padding: 10px; border-radius: 8px; font-size: 0.9rem; color: #c62828;"><strong>⚠️ Riesgos:</strong> Náuseas iniciales. Algunos pueden disminuir el deseo sexual o dificultar el orgasmo.</div>
+                    </div>
+                    
+                    <!-- Plasma Rico en Plaquetas (NUEVO) -->
+                    <div class="card" style="border-color: var(--pc-negro); box-shadow: 4px 4px 0 var(--pc-rosa-pastell);">
+                        <h4 style="color: var(--pc-negro); font-family: 'Handlee', cursive; font-size: 1.4rem;">🩸 Medicina Regenerativa</h4>
+                        <p style="font-size: 0.95rem;"><strong>Opción:</strong> Inyección local de Plasma Rico en Plaquetas (PRP).</p>
+                        <div style="background: #e8f5e9; padding: 10px; border-radius: 8px; margin-bottom: 10px; font-size: 0.9rem;"><strong>✅ Beneficios:</strong> Regenera la zona vaginal aliviando dolor crónico y sequedad. <strong>¡Súper seguro para sobrevivientes de cáncer de mama!</strong> (Aún si toman inhibidores de aromatasa).</div>
+                        <div style="background: #ffebee; padding: 10px; border-radius: 8px; font-size: 0.9rem; color: #c62828;"><strong>⚠️ Riesgos:</strong> Leve manchado o molestia temporal (24h) tras la aplicación.</div>
+                    </div>
+
+                    <!-- Estrógenos Vaginales -->
+                    <div class="card" style="border-color: #f06292; box-shadow: 4px 4px 0 #fce4ec;">
+                        <h4 style="color: #d81b60; font-family: 'Handlee', cursive; font-size: 1.4rem;">🌷 Estrógenos Vaginales</h4>
+                        <p style="font-size: 0.95rem;"><strong>Opción:</strong> Cremas, tabletas o anillos locales.</p>
+                        <div style="background: #e8f5e9; padding: 10px; border-radius: 8px; margin-bottom: 10px; font-size: 0.9rem;"><strong>✅ Beneficios:</strong> Salvan vidas previniendo Infecciones Urinarias recurrentes (que causan sepsis en adultas mayores) y sanan el dolor al tener relaciones. Evitan diagnósticos Falsos de Papanicolaou.</div>
+                        <div style="background: #e3f2fd; padding: 10px; border-radius: 8px; font-size: 0.9rem; color: #1565c0;"><strong>ℹ️ Dato:</strong> 100% seguros. No elevan el riesgo de derrames ni cáncer (incluso en sobrevivientes de ca. de mama/endometrio).</div>
+                    </div>
                 </div>
 
                 <div
@@ -985,6 +1115,133 @@
                         es escucharte, evaluar tus riesgos personales mediante exámenes rutinarios y decidir juntas el
                         camino que te brinde la mejor calidad de vida. No dudes en preguntar y expresar todo lo que
                         sientes; estamos aquí para acompañarte en cada paso.</p>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-evidencia', document.querySelectorAll('.tab-btn')[4])">Siguiente: Noticias y Fuentes ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 5: NOTICIAS Y EVIDENCIA (NUEVO) -->
+        <div id="tab-evidencia" class="tab-content">
+            <div class="content-box" style="background: var(--pc-azul-suave); border-color: var(--pc-negro);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.4rem;">Hemeroteca Clínica (2025-2026) 🔬</h2>
+                <p style="text-align: center; font-weight: 600; margin-bottom: 30px;">En Proyecto Celene la ciencia dicta el camino. Te compartimos los artículos, consensos y guías médicas más recientes (2025-2026) para que tomes decisiones de salud seguras e informadas.</p>
+
+                <h3 style="color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; font-size: 1.8rem; margin-bottom: 15px; border-bottom: 3px dashed var(--pc-rosa-fuerte); padding-bottom: 10px;">🌟 Revolución de la FDA y Terapia Hormonal</h3>
+                <div class="grid-cards">
+                    <div class="card" style="background: #fff3e0; border-color: #e65100;">
+                        <h4 style="color: #e65100; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">JAMA / FDA (NOV-DIC 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">FDA Plans to Remove Black Box Warning From HRT Products</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">Decisión histórica: La FDA acuerda retirar las alarmas de "caja negra" (infarto, cáncer) de los estrógenos sistémicos y vaginales, reconociendo que sus beneficios superan los riesgos del antiguo estudio WHI.</p>
+                    </div>
+                    <div class="card" style="background: #fff3e0; border-color: #e65100;">
+                        <h4 style="color: #e65100; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">SEX MATTERS (SEP 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">I Need Your Help: Tell the FDA They Are Wrong About Estrogen</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">Expertos y urólogos evidenciaron que el <strong>estrógeno vaginal salva vidas</strong> en la tercera edad al prevenir infecciones urinarias y debe recetarse sin el estigma del cáncer (su absorción sistémica es nula).</p>
+                    </div>
+                    <div class="card" style="background: white; border-color: var(--pc-negro);">
+                        <h4 style="color: var(--pc-negro); font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">MEDIQUALITY / LIÈGE (MAR 2026)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Menopause: When to Treat and When to Wait</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">Consenso europeo: Cuidado con diagnosticar menopausia prematuramente (riesgo de embarazo). La THM es segura pero se debe vigilar en pacientes con "mamas muy densas" o ateromas preexistentes.</p>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--pc-negro); font-family: 'Handlee', cursive; font-size: 1.8rem; margin-top: 40px; margin-bottom: 15px; border-bottom: 3px dashed var(--pc-negro); padding-bottom: 10px;">🫀 Metabolismo, Peso y Músculo</h3>
+                <div class="grid-cards">
+                    <div class="card" style="background: white;">
+                        <h4 style="color: var(--pc-negro); font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">JAMA CARDIOLOGY (MAR 2026)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Premature Menopause Is Tied to Greater Lifetime Risk for CHD</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">Mujeres con menopausia prematura (&lt; 40 años) tienen <strong>40% más riesgo de enfermedad coronaria</strong> (CHD). Obligatorio entrenamiento de fuerza y prevención cardiovascular intensa.</p>
+                    </div>
+                    <div class="card" style="background: white;">
+                        <h4 style="color: var(--pc-negro); font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">OBESITY MEDICINE ASSOC. (OCT 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Hormones, Menopause, and Weight Loss</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">El "Triple Golpe": La baja de estrógenos causa resistencia a la insulina, pérdida acelerada de músculo y aumento de cortisol. Define el <em>Síndrome Musculoesquelético</em> de la Menopausia (dolores articulares).</p>
+                    </div>
+                    <div class="card" style="background: white;">
+                        <h4 style="color: var(--pc-negro); font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">J. CLINICAL MEDICINE (ENE 2026)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Menopause Status Alters Body Composition</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">Aún en mujeres con "peso normal", la menopausia reduce significativamente la masa muscular y aumenta severamente la grasa visceral (abdominal), elevando el riesgo cardiometabólico.</p>
+                    </div>
+                    <div class="card" style="background: white;">
+                        <h4 style="color: var(--pc-negro); font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">MATURITAS / DIABETES CANADA (DIC 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Menopause Linked to Higher ASCVD Risk</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">La menopausia está independientemente asociada con un riesgo 18% mayor de enfermedad cardiovascular. Los estrógenos previenen esto al mantener la elasticidad de los vasos sanguíneos.</p>
+                    </div>
+                </div>
+
+                <h3 style="color: #2e7d32; font-family: 'Handlee', cursive; font-size: 1.8rem; margin-top: 40px; margin-bottom: 15px; border-bottom: 3px dashed #2e7d32; padding-bottom: 10px;">🦴 Salud Ósea y Ejercicio</h3>
+                <div class="grid-cards">
+                    <div class="card" style="background: #e8f5e9; border-color: #2e7d32;">
+                        <h4 style="color: #2e7d32; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">MEDICINE / NHANES (MAR 2026)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Exercise’s Ability to Improve Bone Density</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">La actividad física mejora la densidad ósea, pero tiene un "tope" a las 32 horas-MET/semana. Las mujeres con obesidad necesitan además terapia farmacológica y entrenamiento de fuerza específico.</p>
+                    </div>
+                    <div class="card" style="background: #e8f5e9; border-color: #2e7d32;">
+                        <h4 style="color: #2e7d32; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">THE MENOPAUSE SOCIETY (NOV 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Menopause Affects Muscle Health (Biomarkers)</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">La menopausia acelera la sarcopenia. Un nuevo biomarcador en orina demostró que estas mujeres tienen menor síntesis proteica y mayor estrés oxidativo, haciendo la ingesta de proteína vital.</p>
+                    </div>
+                </div>
+
+                <h3 style="color: #6a1b9a; font-family: 'Handlee', cursive; font-size: 1.8rem; margin-top: 40px; margin-bottom: 15px; border-bottom: 3px dashed #6a1b9a; padding-bottom: 10px;">🧠 Cerebro, Memoria y Salud Mental</h3>
+                <div class="grid-cards">
+                    <div class="card" style="background: #f3e5f5; border-color: #6a1b9a;">
+                        <h4 style="color: #6a1b9a; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">MEDSCAPE UK (JUL 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Understanding Brain Fog in the Menopause</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">La "Niebla Mental" (olvidos, baja atención) afecta al 73% de mujeres. Es distinto a la demencia. Mejorar el sueño y bajar los sofocos rompe el ciclo vicioso de la pérdida de memoria a corto plazo.</p>
+                    </div>
+                    <div class="card" style="background: #f3e5f5; border-color: #6a1b9a;">
+                        <h4 style="color: #6a1b9a; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">LANCET HEALTHY LONGEVITY (DIC 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Does Hormone Therapy Influence Dementia Risk?</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">Meta-análisis masivo concluye que <strong>la THM NO aumenta ni disminuye el riesgo de demencia o Alzheimer</strong>. No hay evidencia para recetarla como método único de "prevención cognitiva".</p>
+                    </div>
+                    <div class="card" style="background: #f3e5f5; border-color: #6a1b9a;">
+                        <h4 style="color: #6a1b9a; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">NEUROLOGY (AGO 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Hormone Therapy Type Key to Memory Benefits</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">El <em>tipo</em> de hormona importa: El estrógeno transdérmico se asoció a mejor Memoria Episódica (recordar eventos pasados), mientras que el oral a mejor Memoria Prospectiva (recordar tareas futuras).</p>
+                    </div>
+                    <div class="card" style="background: #f3e5f5; border-color: #6a1b9a;">
+                        <h4 style="color: #6a1b9a; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">MENOPAUSE JOURNAL (JUL 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Early Menopause Blues (Premature Ovarian Insufficiency)</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">El 30% de mujeres con falla ovárica prematura sufren depresión. Esto no se debe solo a niveles bajos de estrógeno, sino a la severidad de los síntomas y el doloroso impacto psicosocial (pérdida de fertilidad).</p>
+                    </div>
+                </div>
+
+                <h3 style="color: #1565c0; font-family: 'Handlee', cursive; font-size: 1.8rem; margin-top: 40px; margin-bottom: 15px; border-bottom: 3px dashed #1565c0; padding-bottom: 10px;">🌷 Salud Íntima, GSM y Sexualidad</h3>
+                <div class="grid-cards">
+                    <div class="card" style="background: white;">
+                        <h4 style="color: #1565c0; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">MENOPAUSE JOURNAL (NOV 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Self-Pleasure May Ease Menopause Symptoms</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">Estudio del Kinsey Institute revela que la masturbación (con vibradores) mejora dramáticamente el insomnio, el humor y reduce sofocos al optimizar el tono vagal y liberar neuroquímicos benéficos.</p>
+                    </div>
+                    <div class="card" style="background: white;">
+                        <h4 style="color: #1565c0; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">ACOG ANNUAL MEETING (JUN 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Why GSM Is Missed / Untreated Symptoms Risks</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">El Síndrome Genitourinario (resequedad vaginal) es ignorado porque los doctores no preguntan. Dejarlo sin tratar causa falsos Papanicolaous, fusión labial y sepsis por Infecciones Urinarias.</p>
+                    </div>
+                    <div class="card" style="background: white;">
+                        <h4 style="color: #1565c0; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">MEDSCAPE HIV (FEB 2026)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">HIV and Menopause: A Combo We’re Just Beginning to Understand</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">Pacientes con VIH llegan a la menopausia ~3 años antes. La Terapia Hormonal es segura, protege su corazón y alivia síntomas sin interferir con los antirretrovirales si se supervisa bien.</p>
+                    </div>
+                </div>
+
+                <h3 style="color: #d81b60; font-family: 'Handlee', cursive; font-size: 1.8rem; margin-top: 40px; margin-bottom: 15px; border-bottom: 3px dashed #d81b60; padding-bottom: 10px;">🎗️ Genética, Cáncer y Limitaciones</h3>
+                <div class="grid-cards">
+                    <div class="card" style="background: #fce4ec; border-color: #d81b60;">
+                        <h4 style="color: #d81b60; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">SABCS (DIC 2025)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">BRCA Carriers: Hormone Therapy May Not Up Breast Cancer Risk</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">En pacientes con gen BRCA que se retiraron ovarios por precaución, la THM de <strong>solo estrógenos</strong> REDUJO el riesgo de cáncer de mama un 63% a 5 años comparado con no tomar nada.</p>
+                    </div>
+                    <div class="card" style="background: #fce4ec; border-color: #d81b60;">
+                        <h4 style="color: #d81b60; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 900;">FRENCH SOC. RHEUMATOLOGY (FEB 2026)</h4>
+                        <p style="font-size: 1.05rem; font-weight: 800; color: var(--pc-negro); line-height: 1.3;">Hormone Therapy Myths Hinder Bone Health</p>
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">El miedo injustificado a recetar THM por mitos pasados está provocando un alza prevenible en fracturas óseas. Pacientes con cáncer de mama usando Inhibidores de Aromatasa sufren gran daño óseo y articular, aliviable con ejercicio de fuerza.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; text-align: center;">
         <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
             <a href="recursos-educativos.html" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px;">
                 ⬅️ Volver a Recursos Educativos
@@ -999,64 +1256,6 @@
         <!-- ACCIÓN FINAL GLOBAL -->
         <div id="action-container-menopausia" class="action-container fade-in" style="text-align: center; padding: 40px 20px; background: var(--pc-blanco); border: 4px solid var(--pc-negro); border-radius: 25px; box-shadow: 8px 8px 0 var(--pc-rosa-fuerte); margin-top: 40px;">
             <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 15px;">¿Lista para agendar tu cita?</h2>
-            <p style="font-size: 1.15rem; font-weight: 600; margin-bottom: 25px;">La cuota de recuperación por la Consulta Médica es de <strong>$150 m.n.</strong></p>
-        
-            <!-- Payment Methods -->
-            <div class="payment-methods" style="max-width: 650px; margin: 0 auto 25px auto;">
-                <h4 style="margin-bottom: 15px; font-size: 1.2rem; text-align: center; color: var(--pc-rosa-fuerte);">Selecciona tu método de pago</h4>
-                
-                <label class="payment-option" for="payEfectivo_meno_main">
-                    <input type="radio" name="paymentMethod_meno_main" id="payEfectivo_meno_main" value="efectivo" checked onchange="togglePaymentInstructions_meno_main()">
-                    <div class="label-content">
-                        <span>💵 <strong>Efectivo en Clínica</strong></span>
-                        <small style="font-size: 0.85rem; color: #555; font-weight: 600;">Sin comisión: $150.00 MN</small>
-                        <div style="margin-top: 5px;">
-                            <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" style="margin: 0;" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
-                        </div>
-                    </div>
-                </label>
-                
-                <label class="payment-option" for="payTransferencia_meno_main">
-                    <input type="radio" name="paymentMethod_meno_main" id="payTransferencia_meno_main" value="transferencia" onchange="togglePaymentInstructions_meno_main()">
-                    <div class="label-content">
-                        <span>🏦 <strong>Transferencia SPEI</strong></span>
-                        <small style="font-size: 0.85rem; color: #555; font-weight: 600;">Sin comisión: $150.00 MN</small>
-                    </div>
-                </label>
-                
-                <label class="payment-option" for="payMercadoPago_meno_main">
-                    <input type="radio" name="paymentMethod_meno_main" id="payMercadoPago_meno_main" value="mercadopago" onchange="togglePaymentInstructions_meno_main()">
-                    <div class="label-content">
-                        <span>💳 <strong>Pago en línea (Mercado Pago)</strong></span>
-                        <small style="font-size: 0.85rem; color: #555; font-weight: 600;">Incluye comisión: $161.17 MN</small>
-                    </div>
-                </label>
-            </div>
-        
-            <!-- Instructions -->
-            <div id="instructionsEfectivo_meno_main" style="display: block; margin-top: 15px; max-width: 650px; margin-inline: auto;">
-                <div style="background: white; padding: 15px; border-radius: 15px; border: 2px dashed var(--pc-negro);">
-                    <h4 style="color:var(--pc-rosa-fuerte); margin-bottom: 10px; font-size: 1.1rem; text-align: center; font-weight: 800;">Completa tus datos para agendar</h4>
-                    <input type="text" id="wa_meno_nombre_efectivo_main" placeholder="Tu Nombre Completo" style="width: 100%; padding: 10px 12px; margin-bottom: 8px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 0.95rem; outline: none;">
-                    <input type="date" id="wa_meno_fecha_efectivo_main" style="width: 100%; padding: 10px 12px; margin-bottom: 10px; border: 2px solid var(--pc-negro); border-radius: 8px; font-family: 'Nunito', sans-serif; font-size: 0.95rem; outline: none;">
-                    <button onclick="enviarWaEfectivoMain()" class="btn btn-wa" style="width: 100%; border-color:var(--pc-negro); padding: 12px; font-size: 1.05rem; box-shadow: 3px 3px 0 var(--pc-negro); margin: 0;">Solicitar Cita (Pago en clínica) 💬</button>
-                </div>
-            </div>
-        
-            <div id="instructionsTransferencia_meno_main" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc; max-width: 650px; margin-inline: auto;">
-                <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a transferir: $150.00 MN</p>
-                <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe_meno_main" value="722969010854962949" readonly><button type="button" onclick="copyToClipboard('clabe_meno_main', this)"><span>📋</span> Copiar</button></div>
-                <div class="copy-box-modern"><span class="label">Titular</span><input type="text" id="benef_meno_main" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef_meno_main', this)"><span>📋</span> Copiar</button></div>
-                <button onclick="enviarWaComprobanteMain('Transferencia')" class="btn btn-wa" style="width: 100%; margin: 10px 0 0 0; padding: 15px; font-size: 1.1rem;">Ya transferí, enviar comprobante 💬</button>
-            </div>
-        
-            <div id="instructionsMercadoPago_meno_main" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc; max-width: 650px; margin-inline: auto;">
-                <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a pagar en línea: $161.17 MN</p>
-                <div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal_meno_main" value="161.17" readonly><button type="button" onclick="copyToClipboard('mpTotal_meno_main', this)"><span>📋</span> Copiar</button></div>
-                <p style="color: #e65100; font-size: 0.9rem; font-weight: 800; margin-bottom: 15px; text-align: center;">⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>
-                <a href="https://link.mercadopago.com.mx/drdonato" target="_blank" class="btn btn-mp" style="width: 100%; margin: 0 0 15px 0; padding: 15px; font-size: 1.1rem; border-radius: 10px; text-decoration: none;">💳 Pagar con Mercado Pago</a>
-                <button onclick="enviarWaComprobanteMain('Mercado Pago')" class="btn btn-wa" style="width: 100%; margin: 0; padding: 15px; font-size: 1.1rem;">Ya pagué, enviar comprobante 💬</button>
-            </div>
         
             <!-- Horarios -->
             <div style="background: var(--pc-amarillo); border: 2px dashed var(--pc-negro); border-radius: 15px; padding: 20px; max-width: 600px; margin: 30px auto; text-align: left;">
@@ -1081,19 +1280,23 @@
         
             <!-- Dudas -->
             <div style="background: var(--pc-gris-suave); padding: 25px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-top: 30px; text-align: left; max-width: 650px; margin-inline: auto;">
-                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px; text-align:center; font-size: 1.8rem;">¿Tienes más dudas?</h3>
-                <p style="font-weight: 600; color: #555; margin-bottom: 15px; text-align:center;">Si algo no te quedó claro sobre la guía o los tratamientos, mándanos un mensaje y te ayudamos con gusto.</p>
+                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px; text-align:center; font-size: 1.8rem;">¿Ya llenaste los Cuestionarios? 📋</h3>
+                <p style="font-weight: 600; color: #555; margin-bottom: 15px; text-align:center;">Envía todas tus respuestas directamente al Dr. Donato para que vaya analizando tu caso antes de tu consulta.</p>
+                
+                <button onclick="enviarPerfilMenopausiaWa()" class="btn btn-wa" style="width: 100%; margin: 10px auto 15px; padding: 15px; font-size: 1.1rem; box-shadow: 0 4px 0 #1b9c4b;">Enviar mis Resultados por WhatsApp <span>📲</span></button>
+                
+                <hr style="border: 1px dashed #ccc; margin: 20px 0;">
+
+                <h3 class="hand-drawn" style="color:var(--pc-negro); margin-bottom: 10px; text-align:center; font-size: 1.5rem;">¿Tienes alguna duda extra?</h3>
                 
                 <div class="input-group" style="margin-bottom: 10px;">
-                    <label style="font-weight: 800; margin-bottom: 5px; font-size: 0.9rem;">Tu Nombre:</label>
                     <input type="text" id="dudas_nombre" placeholder="Escribe tu nombre" style="width: 100%; padding: 12px 15px; border: 2px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none;">
                 </div>
                 <div class="input-group">
-                    <label style="font-weight: 800; margin-bottom: 5px; font-size: 0.9rem;">Tu Pregunta:</label>
                     <textarea id="dudas_texto" rows="3" placeholder="Escribe aquí tu pregunta..." style="width: 100%; padding: 12px 15px; border: 2px solid var(--pc-negro); border-radius: 10px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; resize: vertical;"></textarea>
                 </div>
                 
-                <button onclick="enviarDudasGenerales()" class="btn btn-wa" style="width: 100%; margin: 10px auto 0; padding: 15px; font-size: 1.1rem;">Enviar Duda por WhatsApp <span>💬</span></button>
+                <button onclick="enviarDudasGenerales()" class="btn" style="width: 100%; margin: 10px auto 0; padding: 15px; font-size: 1.1rem; background: var(--pc-negro); color: white;">Enviar Duda por WhatsApp <span>💬</span></button>
             </div>
         </div>
 
@@ -1112,38 +1315,15 @@
             window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        function togglePaymentInstructions_meno_main() {
-            let paymentMethodElement = document.querySelector(`input[name="paymentMethod_meno_main"]:checked`);
-            let paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'efectivo';
-            document.getElementById(`instructionsEfectivo_meno_main`).style.display = paymentMethod === 'efectivo' ? 'block' : 'none';
-            document.getElementById(`instructionsTransferencia_meno_main`).style.display = paymentMethod === 'transferencia' ? 'block' : 'none';
-            document.getElementById(`instructionsMercadoPago_meno_main`).style.display = paymentMethod === 'mercadopago' ? 'block' : 'none';
-        }
-
-        function enviarWaEfectivoMain() {
-            let nombre = document.getElementById('wa_meno_nombre_efectivo_main').value.trim();
-            let fecha = document.getElementById('wa_meno_fecha_efectivo_main').value;
-            if (!nombre || !fecha) {
-                alert('Por favor, ingresa tu nombre y la fecha que te gustaría agendar.');
-                return;
-            }
-            let msg = `Hola Dr. Donato 🌸.\nSoy *${nombre}* y leí la guía de Menopausia.\n\nQuiero agendar una consulta para el día *${fecha}*.\n\n*Método de Pago seleccionado:* Pagaré en efectivo en la clínica.`;
-            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-
-        function enviarWaComprobanteMain(metodo) {
-            let nombre = prompt("Por favor, ingresa tu nombre para identificar tu pago:", "");
-            if (nombre === null) return; // User cancelled
-            let msg = `Hola Dr. Donato 🌸.\nSoy *${nombre}* y leí la guía de Menopausia.\n\nAcabo de realizar mi pago para la consulta por *${metodo}*.\n\nAdjunto mi comprobante para confirmar mi cita. ¡Gracias!`;
-            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-
         // Lógica de Tabs
         function openTab(tabId, btnElement) {
             document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
             document.getElementById(tabId).style.display = 'block';
-            if (btnElement) btnElement.classList.add('active');
+            if (btnElement) {
+                btnElement.classList.add('active');
+                window.scrollTo({ top: document.querySelector('.tabs-wrapper').offsetTop - 20, behavior: 'smooth' });
+            }
         }
 
         // Lógica de Pagos
@@ -1160,27 +1340,65 @@
         }
 
         // Lógica de Cuestionarios
-        function enviarResultadosSintomasWa() {
-            let n = prompt("Por favor, ingresa tu nombre para enviarle tus resultados al Dr. Donato:", "");
+        function enviarPerfilMenopausiaWa() {
+            let nombreInput = document.getElementById('dudas_nombre');
+            let n = nombreInput ? nombreInput.value.trim() : "";
+            
+            if(!n) {
+                n = prompt("Por favor, ingresa tu nombre para enviarle tu perfil al Dr. Donato:", "");
+            }
             if(n === null) return; 
             
+            let msg = `Hola Dr. Donato 🌸.\nSoy *${n || 'Paciente'}* y acabo de llenar los cuestionarios de la Guía de Menopausia.\n\n*ESTE ES MI RESUMEN CLÍNICO:*`;
+            
+            // Síntomas Principales
             const alerts = Array.from(document.querySelectorAll('.q1-alert:checked')).map(el => el.nextElementSibling.nextElementSibling.innerText);
             const normals = Array.from(document.querySelectorAll('.q1-normal:checked')).map(el => el.nextElementSibling.nextElementSibling.innerText);
+            if(normals.length > 0) msg += `\n\n✅ *Síntomas Clásicos:*\n- ${normals.join('\n- ')}`;
+            if(alerts.length > 0) msg += `\n\n🚨 *SEÑALES DE ALERTA:*\n- ${alerts.join('\n- ')}`;
             
-            let msg = `Hola Dr. Donato 🌸.\nSoy *${n || 'Paciente'}* y acabo de hacer el Test de Menopausia en la página web.\n\n*Mis Síntomas Registrados:*`;
-            
-            if(normals.length > 0) {
-                msg += `\n\n✅ Normales / Esperados:\n- ${normals.join('\n- ')}`;
+            // Evaluaciones Especiales
+            const apnea = document.querySelectorAll('.q-apnea:checked').length;
+            const impacto = document.querySelectorAll('.q-impacto:checked').length;
+            const niebla = document.querySelectorAll('.q-niebla:checked').length;
+            if(apnea > 0 || impacto > 0 || niebla > 0) {
+                msg += `\n\n🧠 *Otros Factores:*`;
+                if(apnea > 0) msg += `\n- Posible Apnea del Sueño (${apnea}/3 marcadores)`;
+                if(impacto > 0) msg += `\n- Fuerte impacto en productividad y vida diaria (${impacto}/3 marcadores)`;
+                if(niebla > 0) msg += `\n- Presencia de Niebla Mental / Brain Fog (${niebla}/3 marcadores)`;
             }
-            if(alerts.length > 0) {
-                msg += `\n\n🚨 *DE ALERTA (Requieren revisión):*\n- ${alerts.join('\n- ')}`;
-            }
+
+            // THM
+            const w1 = document.getElementById('thm_w1').checked;
+            const w2 = document.getElementById('thm_w2').checked;
+            const sym = document.getElementById('thm_sym').checked;
+            const contra = Array.from(document.querySelectorAll('.thm_contra:checked')).map(el => el.nextElementSibling.nextElementSibling.innerText);
             
-            if(alerts.length === 0 && normals.length === 0) {
+            if(w1 || w2 || sym || contra.length > 0) {
+                msg += `\n\n💊 *Candidata a Terapia Hormonal (THM):*`;
+                if (contra.length > 0) msg += `\n⚠️ Contraindicaciones marcadas: ${contra.join(', ')}`;
+                else if ((w1 || w2) && sym) msg += `\n🌟 Ideal (En Ventana de Oportunidad con síntomas).`;
+                else msg += `\nℹ️ Requiere valoración personalizada.`;
+            }
+
+            // No Hormonal
+            const noHormonal = document.querySelector('input[name="q3"]:checked');
+            if (noHormonal) {
+                msg += `\n\n🌿 *Perfil No Hormonal Seleccionado:*\n- ${noHormonal.parentElement.innerText.replace(/\n/g, ' ').trim()}`;
+            }
+
+            // Proteína
+            const peso = document.getElementById('calc_peso_prot') ? document.getElementById('calc_peso_prot').value : null;
+            if (peso) {
+                let min = (peso * 1.5).toFixed(0); let max = (peso * 2.0).toFixed(0);
+                msg += `\n\n🥩 *Nutrición:* Meta de proteína de ${min}g a ${max}g diarios (Peso registrado: ${peso}kg).`;
+            }
+
+            if(alerts.length === 0 && normals.length === 0 && apnea === 0 && impacto === 0 && niebla === 0 && !w1 && !w2 && !sym && contra.length === 0 && !noHormonal && !peso) {
                 msg += `\n(No marqué ningún síntoma, pero quiero agendar consulta).`;
+            } else {
+                msg += `\n\nMe gustaría agendar una consulta para evaluar todo este historial y mejorar mi calidad de vida.`;
             }
-            
-            msg += `\n\nMe gustaría agendar una consulta para evaluar mi caso y mejorar mi calidad de vida.`;
             
             window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
         }
@@ -1189,19 +1407,20 @@
             const alerts = document.querySelectorAll('.q1-alert:checked');
             const normals = document.querySelectorAll('.q1-normal:checked');
             const res = document.getElementById('q1-result');
+            const btnWa = '<br><br><button onclick="enviarPerfilMenopausiaWa()" class="btn btn-wa" style="max-width:350px; font-size:1rem; padding:12px; margin-top:10px; box-shadow: 0 4px 0 #1b9c4b;">Añadir a mi perfil y enviar al Dr. 📲</button>';
 
             if (alerts.length > 0) {
                 res.style.display = 'block';
                 res.style.background = '#ffebee';
                 res.style.border = '2px solid #c62828';
                 res.style.color = '#c62828';
-                res.innerHTML = '🚨 <strong>Atención:</strong> Has marcado síntomas de alerta. Es muy importante que agendes una consulta médica pronto para evaluar tu caso de forma segura y descartar otros problemas.<br><br><button onclick="enviarResultadosSintomasWa()" class="btn btn-wa" style="max-width:350px; font-size:1rem; padding:12px; margin-top:10px;">Enviar Resultados al Dr. Donato 📲</button>';
+                res.innerHTML = '🚨 <strong>Atención:</strong> Has marcado síntomas de alerta. Es muy importante que agendes una consulta médica pronto para evaluar tu caso de forma segura y descartar otros problemas.' + btnWa;
             } else if (normals.length > 0) {
                 res.style.display = 'block';
                 res.style.background = '#e8f5e9';
                 res.style.border = '2px solid #2e7d32';
                 res.style.color = '#2e7d32';
-                res.innerHTML = '✅ <strong>Todo dentro de lo normal:</strong> Los síntomas que presentas son esperados en la menopausia. Si afectan tu calidad de vida, tenemos tratamientos excelentes para ti. Ve a la pestaña de "Tratamientos y Test".<br><br><button onclick="enviarResultadosSintomasWa()" class="btn btn-wa" style="max-width:350px; font-size:1rem; padding:12px; margin-top:10px;">Enviar Resultados al Dr. Donato 📲</button>';
+                res.innerHTML = '✅ <strong>Todo dentro de lo normal:</strong> Los síntomas que presentas son esperados en la menopausia. Si afectan tu calidad de vida, tenemos tratamientos excelentes para ti. Ve a la pestaña de "Tratamientos y Test".' + btnWa;
             } else {
                 res.style.display = 'none';
             }
@@ -1213,25 +1432,26 @@
             const sym = document.getElementById('thm_sym').checked;
             const contra = document.querySelectorAll('.thm_contra:checked');
             const res = document.getElementById('q2-result');
+            const btnWa = '<br><br><button onclick="enviarPerfilMenopausiaWa()" class="btn btn-wa" style="max-width:350px; font-size:1rem; padding:12px; margin-top:10px; box-shadow: 0 4px 0 #1b9c4b;">Añadir a mi perfil y enviar al Dr. 📲</button>';
 
             if (contra.length > 0) {
                 res.style.display = 'block';
                 res.style.background = '#ffebee';
                 res.style.border = '2px solid #c62828';
                 res.style.color = '#c62828';
-                res.innerHTML = '⚠️ <strong>Precaución:</strong> Por tus antecedentes, la Terapia Hormonal sistémica clásica generalmente NO es recomendable para ti. Pero tranquila, ve al siguiente cuestionario para conocer excelentes opciones No Hormonales.';
+                res.innerHTML = '⚠️ <strong>Precaución:</strong> Por tus antecedentes, la Terapia Hormonal sistémica clásica generalmente NO es recomendable para ti. Pero tranquila, ve al siguiente cuestionario para conocer excelentes opciones No Hormonales.' + btnWa;
             } else if ((w1 || w2) && sym) {
                 res.style.display = 'block';
                 res.style.background = '#e8f5e9';
                 res.style.border = '2px solid #2e7d32';
                 res.style.color = '#2e7d32';
-                res.innerHTML = '🌟 <strong>¡Eres una excelente candidata!</strong> Estás dentro de la ventana de oportunidad segura y tienes síntomas que se beneficiarán enormemente de la THM. Agenda una consulta para diseñar tu tratamiento.';
+                res.innerHTML = '🌟 <strong>¡Eres una excelente candidata!</strong> Estás dentro de la ventana de oportunidad segura y tienes síntomas que se beneficiarán enormemente de la THM. Agenda una consulta para diseñar tu tratamiento.' + btnWa;
             } else {
                 res.style.display = 'block';
                 res.style.background = '#e3f2fd';
                 res.style.border = '2px solid #1565c0';
                 res.style.color = '#1565c0';
-                res.innerHTML = 'ℹ️ <strong>Valoración requerida:</strong> Tu caso requiere una evaluación médica personalizada para decidir si la THM u otra opción es la mejor para ti.';
+                res.innerHTML = 'ℹ️ <strong>Valoración requerida:</strong> Tu caso requiere una evaluación médica personalizada para decidir si la THM u otra opción es la mejor para ti.' + btnWa;
             }
         }
 
@@ -1247,15 +1467,17 @@
             res.style.background = '#fff9c4';
             res.style.border = '2px solid #f57f17';
             res.style.color = '#333';
+            
+            const btnWa = '<br><br><button onclick="enviarPerfilMenopausiaWa()" class="btn btn-wa" style="max-width:350px; font-size:1rem; padding:12px; margin-top:10px; box-shadow: 0 4px 0 #1b9c4b;">Añadir a mi perfil y enviar al Dr. 📲</button>';
 
             if (sel.value === 'p1') {
-                res.innerHTML = '👉 <strong>Tu posible opción: FEZOLINETANT.</strong> Es el fármaco no hormonal más nuevo. Actúa directamente en el "termostato" del cerebro bloqueando las señales que causan los sofocos, sin ser una hormona.';
+                res.innerHTML = '👉 <strong>Tu posible opción: FEZOLINETANT.</strong> Es el fármaco no hormonal más nuevo. Actúa directamente en el "termostato" del cerebro bloqueando las señales que causan los sofocos, sin ser una hormona.' + btnWa;
             } else if (sel.value === 'p2') {
-                res.innerHTML = '👉 <strong>Tu posible opción: ANTIDEPRESIVOS (ISRS / IRSN)</strong> como Paroxetina, Venlafaxina o Escitalopram. A dosis bajitas, no solo mejoran el estado de ánimo, sino que reducen los sofocos hasta en un 65% <br><small><em>(Nota: Si tomas Tamoxifeno para el cáncer de mama, no debes tomar Paroxetina).</em></small>';
+                res.innerHTML = '👉 <strong>Tu posible opción: ANTIDEPRESIVOS (ISRS / IRSN)</strong> como Paroxetina, Venlafaxina o Escitalopram. A dosis bajitas, no solo mejoran el estado de ánimo, sino que reducen los sofocos hasta en un 65% <br><small><em>(Nota: Si tomas Tamoxifeno para el cáncer de mama, no debes tomar Paroxetina).</em></small>' + btnWa;
             } else if (sel.value === 'p3') {
-                res.innerHTML = '👉 <strong>Tu posible opción: GABAPENTINA o PREGABALINA.</strong> Son moduladores nerviosos que calman los sofocos y, como su efecto secundario principal es dar sueño, son excelentes para tomar de noche y ayudarte a descansar.';
+                res.innerHTML = '👉 <strong>Tu posible opción: GABAPENTINA o PREGABALINA.</strong> Son moduladores nerviosos que calman los sofocos y, como su efecto secundario principal es dar sueño, son excelentes para tomar de noche y ayudarte a descansar.' + btnWa;
             } else if (sel.value === 'p4') {
-                res.innerHTML = '👉 <strong>Tu posible opción: OSPEMIFENO.</strong> Es una pastilla no hormonal que actúa sanando el tejido de la vagina sin estimular el tejido de las mamas (por lo que es seguro si ya terminaste tu tratamiento oncológico). Otra opción local son los hidratantes de ácido hialurónico.';
+                res.innerHTML = '👉 <strong>Tu posible opción: OSPEMIFENO.</strong> Es una pastilla no hormonal que actúa sanando el tejido de la vagina sin estimular el tejido de las mamas (por lo que es seguro si ya terminaste tu tratamiento oncológico). Otra opción local son los hidratantes de ácido hialurónico.' + btnWa;
             }
         }
 

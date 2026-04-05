@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa de Cáncer de Mama | Proyecto Celene</title>
+    <meta name="description" content="Guía interactiva sobre el cáncer de mama. Aprende sobre autoexploración, factores de riesgo, mastografía y cómo actuar frente a un diagnóstico.">
+    <meta name="author" content="Dr. Carlos Donato">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/guia-cancer-mama.html">
+    <meta property="og:title" content="Guía de Cáncer de Mama | Proyecto Celene">
+    <meta property="og:description" content="Aprende sobre detección temprana, factores de riesgo, autoexploración y cómo actuar frente a un diagnóstico.">
+    <meta property="og:image" content="https://i.ibb.co/whkTFwLf/MAMOGRAFIA.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde: #25d366;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        /* HEADER */
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-rosa-pastell); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); position: relative; overflow: hidden; }
+        .header h1 { font-size: 2.8rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; line-height: 1.1; }
+        .author-badge { display: inline-block; background: var(--pc-negro); color: var(--pc-blanco); padding: 5px 15px; border-radius: 50px; font-weight: 900; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* TABS */
+        .tabs-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .tab-btn { background: var(--pc-blanco); border: 3px solid var(--pc-negro); padding: 12px 20px; border-radius: 50px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); transition: 0.2s; white-space: normal; word-wrap: break-word; }
+        .tab-btn:hover { background: var(--pc-amarillo); transform: translateY(-2px); box-shadow: 0 6px 0 var(--pc-negro); }
+        .tab-btn.active { background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 0px 0 var(--pc-negro); transform: translateY(4px); }
+        .tab-content { display: none; animation: fadeInTab 0.4s ease-out; }
+        @keyframes fadeInTab { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* CAJAS */
+        .content-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-azul-suave); position: relative; overflow: hidden; transition: 0.3s; }
+        .content-box h2 { color: var(--pc-rosa-fuerte); margin-bottom: 15px; font-size: 1.8rem; }
+        .content-box p { margin-bottom: 15px; font-size: 1.05rem; color: #444; font-weight: 600; }
+        .content-box ul { margin-left: 20px; margin-bottom: 15px; font-weight: 600; color: #444; font-size: 1.05rem; }
+        .content-box li { margin-bottom: 8px; }
+
+        .info-panel { padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-bottom: 20px; }
+        .info-panel h4 { font-size: 1.3rem; color: var(--pc-negro); margin-bottom: 10px; font-family: 'Handlee', cursive; }
+        
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { background: var(--pc-blanco); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-gris-suave); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 6px 6px 0 var(--pc-negro); }
+        .card.pro { border-color: #2e7d32; box-shadow: 4px 4px 0 #c8e6c9; }
+        .card.info { border-color: #1565c0; box-shadow: 4px 4px 0 #bbdefb; }
+        .card.warning { border-color: #f57f17; box-shadow: 4px 4px 0 #fff9c4; }
+        
+        .step-list { list-style: none; padding-left: 0; margin-top: 20px; }
+        .step-list li { margin-bottom: 20px; position: relative; padding-left: 50px; font-weight: 600; color: #444; }
+        .step-list li::before { content: counter(steps); counter-increment: steps; position: absolute; left: 0; top: -5px; background: var(--pc-negro); color: var(--pc-blanco); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'Handlee', cursive; font-size: 1.2rem; }
+        .step-list { counter-reset: steps; }
+
+        /* BUTTONS */
+        .btn-action { display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 15px 30px; border-radius: 50px; border: 4px solid var(--pc-negro); font-weight: 800; font-size: 1.1rem; background: var(--pc-negro); color: white; box-shadow: 0 6px 0 #000; cursor: pointer; font-family: 'Nunito', sans-serif; transition: 0.1s; text-decoration: none; width: 100%; max-width: 400px; margin: 10px auto; }
+        .btn-action:active { transform: translateY(6px); box-shadow: 0 0 0 transparent; }
+        .btn-wa { background: var(--pc-verde); box-shadow: 0 6px 0 #1b9c4b; }
+        .btn-rosa { background: var(--pc-rosa-fuerte); box-shadow: 0 6px 0 var(--pc-negro); }
+        .btn-amarillo { background: var(--pc-amarillo); color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); }
+        .btn-next { display: block; width: 100%; max-width: 400px; margin: 30px auto 0; text-align: center; background: var(--pc-rosa-fuerte); color: white; border: 3px solid var(--pc-negro); padding: 15px 25px; border-radius: 50px; font-weight: 900; font-size: 1.2rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: 0 6px 0 var(--pc-negro); font-family: 'Nunito', sans-serif; text-decoration: none; }
+        .btn-next:hover { transform: scale(1.03) translateY(-3px); box-shadow: 0 9px 0 var(--pc-negro); color: white; }
+        .btn-next:active { transform: translateY(6px); box-shadow: 0 0px 0 var(--pc-negro); }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .floating-img { animation: floatImg 3s ease-in-out infinite; }
+        @keyframes floatImg { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
+            <a href="recursos-educativos.html" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; border: 3px solid var(--pc-negro); border-radius: 50px; font-weight: 800; text-decoration: none;">
+                ⬅️ Volver a Recursos Educativos
+            </a>
+        </div>
+
+        <header class="header fade-in">
+            <img src="https://i.ibb.co/whkTFwLf/MAMOGRAFIA.jpg" alt="Cáncer de Mama" class="floating-img" style="max-width: 100%; width: 350px; margin: 0 auto 20px; display: block; border-radius: 20px; border: 4px solid var(--pc-negro); background: white; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte);">
+            <span class="author-badge">🩺 Educación Médica | Proyecto Celene</span>
+            <h1 class="hand-drawn">Guía: Cáncer de Mama <span>🎗️</span></h1>
+            <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: var(--pc-negro);">Información vital sobre prevención, detección oportuna y qué hacer frente a un diagnóstico. Sin miedo, con ciencia y mucha empatía.</p>
+        </header>
+
+        <!-- NAVEGACIÓN TABS -->
+        <div class="tabs-wrapper fade-in">
+            <button id="btn-tab-intro" class="tab-btn active" onclick="openTab('tab-intro', this)">📖 ¿Qué es y Mitos?</button>
+            <button id="btn-tab-riesgos" class="tab-btn" onclick="openTab('tab-riesgos', this)">⚠️ Riesgos y Prevención</button>
+            <button id="btn-tab-deteccion" class="tab-btn" onclick="openTab('tab-deteccion', this)">🔍 Tamizaje y Estudios</button>
+            <button id="btn-tab-clinica" class="tab-btn" onclick="openTab('tab-clinica', this)">🩺 Hallazgos Clínicos</button>
+            <button id="btn-tab-apoyo" class="tab-btn" onclick="openTab('tab-apoyo', this)">🤝 Diagnóstico y Apoyo</button>
+        </div>
+
+        <!-- TAB 1: ¿QUÉ ES Y MITOS? -->
+        <div id="tab-intro" class="tab-content" style="display: block;">
+            <div class="content-box">
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <span style="font-size: 4.5rem; display: inline-block; filter: drop-shadow(4px 4px 0px var(--pc-rosa-pastell));">🌸</span>
+                </div>
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">¿Qué es el Cáncer de Mama?</h2>
+                <p>El cáncer de mama ocurre cuando algunas células en el pecho comienzan a multiplicarse de forma descontrolada, formando un tumor. Estas células pueden diseminarse a los tejidos cercanos o a otras partes del cuerpo.</p>
+                <p>Es el tipo de cáncer más común en mujeres a nivel mundial. Sin embargo, la medicina ha avanzado de manera extraordinaria: <strong>cuando se detecta en sus etapas iniciales (antes de que sea palpable), la tasa de supervivencia es cercana al 99%.</strong></p>
+
+                <h3 class="hand-drawn" style="color: var(--pc-negro); margin-top: 30px; font-size: 1.8rem; text-align: center;">El Contexto en México 🇲🇽</h3>
+                <div class="info-panel" style="background: var(--pc-amarillo); border-color: var(--pc-negro);">
+                    <ul style="font-weight: 600; color: #444; font-size: 0.95rem; margin-bottom: 0;">
+                        <li>La <strong>NOM-041-SSA2</strong> y el <strong>Consenso de Colima</strong> son las guías de referencia en nuestro país.</li>
+                        <li>La edad promedio de diagnóstico en México es <strong>~10 años menor</strong> que en EE.UU., debido a la estructura demográfica más joven.</li>
+                        <li>Tristemente, la cobertura de mastografía es baja (~16% frente al 70% recomendado por la OMS), lo que resulta en alta prevalencia de diagnósticos en etapas avanzadas. En Celene buscamos cambiar esto.</li>
+                    </ul>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-top: 30px; font-size: 2rem; text-align: center;">Verdades y Mitos ⚖️</h3>
+                <div class="grid-cards" style="margin-top: 15px;">
+                    <div class="card pro" style="background: #f0fdf4;">
+                        <h4 style="color: #1b5e20; font-size: 1.2rem; font-family: 'Handlee', cursive;">Verdades ✅</h4>
+                        <ul style="font-size: 0.9rem; color: #2e7d32; font-weight: 600;">
+                            <li><strong>La mastografía reduce la mortalidad:</strong> Demostrado consistentemente en múltiples estudios.</li>
+                            <li><strong>El sobrediagnóstico existe:</strong> Se estima entre 11–19% de los cánceres detectados.</li>
+                        </ul>
+                    </div>
+                    <div class="card con" style="background: #fef2f2; border-color: #c62828;">
+                        <h4 style="color: #b71c1c; font-size: 1.2rem; font-family: 'Handlee', cursive;">Mitos ❌</h4>
+                        <ul style="font-size: 0.9rem; color: #c62828; font-weight: 600;">
+                            <li><strong>"Causa cáncer por radiación":</strong> La dosis es extremadamente baja (~0.4 mSv). El beneficio supera ampliamente el riesgo.</li>
+                            <li><strong>"Sin antecedentes, no necesito tamizaje":</strong> ¡Falso! El 75% de las mujeres diagnosticadas NO tienen historia familiar.</li>
+                            <li><strong>"Las mamas densas son anormales":</strong> Son una variante normal (40-50% de las mujeres), pero sí incrementan ligeramente el riesgo.</li>
+                            <li><strong>"Los desodorantes causan cáncer":</strong> No existe evidencia científica que respalde esta afirmación.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-riesgos', document.getElementById('btn-tab-riesgos'))">Conoce tus Factores de Riesgo ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 2: RIESGOS Y PREVENCIÓN -->
+        <div id="tab-riesgos" class="tab-content">
+            <div class="content-box" style="background: var(--pc-gris-suave);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem; color: var(--pc-negro);">¿Estoy en Riesgo? ⚠️</h2>
+                <p style="text-align: center;">Tener factores de riesgo no significa que desarrollarás cáncer, pero sí te indica qué tan estricta debes ser con tus chequeos y qué acciones tomar hoy.</p>
+
+                <!-- Calculadora Banner -->
+                <div style="background: white; border: 4px dashed var(--pc-rosa-fuerte); border-radius: 15px; padding: 25px; margin: 25px 0; text-align: center; box-shadow: 6px 6px 0 var(--pc-rosa-pastell);">
+                    <h3 style="font-family: 'Handlee', cursive; font-size: 1.8rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px;">¡Evalúa tu riesgo con Inteligencia Médica! 🧮</h3>
+                    <p style="font-weight: 600; color: #555; margin-bottom: 15px;">Hemos desarrollado una calculadora basada en los modelos clínicos mundiales (Gail / IBIS Tyrer-Cuzick) para analizar tus hormonas, historial y estilo de vida.</p>
+                    <a href="calculadora-riesgo-mama.html" class="btn-action btn-rosa" style="margin: 0 auto;">Abrir Calculadora de Riesgo ➔</a>
+                </div>
+
+                <h4 style="font-family: 'Handlee', cursive; font-size: 1.6rem; color: var(--pc-negro); margin-bottom: 15px; border-bottom: 2px dashed #ccc; padding-bottom: 10px;">Factores No Modificables:</h4>
+                <ul class="step-list" style="margin-bottom: 30px;">
+                    <li><strong>Edad y Sexo:</strong> El riesgo aumenta al hacernos mayores.</li>
+                    <li><strong>Historial reproductivo:</strong> Menarca temprana (&lt;12 años) o menopausia tardía (&gt;55 años) implica mayor exposición a estrógenos.</li>
+                    <li><strong>Genética y Antecedentes:</strong> Familiares de 1er grado con cáncer, o mutaciones conocidas (BRCA1/2, PALB2).</li>
+                    <li><strong>Lesiones previas:</strong> Biopsias con Hiperplasia Atípica o Carcinoma Lobulillar in situ.</li>
+                    <li><strong>Radioterapia torácica:</strong> Recibida entre los 10 y 30 años de edad.</li>
+                </ul>
+
+                <h4 style="font-family: 'Handlee', cursive; font-size: 1.6rem; color: var(--pc-negro); margin-bottom: 15px; border-bottom: 2px dashed #ccc; padding-bottom: 10px;">Prevención: Factores Modificables (Guías NCCN) 🛡️</h4>
+                <div class="grid-cards" style="margin-top: 0;">
+                    <div class="card" style="padding: 15px;">
+                        <p style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0;">🏃‍♀️ <strong>Ejercicio y Peso:</strong> 150–300 min/semana. La obesidad postmenopáusica eleva gravemente el riesgo, ya que la grasa produce estrógenos.</p>
+                    </div>
+                    <div class="card" style="padding: 15px;">
+                        <p style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0;">🍷 <strong>Alcohol y Dieta:</strong> Cualquier consumo de alcohol incrementa el riesgo. Prioriza una dieta basada en plantas.</p>
+                    </div>
+                    <div class="card" style="padding: 15px;">
+                        <p style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0;">💊 <strong>Terapia Hormonal:</strong> Evitar terapia hormonal combinada prolongada sin evaluación de riesgo previa.</p>
+                    </div>
+                    <div class="card" style="padding: 15px;">
+                        <p style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0;">👶 <strong>Factores Protectores:</strong> La lactancia materna disminuye el riesgo de cáncer de mama.</p>
+                    </div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); margin-top: 30px;">
+                    <h4 style="color: var(--pc-negro); font-size: 1.5rem; font-family: 'Handlee', cursive;">Quimioprevención (Reducción Farmacológica) 💊</h4>
+                    <p style="font-size: 0.95rem; color: #444; font-weight: 600;">Para pacientes de <strong>alto riesgo</strong> (Gail ≥1.7% a 5 años), existen medicamentos que reducen drásticamente la probabilidad de desarrollar cáncer (hasta 49%):</p>
+                    <ul style="font-size: 0.9rem; margin-top: 10px; margin-left: 20px; font-weight: 600; color: #444;">
+                        <li><strong>Tamoxifeno:</strong> Única opción para premenopáusicas. También útil en postmenopáusicas.</li>
+                        <li><strong>Raloxifeno, Anastrozol, Exemestano:</strong> Opciones altamente efectivas para mujeres postmenopáusicas.</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; margin-top: 10px; font-style: italic; color: #666; font-weight: 600;">*Nota: Estos medicamentos tienen efectos secundarios (ej. bochornos, riesgo de trombosis) y solo deben ser recetados por un especialista tras una cuidadosa evaluación de riesgo-beneficio.</p>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-deteccion', document.getElementById('btn-tab-deteccion'))">Conoce los Estudios de Tamizaje ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 3: TAMIZAJE Y ESTUDIOS -->
+        <div id="tab-deteccion" class="tab-content">
+            <div class="content-box" style="border-color: var(--pc-rosa-fuerte);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">Algoritmo de Tamizaje y Estudios 🔍</h2>
+                <p style="text-align: center; margin-bottom: 20px;">La clave de la supervivencia es la detección antes de tener síntomas. Las guías modernas de NCCN y USPSTF 2024 recomiendan tamizaje basado en edad y riesgo.</p>
+
+                <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px;">1. Riesgo Promedio</h3>
+                <div style="background: var(--pc-amarillo); border: 2px solid var(--pc-negro); border-radius: 15px; padding: 20px; margin-bottom: 20px;">
+                    <ul style="font-size: 1rem; font-weight: 600; color: #444; margin-left: 20px;">
+                        <li style="margin-bottom: 10px;"><strong>25 a 39 años:</strong> Evaluación de riesgo clínica cada 1 a 3 años. Autoconocimiento mamario. NO se recomienda mastografía de rutina. En México (NOM-041), se recomienda examen clínico anual desde los 25 años.</li>
+                        <li><strong>A partir de los 40 años:</strong> <strong>Mastografía anual o bienal con tomosíntesis</strong>. ¡La USPSTF (2024) actualizó la edad de inicio a los 40 años porque reduce la mortalidad un 30%!</li>
+                    </ul>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 15px;">2. Riesgo Incrementado</h3>
+                <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 15px;">Si tu riesgo de por vida es ≥20%, tienes genética positiva (BRCA), radioterapia torácica joven o mamas extremadamente densas:</p>
+                <div style="background: var(--pc-rosa-pastell); border: 2px solid var(--pc-negro); border-radius: 15px; padding: 20px; margin-bottom: 30px;">
+                    <ul style="font-size: 0.95rem; font-weight: 600; color: #444; margin-left: 20px;">
+                        <li style="margin-bottom: 10px;">Encuentro clínico cada 6 a 12 meses.</li>
+                        <li style="margin-bottom: 10px;"><strong>Mastografía + Resonancia Magnética (RM) anual</strong>, a menudo comenzando desde los 30 años (o 10 años antes de la edad en que enfermó tu familiar).</li>
+                        <li>En portadoras BRCA, la RM inicia a los 25 años.</li>
+                    </ul>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px;">Modalidades de Detección 📸</h3>
+                <div class="grid-cards">
+                    <div class="card info">
+                        <h4 style="color: #1565c0; font-size: 1.2rem; font-family: 'Handlee', cursive;">Mastografía 2D y Tomosíntesis (3D)</h4>
+                        <p style="font-size: 0.9rem;">El estándar de oro que reduce la mortalidad. La <strong>Tomosíntesis (3D)</strong> es superior porque detecta más cánceres invasivos y reduce las "falsas alarmas", especialmente útil en mamas densas.</p>
+                    </div>
+                    <div class="card pro">
+                        <h4 style="color: #2e7d32; font-size: 1.2rem; font-family: 'Handlee', cursive;">Ultrasonido Mamario</h4>
+                        <p style="font-size: 0.9rem;">Sin radiación. Es el complemento perfecto para mujeres con mamas densas o menores de 40 años. Operador dependiente.</p>
+                    </div>
+                    <div class="card warning">
+                        <h4 style="color: #f57f17; font-size: 1.2rem; font-family: 'Handlee', cursive;">Resonancia Magnética (RM)</h4>
+                        <p style="font-size: 0.9rem;">Altísima sensibilidad (hasta 100%). No usa radiación. Reservada para tamizaje de alto riesgo por su alto costo y necesidad de contraste.</p>
+                    </div>
+                    <div class="card" style="background: #f3e5f5; border-color: #6a1b9a;">
+                        <h4 style="color: #6a1b9a; font-size: 1.2rem; font-family: 'Handlee', cursive;">La Autoexploración 🖐️</h4>
+                        <p style="font-size: 0.9rem;">Aunque no reduce la mortalidad poblacional por sí sola, el <strong>autoconocimiento</strong> es vital para reportar cambios rápidos. Hazla una vez al mes tras tu periodo.</p>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-clinica', document.getElementById('btn-tab-clinica'))">Hallazgos y Biopsias ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 4: HALLAZGOS CLÍNICOS Y BIOPSIAS -->
+        <div id="tab-clinica" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">Hallazgos, Biopsias y Quistes 🩺</h2>
+                <p style="text-align: center; margin-bottom: 30px; font-weight: 600;">¿Te encontraste una bolita? No entres en pánico. Aquí te explicamos el abordaje médico paso a paso.</p>
+
+                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 15px;">El "Triple Test" para Masas Palpables</h3>
+                <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 15px;">Si encuentras un bulto, el protocolo médico estricto incluye 3 pasos:</p>
+                <div style="background: var(--pc-azul-suave); border: 2px dashed var(--pc-negro); padding: 15px; border-radius: 15px; margin-bottom: 25px;">
+                    <ol style="margin-left: 20px; font-weight: 800; color: var(--pc-negro);">
+                        <li style="margin-bottom: 5px;">Palpación clínica por tu médico.</li>
+                        <li style="margin-bottom: 5px;">Imagenología (Ultrasonido si tienes &lt;30 años; Mastografía + Ultrasonido si eres ≥30 años).</li>
+                        <li>Biopsia percutánea (si la imagen indica sospecha BI-RADS 4 o 5).</li>
+                    </ol>
+                    <p style="font-size: 0.85rem; font-weight: 600; margin-top: 10px; color: #444;"><em>Cuando los 3 resultados son benignos, la probabilidad de cáncer es menor al 1%.</em></p>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px;">Patología Benigna: No todo bulto es malo</h3>
+                <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 15px;">Si te hicieron una biopsia y salió benigna, su clasificación médica dictará tu riesgo a futuro:</p>
+                <div class="grid-cards" style="margin-top: 0; margin-bottom: 30px;">
+                    <div class="card" style="border-color: #2e7d32; box-shadow: 4px 4px 0 #c8e6c9;">
+                        <h4 style="color: #2e7d32; font-size: 1.1rem; font-family: 'Handlee', cursive;">🟢 No Proliferativa</h4>
+                        <p style="font-size: 0.85rem;">Ej: Quistes simples, fibroadenoma simple. Riesgo de cáncer futuro: Casi nulo (Normal).</p>
+                    </div>
+                    <div class="card" style="border-color: #1565c0; box-shadow: 4px 4px 0 #bbdefb;">
+                        <h4 style="color: #1565c0; font-size: 1.1rem; font-family: 'Handlee', cursive;">🔵 Proliferativa Sin Atipia</h4>
+                        <p style="font-size: 0.85rem;">Ej: Papilomas, adenosis esclerosante. Riesgo futuro: Ligeramente aumentado (~6.6% a 10 años).</p>
+                    </div>
+                    <div class="card" style="border-color: #c62828; box-shadow: 4px 4px 0 #ffcdd2;">
+                        <h4 style="color: #c62828; font-size: 1.1rem; font-family: 'Handlee', cursive;">🔴 Con Atipia (ADH / ALH)</h4>
+                        <p style="font-size: 0.85rem;">Hiperplasia atípica. Riesgo futuro elevado (~30% a 25 años). Requiere escisión quirúrgica, quimioprevención y monitoreo intensivo.</p>
+                    </div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-amarillo); border-color: var(--pc-negro);">
+                    <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.5rem;">Drenaje de Quistes Simples en Consultorio 💧</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 10px;">Si tu "bolita" resultó ser un quiste simple (bolsa de agua) muy doloroso y grande, <strong>no requiere cirugía</strong>. Se puede aspirar en el consultorio:</p>
+                    <ul style="font-size: 0.9rem; font-weight: 600; color: #444; margin-left: 20px;">
+                        <li style="margin-bottom: 5px;">Procedimiento seguro, rápido y económico (con aguja fina).</li>
+                        <li style="margin-bottom: 5px;">Alivio sintomático inmediato.</li>
+                        <li>Si el líquido extraído es claro/verdoso, se desecha y el problema termina. Si es sanguinolento, se manda a patología.</li>
+                    </ul>
+                    <div style="text-align: center; margin-top: 15px;">
+                        <a href="guia-quistes-mamarios.html" class="btn-action btn-amarillo" style="margin: 0; padding: 10px 20px; font-size: 1rem;">Leer Guía de Quistes ➔</a>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-apoyo', document.getElementById('btn-tab-apoyo'))">Entiende tus Resultados ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 5: DIAGNOSTICO Y APOYO -->
+        <div id="tab-apoyo" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">Resultados y La Alianza Rosa 🤝</h2>
+                <p style="text-align: center; font-weight: 600; margin-bottom: 30px;">Si tu mastografía arrojó un resultado sospechoso o recibiste un diagnóstico confirmado, <strong>respira hondo. No tienes que enfrentar esto sola.</strong></p>
+
+                <div style="background: var(--pc-azul-suave); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 25px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-negro);">
+                    <h4 style="font-family: 'Handlee', cursive; font-size: 1.6rem; margin-bottom: 10px;">Entendiendo tu Mastografía (BI-RADS) 📊</h4>
+                    <p style="font-size: 1rem; color: #444; margin-bottom: 15px; font-weight: 600;">Los médicos usan el sistema BI-RADS para catalogar el riesgo. BI-RADS 1 y 2 son benignos. BI-RADS 3 requiere vigilancia a 6 meses. Si en tu hoja dice <strong>BI-RADS 4 o 5</strong>, significa que es <strong>necesario hacer una Biopsia</strong> para descartar cáncer.</p>
+                    <a href="guia-resultados-mastografia.html" class="btn-action btn-amarillo" style="margin: 0 auto; font-size: 1rem; padding: 12px; display: block; max-width: 300px;">Traduce tu Resultado ➔</a>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 15px;">El Respaldo de Proyecto Celene</h3>
+                <p style="font-weight: 600; color: #444; margin-bottom: 20px;">En nuestra fundación, nuestra misión es arroparte a ti y a tu familia durante todo el proceso (Cirugía, Quimioterapia, Radioterapia).</p>
+
+                <div class="grid-cards" style="margin-top: 0;">
+                    <div class="card" style="background: white; border-color: var(--pc-rosa-fuerte);">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Handlee', cursive;">🧭 Canalización Oficial</h4>
+                        <p style="font-size: 0.9rem; font-weight: 600; color: #555;">No te dejaremos a la deriva. Integramos tu expediente y te canalizamos a las instituciones oncológicas del estado.</p>
+                    </div>
+                    <div class="card" style="background: white; border-color: var(--pc-rosa-fuerte);">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Handlee', cursive;">🧠 Apoyo Psicológico</h4>
+                        <p style="font-size: 0.9rem; font-weight: 600; color: #555;">Acompañamiento oncológico y tanatológico para ti y tu familia. Que nunca falte la fuerza mental.</p>
+                    </div>
+                    <div class="card" style="background: white; border-color: var(--pc-rosa-fuerte);">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Handlee', cursive;">💇‍♀️ Banco de Prótesis</h4>
+                        <p style="font-size: 0.9rem; font-weight: 600; color: #555;">Proveemos pelucas oncológicas, prótesis mamarias externas y sostenes especiales de forma gratuita.</p>
+                    </div>
+                    <div class="card" style="background: white; border-color: var(--pc-rosa-fuerte);">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px; font-family: 'Handlee', cursive;">💊 Farmacia Solidaria</h4>
+                        <p style="font-size: 0.9rem; font-weight: 600; color: #555;">Mitigamos el fuerte golpe económico de la enfermedad. A través de nuestro dispensario, gestionamos donativos de medicamento especializado y materiales de curación para apoyarte en tu recuperación.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BLOQUE DE AGENDA (SIEMPRE VISIBLE AL FINAL) -->
+        <div class="fade-in" style="background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-top: 40px; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte); text-align: center;">
+            <h2 class="hand-drawn" style="color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 10px;">La prevención es un acto de amor 🗓️</h2>
+            <p style="font-weight: 600; font-size: 1.1rem; color: #444; margin-bottom: 20px;">Ya tienes la información, el siguiente paso es actuar. Agenda tu chequeo hoy mismo.</p>
+            
+            <div style="text-align: center; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+                <a href="mastografia-gratuita.html" class="btn-action btn-rosa" style="margin: 0; box-shadow: 4px 4px 0 var(--pc-negro);">
+                    🎀 Agendar Mastografía Gratis
+                </a>
+                <a href="consulta-general.html" class="btn-action btn-amarillo" style="margin: 0; box-shadow: 4px 4px 0 var(--pc-negro);">
+                    🩺 Agendar Consulta Clínica
+                </a>
+            </div>
+        </div>
+
+        <!-- REFERENCIAS MÉDICAS -->
+        <div style="background: var(--pc-azul-suave); border: 3px dashed var(--pc-negro); padding: 15px; border-radius: 15px; margin: 40px 0;">
+            <p style="font-weight: 800; color: var(--pc-rosa-fuerte); margin-bottom: 5px; font-size: 1.1rem;">🔬 Medicina Basada en Evidencia</p>
+            <p style="font-size: 0.95rem; color: #444; margin-bottom: 10px; font-weight: 600;">La información de esta guía está estrictamente respaldada por la literatura científica más actual:</p>
+            <ul style="font-size: 0.85rem; color: #555; margin-left: 20px; line-height: 1.4;">
+                <li style="margin-bottom: 8px;"><strong>NCCN Guidelines® (2026):</strong> Breast Cancer Screening and Diagnosis / Risk Reduction.</li>
+                <li style="margin-bottom: 8px;"><strong>USPSTF (2024):</strong> Screening for Breast Cancer Recommendation Statement (JAMA).</li>
+                <li style="margin-bottom: 8px;"><strong>México:</strong> NOM-041-SSA2 y Consenso de Colima sobre diagnóstico y tratamiento.</li>
+                <li><strong>The New England Journal of Medicine:</strong> Atypical Hyperplasia of the Breast (2015) y Evaluación de Masa Palpable.</li>
+            </ul>
+        </div>
+
+    </div> <!-- FIN CONTAINER -->
+
+    <script>
+        // Animaciones Iniciales Fade-In
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
+        // Funciones de Pestañas (Tabs)
+        function openTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).style.display = 'block';
+            if (btnElement) {
+                btnElement.classList.add('active');
+                // Scroll suave al inicio del contenedor
+                window.scrollTo({ top: document.querySelector('.tabs-wrapper').offsetTop - 20, behavior: 'smooth' });
+            }
+        }
+    </script>
+    
+    <script src="js/global.js"></script>
+</body>
+</html>

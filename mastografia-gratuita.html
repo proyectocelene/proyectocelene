@@ -171,6 +171,15 @@
             margin-bottom: 10px;
         }
 
+        /* TABS DE NAVEGACIÓN */
+        .tabs-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
+        .tab-btn { background: var(--pc-blanco); border: 3px solid var(--pc-negro); padding: 12px 20px; border-radius: 50px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); transition: 0.2s; white-space: normal; word-wrap: break-word; }
+        .tab-btn:hover { background: var(--pc-rosa-pastell); transform: translateY(-2px); box-shadow: 0 6px 0 var(--pc-negro); }
+        .tab-btn.active { background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 0px 0 var(--pc-negro); transform: translateY(4px); }
+        
+        .tab-content { display: none; animation: fadeInTab 0.4s ease-out; }
+        @keyframes fadeInTab { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
         /* MAPAS Y BOTONES */
         .btn {
             display: inline-flex;
@@ -362,8 +371,16 @@
             rápido y <strong>100% GRATIS</strong>. Solo sigue estos 4 sencillos pasos:
         </div>
 
+        <!-- LÍNEA DEL TIEMPO / TABS -->
+        <div class="tabs-wrapper fade-in">
+            <button id="btn-paso1" class="tab-btn active" onclick="openTab('paso1', this)">📍 1. Tu Vale</button>
+            <button id="btn-paso2" class="tab-btn" onclick="openTab('paso2', this)">🚿 2. Prepárate</button>
+            <button id="btn-paso3" class="tab-btn" onclick="openTab('paso3', this)">🏥 3. El Estudio</button>
+            <button id="btn-paso4" class="tab-btn" onclick="openTab('paso4', this)">📩 4. Resultados</button>
+        </div>
+
         <!-- PASO 1 -->
-        <div class="step-card">
+        <div id="paso1" class="step-card tab-content" style="display: block;">
             <div class="step-badge">Paso 1</div>
             <h3 class="hand-drawn"><span>📍</span> Ven por tu vale con nosotros</h3>
             <p>Primero, necesitamos darte el papelito oficial (el vale) que comprueba que tu estudio no tiene costo.</p>
@@ -379,10 +396,11 @@
             <div style="margin-top: 20px;">
                 <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn btn-map"><span>📍</span> Ver ubicación de Proyecto Celene</a>
             </div>
+            <button class="btn" style="background: var(--pc-negro); color: white; width: 100%; margin-top: 25px;" onclick="openTab('paso2', document.getElementById('btn-paso2'))">Ir al Paso 2: Prepárate ➔</button>
         </div>
 
         <!-- PASO 2 -->
-        <div class="step-card">
+        <div id="paso2" class="step-card tab-content">
             <div class="step-badge" style="background:var(--pc-azul-suave); color:var(--pc-negro);">Paso 2</div>
             <h3 class="hand-drawn">🚿 Prepárate en casa (Día del estudio)</h3>
             <p>Para que las fotos de tu pecho salgan perfectas y claritas, el día que te toque ir a tu cita debes hacer
@@ -396,10 +414,11 @@
                 <li><strong>¿Tienes miedo de que te duela?</strong> Una hora antes de salir de tu casa, puedes tomarte
                     una pastilla para el dolor (como Paracetamol o Ibuprofeno) para que estés más relajada.</li>
             </ul>
+            <button class="btn" style="background: var(--pc-negro); color: white; width: 100%; margin-top: 25px;" onclick="openTab('paso3', document.getElementById('btn-paso3'))">Ir al Paso 3: El Estudio ➔</button>
         </div>
 
         <!-- PASO 3 -->
-        <div class="step-card">
+        <div id="paso3" class="step-card tab-content">
             <div class="step-badge" style="background:var(--pc-amarillo); color:var(--pc-negro);">Paso 3</div>
             <h3 class="hand-drawn">🏥 Ve a hacerte tu estudio</h3>
             <p>El estudio NO se hace en Proyecto Celene, se hace en una clínica especial para radiografías aliada con
@@ -417,10 +436,11 @@
             <div style="margin-top: 20px;">
                 <a href="https://maps.app.goo.gl/272juT5ARCiDdQz59" target="_blank" class="btn btn-map"><span>📍</span> Ver clínica Diagnóstico X Imagen</a>
             </div>
+            <button class="btn" style="background: var(--pc-negro); color: white; width: 100%; margin-top: 25px;" onclick="openTab('paso4', document.getElementById('btn-paso4'))">Ir al Paso 4: Resultados ➔</button>
         </div>
 
         <!-- PASO 4 -->
-        <div class="step-card">
+        <div id="paso4" class="step-card tab-content">
             <div class="step-badge" style="background: #25d366; color:white;">Paso 4</div>
             <h3 class="hand-drawn">📩 Tus Resultados</h3>
 
@@ -475,6 +495,13 @@
                 necesita explicarte algo, te invitaremos a venir al consultorio para platicar con calma.
                 <strong>¡Recuerda que en este proceso nunca estás sola, todo el equipo de Proyecto Celene te acompaña!
                     💝</strong>
+            </div>
+
+            <!-- SECCIÓN NUEVA: SIMULADOR BI-RADS -->
+            <div style="background: var(--pc-azul-suave); border: 3px dashed var(--pc-negro); border-radius: 15px; padding: 25px; margin-top: 40px; box-shadow: 6px 6px 0 var(--pc-negro); text-align: center;">
+                <h4 class="hand-drawn" style="font-size: 1.8rem; color: var(--pc-negro); margin-bottom: 10px;">¿Ya tienes tus resultados en mano? 📊</h4>
+                <p style="font-weight: 600; color: #444; margin-bottom: 20px;">Si ya recibiste tu hoja de resultados y quieres saber qué significa tu clasificación médica (BI-RADS) sin entrar en pánico, usa nuestro simulador clínico interactivo.</p>
+                <a href="guia-resultados-mastografia.html" class="btn" style="background: var(--pc-rosa-fuerte); color: white; width: 100%; border: 3px solid var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro);">Analizar mis resultados (BI-RADS) ➔</a>
             </div>
         </div>
 
@@ -570,6 +597,17 @@
     </div>
 
     <script>
+        // Lógica Tabs / Pasos
+        function openTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).style.display = 'block';
+            if (btnElement) {
+                btnElement.classList.add('active');
+                window.scrollTo({ top: document.querySelector('.tabs-wrapper').offsetTop - 20, behavior: 'smooth' });
+            }
+        }
+
         // Lógica Acordeón
         const accordionItems = document.querySelectorAll('.accordion-item');
         accordionItems.forEach(item => {

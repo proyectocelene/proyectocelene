@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Riesgo de Cáncer de Mama | Proyecto Celene</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Tailwind CSS para los estilos de la calculadora -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React y ReactDOM para la interactividad -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel para compilar JSX en el navegador -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 15px; }
+        
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-rosa-pastell); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); }
+        .header h1 { font-size: 2.6rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; line-height: 1.1; }
+        .author-badge { display: inline-block; background: var(--pc-negro); color: var(--pc-blanco); padding: 5px 15px; border-radius: 50px; font-weight: 900; font-size: 0.9rem; margin-bottom: 15px; text-transform: uppercase; }
+        
+        .content-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-amarillo); text-align: center; }
+        
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Animaciones suaves React */
+        @keyframes fadeInReact {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeInReact 0.4s ease-out forwards;
+        }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav no-print"></div>
+
+        <div class="fade-in no-print" style="margin-bottom: 15px;">
+            <a href="recursos-educativos.html" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; border: 3px solid var(--pc-negro); border-radius: 50px; font-weight: 800; text-decoration: none; display: inline-block; box-shadow: 4px 4px 0 var(--pc-negro);">
+                ⬅️ Volver a Recursos Educativos
+            </a>
+        </div>
+
+        <header class="header fade-in no-print">
+            <span class="author-badge">🩺 Herramienta Clínica | Dr. Carlos Donato</span>
+            <h1 class="hand-drawn">Calculadora de Riesgo de Cáncer de Mama 🧮</h1>
+            <p style="font-weight: 800; font-size: 1.15rem; color: var(--pc-negro);">Herramienta para evaluar factores de riesgo personales, hormonales y de historial familiar.</p>
+        </header>
+
+        <!-- Contenedor React -->
+        <div id="root" class="fade-in no-print"></div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+    
+    <script src="js/global.js"></script>
+
+    <!-- Lógica de la Calculadora en React -->
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const HeartPulse = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>;
+        const User = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>;
+        const Stethoscope = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>;
+        const ChevronRight = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m9 18 6-6-6-6"/></svg>;
+        const ChevronLeft = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m15 18-6-6 6-6"/></svg>;
+        const AlertCircle = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>;
+        const CheckCircle = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>;
+        const Info = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="16" y2="12"/><line x1="12" x2="12.01" y1="8" y2="8"/></svg>;
+        const Activity = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>;
+
+        const App = () => {
+            const [view, setView] = useState('home'); 
+            const [patientStep, setPatientStep] = useState(0);
+            
+            const [formData, setFormData] = useState({
+                age: '',
+                weight: '',
+                height: '',
+                menarche: '',
+                firstBirth: '',
+                familyHx: '0', 
+                biopsies: '0', 
+                atypia: 'unknown', 
+                density: 'unknown', 
+                alcohol: 'none', 
+                exercise: 'none', 
+                menopause: 'pre',
+                hadMammogram: 'no', 
+                lastMammogramDate: 'unknown', 
+                patientDensityInfo: 'unknown', 
+            });
+
+            const [results, setResults] = useState(null);
+
+            const handleChange = (e) => {
+                const { name, value } = e.target;
+                setFormData(prev => ({ ...prev, [name]: value }));
+            };
+
+            const calculateRisk = () => {
+                const age = parseInt(formData.age) || 40;
+                const heightM = (parseFloat(formData.height) || 160) / 100;
+                const weightKg = parseFloat(formData.weight) || 65;
+                const bmi = weightKg / (heightM * heightM);
+                
+                const isPostMenopausal = age >= 50 || formData.menopause === 'post';
+
+                // 1. APROXIMACIÓN GAIL (BCRAT)
+                let base5YrRisk = 0.5 + ((age - 35) * 0.05); 
+                if (base5YrRisk < 0.1) base5YrRisk = 0.1;
+
+                let rrGail = 1.0;
+                if (parseInt(formData.menarche) < 12) rrGail *= 1.08;
+                if (parseInt(formData.biopsies) > 0) {
+                    rrGail *= 1.71; 
+                    if (formData.atypia === 'yes') rrGail *= 2.5; 
+                }
+                if (parseInt(formData.firstBirth) > 30) rrGail *= 0.97; 
+                if (parseInt(formData.familyHx) > 0) rrGail *= 2.16; 
+
+                let risk5Yr = base5YrRisk * rrGail;
+                if (risk5Yr > 15) risk5Yr = 15; 
+
+                // 2. APROXIMACIÓN TYRER-CUZICK + HARVARD YDR
+                let baseLifetimeRisk = 10.0 + ((age > 40) ? (age - 40) * 0.1 : 0);
+                
+                let rrIbis = 1.0;
+                if (formData.density === 'c' || formData.patientDensityInfo === 'yes') rrIbis *= 1.2;
+                if (formData.density === 'd') rrIbis *= 1.5;
+                
+                if (isPostMenopausal && bmi > 25) {
+                    rrIbis *= 1.15; 
+                    if (bmi > 30) rrIbis *= 1.21;
+                }
+
+                if (formData.alcohol === 'moderate') rrIbis *= 1.15;
+                if (formData.alcohol === 'high') rrIbis *= 1.31; 
+                
+                if (formData.exercise === 'moderate') rrIbis *= 0.85; 
+                if (formData.exercise === 'high') rrIbis *= 0.70; 
+
+                let lifetimeRisk = baseLifetimeRisk * rrGail * rrIbis;
+                if (lifetimeRisk > 85) lifetimeRisk = 85;
+
+                setResults({
+                    risk5Yr: risk5Yr.toFixed(2),
+                    lifetimeRisk: lifetimeRisk.toFixed(2),
+                    bmi: bmi.toFixed(1),
+                    isPostMenopausal
+                });
+
+                setView('results');
+            };
+
+            const renderHome = () => (
+                <div className="flex flex-col items-center justify-center text-center space-y-8 animate-fade-in py-4">
+                    <div className="max-w-2xl bg-white border-[3px] border-[#333] p-8 rounded-[20px] shadow-[6px_6px_0px_var(--pc-amarillo)]">
+                        <HeartPulse className="w-16 h-16 text-[#d81b60] mx-auto mb-4" />
+                        <h2 className="font-[Handlee] text-3xl font-bold text-[#d81b60] mb-4">Evaluación Preventiva Oncológica</h2>
+                        <p className="text-gray-700 text-lg font-bold">
+                            Una herramienta inteligente que integra algoritmos clínicos avanzados (Gail / IBIS) para evaluar factores de riesgo y cuidar de ti hoy y mañana.
+                        </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
+                        <button 
+                            onClick={() => { setView('patient_form'); setPatientStep(0); }}
+                            className="flex flex-col items-center p-8 bg-white rounded-[20px] border-[3px] border-[#333] shadow-[6px_6px_0px_var(--pc-azul-suave)] hover:-translate-y-2 hover:shadow-[8px_8px_0px_var(--pc-rosa-fuerte)] transition-all group cursor-pointer"
+                        >
+                            <div className="bg-[#e3f2fd] p-5 rounded-full mb-4 border-[3px] border-[#333] group-hover:bg-[#fce4ec] transition-colors">
+                                <User className="w-10 h-10 text-[#333]" />
+                            </div>
+                            <h3 className="font-[Handlee] text-2xl font-bold text-[#333] mb-2">Soy Paciente</h3>
+                            <p className="text-gray-600 font-semibold">Quiero conocer mi perfil de riesgo con un cuestionario amigable.</p>
+                        </button>
+
+                        <button 
+                            onClick={() => setView('doctor_form')}
+                            className="flex flex-col items-center p-8 bg-white rounded-[20px] border-[3px] border-[#333] shadow-[6px_6px_0px_var(--pc-amarillo)] hover:-translate-y-2 hover:shadow-[8px_8px_0px_#25d366] transition-all group cursor-pointer"
+                        >
+                            <div className="bg-[#fff9c4] p-5 rounded-full mb-4 border-[3px] border-[#333] group-hover:bg-[#e8f5e9] transition-colors">
+                                <Stethoscope className="w-10 h-10 text-[#333]" />
+                            </div>
+                            <h3 className="font-[Handlee] text-2xl font-bold text-[#333] mb-2">Soy Médico</h3>
+                            <p className="text-gray-600 font-semibold">Acceso al panel clínico avanzado para cálculo rápido.</p>
+                        </button>
+                    </div>
+                </div>
+            );
+
+            const inputClass = "w-full p-3 border-[3px] border-[#333] rounded-xl font-bold outline-none focus:border-[#d81b60] text-gray-700 bg-gray-50 transition-colors";
+            
+            const renderPatientForm = () => {
+                const steps = [
+                    {
+                        title: "¡Hola! Queremos cuidarte.",
+                        subtitle: "Empecemos con algunos datos básicos sobre ti.",
+                        content: (
+                            <div className="space-y-6 mt-6">
+                                <div>
+                                    <label className="block text-[#333] font-extrabold mb-2 text-lg">¿Cuántos años tienes?</label>
+                                    <input type="number" name="age" value={formData.age} onChange={handleChange} className={inputClass} placeholder="Ej. 42" />
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-[#333] font-extrabold mb-2 text-lg">Tu peso (kg)</label>
+                                        <input type="number" name="weight" value={formData.weight} onChange={handleChange} className={inputClass} placeholder="Ej. 65" />
+                                    </div>
+                                    <div>
+                                        <label className="block text-[#333] font-extrabold mb-2 text-lg">Tu estatura (cm)</label>
+                                        <input type="number" name="height" value={formData.height} onChange={handleChange} className={inputClass} placeholder="Ej. 160" />
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    },
+                    {
+                        title: "Tu historia personal",
+                        subtitle: "Esta información nos ayuda a entender tus ciclos hormonales.",
+                        content: (
+                            <div className="space-y-6 mt-6">
+                                <div>
+                                    <label className="block text-[#333] font-extrabold mb-2 text-lg">¿A qué edad fue tu primera menstruación?</label>
+                                    <input type="number" name="menarche" value={formData.menarche} onChange={handleChange} className={inputClass} placeholder="Ej. 12" />
+                                </div>
+                                <div>
+                                    <label className="block text-[#333] font-extrabold mb-2 text-lg">Si tienes hijos, ¿a qué edad tuviste el primero?</label>
+                                    <input type="number" name="firstBirth" value={formData.firstBirth} onChange={handleChange} className={inputClass} placeholder="Deja en blanco si no aplica" />
+                                </div>
+                            </div>
+                        )
+                    },
+                    {
+                        title: "Antecedentes médicos",
+                        subtitle: "Conozcamos tu historial preventivo.",
+                        content: (
+                            <div className="space-y-6 mt-6">
+                                <div>
+                                    <label className="block text-[#333] font-extrabold mb-2 text-lg">¿Te has realizado una mastografía alguna vez?</label>
+                                    <select name="hadMammogram" value={formData.hadMammogram} onChange={handleChange} className={inputClass}>
+                                        <option value="no">No, nunca</option>
+                                        <option value="yes">Sí, ya me he realizado al menos una</option>
+                                    </select>
+                                </div>
+                                
+                                {formData.hadMammogram === 'yes' && (
+                                    <div className="p-5 bg-pink-50 rounded-xl space-y-4 border-[3px] border-[#333] shadow-[4px_4px_0_var(--pc-rosa-pastell)]">
+                                        <div>
+                                            <label className="block text-[#333] font-extrabold mb-2">¿Hace cuánto tiempo fue tu última mastografía?</label>
+                                            <select name="lastMammogramDate" value={formData.lastMammogramDate} onChange={handleChange} className={inputClass}>
+                                                <option value="unknown">No lo recuerdo exacto</option>
+                                                <option value="<1">Hace menos de 1 año (estoy al día)</option>
+                                                <option value="1-2">Hace entre 1 y 2 años</option>
+                                                <option value=">2">Hace más de 2 años</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label className="block text-[#333] font-extrabold mb-2">En tus resultados, ¿alguna vez te mencionaron que tienes "senos densos" o "tejido mamario denso"?</label>
+                                            <select name="patientDensityInfo" value={formData.patientDensityInfo} onChange={handleChange} className={inputClass}>
+                                                <option value="unknown">No lo recuerdo / No me dijeron</option>
+                                                <option value="no">No, me dijeron que todo era normal o tejido graso</option>
+                                                <option value="yes">Sí, mencionaron que mi tejido es denso</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                )}
+
+                                <div className="border-t-[3px] border-dashed border-[#ccc] pt-6 mt-4">
+                                    <label className="block text-[#333] font-extrabold mb-2 text-lg">¿Te han realizado alguna vez una biopsia en el seno?</label>
+                                    <select name="biopsies" value={formData.biopsies} onChange={handleChange} className={inputClass}>
+                                        <option value="0">No, nunca</option>
+                                        <option value="1">Sí, una vez</option>
+                                        <option value="2">Sí, dos o más veces</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-[#333] font-extrabold mb-2 text-lg">¿Tienes familiares de primer grado (madre, hermanas, hijas) con cáncer de mama?</label>
+                                    <select name="familyHx" value={formData.familyHx} onChange={handleChange} className={inputClass}>
+                                        <option value="0">No, ninguna</option>
+                                        <option value="1">Sí, una de ellas</option>
+                                        <option value="2">Sí, más de una</option>
+                                    </select>
+                                </div>
+                            </div>
+                        )
+                    },
+                    {
+                        title: "Tus hábitos diarios",
+                        subtitle: "Tus rutinas son clave para protegerte.",
+                        content: (
+                            <div className="space-y-6 mt-6">
+                                <div>
+                                    <label className="block text-[#333] font-extrabold mb-2 text-lg">¿Con qué frecuencia realizas actividad física (caminar, bailar, ejercicio)?</label>
+                                    <select name="exercise" value={formData.exercise} onChange={handleChange} className={inputClass}>
+                                        <option value="none">Casi nunca</option>
+                                        <option value="moderate">A veces (1-2 veces por semana)</option>
+                                        <option value="high">Frecuentemente (3 o más veces por semana)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-[#333] font-extrabold mb-2 text-lg">¿Consumes bebidas con alcohol?</label>
+                                    <select name="alcohol" value={formData.alcohol} onChange={handleChange} className={inputClass}>
+                                        <option value="none">No, nunca o casi nunca</option>
+                                        <option value="moderate">Ocasionalmente</option>
+                                        <option value="high">Frecuentemente</option>
+                                    </select>
+                                </div>
+                            </div>
+                        )
+                    }
+                ];
+
+                return (
+                    <div className="max-w-2xl mx-auto bg-white p-8 rounded-[20px] border-[3px] border-[#333] shadow-[8px_8px_0px_var(--pc-rosa-pastell)] animate-fade-in mt-4 mb-10">
+                        <div className="mb-6 border-b-[3px] border-dashed border-[#ccc] pb-6">
+                            <div className="flex justify-between items-center mb-4">
+                                <button onClick={() => setView('home')} className="text-gray-500 hover:text-[#d81b60] font-black transition-colors underline decoration-2">⬅ Volver</button>
+                                <span className="text-[#333] font-black bg-[#fff9c4] border-[3px] border-[#333] px-4 py-1 rounded-full text-sm">Paso {patientStep + 1} de {steps.length}</span>
+                            </div>
+                            <h2 className="font-[Handlee] text-3xl font-bold text-[#d81b60] leading-tight">{steps[patientStep].title}</h2>
+                            <p className="text-gray-600 font-bold mt-2 text-lg">{steps[patientStep].subtitle}</p>
+                        </div>
+                        
+                        {steps[patientStep].content}
+
+                        <div className="flex justify-between mt-10 pt-6 border-t-[3px] border-dashed border-[#ccc]">
+                            <button 
+                                onClick={() => setPatientStep(prev => Math.max(0, prev - 1))}
+                                className={`flex items-center px-6 py-3 rounded-full font-black border-[3px] border-[#333] shadow-[0_5px_0_#333] active:translate-y-[5px] active:shadow-none transition-all ${patientStep === 0 ? 'invisible' : 'bg-white text-[#333]'}`}
+                            >
+                                <ChevronLeft className="w-5 h-5 mr-1" /> Atrás
+                            </button>
+                            
+                            {patientStep < steps.length - 1 ? (
+                                <button 
+                                    onClick={() => setPatientStep(prev => Math.min(steps.length - 1, prev + 1))}
+                                    className="flex items-center px-8 py-3 bg-[#d81b60] text-white rounded-full font-black border-[3px] border-[#333] shadow-[0_5px_0_#333] active:translate-y-[5px] active:shadow-none transition-all"
+                                >
+                                    Siguiente <ChevronRight className="w-5 h-5 ml-1" />
+                                </button>
+                            ) : (
+                                <button 
+                                    onClick={calculateRisk}
+                                    className="flex items-center px-8 py-3 bg-[#25d366] text-white rounded-full font-black border-[3px] border-[#333] shadow-[0_5px_0_#1b9c4b] active:translate-y-[5px] active:shadow-none transition-all"
+                                >
+                                    Resultados <Activity className="w-5 h-5 ml-2" />
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                );
+            };
+
+            const renderDoctorForm = () => (
+                <div className="max-w-4xl mx-auto bg-white p-8 rounded-[20px] shadow-[8px_8px_0px_var(--pc-azul-suave)] border-[3px] border-[#333] animate-fade-in mt-4 mb-10">
+                    <div className="flex justify-between items-center mb-6 pb-6 border-b-[3px] border-dashed border-[#ccc]">
+                        <div>
+                            <h2 className="text-2xl font-black text-[#333] flex items-center">
+                                <Stethoscope className="w-8 h-8 mr-2 text-[#d81b60]" /> Panel Clínico Facultativo
+                            </h2>
+                            <p className="text-sm font-bold text-gray-500 mt-1">Algoritmo BCRAT / IBIS (Tyrer-Cuzick)</p>
+                        </div>
+                        <button onClick={() => setView('home')} className="text-gray-500 hover:text-[#d81b60] font-black underline decoration-2">Cerrar</button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="space-y-4">
+                            <h3 className="font-black text-[#d81b60] border-b-2 border-pink-100 pb-2">Somatometría y Edad</h3>
+                            <div>
+                                <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Edad Cronológica</label>
+                                <input type="number" name="age" value={formData.age} onChange={handleChange} className={inputClass} />
+                            </div>
+                            <div className="flex space-x-2">
+                                <div className="w-1/2">
+                                    <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Peso (kg)</label>
+                                    <input type="number" name="weight" value={formData.weight} onChange={handleChange} className={inputClass} />
+                                </div>
+                                <div className="w-1/2">
+                                    <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Talla (cm)</label>
+                                    <input type="number" name="height" value={formData.height} onChange={handleChange} className={inputClass} />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Estado Menopáusico</label>
+                                <select name="menopause" value={formData.menopause} onChange={handleChange} className={inputClass}>
+                                    <option value="pre">Premenopausia</option>
+                                    <option value="post">Posmenopausia</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div className="space-y-4">
+                            <h3 className="font-black text-[#d81b60] border-b-2 border-pink-100 pb-2">Reproductivos / Histológicos</h3>
+                            <div className="flex space-x-2">
+                                <div className="w-1/2">
+                                    <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Menarquia</label>
+                                    <input type="number" name="menarche" value={formData.menarche} onChange={handleChange} className={inputClass} />
+                                </div>
+                                <div className="w-1/2">
+                                    <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Edad 1er Parto</label>
+                                    <input type="number" name="firstBirth" value={formData.firstBirth} onChange={handleChange} className={inputClass} placeholder="Nulípara=blanco" />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Biopsias Previas</label>
+                                <select name="biopsies" value={formData.biopsies} onChange={handleChange} className={inputClass}>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2 o más</option>
+                                </select>
+                            </div>
+                            {formData.biopsies !== '0' && (
+                                <div>
+                                    <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Atipia (HDA/HLA)</label>
+                                    <select name="atypia" value={formData.atypia} onChange={handleChange} className={inputClass}>
+                                        <option value="unknown">Desconocido</option>
+                                        <option value="no">Sin atipia</option>
+                                        <option value="yes">Con atipia confirmada</option>
+                                    </select>
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="space-y-4">
+                            <h3 className="font-black text-[#d81b60] border-b-2 border-pink-100 pb-2">Imagen, Genética y Hábitos</h3>
+                            <div className="flex space-x-2">
+                                <div className="w-1/2">
+                                    <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Mastografía</label>
+                                    <select name="lastMammogramDate" value={formData.lastMammogramDate} onChange={handleChange} className={inputClass}>
+                                        <option value="unknown">No doc.</option>
+                                        <option value="<1">Reciente (&lt;1a)</option>
+                                        <option value="1-2">1-2 años</option>
+                                        <option value=">2">Vencida (&gt;2a)</option>
+                                    </select>
+                                </div>
+                                <div className="w-1/2">
+                                    <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Densidad</label>
+                                    <select name="density" value={formData.density} onChange={handleChange} className={inputClass}>
+                                        <option value="unknown">Desc.</option>
+                                        <option value="a">A (Grasa)</option>
+                                        <option value="b">B (Dispersa)</option>
+                                        <option value="c">C (Heterog.)</option>
+                                        <option value="d">D (Extrema)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Historia Familiar (1er grado)</label>
+                                <select name="familyHx" value={formData.familyHx} onChange={handleChange} className={inputClass}>
+                                    <option value="0">0 (Negativo)</option>
+                                    <option value="1">1 familiar</option>
+                                    <option value="2">2 o más familiares</option>
+                                </select>
+                            </div>
+                            <div className="flex space-x-2">
+                                <div className="w-1/2">
+                                    <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Alcohol</label>
+                                    <select name="alcohol" value={formData.alcohol} onChange={handleChange} className={inputClass}>
+                                        <option value="none">Nulo</option>
+                                        <option value="moderate">Moderado</option>
+                                        <option value="high">Alto</option>
+                                    </select>
+                                </div>
+                                <div className="w-1/2">
+                                    <label className="block text-xs font-black text-gray-500 uppercase tracking-wider mb-1">Ejercicio</label>
+                                    <select name="exercise" value={formData.exercise} onChange={handleChange} className={inputClass}>
+                                        <option value="none">Sedentaria</option>
+                                        <option value="moderate">Moderado</option>
+                                        <option value="high">Alto</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-10 pt-6 border-t-[3px] border-dashed border-[#ccc] flex justify-end">
+                        <button 
+                            onClick={calculateRisk}
+                            className="px-8 py-3 bg-[#d81b60] text-white rounded-full font-black border-[3px] border-[#333] shadow-[0_5px_0_#333] active:translate-y-[5px] active:shadow-none transition-all flex items-center text-lg"
+                        >
+                            Procesar Algoritmo <Activity className="w-5 h-5 ml-2" />
+                        </button>
+                    </div>
+                </div>
+            );
+
+            const renderResults = () => {
+                const risk5 = parseFloat(results.risk5Yr);
+                const riskLife = parseFloat(results.lifetimeRisk);
+                
+                let isHighRisk5 = risk5 >= 1.67;
+                let isVeryHighRisk5 = risk5 >= 3.0;
+                let isHighRiskLife = riskLife >= 20.0;
+                
+                let colorClass = "bg-[#e8f5e9] border-[#2e7d32] text-[#1b5e20]";
+                let iconClass = <CheckCircle className="w-10 h-10 text-[#2e7d32]" />;
+                let messageTitle = "Riesgo Promedio";
+                let messageBody = "Tus resultados están dentro del riesgo poblacional promedio. Continúa con tus revisiones anuales.";
+                
+                if (isVeryHighRisk5 || isHighRiskLife) {
+                    colorClass = "bg-[#ffebee] border-[#c62828] text-[#b71c1c]";
+                    iconClass = <AlertCircle className="w-10 h-10 text-[#c62828]" />;
+                    messageTitle = "Riesgo Elevado";
+                    messageBody = "Es recomendable tener una consulta especializada para crear un plan de prevención y seguimiento más estrecho contigo.";
+                } else if (isHighRisk5) {
+                    colorClass = "bg-[#fff9c4] border-[#f57f17] text-[#e65100]";
+                    iconClass = <Info className="w-10 h-10 text-[#f57f17]" />;
+                    messageTitle = "Riesgo Moderado-Alto";
+                    messageBody = "Tu riesgo a 5 años es ligeramente mayor al promedio. Se recomienda vigilar de cerca y discutir opciones preventivas.";
+                }
+
+                return (
+                    <div className="max-w-5xl mx-auto space-y-6 animate-fade-in mt-8 p-4 mb-10">
+                        <button onClick={() => setView('home')} className="text-gray-500 font-black hover:text-[#d81b60] flex items-center mb-6 underline decoration-2">
+                            <ChevronLeft className="w-5 h-5 mr-1"/> Volver al inicio
+                        </button>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            
+                            {/* VISTA PACIENTE */}
+                            <div className="bg-white p-8 rounded-[20px] shadow-[8px_8px_0_var(--pc-rosa-pastell)] border-[3px] border-[#333] relative overflow-hidden">
+                                <div className="absolute top-0 right-0 bg-[#d81b60] text-white px-5 py-2 rounded-bl-[20px] border-b-[3px] border-l-[3px] border-[#333] text-sm font-black">Reporte para ti</div>
+                                <h2 className="font-[Handlee] text-3xl font-bold text-[#333] mb-6 mt-4">Tu Resumen Preventivo</h2>
+                                
+                                <div className={`p-6 rounded-xl border-[3px] ${colorClass} mb-6 flex items-start space-x-4 shadow-sm`}>
+                                    <div className="mt-1 flex-shrink-0">{iconClass}</div>
+                                    <div>
+                                        <h3 className="text-xl font-black mb-2">{messageTitle}</h3>
+                                        <p className="text-base font-semibold leading-relaxed">
+                                            {messageBody}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-4 mb-8">
+                                    <h4 className="font-black text-[#333] text-lg border-b-[3px] border-dashed border-[#ccc] pb-2">Plan de Acción:</h4>
+                                    <ul className="space-y-4">
+                                        <li className="flex items-start bg-gray-50 p-4 rounded-xl border-2 border-[#333]">
+                                            <CheckCircle className="w-6 h-6 text-[#2e7d32] mr-3 flex-shrink-0 mt-0.5" />
+                                            <span className="text-base text-gray-700 font-bold"><b>Autoexploración mensual:</b> Fundamental. Conoce tu cuerpo para detectar cambios a tiempo.</span>
+                                        </li>
+                                        {parseInt(formData.age) >= 40 && (formData.hadMammogram === 'no' || formData.lastMammogramDate === '>2' || formData.lastMammogramDate === '1-2') && (
+                                            <li className="flex items-start p-4 bg-[#fff9c4] rounded-xl border-2 border-[#f57f17]">
+                                                <AlertCircle className="w-6 h-6 text-[#f57f17] mr-3 flex-shrink-0 mt-0.5" />
+                                                <span className="text-base text-gray-800 font-bold"><b>Aviso Importante:</b> Por tu edad, la mastografía es clave y notamos que no estás al día. <a href="mastografia-gratuita.html" className="text-[#d81b60] underline">Puedes agendar una aquí gratuitamente.</a></span>
+                                            </li>
+                                        )}
+                                        {parseInt(formData.age) >= 40 && formData.lastMammogramDate === '<1' && (
+                                            <li className="flex items-start bg-gray-50 p-4 rounded-xl border-2 border-[#333]">
+                                            <CheckCircle className="w-6 h-6 text-[#2e7d32] mr-3 flex-shrink-0 mt-0.5" />
+                                                <span className="text-base text-gray-700 font-bold"><b>Mastografía al día:</b> ¡Excelente! Recuerda mantener este buen hábito anualmente.</span>
+                                            </li>
+                                        )}
+                                        {formData.exercise !== 'high' && (
+                                            <li className="flex items-start bg-gray-50 p-4 rounded-xl border-2 border-[#333]">
+                                                <Activity className="w-6 h-6 text-[#118AB2] mr-3 flex-shrink-0 mt-0.5" />
+                                                <span className="text-base text-gray-700 font-bold"><b>Movimiento es vida:</b> Aumentar tu actividad física puede reducir factores de riesgo y mejorar tu salud hormonal.</span>
+                                            </li>
+                                        )}
+                                    </ul>
+                                </div>
+
+                                <div className="bg-[#e3f2fd] p-6 rounded-[20px] text-center border-[3px] border-[#333] shadow-[4px_4px_0_#333]">
+                                    <h3 className="font-black text-xl mb-2 text-[#333]">¿Quieres platicarlo con un doctor?</h3>
+                                    <p className="text-sm font-bold text-gray-700 mb-4">Agenda una consulta general en Proyecto Celene para revisar tus resultados.</p>
+                                    <a href="consulta-general.html" className="inline-flex items-center px-6 py-3 bg-[#333] text-white rounded-full font-black border-[3px] border-[#333] shadow-[0_4px_0_var(--pc-rosa-fuerte)] active:translate-y-[4px] active:shadow-none transition-all">
+                                        Agendar Consulta 🩺
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* VISTA MÉDICO */}
+                            <div className="bg-slate-50 p-8 rounded-[20px] shadow-[8px_8px_0_#333] border-[3px] border-[#333] relative">
+                                <div className="absolute top-0 right-0 bg-[#333] text-white px-5 py-2 rounded-bl-[20px] border-b-[3px] border-l-[3px] border-[#333] text-sm font-black">Panel Clínico</div>
+                                <h2 className="text-2xl font-black text-[#333] mb-6 mt-4 flex items-center">
+                                    <Stethoscope className="w-6 h-6 mr-2 text-[#d81b60]"/> Resultados del Algoritmo
+                                </h2>
+
+                                <div className="grid grid-cols-2 gap-4 mb-6">
+                                    <div className="bg-white p-5 rounded-xl border-[3px] border-[#333] shadow-[4px_4px_0_#ccc]">
+                                        <p className="text-xs text-gray-500 uppercase font-black">Riesgo a 5 Años (Gail mod.)</p>
+                                        <p className={`text-4xl font-black mt-2 ${isVeryHighRisk5 ? 'text-[#c62828]' : isHighRisk5 ? 'text-[#f57f17]' : 'text-[#2e7d32]'}`}>
+                                            {results.risk5Yr}%
+                                        </p>
+                                        <p className="text-xs mt-2 text-gray-400 font-bold">Umbral: 1.67% / 3.0%</p>
+                                    </div>
+                                    <div className="bg-white p-5 rounded-xl border-[3px] border-[#333] shadow-[4px_4px_0_#ccc]">
+                                        <p className="text-xs text-gray-500 uppercase font-black">Riesgo Vitalicio (IBIS mod.)</p>
+                                        <p className={`text-4xl font-black mt-2 ${isHighRiskLife ? 'text-[#c62828]' : 'text-[#2e7d32]'}`}>
+                                            {results.lifetimeRisk}%
+                                        </p>
+                                        <p className="text-xs mt-2 text-gray-400 font-bold">Umbral Alto Riesgo: 20.0%</p>
+                                    </div>
+                                </div>
+
+                                <div className="bg-white rounded-xl border-[3px] border-[#333] p-5 mb-6 text-sm">
+                                    <h4 className="font-black text-[#d81b60] text-lg border-b-2 border-pink-100 pb-2 mb-4">Directrices Clínicas y Accionables</h4>
+                                    <ul className="space-y-3 text-gray-700 font-semibold">
+                                        {isVeryHighRisk5 ? (
+                                            <li className="flex"><AlertCircle className="w-5 h-5 text-[#c62828] mr-2 mt-0.5 flex-shrink-0" /> Fuerte recomendación de inicio de profilaxis (SERMs) por alta tasa beneficio-riesgo.</li>
+                                        ) : isHighRisk5 ? (
+                                            <li className="flex"><Info className="w-5 h-5 text-[#f57f17] mr-2 mt-0.5 flex-shrink-0" /> Considerar Quimioprevención (Tamoxifeno/Raloxifeno). Evaluar riesgo de tromboembolismo.</li>
+                                        ) : (
+                                            <li className="flex"><CheckCircle className="w-5 h-5 text-[#2e7d32] mr-2 mt-0.5 flex-shrink-0" /> Riesgo a 5 años en rango poblacional base.</li>
+                                        )}
+
+                                        {isHighRiskLife && (
+                                            <li className="flex"><AlertCircle className="w-5 h-5 text-[#c62828] mr-2 mt-0.5 flex-shrink-0" /> Riesgo Vitalicio &ge; 20%. Referencia a Consejo Genético. Indicar RM mamaria bilateral anual secuencial a mastografía.</li>
+                                        )}
+                                        
+                                        {parseInt(formData.age) >= 40 ? (
+                                            formData.lastMammogramDate === '>2' || formData.lastMammogramDate === '1-2' || formData.hadMammogram === 'no' ? (
+                                                <li className="flex"><AlertCircle className="w-5 h-5 text-[#f57f17] mr-2 mt-0.5 flex-shrink-0" /> <b>Atención:</b> Paciente en edad de tamizaje (&gt;40) con mastografía vencida o inexistente. Indicar estudio prioritario (NOM).</li>
+                                            ) : (
+                                                <li className="flex"><CheckCircle className="w-5 h-5 text-[#2e7d32] mr-2 mt-0.5 flex-shrink-0" /> Mastografía de tamizaje al corriente (&lt; 1 año). Continuar control anual.</li>
+                                            )
+                                        ) : null}
+                                        
+                                        {results.isPostMenopausal && results.bmi > 25 && (
+                                            <li className="flex"><Info className="w-5 h-5 text-[#118AB2] mr-2 mt-0.5 flex-shrink-0" /> IMC {results.bmi} en posmenopausia eleva el riesgo (aromatización periférica). Intervención metabólica/nutricional sugerida.</li>
+                                        )}
+                                    </ul>
+                                </div>
+                                
+                                <p className="text-xs text-gray-400 mt-4 leading-tight italic font-bold text-center">
+                                    * Herramienta orientativa. No sustituye el criterio médico. Las estimaciones son una aproximación basada en modelos BCRAT/IBIS.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            return (
+                <div className="w-full">
+                    {view === 'home' && renderHome()}
+                    {view === 'patient_form' && renderPatientForm()}
+                    {view === 'doctor_form' && renderDoctorForm()}
+                    {view === 'results' && renderResults()}
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

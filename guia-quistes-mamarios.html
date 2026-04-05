@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Clara sobre Quistes Mamarios | Proyecto Celene</title>
+    <meta name="description" content="Descubre qué son los quistes mamarios, por qué se forman, los tipos que existen y sus tratamientos. Información médica clara y sin pánico.">
+    <meta name="author" content="Dr. Carlos Donato">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/guia-quistes-mamarios.html">
+    <meta property="og:title" content="Guía Clara sobre Quistes Mamarios | Proyecto Celene">
+    <meta property="og:description" content="Descubre qué son las 'bolitas de agua' en los senos, por qué se forman y cómo se tratan. ¡Tranquila, la mayoría son benignas!">
+    <meta property="og:image" content="https://proyectocelene.org/imagenes/gyo/mama/quistes%20mamarios.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/guia-quistes-mamarios.html">
+    <meta property="twitter:title" content="Guía Clara sobre Quistes Mamarios | Proyecto Celene">
+    <meta property="twitter:description" content="Descubre qué son las 'bolitas de agua' en los senos, por qué se forman y cómo se tratan. ¡Tranquila, la mayoría son benignas!">
+    <meta property="twitter:image" content="https://proyectocelene.org/imagenes/gyo/mama/quistes%20mamarios.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde: #25d366;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        /* HEADER */
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-rosa-pastell); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); position: relative; overflow: hidden; }
+        .header h1 { font-size: 2.8rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; line-height: 1.1; }
+        .author-badge { display: inline-block; background: var(--pc-negro); color: var(--pc-blanco); padding: 5px 15px; border-radius: 50px; font-weight: 900; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* TABS */
+        .tabs-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .tab-btn { background: var(--pc-blanco); border: 3px solid var(--pc-negro); padding: 12px 20px; border-radius: 50px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); transition: 0.2s; white-space: normal; word-wrap: break-word; }
+        .tab-btn:hover { background: var(--pc-amarillo); transform: translateY(-2px); box-shadow: 0 6px 0 var(--pc-negro); }
+        .tab-btn.active { background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 0px 0 var(--pc-negro); transform: translateY(4px); }
+        .tab-content { display: none; animation: fadeInTab 0.4s ease-out; }
+        @keyframes fadeInTab { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* CAJAS Y CARDS */
+        .content-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-azul-suave); }
+        .content-box h2 { color: var(--pc-rosa-fuerte); margin-bottom: 15px; font-size: 1.8rem; }
+        .content-box p { margin-bottom: 15px; font-size: 1.05rem; color: #444; font-weight: 600; }
+        .content-box ul { margin-left: 20px; margin-bottom: 15px; font-weight: 600; color: #444; font-size: 1.05rem; }
+        
+        .info-panel { padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-bottom: 20px; }
+        .info-panel h4 { font-size: 1.3rem; color: var(--pc-negro); margin-bottom: 10px; font-family: 'Handlee', cursive; }
+        
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { background: var(--pc-blanco); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-gris-suave); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 6px 6px 0 var(--pc-negro); }
+        .card h4 { font-size: 1.3rem; margin-bottom: 10px; color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive;}
+
+        /* MITOS FLIP CARDS */
+        .flip-card { background-color: transparent; width: 100%; height: 200px; perspective: 1000px; margin-bottom: 20px; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer; }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; border: 3px solid var(--pc-negro); border-radius: 15px; font-weight: 800; font-size: 1rem; }
+        .flip-card-front { background-color: var(--pc-amarillo); color: var(--pc-negro); box-shadow: 6px 6px 0 var(--pc-rosa-pastell); }
+        .flip-card-back { background-color: var(--pc-verde); color: white; transform: rotateY(180deg); box-shadow: -6px 6px 0 var(--pc-negro); }
+
+        .btn-next { display: block; width: 100%; max-width: 400px; margin: 30px auto 0; text-align: center; background: var(--pc-rosa-fuerte); color: white; border: 3px solid var(--pc-negro); padding: 15px 25px; border-radius: 50px; font-weight: 900; font-size: 1.2rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 6px 0 var(--pc-negro); font-family: 'Nunito', sans-serif; text-decoration: none; }
+        .btn-next:hover { transform: scale(1.03) translateY(-3px); box-shadow: 0 9px 0 var(--pc-negro); }
+        .btn-next:active { transform: translateY(6px); box-shadow: 0 0px 0 var(--pc-negro); }
+
+        /* LISTAS DE PASOS */
+        .step-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
+        .step-number { background: var(--pc-rosa-fuerte); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; font-family: 'Handlee', cursive; font-size: 1.2rem; border: 2px solid var(--pc-negro); box-shadow: 2px 2px 0 var(--pc-negro); }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
+            <a href="recursos-educativos.html" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; border: 3px solid var(--pc-negro); border-radius: 50px; font-weight: 800; text-decoration: none;">
+                ⬅️ Volver a Recursos Educativos
+            </a>
+        </div>
+
+        <header class="header fade-in">
+            <img src="imagenes/gyo/mama/quistes mamarios.png" alt="Quistes Mamarios" class="floating-img" style="max-width: 100%; width: 350px; margin: 0 auto 20px; display: block; border-radius: 20px; border: 4px solid var(--pc-negro); background: white; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte);">
+            <span class="author-badge">🩺 Educación Médica por Dr. Carlos Donato</span>
+            <h1 class="hand-drawn">Guía: Quistes Mamarios 💧</h1>
+            <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: var(--pc-negro);">¿Te detectaron una "bolita de agua"? Descubre por qué se forman, qué significan y sus opciones de tratamiento. ¡Sin miedo y con ciencia!</p>
+        </header>
+
+        <!-- NAVEGACIÓN TABS -->
+        <div class="tabs-wrapper fade-in">
+            <button id="btn-tab-intro" class="tab-btn active" onclick="openTab('tab-intro', this)">📖 ¿Qué son?</button>
+            <button id="btn-tab-causas" class="tab-btn" onclick="openTab('tab-causas', this)">🔄 ¿Por qué salen?</button>
+            <button id="btn-tab-tipos" class="tab-btn" onclick="openTab('tab-tipos', this)">🔬 Tipos y Riesgos</button>
+            <button id="btn-tab-tratamiento" class="tab-btn" onclick="openTab('tab-tratamiento', this)">🩹 Tratamiento</button>
+            <button id="btn-tab-drenaje" class="tab-btn" onclick="openTab('tab-drenaje', this)">💉 Guía de Drenaje</button>
+        </div>
+
+        <!-- TAB 1: ¿QUÉ SON? -->
+        <div id="tab-intro" class="tab-content" style="display: block;">
+            <div class="content-box">
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <span style="font-size: 4.5rem; display: inline-block; filter: drop-shadow(4px 4px 0px var(--pc-azul-suave));">💧</span>
+                </div>
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">¿Qué es un Quiste Mamario?</h2>
+                <p>Imagina un pequeño globo lleno de agua dentro de tu seno. Eso es exactamente un quiste mamario: un <strong>saco o bolsita llena de líquido</strong> que se forma en el tejido de la mama.</p>
+                <p>Al tocarlos, a menudo se sienten como una uva pelada o un globito de agua (suaves y movibles), aunque a veces, si están muy llenos, pueden sentirse un poco más firmes.</p>
+                
+                <div class="info-panel" style="background: var(--pc-rosa-pastell); border-color: var(--pc-rosa-fuerte);">
+                    <h4 style="color: var(--pc-rosa-fuerte);">¿Debería asustarme? 🚨</h4>
+                    <p style="margin-bottom: 0;"><strong>¡NO!</strong> Escuchar la palabra "tumor" o "masa" asusta a cualquiera, pero debes saber que los quistes son <strong>completamente benignos (no cancerosos)</strong>. De hecho, son una de las causas más comunes de consulta ginecológica en mujeres sanas.</p>
+                </div>
+
+                <div class="grid-cards">
+                    <div class="card" style="background: var(--pc-amarillo);">
+                        <h4 style="color: var(--pc-negro);">👩‍🦰 ¿A quién le salen?</h4>
+                        <p style="font-size: 0.95rem;">Aparecen principalmente en mujeres entre los <strong>30 y 50 años</strong> (con un pico máximo a los 40). Por lo general, dejan de aparecer después de la menopausia, a menos que estés usando terapia de reemplazo hormonal. ¡Son la condición más común de la mama!</p>
+                    </div>
+                    <div class="card" style="background: var(--pc-azul-suave);">
+                        <h4 style="color: var(--pc-negro);">🩺 Síntomas Comunes</h4>
+                        <p style="font-size: 0.95rem;">Puedes notar un bultito redondo. A menudo causan dolor o sensibilidad en esa zona del seno, ¡especialmente unos días antes de que baje tu menstruación!</p>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-causas', document.getElementById('btn-tab-causas'))">Descubre por qué salen ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 2: CAUSAS -->
+        <div id="tab-causas" class="tab-content">
+            <div class="content-box" style="border-color: var(--pc-amarillo);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">¿Por qué se forman? 🔄</h2>
+                <p>La anatomía del seno femenino es fascinante. Cada seno contiene lóbulos de tejido glandular, ordenados como los pétalos de una margarita. Estos lóbulos están formados por bulbos más pequeños que producen leche durante el embarazo.</p>
+                <p>Los quistes se forman cuando hay una <strong>acumulación excesiva de líquido</strong> dentro de las glándulas mamarias.</p>
+
+                <div class="info-panel" style="background: white; border-color: var(--pc-negro);">
+                    <h4>La Montaña Rusa Hormonal 🎢</h4>
+                    <p>La evidencia médica apunta directamente a las <strong>hormonas y la transformación natural del tejido</strong> (metaplasia).</p>
+                    <ul>
+                        <li>El ciclo menstrual normal causa fluctuaciones. Cuando hay predominancia de estrógenos, el tejido se estimula, retiene líquido y se expande formando la bolsita.</li>
+                        <li>Tener una menopausia tardía o una constitución física muy delgada también son factores que influyen.</li>
+                        <li>Por eso es tan común que los quistes duelan más o se sientan más grandes <strong>justo antes de tu periodo</strong>, y que se "desinflen" o dejen de doler cuando tu regla termina.</li>
+                        <li><strong>Dato importante:</strong> Si te salió un quiste, hay más de un 50% de probabilidad de que desarrolles otros quistes inofensivos en el futuro.</li>
+                    </ul>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; text-align: center; margin-top: 30px;">Mitos y Realidades</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: "Me salieron quistes por un golpe fuerte en el seno."</div><div class="mt-2 text-xs opacity-70">(Toca para ver)</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Realidad: Los golpes (traumatismos) pueden causar dolor o moretones, pero NO provocan la aparición de quistes. ¡Son hormonales!</div></div>
+                        </div>
+                    </div>
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: "Tomar mucho café causa quistes."</div><div class="mt-2 text-xs opacity-70">(Toca para ver)</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Realidad: No hay evidencia científica sólida que pruebe que la cafeína CAUSE quistes. Sin embargo, algunas mujeres reportan que al dejar el café sienten menos dolor.</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-tipos', document.getElementById('btn-tab-tipos'))">Conoce los tipos de Quistes ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 3: TIPOS Y RIESGOS -->
+        <div id="tab-tipos" class="tab-content">
+            <div class="content-box" style="background: var(--pc-azul-suave); border-color: var(--pc-negro);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem; color: var(--pc-negro);">Los 3 Tipos de Quistes 🔬</h2>
+                <p style="text-align: center; font-weight: 600; margin-bottom: 20px;">Para saber exactamente qué tipo de "bolita" tienes, el médico se apoya de un Ultrasonido Mamario. El aparato clasifica las lesiones con un sistema mundial llamado <strong>BI-RADS</strong>:</p>
+
+                <div class="grid-cards">
+                    <!-- Simple -->
+                    <div class="card" style="border-color: #2e7d32; box-shadow: 4px 4px 0 #c8e6c9;">
+                        <h4 style="color: #2e7d32;">🟢 Quiste Simple</h4>
+                        <p style="font-size: 0.95rem;"><strong>Lo más común.</strong> Es una bolsita redonda, con paredes muy finas y llena exclusivamente de líquido transparente o amarillento.</p>
+                        <p style="font-size: 0.95rem; background: #e8f5e9; padding: 10px; border-radius: 8px; margin-top: 10px;"><strong>Significado:</strong> ¡100% Benigno! (Se clasifica como <strong>BI-RADS 2</strong>). No aumenta tu riesgo de cáncer de mama en lo absoluto.</p>
+                    </div>
+                    
+                    <!-- Microquistes -->
+                    <div class="card" style="border-color: #1565c0; box-shadow: 4px 4px 0 #bbdefb;">
+                        <h4 style="color: #1565c0;">🔵 Microquistes Agrupados</h4>
+                        <p style="font-size: 0.95rem;">En lugar de un globo grande, el ultrasonido muestra un grupo de pequeñas masas de puro líquido juntas, como un racimo de uvitas miniatura.</p>
+                        <p style="font-size: 0.95rem; background: #e3f2fd; padding: 10px; border-radius: 8px; margin-top: 10px;"><strong>Significado:</strong> También son 100% Benignos (<strong>BI-RADS 2</strong>). No tienen partes sólidas ni son peligrosos.</p>
+                    </div>
+                    
+                    <!-- Complicado -->
+                    <div class="card" style="border-color: #f57f17; box-shadow: 4px 4px 0 #fff9c4;">
+                        <h4 style="color: #f57f17;">🟡 Quiste Complicado</h4>
+                        <p style="font-size: 0.95rem;">El globo está lleno de líquido, pero el líquido se ve "turbio" en el ultrasonido porque tiene restos de células (como si el agua estuviera sucia).</p>
+                        <p style="font-size: 0.95rem; background: #fff3e0; padding: 10px; border-radius: 8px; margin-top: 10px;"><strong>Significado:</strong> Siguen siendo benignos casi en su totalidad (<strong>BI-RADS 3</strong>: Probablemente benigno). Solo se pide un nuevo ultrasonido en 6 meses para vigilarlo.</p>
+                    </div>
+                    
+                    <!-- Complejo -->
+                    <div class="card" style="border-color: #c62828; box-shadow: 4px 4px 0 #ffcdd2;">
+                        <h4 style="color: #c62828;">🔴 Quiste Complejo</h4>
+                        <p style="font-size: 0.95rem;">La bolsita tiene paredes gruesas y dentro no solo hay líquido, sino que hay "partes sólidas" (tejido) flotando o pegado a la pared.</p>
+                        <p style="font-size: 0.95rem; background: #ffebee; padding: 10px; border-radius: 8px; margin-top: 10px;"><strong>Significado:</strong> Requiere atención (<strong>BI-RADS 4</strong>: Sospechoso). Aquí NO se drena; el médico recomendará una Biopsia para revisar esa parte sólida.</p>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-tratamiento', document.getElementById('btn-tab-tratamiento'))">¿Cómo se tratan? ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 4: TRATAMIENTO -->
+        <div id="tab-tratamiento" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">Opciones de Tratamiento 🩹</h2>
+                <p style="text-align: center; font-weight: 600; margin-bottom: 30px;">La mejor noticia es que, en la inmensa mayoría de los casos, los quistes mamarios <strong>NO requieren cirugía ni tratamiento agresivo</strong>.</p>
+
+                <div class="info-panel" style="background: var(--pc-rosa-pastell); border-color: var(--pc-rosa-fuerte);">
+                    <h4 style="color: var(--pc-rosa-fuerte);">1. La Observación (Ventajas y Desventajas)</h4>
+                    <p>Si tu quiste es simple, pequeño y no te duele, la indicación médica es dejarlo en paz. <strong>Ventajas:</strong> Evitas piquetes y, muchas veces, desaparecen solos con los meses. <strong>Desventajas:</strong> Puede seguir dándote molestias leves o causarte ansiedad sentir la bolita ahí.</p>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-azul-suave); border-color: var(--pc-negro);">
+                    <h4>2. Drenaje en Consultorio (Aspiración) 💉</h4>
+                    <p>Si el quiste cumple con las <strong>indicaciones absolutas</strong> (te causa dolor, sientes mucha tensión, genera ansiedad, o es mayor a 2 cm), el médico sugerirá vaciarlo.</p>
+                    <ul style="margin-top: 10px; font-size: 0.95rem;">
+                        <li><strong>Ventajas:</strong> Procedimiento rápido (5-10 min), económico, alivio inmediato del dolor, y no requiere quirófano.</li>
+                        <li><strong>Desventajas:</strong> Existe una probabilidad del 15% al 20% de que el quiste vuelva a llenarse de agua en el futuro (es normal).</li>
+                    </ul>
+                    <div style="text-align: center; margin-top: 15px;"><button class="btn-next" style="margin-top: 0; padding: 10px 20px; font-size: 1rem;" onclick="openTab('tab-drenaje', document.getElementById('btn-tab-drenaje'))">Conoce cómo se hace el Drenaje ➔</button></div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-amarillo); border-color: var(--pc-negro);">
+                    <h4>3. Manejo de Hormonas y Cirugía</h4>
+                    <p>Si tienes decenas de quistes extremadamente dolorosos todo el tiempo, el ginecólogo puede recetarte pastillas anticonceptivas para regular tus ciclos y prevenir que se formen más.</p>
+                    <p style="margin-top: 10px;">La <strong>cirugía para quitarlos</strong> es extremadamente rara y solo se considera si el quiste vuelve a llenarse de líquido muchas veces y causa molestias severas, o si tiene partes sólidas (complejo).</p>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.6rem; margin-top: 30px;">Tips para hacer en casa 🏡</h3>
+                <div class="grid-cards" style="margin-top: 15px;">
+                    <div class="card" style="padding: 15px;">
+                        <p style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0;">👙 <strong>Soporte adecuado:</strong> Usa un brasier firme y a tu medida. El movimiento excesivo del pecho aumenta el dolor de los quistes.</p>
+                    </div>
+                    <div class="card" style="padding: 15px;">
+                        <p style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0;">🔥 <strong>Compresas tibias:</strong> Aplicar un trapito tibio sobre el seno puede aliviar la sensación de tensión.</p>
+                    </div>
+                    <div class="card" style="padding: 15px;">
+                        <p style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0;">☕ <strong>Baja la cafeína:</strong> Reduce café, té negro, refrescos de cola y chocolate. Algunas mujeres experimentan gran alivio al hacerlo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: DRENAJE EN CONSULTORIO -->
+        <div id="tab-drenaje" class="tab-content">
+            <div class="content-box" style="background: var(--pc-gris-suave);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem; color: var(--pc-negro);">Drenaje en Consultorio 💉</h2>
+                <img src="imagenes/gyo/mama/drenaje quiste.png" alt="Drenaje de Quiste Mamario" class="floating-img" style="max-width: 100%; width: 500px; margin: 0 auto 25px; display: block; border-radius: 15px; border: 3px solid var(--pc-negro); box-shadow: 6px 6px 0 var(--pc-azul-suave);">
+                <p style="text-align: center; font-weight: 600; margin-bottom: 30px;">Si tú y el doctor acordaron que lo mejor es vaciar el quiste, ¡tranquila! Es un procedimiento mínimamente invasivo, de corta duración, y sales caminando a casa.</p>
+
+                <!-- CONSENTIMIENTO INFORMADO -->
+                <div class="info-panel" style="background: white; border-color: var(--pc-negro); margin-bottom: 35px; box-shadow: 6px 6px 0 var(--pc-rosa-pastell);">
+                    <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; border-bottom: 2px dashed #ccc; padding-bottom: 10px; margin-bottom: 15px;">Consentimiento Informado 📝</h3>
+                    <p style="font-weight: 600; color: #444; margin-bottom: 15px;">Antes de realizar cualquier procedimiento, en Proyecto Celene nos aseguramos de que tengas toda la información transparente para decidir libremente:</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="background: #e8f5e9; border: 2px solid #2e7d32; padding: 15px; border-radius: 10px;">
+                            <h4 style="color: #2e7d32; margin-bottom: 5px; font-family: 'Nunito', sans-serif; font-weight: 900;">✅ Beneficios</h4>
+                            <ul style="margin-left: 15px; font-size: 0.9rem; color: #1b5e20; font-weight: 600;">
+                                <li style="margin-bottom: 5px;">Alivio inmediato del dolor y la tensión.</li>
+                                <li style="margin-bottom: 5px;">Procedimiento rápido (5-10 min).</li>
+                                <li>Confirmación visual de que el líquido es benigno.</li>
+                            </ul>
+                        </div>
+                        <div style="background: #ffebee; border: 2px solid #c62828; padding: 15px; border-radius: 10px;">
+                            <h4 style="color: #c62828; margin-bottom: 5px; font-family: 'Nunito', sans-serif; font-weight: 900;">⚠️ Riesgos Posibles</h4>
+                            <ul style="margin-left: 15px; font-size: 0.9rem; color: #b71c1c; font-weight: 600;">
+                                <li style="margin-bottom: 5px;">Molestia leve o un pequeño moretón (hematoma) en la zona.</li>
+                                <li style="margin-bottom: 5px;">Riesgo bajísimo de infección (menor al 1%).</li>
+                                <li><strong>Recurrencia:</strong> Hay un 15% a 20% de probabilidad de que el quiste vuelva a llenarse en el futuro.</li>
+                            </ul>
+                        </div>
+                        <div style="background: #e3f2fd; border: 2px solid #1565c0; padding: 15px; border-radius: 10px;">
+                            <h4 style="color: #1565c0; margin-bottom: 5px; font-family: 'Nunito', sans-serif; font-weight: 900;">⚖️ Tus Alternativas</h4>
+                            <ul style="margin-left: 15px; font-size: 0.9rem; color: #0d47a1; font-weight: 600;">
+                                <li style="margin-bottom: 5px;"><strong>Observación:</strong> No hacer nada y esperar a que desaparezca solo.</li>
+                                <li><strong>Cirugía:</strong> Solo recomendada si el quiste se llena muchísimas veces o si es de tipo "complejo".</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 15px; font-style: italic; text-align: center; font-weight: 600;">* El médico te explicará todo esto en persona y firmarás un documento oficial de autorización antes de comenzar.</p>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.6rem; border-bottom: 2px dashed #ccc; padding-bottom: 10px; margin-bottom: 20px;">El Procedimiento: Paso a Paso</h3>
+                
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h4 style="color: var(--pc-negro); font-size: 1.1rem; font-weight: 800; margin-bottom: 5px;">Acomodo y Preparación</h4>
+                        <p style="font-size: 0.95rem; color: #555;">Te pediremos que te acuestes boca arriba (decúbito supino) con el brazo del lado del quiste descansando detrás de tu cabeza. El médico lavará la zona de tu pecho con una solución antiséptica fría (clorhexidina o yodo) para que todo esté estéril.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h4 style="color: var(--pc-negro); font-size: 1.1rem; font-weight: 800; margin-bottom: 5px;">Localización y Anestesia</h4>
+                        <p style="font-size: 0.95rem; color: #555;">El doctor palpará el quiste fijándolo con sus dedos (o usando el ultrasonido de guía). Se puede inyectar un poquito de anestesia local (lidocaína). Solo sentirás un ardor tipo "piquetito de mosquito" por 3 segundos, y luego la zona se adormecerá.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h4 style="color: var(--pc-negro); font-size: 1.1rem; font-weight: 800; margin-bottom: 5px;">La Aspiración</h4>
+                        <p style="font-size: 0.95rem; color: #555;">Se usa una aguja muy fina conectada a una jeringa. Al entrar a la bolsita, el doctor succiona el líquido. Sentirás un poco de presión, pero no dolor agudo. ¡La bolita desaparece en ese instante!</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h4 style="color: var(--pc-negro); font-size: 1.1rem; font-weight: 800; margin-bottom: 5px;">Limpieza y Vendaje</h4>
+                        <p style="font-size: 0.95rem; color: #555;">El médico hará presión en el sitio por 2 a 3 minutos para evitar moretones y colocará un parche o vendaje pequeño. ¡Listo, terminamos en menos de 10 minutos!</p>
+                    </div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-amarillo); border-color: var(--pc-negro); margin-top: 30px;">
+                    <h4 style="color: var(--pc-negro);">¿Qué pasa con el líquido que me sacaron? 🧪</h4>
+                    <ul style="font-size: 0.95rem; color: #444; margin-top: 10px;">
+                        <li><strong>Líquido claro (amarillo, verde, café):</strong> Es lo más normal. Se desecha en la basura clínica y no requiere mandarse al laboratorio.</li>
+                        <li><strong>Líquido con sangre (hemático):</strong> El doctor lo enviará al laboratorio (citología) para analizarlo por precaución. ¡No entres en pánico! Suele ser solo por un vasito capilar que se rompió, pero seguimos el protocolo seguro.</li>
+                    </ul>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.6rem; margin-top: 40px; border-bottom: 2px dashed #ccc; padding-bottom: 10px; margin-bottom: 20px;">Cuidados en Casa</h3>
+                <div class="grid-cards" style="margin-top: 0;">
+                    <div class="card" style="background: white;">
+                        <p style="font-size: 0.95rem; margin-bottom: 8px;">🧊 <strong>Hielo:</strong> Aplica hielo envuelto en un trapito por 15-20 minutos cada 3 horas el primer día.</p>
+                        <p style="font-size: 0.95rem; margin-bottom: 8px;">💊 <strong>Medicamento:</strong> Toma paracetamol o ibuprofeno si sientes molestia (como un golpecito).</p>
+                        <p style="font-size: 0.95rem; margin-bottom: 0;">🩹 <strong>Vendaje y Actividad:</strong> Deja tu parchecito puesto 24 horas y evita cargar cosas pesadas o hacer ejercicio fuerte por 48 horas.</p>
+                    </div>
+                    <div class="card" style="background: #ffebee; border-color: #c62828;">
+                        <h4 style="color: #c62828; font-size: 1.1rem; font-family: 'Nunito', sans-serif;">🚨 Signos de Alarma</h4>
+                        <p style="font-size: 0.9rem; color: #b71c1c; margin-bottom: 5px;">Mándanos un WhatsApp urgente si presentas:</p>
+                        <ul style="font-size: 0.85rem; color: #b71c1c; margin-left: 15px; margin-bottom: 0;">
+                            <li>Fiebre o escalofríos.</li>
+                            <li>El pecho se pone muy rojo, caliente o sale pus.</li>
+                            <li>El quiste se vuelve a llenar gigante en solo un par de días.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); margin-top: 30px;">
+                    <h4 style="color: var(--pc-negro);">Tu Cita de Seguimiento 📅</h4>
+                    <p style="font-size: 0.95rem; color: #444; margin-bottom: 0;">Te pediremos volver al consultorio en <strong>4 a 6 semanas</strong>. El objetivo es revisar que la "bolita" no haya vuelto. Recuerda que si regresa una vez, podemos volver a drenarla, pero si se llena más de 3 veces repetidas, te referiremos a cirugía menor para quitar la cápsula completa.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BLOQUE DE AGENDA (SIEMPRE VISIBLE AL FINAL) -->
+        <div class="fade-in" style="background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-top: 40px; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte); text-align: center;">
+            <h2 class="hand-drawn" style="color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 10px;">No te quedes con la duda 🗓️</h2>
+            <p style="font-weight: 600; font-size: 1.1rem; color: #444; margin-bottom: 20px;">Cualquier bolita nueva en tu seno debe ser revisada por un médico para tu tranquilidad. ¡Acude a revisarte!</p>
+            
+            <div style="text-align: center; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+                <a href="mastografia-gratuita.html" class="btn-action" style="background: var(--pc-rosa-fuerte); color: white; border: 4px solid var(--pc-negro); padding: 15px 30px; border-radius: 50px; font-weight: 800; font-size: 1.1rem; text-decoration: none; box-shadow: 0 6px 0 var(--pc-negro);">
+                    🎀 Agendar Mastografía Gratis
+                </a>
+                <a href="consulta-general.html" class="btn-action" style="background: var(--pc-amarillo); color: var(--pc-negro); border: 4px solid var(--pc-negro); padding: 15px 30px; border-radius: 50px; font-weight: 800; font-size: 1.1rem; text-decoration: none; box-shadow: 0 6px 0 var(--pc-negro);">
+                    🩺 Agendar Consulta Médica
+                </a>
+            </div>
+        </div>
+
+        <!-- REFERENCIAS MÉDICAS -->
+        <div style="background: var(--pc-azul-suave); border: 3px dashed var(--pc-negro); padding: 15px; border-radius: 15px; margin: 40px 0;">
+            <p style="font-weight: 800; color: var(--pc-rosa-fuerte); margin-bottom: 5px; font-size: 1.1rem;">🔬 Medicina Basada en Evidencia</p>
+            <p style="font-size: 0.95rem; color: #444; margin-bottom: 10px; font-weight: 600;">La información de esta guía está respaldada por instituciones de prestigio internacional:</p>
+            <ul style="font-size: 0.85rem; color: #555; margin-left: 20px; line-height: 1.4;">
+                <li style="margin-bottom: 8px;"><strong>Mayo Clinic:</strong> Breast cysts - Symptoms and causes.</li>
+                <li style="margin-bottom: 8px;"><strong>American Cancer Society:</strong> Fibrosis and Simple Cysts in the Breast.</li>
+                <li><strong>Colegio Americano de Radiología:</strong> Clasificación y manejo de lesiones BIRADS 2 y 3.</li>
+            </ul>
+        </div>
+
+    </div> <!-- FIN CONTAINER -->
+
+    <script>
+        // Animaciones Iniciales Fade-In
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
+        // Funciones de Pestañas (Tabs)
+        function openTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).style.display = 'block';
+            if (btnElement) {
+                btnElement.classList.add('active');
+                // Scroll suave al inicio del contenedor
+                window.scrollTo({ top: document.querySelector('.tabs-wrapper').offsetTop - 20, behavior: 'smooth' });
+            }
+        }
+    </script>
+    
+    <script src="js/global.js"></script>
+</body>
+</html>

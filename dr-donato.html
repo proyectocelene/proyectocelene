@@ -397,6 +397,77 @@
         .modal textarea:focus {
             border-color: var(--pc-rosa-fuerte);
         }
+
+        /* CERTIFICACIONES INTERACTIVAS */
+        .cert-item {
+            background: var(--pc-gris-suave);
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .cert-item:hover {
+            border-color: var(--pc-negro);
+            background: white;
+        }
+        .cert-header {
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: var(--pc-negro);
+        }
+        .cert-icon {
+            font-size: 0.7rem;
+            transition: transform 0.3s;
+            color: var(--pc-rosa-fuerte);
+            background: var(--pc-rosa-pastell);
+            border-radius: 50%;
+            display: flex;
+            width: 24px; height: 24px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+        .cert-item.active .cert-icon {
+            transform: rotate(180deg);
+            background: var(--pc-rosa-fuerte);
+            color: white;
+        }
+        .cert-item.active {
+            border-color: var(--pc-negro);
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+            background: white;
+        }
+        .cert-body {
+            display: none;
+            padding: 0 15px 15px 15px;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+        }
+        .cert-item.active .cert-body {
+            display: block;
+            animation: popIn 0.3s ease-out;
+        }
+        .cert-body p { margin-bottom: 8px; font-weight: 600; }
+        .cert-body strong { color: var(--pc-negro); }
+        .cert-acreditador { 
+            display: inline-block; 
+            background: var(--pc-amarillo); 
+            padding: 4px 10px; 
+            border-radius: 8px; 
+            border: 2px solid var(--pc-negro); 
+            font-size: 0.8rem; 
+            font-weight: 800;
+            color: var(--pc-negro); 
+            margin-top: 5px;
+        }
     </style>
 </head>
 
@@ -530,19 +601,147 @@
 
         <!-- CERTIFICACIONES Y GALERÍA -->
         <section class="content-section">
-            <h3 class="hand-drawn">Formación y Certificaciones</h3>
-            <ul style="list-style-position: inside; font-weight: 600; color: #444; font-size: 1.05rem;">
-                <li style="margin-bottom: 8px;"><strong>Soporte Vital:</strong> Certificación ATLS (Apoyo Vital Avanzado
-                    en Trauma) y BLS.</li>
-                <li style="margin-bottom: 8px;"><strong>Intervención:</strong> Diplomado en Primeros Auxilios
-                    Psicológicos y Tanatología.</li>
-                <li style="margin-bottom: 8px;"><strong>Salud Reproductiva:</strong> Certificación OPS en Planificación
-                    Familiar e Interrupción Legal del Embarazo.</li>
-                <li style="margin-bottom: 8px;"><strong>Impacto Social:</strong> Certificación ODS en Primeros Auxilios.
-                </li>
-                <li style="margin-bottom: 8px;"><strong>Otras ramas:</strong> Terapia Ocupacional e Investigación en
-                    Trabajo Social.</li>
-            </ul>
+            <h3 class="hand-drawn">Formación y Actualización Médica</h3>
+            <p style="font-weight: 600; margin-bottom: 5px; font-size: 1.1rem; color: #444;">Profesional de la salud en constante actualización. Mis certificaciones están avaladas por la <strong>Organización Panamericana de la Salud (OPS), Secretaría de Salud, CENSIDA, Instituto Nacional de Geriatría e IMSS-BIENESTAR</strong>.</p>
+            <p style="font-size: 0.95rem; color: var(--pc-rosa-fuerte); font-weight: 800; margin-bottom: 25px;">👆 Toca cada certificación para ver los conocimientos adquiridos y su aval oficial.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                <!-- Urgencias y Clínica -->
+                <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-azul-suave);">
+                    <h4 style="color: var(--pc-azul-profundo); font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><span>🚑</span> Urgencias y Clínica</h4>
+                    
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Cuidado avanzado de heridas</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Técnicas clínicas para prevención de infecciones, curación profunda y regeneración tisular en lesiones complejas.</p>
+                            <span class="cert-acreditador">Aval: Gobierno de México e IMSS-BIENESTAR</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Soporte Vital (ATLS/BLS)</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Reanimación cardiopulmonar y manejo avanzado de soporte de vida en trauma.</p>
+                            <span class="cert-acreditador">Aval: American Heart Association / ACS</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Primeros Auxilios Psicológicos</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Contención emocional en crisis, intervención en tanatología y comunicación empática ante diagnósticos difíciles.</p>
+                            <span class="cert-acreditador">Aval: Educación Continua / OPS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Salud Sexual -->
+                <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-rosa-pastell);">
+                    <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><span>🌸</span> Salud Sexual y Reproductiva</h4>
+                    
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Planificación familiar y Métodos</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Beneficios, consejería y prescripción clínica adaptada de métodos anticonceptivos modernos.</p>
+                            <span class="cert-acreditador">Aval: Gobierno de México e IMSS-BIENESTAR</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Corresponsabilidad y Vasectomía</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Involucramiento masculino en la anticoncepción y abordaje de estrategias clínicas para vasectomía sin bisturí.</p>
+                            <span class="cert-acreditador">Aval: Gobierno de México e IMSS-BIENESTAR</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Ed. Sexual Integral en Adolescencias</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Estrategias para abordar el uso de preservativos y prevención libre de estigmas en jóvenes.</p>
+                            <span class="cert-acreditador">Aval: Gobierno de México e IMSS-BIENESTAR</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Certificación en ILE</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Lineamientos clínicos internacionales para interrupción segura del embarazo y derechos reproductivos.</p>
+                            <span class="cert-acreditador">Aval: Organización Panamericana de la Salud</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Virología e ITS -->
+                <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-amarillo);">
+                    <h4 style="color: var(--pc-negro); font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><span>🦠</span> Virología (VIH e ITS)</h4>
+                    
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Consejería en VIH y otras ITS</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Acompañamiento clínico pre y post prueba, notificación empática de resultados y vinculación a tratamiento.</p>
+                            <span class="cert-acreditador">Aval: S. de Salud, CENSIDA e IMSS-BIENESTAR</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Uso seguro de ARV y Hepatitis</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Uso clínico seguro de medicamentos, interacciones farmacológicas y adherencia al tratamiento.</p>
+                            <span class="cert-acreditador">Aval: Secretaría de Salud y CENSIDA</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Prevención de VIH, Hepatitis e ITS</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Profilaxis pre y post exposición (PrEP/PEP), epidemiología y reducción de riesgos en poblaciones vulnerables.</p>
+                            <span class="cert-acreditador">Aval: Secretaría de Salud y CENSIDA</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ PAE: Manejo de Infecciones</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Protocolos de Atención Específica (PAE) para el abordaje primario del VIH y enfermedades de transmisión sexual.</p>
+                            <span class="cert-acreditador">Aval: Gobierno de México e IMSS-BIENESTAR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Geriatría -->
+                <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 #2e7d32;">
+                    <h4 style="color: #1b5e20; font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><span>👴</span> Geriatría y Envejecimiento</h4>
+                    
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ VIH y Envejecimiento</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Intersección clínica entre síndromes geriátricos y el manejo a largo plazo de pacientes que viven con VIH.</p>
+                            <span class="cert-acreditador">Aval: CENSIDA, INGER e IMSS-BIENESTAR</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Longevidad en Movimiento</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Prescripción de ejercicio adaptado y su vínculo fisiológico para la prevención de la sarcopenia y fragilidad.</p>
+                            <span class="cert-acreditador">Aval: S. Salud, INGER e IMSS-BIENESTAR</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Prevención del Abuso en la Vejez</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Identificación clínica de señales de maltrato o negligencia, y protocolos de actuación ante violencia.</p>
+                            <span class="cert-acreditador">Aval: S. Salud, INGER e IMSS-BIENESTAR</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Sexualidad sin Edad</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Combate de estigmas, abordaje de disfunciones y promoción de la salud sexual plena durante la tercera edad.</p>
+                            <span class="cert-acreditador">Aval: S. Salud, INGER e IMSS-BIENESTAR</span>
+                        </div>
+                    </div>
+                    <div class="cert-item" onclick="this.classList.toggle('active')">
+                        <div class="cert-header"><span>✔️ Lucha contra el Edadismo</span> <span class="cert-icon">▼</span></div>
+                        <div class="cert-body">
+                            <p><strong>Enfoque:</strong> Erradicación de estereotipos, prejuicios y discriminación por edad en la atención médica integral.</p>
+                            <span class="cert-acreditador">Aval: S. Salud, INGER e IMSS-BIENESTAR</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="carousel-container">
                 <div class="carousel-track">

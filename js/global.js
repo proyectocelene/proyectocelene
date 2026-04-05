@@ -71,7 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let n = document.getElementById('gwa_nombre').value.trim() || 'No especificado';
         let e = document.getElementById('gwa_edad').value.trim() || '-';
         let d = document.getElementById('gwa_duda').value.trim() || 'Necesito más información.';
-        let msg = `Hola Proyecto Celene 🌸.\nSoy *${n}* (${e} años).\n\nMe contacto para lo siguiente:\n"${d}"`;
+        
+        let pageTitle = document.title;
+        let pageUrl = window.location.href;
+        
+        let msg = `Hola Proyecto Celene 🌸.\nSoy *${n}* (${e} años).\n\nMe contacto desde la sección: *${pageTitle}*\nLink: ${pageUrl}\n\nMi duda es la siguiente:\n"${d}"`;
         window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
         document.getElementById('globalWaModal').style.display = 'none';
     };
