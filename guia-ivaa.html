@@ -9,6 +9,21 @@
     <meta name="robots" content="index, follow">
     <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
 
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/guia-ivaa.html">
+    <meta property="og:title" content="Guía Clínica: Inspección Visual (IVAA) | Proyecto Celene">
+    <meta property="og:description" content="Descubre cómo funciona la 'prueba del vinagrito', una herramienta rápida y segura para proteger tu matriz. Guía interactiva paso a paso.">
+    <!-- WhatsApp y FB requieren la ruta absoluta (completa) a la imagen para poder mostrarla -->
+    <meta property="og:image" content="https://proyectocelene.org/imagenes/gyo/ivaa%20cacu/ivaa%20v1.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/guia-ivaa.html">
+    <meta property="twitter:title" content="Guía Clínica: Inspección Visual (IVAA) | Proyecto Celene">
+    <meta property="twitter:description" content="Descubre cómo funciona la 'prueba del vinagrito', una herramienta rápida y segura para proteger tu matriz. Guía interactiva paso a paso.">
+    <meta property="twitter:image" content="https://proyectocelene.org/imagenes/gyo/ivaa%20cacu/ivaa%20v1.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
 
     <style>
@@ -66,7 +81,8 @@
         
         .step-number { background: var(--pc-negro); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-family: 'Handlee', cursive; font-weight: bold; margin: 0 auto 15px; border: 3px solid var(--pc-blanco); box-shadow: 0 0 0 3px var(--pc-negro); }
         
-        .btn-next { background: var(--pc-rosa-fuerte); color: white; border: 3px solid var(--pc-negro); padding: 12px 25px; border-radius: 50px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.2s; box-shadow: 0 5px 0 var(--pc-negro); margin-top: 20px; font-family: 'Nunito', sans-serif; }
+        .btn-next { background: var(--pc-rosa-fuerte); color: white; border: 3px solid var(--pc-negro); padding: 12px 25px; border-radius: 50px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: 0 5px 0 var(--pc-negro); margin-top: 20px; font-family: 'Nunito', sans-serif; }
+        .btn-next:hover { transform: scale(1.05) translateY(-3px); box-shadow: 0 8px 0 var(--pc-negro); }
         .btn-next:active { transform: translateY(5px); box-shadow: 0 0px 0 var(--pc-negro); }
 
         @keyframes slideIn { 0% { opacity: 0; transform: translateX(30px); } 100% { opacity: 1; transform: translateX(0); } }
@@ -120,6 +136,59 @@
 
         .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* GAMIFICATION CSS ART & ANIMATIONS */
+        .progress-bar-container { width: 100%; max-width: 600px; margin: 0 auto 25px; background: var(--pc-blanco); border: 3px solid var(--pc-negro); border-radius: 50px; height: 30px; overflow: hidden; box-shadow: inset 0 3px 6px rgba(0,0,0,0.1); }
+        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #f06292, #d81b60); width: 20%; transition: width 0.5s cubic-bezier(0.4, 0.0, 0.2, 1); display: flex; align-items: center; justify-content: flex-end; padding-right: 15px; color: white; font-weight: 900; font-family: 'Nunito', sans-serif; font-size: 0.9rem; text-shadow: 1px 1px 0 rgba(0,0,0,0.3); }
+        .floating-img { animation: floatImg 3s ease-in-out infinite; }
+        @keyframes floatImg { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        .pulse-btn { animation: pulseBtn 2s infinite; }
+        @keyframes pulseBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+        /* CSS ART: CERVIX Y ANIMACIONES CLÍNICAS */
+        .art-cervix { width: 120px; height: 120px; background: radial-gradient(circle at 30% 30%, #f8bbd0, #d81b60); border-radius: 50%; position: relative; margin: 20px auto; box-shadow: inset -10px -10px 20px rgba(136, 14, 79, 0.4), 0 10px 15px rgba(0,0,0,0.1); border: 4px solid #ad1457; }
+        .art-cervix.small { width: 55px; height: 55px; border-width: 2px; margin: 0; box-shadow: inset -5px -5px 10px rgba(136, 14, 79, 0.4); }
+        .art-os { width: 24px; height: 12px; background: #4a0018; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-shadow: inset 0 3px 5px rgba(0,0,0,0.5); }
+        .art-cervix.small .art-os { width: 12px; height: 6px; }
+        
+        /* Efecto Acetoblanco */
+        .art-aceto { width: 45px; height: 35px; background: rgba(255,255,255,0.9); border-radius: 40% 60% 50% 40%; position: absolute; top: 25%; left: 20%; filter: blur(2px); opacity: 0; transition: 1s; }
+        .art-cervix.small .art-aceto { width: 22px; height: 18px; filter: blur(1px); top: 20%; left: 15%; }
+        .art-aceto.positive { opacity: 1; box-shadow: 0 0 5px white; }
+        .art-aceto.suspicion { opacity: 1; background: rgba(255,255,255,0.95); width: 60px; height: 50px; border-radius: 30% 70% 40% 60%; box-shadow: 0 0 10px white; top: 15%; left: 15%; }
+        .art-cervix.small .art-aceto.suspicion { width: 30px; height: 25px; top: 10%; left: 10%; }
+        
+        /* Sospecha (Sangrado/Masa) */
+        .art-bleeding { width: 20px; height: 20px; background: #d50000; border-radius: 50%; position: absolute; bottom: 20%; right: 25%; filter: blur(1px); opacity: 0; }
+        .art-cervix.small .art-bleeding { width: 10px; height: 10px; }
+        .art-bleeding.suspicion { opacity: 1; }
+
+        /* Torunda / Hisopo */
+        .art-swab { width: 90px; height: 8px; background: #e2e8f0; position: absolute; top: 10%; right: -50px; border-radius: 4px; transform-origin: right center; opacity: 0; border: 1px solid #94a3b8; z-index: 2; }
+        .art-swab::before { content: ''; width: 25px; height: 20px; background: white; border-radius: 50%; position: absolute; left: -12px; top: -6px; box-shadow: inset -2px -2px 5px rgba(0,0,0,0.1); border: 1px solid #cbd5e1; }
+        
+        /* Espejo Vaginal (Espéculo) */
+        .art-spec-top { width: 100px; height: 16px; background: linear-gradient(to bottom, #f8fafc, #cbd5e1); border: 2px solid #94a3b8; border-radius: 10px; position: absolute; top: -10px; left: -10px; transform: rotate(-20deg); transform-origin: right center; opacity: 0; z-index: 1; }
+        .art-spec-bot { width: 100px; height: 16px; background: linear-gradient(to top, #f8fafc, #cbd5e1); border: 2px solid #94a3b8; border-radius: 10px; position: absolute; bottom: -10px; left: -10px; transform: rotate(20deg); transform-origin: right center; opacity: 0; z-index: 1; }
+
+        /* Animaciones para las Tabs */
+        .anim-magic .art-aceto { animation: magicAceto 3s infinite alternate; }
+        .anim-magic .art-swab { opacity: 1; animation: magicSwab 3s infinite alternate; }
+        @keyframes magicAceto { 0%, 40% { opacity: 0; } 80%, 100% { opacity: 0.9; } }
+        @keyframes magicSwab { 0%, 20% { transform: rotate(10deg) translateX(10px); } 60%, 100% { transform: rotate(-10deg) translateX(-30px); } }
+
+        .anim-step1 .art-spec-top { opacity: 1; animation: specTop 2s forwards; }
+        .anim-step1 .art-spec-bot { opacity: 1; animation: specBot 2s forwards; }
+        @keyframes specTop { 0% { transform: rotate(0deg) translateX(-80px); opacity:0; } 100% { transform: rotate(-20deg) translateX(0); opacity:1; } }
+        @keyframes specBot { 0% { transform: rotate(0deg) translateX(-80px); opacity:0; } 100% { transform: rotate(20deg) translateX(0); opacity:1; } }
+        .anim-step2 .art-spec-top { opacity: 1; transform: rotate(-20deg) translateX(0); } .anim-step2 .art-spec-bot { opacity: 1; transform: rotate(20deg) translateX(0); }
+        .anim-step2 .art-swab { opacity: 1; animation: cleanSwab 1.5s infinite alternate; }
+        @keyframes cleanSwab { 0% { transform: rotate(0deg) translateX(10px); } 100% { transform: rotate(-15deg) translateX(-20px); } }
+        .anim-step3 .art-spec-top { opacity: 1; transform: rotate(-20deg) translateX(0); } .anim-step3 .art-spec-bot { opacity: 1; transform: rotate(20deg) translateX(0); }
+        .anim-step3 .art-swab { opacity: 1; animation: acidSwab 1.5s infinite alternate; } .anim-step3 .art-swab::after { content: '💧'; position: absolute; left: -15px; top: 10px; font-size: 18px; animation: drip 1s infinite; }
+        @keyframes acidSwab { 0% { transform: rotate(-10deg) translateX(-5px); } 100% { transform: rotate(-30deg) translateX(-30px); } } @keyframes drip { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(20px); opacity: 0; } }
+        .anim-step4 .art-spec-top { opacity: 1; transform: rotate(-20deg) translateX(0); } .anim-step4 .art-spec-bot { opacity: 1; transform: rotate(20deg) translateX(0); }
+        .anim-step5 .art-aceto { opacity: 0.8; }
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
@@ -135,6 +204,7 @@
         </div>
 
         <header class="header fade-in">
+            <img src="imagenes/gyo/ivaa cacu/ivaa v1.png" alt="Guía Clínica IVAA" class="floating-img" style="max-width: 100%; width: 350px; margin: 0 auto 20px; display: block; border-radius: 20px; border: 4px solid var(--pc-negro); background: white; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte);">
             <span class="author-badge">🩺 Educación Médica | Proyecto Celene</span>
             <h1 class="hand-drawn">Guía Clínica: Inspección Visual (IVAA) 🔬</h1>
             <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: var(--pc-negro);">Conocida cariñosamente como "la prueba del vinagrito". Descubre cómo funciona esta herramienta rápida y segura para proteger tu matriz.</p>
@@ -152,9 +222,10 @@
         <div id="tab-intro" class="tab-content" style="display: block;">
             <div class="content-box">
                 <h2 class="hand-drawn" style="text-align: center;">¿Qué es la IVAA?</h2>
-                <p>La <strong>Inspección Visual con Ácido Acético (IVAA)</strong> es un estudio de revisión ginecológica para detectar de forma temprana lesiones precancerosas en el cuello de la matriz.</p>
-                <p>Es importante saber que, aunque la IVAA es una prueba específica, se realiza durante una exploración ginecológica completa. Esto nos permite no solo buscar lesiones por VPH, sino también revisar la salud general de tu zona íntima, detectar posibles infecciones, verrugas, y tomar otras muestras si es necesario. Es una revisión integral para mujeres de todas las edades.</p>
-                <p>Es una de las herramientas más importantes recomendadas por la Organización Mundial de la Salud (OMS) porque es económica, segura y, lo mejor de todo: <strong>¡Te da el resultado en tiempo real!</strong> No tienes que esperar semanas por los análisis del laboratorio.</p>
+                <img src="imagenes/gyo/ivaa cacu/ivaa v2 explicacion.png" alt="Explicación IVAA" class="floating-img" style="max-width: 100%; width: 500px; margin: 0 auto 25px; display: block; border-radius: 15px; border: 3px solid var(--pc-negro); box-shadow: 6px 6px 0 var(--pc-azul-suave);">
+            <p>La <strong>Inspección Visual con Ácido Acético (IVAA)</strong> es una revisión ginecológica rápida y segura que nos ayuda a detectar a tiempo células anormales (precancerosas) en el cuello de tu matriz.</p>
+            <p>Durante este estudio, aprovechamos para hacerte una <strong>exploración ginecológica completa</strong>. Así, no solo buscamos lesiones causadas por el Virus del Papiloma Humano (VPH), sino que también revisamos la salud general de tu zona íntima, detectamos posibles infecciones o verruguitas, y tomamos otras muestras si tu cuerpo lo necesita. ¡Es un chequeo integral para mujeres de todas las edades!</p>
+            <p>La Organización Mundial de la Salud (OMS) recomienda muchísimo esta prueba porque es accesible, no duele, es segura y tiene una gran ventaja: <strong>¡Los resultados te los damos al instante!</strong> No tendrás la angustia de esperar semanas por un análisis de laboratorio.</p>
 
                 <div class="grid-cards">
                     <div class="card" style="background: var(--pc-amarillo);">
@@ -186,6 +257,14 @@
                 <div class="info-panel" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); margin-top: 20px;">
                     <h4 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.5rem;">El Efecto "Acetoblanco"</h4>
                     <p style="font-weight: 600;">Cuando el médico rocía una solución diluida de ácido acético (al 3% o 5%) sobre el cuello uterino, el líquido penetra en las células.</p>
+                    
+                    <!-- ANIMACIÓN CSS: CERVIX REACCIONANDO AL ÁCIDO -->
+                    <div class="art-cervix anim-magic">
+                        <div class="art-os"></div>
+                        <div class="art-aceto"></div>
+                        <div class="art-swab"></div>
+                    </div>
+
                     <ul style="margin-left: 20px; margin-top: 15px; font-weight: 600; color: #444;">
                         <li style="margin-bottom: 10px;"><strong>Las Células Sanas:</strong> Tienen pocas proteínas. El líquido simplemente resbala y el tejido se sigue viendo rosado y normal.</li>
                         <li style="margin-bottom: 10px;"><strong>Las Células Enfermas (Por VPH):</strong> Tienen una cantidad enorme de proteínas anormales. El ácido hace que estas proteínas "coagulen" (como cuando cocinas la clara de un huevo).</li>
@@ -221,12 +300,25 @@
                     </ul>
                 </div>
                 
+                <!-- BARRA DE PROGRESO GAMIFICADA -->
+                <div class="progress-bar-container">
+                    <div id="ivaa-progress" class="progress-bar-fill" style="width: 20%;">Paso 1 de 5</div>
+                </div>
+
                 <div class="step-container">
                     
                     <!-- PASO 1 -->
                     <div id="step1" class="step-box active">
                         <div class="step-number">1</div>
                         <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.6rem; margin-bottom: 10px;">Preparación y Exposición</h3>
+                        
+                        <!-- ANIMACIÓN CSS: ESPÉCULO -->
+                        <div class="art-cervix anim-step1">
+                            <div class="art-spec-top"></div>
+                            <div class="art-spec-bot"></div>
+                            <div class="art-os"></div>
+                        </div>
+
                         <p style="font-weight: 600; font-size: 1.1rem; color: #555;">El médico te pedirá que te coloques en la mesa de exploración. Se introduce suavemente un espejo vaginal (espéculo) sin usar lubricantes, ya que estos pueden alterar la prueba. Se ajusta una luz brillante para ver claramente tu cuello uterino.</p>
                         <button class="btn-next" onclick="nextStep(2)">Ver el Siguiente Paso ➔</button>
                     </div>
@@ -235,6 +327,15 @@
                     <div id="step2" class="step-box">
                         <div class="step-number">2</div>
                         <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.6rem; margin-bottom: 10px;">Limpieza Suave</h3>
+                        
+                        <!-- ANIMACIÓN CSS: LIMPIEZA -->
+                        <div class="art-cervix anim-step2">
+                            <div class="art-spec-top"></div>
+                            <div class="art-spec-bot"></div>
+                            <div class="art-os"></div>
+                            <div class="art-swab"></div>
+                        </div>
+
                         <p style="font-weight: 600; font-size: 1.1rem; color: #555;">Con una torunda (bolita de algodón) seca y unas pinzas largas, el doctor limpiará delicadamente cualquier resto de moco cervical, flujo o sangre para tener un área de visión perfecta y limpia.</p>
                         <button class="btn-next" onclick="nextStep(3)">Ver el Siguiente Paso ➔</button>
                     </div>
@@ -243,6 +344,15 @@
                     <div id="step3" class="step-box">
                         <div class="step-number">3</div>
                         <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.6rem; margin-bottom: 10px;">Aplicación del Ácido</h3>
+                        
+                        <!-- ANIMACIÓN CSS: ÁCIDO -->
+                        <div class="art-cervix anim-step3">
+                            <div class="art-spec-top"></div>
+                            <div class="art-spec-bot"></div>
+                            <div class="art-os"></div>
+                            <div class="art-swab"></div>
+                        </div>
+
                         <p style="font-weight: 600; font-size: 1.1rem; color: #555;">Se empapa una torunda limpia con la solución diluida de ácido acético y se aplica empapando generosamente todo el cuello de la matriz. <br><br><span style="color: var(--pc-rosa-fuerte);">*Es normal sentir un ligero frescor o leve ardor, ¡pero no duele!</span></p>
                         <button class="btn-next" onclick="nextStep(4)">Ver el Siguiente Paso ➔</button>
                     </div>
@@ -251,6 +361,13 @@
                     <div id="step4" class="step-box">
                         <div class="step-number">4</div>
                         <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.6rem; margin-bottom: 10px;">El Minuto Clave ⏱️</h3>
+                        
+                        <div class="art-cervix anim-step4">
+                            <div class="art-spec-top"></div>
+                            <div class="art-spec-bot"></div>
+                            <div class="art-os"></div>
+                        </div>
+
                         <p style="font-weight: 600; font-size: 1.1rem; color: #555;">Este es el paso clínico más crítico. El médico <strong>debe esperar 1 minuto completo</strong> mirando el reloj. Si observa antes, podría no ver las lesiones. El ácido necesita esos 60 segundos para reaccionar con las células.</p>
                         <div class="timer-circle"><span>⏳</span></div>
                         <button class="btn-next" onclick="nextStep(5)">Ver el Siguiente Paso ➔</button>
@@ -260,6 +377,13 @@
                     <div id="step5" class="step-box">
                         <div class="step-number">5</div>
                         <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.6rem; margin-bottom: 10px;">Inspección y Retiro</h3>
+                        
+                        <div class="art-cervix anim-step5">
+                            <div class="art-spec-top" style="transform: rotate(0deg); opacity:0.3;"></div>
+                            <div class="art-spec-bot" style="transform: rotate(0deg); opacity:0.3;"></div>
+                            <div class="art-os"></div>
+                        </div>
+
                         <p style="font-weight: 600; font-size: 1.1rem; color: #555;">El doctor examina si hubo algún cambio de color a blanco. Una vez evaluado, retira el exceso de líquido con un algodón limpio (para que no te irrite después) y retira el espéculo. ¡Listo, terminaste!</p>
                         <button class="btn-next" style="background: var(--pc-negro);" onclick="openTab('tab-resultados', document.querySelectorAll('.tab-btn')[3])">Ver posibles resultados ➔</button>
                     </div>
@@ -279,21 +403,30 @@
                 
                 <!-- NEGATIVA -->
                 <div class="card success">
-                    <h4>🟢 IVAA Negativa (Normal)</h4>
+                    <h4 style="display: flex; align-items: center; gap: 15px;">
+                        <div class="art-cervix small"><div class="art-os"></div></div>
+                        🟢 IVAA Negativa (Normal)
+                    </h4>
                     <p style="font-weight: 600; color: #444; margin-bottom: 10px;"><strong>Lo que se ve:</strong> El cuello uterino sigue liso y de color rosado brillante. No hay manchas blancas gruesas. (Puede haber líneas blanquitas muy tenues que son naturales por inflamación, pero no son peligrosas).</p>
                     <p style="font-size: 0.95rem; background: #e8f5e9; padding: 10px; border-radius: 8px;"><strong>Acción:</strong> ¡Estás sana! Se recomienda regresar a tu tamizaje de rutina (repetir en 3 a 5 años según tu edad).</p>
                 </div>
 
                 <!-- POSITIVA -->
                 <div class="card warning">
-                    <h4>🟡 IVAA Positiva (Alerta Precancerosa)</h4>
+                    <h4 style="display: flex; align-items: center; gap: 15px;">
+                        <div class="art-cervix small"><div class="art-os"></div><div class="art-aceto positive"></div></div>
+                        🟡 IVAA Positiva (Alerta Precancerosa)
+                    </h4>
                     <p style="font-weight: 600; color: #444; margin-bottom: 10px;"><strong>Lo que se ve:</strong> Aparecen áreas de color blanco-ostra opacas y densas, con bordes muy bien marcados que tocan la zona central (Zona de Transformación).</p>
                     <p style="font-size: 0.95rem; background: #fff3e0; padding: 10px; border-radius: 8px;"><strong>Acción:</strong> Requiere tratamiento. La ventaja es que aquí se aplica el modelo <em>"Ver y Tratar"</em>: El médico puede congelar o aplicar calor (crioterapia/termocoagulación) a la lesión en esa misma visita para destruirla antes de que se vuelva cáncer.</p>
                 </div>
 
                 <!-- SOSPECHA -->
                 <div class="card danger">
-                    <h4>🔴 Sospecha Clínica</h4>
+                    <h4 style="display: flex; align-items: center; gap: 15px;">
+                        <div class="art-cervix small"><div class="art-os"></div><div class="art-aceto suspicion"></div><div class="art-bleeding suspicion"></div></div>
+                        🔴 Sospecha Clínica
+                    </h4>
                     <p style="font-weight: 600; color: #444; margin-bottom: 10px;"><strong>Lo que se ve:</strong> Presencia de una masa abultada (en forma de coliflor) que sangra al tacto, o un color blanco extremadamente denso con vasos sanguíneos anormales visibles.</p>
                     <p style="font-size: 0.95rem; background: #ffebee; padding: 10px; border-radius: 8px;"><strong>Acción:</strong> El médico NO realizará tratamientos rápidos aquí. Te derivará de forma urgente a Ginecología Oncológica para realizar una biopsia especializada.</p>
                 </div>
@@ -339,47 +472,32 @@
                 <p style="font-size: 0.95rem; color: #555; font-weight: 600;">⚠️ <strong>Importante:</strong> Este procedimiento se realiza posterior a una <a href="consulta-general.html" style="color: var(--pc-rosa-fuerte); font-weight: 800;">Consulta Médica de valoración</a> (no incluida) para determinar si eres candidata y no existen contraindicaciones.</p>
             </div>
             
-            <!-- Botón Calendario Google -->
-            <div style="text-align: center; display: flex; justify-content: center;">
-                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-                <script>
-                (function() {
-                  var target = document.currentScript;
-                  window.addEventListener('load', function() {
-                    calendar.schedulingButton.load({
-                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
-                      color: '#d81b60',
-                      label: '🗓️ Consultar horarios y Agendar',
-                      target,
-                    });
-                  });
-                })();
-                </script>
+            <!-- Botón Agenda a Reservar Consulta -->
+            <div style="text-align: center; display: flex; justify-content: center; margin-bottom: 20px;">
+                <a href="reservar-consulta.html" class="calendar-btn">
+                    <div class="calendar-icon">
+                        <div class="calendar-top"></div>
+                        <div class="calendar-date date-today">--</div>
+                    </div>
+                    <span>Consultar horarios disponibles y agendar en línea</span>
+                </a>
             </div>
-            <!-- Ajuste CSS para unificar Google Btn -->
-            <style>
-                .X81W0b { border: 4px solid var(--pc-negro) !important; font-family: 'Nunito', sans-serif !important; font-weight: 800 !important; border-radius: 50px !important; padding: 15px 20px !important; box-shadow: 0 6px 0 var(--pc-negro) !important; font-size: 1.1rem !important; }
-                .X81W0b:active { box-shadow: 0 0 0 transparent !important; transform: translateY(6px); }
-            </style>
 
             <div style="margin-top: 20px;">
                 <p style="font-weight: 800; font-size: 1.2rem; color: var(--pc-negro); margin-bottom: 10px;">¿Tienes más dudas?</p>
                 <button onclick="openModal('modalWaIvaa')" class="btn-action" style="background: var(--pc-verde); color: white; box-shadow: 0 4px 0 #1b9c4b;">Enviar WhatsApp 💬</button>
             </div>
         </div>
-
-        <!-- MODAL WHATSAPP -->
-        <div id="modalWaIvaa" class="modal" onclick="closeOnOutside(event, 'modalWaIvaa')">
-            <div class="modal-content">
-                <span class="close-modal" onclick="closeModal('modalWaIvaa')">✕</span>
-                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:2rem; margin-bottom:15px; line-height: 1.1;">Dudas sobre IVAA 💬</h3>
-                <p style="margin-bottom:20px; font-weight: 600; color: #555;">Llena tus datos para que el Dr. Donato pueda darte una atención más personalizada.</p>
-                <input type="text" id="ivaa_nombre" placeholder="Tu Nombre Completo">
-                <input type="number" id="ivaa_edad" placeholder="Tu Edad">
-                <textarea id="ivaa_duda" rows="3" placeholder="Escribe aquí tu duda o comentario..."></textarea>
-                <button onclick="sendIvaaWa()" class="btn-action" style="width:100%; background: var(--pc-verde); color: white; box-shadow: 0 4px 0 #1b9c4b;">Enviar a WhatsApp 📲</button>
-            </div>
+        
+        <!-- Referencias al Final -->
+        <div style="background: var(--pc-azul-suave); border: 3px dashed var(--pc-negro); padding: 15px; border-radius: 15px; margin: 40px 0;">
+            <p style="font-weight: 800; color: var(--pc-rosa-fuerte); margin-bottom: 5px; font-size: 1.1rem;">🔬 Medicina Basada en Evidencia</p>
+            <p style="font-size: 0.95rem; color: #444; margin-bottom: 10px; font-weight: 600;">En Proyecto Celene no adivinamos con tu salud. Todo nuestro protocolo médico está estrictamente sustentado en guías científicas mundiales. Puedes consultar nuestras fuentes aquí:</p>
+            <ul style="font-size: 0.85rem; color: #555; margin-left: 20px; line-height: 1.4;">
+                <li style="margin-bottom: 8px;"><strong>IARC / OMS (2020):</strong> <a href="https://publications.iarc.who.int/Databases/Iarc-Cancerbases/Atlas-Of-Visual-Inspection-Of-The-Cervix-With-Acetic-Acid-For-Screening-Triage-And-Assessment-For-Treatment-2020" target="_blank" style="color: var(--pc-rosa-fuerte); font-weight: bold; text-decoration: none;">Atlas of visual inspection of the cervix with acetic acid</a>.</li>
+                <li style="margin-bottom: 8px;"><strong>Organización Mundial de la Salud:</strong> <a href="https://www.who.int/publications/i/item/monitoring-national-cervical-cancer-prevention-and-control-programmes" target="_blank" style="color: var(--pc-rosa-fuerte); font-weight: bold; text-decoration: none;">Monitoring national cervical cancer prevention programmes</a>.</li>
+                <li><strong>National Library of Medicine (2011):</strong> Mustafa MS, Jindal AK, Singh PMP. <em>Visual Inspection using Acetic Acid for Cervical Cancer in Low Resource Settings</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4919830/" target="_blank" style="color: var(--pc-rosa-fuerte); font-weight: bold; text-decoration: none;">Ver artículo completo</a>.</li>
+            </ul>
         </div>
 
         <!-- MODAL WHATSAPP -->
@@ -430,6 +548,14 @@
         function nextStep(stepNumber) {
             document.querySelectorAll('.step-box').forEach(el => el.classList.remove('active'));
             document.getElementById('step' + stepNumber).classList.add('active');
+            
+            // Actualizar barra de progreso gamificada
+            let pct = (stepNumber / 5) * 100;
+            let prog = document.getElementById('ivaa-progress');
+            if(prog) {
+                prog.style.width = pct + '%';
+                prog.innerHTML = 'Paso ' + stepNumber + ' de 5';
+            }
         }
 
         // MODAL WHATSAPP
