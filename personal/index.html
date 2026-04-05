@@ -8,6 +8,13 @@
     <!-- MUY IMPORTANTE: Evita que los buscadores muestren esta página al público -->
     <meta name="robots" content="noindex, nofollow">
     
+    <!-- PWA: Etiquetas para que sea instalable como App en celulares -->
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -61,7 +68,6 @@
                     <p class="text-sm text-slate-500 mb-4">Guías de tratamiento interactivas y toma de decisiones paso a paso.</p>
                     <ul class="space-y-3">
                         <li>
-                            <!-- Aquí está enlazada tu página del resfriado común -->
                             <a href="algoritmos/resfriado-comun.html" class="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-100 hover:border-blue-200 text-sm font-semibold text-slate-700 hover:text-blue-700 transition-colors group shadow-sm">
                                 <span class="flex items-center gap-2">
                                     <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
@@ -70,7 +76,6 @@
                                 <span class="text-blue-400 group-hover:translate-x-1 transition-transform">➔</span>
                             </a>
                         </li>
-                        <!-- Espacio para el próximo que crees -->
                         <li>
                             <div class="flex items-center justify-center p-3 rounded-lg border-2 border-dashed border-slate-200 text-sm font-medium text-slate-400">
                                 <span>+ Próximamente más guías</span>
@@ -80,18 +85,27 @@
                 </div>
             </div>
 
-            <!-- Categoría 2: Formularios (Para el futuro) -->
+            <!-- Categoría 2: Herramientas de Gestión -->
             <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
                 <div class="bg-slate-50 border-b border-slate-100 p-4">
                     <h3 class="font-bold text-slate-800 text-lg flex items-center gap-2">
-                        <span class="text-2xl">📋</span> Formularios y Consentimientos
+                        <span class="text-2xl">⚙️</span> Herramientas Administrativas
                     </h3>
                 </div>
                 <div class="p-5">
-                    <p class="text-sm text-slate-500 mb-4">Formatos de historia clínica, consentimientos informados y referencias.</p>
-                    <div class="flex items-center justify-center p-6 rounded-lg border-2 border-dashed border-slate-200 bg-slate-50">
-                        <span class="text-sm font-medium text-slate-400">En construcción 🚧</span>
-                    </div>
+                    <p class="text-sm text-slate-500 mb-4">Aplicaciones y calculadoras para la administración del consultorio y pacientes.</p>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="herramientas/generar-recibos.html" class="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-100 hover:border-blue-200 text-sm font-semibold text-slate-700 hover:text-blue-700 transition-colors group shadow-sm">
+                                <span class="flex items-center gap-2">
+                                    <!-- Icono Recibo -->
+                                    <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                    Generador de Recibos PWA
+                                </span>
+                                <span class="text-blue-400 group-hover:translate-x-1 transition-transform">➔</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -120,6 +134,29 @@
             </a>
         </div>
 
+        <!-- Banner Instalación App PWA -->
+        <div id="pwa-install-card" class="hidden mt-8 bg-blue-600 rounded-2xl shadow-lg border border-blue-500 p-6 text-white flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-2 rounded-full shadow-sm"><img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Logo" class="w-10 h-10"></div>
+                <div>
+                    <h4 class="font-bold text-lg">Instalar Portal Celene</h4>
+                    <p class="text-blue-100 text-sm">Añade este portal a tu pantalla de inicio para acceso rápido tipo App.</p>
+                </div>
+            </div>
+            <button id="btn-instalar-pwa" class="bg-white text-blue-700 font-bold py-2 px-6 rounded-xl shadow-md hover:bg-blue-50 transition-colors w-full sm:w-auto">Instalar</button>
+        </div>
+
     </main>
+
+    <!-- Lógica de Instalación PWA (Service Worker) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../sw.js')
+                    .then(reg => console.log('SW Registrado en Portal Personal', reg))
+                    .catch(err => console.warn('Error SW', err));
+            });
+        }
+    </script>
 </body>
 </html>
