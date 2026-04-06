@@ -116,6 +116,10 @@
                 <input type="text" id="ipt-nombre" placeholder="Ej. Ana López">
             </div>
             <div class="input-group">
+                <label>Número de WhatsApp (Opcional):</label>
+                <input type="tel" id="ipt-whatsapp" placeholder="Ej. 5512345678">
+            </div>
+            <div class="input-group">
                 <label>Edad (Años):</label>
                 <input type="number" id="ipt-edad" placeholder="Ej. 45" min="18" max="100">
             </div>
@@ -182,7 +186,11 @@
                     <span class="rc-field">Edad:</span>
                     <span class="rc-value" id="rc-edad">-</span>
                 </div>
-                <div style="grid-column: span 2;">
+                <div>
+                    <span class="rc-field">WhatsApp:</span>
+                    <span class="rc-value" id="rc-whatsapp">-</span>
+                </div>
+                <div>
                     <span class="rc-field">Fecha de Estudio:</span>
                     <span class="rc-value" id="rc-fecha">-</span>
                 </div>
@@ -258,6 +266,7 @@
 
         function interpretarResultados() {
             let nombre = document.getElementById('ipt-nombre').value.trim() || 'Paciente';
+            let whatsapp = document.getElementById('ipt-whatsapp').value.trim();
             let edad = parseInt(document.getElementById('ipt-edad').value);
             let fecha = document.getElementById('ipt-fecha').value;
             let birads = document.getElementById('ipt-birads').value;
@@ -336,6 +345,7 @@
             // Llenar Report Card
             document.getElementById('rc-nombre').innerText = nombre;
             document.getElementById('rc-edad').innerText = edad + " años";
+            document.getElementById('rc-whatsapp').innerText = whatsapp || 'No especificado';
             let f = new Date(fecha); f.setMinutes(f.getMinutes() + f.getTimezoneOffset());
             document.getElementById('rc-fecha').innerText = f.toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
             
@@ -357,6 +367,7 @@
         function enviarWa() {
             let nombre = document.getElementById('rc-nombre').innerText;
             let edad = document.getElementById('rc-edad').innerText;
+            let whatsapp = document.getElementById('rc-whatsapp').innerText;
             let fecha = document.getElementById('rc-fecha').innerText;
             let densidad = document.getElementById('rc-densidad').innerText;
             let riesgo = document.getElementById('rc-riesgo').innerText;
@@ -365,18 +376,30 @@
             let rec = document.getElementById('rc-recomendacion').innerText;
             let prox = document.getElementById('rc-proximo').innerText;
 
-            let msg = `*REPORTE CLÍNICO - MASTOGRAFÍA*%0A%0A`;
-            msg += `👤 Paciente: ${nombre} (${edad})%0A`;
-            msg += `📅 Fecha del Estudio: ${fecha}%0A%0A`;
-            msg += `🧬 Densidad: ${densidad}%0A`;
-            msg += `⚠️ Riesgo: ${riesgo}%0A%0A`;
-            msg += `🚨 *RESULTADO: ${birads}*%0A`;
-            msg += `_¿Qué significa?:_ ${sig}%0A%0A`;
-            msg += `👩‍⚕️ *ACCIÓN MÉDICA:*%0A${rec}%0A%0A`;
-            msg += `⏳ *Próximo Estudio:* ${prox}%0A%0A`;
+            let msg = `*REPORTE CLÍNICO - MASTOGRAFÍA*\n\n`;
+            msg += `👤 Paciente: ${nombre} (${edad})\n`;
+            msg += `📅 Fecha del Estudio: ${fecha}\n\n`;
+            msg += `🧬 Densidad: ${densidad}\n`;
+            msg += `⚠️ Riesgo: ${riesgo}\n\n`;
+            msg += `🚨 *RESULTADO: ${birads}*\n`;
+            msg += `_¿Qué significa?:_ ${sig}\n\n`;
+            msg += `👩‍⚕️ *ACCIÓN MÉDICA:*\n${rec}\n\n`;
+            msg += `⏳ *Próximo Estudio:* ${prox}\n\n`;
             msg += `_Generado vía Herramientas Clínicas Proyecto Celene🌸_`;
             
-            window.open(`https://wa.me/526611044050?text=${msg}`, '_blank');
+            // Codificamos el mensaje para que los emojis y acentos se envíen correctamente
+            let encodedMsg = encodeURIComponent(msg);
+            
+            // Limpiamos el número de WhatsApp (quitamos espacios, guiones, etc.)
+            let cleanNumber = whatsapp.replace(/\D/g, '');
+            
+            // Si el número tiene 10 dígitos (formato México), le agregamos el código de país 52
+            if (cleanNumber.length === 10) {
+                cleanNumber = '52' + cleanNumber;
+            }
+            
+            // Si hay número abrirá el chat con ese paciente. Si está vacío (no especificado), abrirá tus contactos.
+            window.open(`https://wa.me/${cleanNumber}?text=${encodedMsg}`, '_blank');
         }
     </script>
     
