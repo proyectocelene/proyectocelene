@@ -1,0 +1,17 @@
+{
+  "name": "Sistema Celene - Recibos",
+  "short_name": "Celene Recibos",
+  "description": "Sistema de generación de recibos para Proyecto Celene.",
+  "start_url": "generar-recibos.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "icons": [
+    {
+      "src": "pwa-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Salud Sexual Integral | Proyecto Celene</title>
+    <meta name="description"
+        content="Evalúa tus prácticas, detecta riesgos y recibe orientación médica gratuita y sin juicios enviando tus resultados a Proyecto Celene.">
+    <meta name="author" content="Dr. Carlos Donato">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://proyectocelene.org/cuestionario-salud-sexual.html">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/cuestionario-salud-sexual.html">
+    <meta property="og:title" content="Cuestionario de Salud Sexual Integral | Proyecto Celene">
+    <meta property="og:description" content="Evalúa tus prácticas, detecta riesgos y recibe orientación médica gratuita y sin juicios.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde: #25d366;
+            --pc-gris-suave: #f9f9f9;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-amarillo); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); position: relative; overflow: hidden; }
+        .header h1 { font-size: 2.8rem; color: var(--pc-negro); margin-bottom: 10px; line-height: 1.1; }
+
+        .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 15px 30px; border-radius: 50px; border: 4px solid var(--pc-negro); font-weight: 800; font-size: 1.1rem; background: var(--pc-negro); color: white; box-shadow: 0 6px 0 #000; cursor: pointer; font-family: 'Nunito', sans-serif; transition: 0.1s; text-decoration: none; width: 100%; }
+        .btn:active { transform: translateY(6px); box-shadow: 0 0 0 transparent; }
+        .btn-wa { background: var(--pc-verde); box-shadow: 0 6px 0 #1b9c4b; color: white; }
+
+        .quiz-box { background: white; padding: 25px; border-radius: 20px; border: 4px solid var(--pc-negro); margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-azul-suave); }
+        .quiz-box h3 { font-family: 'Handlee', cursive; font-size: 1.6rem; color: var(--pc-rosa-fuerte); }
+
+        .form-group { margin-bottom: 20px; padding: 15px; border-radius: 15px; transition: all 0.3s ease; border: 2px solid transparent; }
+        .form-group:hover, .form-group:focus-within { background: rgba(255, 255, 255, 0.8); border-color: var(--pc-negro); box-shadow: 4px 4px 0 var(--pc-rosa-pastell); transform: scale(1.02); z-index: 10; position: relative;}
+        .form-group label { display: block; font-weight: 900; margin-bottom: 8px; color: var(--pc-negro); font-size: 1.1rem; }
+        .form-control { width: 100%; padding: 12px 15px; border: 3px solid var(--pc-negro); border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.2s; background: var(--pc-gris-suave); box-shadow: inset 3px 3px 6px rgba(0,0,0,0.05); }
+        .form-control:focus { border-color: var(--pc-rosa-fuerte); background: white; }
+
+        /* PILDORAS INTERACTIVAS (CHECKBOX/RADIOS) */
+        .pill-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        .pill-label { flex: 1; min-width: 150px; background: white; border: 3px solid var(--pc-negro); padding: 12px 15px; border-radius: 12px; cursor: pointer; font-weight: 800; transition: all 0.1s; text-align: center; box-shadow: 4px 4px 0 var(--pc-azul-suave); color: var(--pc-negro); font-size: 0.95rem; display: flex; align-items: center; justify-content: center; user-select: none; transform: translateY(0); }
+        .pill-label input { display: none; }
+        .pill-label:active, .pill-label.active-pill { background: var(--pc-rosa-fuerte) !important; color: white !important; border-color: var(--pc-negro); box-shadow: 0 0 0 transparent; transform: translateY(4px); }
+        
+        @media (max-width: 600px) {
+            .pill-label { min-width: 100%; text-align: left; justify-content: flex-start; }
+        }
+
+        /* SLIDERS (PLEASUREMETER) */
+        .slider-group { margin-bottom: 20px; }
+        .slider-group label { font-weight: 800; display: flex; justify-content: space-between; margin-bottom: 5px; color: var(--pc-negro); }
+        .slider { -webkit-appearance: none; width: 100%; height: 10px; border-radius: 5px; background: var(--pc-gris-suave); border: 2px solid var(--pc-negro); outline: none; opacity: 0.9; transition: opacity .2s; }
+        .slider:hover { opacity: 1; }
+        .slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 25px; height: 25px; border-radius: 50%; background: var(--pc-rosa-fuerte); cursor: pointer; border: 3px solid var(--pc-negro); }
+        .slider::-moz-range-thumb { width: 25px; height: 25px; border-radius: 50%; background: var(--pc-rosa-fuerte); cursor: pointer; border: 3px solid var(--pc-negro); }
+
+        /* CAJAS DE RETROALIMENTACIÓN MEDICA */
+        .feedback-alert { background: #fff3e0; border-left: 5px solid #f57f17; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
+        .feedback-info { background: #e3f2fd; border-left: 5px solid #1565c0; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
+        .feedback-warning { background: #fff9c4; border-left: 5px solid #fbc02d; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
+        .feedback-danger { background: #ffebee; border-left: 5px solid #c62828; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
+        .feedback-success { background: #e8f5e9; border-left: 5px solid #2e7d32; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
+
+        /* FEEDBACK INMEDIATO Y COMENTARIOS */
+        .fb-info { background: #e3f2fd; border-left: 4px solid #3b82f6; color: #1e3a8a; }
+        .fb-success { background: #e8f5e9; border-left: 4px solid #22c55e; color: #14532d; }
+        .fb-warning { background: #fffbeb; border-left: 4px solid #f59e0b; color: #92400e; }
+        .fb-alert { background: #fef2f2; border-left: 4px solid #ef4444; color: #7f1d1d; }
+        .mt-3 { margin-top: 12px; }
+        .p-3 { padding: 12px; }
+        .rounded-lg { border-radius: 8px; }
+        .text-sm { font-size: 0.875rem; }
+        .font-semibold { font-weight: 600; }
+        .add-comment-btn { background: none; border: none; color: var(--pc-rosa-fuerte); font-weight: 800; font-size: 0.85rem; cursor: pointer; text-decoration: underline; margin-top: 8px; transition: 0.2s; }
+        .comment-input { display: none; margin-top: 8px; font-size: 0.9rem; padding: 8px 12px; }
+
+        /* CARITAS DEL PLEASUREMETER */
+        .slider-row { display: flex; align-items: center; gap: 20px; }
+        .face-emoji {
+            font-size: 3rem;
+            line-height: 1;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1));
+        }
+
+        /* VIOLENTOMETRO GRID */
+        .v-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; margin-top: 15px; }
+        .v-item { display: flex; align-items: flex-start; gap: 10px; background: white; border: 2px solid #ccc; padding: 10px 15px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: 0.2s; }
+        .v-item input { margin-top: 3px; transform: scale(1.2); }
+        .v-item:hover { border-color: var(--pc-negro); }
+        .v-yellow { background: #fffde7; border-color: #fbc02d; }
+        .v-orange { background: #fff3e0; border-color: #f57c00; }
+        .v-red { background: #ffebee; border-color: #c62828; }
+        .v-yellow:has(input:checked) { background: #fbc02d; color: var(--pc-negro); border-color: var(--pc-negro); }
+        .v-orange:has(input:checked) { background: #f57c00; color: white; border-color: var(--pc-negro); }
+        .v-red:has(input:checked) { background: #c62828; color: white; border-color: var(--pc-negro); }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ANIMACIONES DE ICONOS DE SECCIÓN */
+        .section-header-flex { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; border-bottom: 2px dashed #ccc; padding-bottom: 10px; }
+        .section-header-flex h3 { margin-bottom: 0; border-bottom: none; padding-bottom: 0; flex-grow: 1; }
+        .icon-anim { font-size: 3rem; filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.1)); }
+        
+        .float-anim { animation: floatIcon 3s ease-in-out infinite; }
+        @keyframes floatIcon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        
+        .pulse-anim { animation: pulseIcon 2s infinite; }
+        @keyframes pulseIcon { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+        .wiggle-anim { animation: wiggleIcon 2.5s infinite; }
+        @keyframes wiggleIcon { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
+
+        .heartbeat-anim { animation: heartbeatIcon 1.5s infinite; }
+        @keyframes heartbeatIcon { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.2); } 30% { transform: scale(1); } 45% { transform: scale(1.2); } }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
+            <a href="recursos-educativos.html" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; width: auto;">
+                ⬅️ Volver a Recursos Educativos
+            </a>
+        </div>
+
+        <header class="header fade-in">
+            <div style="text-align: center; margin-bottom: 15px;"><span style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-rosa-fuerte));">📝</span></div>
+            <h1 class="hand-drawn">Cuestionario de Salud Sexual Integral</h1>
+            <div style="background: var(--pc-blanco); border: 3px dashed var(--pc-rosa-fuerte); padding: 15px; border-radius: 15px; margin: 15px auto; max-width: 700px; box-shadow: 4px 4px 0 var(--pc-rosa-pastell);">
+                <p style="font-weight: 900; font-size: 1.2rem; color: var(--pc-rosa-fuerte); margin-bottom: 5px;">🎁 ¡Tienes derecho a Atención Médica Gratuita!</p>
+                <p style="font-weight: 600; font-size: 1.05rem; color: var(--pc-negro);">Contesta este cuestionario para evaluar tu bienestar integral y recibe <strong>orientación médica profesional personalizada</strong> sin costo alguno.</p>
+            </div>
+            <p style="font-weight:800; font-size:1.1rem; max-width: 700px; margin: 0 auto; color: #444;">No te juzgaremos, toda tu información es 100% confidencial. Este es un espacio seguro para cuidar de tu salud física y emocional.</p>
+        </header>
+
+            <!-- SECCIÓN 1 -->
+            <div class="quiz-box fade-in">
+                <div class="section-header-flex">
+                    <div class="icon-anim float-anim">📚</div>
+                    <h3>SECCIÓN 1: Perfil y Educación</h3>
+                </div>
+                <p style="color: #555; margin-bottom: 20px; font-weight: 600;">¿De dónde aprendimos?</p>
+                
+                <div class="form-group">
+                    <label>1. Edad:</label>
+                    <input type="number" id="q1_edad" placeholder="Edad en años" class="form-control" style="max-width: 150px;">
+                </div>
+
+                <div class="form-group">
+                    <label>2. Sexo asignado al nacer (para adaptar tu cuestionario):</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q2" value="Mujer" onchange="adaptarCuestionario()"> Mujer (Vulva)</label>
+                        <label class="pill-label"><input type="radio" name="q2" value="Hombre" onchange="adaptarCuestionario()"> Hombre (Pene)</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>3. ¿Cuál es tu orientación sexual? (Hacia quién sientes atracción)</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q3" value="Heterosexual"> Heterosexual</label>
+                        <label class="pill-label"><input type="radio" name="q3" value="Homosexual / Gay / Lesbiana"> Homosexual / Gay</label>
+                        <label class="pill-label"><input type="radio" name="q3" value="Bisexual / Pansexual"> Bisexual / Pansexual</label>
+                        <label class="pill-label"><input type="radio" name="q3" value="Otra / Prefiero no decirlo"> Otra / No lo sé</label>
+                    </div>
+                    <div id="fb_q3" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q3').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q3" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>4. Si haces memoria, ¿cuál fue tu principal fuente de "educación sexual" mientras crecías? (Puedes marcar varias)</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="checkbox" name="q4" value="Escuela y padres"> La escuela y mis padres</label>
+                        <label class="pill-label"><input type="checkbox" name="q4" value="Amigos y calle"> Los amigos y la calle</label>
+                        <label class="pill-label"><input type="checkbox" name="q4" value="Internet y pornografía"> Internet y pornografía</label>
+                        <label class="pill-label"><input type="checkbox" name="q4" value="Los silencios (Tema prohibido)"> Los "silencios" (Tema prohibido)</label>
+                    </div>
+                    <div id="fb_q4" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q4').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q4" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>5. Sobre el consumo de pornografía, ¿cuál crees que ha sido su impacto en ti? (Puedes marcar varias)</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="checkbox" name="q5" value="Expectativas irreales"> Crea expectativas irreales sobre mi cuerpo</label>
+                        <label class="pill-label"><input type="checkbox" name="q5" value="Sexo agresivo"> Creí que el sexo debe ser agresivo</label>
+                        <label class="pill-label"><input type="checkbox" name="q5" value="Sé distinguir la fantasía"> Sé distinguir la fantasía de la realidad</label>
+                        <label class="pill-label"><input type="checkbox" name="q5" value="No consumo"> No consumo</label>
+                    </div>
+                    <div id="fb_q5" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q5').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q5" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>5b. ¿Qué tipo de contenido para adultos (pornografía) suele interesarte más? (Puedes marcar varias)</label>
+                    <div style="background: var(--pc-amarillo); border: 2px dashed #f57f17; padding: 12px; border-radius: 10px; margin-bottom: 15px; font-size: 0.9rem; color: #555;">
+                        <strong>💡 Dato Cultural:</strong> Las búsquedas más comunes en México reflejan tabúes o dinámicas de poder (como "madastras", "colegialas" o "rudo"). Identificar qué te gusta te ayuda a entender si la ficción está moldeando tus expectativas reales. ¡Nadie te juzgará!
+                    </div>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="checkbox" name="q5b" value="Amateur/Casero"> Amateur / Casero</label>
+                        <label class="pill-label"><input type="checkbox" name="q5b" value="Hardcore/Rudo"> Hardcore / Dominación</label>
+                        <label class="pill-label"><input type="checkbox" name="q5b" value="Tabúes"> Tabúes (Fantasías familiares/edad)</label>
+                        <label class="pill-label"><input type="checkbox" name="q5b" value="Sensual/Romántico"> Sensual / Romántico</label>
+                        <label class="pill-label"><input type="checkbox" name="q5b" value="Tríos/Orgías"> Tríos / Orgías / Swingers</label>
+                        <label class="pill-label"><input type="checkbox" name="q5b" value="Hentai/Animado"> Hentai / Animado / IA</label>
+                        <label class="pill-label"><input type="checkbox" name="q5b" value="Fetiches"> Fetiches específicos (Pies, BDSM)</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave);"><input type="checkbox" name="q5b" value="No consumo"> No consumo</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2 -->
+            <div class="quiz-box fade-in">
+                <div class="section-header-flex">
+                    <div class="icon-anim wiggle-anim">🔍</div>
+                    <h3>SECCIÓN 2: Anatomía y Salud Reproductiva</h3>
+                </div>
+                <p style="color: #555; margin-bottom: 20px; font-weight: 600;">El autoconocimiento es el primer paso hacia la prevención.</p>
+                
+                <div id="placeholder-anatomia" style="text-align: center; padding: 20px; background: var(--pc-amarillo); border: 2px dashed var(--pc-negro); border-radius: 10px; font-weight: 800;">
+                    👆 Por favor selecciona tu Sexo en la Sección 1 para ver las preguntas adaptadas a tu cuerpo.
+                </div>
+
+                <!-- PREGUNTAS HOMBRES -->
+                <div id="sec-hombre" style="display: none;">
+                <div class="form-group">
+                    <label>6. Al retraer o bajar la piel (prepucio) que cubre la cabeza del pene, ¿qué sucede?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="qh1" value="A: Baja sin problema"> Baja sin problema</label>
+                        <label class="pill-label"><input type="radio" name="qh1" value="B: Fimosis (duele o no baja bien)"> Me duele, está tenso o no baja por completo</label>
+                        <label class="pill-label"><input type="radio" name="qh1" value="C: Circuncidado"> Estoy circuncidado</label>
+                    </div>
+                    <div id="fb_qh1" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_qh1').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_qh1" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>7. ¿Alguna vez, al masturbarte o tener relaciones, has sentido un desgarre o has sangrado del pene (frenillo corto)?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="qh2" value="A: Sí (Sangrado/Desgarre)"> Sí, me ha pasado y asusta</label>
+                        <label class="pill-label"><input type="radio" name="qh2" value="B: A veces duele"> Sí, a veces duele pero pensé que era normal</label>
+                        <label class="pill-label"><input type="radio" name="qh2" value="C: Nunca"> Nunca ha sangrado ni dolido</label>
+                    </div>
+                    <div id="fb_qh2" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_qh2').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_qh2" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>8. ¿Experimentas dolor en los testículos, ardor al orinar o molestias intensas al eyacular?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="qh3" value="A: Sí"> Sí, me pasa frecuentemente</label>
+                        <label class="pill-label"><input type="radio" name="qh3" value="B: A veces"> Alguna vez me ha pasado</label>
+                        <label class="pill-label"><input type="radio" name="qh3" value="C: Nunca"> No, nunca</label>
+                    </div>
+                    <div id="fb_qh3" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_qh3').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_qh3" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+                </div>
+
+                <!-- PREGUNTAS MUJERES -->
+                <div id="sec-mujer" style="display: none;">
+                <div class="form-group">
+                    <label>6. ¿Sabías que anatómicamente el 75%-80% de las mujeres NO alcanzan el orgasmo solo con penetración y necesitan estimulación directa en el clítoris?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="qm1" value="A: Lo sé y aplico"> Sí, lo sabía y lo aplico/comunico</label>
+                        <label class="pill-label"><input type="radio" name="qm1" value="B: No sabía"> No lo sabía / Pensé que era un problema propio</label>
+                    </div>
+                    <div id="fb_qm1" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_qm1').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_qm1" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>7. ¿Experimentas dolor menstrual (cólicos) o sangrado tan fuerte que te incapacita para hacer tus actividades normales?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="qm2" value="A: Sí, me incapacita"> Sí, es insoportable o incapacitante</label>
+                        <label class="pill-label"><input type="radio" name="qm2" value="B: A veces duele"> A veces me duele, pero es tolerable</label>
+                        <label class="pill-label"><input type="radio" name="qm2" value="C: Sin dolor fuerte"> No, es leve o ya no menstrúo</label>
+                    </div>
+                    <div id="fb_qm2" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_qm2').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_qm2" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>8. ¿Utilizas actualmente algún método anticonceptivo (pastillas, DIU, implante, condón) para evitar embarazos?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="qm3" value="Sí utilizo"> Sí, utilizo uno regular</label>
+                        <label class="pill-label"><input type="radio" name="qm3" value="No, pero me interesa"> No, pero me interesa iniciar uno</label>
+                        <label class="pill-label"><input type="radio" name="qm3" value="No aplica / Busco embarazo"> No (Busco embarazo / No me relaciono con hombres)</label>
+                    </div>
+                    <div id="fb_qm3" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_qm3').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_qm3" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+                </div>
+
+                <div class="form-group" style="border-top: 2px dashed #ccc; padding-top: 20px; margin-top: 20px;">
+                    <label>8b. Derechos Sexuales y Reproductivos: ¿Conoces tu derecho a decidir libremente sobre tu cuerpo, vivir tu sexualidad sin violencia y, en caso de requerirlo, acceder a la Interrupción Legal del Embarazo (ILE) de forma segura y sin ser juzgado/a?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_derechos" value="A: Sí los conozco"> Sí, conozco mis derechos</label>
+                        <label class="pill-label"><input type="radio" name="q_derechos" value="B: Conozco algunos"> Conozco algunos, falta info</label>
+                        <label class="pill-label"><input type="radio" name="q_derechos" value="C: No los conozco"> No, los desconozco</label>
+                    </div>
+                    <div id="fb_q_derechos" style="display:none;"></div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3 -->
+            <div class="quiz-box fade-in">
+                <div class="section-header-flex">
+                    <div class="icon-anim heartbeat-anim">🧠</div>
+                    <h3>SECCIÓN 3: Bienestar y Salud Psicológica</h3>
+                </div>
+                <p style="color: #555; margin-bottom: 20px; font-weight: 600;">El bienestar emocional es una parte fundamental de la salud integral.</p>
+                
+                <div class="form-group">
+                    <label>9. ¿Cómo vives la masturbación (autoerotismo)?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q9" value="A: Forma sana de autoconocimiento"> Como una forma sana de autoconocimiento y placer</label>
+                        <label class="pill-label"><input type="radio" name="q9" value="B: Siento culpa o vergüenza"> La practico, pero siento culpa o vergüenza</label>
+                        <label class="pill-label"><input type="radio" name="q9" value="C: No la practico"> No la practico</label>
+                    </div>
+                    <div id="fb_q9" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q9').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q9" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>9b. ¿Con qué frecuencia sueles masturbarte?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q9b" value="Varias veces al día"> Varias veces al día</label>
+                        <label class="pill-label"><input type="radio" name="q9b" value="1 vez al día"> 1 vez al día</label>
+                        <label class="pill-label"><input type="radio" name="q9b" value="Varias veces por semana"> Varias a la semana</label>
+                        <label class="pill-label"><input type="radio" name="q9b" value="1 a 3 veces al mes"> 1 a 3 veces al mes</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave);"><input type="radio" name="q9b" value="Rara vez o nunca"> Rara vez o nunca</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>10. Presión Psicológica: ¿Alguna vez la ansiedad o presión por el desempeño ha afectado tu respuesta física (pérdida de erección, sequedad vaginal o imposibilidad de llegar al orgasmo)?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q10" value="A: Frecuentemente (Ansiedad)"> Sí, mi mente me sabotea frecuentemente</label>
+                        <label class="pill-label"><input type="radio" name="q10" value="B: Alguna vez (Normal)"> Me ha pasado alguna vez, pero sé que es normal</label>
+                        <label class="pill-label"><input type="radio" name="q10" value="C: Nunca"> Nunca me ha pasado</label>
+                    </div>
+                    <div id="fb_q10" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q10').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q10" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>10b. En una relación o cita, si tú invitas, pagas todo y eres muy atento/a, ¿sientes que es injusto si la otra persona no quiere tener intimidad física contigo?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_toxic1" value="A: Sí, es injusto"> Sí, me frustra y siento que me usaron</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic1" value="B: A veces lo espero"> A veces lo llego a pensar o esperar</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic1" value="C: No, no es transaccional"> No, el afecto y el sexo no se compran</label>
+                    </div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q_toxic1').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q_toxic1" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>10c. ¿Consideras que el valor personal de alguien disminuye si ha tenido múltiples parejas sexuales en el pasado?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_toxic2" value="A: Sí"> Sí, definitivamente me importa</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic2" value="B: Depende"> Depende del caso</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic2" value="C: No"> No, el historial sexual no define a nadie</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>10d. ¿Crees que los celos, revisar el celular o prohibir ciertas amistades son demostraciones normales de que a tu pareja "le importas"?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_toxic3" value="A: Sí, es normal"> Sí, es normal cuando amas a alguien</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic3" value="B: A veces"> A veces, si hay desconfianza</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic3" value="C: No, es control"> No, eso es control y toxicidad</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>10e. Mitos sobre el acoso (Misoginia): ¿Consideras que la forma en que viste una persona, o si está bajo los efectos del alcohol, justifica en alguna medida que sea acosada o que "ella se lo buscó"?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_toxic5" value="A: Sí, hay responsabilidad"> Sí, la forma de vestir es una provocación</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic5" value="B: A veces"> A veces, hay que saber darse a respetar</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic5" value="C: No, nunca justifica"> No, el único culpable de un abuso es el agresor</label>
+                    </div>
+                    <div id="fb_q_toxic5" style="display:none;"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>10f. Roles de género: ¿Crees que los hombres tienen una necesidad física "incontrolable" de tener sexo y que las mujeres tienen la responsabilidad de "complacerlos" o "ponerles un freno"?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_toxic6" value="A: Sí, es biología"> Sí, biológicamente el hombre no se controla</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic6" value="B: Parcialmente"> Tiene algo de cierto en algunas personas</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic6" value="C: No, mito"> No, ambos tienen la misma capacidad de autocontrol</label>
+                    </div>
+                    <div id="fb_q_toxic6" style="display:none;"></div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 4 -->
+            <div class="quiz-box fade-in">
+                <div class="section-header-flex">
+                    <div class="icon-anim pulse-anim">🛡️</div>
+                    <h3>SECCIÓN 4: Prácticas y Prevención</h3>
+                </div>
+                <p style="color: #555; margin-bottom: 20px; font-weight: 600;">La prevención activa y la higiene reducen significativamente los riesgos biológicos.</p>
+                
+                <div class="form-group">
+                    <label>10.5 ¿Cuántas parejas sexuales diferentes has tenido en los últimos 12 meses?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_parejas" value="0"> Ninguna</label>
+                        <label class="pill-label"><input type="radio" name="q_parejas" value="1 (Estable)"> 1 pareja estable</label>
+                        <label class="pill-label"><input type="radio" name="q_parejas" value="2 a 3"> De 2 a 3 parejas</label>
+                        <label class="pill-label"><input type="radio" name="q_parejas" value="4 o más"> 4 o más parejas</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>11. Sobre la HIGIENE antes y después del sexo, ¿cuáles de estas prácticas realizas? (Marca todas las que apliquen)</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="checkbox" name="q11" value="Manos/genitales antes"> Me lavo manos y genitales antes</label>
+                        <label class="pill-label"><input type="checkbox" name="q11" value="Orinar después"> Orino (hago pipí) después del sexo</label>
+                        <label class="pill-label"><input type="checkbox" name="q11" value="Limpiar juguetes"> Limpio mis juguetes sexuales</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave);"><input type="checkbox" name="q11" value="Ninguna / No lo sabía"> Ninguna / No lo sabía</label>
+                    </div>
+                    <div id="fb_q11" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q11').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q11" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>12. Al practicar SEXO ANAL, ¿cuáles son tus reglas de seguridad?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q12" value="A: Condón y lubricante"> Condón y MUCHO lubricante (agua/silicón)</label>
+                        <label class="pill-label"><input type="radio" name="q12" value="B: A veces sin lubricante"> A veces condón, pero sin lubricante / "en seco"</label>
+                        <label class="pill-label"><input type="radio" name="q12" value="C: Sin protección"> No uso condón ni lubricante</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave);"><input type="radio" name="q12" value="D: No practico"> No practico sexo anal</label>
+                    </div>
+                    <div id="fb_q12" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q12').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q12" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>13. En el SEXO ORAL (dar o recibir), ¿utilizas algún método de barrera (condón o cuadro de látex)?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q13" value="A: Siempre"> Sí, siempre</label>
+                        <label class="pill-label"><input type="radio" name="q13" value="B: No uso"> No, pensaba que no había riesgo de ITS</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave);"><input type="radio" name="q13" value="C: No practico"> No practico sexo oral</label>
+                    </div>
+                    <div id="fb_q13" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q13').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q13" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>14. Si alguna vez NO has usado condón en la penetración, ¿cuál fue la razón principal? (Puedes marcar varias)</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="checkbox" name="q14" value="A: Alcohol/Drogas"> Estaba bajo efectos del alcohol/drogas</label>
+                        <label class="pill-label"><input type="checkbox" name="q14" value="B: Miedo a perder erección / Incomodidad"> Afectaba la sensibilidad o erección</label>
+                        <label class="pill-label"><input type="checkbox" name="q14" value="C: Confianza visual"> La persona "se veía sana" o había confianza</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave);"><input type="checkbox" name="q14" value="D: Siempre lo uso"> Siempre lo uso</label>
+                    </div>
+                    <div id="fb_q14" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q14').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q14" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+            </div>
+
+            <!-- SECCIÓN 5 NUEVA: HISTORIAL ITS -->
+            <div class="quiz-box fade-in">
+                <div class="section-header-flex">
+                    <div class="icon-anim float-anim">🔬</div>
+                    <h3>SECCIÓN 5: Historial de Chequeos (ITS)</h3>
+                </div>
+                <p style="color: #555; margin-bottom: 20px; font-weight: 600;">Conocer tus pruebas anteriores nos ayuda a darte mejores recomendaciones.</p>
+                
+                <div class="form-group">
+                    <label>15. ¿Cuándo fue la última vez que te realizaste una prueba de ITS (como VIH o Sífilis)?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q15" value="Hace menos de 1 año"> Hace menos de 1 año</label>
+                        <label class="pill-label"><input type="radio" name="q15" value="Hace más de 1 año"> Hace más de 1 año</label>
+                        <label class="pill-label"><input type="radio" name="q15" value="Nunca"> Nunca me he hecho una</label>
+                    </div>
+                    <div id="fb_q15" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q15').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q15" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>16. ¿Alguna vez te han diagnosticado una Infección de Transmisión Sexual (ITS)?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q16" value="No, nunca"> No, nunca</label>
+                        <label class="pill-label"><input type="radio" name="q16" value="Sí, pero ya me curé"> Sí, pero recibí tratamiento y sané</label>
+                        <label class="pill-label"><input type="radio" name="q16" value="Sí, y sigo en tratamiento/activo"> Sí, y sigo en tratamiento o activo</label>
+                    </div>
+                    <div id="fb_q16" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q16').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q16" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+            </div>
+
+            <!-- SECCIONES 6 y 7 -->
+            <div class="quiz-box fade-in">
+                <div class="section-header-flex">
+                    <div class="icon-anim wiggle-anim">📱</div>
+                    <h3>SECCIÓN 6 y 7: Consentimiento y Privacidad</h3>
+                </div>
+                
+                <div class="form-group">
+                    <label>17. Si practicas o has practicado "Sexting" (enviar fotos/videos íntimos), ¿cómo proteges tu privacidad?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q17" value="A: Oculto identidad"> Nunca muestro mi cara, marcas o tatuajes</label>
+                        <label class="pill-label"><input type="radio" name="q17" value="B: Apps seguras"> Uso Apps seguras (borrado automático)</label>
+                        <label class="pill-label"><input type="radio" name="q17" value="C: Envío todo"> Confío ciegamente y envío todo</label>
+                        <label class="pill-label" style="background: var(--pc-gris-suave);"><input type="radio" name="q17" value="D: Nunca he enviado"> Nunca he enviado material íntimo</label>
+                    </div>
+                    <div id="fb_q17" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q17').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q17" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>17b. La otra cara de la moneda: Si tu pareja o ex-pareja te confía una foto o video íntimo suyo, ¿cuál es tu postura ética respecto a ese material?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q17b" value="A: Secreto absoluto"> Es un secreto absoluto (lo protejo o lo borro)</label>
+                        <label class="pill-label"><input type="radio" name="q17b" value="B: Se lo enseño a confianza"> Se lo enseño solo a mis amig@s de mucha confianza</label>
+                        <label class="pill-label"><input type="radio" name="q17b" value="C: Lo comparto si me hace enojar"> Lo uso en su contra o lo comparto si nos peleamos</label>
+                    </div>
+                    <div id="fb_q17b" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q17b').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q17b" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>18. ¿Alguna vez has participado en actos sexuales por presión, insistencia excesiva o "por no saber decir que no"?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q18" value="A: Sí, presionado"> Sí, me he sentido presionado(a) u obligado(a)</label>
+                        <label class="pill-label"><input type="radio" name="q18" value="B: Sí, cedí por no pelear"> Sí, cedí para evitar una pelea o incomodidad</label>
+                        <label class="pill-label"><input type="radio" name="q18" value="C: No, siempre libre"> No, siempre ha sido libre y entusiasta</label>
+                    </div>
+                    <div id="fb_q18" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q18').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q18" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>18b. Preferencias y Límites: ¿Te excita la idea de someter, asustar o causar dolor a tu pareja, ignorando sus límites o si al principio dice que no?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_toxic4" value="A: Sí, la resistencia me excita"> Sí, la resistencia o el miedo me excitan</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic4" value="B: Solo en BDSM consensuado"> Solo si es un juego de roles (BDSM) previamente acordado</label>
+                        <label class="pill-label"><input type="radio" name="q_toxic4" value="C: No"> No, me excita el placer mutuo y el respeto</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 8 -->
+            <div class="quiz-box fade-in">
+                <div class="section-header-flex">
+                    <div class="icon-anim pulse-anim">🚨</div>
+                    <h3>SECCIÓN 8: Signos Físicos de Alerta</h3>
+                </div>
+                <p style="color: #555; margin-bottom: 20px; font-weight: 600;">Realizarse chequeos de rutina es un acto de autocuidado responsable.</p>
+                
+                <div class="form-group">
+                    <label>19. ¿Has notado alguna de estas señales en tus genitales últimamente? (Marca todas las que apliquen)</label>
+                    <div class="pill-group" style="flex-direction: column;">
+                        <label class="pill-label" style="justify-content: flex-start; text-align: left;"><input type="checkbox" name="q19" value="A: Llaga sin dolor"> Llaga o úlcera en área genital/boca que NO DUELE (Posible Sífilis)</label>
+                        <label class="pill-label" style="justify-content: flex-start; text-align: left;"><input type="checkbox" name="q19" value="B: Verrugas"> Verrugas o "crestas de gallo" (Posible VPH)</label>
+                        <label class="pill-label" style="justify-content: flex-start; text-align: left;"><input type="checkbox" name="q19" value="C: Ardor/Secreción"> Ardor al orinar o secreción/flujo inusual con mal olor</label>
+                        <label class="pill-label" style="justify-content: flex-start; text-align: left; background: var(--pc-gris-suave);"><input type="checkbox" name="q19" value="D: Nada visible"> Ninguno, no presento síntomas visibles</label>
+                    </div>
+                    <div id="fb_q19" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q19').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q19" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group">
+                    <label>20. ¿Conoces las herramientas médicas actuales para el VIH?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q20" value="A: Conozco PrEP e I=I"> Sí, conozco el PrEP (preventivo) e Indetectable = Intransmisible</label>
+                        <label class="pill-label"><input type="radio" name="q20" value="B: He escuchado"> He escuchado, pero no sé cómo acceder a ello</label>
+                        <label class="pill-label"><input type="radio" name="q20" value="C: No conocía"> No, pensaba que seguía siendo una sentencia de muerte sin opciones</label>
+                    </div>
+                    <div id="fb_q20" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q20').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q20" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+            </div>
+
+            <!-- SECCIÓN 9 -->
+            <div class="quiz-box fade-in">
+                <div class="section-header-flex">
+                    <div class="icon-anim float-anim">🌡️</div>
+                    <h3>SECCIÓN 9: Empatía, Consentimiento y Placer</h3>
+                </div>
+                
+                <div class="form-group">
+                    <label>1. Para ti, ¿qué señales indican que tienes el consentimiento de tu pareja para avanzar a algo sexual? (Puedes marcar varias)</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="checkbox" name="q_consent1" value="Que no diga NO"> Que no diga explícitamente "NO"</label>
+                        <label class="pill-label"><input type="checkbox" name="q_consent1" value="Que no se quite"> Que no se quite ni oponga resistencia</label>
+                        <label class="pill-label"><input type="checkbox" name="q_consent1" value="Historial"> Que ya hayamos tenido sexo en el pasado</label>
+                        <label class="pill-label"><input type="checkbox" name="q_consent1" value="Ropa/Actitud"> Su ropa o actitud "provocativa"</label>
+                        <label class="pill-label"><input type="checkbox" name="q_consent1" value="Sí entusiasta"> Un "SÍ" verbal claro y entusiasta</label>
+                        <label class="pill-label"><input type="checkbox" name="q_consent1" value="Iniciativa mutua"> Iniciativa mutua activa</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>2. Si durante el acto sexual tu pareja cambia de opinión, se nota incómoda o te pide parar (aunque ya hayan empezado), ¿cuál es tu reacción?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_consent2" value="A: Convencer"> Trato de convencerla de terminar porque "ya me calentó"</label>
+                        <label class="pill-label"><input type="radio" name="q_consent2" value="B: Enojo"> Me enojo o la ignoro por dejarme a medias</label>
+                        <label class="pill-label"><input type="radio" name="q_consent2" value="C: Me detengo"> Me detengo INMEDIATAMENTE y pregunto si todo está bien</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>3b. Perspectiva Inversa (Tú como iniciador): ¿Alguna vez has insistido tanto, rogado, o puesto mala cara hasta que tu pareja terminó "cediendo" a tener relaciones sexuales por cansancio o para evitar una pelea?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_perp1" value="A: Sí, seguido"> Sí, lo he hecho (coerción sutil)</label>
+                        <label class="pill-label"><input type="radio" name="q_perp1" value="B: Alguna vez"> Alguna vez, aunque no me di cuenta del daño</label>
+                        <label class="pill-label"><input type="radio" name="q_perp1" value="C: Nunca"> Nunca, si dicen que no, lo respeto sin drama</label>
+                    </div>
+                    <div id="fb_q_perp1" style="display:none;"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>3c. Presión de Género: ¿Sientes una presión de que SIEMPRE debes querer tener sexo (para demostrar "hombría" o "deber"), y temes que si dices "no", tu pareja se enoje, dude de tu amor o de tu sexualidad?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_presion" value="A: Sí, me exigen"> Sí, sufro presión y si me niego hay problemas</label>
+                        <label class="pill-label"><input type="radio" name="q_presion" value="B: Me presiono"> Yo mismo(a) me presiono a cumplir siempre</label>
+                        <label class="pill-label"><input type="radio" name="q_presion" value="C: No"> No, me siento libre de decir "hoy no tengo ganas"</label>
+                    </div>
+                    <div id="fb_q_presion" style="display:none;"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>3d. Arma Emocional (Violencia de Pareja): Durante una pelea o enojo, ¿alguna vez has usado la intimidad de tu pareja para herirle? (Ej. Burlarte del tamaño de sus genitales, su desempeño, o usar el sexo como premio/castigo)</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_perp2" value="A: Sí, para herir"> Sí, me he burlado de su cuerpo/desempeño</label>
+                        <label class="pill-label"><input type="radio" name="q_perp2" value="B: Chantaje sutil"> He usado el sexo como moneda de cambio (premio/castigo)</label>
+                        <label class="pill-label"><input type="radio" name="q_perp2" value="C: Nunca"> Nunca atacaría la intimidad ni el cuerpo de mi pareja</label>
+                    </div>
+                    <div id="fb_q_perp2" style="display:none;"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>3. Empatía Sexual: ¿Cómo te aseguras de que la otra persona está sintiendo placer?</label>
+                    <div class="pill-group">
+                        <label class="pill-label"><input type="radio" name="q_empatia" value="A: Me enfoco en lo mío"> Me enfoco más en la penetración y en terminar yo</label>
+                        <label class="pill-label"><input type="radio" name="q_empatia" value="B: Si no se queja, bien"> Supongo que si no se queja, le está gustando</label>
+                        <label class="pill-label"><input type="radio" name="q_empatia" value="C: Pregunto y observo"> Le pregunto directamente, comunico y leo su cuerpo</label>
+                    </div>
+                </div>
+
+                <p style="color: #555; margin-bottom: 20px; font-weight: 600; border-top: 2px dashed #ccc; padding-top: 20px;">4. Desliza la barra para calificar estas áreas de tu vida sexual en el último año:</p>
+                <div class="slider-group slider-row">
+                    <div style="flex: 1;">
+                        <label>Autodeterminación (Libertad de elegir sin presión): <span id="val_pm1">5</span></label>
+                        <input type="range" id="pm1" class="slider" min="1" max="10" value="5" oninput="updateFace('pm1', this.value)">
+                    </div>
+                    <div id="face_pm1" class="face-emoji">😐</div>
+                </div>
+                <div class="slider-group slider-row">
+                    <div style="flex: 1;">
+                        <label>Comunicación (Expresar qué te gusta y qué no): <span id="val_pm2">5</span></label>
+                        <input type="range" id="pm2" class="slider" min="1" max="10" value="5" oninput="updateFace('pm2', this.value)">
+                    </div>
+                    <div id="face_pm2" class="face-emoji">😐</div>
+                </div>
+                <div class="slider-group slider-row">
+                    <div style="flex: 1;">
+                        <label>Seguridad (Protección frente a ITS/Embarazo/Violencia): <span id="val_pm3">5</span></label>
+                        <input type="range" id="pm3" class="slider" min="1" max="10" value="5" oninput="updateFace('pm3', this.value)">
+                    </div>
+                    <div id="face_pm3" class="face-emoji">😐</div>
+                </div>
+                <div class="slider-group slider-row">
+                    <div style="flex: 1;">
+                        <label>Satisfacción (Bienestar físico y emocional): <span id="val_pm4">5</span></label>
+                        <input type="range" id="pm4" class="slider" min="1" max="10" value="5" oninput="updateFace('pm4', this.value)">
+                    </div>
+                    <div id="face_pm4" class="face-emoji">😐</div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 10 NUEVA: EL VIOLENTÓMETRO -->
+            <div class="quiz-box fade-in">
+                <div class="section-header-flex">
+                    <div class="icon-anim pulse-anim">📏</div>
+                    <h3>SECCIÓN 10: El Violentómetro Detallado (Opcional)</h3>
+                </div>
+                
+                <div style="background: var(--pc-rosa-pastell); padding: 20px; border-radius: 15px; border: 2px dashed var(--pc-rosa-fuerte); margin-bottom: 20px;">
+                    <p style="color: var(--pc-negro); font-weight: 800; margin-bottom: 10px;">Creado por el IPN, el Violentómetro mide la violencia en 30 niveles progresivos. Aunque es extenso y <strong>opcional</strong>, es vital revisarlo.</p>
+                    <p style="color: var(--pc-negro); font-weight: 600; font-size: 0.95rem;">¿Por qué? Porque necesitamos entender que <strong>la violencia nunca empieza con un golpe físico</strong>; empieza con "bromas" hirientes, celos o control, y va subiendo poco a poco de temperatura. Revisa estas fases y reflexiona sobre tu relación actual o pasadas:</p>
+                </div>
+
+                <div class="form-group" style="text-align: right; margin-bottom: 15px;">
+                    <label class="pill-label" style="display: inline-flex; width: auto; background: var(--pc-gris-suave); font-size: 0.85rem;"><input type="checkbox" id="skip_v30" onchange="toggleViolentometro()"> 🙈 Prefiero omitir esta sección</label>
+                </div>
+
+                <div id="v-thermo-wrapper" style="position: sticky; top: 15px; z-index: 100; background: white; padding: 15px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-bottom: 20px; box-shadow: 0 4px 0 var(--pc-rosa-pastell); transition: opacity 0.3s;">
+                    <div id="v-thermo-container" style="width: 100%; height: 25px; background: #e0e0e0; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 10px; position: relative; overflow: hidden; box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);">
+                        <div id="v-thermo-fill" style="height: 100%; width: 0%; background: #25d366; transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s;"></div>
+                    </div>
+                    <p id="v-thermo-text" style="text-align: center; font-weight: 900; color: #2e7d32; margin-bottom: 0;">Nivel de Alerta: Sano / Sin Violencia</p>
+                </div>
+
+                <div id="violencia-content" style="transition: opacity 0.3s;">
+                <label style="font-weight: 800; font-size: 1.1rem; display: block; margin-bottom: 10px;">Selecciona los niveles de violencia que has experimentado (como víctima o perpetrador):</label>
+                
+                <h4 style="color: #fbc02d; font-size: 1.3rem; margin-top: 15px; font-weight: 900; border-bottom: 2px solid #fbc02d;">🟨 FASE 1: PRECAUCIÓN (La violencia aumentará)</h4>
+                <div class="v-grid">
+                    <label class="v-item v-yellow"><input type="checkbox" name="v30" value="1" onchange="updateThermometer()"> 1. Bromas hirientes</label>
+                    <label class="v-item v-yellow"><input type="checkbox" name="v30" value="2" onchange="updateThermometer()"> 2. Chantajear</label>
+                    <label class="v-item v-yellow"><input type="checkbox" name="v30" value="3" onchange="updateThermometer()"> 3. Mentir, engañar</label>
+                    <label class="v-item v-yellow"><input type="checkbox" name="v30" value="4" onchange="updateThermometer()"> 4. Ignorar, ley del hielo</label>
+                    <label class="v-item v-yellow"><input type="checkbox" name="v30" value="5" onchange="updateThermometer()"> 5. Celar</label>
+                    <label class="v-item v-yellow"><input type="checkbox" name="v30" value="6" onchange="updateThermometer()"> 6. Acechar/Stalkear redes sociales</label>
+                    <label class="v-item v-yellow"><input type="checkbox" name="v30" value="7" onchange="updateThermometer()"> 7. Culpabilizar</label>
+                    <label class="v-item v-yellow"><input type="checkbox" name="v30" value="8" onchange="updateThermometer()"> 8. Descalificar</label>
+                    <label class="v-item v-yellow"><input type="checkbox" name="v30" value="9" onchange="updateThermometer()"> 9. Ridiculizar, ofender</label>
+                    <label class="v-item v-yellow"><input type="checkbox" name="v30" value="10" onchange="updateThermometer()"> 10. Humillar en público</label>
+                </div>
+
+                <h4 style="color: #f57c00; font-size: 1.3rem; margin-top: 25px; font-weight: 900; border-bottom: 2px solid #f57c00;">🟧 FASE 2: REACCIONA (No te dejes destruir)</h4>
+                <div class="v-grid">
+                    <label class="v-item v-orange"><input type="checkbox" name="v30" value="11" onchange="updateThermometer()"> 11. Intimidar, amenazar</label>
+                    <label class="v-item v-orange"><input type="checkbox" name="v30" value="12" onchange="updateThermometer()"> 12. Controlar, prohibir (amistades, dinero, celular)</label>
+                    <label class="v-item v-orange"><input type="checkbox" name="v30" value="13" onchange="updateThermometer()"> 13. Destruir artículos personales</label>
+                    <label class="v-item v-orange"><input type="checkbox" name="v30" value="14" onchange="updateThermometer()"> 14. Manosear sin consenso</label>
+                    <label class="v-item v-orange"><input type="checkbox" name="v30" value="15" onchange="updateThermometer()"> 15. Caricias agresivas</label>
+                    <label class="v-item v-orange"><input type="checkbox" name="v30" value="16" onchange="updateThermometer()"> 16. Golpear "jugando"</label>
+                    <label class="v-item v-orange"><input type="checkbox" name="v30" value="17" onchange="updateThermometer()"> 17. Pellizcar, arañar</label>
+                    <label class="v-item v-orange"><input type="checkbox" name="v30" value="18" onchange="updateThermometer()"> 18. Empujar, jalonear</label>
+                    <label class="v-item v-orange"><input type="checkbox" name="v30" value="19" onchange="updateThermometer()"> 19. Cachetear</label>
+                    <label class="v-item v-orange"><input type="checkbox" name="v30" value="20" onchange="updateThermometer()"> 20. Patear</label>
+                </div>
+
+                <h4 style="color: #c62828; font-size: 1.3rem; margin-top: 25px; font-weight: 900; border-bottom: 2px solid #c62828;">🟥 FASE 3: PELIGRO (Necesitas ayuda profesional)</h4>
+                <div class="v-grid">
+                    <label class="v-item v-red"><input type="checkbox" name="v30" value="21" onchange="updateThermometer()"> 21. Encerrar, aislar</label>
+                    <label class="v-item v-red"><input type="checkbox" name="v30" value="22" onchange="updateThermometer()"> 22. Sextorsión</label>
+                    <label class="v-item v-red"><input type="checkbox" name="v30" value="23" onchange="updateThermometer()"> 23. Amenazar con objetos o armas</label>
+                    <label class="v-item v-red"><input type="checkbox" name="v30" value="24" onchange="updateThermometer()"> 24. Difundir contenido íntimo sin permiso (Ley Olimpia)</label>
+                    <label class="v-item v-red"><input type="checkbox" name="v30" value="25" onchange="updateThermometer()"> 25. Amenazar de muerte</label>
+                    <label class="v-item v-red"><input type="checkbox" name="v30" value="26" onchange="updateThermometer()"> 26. Forzar a una relación sexual</label>
+                    <label class="v-item v-red"><input type="checkbox" name="v30" value="27" onchange="updateThermometer()"> 27. Abuso sexual</label>
+                    <label class="v-item v-red"><input type="checkbox" name="v30" value="28" onchange="updateThermometer()"> 28. Violar</label>
+                    <label class="v-item v-red"><input type="checkbox" name="v30" value="29" onchange="updateThermometer()"> 29. Mutilar</label>
+                    <label class="v-item v-red"><input type="checkbox" name="v30" value="30" onchange="updateThermometer()"> 30. ASESINAR (Homicidio/Feminicidio)</label>
+                </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 11 -->
+            <div class="quiz-box fade-in" style="background: var(--pc-amarillo);">
+                <div class="section-header-flex">
+                    <div class="icon-anim heartbeat-anim">🩺</div>
+                    <h3 style="color: var(--pc-negro);">SECCIÓN 11: Consejería Confidencial</h3>
+                </div>
+                <div class="form-group">
+                    <label>22. Aprovechando tu consulta, ¿sobre qué temas te gustaría platicar en privado con el médico? (Marca todas las que apliquen)</label>
+                    <div class="pill-group" style="flex-direction: column;">
+                        <label class="pill-label" style="justify-content: flex-start; text-align: left;"><input type="checkbox" name="q22" value="Revisión física"> Revisión física (anatomía, molestias, dolores, llagas)</label>
+                        <label class="pill-label" style="justify-content: flex-start; text-align: left;"><input type="checkbox" name="q22" value="Ansiedad de rendimiento"> Ansiedad de rendimiento, dolor al sexo o disfunción</label>
+                        <label class="pill-label" style="justify-content: flex-start; text-align: left;"><input type="checkbox" name="q22" value="VIH/PrEP/ITS"> Orientación sobre VIH, PrEP, Métodos o pruebas rápidas</label>
+                        <label class="pill-label" style="justify-content: flex-start; text-align: left;"><input type="checkbox" name="q22" value="Sustancias"> Problemas con sustancias y mi vida sexual</label>
+                        <label class="pill-label" style="justify-content: flex-start; text-align: left;"><input type="checkbox" name="q22" value="Violencia/Coerción"> Ayuda para procesar situaciones de abuso o presión</label>
+                        <label class="pill-label" style="justify-content: flex-start; text-align: left; background: var(--pc-gris-suave);"><input type="checkbox" name="q22" value="Ninguna por ahora"> Ninguna por el momento, todo en orden</label>
+                    </div>
+                    <div id="fb_q22" style="display:none;"></div>
+                    <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q22').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
+                    <input type="text" id="comment_q22" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
+                </div>
+
+                <div class="form-group" style="border-top: 3px dashed var(--pc-negro); padding-top: 20px; margin-top: 20px;">
+                    <label>23. ¿Con quién prefieres platicar tus resultados? (Para agendarte con la persona indicada)</label>
+                    <div class="pill-group">
+                        <label class="pill-label" style="background: white;"><input type="radio" name="q_doctor" value="Médico Mujer"> 👩‍⚕️ Prefiero un médico mujer</label>
+                        <label class="pill-label" style="background: white;"><input type="radio" name="q_doctor" value="Médico Hombre"> 👨‍⚕️ Prefiero un médico hombre</label>
+                        <label class="pill-label" style="background: white;"><input type="radio" name="q_doctor" value="Indistinto"> ⚕️ Indistinto (Disponibilidad)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 30px;" class="fade-in">
+                <button onclick="evaluarTest()" class="btn" style="background: var(--pc-rosa-fuerte); border-color: var(--pc-negro); max-width: 400px; box-shadow: 0 6px 0 var(--pc-negro);">Evaluar mis Resultados ➔</button>
+            </div>
+
+            <div id="resultados_box" style="display: none; background: white; padding: 30px; border-radius: 20px; border: 4px solid var(--pc-negro); box-shadow: 8px 8px 0 var(--pc-amarillo); margin-bottom: 40px; text-align: center;">
+                <h2 class="hand-drawn" style="font-size: 2rem; color: var(--pc-negro); margin-bottom: 15px;" id="res_title">Resultados de tu Evaluación</h2>
+                <div id="res_content" style="font-size: 1.1rem; font-weight: 600; color: #444; margin-bottom: 25px; line-height: 1.6;"></div>
+                
+                <div style="background: var(--pc-gris-suave); padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro); text-align: left;">
+                    <h3 style="font-family: 'Handlee', cursive; color: var(--pc-rosa-fuerte); margin-bottom: 10px; font-size: 1.5rem; text-align: center;">Agenda tu Consulta Gratuita 🩺</h3>
+                    <p style="font-size: 0.95rem; font-weight: 600; color: #555; margin-bottom: 15px; text-align: center;">Envía tus resultados directamente al WhatsApp de Proyecto Celene. Nuestro equipo médico analizará tu caso de forma confidencial para agendar tu consulta y brindarte la orientación o pruebas que necesites.</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto;">
+                        <button onclick="enviarWhatsApp()" class="btn btn-wa" style="width: 100%; justify-content: center;">Enviar Resultados y Agendar <span>📲</span></button>
+                        <a href="salud-sexual.html" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); width: 100%; justify-content: center;">Conocer más de la Clínica ➔</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <script>
+        // DICCIONARIO DE RETROALIMENTACIÓN MÉDICA
+        const feedbacks = {
+            q4: {
+                'Internet y pornografía': { type: 'warning', text: '💡 El internet y la pornografía suelen crear expectativas irreales. Es normal si sientes dudas sobre lo que es real, aquí te ayudaremos a despejarlas.' },
+                'Los silencios (Tema prohibido)': { type: 'info', text: '💡 La falta de información en casa es muy común por los tabúes. Este espacio es seguro para que resuelvas todas tus dudas.' }
+            },
+            q5: {
+                'Expectativas irreales': { type: 'warning', text: '💡 Compararse con la ficción genera mucha ansiedad de desempeño. En consulta podemos hablar de cómo desmitificar esto.' },
+                'Sexo agresivo': { type: 'warning', text: '💡 La pornografía suele mostrar violencia como la norma. Recuerda que el sexo real se basa en la comunicación libre y el placer mutuo.' }
+            },
+            qh1: {
+                'B: Fimosis': { type: 'alert', text: '👨‍⚕️ Nota Médica: La fimosis causa dolor o tensión, pero tiene una solución médica ambulatoria muy rápida y segura. ¡No tienes que vivir con molestias!' }
+            },
+            qh2: {
+                'A: Sí': { type: 'alert', text: '👨‍⚕️ Nota Médica: El frenillo corto es súper común y causa sangrados que asustan. Se soluciona con un procedimiento sencillo en consultorio.' }
+            },
+            qh3: {
+                'A: Sí': { type: 'alert', text: '🚨 Nota Médica: El dolor testicular o al eyacular requiere valoración para descartar infecciones o varicocele. Hazlo saber en tu cita.' }
+            },
+            qm1: {
+                'B: No sabía': { type: 'info', text: '💡 Históricamente se ha ignorado el clítoris en la educación. Conocer cómo funciona tu cuerpo te empodera para pedir lo que te gusta y disfrutar plenamente.' }
+            },
+            qm2: {
+                'A: Sí, me incapacita': { type: 'alert', text: '🚨 Nota Médica: El dolor menstrual que te incapacita NO es normal. Podría ser un síntoma de endometriosis. Menciónalo en consulta, hay tratamiento.' }
+            },
+            q9: {
+                'B: Siento culpa': { type: 'warning', text: '🧠 La culpa suele venir de tabúes morales impuestos. Explorar tu propio cuerpo es natural, sano y tu derecho.' }
+            },
+            q10: {
+                'A: Frecuentemente': { type: 'warning', text: '🧠 La ansiedad de desempeño sabotea a muchos. Quitar la presión mental de tener que "rendir" es el primer paso.' }
+            },
+            q11: {
+                'Ninguna': { type: 'warning', text: '⚠️ La higiene antes y después previene múltiples infecciones urinarias. Orinar después del sexo es una regla de oro.' }
+            },
+            q12: {
+                'B: A veces sin lubricante': { type: 'warning', text: '⚠️ El sexo anal sin abundante lubricante aumenta radicalmente el riesgo de desgarres dolorosos.' },
+                'C: Sin protección': { type: 'alert', text: '🚨 El sexo anal sin condón tiene el mayor riesgo de transmisión de VIH por las microlesiones. Sugerimos hacer pruebas y conocer el PrEP.' }
+            },
+            q13: {
+                'B: No uso': { type: 'warning', text: '⚠️ Infecciones como la gonorrea, clamidia o sífilis se transmiten fácilmente por sexo oral. Es recomendable incorporar barreras de látex.' }
+            },
+            q14: {
+                'A: Alcohol': { type: 'warning', text: '⚠️ Las sustancias nublan el juicio y nos hacen omitir el condón. Si vas a beber, ten los condones a la mano desde antes.' },
+                'C: Confianza visual': { type: 'warning', text: '⚠️ ¡Las infecciones no se ven en la cara! Muchas personas portan ITS silenciosas sin tener ningún síntoma visible.' }
+            },
+            q15: {
+                'Nunca': { type: 'warning', text: '⚠️ Gran parte de las ITS son asintomáticas por años. Hacerte una prueba de rutina te dará total paz mental.' }
+            },
+            q17: {
+                'A: Oculto': { type: 'success', text: '✅ ¡Excelente decisión! Proteger tu identidad (rostro y tatuajes) es la regla de oro del sexting seguro.' },
+                'C: Envío todo': { type: 'warning', text: '⚠️ Confiar ciegamente tu material íntimo es riesgoso. Recuerda que si alguien comparte tus fotos sin permiso, comete un delito (Ley Olimpia).' }
+            },
+            q17b: {
+                'B: Se lo enseño a confianza': { type: 'alert', text: '🚨 ¡Cuidado! Mostrar una foto ajena, aunque sea a un "amigo de confianza", es traicionar el consentimiento y un delito.' },
+                'C: Lo comparto si me hace enojar': { type: 'alert', text: '🚨 Compartir material íntimo sin permiso es VIOLENCIA DIGITAL y un DELITO PENAL (Ley Olimpia). No importa si hubo un pleito; la confianza no se traiciona.' }
+            },
+            q18: {
+                'A: Presionado': { type: 'alert', text: '🚨 Tener relaciones por presión o coerción anula tu libertad. Tienes el derecho humano de decir NO en cualquier momento.' },
+                'B: Pensé': { type: 'alert', text: '🚨 El consentimiento es reversible. Tienes derecho a detenerte aunque ya se hayan quitado la ropa o el acto haya empezado.' }
+            },
+            q19: {
+                'A: Llaga': { type: 'alert', text: '🚨 Una llaga indolora es el síntoma clásico de la Sífilis. Es 100% curable pero requiere atención médica inmediata.' },
+                'B: Verrugas': { type: 'alert', text: '🚨 Las verrugas pueden ser señal de VPH. Un médico debe valorarlas para tratarlas o retirarlas adecuadamente.' },
+                'C: Ardor': { type: 'alert', text: '🚨 El ardor o secreción inusual podría ser Gonorrea o Clamidia. Requieren antibiótico específico para evitar infertilidad a futuro.' }
+            },
+            q_toxic5: {
+                'A: Sí': { type: 'alert', text: '🛑 Alerta (Victim Blaming): Responsabilizar a la víctima por su ropa o consumo de alcohol fomenta la cultura de la violación. El único responsable de un acoso es el agresor.' }
+            },
+            q_toxic6: {
+                'A: Sí': { type: 'alert', text: '🛑 Alerta: Creer que los hombres no tienen autocontrol minimiza la responsabilidad masculina. Ambos géneros tienen igual capacidad de control, respeto y empatía.' }
+            },
+            q_perp1: {
+                'A: Sí': { type: 'warning', text: '⚠️ Atención: Insistir hasta que la otra persona "cede" por cansancio se llama Coerción Sexual. El sexo sin un sí entusiasta (y libre de culpa) no es ético.' },
+                'B: Alguna vez': { type: 'warning', text: '⚠️ Atención: Es importante aprender a aceptar un "no" sin hacer sentir culpable o castigar emocionalmente a tu pareja.' }
+            },
+            q_presion: {
+                'A: Sí': { type: 'info', text: '🧠 Nota: Los hombres sufren mucha presión por ser "máquinas sexuales", y las mujeres por "cumplir deberes". Decir "hoy no" es tu derecho absoluto y no afecta tu valor ni masculinidad/feminidad.' }
+            },
+            q_perp2: {
+                'A: Sí': { type: 'alert', text: '🛑 Alerta: Burlarse de la intimidad o cuerpo de tu pareja es Violencia Psicológica Severa. El espacio sexual debe ser un área de vulnerabilidad protegida y respetada.' },
+                'B: Chantaje sutil': { type: 'warning', text: '⚠️ Usar el sexo como moneda de cambio (para castigar o premiar) destruye la confianza y la intimidad genuina en la relación.' }
+            },
+            q_derechos: {
+                'B: Conozco algunos': { type: 'info', text: '💡 Información vital: Tienes derecho a vivir tu sexualidad libre de violencia, al acceso a anticonceptivos gratuitos y, en B.C., a la Interrupción Legal del Embarazo (ILE) segura hasta las 12 semanas. ¡Pregúntanos en consulta!' },
+                'C: No los conozco': { type: 'info', text: '💡 Información vital: Tus derechos te protegen. Tienes derecho a decidir sobre tu cuerpo, a decir "NO", y al acceso legal y seguro a la Interrupción del Embarazo (ILE) en varios estados de México. No estás sola/o.' }
+            }
+        };
+
+        // Adaptar Cuestionario basado en Sexo Biológico
+        function adaptarCuestionario() {
+            let sexo = document.querySelector('input[name="q2"]:checked');
+            if (sexo && sexo.value === 'Mujer') {
+                document.getElementById('placeholder-anatomia').style.display = 'none';
+                document.getElementById('sec-hombre').style.display = 'none';
+                document.getElementById('sec-mujer').style.display = 'block';
+            } else if (sexo && sexo.value === 'Hombre') {
+                document.getElementById('placeholder-anatomia').style.display = 'none';
+                document.getElementById('sec-mujer').style.display = 'none';
+                document.getElementById('sec-hombre').style.display = 'block';
+            }
+            syncPills();
+        }
+
+        // Sincronizar estado visual de los botones interactivos (Para todos los navegadores)
+        function syncPills() {
+            document.querySelectorAll('.pill-label input').forEach(input => {
+                if (input.checked) {
+                    input.closest('.pill-label').classList.add('active-pill');
+                } else {
+                    input.closest('.pill-label').classList.remove('active-pill');
+                }
+            });
+        }
+
+        // LÓGICA DE RETROALIMENTACIÓN INMEDIATA
+        function checkFeedback(qName) {
+            let fbDiv = document.getElementById('fb_' + qName);
+            if (!fbDiv) return;
+
+            let selected = [];
+            let inputs = document.querySelectorAll(`input[name="${qName}"]:checked`);
+            inputs.forEach(i => selected.push(i.value));
+
+            if (selected.length === 0) {
+                fbDiv.style.display = 'none';
+                return;
+            }
+
+            let feedbackData = feedbacks[qName];
+            if (!feedbackData) {
+                fbDiv.style.display = 'none';
+                return;
+            }
+
+            let html = '';
+            let maxSeverity = 0; 
+            let colorClass = 'fb-info';
+            let severityMap = { 'info': 1, 'success': 2, 'warning': 3, 'alert': 4 };
+            let classes = { 'info': 'fb-info', 'success': 'fb-success', 'warning': 'fb-warning', 'alert': 'fb-alert' };
+
+            selected.forEach(val => {
+                for(let key in feedbackData) {
+                    if (val.startsWith(key) || val === key) {
+                        let f = feedbackData[key];
+                        html += `<div style="margin-bottom:4px;">${f.text}</div>`;
+                        if (severityMap[f.type] > maxSeverity) {
+                            maxSeverity = severityMap[f.type];
+                            colorClass = classes[f.type];
+                        }
+                    }
+                }
+            });
+
+            if (html !== '') {
+                fbDiv.className = `mt-3 p-3 rounded-lg text-sm font-semibold fade-in visible ${colorClass}`;
+                fbDiv.innerHTML = html;
+                fbDiv.style.display = 'block';
+            } else {
+                fbDiv.style.display = 'none';
+            }
+        }
+
+        // LÓGICA DE EMOJIS (PLEASUREMETER)
+        function updateFace(id, val) {
+            const faces = ['🤬','😭','😢','😞','😕','😐','🙂','😊','😁','🤩'];
+            const faceEl = document.getElementById('face_' + id);
+            faceEl.innerText = faces[val - 1];
+            faceEl.style.transform = 'scale(1.3)';
+            setTimeout(() => faceEl.style.transform = 'scale(1)', 200);
+            document.getElementById('val_' + id).innerText = val;
+        }
+
+        // Lógica para desmarcar "Ninguna" si se selecciona otra, o desmarcar las demás si se selecciona "Ninguna"
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', function() {
+                let noneValues = ['Ninguna / No lo sabía', 'D: Nada visible', 'Ninguna por ahora', 'No consumo', 'D: Siempre lo uso', 'Ninguna'];
+                if(noneValues.includes(this.value)) {
+                    if(this.checked) {
+                        let groupCbs = document.querySelectorAll(`input[name="${this.name}"]`);
+                        groupCbs.forEach(otherCb => {
+                            if(otherCb !== this) otherCb.checked = false;
+                        });
+                    }
+                } else {
+                    if(this.checked) {
+                        let noneCb = Array.from(document.querySelectorAll(`input[name="${this.name}"]`)).find(c => noneValues.includes(c.value));
+                        if(noneCb) noneCb.checked = false;
+                    }
+                }
+                        syncPills();
+                checkFeedback(this.name);
+                if(this.name === 'v30') updateThermometer();
+            });
+        });
+
+        // Sincronizar Radios
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                syncPills();
+                checkFeedback(this.name);
+            });
+        });
+        
+        // Llamada Inicial de estilos
+        syncPills();
+
+        function updateThermometer() {
+            let checked = Array.from(document.querySelectorAll('input[name="v30"]:checked')).map(el => parseInt(el.value));
+            let max = checked.length > 0 ? Math.max(...checked) : 0;
+            let fill = document.getElementById('v-thermo-fill');
+            let text = document.getElementById('v-thermo-text');
+            
+            let pct = (max / 30) * 100;
+            fill.style.width = pct + '%';
+            
+            if (max === 0) {
+                fill.style.backgroundColor = '#25d366';
+                text.innerText = 'Nivel de Alerta: Sano / Sin Violencia';
+                text.style.color = '#2e7d32';
+            } else if (max <= 10) {
+                fill.style.backgroundColor = '#fbc02d';
+                text.innerText = 'FASE 1: Precaución (La violencia aumentará)';
+                text.style.color = '#f57f17';
+            } else if (max <= 20) {
+                fill.style.backgroundColor = '#f57c00';
+                text.innerText = 'FASE 2: Reacciona (No te dejes destruir)';
+                text.style.color = '#e65100';
+            } else {
+                fill.style.backgroundColor = '#c62828';
+                text.innerText = 'FASE 3: Peligro (Necesitas ayuda profesional)';
+                text.style.color = '#b71c1c';
+            }
+        }
+
+        function toggleViolentometro() {
+            let skip = document.getElementById('skip_v30').checked;
+            let content = document.getElementById('violencia-content');
+            let wrapper = document.getElementById('v-thermo-wrapper');
+            if(skip) {
+                content.style.opacity = '0.3';
+                content.style.pointerEvents = 'none';
+                wrapper.style.opacity = '0.5';
+                document.querySelectorAll('input[name="v30"]').forEach(cb => cb.checked = false);
+                syncPills();
+                document.getElementById('v-thermo-fill').style.width = '0%';
+                document.getElementById('v-thermo-text').innerText = "Sección Omitida";
+                document.getElementById('v-thermo-text').style.color = "#555";
+            } else {
+                content.style.opacity = '1';
+                content.style.pointerEvents = 'auto';
+                wrapper.style.opacity = '1';
+                updateThermometer();
+            }
+        }
+
+        function evaluarTest() {
+            let resBox = document.getElementById('resultados_box');
+            let resContent = document.getElementById('res_content');
+            resContent.innerHTML = '';
+            
+            let html = "";
+            let ageInput = document.getElementById('q1_edad');
+            let age = ageInput.value;
+            if(!age) {
+                alert("Por favor ingresa tu edad en la Sección 1 para poder evaluarte.");
+                ageInput.focus();
+                ageInput.style.borderColor = "red";
+                return;
+            } else {
+                ageInput.style.borderColor = "";
+            }
+
+            let sexoInput = document.querySelector('input[name="q2"]:checked');
+            if(!sexoInput) {
+                alert("Por favor selecciona tu Sexo en la Pregunta 2 para adaptar tu evaluación.");
+                return;
+            }
+
+            // Triage Hombres
+            let qh1 = document.querySelector('input[name="qh1"]:checked');
+            let qh2 = document.querySelector('input[name="qh2"]:checked');
+            if ((qh1 && qh1.value.startsWith('B')) || (qh2 && qh2.value.startsWith('A'))) {
+                html += "<div class='feedback-alert'><strong>👨‍⚕️ Nota Médica (Anatomía):</strong> Condiciones como la fimosis o el frenillo corto tienen una solución médica ambulatoria rápida y segura. ¡Menciónalo en tu consulta para evitar molestias físicas!</div>";
+            }
+            
+            // Triage Mujeres
+            let qm1 = document.querySelector('input[name="qm1"]:checked');
+            if (qm1 && qm1.value.startsWith('B')) {
+                html += "<div class='feedback-info'><strong>💡 Nota sobre Bienestar Femenino:</strong> Es importante recordar que anatómicamente la gran mayoría de las mujeres requieren estimulación directa del clítoris para alcanzar el orgasmo. Explorar y conocer tu cuerpo es tu derecho.</div>";
+            }
+            let qm2 = document.querySelector('input[name="qm2"]:checked');
+            if (qm2 && qm2.value.startsWith('A')) {
+                html += "<div class='feedback-danger'><strong>🚨 Nota Médica (Menstruación):</strong> El dolor menstrual que te incapacita NO es normal. Podría ser un síntoma de condiciones tratables como la endometriosis o miomas. ¡No te acostumbres a sufrir y menciónalo en tu consulta!</div>";
+            }
+            
+            let q10 = document.querySelector('input[name="q10"]:checked');
+            if (q10 && q10.value.startsWith('A')) {
+                html += "<div class='feedback-info'><strong>🧠 Nota Psicológica:</strong> La ansiedad de desempeño es sumamente común y a menudo está influenciada por expectativas irreales o presión externa. En consulta podemos brindarte estrategias para manejarlo.</div>";
+            }
+            
+            let q12 = document.querySelector('input[name="q12"]:checked');
+            let q14 = document.querySelector('input[name="q14"]:checked');
+            if ((q12 && q12.value.startsWith('B')) || (q14 && (q14.value.startsWith('A') || q14.value.startsWith('C')))) {
+                html += "<div class='feedback-warning'><strong>⚠️ Nota de Prevención:</strong> Omitir el uso del condón por exceso de confianza o factores externos incrementa tu exposición a Infecciones de Transmisión Sexual (ITS). Sugerimos priorizar el uso de barreras de protección.</div>";
+            }
+            
+            let q15 = document.querySelector('input[name="q15"]:checked');
+            if (q15 && q15.value === 'Nunca') {
+                html += "<div class='feedback-warning'><strong>⚠️ Historial de Pruebas:</strong> Mencionas que nunca te has hecho una prueba de ITS. Recuerda que la mayoría son silenciosas por años. Hacerte una prueba de rutina te dará total paz mental y control de tu salud.</div>";
+            }
+
+            let q19 = Array.from(document.querySelectorAll('input[name="q19"]:checked')).map(el => el.value);
+            if (q19.some(v => v.startsWith('A') || v.startsWith('B') || v.startsWith('C'))) {
+                html += "<div class='feedback-danger'><strong>🚨 Atención Médica Sugerida:</strong> Has reportado síntomas que requieren evaluación clínica. Acude a la brevedad para recibir un diagnóstico y tratamiento oportuno.</div>";
+            }
+            
+            let qToxicList = [
+                document.querySelector('input[name="q_toxic1"]:checked'),
+                document.querySelector('input[name="q_toxic5"]:checked'),
+                document.querySelector('input[name="q_toxic6"]:checked'),
+                document.querySelector('input[name="q_perp1"]:checked'),
+                document.querySelector('input[name="q_perp2"]:checked')
+            ];
+            if (qToxicList.some(el => el && el.value.startsWith('A'))) {
+                html += "<div class='feedback-danger' style='border-color: #f57c00; background: #fff3e0;'><strong style='color: #e65100;'>🛑 Patrones de Riesgo Relacional:</strong> Has indicado creencias o comportamientos que justifican el abuso, culpan a las víctimas, o utilizan coerción y manipulación psicológica (como burlas corporales). Es fundamental hablar de esto para construir relaciones verdaderamente equitativas.</div>";
+            }
+
+            let v30 = Array.from(document.querySelectorAll('input[name="v30"]:checked')).map(el => parseInt(el.value));
+            if (v30.length > 0) {
+                let maxV = Math.max(...v30);
+                if (maxV >= 21) {
+                    html += "<div class='feedback-danger' style='border-color: #b71c1c; background: #ffcdd2;'><strong>🛑 PELIGRO DE VIOLENCIA:</strong> Has marcado niveles rojos en el violentómetro. Tu vida o integridad están en riesgo. Menciónalo en tu consulta de inmediato para activar protocolos de apoyo. ¡No estás solo/a!</div>";
+                } else if (maxV >= 11) {
+                    html += "<div class='feedback-danger' style='border-color: #f57c00; background: #ffe0b2;'><strong>🛑 ALERTA DE VIOLENCIA:</strong> Has marcado niveles naranjas. La violencia siempre escala, el control y las agresiones físicas no son normales. Acércate a nosotros para apoyo psicológico.</div>";
+                }
+            }
+
+            let pm1 = parseInt(document.getElementById('pm1').value);
+            let pm2 = parseInt(document.getElementById('pm2').value);
+            let pm3 = parseInt(document.getElementById('pm3').value);
+            let pm4 = parseInt(document.getElementById('pm4').value);
+            let avgPm = (pm1 + pm2 + pm3 + pm4) / 4;
+            
+            if (avgPm <= 6) {
+                 html += "<div class='feedback-alert'><strong>❤️ Bienestar Integral:</strong> Tus niveles de satisfacción y seguridad reportados son bajos. Recuerda que la salud sexual debe ser placentera y segura. Tienes pleno derecho a establecer límites en todo momento.</div>";
+            }
+            
+            if(html === "") {
+                html = "<div class='feedback-success'><strong>✅ Excelentes hábitos:</strong> Mantienes prácticas seguras y un buen conocimiento de tu cuerpo y tus límites. Sigue así, y recuerda que los chequeos de rutina son la mejor forma de prevención.</div>";
+            }
+            
+            resContent.innerHTML = html;
+            resBox.style.display = "block";
+            resBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function getRadioVal(name) {
+            let el = document.querySelector(`input[name="${name}"]:checked`);
+            let val = el ? el.value : "No respondió";
+            let comment = document.getElementById('comment_' + name);
+            if(comment && comment.value.trim() !== "") val += ` (Nota: ${comment.value.trim()})`;
+            return val;
+        }
+
+        function getCheckVals(name) {
+            let els = document.querySelectorAll(`input[name="${name}"]:checked`);
+            let val = "Ninguna";
+            if(els.length > 0) {
+                val = Array.from(els).map(el => el.value).join(", ");
+            }
+            let comment = document.getElementById('comment_' + name);
+            if(comment && comment.value.trim() !== "") val += ` (Nota: ${comment.value.trim()})`;
+            return val;
+        }
+
+        function enviarWhatsApp() {
+            let age = document.getElementById('q1_edad').value || "No especificada";
+            let q2 = getRadioVal("q2");
+            let q3 = getRadioVal("q3");
+            let q4 = getRadioVal("q4");
+            let q5 = getRadioVal("q5");
+            let q5b = getCheckVals("q5b");
+            let q_derechos = getRadioVal("q_derechos");
+            
+            let anat = "";
+            if(q2 === "Hombre") {
+                anat += `- Prepucio: ${getRadioVal("qh1")}\n- Frenillo: ${getRadioVal("qh2")}\n- Dolor test/eyaculación: ${getRadioVal("qh3")}\n`;
+            } else if (q2 === "Mujer") {
+                anat += `- Clítoris: ${getRadioVal("qm1")}\n- Dolor menstrual: ${getRadioVal("qm2")}\n- Anticoncepción: ${getRadioVal("qm3")}\n`;
+            } else {
+                anat += `- No seleccionó sexo biológico\n`;
+            }
+
+            let q9 = getRadioVal("q9");
+            let q9b = getRadioVal("q9b");
+            let q10 = getRadioVal("q10");
+            let q_toxic1 = getRadioVal("q_toxic1");
+            let q_toxic2 = getRadioVal("q_toxic2");
+            let q_toxic3 = getRadioVal("q_toxic3");
+            let q_parejas = getRadioVal("q_parejas");
+            let q11 = getCheckVals("q11");
+            let q12 = getRadioVal("q12");
+            let q13 = getRadioVal("q13");
+            let q14 = getRadioVal("q14");
+            let q15 = getRadioVal("q15");
+            let q16 = getRadioVal("q16");
+            let q17 = getRadioVal("q17");
+            let q17b = getRadioVal("q17b");
+            let q18 = getRadioVal("q18");
+            let q_toxic4 = getRadioVal("q_toxic4");
+            let q_toxic5 = getRadioVal("q_toxic5");
+            let q_toxic6 = getRadioVal("q_toxic6");
+            let q_perp1 = getRadioVal("q_perp1");
+            let q_presion = getRadioVal("q_presion");
+            let q_perp2 = getRadioVal("q_perp2");
+            let q19 = getCheckVals("q19");
+            let q20 = getRadioVal("q20");
+            
+            let q_consent1 = getCheckVals("q_consent1");
+            let q_consent2 = getRadioVal("q_consent2");
+            let q_empatia = getRadioVal("q_empatia");
+            let pm1 = document.getElementById('pm1').value;
+            let pm2 = document.getElementById('pm2').value;
+            let pm3 = document.getElementById('pm3').value;
+            let pm4 = document.getElementById('pm4').value;
+            
+            let skipV30 = document.getElementById('skip_v30').checked;
+            let q21 = skipV30 ? "Omitió la sección" : getCheckVals("v30");
+            let q22 = getCheckVals("q22");
+            let q23 = getRadioVal("q_doctor");
+
+            let msg = `Hola Proyecto Celene 🌸.\nAcabo de realizar el Cuestionario de Salud Sexual y me gustaría agendar mi consulta de orientación médica gratuita.\n\n*RESUMEN CLÍNICO:*\n`;
+            msg += `- Edad: ${age} años\n`;
+            msg += `- Sexo/Género: ${q2}\n`;
+            msg += `- Orientación: ${q3}\n`;
+            msg += `- Educ. Principal: ${q4}\n`;
+            msg += `- Impacto Porno: ${q5}\n\n`;
+            msg += `- Consumo Porno: ${q5b}\n\n`;
+            
+            msg += `*ANATOMÍA Y PRESIÓN:*\n`;
+            msg += anat;
+            msg += `- Conocimiento de Derechos/ILE: ${q_derechos}\n`;
+            msg += `- Masturbación: ${q9}\n`;
+            msg += `- Frecuencia Masturbación: ${q9b}\n`;
+            msg += `- Presión/Rendimiento: ${q10}\n`;
+            
+            msg += `*EXPECTATIVAS Y CREENCIAS (TAMIZAJE):*\n`;
+            msg += `- Deuda de Pareja (Transaccional): ${q_toxic1}\n`;
+            msg += `- Valor por Historial Sexual: ${q_toxic2}\n`;
+            msg += `- Normalización de Celos/Control: ${q_toxic3}\n`;
+            msg += `- Preferencia Violencia sin consenso: ${q_toxic4}\n`;
+            msg += `- Victim Blaming (Culpar víctima): ${q_toxic5}\n`;
+            msg += `- Mito Autocontrol Masculino: ${q_toxic6}\n\n`;
+
+            msg += `*PRÁCTICAS Y PREVENCIÓN:*\n`;
+            msg += `- Parejas Recientes: ${q_parejas}\n`;
+            msg += `- Higiene: ${q11}\n`;
+            msg += `- Sexo Anal: ${q12}\n`;
+            msg += `- Sexo Oral: ${q13}\n`;
+            msg += `- Omisión Condón: ${q14}\n\n`;
+            
+            msg += `*HISTORIAL E ITS:*\n`;
+            msg += `- Última prueba ITS: ${q15}\n`;
+            msg += `- Dx Previo ITS: ${q16}\n`;
+            msg += `- Síntomas Físicos actuales: ${q19}\n\n`;
+            
+            msg += `*COMUNICACIÓN Y PLACER:*\n`;
+            msg += `- Señales de Consentimiento: ${q_consent1}\n`;
+            msg += `- Reacción al 'NO' durante el acto: ${q_consent2}\n`;
+            msg += `- Empatía Sexual: ${q_empatia}\n`;
+            msg += `- Ejerció Coerción/Insistencia: ${q_perp1}\n`;
+            msg += `- Presión Social por "Rendir": ${q_presion}\n`;
+            msg += `- Usó sexo/cuerpo como arma: ${q_perp2}\n\n`;
+
+            msg += `*LÍMITES:*\n`;
+            msg += `- Sexting: ${q17}\n`;
+            msg += `- Ética Digital: ${q17b}\n`;
+            msg += `- Presión/Consentimiento: ${q18}\n`;
+            msg += `- Violentómetro: ${q21}\n\n`;
+            
+            msg += `*CONSEJERÍA:*\n- Temas: ${q22}\n`;
+            msg += `- Preferencia Médica: ${q23}\n\n`;
+            msg += `¿Qué horarios tienen disponibles para agendar mi consulta?`;
+
+            window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+    <script src="js/global.js"></script>
+</body>
+</html>

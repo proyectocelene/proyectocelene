@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Integral de Consejería VIH | Proyecto Celene</title>
+    <meta name="description" content="Guía interactiva de preconsejería y postconsejería para la prueba rápida de VIH. Conoce tus riesgos, el periodo de ventana y el protocolo a seguir.">
+    <meta name="author" content="Dr. Carlos Donato">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/guia-consejeria-vih.html">
+    <meta property="og:title" content="Consejería VIH: Tu Ruta Segura | Proyecto Celene">
+    <meta property="og:description" content="Guía didáctica para antes y después de tu prueba de VIH. Evalúa riesgos y conoce tus opciones.">
+    <meta property="og:image" content="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fde047;
+            --pc-azul-fondo: #f0f9ff;
+            --pc-verde: #25d366;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        /* HEADER */
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-rosa-pastell); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); position: relative; overflow: hidden; }
+        .header h1 { font-size: 2.8rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; line-height: 1.1; }
+        .author-badge { display: inline-block; background: var(--pc-negro); color: var(--pc-blanco); padding: 5px 15px; border-radius: 50px; font-weight: 900; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* TABS */
+        .tabs-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .tab-btn { background: var(--pc-blanco); border: 3px solid var(--pc-negro); padding: 12px 20px; border-radius: 50px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); transition: 0.2s; white-space: normal; word-wrap: break-word; }
+        .tab-btn:hover { background: var(--pc-amarillo); transform: translateY(-2px); box-shadow: 0 6px 0 var(--pc-negro); }
+        .tab-btn.active { background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 0px 0 var(--pc-negro); transform: translateY(4px); }
+        .tab-content { display: none; animation: fadeInTab 0.4s ease-out; }
+        @keyframes fadeInTab { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* CAJAS */
+        .content-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-azul-fondo); position: relative; overflow: hidden; transition: 0.3s; }
+        .content-box h2 { color: var(--pc-rosa-fuerte); margin-bottom: 15px; font-size: 1.8rem; }
+        .content-box p { margin-bottom: 15px; font-size: 1.05rem; color: #444; font-weight: 600; }
+        .content-box ul { margin-left: 20px; margin-bottom: 15px; font-weight: 600; color: #444; font-size: 1.05rem; }
+        .content-box li { margin-bottom: 8px; }
+
+        .info-panel { padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-bottom: 20px; }
+        .info-panel h4 { font-size: 1.3rem; color: var(--pc-negro); margin-bottom: 10px; font-family: 'Handlee', cursive; }
+        
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { background: var(--pc-blanco); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-gris-suave); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 6px 6px 0 var(--pc-negro); }
+        
+        /* MITOS FLIP CARDS */
+        .flip-card { background-color: transparent; width: 100%; height: 200px; perspective: 1000px; margin-bottom: 20px; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer; }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; border: 3px solid var(--pc-negro); border-radius: 15px; font-weight: 800; font-size: 1.05rem; }
+        .flip-card-front { background-color: var(--pc-amarillo); color: var(--pc-negro); box-shadow: 6px 6px 0 var(--pc-rosa-pastell); }
+        .flip-card-back { background-color: var(--pc-verde); color: white; transform: rotateY(180deg); box-shadow: -6px 6px 0 var(--pc-negro); }
+
+        /* QUIZ PRECONSEJERIA */
+        .quiz-box { background: var(--pc-azul-fondo); padding: 25px; border-radius: 20px; border: 4px dashed var(--pc-negro); margin-bottom: 30px; }
+        .radio-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+        .radio-label { display: flex; align-items: center; background: white; border: 2px solid var(--pc-negro); padding: 12px 15px; border-radius: 10px; cursor: pointer; font-weight: 600; transition: 0.2s; font-size: 1.05rem; color: #444; }
+        .radio-label:hover { background: var(--pc-amarillo); }
+        .radio-label input { margin-right: 15px; transform: scale(1.3); accent-color: var(--pc-rosa-fuerte); }
+
+        /* BUTTONS */
+        .btn-action { display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 15px 30px; border-radius: 50px; border: 4px solid var(--pc-negro); font-weight: 800; font-size: 1.1rem; background: var(--pc-negro); color: white; box-shadow: 0 6px 0 #000; cursor: pointer; font-family: 'Nunito', sans-serif; transition: 0.1s; text-decoration: none; width: 100%; max-width: 400px; margin: 10px auto; }
+        .btn-action:active { transform: translateY(6px); box-shadow: 0 0 0 transparent; }
+        .btn-rosa { background: var(--pc-rosa-fuerte); box-shadow: 0 6px 0 var(--pc-negro); }
+        .btn-amarillo { background: var(--pc-amarillo); color: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-negro); }
+        .btn-next { display: block; width: 100%; max-width: 400px; margin: 30px auto 0; text-align: center; background: var(--pc-rosa-fuerte); color: white; border: 3px solid var(--pc-negro); padding: 15px 25px; border-radius: 50px; font-weight: 900; font-size: 1.2rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: 0 6px 0 var(--pc-negro); font-family: 'Nunito', sans-serif; text-decoration: none; }
+        .btn-next:hover { transform: scale(1.03) translateY(-3px); box-shadow: 0 9px 0 var(--pc-negro); color: white; }
+        .btn-next:active { transform: translateY(6px); box-shadow: 0 0px 0 var(--pc-negro); }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        
+        .floating-img { animation: floatImg 3s ease-in-out infinite; }
+        @keyframes floatImg { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+        .main-nav {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+            margin-bottom: 20px; padding: 15px; background: var(--pc-blanco);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px; box-shadow: 6px 6px 0px var(--pc-rosa-pastell);
+        }
+        .main-nav a {
+            text-decoration: none; color: var(--pc-negro); font-weight: 800;
+            font-size: 1.05rem; padding: 8px 15px; border-radius: 15px;
+            transition: all 0.2s; border: 2px solid transparent;
+        }
+        .main-nav a:hover {
+            background: var(--pc-rosa-fuerte); color: var(--pc-blanco);
+            border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro);
+        }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
+            <a href="recursos-educativos.html" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; border: 3px solid var(--pc-negro); border-radius: 50px; font-weight: 800; text-decoration: none;">
+                ⬅️ Volver a Recursos Educativos
+            </a>
+        </div>
+
+        <header class="header fade-in">
+            <img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Cáncer de Mama" class="floating-img" style="max-width: 100%; width: 150px; margin: 0 auto 20px; display: block; border-radius: 50%; border: 4px solid var(--pc-negro); background: white; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte);">
+            <span class="author-badge">🛡️ Consejería Clínica VIH</span>
+            <h1 class="hand-drawn">Tu Ruta Segura 🎗️</h1>
+            <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: var(--pc-negro);">Un espacio seguro, confidencial y sin juicios para evaluar tus riesgos, hacerte la prueba y recibir apoyo incondicional.</p>
+        </header>
+
+        <!-- NAVEGACIÓN TABS -->
+        <div class="tabs-wrapper fade-in">
+            <button id="btn-tab-intro" class="tab-btn active" onclick="openTab('tab-intro', this)">📖 ¿Qué es el VIH?</button>
+            <button id="btn-tab-riesgos" class="tab-btn" onclick="openTab('tab-riesgos', this)">⚠️ Pre-Consejería (Riesgos)</button>
+            <button id="btn-tab-prueba" class="tab-btn" onclick="openTab('tab-prueba', this)">🩸 La Prueba</button>
+            <button id="btn-tab-apoyo" class="tab-btn" onclick="openTab('tab-apoyo', this)">🤝 Resultados y Apoyo</button>
+        </div>
+
+        <!-- TAB 1: ¿QUÉ ES EL VIH Y MITOS? -->
+        <div id="tab-intro" class="tab-content" style="display: block;">
+            <div class="content-box">
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <span style="font-size: 4.5rem; display: inline-block; filter: drop-shadow(4px 4px 0px var(--pc-rosa-pastell));">🛡️</span>
+                </div>
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">¿Qué es el VIH y el SIDA?</h2>
+                <p style="text-align: center; margin-bottom: 25px;">Mucha gente piensa que son lo mismo, pero NO lo son. Para entenderlo, pensemos en una fortaleza antigua.</p>
+
+                <div class="grid-cards" style="margin-top: 15px;">
+                    <div class="card" style="border-color: #c62828; box-shadow: 4px 4px 0 #ffcdd2;">
+                        <h4 style="color: #c62828; font-size: 1.2rem; font-family: 'Handlee', cursive;">🦠 ¿Qué es el VIH? (El Invasor)</h4>
+                        <p style="font-size: 0.95rem;">VIH significa "Virus de Inmunodeficiencia Humana". Es un invasor que entra a la Fortaleza (tu cuerpo) y no hace destrozos directos, sino que su único objetivo es <strong>desactivar a los guardias</strong> (tu sistema inmunológico).</p>
+                    </div>
+                    <div class="card" style="border-color: #f57f17; box-shadow: 4px 4px 0 #fff9c4;">
+                        <h4 style="color: #f57f17; font-size: 1.2rem; font-family: 'Handlee', cursive;">🏥 ¿Qué es el SIDA? (La Vulnerabilidad)</h4>
+                        <p style="font-size: 0.95rem;">Es la <strong>etapa final y avanzada</strong> de la infección sin tratar. Significa que el invasor (VIH) logró eliminar a casi todos los guardias, dejando la Fortaleza sin defensas frente a bacterias comunes (infecciones oportunistas).</p>
+                    </div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-amarillo); border-color: var(--pc-negro); margin-top: 30px;">
+                    <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.5rem; text-align: center;">Resumen Vital 🌟</h4>
+                    <p style="font-weight: 800; text-align: center; font-size: 1.1rem; color: #444;">Puedes vivir muchísimos años con VIH (gracias al tratamiento) <strong>sin llegar jamás a tener SIDA</strong>.</p>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-top: 40px; font-size: 2rem; text-align: center;">Vías de Transmisión y Mitos</h3>
+                <p style="font-size: 1.05rem; font-weight: 600; text-align: center; margin-bottom: 20px;">Toca las tarjetas para descubrir la realidad de cómo NO se transmite.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: El VIH se transmite por un beso profundo o por la saliva.</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Realidad: ¡Falso! La saliva no transmite el VIH. Se necesitarían litros de saliva para que hubiera un riesgo real.</div></div>
+                        </div>
+                    </div>
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: Se contagia al usar el mismo baño público o compartir vasos.</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Realidad: El virus muere casi instantáneamente al contacto con el aire. Compartir inodoros, abrazos o comida es 100% seguro.</div></div>
+                        </div>
+                    </div>
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: Los mosquitos pueden inyectarte el VIH de otra persona.</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Realidad: Los mosquitos no inyectan la sangre de su comida anterior, y el VIH no puede sobrevivir ni reproducirse dentro del insecto.</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-riesgos', document.getElementById('btn-tab-riesgos'))">Evaluar mi Riesgo ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 2: PRECONSEJERIA (RIESGOS) -->
+        <div id="tab-riesgos" class="tab-content">
+            <div class="content-box" style="background: var(--pc-gris-suave);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem; color: var(--pc-negro);">Mi Evaluación (Pre-Consejería) ⚠️</h2>
+                <p style="text-align: center;">Para que la prueba sea precisa y útil, necesitamos evaluar cuándo fue tu último contacto de riesgo. Contesta con honestidad (tu información es anónima).</p>
+
+                <div class="quiz-box" style="background: white; border-color: var(--pc-rosa-fuerte); margin-top: 25px;">
+                    <label style="font-weight: 800; display: block; margin-bottom: 10px; font-size: 1.1rem;">1. ¿Tuviste alguna de estas prácticas recientemente?</label>
+                    <ul style="margin-left: 20px; margin-bottom: 15px; font-weight: 600; color: #555;">
+                        <li>Sexo anal o vaginal sin condón (o se rompió).</li>
+                        <li>Compartir jeringas o agujas de tatuaje/drogas.</li>
+                        <li>Fuiste víctima de violencia sexual o accidente laboral con sangre.</li>
+                    </ul>
+                    <div class="radio-group" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px;">
+                        <label class="radio-label"><input type="radio" name="q_riesgo" value="si" onclick="document.getElementById('fecha_riesgo').style.display='block'"> Sí, tuve un riesgo reciente</label>
+                        <label class="radio-label"><input type="radio" name="q_riesgo" value="no" onclick="document.getElementById('fecha_riesgo').style.display='none'"> No, solo es chequeo de rutina por precaución</label>
+                    </div>
+
+                    <div id="fecha_riesgo" style="display: none; margin-bottom: 25px; padding-top: 20px; border-top: 2px dashed #ccc;">
+                        <label style="font-weight: 800; display: block; margin-bottom: 15px; font-size: 1.1rem; color: var(--pc-rosa-fuerte);">2. ¿Hace cuánto tiempo fue EXACTAMENTE ese riesgo?</label>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <label class="radio-label"><input type="radio" name="q_tiempo" value="urgencia"> Hace MENOS de 72 horas (Menos de 3 días)</label>
+                            <label class="radio-label"><input type="radio" name="q_tiempo" value="ventana"> Hace entre 3 días y 4 semanas</label>
+                            <label class="radio-label"><input type="radio" name="q_tiempo" value="seguro"> Hace MÁS de 4 semanas</label>
+                        </div>
+                    </div>
+
+                    <button onclick="evaluarVentana()" class="btn-action btn-rosa" style="width: 100%; margin: 0;">Analizar mi Situación 🔍</button>
+                    <div id="res_ventana" style="display: none; margin-top: 20px; padding: 20px; border-radius: 15px; border: 4px solid var(--pc-negro); font-weight: 800; font-size: 1.1rem; animation: popIn 0.3s;"></div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-azul-fondo); border-color: var(--pc-negro);">
+                    <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.5rem;">El Periodo de Ventana ⏳</h4>
+                    <p style="font-size: 0.95rem; font-weight: 600;">Es el intervalo de tiempo entre que el virus entra a tu cuerpo y el momento en que la prueba puede detectarlo. Si te haces la prueba durante esos primeros días, puede dar un <strong>"Falso Negativo"</strong>. Por eso, si tu riesgo fue anoche, ¡la prueba de sangre no sirve hoy, lo que necesitas es PEP!</p>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-prueba', document.getElementById('btn-tab-prueba'))">Conoce la Prueba Clínica ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 3: LA PRUEBA -->
+        <div id="tab-prueba" class="tab-content">
+            <div class="content-box" style="border-color: var(--pc-rosa-fuerte);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">¿Cómo es la Prueba? 🩸</h2>
+                <p style="text-align: center; margin-bottom: 20px;">Acudir a hacerte una prueba puede generar nervios, pero la realidad es que el proceso dura apenas 15 minutos y es virtualmente indoloro.</p>
+
+                <div style="background: #fef08a; border: 4px solid var(--pc-negro); border-radius: 15px; padding: 20px; margin-bottom: 30px; position: relative;">
+                    <div style="position: absolute; top: -15px; right: 20px; background: var(--pc-negro); color: white; font-weight: 900; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">ESTÁNDAR ORO 🥇</div>
+                    <h3 style="font-family: 'Handlee', cursive; font-size: 1.6rem; margin-bottom: 10px;">Prueba Rápida de 4ta Generación</h3>
+                    <p style="font-weight: 600; color: #444; font-size: 0.95rem;">A diferencia de pruebas viejas, las que usamos en Proyecto Celene son increíblemente avanzadas (Detección Dual). No solo buscan los anticuerpos que crea tu cuerpo con los meses, sino que también buscan la proteína <strong>Antígeno p24</strong> del propio virus, permitiendo detectarlo semanas antes.</p>
+                </div>
+
+                <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px; text-align: center;">Pasos en el Consultorio</h3>
+                <div class="grid-cards" style="margin-top: 0;">
+                    <div class="card" style="text-align: center; background: #fff1f2; border-color: #f43f5e;">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 10px;">📌</span>
+                        <h4 style="color: #e11d48; font-size: 1.2rem; font-weight: 900;">1. El Piquete</h4>
+                        <p style="font-size: 0.9rem;">Desinfectamos tu dedo y damos un piquete con una lanceta descartable. Se siente como un pequeño "click".</p>
+                    </div>
+                    <div class="card" style="text-align: center; background: #fffbeb; border-color: #eab308;">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 10px;">🧫</span>
+                        <h4 style="color: #ca8a04; font-size: 1.2rem; font-weight: 900;">2. La Muestra</h4>
+                        <p style="font-size: 0.9rem;">Tomamos 1 a 2 gotitas de sangre con un tubo capilar y las depositamos en el casete especializado.</p>
+                    </div>
+                    <div class="card" style="text-align: center; background: #f0fdf4; border-color: #22c55e;">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 10px;">🧪</span>
+                        <h4 style="color: #16a34a; font-size: 1.2rem; font-weight: 900;">3. El Reactivo</h4>
+                        <p style="font-size: 0.9rem;">Añadimos unas gotas de solución buffer para que comience la reacción química con tu sangre.</p>
+                    </div>
+                    <div class="card" style="text-align: center; background: #eff6ff; border-color: #3b82f6;">
+                        <span style="font-size: 3rem; display: block; margin-bottom: 10px;">⏱️</span>
+                        <h4 style="color: #2563eb; font-size: 1.2rem; font-weight: 900;">4. La Espera</h4>
+                        <p style="font-size: 0.9rem;">En 15 minutos exactos sabremos tu estado. ¡Te acompañamos en todo momento!</p>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-apoyo', document.getElementById('btn-tab-apoyo'))">Conocer Resultados y Apoyo ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 4: RESULTADOS Y APOYO -->
+        <div id="tab-apoyo" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">Resultados y Post-Consejería 🤝</h2>
+                <p style="text-align: center; font-weight: 600; margin-bottom: 30px;">Leer tu resultado no es el final del proceso. Te explicamos exactamente qué significa cada escenario.</p>
+
+                <div class="grid-cards" style="margin-top: 0; margin-bottom: 30px;">
+                    <div class="card" style="background: #e8f5e9; border-color: #2e7d32; box-shadow: 6px 6px 0 #c8e6c9;">
+                        <h4 style="color: #1b5e20; font-size: 1.3rem; font-family: 'Handlee', cursive;">🟢 No Reactivo (Negativo)</h4>
+                        <p style="font-size: 0.95rem; font-weight: 600; color: #444;">Felicidades, no se encontraron anticuerpos ni antígenos en tu sangre. <br><br><strong>El plan:</strong> Si estabas dentro de un periodo de ventana por un riesgo reciente, te pediremos volver a hacerte la prueba en un mes para estar 100% seguros. Si no, usa condón para mantenerte así y visítanos el próximo año para tu chequeo rutinario.</p>
+                    </div>
+                    
+                    <div class="card" style="background: #ffebee; border-color: #c62828; box-shadow: 6px 6px 0 #ffcdd2;">
+                        <h4 style="color: #b71c1c; font-size: 1.3rem; font-family: 'Handlee', cursive;">🔴 Reactivo (Positivo)</h4>
+                        <p style="font-size: 0.95rem; font-weight: 600; color: #444;">Respira. <strong>Esto NO es un diagnóstico definitivo.</strong> Las pruebas rápidas son muy sensibles y a veces reaccionan a otras cosas. <br><br><strong>El plan:</strong> Se requiere hacer un estudio de sangre en laboratorio (Western Blot o Carga Viral) para confirmarlo. Nosotros te canalizaremos inmediatamente a la institución de salud gratuita correspondiente (CAPASITS) para tus estudios confirmatorios y tratamiento.</p>
+                    </div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-azul-fondo); border-color: var(--pc-negro);">
+                    <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; text-align: center; margin-bottom: 15px;">La Regla de Oro: I = I 🌟</h4>
+                    <p style="font-weight: 800; text-align: center; font-size: 1.15rem; margin-bottom: 10px;">Indetectable es igual a Intransmisible.</p>
+                    <p style="font-size: 0.95rem; font-weight: 600; color: #555; text-align: center;">Si el resultado se confirma y una persona inicia tratamiento retroviral (1 pastilla al día), el virus baja tanto en su sangre que se vuelve "Indetectable". La ciencia ha demostrado que es biológicamente imposible que una persona Indetectable transmita el virus a su pareja sexual, incluso sin usar condón. <strong>El VIH hoy es una condición crónica manejable, no una sentencia.</strong></p>
+                </div>
+
+                <div style="background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; text-align: center; margin-top: 40px; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte);">
+                    <h3 class="hand-drawn" style="font-size: 2rem; color: var(--pc-negro); margin-bottom: 10px;">¿Lista(o) para salir de dudas?</h3>
+                    <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 20px;">En Clínica de Salud Sexual de Proyecto Celene (Rosarito), la prueba de VIH es <strong>100% GRATUITA</strong>, segura y estrictamente confidencial.</p>
+                    
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                        <a href="salud-sexual.html" class="btn-action" style="background: white; color: var(--pc-negro); margin: 0; box-shadow: 4px 4px 0 var(--pc-negro);">Ver Clínica ITS ➔</a>
+                        <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20agendar%20una%20prueba%20rápida%20de%20VIH%20(Gratuita)." target="_blank" class="btn-action btn-wa" style="margin: 0; box-shadow: 4px 4px 0 var(--pc-negro);">Agendar por WhatsApp 💬</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Animaciones iniciales
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
+        // Lógica de Tabs
+        function openTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).style.display = 'block';
+            if (btnElement) {
+                btnElement.classList.add('active');
+                window.scrollTo({ top: document.querySelector('.tabs-wrapper').offsetTop - 20, behavior: 'smooth' });
+            }
+        }
+
+        // Lógica de Quiz (Ventana)
+        function evaluarVentana() {
+            let r_riesgo = document.querySelector('input[name="q_riesgo"]:checked');
+            let res = document.getElementById('res_ventana');
+
+            if (!r_riesgo) {
+                alert("Selecciona si tuviste un riesgo o no en la pregunta 1.");
+                return;
+            }
+
+            if (r_riesgo.value === 'no') {
+                res.innerHTML = "🟢 <strong>Riesgo Bajo:</strong> Como no has tenido riesgos recientes, este es el momento perfecto para hacerte tu prueba de rutina. Te dará total paz mental.";
+                res.style.background = "#e8f5e9"; res.style.borderColor = "#2e7d32"; res.style.color = "#1b5e20";
+                res.style.display = "block";
+                return;
+            }
+
+            let r_tiempo = document.querySelector('input[name="q_tiempo"]:checked');
+            if (!r_tiempo) {
+                alert("Por favor indica hace cuánto fue el riesgo en la pregunta 2.");
+                return;
+            }
+
+            if (r_tiempo.value === 'urgencia') {
+                res.innerHTML = "🚨 <strong>URGENCIA MÉDICA (PEP):</strong> ¡Estás a tiempo de evitar la infección! Necesitas Profilaxis Post Exposición (PEP) antes de que se cumplan las 72 horas. La prueba rápida de hoy saldrá negativa porque el virus apenas va entrando. <strong>Acude a Urgencias de tu hospital público más cercano DE INMEDIATO para pedir PEP.</strong>";
+                res.style.background = "#ffebee"; res.style.borderColor = "#c62828"; res.style.color = "#b71c1c";
+            } else if (r_tiempo.value === 'ventana') {
+                res.innerHTML = "⏳ <strong>PERIODO DE VENTANA:</strong> Tu riesgo fue muy reciente. La prueba de 4ta generación podría salir negativa aunque el virus haya ingresado, porque tu cuerpo aún no produce suficientes defensas para ser detectado. Te recomendamos hacerte la prueba hoy como punto de partida, pero <strong>deberás repetirla obligatoriamente en 1 mes</strong> para estar seguros.";
+                res.style.background = "#fff3e0"; res.style.borderColor = "#e65100"; res.style.color = "#e65100";
+            } else {
+                res.innerHTML = "✅ <strong>TIEMPO IDEAL:</strong> Ha pasado el tiempo suficiente para que nuestra prueba de 4ta generación (que busca el antígeno p24) sea altamente confiable y no dé falsos negativos. Es el momento perfecto para realizarte el estudio en clínica.";
+                res.style.background = "#e3f2fd"; res.style.borderColor = "#1565c0"; res.style.color = "#0d47a1";
+            }
+            res.style.display = "block";
+        }
+    </script>
+    
+    <script src="js/global.js"></script>
+</body>
+</html>
