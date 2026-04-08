@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía sobre la Depresión | Proyecto Celene</title>
+    <meta name="description" content="No es 'echarle ganas', es una condición médica. Aprende a identificar la depresión y cómo encontrar ayuda profesional en Proyecto Celene.">
+    
+    <!-- ¡IMPORTANTE! Esto asegura que los CSS y JS carguen correctamente estando en una subcarpeta -->
+    <base href="../">
+    
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde-wa: #25d366;
+            --pc-gris-suave: #f9f9f9;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        /* NAV, HEADER, ETC */
+        .main-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; padding: 15px; background: var(--pc-blanco); border: 3px solid var(--pc-negro); border-radius: 20px; box-shadow: 6px 6px 0px var(--pc-rosa-pastell); }
+        .main-nav a { text-decoration: none; color: var(--pc-negro); font-weight: 800; font-size: 1.05rem; padding: 8px 15px; border-radius: 15px; transition: 0.2s; border: 2px solid transparent; }
+        .main-nav a:hover { background: var(--pc-rosa-fuerte); color: white; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); transform: translateY(-2px); }
+        
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-azul-suave); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); position: relative; overflow: hidden; }
+        .header h1 { font-size: 2.8rem; color: var(--pc-negro); margin-bottom: 10px; line-height: 1.1; }
+        .author-badge { display: inline-block; background: var(--pc-negro); color: var(--pc-blanco); padding: 5px 15px; border-radius: 50px; font-weight: 900; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+
+        .content-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-amarillo); }
+        .content-box h2 { color: var(--pc-rosa-fuerte); margin-bottom: 15px; font-size: 1.8rem; }
+        .content-box p { margin-bottom: 15px; font-size: 1.05rem; color: #444; font-weight: 600; }
+        .content-box ul { margin-left: 20px; margin-bottom: 15px; font-weight: 600; color: #444; font-size: 1.05rem; }
+        .content-box li { margin-bottom: 8px; }
+        
+        .info-panel { padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-bottom: 20px; }
+        .info-panel h4 { font-size: 1.4rem; color: var(--pc-negro); margin-bottom: 10px; font-family: 'Handlee', cursive; }
+        
+        .btn-next { display: block; width: 100%; max-width: 400px; margin: 30px auto 0; text-align: center; background: var(--pc-rosa-fuerte); color: white; border: 3px solid var(--pc-negro); padding: 15px 25px; border-radius: 50px; font-weight: 900; font-size: 1.2rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 6px 0 var(--pc-negro); font-family: 'Nunito', sans-serif; text-decoration: none; }
+        .btn-next:hover { transform: scale(1.03) translateY(-3px); box-shadow: 0 9px 0 var(--pc-negro); }
+        .btn-next:active { transform: translateY(6px); box-shadow: 0 0px 0 var(--pc-negro); }
+
+        .tabs-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .tab-btn { background: var(--pc-blanco); border: 3px solid var(--pc-negro); padding: 12px 20px; border-radius: 50px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); transition: 0.2s; }
+        .tab-btn:hover { background: var(--pc-amarillo); transform: translateY(-2px); box-shadow: 0 6px 0 var(--pc-negro); }
+        .tab-btn.active { background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 0px 0 var(--pc-negro); transform: translateY(4px); }
+        .tab-content { display: none; animation: fadeInTab 0.4s ease-out; }
+        @keyframes fadeInTab { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { background: var(--pc-blanco); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-gris-suave); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 6px 6px 0 var(--pc-negro); }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* FLIP CARDS */
+        .flip-card { background-color: transparent; width: 100%; height: 220px; perspective: 1000px; margin-bottom: 20px; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; border: 3px solid var(--pc-negro); border-radius: 15px; font-weight: 800; font-size: 1.1rem; }
+        .flip-card-front { background-color: var(--pc-amarillo); color: var(--pc-negro); box-shadow: 6px 6px 0 var(--pc-rosa-pastell); }
+        .flip-card-back { background-color: var(--pc-verde-wa); color: white; transform: rotateY(180deg); box-shadow: -6px 6px 0 var(--pc-negro); }
+
+        /* TIMELINE */
+        .timeline { position: relative; max-width: 800px; margin: 30px auto; padding-left: 30px; border-left: 4px solid var(--pc-rosa-fuerte); }
+        .timeline-item { position: relative; margin-bottom: 30px; padding: 20px; background: white; border: 3px solid var(--pc-negro); border-radius: 15px; box-shadow: 4px 4px 0 var(--pc-azul-suave); }
+        .timeline-item::before { content: ''; position: absolute; left: -42px; top: 20px; width: 20px; height: 20px; background: white; border: 4px solid var(--pc-rosa-fuerte); border-radius: 50%; z-index: 2; }
+        .timeline-item h4 { color: var(--pc-rosa-fuerte); margin-bottom: 10px; font-size: 1.3rem; font-family: 'Handlee', cursive; }
+
+        /* RECURSOS DESCARGABLES */
+        .resource-card { display: flex; align-items: center; gap: 15px; background: var(--pc-gris-suave); border: 3px dashed var(--pc-negro); padding: 15px; border-radius: 15px; margin-bottom: 15px; transition: 0.2s; cursor: pointer; text-decoration: none; color: var(--pc-negro); }
+        .resource-card:hover { background: var(--pc-amarillo); transform: translateY(-3px); box-shadow: 4px 4px 0 var(--pc-negro); }
+        .resource-icon { font-size: 2.5rem; }
+        .resource-text h4 { font-size: 1.1rem; font-weight: 800; margin-bottom: 5px; }
+        .resource-text p { font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 0; line-height: 1.3; }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
+            <a href="salud-mental.html" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; border-radius: 50px; border: 3px solid var(--pc-negro); font-weight: 800; text-decoration: none;">
+                ⬅️ Volver a Salud Mental
+            </a>
+        </div>
+
+        <header class="header fade-in">
+            <div style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-negro)); margin-bottom: 10px;">🌧️</div>
+            <span class="author-badge">🧠 Psicología | Proyecto Celene</span>
+            <h1 class="hand-drawn">No estás solo/a.<br>La depresión tiene tratamiento y puedes recuperarte.</h1>
+            <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: #444;">La depresión no es una debilidad de tu carácter, ni significa que seas perezoso o que estés exagerando. Es una enfermedad real y médica que afecta a millones de personas, y lo más importante: <strong>es tratable</strong>.</p>
+            <a href="#emergencia-box" class="btn-next" style="background: #c62828; border-color: #b71c1c; box-shadow: 0 6px 0 #880e4f; margin-top: 25px; display: inline-block;">🚨 Haz clic aquí si tienes pensamientos de hacerte daño</a>
+        </header>
+
+        <div class="tabs-wrapper fade-in">
+            <button class="tab-btn active" onclick="openTab('tab-intro', this)">📖 ¿Qué es?</button>
+            <button class="tab-btn" onclick="openTab('tab-sintomas', this)">⚠️ Síntomas</button>
+            <button class="tab-btn" onclick="openTab('tab-tratamiento', this)">🩹 Tratamiento</button>
+            <button class="tab-btn" onclick="openTab('tab-autocuidado', this)">🌱 Autocuidado</button>
+            <button class="tab-btn" onclick="openTab('tab-familia', this)">👥 Para Familiares</button>
+            <a href="saludmental/cuestionarios.html" class="tab-btn" style="text-decoration: none; display: inline-flex; align-items: center; background: var(--pc-amarillo);">📊 Cuestionarios</a>
+        </div>
+
+        <!-- Tab 1: Qué es -->
+        <div id="tab-intro" class="tab-content" style="display: block;">
+            <div class="content-box">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">¿Qué es la Depresión?</h2>
+                <p>La depresión va mucho más allá de sentirse triste por un par de días. Es un trastorno del estado de ánimo que afecta cómo te sientes, cómo piensas y cómo manejas las actividades diarias como dormir, comer o trabajar.</p>
+                <p>Físicamente, la depresión altera los químicos en el cerebro (neurotransmisores como la serotonina y la dopamina) que regulan el humor. A través de guías clínicas internacionales (como mhGAP), sabemos que <strong>la educación sobre la enfermedad es fundamental para el éxito de la recuperación</strong>.</p>
+
+                <div class="info-panel" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); margin-top: 20px;">
+                    <h4 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">¿Por qué a mí? (Causas) 🧩</h4>
+                    <p style="font-weight: 600; color: #444; margin-bottom: 15px;">No es tu culpa. La depresión aparece por una mezcla de varios factores:</p>
+                    <ul>
+                        <li><strong>Biológicas:</strong> Cambios en la química del cerebro o genética (historial familiar).</li>
+                        <li><strong>Sociales:</strong> Problemas económicos, pérdida de un ser querido, aislamiento.</li>
+                        <li><strong>Psicológicas:</strong> Estrés prolongado, traumas o eventos difíciles de la vida.</li>
+                    </ul>
+                </div>
+                
+                <h3 class="hand-drawn" style="color: var(--pc-negro); text-align: center; font-size: 1.8rem; margin-top: 30px;">Mitos vs. Verdades ⚖️</h3>
+                <p style="text-align: center; font-weight: 600; margin-bottom: 20px;">Toca las tarjetas para descubrir la realidad:</p>
+                <div class="grid-cards" style="margin-top: 0;">
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: "La depresión es solo pereza o debilidad de carácter."</div><div class="mt-2 text-xs opacity-70" style="font-size:0.85rem; font-weight:normal;">(Toca para ver)</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Verdad: Falso. Es una condición médica real con bases biológicas y psicológicas, no una elección personal.</div></div>
+                        </div>
+                    </div>
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: "Se cura solo con actitud y pensando positivo."</div><div class="mt-2 text-xs opacity-70" style="font-size:0.85rem; font-weight:normal;">(Toca para ver)</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Verdad: Falso. Como cualquier enfermedad, requiere tratamiento profesional (terapia y/o medicación) y autocuidado.</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-sintomas', document.querySelectorAll('.tab-btn')[1])">Ver los Síntomas ➔</button>
+            </div>
+        </div>
+
+        <!-- Tab 2: Síntomas -->
+        <div id="tab-sintomas" class="tab-content">
+            <div class="content-box" style="border-color: var(--pc-amarillo);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">¿Qué me está pasando? ⚠️</h2>
+                <p style="text-align: center; margin-bottom: 20px;">La depresión es mucho más que estar triste. Es como llevar unas <strong>gafas oscuras</strong> que no te dejan ver las cosas buenas de la vida. Los síntomas se presentan de diferentes formas y no tienes que tenerlos todos para pedir ayuda:</p>
+
+                <div class="grid-cards">
+                    <div class="card" style="background: var(--pc-rosa-pastell);">
+                        <h4 style="color: var(--pc-negro); font-family: 'Handlee', cursive; font-size: 1.4rem;">😔 Emocionales</h4>
+                        <ul>
+                            <li>Tristeza persistente o sentimiento de vacío.</li>
+                            <li>Irritabilidad extrema o frustración.</li>
+                            <li>Sensación de que nada mejorará.</li>
+                        </ul>
+                    </div>
+                    <div class="card" style="background: #e8f5e9; border-color: #2e7d32;">
+                        <h4 style="color: #1b5e20; font-family: 'Handlee', cursive; font-size: 1.4rem;">🧠 En tu Mente y Conducta</h4>
+                        <ul>
+                            <li>Dificultad para concentrarte o indecisión.</li>
+                            <li>Pérdida de interés en cosas que antes disfrutabas (Anhedonia).</li>
+                            <li>Ganas de aislarte de los demás.</li>
+                            <li>Sentimientos de culpa o inutilidad excesiva.</li>
+                        </ul>
+                    </div>
+                    <div class="card" style="background: var(--pc-azul-suave);">
+                        <h4 style="color: var(--pc-negro); font-family: 'Handlee', cursive; font-size: 1.4rem;">🔋 En tu Cuerpo</h4>
+                        <ul>
+                            <li>Falta de energía o fatiga constante.</li>
+                            <li>Cambios en el apetito (pérdida de peso o aumento de antojos).</li>
+                            <li>Problemas para dormir (insomnio) o dormir en exceso.</li>
+                            <li>Dolores de cabeza o musculares sin causa aparente.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-tratamiento', document.querySelectorAll('.tab-btn')[2])">Conoce el Tratamiento ➔</button>
+            </div>
+        </div>
+
+        <!-- Tab 3: Tratamiento -->
+        <div id="tab-tratamiento" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">El camino a la recuperación 🩹</h2>
+                <p style="text-align: center; margin-bottom: 25px;">La depresión es altamente tratable. El tratamiento es un trabajo en equipo entre tú y los profesionales de la salud, combinando psicoterapia, cambios de estilo de vida y medicación si es necesaria.</p>
+
+                <div class="info-panel" style="background: var(--pc-amarillo); border-color: var(--pc-negro);">
+                    <h4 style="color: var(--pc-negro);">1. Psicoterapia (Terapia Hablada) 🗣️</h4>
+                    <p>Te ayudará a identificar y cambiar pensamientos negativos automáticos, resolver problemas cotidianos y enseñarte técnicas para manejar tus emociones. En este proceso, <strong>¡tú tendrás un papel muy activo!</strong> Gran parte de la transformación ocurre poniendo en práctica lo aprendido durante tu vida cotidiana.</p>
+                </div>
+
+                <div class="info-panel" style="background: white; border-color: var(--pc-negro);">
+                    <h4 style="color: var(--pc-rosa-fuerte);">2. Apoyo Médico / Psiquiátrico 💊</h4>
+                    <p>Los medicamentos (antidepresivos) ayudan a regular las sustancias químicas de tu cerebro. Es fundamental que sepas tres cosas de ellos:</p>
+                    <ul>
+                        <li><strong>No son adictivos</strong> ni causan dependencia.</li>
+                        <li><strong>Paciencia:</strong> No hacen efecto de un día para otro. Suelen tardar entre 2 y 4 semanas en hacerte sentir mejor.</li>
+                        <li><strong>No los dejes de golpe:</strong> Incluso si ya te sientes bien, debes continuar tomándolos el tiempo que indique tu médico para evitar síntomas de retirada o recaídas graves.</li>
+                    </ul>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-azul-suave); border-color: var(--pc-negro);">
+                    <h4 style="color: var(--pc-negro); text-align: center;">Las Fases de tu Recuperación ⏳</h4>
+                    <p style="text-align: center; font-size: 0.95rem; margin-bottom: 20px;">Sanar toma tiempo, entender esto ayuda a manejar la frustración de querer "curarse ya".</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4>1. Fase Aguda</h4>
+                            <p style="margin-bottom:0; font-size:0.95rem;">El objetivo es la desaparición de los síntomas principales. Ocurre durante las primeras semanas o meses de tratamiento.</p>
+                        </div>
+                        <div class="timeline-item" style="border-color: #118AB2;">
+                            <h4 style="color: #118AB2;">2. Fase de Continuación</h4>
+                            <p style="margin-bottom:0; font-size:0.95rem;">Consolidar la mejoría y conseguir la estabilidad emocional. Aún debes seguir con tu tratamiento y terapias.</p>
+                        </div>
+                        <div class="timeline-item" style="border-color: #2e7d32;">
+                            <h4 style="color: #2e7d32;">3. Fase de Mantenimiento</h4>
+                            <p style="margin-bottom:0; font-size:0.95rem;">Puede durar de 9 a 12 meses o más. El objetivo es mantener los hábitos para reducir el riesgo de que la depresión regrese.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-autocuidado', document.querySelectorAll('.tab-btn')[3])">Descubre tu Plan de Acción ➔</button>
+            </div>
+        </div>
+
+        <!-- Tab 4: Autocuidado -->
+        <div id="tab-autocuidado" class="tab-content">
+            <div class="content-box" style="border-color: #2e7d32; box-shadow: 6px 6px 0 #c8e6c9;">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem; color: #1b5e20;">Tu propio plan de acción 🌱</h2>
+                <p style="text-align: center; margin-bottom: 25px;">Tu comportamiento influye mucho en cómo te sientes. Además de la ayuda médica, hay pequeñas cosas que puedes hacer cada día, pero recuerda: <strong>ve poco a poco y no te exijas demasiado</strong>.</p>
+
+                <div class="grid-cards" style="margin-top: 0; margin-bottom: 30px;">
+                    <div class="card" style="background: white;">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; font-size: 1.3rem;">🚀 Ponte en marcha (Activación)</h4>
+                        <p style="font-size: 0.95rem; margin-bottom: 0;">Retoma actividades que antes te gustaban gradualmente. Hacer cosas, aunque al principio no tengas ganas, le manda un mensaje positivo a tu cerebro.</p>
+                    </div>
+                    <div class="card" style="background: white;">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; font-size: 1.3rem;">🏃‍♀️ Muévete</h4>
+                        <p style="font-size: 0.95rem; margin-bottom: 0;">El ejercicio físico (como un paseo de 30 minutos al día) hace que tu cerebro segregue endorfinas, que actúan como verdaderos "antidepresivos naturales".</p>
+                    </div>
+                    <div class="card" style="background: white;">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; font-size: 1.3rem;">😴 Cuida tu sueño</h4>
+                        <p style="font-size: 0.95rem; margin-bottom: 0;">Intenta acostarte y levantarte a la misma hora. No duermas más de 9 horas, ya que el exceso de sueño empeora la depresión y aumenta el cansancio.</p>
+                    </div>
+                    <div class="card" style="background: white;">
+                        <h4 style="color: var(--pc-rosa-fuerte); font-family: 'Handlee', cursive; font-size: 1.3rem;">🚫 Evita alcohol y drogas</h4>
+                        <p style="font-size: 0.95rem; margin-bottom: 0;">Aunque parezca que alivian el dolor temporalmente, a medio plazo empeoran muchísimo los síntomas, generan adicción e interfieren con tu medicación.</p>
+                    </div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-azul-suave); border-color: var(--pc-negro);">
+                    <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.5rem;">Cuestionarios de Autoayuda 📊</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 15px;">Mide tus niveles de depresión y estrés con pruebas clínicas validadas, traza tu gráfica de progreso y envía tus resultados a tu médico.</p>
+                    <div style="text-align: center;">
+                        <a href="saludmental/cuestionarios.html" class="btn-next" style="background: var(--pc-negro); margin-top: 0; box-shadow: 0 6px 0 var(--pc-rosa-fuerte);">Abrir Evaluaciones Psicológicas ➔</a>
+                    </div>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-amarillo); border-color: var(--pc-negro);">
+                    <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.5rem;">Recursos Descargables 📥</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 15px;">Imprime estas herramientas sencillas para apoyarte en casa:</p>
+                    
+                    <a href="#" class="resource-card" onclick="alert('El archivo PDF estará disponible muy pronto.'); return false;">
+                        <div class="resource-icon">📋</div>
+                        <div class="resource-text">
+                            <h4>Mi plan de actividades</h4>
+                            <p>Una plantilla semanal para anotar una tarea agradable diaria y marcar tus logros.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="resource-card" onclick="alert('El archivo PDF estará disponible muy pronto.'); return false;">
+                        <div class="resource-icon">🙂</div>
+                        <div class="resource-text">
+                            <h4>Diario de mi estado de ánimo</h4>
+                            <p>Un registro simple con caritas para que anotes cómo te sientes y veas tu progreso.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-familia', document.querySelectorAll('.tab-btn')[4])">Sección para Familiares ➔</button>
+            </div>
+        </div>
+
+        <!-- Tab 5: Familiares -->
+        <div id="tab-familia" class="tab-content">
+            <div class="content-box" style="background: var(--pc-azul-suave);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem; color: var(--pc-negro);">Para Familiares y Acompañantes 👥</h2>
+                <p style="text-align: center; margin-bottom: 25px;">Convivir con la depresión de un ser querido es un reto. Recuerda la regla de oro: <strong>la persona no elige estar así</strong>.</p>
+
+                <div class="grid-cards" style="margin-top: 0; margin-bottom: 30px;">
+                    <div class="card" style="background: white;">
+                        <h4 style="color: var(--pc-negro); font-family: 'Handlee', cursive; font-size: 1.3rem;">🧠 Comprende la enfermedad</h4>
+                        <p style="font-size: 0.95rem; margin-bottom: 0;">No le digas frases como <em>"pon de tu parte"</em> o <em>"anímate"</em>. La falta de energía y voluntad son los propios síntomas de la depresión, no es mala actitud ni pereza.</p>
+                    </div>
+                    <div class="card" style="background: white;">
+                        <h4 style="color: var(--pc-negro); font-family: 'Handlee', cursive; font-size: 1.3rem;">🫂 Acompaña sin juzgar</h4>
+                        <p style="font-size: 0.95rem; margin-bottom: 0;">Escuchar y validar sus emociones diciendo <em>"te entiendo, estoy aquí para ti"</em> ayuda muchísimo más que intentar darle soluciones rápidas o minimizar su dolor.</p>
+                    </div>
+                    <div class="card" style="background: white;">
+                        <h4 style="color: var(--pc-negro); font-family: 'Handlee', cursive; font-size: 1.3rem;">⚕️ Ayuda con el tratamiento</h4>
+                        <p style="font-size: 0.95rem; margin-bottom: 0;">Anímale con paciencia a tomar su medicación diaria, acompáñalo a sus citas médicas si lo desea, y refuérzalo positivamente por cada pequeño logro que alcance.</p>
+                    </div>
+                </div>
+
+                <div style="background: var(--pc-blanco); border: 3px dashed var(--pc-negro); padding: 20px; border-radius: 15px; text-align: center;">
+                    <h4 class="hand-drawn" style="font-size: 1.5rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px;">Video: Qué decir y qué no decir 🎥</h4>
+                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 15px;">Una breve explicación animada para ayudar a tu ser querido de la forma correcta.</p>
+                    <div style="background: #eee; width: 100%; max-width: 500px; aspect-ratio: 16/9; margin: 0 auto; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 2px solid #ccc; cursor: pointer;" onclick="alert('El video animado estará disponible pronto.')">
+                        <span style="font-size: 3rem;">▶️</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Caja de Emergencia (Siempre visible al final) -->
+        <div id="emergencia-box" class="content-box fade-in" style="background: #ffebee; border-color: #b71c1c; box-shadow: 6px 6px 0 #ef9a9a; margin-top: 40px;">
+            <h2 class="hand-drawn" style="text-align: center; color: #b71c1c; font-size: 2.2rem; margin-bottom: 15px;">¿Tienes pensamientos sobre la muerte? 🚨</h2>
+            <p style="font-size: 1.1rem; color: #b71c1c; font-weight: 800; text-align: center; margin-bottom: 20px;">Es muy común que, cuando la depresión es profunda, aparezcan pensamientos de que "la vida no vale la pena" o ideas de autolesión o suicidio.</p>
+            
+            <div style="background: white; border: 3px solid #b71c1c; border-radius: 15px; padding: 20px; margin-bottom: 25px;">
+                <p style="font-weight: 800; color: #b71c1c; margin-bottom: 10px;">Debes saber esto:</p>
+                <p style="font-size: 1.05rem; color: #444; margin-bottom: 15px;">Esos pensamientos <strong>son un síntoma de tu enfermedad</strong>, provocado por el inmenso dolor emocional que sientes ahora mismo. <strong>No son la realidad</strong> y desaparecerán a medida que el tratamiento haga efecto.</p>
+                <p style="font-weight: 800; color: #b71c1c; margin-bottom: 10px;">Qué hacer:</p>
+                <p style="font-size: 1.05rem; color: #444; margin-bottom: 0;">No te guardes esos pensamientos. No estás solo/a. Habla inmediatamente con un familiar, con tu médico, o llama a los servicios de emergencia. Hablar de ello salva vidas.</p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto;">
+                <a href="tel:911" class="btn-next" style="background: #b71c1c; color: white; border-color: #b71c1c; box-shadow: 0 4px 0 #7f0000; margin: 0;">Llamar ahora a Emergencias (911) 🚑</a>
+                <a href="tel:075" class="btn-next" style="background: white; color: #b71c1c; border-color: #b71c1c; box-shadow: 0 4px 0 #b71c1c; margin: 0;">Línea de Intervención en Crisis (075) 📞</a>
+                <a href="tel:8009112000" class="btn-next" style="background: white; color: #b71c1c; border-color: #b71c1c; box-shadow: 0 4px 0 #b71c1c; margin: 0;">Línea de la Vida Nacional (800 911 2000) 📞</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
+        function openTab(tabId, btnElement) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).style.display = 'block';
+            if (btnElement) {
+                btnElement.classList.add('active');
+                window.scrollTo({ top: document.querySelector('.tabs-wrapper').offsetTop - 20, behavior: 'smooth' });
+            }
+        }
+    </script>
+    <script src="js/global.js"></script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retoma tu Funcionamiento Diario | Proyecto Celene</title>
+    <meta name="description" content="Descubre cómo retomar tu rutina y actividades placenteras enviando mensajes positivos a tu cerebro.">
+    <base href="../">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Nueva paleta: Cálida, luminosa, enérgica pero suave */
+            --pc-naranja-pastel: #FFE0B2;
+            --pc-naranja-vivo: #FF9800;
+            --pc-amarillo-claro: #FFF9C4;
+            --pc-verde-hoja: #A5D6A7;
+            --pc-verde-fuerte: #2E7D32;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-gris-suave: #f9f9f9;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        /* Botones de navegación superior */
+        .top-nav { display: flex; justify-content: space-between; margin-bottom: 15px; gap: 10px; flex-wrap: wrap; }
+        .btn-nav { background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 0.95rem; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; border-radius: 50px; border: 3px solid var(--pc-negro); font-weight: 800; text-decoration: none; transition: 0.2s; }
+        .btn-nav:hover { transform: translateY(-2px); box-shadow: 6px 6px 0 var(--pc-naranja-vivo); }
+
+        /* Cabecera */
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-naranja-pastel); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); }
+        .header h1 { font-size: 2.5rem; color: var(--pc-negro); margin-bottom: 10px; line-height: 1.2; }
+        .author-badge { display: inline-block; background: var(--pc-negro); color: var(--pc-blanco); padding: 5px 15px; border-radius: 50px; font-weight: 900; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* Cajas de contenido */
+        .content-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-naranja-pastel); }
+        .content-box h2 { font-family: 'Handlee', cursive; font-size: 1.8rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: var(--pc-negro); }
+        
+        .intro-text { font-size: 1.1rem; font-weight: 600; color: #444; background: var(--pc-amarillo-claro); padding: 20px; border-radius: 15px; border: 2px dashed var(--pc-negro); margin-bottom: 25px; }
+
+        /* Tarjetas de Hábitos (Carga cognitiva baja) */
+        .habit-card { display: flex; align-items: flex-start; gap: 20px; background: var(--pc-gris-suave); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; margin-bottom: 15px; box-shadow: 4px 4px 0 var(--pc-verde-hoja); transition: transform 0.2s; }
+        .habit-card:hover { transform: translateY(-3px); }
+        .habit-icon { font-size: 3rem; background: white; border: 2px solid var(--pc-negro); border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 2px 2px 0 var(--pc-negro); }
+        .habit-text h3 { font-size: 1.3rem; color: var(--pc-verde-fuerte); margin-bottom: 5px; }
+        .habit-text p { font-size: 0.95rem; font-weight: 600; color: #555; }
+        .habit-text ul { margin-left: 20px; margin-top: 10px; font-weight: 600; color: #444; }
+
+        /* Pasos Activación Conductual */
+        .step-box { border-left: 5px solid var(--pc-naranja-vivo); padding-left: 15px; margin-bottom: 20px; }
+        .step-box h4 { font-size: 1.15rem; color: var(--pc-negro); margin-bottom: 5px; }
+        .step-box p { font-size: 0.95rem; font-weight: 600; color: #555; }
+
+        /* Botones de Descarga PDF */
+        .btn-pdf { display: inline-flex; align-items: center; gap: 10px; background: var(--pc-naranja-vivo); color: white; border: 3px solid var(--pc-negro); padding: 12px 20px; border-radius: 15px; font-weight: 900; font-size: 1rem; cursor: pointer; text-decoration: none; box-shadow: 4px 4px 0 var(--pc-negro); transition: all 0.2s; margin-top: 10px; margin-bottom: 20px; }
+        .btn-pdf:hover { transform: translateY(-3px); box-shadow: 4px 7px 0 var(--pc-negro); }
+        .btn-pdf:active { transform: translateY(2px); box-shadow: 0 0 0 var(--pc-negro); }
+
+        /* Checklist Interactiva */
+        .checklist-container { background: var(--pc-blanco); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; }
+        .check-item { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: var(--pc-gris-suave); border: 2px solid var(--pc-negro); border-radius: 10px; margin-bottom: 10px; cursor: pointer; transition: 0.3s; position: relative; overflow: hidden; }
+        .check-item:hover { background: var(--pc-naranja-pastel); }
+        
+        /* Custom Checkbox */
+        .check-item input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+        .checkmark { height: 25px; width: 25px; background-color: white; border: 2px solid var(--pc-negro); border-radius: 5px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; transition: 0.2s; }
+        
+        .check-item input:checked ~ .checkmark { background-color: var(--pc-verde-hoja); }
+        .check-item input:checked ~ .checkmark:after { content: "✔"; color: var(--pc-negro); font-weight: 900; }
+        .check-item input:checked ~ .check-text { text-decoration: line-through; color: #999; }
+        .check-text { font-weight: 700; font-size: 0.95rem; color: #333; transition: 0.3s; width: 100%; }
+
+        /* Mensaje de Celebración Flotante */
+        #celebration-msg { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(50px); background: var(--pc-verde-hoja); color: var(--pc-negro); border: 3px solid var(--pc-negro); padding: 15px 25px; border-radius: 50px; font-weight: 900; font-size: 1.1rem; box-shadow: 4px 4px 0 var(--pc-negro); opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 1000; }
+        #celebration-msg.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+
+        .highlight-box { background: var(--pc-amarillo-claro); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; font-weight: 700; text-align: center; font-size: 1.05rem; }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media(max-width: 600px) {
+            .habit-card { flex-direction: column; align-items: center; text-align: center; }
+            .habit-text ul { text-align: left; }
+            .top-nav { flex-direction: column; }
+            .btn-nav { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Navegación Superior -->
+        <div class="top-nav fade-in">
+            <a href="reducir-estres.html" class="btn-nav">⬅️ Volver a Reducir Estrés</a>
+            <a href="tratamientos-psicologicos.html" class="btn-nav" style="background: var(--pc-naranja-vivo); color: white;">Siguiente: Terapias ➡️</a>
+        </div>
+
+        <!-- Cabecera -->
+        <header class="header fade-in">
+            <div style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-negro)); margin-bottom: 10px;">🏃‍♀️</div>
+            <span class="author-badge">🧠 Intervenciones Psicosociales | Proyecto Celene</span>
+            <h1 class="hand-drawn">Paso 2.3: Retoma tu vida y tu funcionamiento diario</h1>
+            <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: #444;">Descubre cómo retomar tu rutina y actividades placenteras para enviar mensajes positivos a tu cerebro.</p>
+        </header>
+
+        <!-- Introducción -->
+        <div class="content-box fade-in">
+            <div class="intro-text">
+                <p>Cuando experimentamos sentimientos de tristeza profunda o depresión, puede ser realmente difícil encontrar la energía para ponerse en marcha. <strong>Es completamente normal que sientas que no tienes motivación.</strong> Sin embargo, la inactividad y el aislamiento alimentan a la depresión.</p>
+                <br>
+                <p>La ciencia nos muestra un principio clave: <em>los pensamientos y sentimientos negativos cambiarán solo después de que cambies tus conductas</em>. No podemos esperar a "tener ganas" para hacer las cosas; <strong>debemos hacer las cosas primero, para que las "ganas" regresen</strong>.</p>
+            </div>
+        </div>
+
+        <!-- Pilar Básico: Hábitos Diarios -->
+        <div class="content-box fade-in">
+            <h2>🟢 El Pilar Básico: Tus Hábitos Diarios</h2>
+            <p style="font-weight: 600; margin-bottom: 20px;">Antes de planificar grandes metas, debemos asegurar los cimientos de tu salud. Intenta mantener estos tres hábitos, aunque al principio te cueste esfuerzo:</p>
+
+            <div class="habit-card">
+                <div class="habit-icon">🛌</div>
+                <div class="habit-text">
+                    <h3>1. Higiene del Sueño</h3>
+                    <p>Las alteraciones del sueño son muy comunes. Para combatirlas:</p>
+                    <ul>
+                        <li><strong>Horarios regulares:</strong> Acuéstate y levántate siempre a la misma hora.</li>
+                        <li><strong>No te quedes en la cama:</strong> Si no puedes dormir, levántate a leer algo suave y vuelve solo cuando tengas sueño.</li>
+                        <li><strong>Cuidado con dormir de más:</strong> Evita dormir más de 9 horas diarias; el exceso aumenta la fatiga.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="habit-card">
+                <div class="habit-icon">🥗</div>
+                <div class="habit-text">
+                    <h3>2. Alimentación Regular</h3>
+                    <p>La depresión puede hacer que pierdas el apetito o comas por impulso. Es vital que intentes <strong>comer a horas regulares</strong>. Una nutrición equilibrada ayuda a tu cerebro a recuperar las sustancias que necesita para sentirse bien.</p>
+                </div>
+            </div>
+
+            <div class="habit-card">
+                <div class="habit-icon">👟</div>
+                <div class="habit-text">
+                    <h3>3. Actividad Física (Antidepresivo Natural)</h3>
+                    <p>El ejercicio libera endorfinas, que actúan como antidepresivos naturales.</p>
+                    <ul>
+                        <li><strong>Empieza poco a poco:</strong> Un paseo de 30 a 60 minutos al día es suficiente.</li>
+                        <li><strong>El mejor momento:</strong> Por la mañana o a primera hora de la tarde. Evita hacerlo justo antes de dormir.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Herramienta Clave: Activación Conductual -->
+        <div class="content-box fade-in">
+            <h2>🛠️ La Herramienta Clave: La Activación Conductual</h2>
+            <p style="font-weight: 600; margin-bottom: 20px;">Esta técnica te ayudará a cambiar un estilo de vida basado en la evitación por uno basado en la actividad.</p>
+
+            <div class="step-box">
+                <h4>PASO 1: Observa lo que haces (El Monitoreo)</h4>
+                <p>Durante los próximos 3 días, anota qué haces cada hora. Puntúa del 0 al 10 cuánto <strong>Disfrute</strong> te generó y qué tanta <strong>Importancia</strong> tuvo para ti. Descubrirás patrones entre lo que haces y tu humor.</p>
+            </div>
+            <a href="#" onclick="alert('Descargando: Mi Diario de Monitoreo.pdf'); return false;" class="btn-pdf">📥 Descargar "Mi Diario de Monitoreo" (PDF)</a>
+
+            <div class="step-box" style="margin-top: 10px;">
+                <h4>PASO 2: Identifica tus Valores</h4>
+                <p>¿Qué es importante para ti? (Familia, Amigos, Salud, Trabajo, Ocio). Piensa en pequeñas acciones que te acerquen a esas áreas. Ej: "Llamar a mi hermano 10 minutos".</p>
+            </div>
+
+            <div class="step-box">
+                <h4>PASO 3: Planifica tu día</h4>
+                <p>Programa tus actividades en tu semana. <strong>Sé realista:</strong> lograr 1 o 2 pequeñas tareas al día es un gran triunfo. Si fallas, no te culpes, pasa a la siguiente. ¡Incluye siempre tiempo social!</p>
+            </div>
+            <a href="#" onclick="alert('Descargando: Mi Planificador Semanal.pdf'); return false;" class="btn-pdf">📥 Descargar "Mi Planificador Semanal" (PDF)</a>
+        </div>
+
+        <!-- Checklist Interactiva -->
+        <div class="content-box fade-in" style="background: var(--pc-naranja-pastel);">
+            <h2>🎯 Tu Checklist Diario</h2>
+            <p style="font-weight: 600; margin-bottom: 15px; color: #444;">¿Qué has logrado hoy? Marca las casillas. ¡Cada pequeño paso cuenta en tu recuperación!</p>
+            
+            <div class="checklist-container">
+                <label class="check-item">
+                    <input type="checkbox" onchange="triggerCelebration(this)">
+                    <span class="checkmark"></span>
+                    <span class="check-text">Me he levantado de la cama a mi hora habitual.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="triggerCelebration(this)">
+                    <span class="checkmark"></span>
+                    <span class="check-text">He desayunado/comido de forma saludable.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="triggerCelebration(this)">
+                    <span class="checkmark"></span>
+                    <span class="check-text">He realizado al menos 15-30 minutos de actividad física (ej. un paseo).</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="triggerCelebration(this)">
+                    <span class="checkmark"></span>
+                    <span class="check-text">He hecho una actividad que antes me resultaba placentera.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="triggerCelebration(this)">
+                    <span class="checkmark"></span>
+                    <span class="check-text">He hablado o me he reunido con un amigo o familiar.</span>
+                </label>
+                <label class="check-item">
+                    <input type="checkbox" onchange="triggerCelebration(this)">
+                    <span class="checkmark"></span>
+                    <span class="check-text">He evitado consumir alcohol o drogas para manejar mi tristeza.</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Recordatorio Final -->
+        <div class="highlight-box fade-in" style="margin-bottom: 30px;">
+            💡 Recuerda: Eres el experto en ti mismo. Comprueba cómo varía tu estado de ánimo según tus progresos y compártelo con tu médico o terapeuta. Si te asfixian los problemas, afróntalos de uno en uno. <br><br><span style="color: var(--pc-verde-fuerte); font-family: 'Handlee', cursive; font-size: 1.4rem;">¡Puedes recuperar tu vida paso a paso!</span>
+        </div>
+
+        <!-- Navegación Inferior -->
+        <div class="top-nav fade-in">
+            <a href="reducir-estres.html" class="btn-nav">⬅️ Volver a Reducir Estrés</a>
+            <a href="tratamientos-psicologicos.html" class="btn-nav" style="background: var(--pc-naranja-vivo); color: white;">Siguiente: Terapias ➡️</a>
+        </div>
+
+    </div>
+
+    <!-- Toast Message Element -->
+    <div id="celebration-msg">¡Excelente paso! 🎉 Sigue así.</div>
+
+    <script>
+        // Efecto de aparición al hacer scroll
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
+        // Lógica de la Checklist Interactiva
+        let timeoutId;
+        const messages = [
+            "¡Excelente paso! 🎉",
+            "¡Muy bien hecho! ⭐",
+            "¡Un logro más hoy! 🏆",
+            "¡Sigue así, tú puedes! 💪",
+            "¡Gran trabajo! 🌟"
+        ];
+
+        function triggerCelebration(checkbox) {
+            if (checkbox.checked) {
+                const msgBox = document.getElementById('celebration-msg');
+                
+                // Elegir un mensaje aleatorio
+                const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+                msgBox.innerText = randomMsg;
+                
+                // Mostrar el mensaje
+                msgBox.classList.add('show');
+                
+                // Ocultar el mensaje después de 2.5 segundos
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => {
+                    msgBox.classList.remove('show');
+                }, 2500);
+            }
+        }
+    </script>
+</body>
+</html>

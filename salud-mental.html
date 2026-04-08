@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Salud Mental Comunitaria - Proyecto Celene</title>
+    <meta name="description"
+        content="Atención psicológica accesible y empática en Proyecto Celene. Un espacio seguro para cuidar tu mente y emociones en Rosarito.">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectocelene.org/salud-mental.html">
+    <meta property="og:title" content="Módulo de Salud Mental Comunitaria - Proyecto Celene">
+    <meta property="og:description"
+        content="Atención psicológica accesible y empática en Proyecto Celene. Un espacio seguro para cuidar tu mente y emociones en Rosarito.">
+    <meta property="og:image" content="https://i.ibb.co/QFznQLX2/salud-mental.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://proyectocelene.org/salud-mental.html">
+    <meta property="twitter:title" content="Módulo de Salud Mental Comunitaria - Proyecto Celene">
+    <meta property="twitter:description"
+        content="Atención psicológica accesible y empática en Proyecto Celene. Un espacio seguro para cuidar tu mente y emociones en Rosarito.">
+    <meta property="twitter:image" content="https://i.ibb.co/QFznQLX2/salud-mental.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-verde-wa: #25d366;
+            --pc-azul-suave: #e3f2fd;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-suave); color: var(--pc-negro); line-height: 1.6; padding-bottom: 60px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        .main-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 25px; padding: 15px; background: var(--pc-blanco); border: 3px solid var(--pc-negro); border-radius: 20px; box-shadow: 6px 6px 0px var(--pc-rosa-pastell); }
+        .main-nav a { text-decoration: none; color: var(--pc-negro); font-weight: 800; font-size: 1.05rem; padding: 8px 15px; border-radius: 15px; transition: all 0.2s; border: 2px solid transparent; }
+        .main-nav a:hover { background: var(--pc-rosa-fuerte); color: var(--pc-blanco); border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); transform: translateY(-2px); }
+
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-azul-suave); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0px var(--pc-negro); }
+        .header img { max-width: 100%; width: 400px; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 15px; background: white; object-fit: cover; }
+        .header h1 { font-size: 2.8rem; color: var(--pc-negro); margin-bottom: 10px; line-height: 1.1; }
+        .header p { font-size: 1.15rem; font-weight: 600; color: #444; max-width: 700px; margin: 0 auto; }
+
+        .content-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-amarillo); }
+        .content-box h2 { color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 15px; }
+        .content-box p { margin-bottom: 15px; font-weight: 600; font-size: 1.05rem; }
+
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .service-card { background: var(--pc-gris-suave); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 4px 4px 0 var(--pc-rosa-pastell); transition: transform 0.2s; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 6px 6px 0 var(--pc-rosa-fuerte); }
+        .service-card h3 { color: var(--pc-negro); font-size: 1.3rem; margin-bottom: 10px; }
+
+        .btn { display: inline-block; text-align: center; padding: 15px 30px; border-radius: 50px; border: 4px solid var(--pc-negro); font-weight: 800; text-decoration: none; font-size: 1.1rem; cursor: pointer; transition: all 0.1s; font-family: 'Nunito', sans-serif; background: var(--pc-verde-wa); color: white; box-shadow: 0 6px 0 var(--pc-negro); margin-top: 10px; }
+        .btn:active { transform: translateY(6px); box-shadow: 0 0px 0 transparent; }
+
+        /* TABS INTERACTIVOS */
+        .tabs-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .tab-btn { background: var(--pc-blanco); border: 3px solid var(--pc-negro); padding: 12px 20px; border-radius: 50px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); transition: 0.2s; }
+        .tab-btn:hover { background: var(--pc-rosa-pastell); }
+        .tab-btn.active { background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 0px 0 var(--pc-negro); transform: translateY(4px); }
+        .tab-content { display: none; animation: fadeInTab 0.4s ease-out; background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-amarillo); }
+        @keyframes fadeInTab { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <link rel="stylesheet" href="css/global.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="navbar-container" class="main-nav"></div>
+
+        <header class="header">
+            <img src="https://i.ibb.co/QFznQLX2/salud-mental.png" alt="Salud Mental Comunitaria">
+            <h1 class="hand-drawn">Módulo de Salud Mental Comunitaria</h1>
+            <p>Tu espacio seguro para sanar, hablar y crecer. Porque cuidar de tu mente es igual de importante que cuidar de tu cuerpo.</p>
+        </header>
+
+        <div class="tabs-wrapper">
+            <button class="tab-btn active" onclick="openTab(event, 'tab-estigmas')">🌻 Rompiendo Estigmas</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-enfoque')">🌐 Nuestro Enfoque</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-equipo')">👥 Nuestro Equipo</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-ruta')">🗺️ Ruta de Atención</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-crisis')">🚨 Apoyo en Crisis</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-salud-mental')">🧠 Salud Mental</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-psicosocial')">🛠️ Intervenciones Psicosociales</button>
+        </div>
+
+        <div id="tab-estigmas" class="tab-content" style="display: block;">
+            <h2 class="hand-drawn">Rompiendo Estigmas 🌻</h2>
+            <p>Ir a terapia no significa que estés "loco" o "roto". Significa que te amas lo suficiente como para buscar herramientas que te ayuden a manejar la ansiedad, la depresión, el duelo o los retos diarios de la vida.</p>
+            <p>En Proyecto Celene, entendemos que la salud debe ser integral. Ofrecemos acompañamiento psicológico con profesionales capacitados y bajo una estricta política de empatía y confidencialidad.</p>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <div style="font-size: 2.8rem; margin-bottom: 10px;">🫂</div>
+                    <h3 class="hand-drawn">Terapia Individual</h3>
+                    <p style="font-size: 0.95rem; font-weight: 600; color: #555;">Atención personalizada para adolescentes y adultos en temas de ansiedad, depresión, autoestima y toma de decisiones.</p>
+                </div>
+                <div class="service-card">
+                    <div style="font-size: 2.8rem; margin-bottom: 10px;">❤️‍🩹</div>
+                    <h3 class="hand-drawn">Acompañamiento Oncológico</h3>
+                    <p style="font-size: 0.95rem; font-weight: 600; color: #555;">Contención emocional especializada para pacientes recién diagnosticados y sus familias durante todo el tratamiento.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-enfoque" class="tab-content" style="box-shadow: 6px 6px 0 var(--pc-amarillo);">
+            <h2 class="hand-drawn">Nuestro Enfoque: El Protocolo mhGAP 🌐</h2>
+            <p style="margin-top: 15px;">En Proyecto Celene sabemos que el acceso a la salud mental debe ser un derecho para todos, no un privilegio. Por eso, hemos implementado el programa <strong>mhGAP</strong> (Mental Health Gap Action Programme), diseñado y respaldado por la <strong>Organización Mundial de la Salud (OMS)</strong>.</p>
+            <h3 style="color: var(--pc-negro); margin-top: 20px; margin-bottom: 10px; font-size: 1.3rem;">¿Qué es y por qué lo usamos?</h3>
+            <p>Históricamente, la atención a la salud mental ha estado centralizada en hospitales psiquiátricos de difícil acceso. El programa mhGAP fue creado por la OMS precisamente para cambiar esto: su objetivo es capacitar a médicos y personal de primer nivel para identificar, diagnosticar y manejar adecuadamente las condiciones de salud mental más comunes desde la consulta general.</p>
+            <p>Al implementar este protocolo en nuestra clínica, te garantizamos que tu primera evaluación no será improvisada. Estarás recibiendo atención médica basada en guías clínicas internacionales, diseñada para ser segura, empática y científicamente comprobada, todo dentro de tu propia comunidad.</p>
+        </div>
+
+        <div id="tab-equipo" class="tab-content" style="box-shadow: 6px 6px 0 var(--pc-azul-suave); background: var(--pc-azul-suave);">
+            <h2 class="hand-drawn" style="color: var(--pc-negro);">Conoce a Nuestro Equipo 👥</h2>
+            <p style="text-align: center; font-weight: 600; margin-top: 15px; margin-bottom: 20px;">Para brindarte una atención verdaderamente integral, nuestro módulo funciona a través del trabajo en equipo entre el área médica y el área psicológica:</p>
+            <div class="service-grid">
+                <div class="service-card" style="background: white;">
+                    <img src="https://i.ibb.co/gbWytScw/cuadrado-foto-carlos.jpg" alt="Dr. Donato" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--pc-negro); margin: 0 auto 10px; display: block; object-fit: cover;">
+                    <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">Dr. Carlos Donato</h3>
+                    <p style="font-size: 0.9rem; font-weight: 800; color: #118AB2; margin-bottom: 10px;">Médico de Primer Contacto</p>
+                    <p style="font-size: 0.95rem; font-weight: 600; color: #555; text-align: left;">Como médico general y coordinador, cuenta con la certificación oficial en la guía de intervención mhGAP. Su objetivo es realizar tu primera evaluación, descartar cualquier enfermedad física que pueda estar afectando tu estado de ánimo (como problemas de tiroides o metabólicos) y establecer el plan de manejo inicial.</p>
+                </div>
+                <div class="service-card" style="background: white;">
+                    <div style="font-size: 4rem; margin-bottom: 10px; text-align: center; line-height: 100px;">🛋️</div>
+                    <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">Lic. María Juco</h3>
+                    <p style="font-size: 0.9rem; font-weight: 800; color: #d81b60; margin-bottom: 10px;">Psicología e Intervención Terapéutica</p>
+                    <p style="font-size: 0.95rem; font-weight: 600; color: #555; text-align: left;">Es la especialista encargada de acompañarte en el proceso psicoterapéutico. Una vez que tu evaluación médica inicial está completa, ella trabajará contigo sesión tras sesión, brindándote un espacio seguro y las herramientas psicológicas necesarias para superar las dificultades emocionales y mejorar tu calidad de vida.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-ruta" class="tab-content" style="box-shadow: 6px 6px 0 #25d366;">
+            <h2 class="hand-drawn" style="color: var(--pc-negro);">Tu Ruta de Atención 🗺️</h2>
+            <p style="text-align: center; font-weight: 600; margin-top: 15px; margin-bottom: 25px;">Nuestro protocolo está estructurado en 4 pasos claros para asegurar que recibas el apoyo exacto que necesitas:</p>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="background: var(--pc-gris-suave); border: 2px solid var(--pc-negro); border-radius: 15px; padding: 20px; display: flex; gap: 15px; align-items: flex-start; box-shadow: 4px 4px 0 var(--pc-rosa-pastell);">
+                    <div style="background: var(--pc-rosa-fuerte); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; flex-shrink: 0; border: 2px solid var(--pc-negro); font-family: 'Handlee', cursive;">1</div>
+                    <div>
+                        <h4 style="font-size: 1.2rem; color: var(--pc-negro); margin-bottom: 5px; font-weight: 800;">Evaluación Integral (Primer Contacto)</h4>
+                        <p style="font-size: 0.95rem; color: #555; font-weight: 600; margin-bottom: 0;">Tu primera cita es con el Dr. Donato. A través de una entrevista médica y cuestionarios validados internacionalmente, evaluaremos tu estado de salud físico y mental para tener un panorama completo.</p>
+                    </div>
+                </div>
+                <div style="background: var(--pc-gris-suave); border: 2px solid var(--pc-negro); border-radius: 15px; padding: 20px; display: flex; gap: 15px; align-items: flex-start; box-shadow: 4px 4px 0 var(--pc-amarillo);">
+                    <div style="background: var(--pc-rosa-fuerte); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; flex-shrink: 0; border: 2px solid var(--pc-negro); font-family: 'Handlee', cursive;">2</div>
+                    <div>
+                        <h4 style="font-size: 1.2rem; color: var(--pc-negro); margin-bottom: 5px; font-weight: 800;">Psicoeducación y Plan de Acción Inicial</h4>
+                        <p style="font-size: 0.95rem; color: #555; font-weight: 600; margin-bottom: 0;">Si identificamos alguna condición (como ansiedad o estrés agudo), te explicaremos detalladamente de qué se trata. Iniciaremos el manejo médico de primer nivel: recomendaciones de estilo de vida, redes de apoyo psicosocial y, solo si la guía clínica lo indica y es estrictamente necesario, tratamiento farmacológico inicial.</p>
+                    </div>
+                </div>
+                <div style="background: var(--pc-gris-suave); border: 2px solid var(--pc-negro); border-radius: 15px; padding: 20px; display: flex; gap: 15px; align-items: flex-start; box-shadow: 4px 4px 0 var(--pc-azul-suave);">
+                    <div style="background: var(--pc-rosa-fuerte); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; flex-shrink: 0; border: 2px solid var(--pc-negro); font-family: 'Handlee', cursive;">3</div>
+                    <div>
+                        <h4 style="font-size: 1.2rem; color: var(--pc-negro); margin-bottom: 5px; font-weight: 800;">Intervención Psicológica</h4>
+                        <p style="font-size: 0.95rem; color: #555; font-weight: 600; margin-bottom: 0;">Como parte vital del tratamiento, serás canalizado con la Lic. María Juco para iniciar tu proceso de terapia psicológica. El abordaje combinado (médico + psicológico) es el que ha demostrado los mejores resultados en la recuperación.</p>
+                    </div>
+                </div>
+                <div style="background: var(--pc-gris-suave); border: 2px solid var(--pc-negro); border-radius: 15px; padding: 20px; display: flex; gap: 15px; align-items: flex-start; box-shadow: 4px 4px 0 #25d366;">
+                    <div style="background: var(--pc-rosa-fuerte); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 900; flex-shrink: 0; border: 2px solid var(--pc-negro); font-family: 'Handlee', cursive;">4</div>
+                    <div>
+                        <h4 style="font-size: 1.2rem; color: var(--pc-negro); margin-bottom: 5px; font-weight: 800;">Seguimiento Continuo</h4>
+                        <p style="font-size: 0.95rem; color: #555; font-weight: 600; margin-bottom: 0;">No te dejamos solo. El protocolo mhGAP hace un gran énfasis en el seguimiento. Tendrás citas de control programadas con el área médica para evaluar tu evolución, ajustar tu plan si es necesario y asegurar que tu camino hacia el bienestar vaya por buen rumbo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOQUE LÍNEAS DE CRISIS (ALERTA) -->
+        <div id="tab-crisis" class="tab-content" style="background: #ffebee; border-color: #c62828; box-shadow: 6px 6px 0 #ffcdd2; text-align: center;">
+            <h2 class="hand-drawn" style="color: #c62828; font-size: 2.2rem; margin-bottom: 10px;">Líneas de Apoyo en Crisis 🚨</h2>
+            <p style="color: #b71c1c; font-weight: 800; font-size: 1.1rem; margin-bottom: 10px;">Nuestro módulo opera mediante consulta programada para brindar seguimiento a tu salud emocional. <strong>No somos un servicio de urgencias.</strong></p>
+            <p style="color: #b71c1c; margin-bottom: 25px;">Si tú o un familiar se encuentran en una crisis emocional severa, sienten profunda desesperanza o están en riesgo, por favor comuníquense de inmediato a estas líneas gratuitas, confidenciales y disponibles las 24 horas del día:</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto;">
+                <a href="tel:075" class="btn" style="background: white; color: #c62828; border-color: #c62828; box-shadow: 0 4px 0 #c62828; margin: 0;">
+                    Línea de Intervención en Crisis (B.C.): <strong style="font-size: 1.3rem; margin-left: 8px;">075</strong> 📞
+                </a>
+                <a href="tel:8009112000" class="btn" style="background: white; color: #c62828; border-color: #c62828; box-shadow: 0 4px 0 #c62828; margin: 0;">
+                    Línea de la Vida (Nacional): <strong style="font-size: 1.3rem; margin-left: 8px;">800 911 2000</strong> 📞
+                </a>
+                <a href="tel:911" class="btn" style="background: #c62828; color: white; border-color: #c62828; box-shadow: 0 4px 0 #b71c1c; margin: 0;">
+                    Emergencias Médicas: <strong style="font-size: 1.3rem; margin-left: 8px;">911</strong> 🚑
+                </a>
+            </div>
+        </div>
+
+        <!-- NUEVA TAB: SALUD MENTAL (TARJETAS/GUIAS) -->
+        <div id="tab-salud-mental" class="tab-content" style="box-shadow: 6px 6px 0 var(--pc-azul-suave);">
+            <h2 class="hand-drawn" style="color: var(--pc-negro);">Salud Mental 🧠</h2>
+            <p style="text-align: center; font-weight: 600; margin-top: 15px; margin-bottom: 20px;">Explora nuestros recursos educativos para comprender mejor tu salud mental y encontrar las herramientas para sanar.</p>
+            <div class="service-grid">
+                <div class="service-card" style="background: white;">
+                    <div style="font-size: 4rem; margin-bottom: 10px; text-align: center; line-height: 100px;">🌧️</div>
+                    <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">Depresión</h3>
+                    <p style="font-size: 0.95rem; font-weight: 600; color: #555; text-align: left;">Comprende qué es la depresión, sus síntomas, causas y cómo puedes encontrar el camino hacia la recuperación.</p>
+                    <a href="saludmental/depresion.html" class="btn" style="width: 100%; margin-top: 15px; font-size: 1rem; padding: 10px;">Leer Guía ➔</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-psicosocial" class="tab-content" style="box-shadow: 6px 6px 0 #ab47bc;">
+            <h2 class="hand-drawn" style="color: #8e24aa; text-align: center; margin-bottom: 20px;">Intervenciones Psicosociales</h2>
+            <p style="text-align: center; font-weight: 600; margin-bottom: 30px;">Explora nuestras guías paso a paso basadas en el protocolo mhGAP para recuperar tu bienestar emocional.</p>
+            
+            <div style="background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 40px; box-shadow: 8px 8px 0 var(--pc-azul-suave); position: relative; text-align: center;">
+                <div style="position: absolute; top: -15px; left: -15px; background: var(--pc-rosa-fuerte); color: white; font-family: 'Handlee', cursive; font-size: 1.3rem; padding: 8px 20px; border-radius: 15px; border: 3px solid var(--pc-negro); transform: rotate(-4deg); box-shadow: 4px 4px 0 var(--pc-negro); font-weight: bold;">
+                    Paso 1
+                </div>
+                
+                <span style="font-size: 3.5rem; display: block; margin-bottom: 10px; margin-top: 10px; filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.1));">📖</span>
+                <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 15px;">Psicoeducación</h3>
+                <p style="font-size: 1.1rem; font-weight: 600; color: #444; margin-bottom: 25px; max-width: 700px; margin-inline: auto;">El primer paso para sanar es entender qué te está sucediendo. Conocer tu diagnóstico y cómo funciona la enfermedad te dará el control sobre tu propio proceso de recuperación.</p>
+                
+                <div style="background: var(--pc-gris-suave); border: 3px dashed var(--pc-negro); border-radius: 15px; padding: 25px; text-align: left; max-width: 600px; margin: 0 auto;">
+                    <p style="font-weight: 800; color: var(--pc-negro); font-size: 1.1rem; margin-bottom: 15px; text-align: center;">👉 Como cada condición es diferente, hemos preparado guías específicas para ti:</p>
+                    
+                    <a href="saludmental/depresion.html" style="display: flex; align-items: center; gap: 15px; background: white; border: 3px solid var(--pc-negro); padding: 15px 20px; border-radius: 15px; text-decoration: none; color: var(--pc-negro); transition: all 0.2s; box-shadow: 4px 4px 0 var(--pc-rosa-pastell);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='6px 6px 0 var(--pc-rosa-fuerte)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='4px 4px 0 var(--pc-rosa-pastell)';">
+                        <div style="font-size: 2.5rem; flex-shrink: 0;">🌧️</div>
+                        <div>
+                            <h4 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.4rem; margin-bottom: 5px;">Guía de Depresión</h4>
+                            <p style="font-size: 0.95rem; font-weight: 600; color: #555; margin-bottom: 0;">No es "echarle ganas". Entiende los síntomas y la ruta a la sanación ➔</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <h3 class="hand-drawn" style="color: var(--pc-negro); margin-top: 40px; font-size: 1.8rem; text-align: center;">Siguientes Pasos de Intervención:</h3>
+            
+            <div class="service-grid" style="margin-top: 20px;">
+                <div class="service-card" style="background: #fff9c4; border-color: var(--pc-negro); box-shadow: 4px 4px 0 var(--pc-rosa-pastell);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🧘‍♀️</div>
+                    <h3 class="hand-drawn" style="color: #f57f17; font-size: 1.4rem;">Paso 2: Reduce el Estrés y Fortalece tu Apoyo</h3>
+                    <p style="font-size: 0.95rem; font-weight: 600; color: #555; margin-bottom: 15px;">Aprende a manejar las presiones diarias, practicar la relajación y conectar con tu entorno para sanar.</p>
+                    <a href="saludmental/reduccion-estres.html" class="btn" style="width: 100%; background: var(--pc-negro); padding: 10px; font-size: 1rem; margin-top: auto;">Ver estrategias ➔</a>
+                </div>
+                
+                <div class="service-card" style="background: #e8f5e9; border-color: var(--pc-negro); box-shadow: 4px 4px 0 var(--pc-azul-suave);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🏃‍♀️</div>
+                    <h3 class="hand-drawn" style="color: #2e7d32; font-size: 1.4rem;">Paso 3: Promueve tu Funcionamiento Diario</h3>
+                    <p style="font-size: 0.95rem; font-weight: 600; color: #555; margin-bottom: 15px;">Descubre cómo retomar tu rutina y actividades placenteras enviando mensajes positivos a tu cerebro.</p>
+                    <a href="saludmental/funcionamiento-diario.html" class="btn" style="width: 100%; background: var(--pc-negro); padding: 10px; font-size: 1rem; margin-top: auto;">Ver pasos a seguir ➔</a>
+                </div>
+                
+                <div class="service-card" style="background: #f3e5f5; border-color: var(--pc-negro); box-shadow: 4px 4px 0 #ab47bc;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🛋️</div>
+                    <h3 class="hand-drawn" style="color: #8e24aa; font-size: 1.4rem;">Paso 4: Tratamientos Psicológicos</h3>
+                    <p style="font-size: 0.95rem; font-weight: 600; color: #555; margin-bottom: 15px;">Conoce los tipos de terapia (TCC, Interpersonal, etc.) y cómo te ayudan a cambiar pensamientos y conductas.</p>
+                    <a href="saludmental/tratamientos-psicologicos.html" class="btn" style="width: 100%; background: var(--pc-negro); padding: 10px; font-size: 1rem; margin-top: auto;">Explorar terapias ➔</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20agendar%20una%20cita%20para%20Atención%20Psicológica." target="_blank" class="btn" style="font-size: 1.3rem; padding: 20px 40px; width: 100%; max-width: 400px; margin-top: 0;">Agendar Cita por WhatsApp <span>💬</span></a>
+        </div>
+    </div>
+
+    <script>
+        function openTab(event, tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).style.display = 'block';
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+    <script src="js/global.js"></script>
+</body>
+
+</html>

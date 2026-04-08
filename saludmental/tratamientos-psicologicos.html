@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratamientos Psicológicos | Proyecto Celene</title>
+    <meta name="description" content="Conoce los tipos de terapia psicológica, tu rol en el tratamiento y descarga herramientas prácticas.">
+    <base href="../">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Paleta Clínica Segura: Lavandas, Azules Grisáceos, Blancos */
+            --pc-lavanda: #E8DAEF;
+            --pc-lavanda-oscuro: #9B59B6;
+            --pc-azul-grisaceo: #D4E6F1;
+            --pc-azul-oscuro: #2980B9;
+            --pc-blanco-calido: #FCFBF9;
+            --pc-gris-fondo: #F2F4F4;
+            --pc-negro: #2C3E50;
+            --pc-blanco: #ffffff;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Nunito', sans-serif; background: var(--pc-gris-fondo); color: var(--pc-negro); line-height: 1.6; padding-bottom: 50px; }
+        .hand-drawn { font-family: 'Handlee', cursive; }
+        .container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+        /* Navegación Superior / Inferior */
+        .top-nav { display: flex; justify-content: space-between; margin-bottom: 20px; gap: 10px; flex-wrap: wrap; }
+        .btn-nav { background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 0.95rem; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; border-radius: 50px; border: 3px solid var(--pc-negro); font-weight: 800; text-decoration: none; transition: 0.2s; }
+        .btn-nav:hover { transform: translateY(-2px); box-shadow: 6px 6px 0 var(--pc-lavanda-oscuro); }
+
+        /* Cabecera */
+        .header { text-align: center; padding: 40px 20px; background: var(--pc-lavanda); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); }
+        .header h1 { font-size: 2.5rem; color: var(--pc-negro); margin-bottom: 10px; line-height: 1.2; }
+        .author-badge { display: inline-block; background: var(--pc-negro); color: var(--pc-blanco); padding: 5px 15px; border-radius: 50px; font-weight: 900; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* Cajas de contenido */
+        .content-box { background: var(--pc-blanco-calido); border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-azul-grisaceo); }
+        .content-box h2 { font-family: 'Handlee', cursive; font-size: 1.8rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: var(--pc-negro); border-bottom: 2px dashed var(--pc-azul-grisaceo); padding-bottom: 10px; }
+        
+        .intro-text { font-size: 1.1rem; font-weight: 600; color: #444; margin-bottom: 15px; }
+
+        /* Acordeones de Terapias */
+        .accordion { margin-bottom: 15px; border: 3px solid var(--pc-negro); border-radius: 15px; background: var(--pc-blanco); overflow: hidden; transition: all 0.3s ease; box-shadow: 4px 4px 0 var(--pc-lavanda); }
+        .accordion-header { display: flex; align-items: center; gap: 15px; width: 100%; padding: 15px 20px; font-size: 1.15rem; font-weight: 800; color: var(--pc-negro); background: none; border: none; cursor: pointer; text-align: left; font-family: 'Nunito', sans-serif; transition: background 0.2s; }
+        .accordion-header:hover { background: var(--pc-gris-fondo); }
+        .accordion-header .icon { font-size: 1.8rem; flex-shrink: 0; }
+        .accordion-header .arrow { margin-left: auto; font-size: 1.2rem; transition: transform 0.3s; }
+        .accordion.active .arrow { transform: rotate(180deg); }
+        .accordion-content { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease; background: var(--pc-blanco); font-weight: 600; color: #444; }
+        .accordion.active .accordion-content { padding: 0 20px 20px 20px; max-height: 800px; /* Suficiente para el contenido */ }
+        .accordion-content ul { margin-left: 20px; margin-top: 10px; margin-bottom: 10px; }
+        .accordion-content li { margin-bottom: 8px; }
+
+        /* Modalidades Cards */
+        .modality-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .modality-card { background: var(--pc-gris-fondo); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-azul-grisaceo); }
+        .modality-card h3 { font-size: 1.2rem; color: var(--pc-azul-oscuro); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .modality-card p { font-size: 0.95rem; font-weight: 600; color: #555; }
+
+        /* Caja de Herramientas y Descargas */
+        .tools-box { background: var(--pc-lavanda); border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-negro); }
+        .tools-box h2 { border-bottom-color: var(--pc-lavanda-oscuro); }
+        .download-card { background: var(--pc-blanco); border: 3px dashed var(--pc-negro); border-radius: 15px; padding: 20px; margin-bottom: 15px; display: flex; flex-direction: column; gap: 10px; transition: 0.2s; }
+        .download-card:hover { transform: translateY(-3px); box-shadow: 4px 4px 0 var(--pc-negro); }
+        .btn-download { display: inline-flex; justify-content: center; align-items: center; gap: 10px; background: var(--pc-lavanda-oscuro); color: white; border: 3px solid var(--pc-negro); padding: 12px 20px; border-radius: 15px; font-weight: 900; font-size: 1rem; cursor: pointer; text-decoration: none; box-shadow: 4px 4px 0 var(--pc-negro); transition: all 0.2s; width: fit-content; }
+        .btn-download:hover { transform: translateY(-2px); box-shadow: 4px 6px 0 var(--pc-negro); }
+        .btn-download:active { transform: translateY(2px); box-shadow: 0 0 0 var(--pc-negro); }
+        .tool-desc { font-size: 0.95rem; font-weight: 600; color: #444; }
+
+        /* Highlight Box */
+        .highlight { background: var(--pc-azul-grisaceo); padding: 15px; border-radius: 12px; border-left: 5px solid var(--pc-azul-oscuro); font-weight: 700; color: var(--pc-negro); margin-bottom: 20px; }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media(max-width: 600px) {
+            .top-nav { flex-direction: column; }
+            .btn-nav { width: 100%; justify-content: center; }
+            .btn-download { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Navegación Superior -->
+        <div class="top-nav fade-in">
+            <a href="funcionamiento-diario.html" class="btn-nav">⬅️ Volver a Funcionamiento Diario</a>
+            <a href="autocuidado.html" class="btn-nav" style="background: var(--pc-lavanda-oscuro); color: white;">Siguiente: Autocuidado ➡️</a>
+        </div>
+
+        <!-- Cabecera -->
+        <header class="header fade-in">
+            <div style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-negro)); margin-bottom: 10px;">🛋️</div>
+            <span class="author-badge">🧠 Intervenciones Psicosociales</span>
+            <h1 class="hand-drawn">Paso 4: Tratamientos Psicológicos</h1>
+            <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: #333;">La psicoterapia es una intervención estructurada diseñada para ayudarte a cambiar sentimientos, pensamientos y conductas.</p>
+        </header>
+
+        <!-- Introducción -->
+        <div class="content-box fade-in">
+            <p class="intro-text">Si te han recomendado iniciar un tratamiento psicológico, es una excelente noticia. La psicoterapia es el tratamiento de primera elección para la depresión y ha demostrado ser altamente eficaz. Puede aplicarse sola en casos leves o moderados, o combinada con medicamentos antidepresivos si los síntomas son más graves.</p>
+            <p class="intro-text">La psicoterapia no es simplemente "ir a hablar". Es una intervención integral guiada por un profesional. A continuación, te explicamos cómo funciona, qué tipos existen y qué herramientas aprenderás.</p>
+            
+            <div class="highlight" style="margin-top: 25px;">
+                🟢 <strong>Tu rol en la terapia: El motor del cambio</strong><br>
+                En el modelo psicológico, <strong>tú no eres un receptor pasivo</strong>, sino un agente activo. El éxito depende de tu compromiso. El terapeuta es tu guía, pero la verdadera transformación ocurre en tu vida cotidiana mediante "tareas para casa" (registrar pensamientos, practicar habilidades, etc.).
+            </div>
+        </div>
+
+        <!-- Tipos de Terapia (Acordeón) -->
+        <div class="content-box fade-in">
+            <h2>🟢 Tipos de Terapia Psicológica</h2>
+            <p style="font-weight: 600; margin-bottom: 20px; color: #444;">Dependiendo de tu situación, tu terapeuta puede utilizar un enfoque o combinar varios. Haz clic en cada uno para conocer de qué tratan:</p>
+
+            <!-- TCC -->
+            <div class="accordion">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">🧠</span>
+                    <span>Terapia Cognitivo-Conductual (TCC)</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p style="margin-top: 10px;">Es la terapia con mayor evidencia científica para la depresión. Se basa en la idea de que <strong>tus pensamientos, tus emociones y tus comportamientos están estrechamente conectados</strong>. La TCC te ayuda a:</p>
+                    <ul>
+                        <li>Identificar los <strong>pensamientos automáticos negativos</strong> y distorsionados (visión de túnel).</li>
+                        <li>Cuestionar esas creencias irracionales y sustituirlas por pensamientos más realistas.</li>
+                        <li>Modificar las conductas desadaptativas que mantienen tu malestar.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Activación Conductual -->
+            <div class="accordion">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">🏃‍♂️</span>
+                    <span>Terapia de Activación Conductual (AC)</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p style="margin-top: 10px;">A menudo forma parte de la TCC o se usa sola. Se basa en un principio clave: <strong>la mejoría en el estado de ánimo no viene "de adentro hacia afuera", sino "de afuera hacia adentro"</strong>. No puedes esperar a "tener ganas" para hacer las cosas.</p>
+                    <ul>
+                        <li>El objetivo es que estés "en acción", sustituyendo la evitación por comportamientos orientados a metas.</li>
+                        <li>Aprenderás a reanudar gradualmente actividades importantes para ti a pesar del ánimo deprimido.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Terapia Interpersonal -->
+            <div class="accordion">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">🤝</span>
+                    <span>Terapia Interpersonal (TIP)</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p style="margin-top: 10px;">Se centra en <strong>tus relaciones actuales y tu contexto social</strong>, entendiendo que los problemas relacionales pueden desencadenar la depresión. Es ideal si tu depresión conecta con:</p>
+                    <ul>
+                        <li>El duelo por la pérdida de un ser querido.</li>
+                        <li>Disputas o conflictos con familiares, pareja o amigos.</li>
+                        <li>Transiciones y cambios de rol (jubilación, maternidad, divorcio).</li>
+                        <li>Déficits interpersonales (aislamiento social).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Resolución de Problemas -->
+            <div class="accordion">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">🧩</span>
+                    <span>Terapia de Resolución de Problemas (TRP)</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p style="margin-top: 10px;">A veces, los problemas nos abruman y detonan depresión. Esta terapia te entrena para usar técnicas sistemáticas. Aprenderás a identificar el problema, generar opciones (tormenta de ideas) y cambiar tu reacción ante el estrés.</p>
+                </div>
+            </div>
+
+            <!-- ACT y Mindfulness -->
+            <div class="accordion">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">🧘‍♀️</span>
+                    <span>Terapia de Aceptación y Compromiso (ACT)</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <p style="margin-top: 10px;">Te enseña a <strong>relacionarte de forma diferente con tu malestar</strong>. En lugar de luchar constantemente para eliminar tus pensamientos negativos, aprenderás a aceptarlos sin juzgarlos (Mindfulness). Dirigirás tu energía hacia acciones comprometidas con tus <strong>valores personales</strong>, en lugar de evitar el dolor.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modalidades -->
+        <div class="content-box fade-in">
+            <h2>🟢 Modalidades de Terapia</h2>
+            <p style="font-weight: 600; color: #444;">No hay una sola forma de recibir tratamiento. Los servicios de salud pueden ofrecerte distintas opciones:</p>
+            
+            <div class="modality-grid">
+                <div class="modality-card">
+                    <h3>🗣️ Terapia Individual</h3>
+                    <p>Sesiones a solas con tu terapeuta. Puede ser presencial en un consultorio o a través de videollamada (telemedicina) para tu comodidad.</p>
+                </div>
+                <div class="modality-card">
+                    <h3>👥 Terapia Grupal</h3>
+                    <p>Compartirás el espacio con personas que sufren problemas similares. Ayuda a reducir el estigma, fomenta el apoyo mutuo y entrena habilidades sociales en vivo.</p>
+                </div>
+                <div class="modality-card">
+                    <h3>📱 Autoayuda Guiada</h3>
+                    <p>Programas por internet o apps móviles (TCC online), donde avanzas a tu ritmo a través de módulos interactivos con el soporte ocasional de un profesional.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Caja de Herramientas (Descargas) -->
+        <div class="tools-box fade-in">
+            <h2 style="color: var(--pc-negro);">🛠️ Caja de Herramientas Prácticas</h2>
+            <p style="font-weight: 700; margin-bottom: 20px; color: var(--pc-negro);">Para ayudarte a tomar un rol activo en tu terapia, aquí tienes recursos en PDF que puedes descargar, imprimir y llevar a tus sesiones:</p>
+
+            <!-- Herramienta 1 -->
+            <div class="download-card">
+                <a href="#" onclick="alert('Descargando PDF: Modelo ABC'); return false;" class="btn-download">📥 Descargar: Modelo ABC de las Emociones</a>
+                <p class="tool-desc"><strong>¿Para qué sirve?</strong> Herramienta clave de la TCC. Te ayuda a entender que no son las situaciones (A) las que te hacen sentir mal, sino tu forma de interpretarlas (B), lo cual genera la emoción (C). Úsalo para registrar tus pensamientos automáticos.</p>
+            </div>
+
+            <!-- Herramienta 2 -->
+            <div class="download-card">
+                <a href="#" onclick="alert('Descargando PDF: Resolución de Problemas'); return false;" class="btn-download">📥 Descargar: Guía de Resolución de Problemas</a>
+                <p class="tool-desc"><strong>¿Para qué sirve?</strong> Plantilla para dividir problemas abrumadores en partes. Pasos: 1) Definir. 2) Tormenta de ideas. 3) Elegir opción. 4) Hacer plan. 5) Evaluar resultados.</p>
+            </div>
+
+            <!-- Herramienta 3 -->
+            <div class="download-card">
+                <a href="#" onclick="alert('Descargando PDF: Inventario de Valores'); return false;" class="btn-download">📥 Descargar: Inventario de Valores y Actividades</a>
+                <p class="tool-desc"><strong>¿Para qué sirve?</strong> Basado en ACT y Activación Conductual. Esquema para escribir qué áreas de tu vida son valiosas (Familia, Salud, Trabajo) y planificar acciones semanales concretas para acercarte a ellas.</p>
+            </div>
+        </div>
+
+        <!-- Navegación Inferior -->
+        <div class="top-nav fade-in">
+            <a href="funcionamiento-diario.html" class="btn-nav">⬅️ Volver a Funcionamiento Diario</a>
+            <a href="autocuidado.html" class="btn-nav" style="background: var(--pc-lavanda-oscuro); color: white;">Siguiente: Autocuidado ➡️</a>
+        </div>
+
+    </div>
+
+    <script>
+        // Efecto Fade-in al hacer scroll
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
+        // Lógica de los Acordeones
+        function toggleAccordion(button) {
+            const accordion = button.parentElement;
+            
+            // Opcional: Si quieres que al abrir uno se cierren los demás, descomenta esto:
+            /*
+            document.querySelectorAll('.accordion').forEach(acc => {
+                if (acc !== accordion) acc.classList.remove('active');
+            });
+            */
+            
+            accordion.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
