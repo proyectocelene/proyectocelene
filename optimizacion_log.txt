@@ -1,0 +1,258 @@
+Registro de optimización de imágenes
+====================================
+
+gyo\ivaa cacu\cacu cribado.png
+  Tamaño original: 2226333 bytes
+  Tamaño comprimido: 1909591 bytes (14.2% reducción)
+  WebP creado: 218928 bytes
+
+gyo\ivaa cacu\cacu que es.png
+  Tamaño original: 2155727 bytes
+  Tamaño comprimido: 1838875 bytes (14.7% reducción)
+  WebP creado: 205624 bytes
+
+gyo\ivaa cacu\ivaa v1.png
+  Tamaño original: 1989817 bytes
+  Tamaño comprimido: 1689714 bytes (15.1% reducción)
+  WebP creado: 150090 bytes
+
+gyo\ivaa cacu\ivaa v2 explicacion.png
+  Tamaño original: 2070282 bytes
+  Tamaño comprimido: 1760979 bytes (14.9% reducción)
+  WebP creado: 192650 bytes
+
+gyo\ivaa cacu\pap vs lbc.png
+  Tamaño original: 2106660 bytes
+  Tamaño comprimido: 1792893 bytes (14.9% reducción)
+  WebP creado: 195970 bytes
+
+gyo\mama\drenaje quiste.png
+  Tamaño original: 1884280 bytes
+  Tamaño comprimido: 1592694 bytes (15.5% reducción)
+  WebP creado: 119978 bytes
+
+gyo\mama\quistes mamarios.png
+  Tamaño original: 1610326 bytes
+  Tamaño comprimido: 1345245 bytes (16.5% reducción)
+  WebP creado: 91616 bytes
+
+its\pruebahiv.png
+  Tamaño original: 1839155 bytes
+  Tamaño comprimido: 1554170 bytes (15.5% reducción)
+  WebP creado: 79506 bytes
+
+no-organizadas\520345259_1172823848212097_7382126732029185704_n.jpg
+  Tamaño original: 728077 bytes
+  Tamaño comprimido: 248394 bytes (65.9% reducción)
+  WebP creado: 134886 bytes
+
+no-organizadas\cara de presentacion pc.jpg
+  Tamaño original: 109851 bytes
+  Tamaño comprimido: 118018 bytes (-7.4% reducción)
+  WebP creado: 81148 bytes
+
+no-organizadas\CLINICA VIRTUAL.jpg
+  Tamaño original: 209939 bytes
+  Tamaño comprimido: 139199 bytes (33.7% reducción)
+  WebP creado: 80544 bytes
+
+no-organizadas\CONSULTA GENERAL.jpg
+  Tamaño original: 157112 bytes
+  Tamaño comprimido: 109805 bytes (30.1% reducción)
+  Open Graph generado: CONSULTA_GENERAL_og.jpg 1200x630, 59709 bytes
+  WebP creado: 59366 bytes
+
+no-organizadas\consultorio antonio r laureles inaguracion noviembre 2021 con foto de celene.jpeg
+  Tamaño original: 118672 bytes
+  Tamaño comprimido: 148821 bytes (-25.4% reducción)
+  WebP creado: 114266 bytes
+
+no-organizadas\cuad dr mario minor.png
+  Tamaño original: 1315476 bytes
+  Tamaño comprimido: 1122668 bytes (14.7% reducción)
+  WebP creado: 42482 bytes
+
+no-organizadas\dr mario minor.png
+  Tamaño original: 2035787 bytes
+  Tamaño comprimido: 1783289 bytes (12.4% reducción)
+  WebP creado: 63598 bytes
+
+no-organizadas\dra daniela huerta vertical.png
+  Tamaño original: 232836 bytes
+  Tamaño comprimido: 168343 bytes (27.7% reducción)
+  WebP creado: 10088 bytes
+
+no-organizadas\EDUCACION.jpg
+  Tamaño original: 347966 bytes
+  Tamaño comprimido: 207966 bytes (40.2% reducción)
+  WebP creado: 129446 bytes
+
+no-organizadas\elvicela.png
+  Tamaño original: 2208825 bytes
+  Tamaño comprimido: 1829236 bytes (17.2% reducción)
+  WebP creado: 40810 bytes
+
+no-organizadas\fachade de modulo 4.jpeg
+  Tamaño original: 185329 bytes
+  Tamaño comprimido: 210453 bytes (-13.6% reducción)
+  WebP creado: 123404 bytes
+
+no-organizadas\FARMACIA SOLIDARIA.jpg
+  Tamaño original: 200070 bytes
+  Tamaño comprimido: 145920 bytes (27.1% reducción)
+  WebP creado: 85058 bytes
+
+no-organizadas\fodo del modulo de atencioncomunitaria san felipe aztatan y comunidad huachotita interior del consultorio.jpeg
+  Tamaño original: 202533 bytes
+  Tamaño comprimido: 222140 bytes (-9.7% reducción)
+  WebP creado: 132802 bytes
+
+no-organizadas\fodo del modulo de atencioncomunitaria san felipe aztatan y comunidad huachotita.jpeg
+  Tamaño original: 153742 bytes
+  Tamaño comprimido: 166228 bytes (-8.1% reducción)
+  WebP creado: 99462 bytes
+
+no-organizadas\foto de celene cuando era joven texto dice proyecto celene.jpeg
+  Tamaño original: 133301 bytes
+  Tamaño comprimido: 150969 bytes (-13.3% reducción)
+  WebP creado: 85868 bytes
+
+no-organizadas\foto de colaboradores de proyectocelene.jpg
+  Tamaño original: 68562 bytes
+  Tamaño comprimido: 82338 bytes (-20.1% reducción)
+  Open Graph generado: foto_de_colaboradores_de_proyectocelene_og.jpg 1200x630, 138302 bytes
+  WebP creado: 65938 bytes
+
+no-organizadas\foto del fundador francisco sandoval deras.jpeg
+  Tamaño original: 37580 bytes
+  Tamaño comprimido: 44548 bytes (-18.5% reducción)
+  WebP creado: 37914 bytes
+
+no-organizadas\leticia diaz.png
+  Tamaño original: 1561627 bytes
+  Tamaño comprimido: 1404852 bytes (10.0% reducción)
+  WebP creado: 63090 bytes
+
+no-organizadas\lienzo charro.jpg
+  Tamaño original: 900629 bytes
+  Tamaño comprimido: 757210 bytes (15.9% reducción)
+  WebP creado: 545294 bytes
+
+no-organizadas\listo cancer de mama hecho de personas foto aerea.jpg
+  Tamaño original: 291775 bytes
+  Tamaño comprimido: 346534 bytes (-18.8% reducción)
+  WebP creado: 214818 bytes
+
+no-organizadas\logo pc circulo.png
+  Tamaño original: 781800 bytes
+  Tamaño comprimido: 615519 bytes (21.3% reducción)
+  Open Graph generado: logo_pc_circulo_og.jpg 1200x630, 69109 bytes
+  WebP creado: 146464 bytes
+
+no-organizadas\Logo pc white outline.png
+  Tamaño original: 602813 bytes
+  Tamaño comprimido: 422489 bytes (29.9% reducción)
+  WebP creado: 93386 bytes
+
+no-organizadas\MAMOGRAFIA.jpg
+  Tamaño original: 165468 bytes
+  Tamaño comprimido: 116192 bytes (29.8% reducción)
+  Open Graph generado: MAMOGRAFIA_og.jpg 1200x630, 62044 bytes
+  WebP creado: 65948 bytes
+
+no-organizadas\matilde enfermera colaboradora de proyedto cleene enfermera responsable de la cabezera municilal del modulo del arrayan.jpeg
+  Tamaño original: 108640 bytes
+  Tamaño comprimido: 136379 bytes (-25.5% reducción)
+  WebP creado: 96756 bytes
+
+no-organizadas\modulo 4 proyyectocelene mayu rodriguez en la imagen sale fransico fundador y diputado , presidente de pasoondo, presidente de laureles, presidente de zona centra y enfermera responsable del consultorio.jpeg
+  Tamaño original: 138869 bytes
+  Tamaño comprimido: 170891 bytes (-23.1% reducción)
+  WebP creado: 129304 bytes
+
+no-organizadas\modulo de atencion comunitaria el arrayan municipio de tecuala modulo 5 en memoria de denis adrian gonzales muro fundador de la clinica comunitaria en la comunidad clinica rural murio de cancer.jpeg
+  Tamaño original: 88110 bytes
+  Tamaño comprimido: 110914 bytes (-25.9% reducción)
+  WebP creado: 85832 bytes
+
+no-organizadas\modulo de atencion comunitaria paso hondo unido por dentro se ven colaboradoras y pacientes siendo antendido en papanicloau.jpeg
+  Tamaño original: 162075 bytes
+  Tamaño comprimido: 203309 bytes (-25.4% reducción)
+  WebP creado: 169080 bytes
+
+no-organizadas\nayarit.jpg
+  Tamaño original: 50724 bytes
+  Tamaño comprimido: 58953 bytes (-16.2% reducción)
+  WebP creado: 46108 bytes
+
+no-organizadas\personas con camiseta rosa de proyecto celne foto de la espalda.jpg
+  Tamaño original: 288070 bytes
+  Tamaño comprimido: 338649 bytes (-17.6% reducción)
+  WebP creado: 208176 bytes
+
+no-organizadas\primer logo proyectocelene.jpg
+  Tamaño original: 276166 bytes
+  Tamaño comprimido: 273668 bytes (0.9% reducción)
+  WebP creado: 121124 bytes
+
+no-organizadas\primer triptico proyecto celene.jpg
+  Tamaño original: 105424 bytes
+  Tamaño comprimido: 109907 bytes (-4.3% reducción)
+  WebP creado: 76382 bytes
+
+no-organizadas\primeros volantes de pc.jpg
+  Tamaño original: 63603 bytes
+  Tamaño comprimido: 64543 bytes (-1.5% reducción)
+  WebP creado: 39876 bytes
+
+no-organizadas\proyecto celene tarjetas.png
+  Tamaño original: 1331492 bytes
+  Tamaño comprimido: 806941 bytes (39.4% reducción)
+  WebP creado: 146972 bytes
+
+no-organizadas\SALUD SEXUAL ITS.jpg
+  Tamaño original: 148720 bytes
+  Tamaño comprimido: 100630 bytes (32.3% reducción)
+  WebP creado: 60150 bytes
+
+no-organizadas\simulacion de  fachada de la clinica de especialidad que quiere hacer proyecto celene.png
+  Tamaño original: 1307170 bytes
+  Tamaño comprimido: 1087839 bytes (16.8% reducción)
+  WebP creado: 77268 bytes
+
+no-organizadas\sr francisco dando platica a mujeres sobre el cancer de mama.jpg
+  Tamaño original: 224184 bytes
+  Tamaño comprimido: 270825 bytes (-20.8% reducción)
+  WebP creado: 239264 bytes
+
+no-organizadas\sr francisco en primera plana periodico.jpg
+  Tamaño original: 113787 bytes
+  Tamaño comprimido: 119399 bytes (-4.9% reducción)
+  WebP creado: 90588 bytes
+
+no-organizadas\tcarta volante.png
+  Tamaño original: 61238 bytes
+  Tamaño comprimido: 62621 bytes (-2.3% reducción)
+  WebP creado: 31914 bytes
+
+no-organizadas\ultima fotografia de celene en mayo de 2007 tomada por su hermano francisco en la cocina .jpeg
+  Tamaño original: 35209 bytes
+  Tamaño comprimido: 43656 bytes (-24.0% reducción)
+  WebP creado: 36250 bytes
+
+no-organizadas\unidad movil de mastografia.jpg
+  Tamaño original: 88498 bytes
+  Tamaño comprimido: 104121 bytes (-17.7% reducción)
+  WebP creado: 82088 bytes
+
+no-organizadas\voluntarios de proyectocelene.jpg
+  Tamaño original: 101862 bytes
+  Tamaño comprimido: 122652 bytes (-20.4% reducción)
+  WebP creado: 104510 bytes
+
+
+=== RESUMEN ===
+Imágenes procesadas: 49
+Tamaño total original: 33326191 bytes (31.78 MB)
+Tamaño total comprimido: 28231189 bytes (26.92 MB)
+Reducción total: 5095002 bytes (15.3%)
