@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preconsulta Integral de Menopausia | Dr. Carlos Donato</title>
+    <meta name="description" content="Formulario de preconsulta médica especializado en Menopausia y Climaterio.">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+
+    <style>
+        :root {
+            --pc-rosa-pastell: #fce4ec;
+            --pc-rosa-fuerte: #d81b60;
+            --pc-negro: #333333;
+            --pc-blanco: #ffffff;
+            --pc-amarillo: #fff9c4;
+            --pc-azul-suave: #e3f2fd;
+            --pc-verde: #25d366;
+            --pc-gris-suave: #f9f9f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--pc-gris-suave);
+            color: var(--pc-negro);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .hand-drawn {
+            font-family: 'Handlee', cursive;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--pc-rosa-pastell);
+            border: 4px solid var(--pc-negro);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 8px 8px 0 var(--pc-negro);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .header p {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* FORM SECTIONS */
+        .form-section {
+            background: white;
+            border: 3px solid var(--pc-negro);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 6px 6px 0 var(--pc-amarillo);
+        }
+
+        .form-section.alert-section {
+            border-color: #c62828;
+            box-shadow: 6px 6px 0 #ffebee;
+            background: #fffafa;
+        }
+
+        .form-section h3 {
+            color: var(--pc-rosa-fuerte);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 2px dashed var(--pc-rosa-pastell);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert-section h3 {
+            color: #c62828;
+            border-bottom-color: #ffcdd2;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: var(--pc-negro);
+            font-size: 0.95rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="date"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--pc-negro);
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+            background: var(--pc-gris-suave);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--pc-rosa-fuerte);
+            background: white;
+            box-shadow: 0 0 0 3px var(--pc-rosa-pastell);
+        }
+
+        /* CHECKBOXES */
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #444;
+            transition: 0.2s;
+            padding: 6px 8px;
+            border-radius: 8px;
+        }
+
+        .check-item:hover {
+            background: var(--pc-rosa-pastell);
+        }
+
+        .check-item input {
+            display: none;
+        }
+
+        .custom-checkbox {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--pc-negro);
+            border-radius: 6px;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            flex-shrink: 0;
+            background: white;
+            margin-top: 2px;
+        }
+
+        .check-item input:checked + .custom-checkbox {
+            background: var(--pc-rosa-fuerte);
+            border-color: var(--pc-rosa-fuerte);
+        }
+
+        .check-item input:checked + .custom-checkbox::after {
+            content: '✔';
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 900;
+        }
+
+        /* BUTTONS */
+        .actions-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            background: white;
+            padding: 20px;
+            border: 3px dashed var(--pc-negro);
+            border-radius: 15px;
+            position: sticky;
+            bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            z-index: 100;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 3px solid var(--pc-negro);
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            transition: 0.2s;
+            text-decoration: none;
+            box-shadow: 0 4px 0 var(--pc-negro);
+            background: var(--pc-blanco);
+            color: var(--pc-negro);
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 transparent;
+        }
+
+        .btn-wa { background: var(--pc-verde); color: white; border-color: #1b9c4b; box-shadow: 0 4px 0 #1b9c4b; }
+        .btn-wa:active { box-shadow: 0 0 0 transparent; }
+        
+        .btn-email { background: #1565c0; color: white; border-color: #0d47a1; box-shadow: 0 4px 0 #0d47a1; }
+        .btn-email:active { box-shadow: 0 0 0 transparent; }
+
+        .btn-print-blank { background: var(--pc-negro); color: white; }
+        .btn-print-filled { background: var(--pc-amarillo); color: var(--pc-negro); }
+
+        /* IMPRESIÓN */
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; padding: 0; font-size: 10pt; color: black; line-height: 1.3; }
+            .container { max-width: 100%; padding: 0; margin: 0; }
+            
+            .header { box-shadow: none; border: 2px solid black; padding: 10px; margin-bottom: 15px; border-radius: 10px; }
+            .header h1 { font-size: 1.6rem; margin-bottom: 5px; color: black; }
+            .header p { font-size: 0.9rem; }
+
+            .form-section { box-shadow: none; border: 2px solid black; padding: 12px; margin-bottom: 10px; border-radius: 10px; page-break-inside: avoid; }
+            .form-section h3 { font-size: 1.2rem; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px solid #ccc; color: black; }
+            
+            .row { margin-bottom: 5px; gap: 10px; }
+            .form-group { margin-bottom: 8px; }
+            .form-group label { font-size: 0.9rem; margin-bottom: 2px; }
+
+            .check-item { margin-bottom: 2px; padding: 2px; font-size: 0.9rem; }
+            .custom-checkbox { border: 1px solid black; width: 14px; height: 14px; border-radius: 3px; margin-right: 8px; }
+            .check-item input:checked + .custom-checkbox { background: black !important; border-color: black !important; }
+            .check-item input:checked + .custom-checkbox::after { color: white; font-size: 10px; content: '✔'; }
+
+            /* ESTILOS PARA IMPRIMIR EN BLANCO (IDEAL PARA LLENAR A MANO) */
+            body.print-blank .form-group input[type="text"],
+            body.print-blank .form-group input[type="number"],
+            body.print-blank .form-group input[type="date"],
+            body.print-blank .form-group select,
+            body.print-blank .form-group textarea {
+                border: none;
+                border-bottom: 1px solid black;
+                border-radius: 0;
+                padding: 4px 0;
+                background: transparent;
+                box-shadow: none;
+                color: transparent !important; /* Oculta el texto si por error hay algo */
+            }
+            body.print-blank .form-group textarea {
+                height: 60px; /* Espacio para escribir a mano */
+                background-image: linear-gradient(transparent, transparent 29px, #999 30px);
+                background-size: 100% 30px;
+                line-height: 30px;
+            }
+            body.print-blank .check-item input:checked + .custom-checkbox {
+                background: white !important; /* Que salgan limpios */
+            }
+            body.print-blank .check-item input:checked + .custom-checkbox::after {
+                content: '';
+            }
+
+            /* ESTILOS PARA IMPRIMIR LLENO (ECONOMIZAR ESPACIO) */
+            body.print-filled .form-group input,
+            body.print-filled .form-group select,
+            body.print-filled .form-group textarea {
+                border: none;
+                background: transparent;
+                padding: 0;
+                font-weight: bold;
+                font-size: 1rem;
+                color: black;
+                height: auto;
+            }
+            body.print-filled .form-group select {
+                appearance: none;
+                -webkit-appearance: none;
+            }
+            body.print-filled .hide-on-print-filled {
+                display: none !important; /* Oculta campos vacíos */
+            }
+            /* Ocultar checkboxes que no están marcados para ahorrar mucho espacio */
+            body.print-filled .check-item:not(:has(input:checked)) {
+                display: none !important;
+            }
+            body.print-filled .check-group-container:not(:has(input:checked)) {
+                display: none !important; /* Si todo un grupo está vacío, ocultarlo */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        
+        <div class="no-print" style="margin-bottom: 15px;">
+            <a href="guia-menopausia.html" class="btn" style="background: white; border-width: 2px; box-shadow: 2px 2px 0 var(--pc-negro); min-width: auto; padding: 8px 15px;">⬅️ Volver a la Guía</a>
+        </div>
+
+        <header class="header">
+            <h1 class="hand-drawn">📋 Expediente Clínico de Menopausia</h1>
+            <p>Por favor, completa este formulario de forma detallada. Analizaremos tu metabolismo, salud ósea, cardiovascular y sexual para brindarte el mejor tratamiento.</p>
+        </header>
+
+        <form id="menoForm">
+            <!-- SECCIÓN 1: DATOS PERSONALES -->
+            <div class="form-section">
+                <h3 class="hand-drawn">👤 1. Datos Personales</h3>
+                <div class="row">
+                    <div class="col form-group">
+                        <label>Nombre Completo:</label>
+                        <input type="text" id="p_nombre" placeholder="Ej. María Pérez" required>
+                    </div>
+                    <div class="col form-group" style="flex: 0.5;">
+                        <label>Edad:</label>
+                        <input type="number" id="p_edad" placeholder="Años">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col form-group">
+                        <label>Teléfono (WhatsApp):</label>
+                        <input type="text" id="p_telefono" placeholder="Tu número">
+                    </div>
+                    <div class="col form-group">
+                        <label>Peso Aprox. (kg):</label>
+                        <input type="number" id="p_peso" placeholder="kg">
+                    </div>
+                    <div class="col form-group">
+                        <label>Estatura (cm):</label>
+                        <input type="number" id="p_talla" placeholder="cm">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>¿Cuál es el motivo principal de tu consulta? (Lo que más afecta tu calidad de vida hoy)</label>
+                    <textarea id="p_motivo" rows="2" placeholder="Describe brevemente qué te preocupa más..."></textarea>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: HISTORIA REPRODUCTIVA Y PREVENCIÓN -->
+            <div class="form-section">
+                <h3 class="hand-drawn">🩸 2. Historia Reproductiva y Preventiva</h3>
+                <div class="row">
+                    <div class="col form-group">
+                        <label>Edad de tu primera regla:</label>
+                        <input type="number" id="h_menarca" placeholder="Edad">
+                    </div>
+                    <div class="col form-group">
+                        <label>¿Cuándo fue tu ÚLTIMA regla?</label>
+                        <select id="h_ultima_regla">
+                            <option value="">Selecciona una opción...</option>
+                            <option value="Hace menos de 1 mes (Aún soy regular)">Hace menos de 1 mes (Aún soy regular)</option>
+                            <option value="Hace algunos meses (Irregular/Perimenopausia)">Hace algunos meses (Irregular/Perimenopausia)</option>
+                            <option value="Hace MÁS de 1 año (Menopausia oficial)">Hace MÁS de 1 año (Menopausia oficial)</option>
+                            <option value="No lo sé (Por cirugía o dispositivo)">No lo sé (Por cirugía o dispositivo)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col form-group">
+                        <label>Fecha aprox. último Papanicolaou:</label>
+                        <input type="text" id="h_papanicolaou" placeholder="Ej. Hace 6 meses, Año 2023...">
+                    </div>
+                    <div class="col form-group">
+                        <label>Fecha aprox. última Mastografía:</label>
+                        <input type="text" id="h_mastografia" placeholder="Ej. Nunca, Hace 1 año...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col form-group check-group-container">
+                        <label>Cirugías Ginecológicas:</label>
+                        <label class="check-item"><input type="checkbox" name="cirugia" value="Me retiraron el Útero (Matriz)"><div class="custom-checkbox"></div><span class="check-text">Me retiraron el Útero (Matriz)</span></label>
+                        <label class="check-item"><input type="checkbox" name="cirugia" value="Me retiraron 1 o ambos Ovarios"><div class="custom-checkbox"></div><span class="check-text">Me retiraron 1 o ambos Ovarios</span></label>
+                    </div>
+                    <div class="col form-group">
+                        <label>Método anticonceptivo actual (si aplica):</label>
+                        <input type="text" id="h_anticonceptivo" placeholder="Ej. DIU Mirena, Pastillas, Ninguno">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3: ANTECEDENTES DE SEGURIDAD (CONTRAINDICACIONES THM) -->
+            <div class="form-section alert-section">
+                <h3 class="hand-drawn">⚠️ 3. Antecedentes Médicos y Genéticos (Seguridad THM)</h3>
+                <p style="margin-bottom: 15px; font-size: 0.9rem; font-weight: 600;">Marca si tú o familiares directos han padecido alguna de estas condiciones (fundamental para recetar hormonas):</p>
+                <div class="row check-group-container">
+                    <div class="col">
+                        <label class="check-item"><input type="checkbox" name="antecedente" value="Cáncer de Mama (Personal)"><div class="custom-checkbox"></div><span class="check-text">Cáncer de Mama (Personal)</span></label>
+                        <label class="check-item"><input type="checkbox" name="antecedente" value="Cáncer de Mama (Familiar directo o gen BRCA)"><div class="custom-checkbox"></div><span class="check-text">Cáncer de Mama (Familiar directo o gen BRCA)</span></label>
+                        <label class="check-item"><input type="checkbox" name="antecedente" value="Cáncer de Endometrio o Matriz"><div class="custom-checkbox"></div><span class="check-text">Cáncer de Endometrio o Matriz</span></label>
+                        <label class="check-item"><input type="checkbox" name="antecedente" value="Trombosis o Coágulos en Venas"><div class="custom-checkbox"></div><span class="check-text">Trombosis o Coágulos en Venas</span></label>
+                    </div>
+                    <div class="col">
+                        <label class="check-item"><input type="checkbox" name="antecedente" value="Infarto o Derrame Cerebral (Ictus)"><div class="custom-checkbox"></div><span class="check-text">Infarto o Derrame Cerebral (Ictus)</span></label>
+                        <label class="check-item"><input type="checkbox" name="antecedente" value="Enfermedad del Hígado activa"><div class="custom-checkbox"></div><span class="check-text">Enfermedad del Hígado activa</span></label>
+                        <label class="check-item"><input type="checkbox" name="antecedente" value="Colesterol Alto / Placas en arterias"><div class="custom-checkbox"></div><span class="check-text">Colesterol Alto / Placas en arterias (ASCVD)</span></label>
+                        <label class="check-item"><input type="checkbox" name="antecedente" value="Hipertensión o Diabetes"><div class="custom-checkbox"></div><span class="check-text">Hipertensión o Diabetes</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 4: EVALUACIÓN DETALLADA DE SÍNTOMAS -->
+            <div class="form-section">
+                <h3 class="hand-drawn">🔥 4. Evaluación Integral de Síntomas</h3>
+                <p style="margin-bottom: 15px; font-size: 0.9rem;">Marca todos los síntomas que presentes actualmente y que afecten tu día a día:</p>
+                
+                <div class="row">
+                    <!-- Vasomotor y Sueño -->
+                    <div class="col check-group-container" style="background: var(--pc-gris-suave); padding: 15px; border-radius: 10px; border: 1px solid #ddd;">
+                        <h4 style="color: var(--pc-rosa-fuerte); margin-bottom: 10px; font-size: 1.1rem;">Vasomotores y Sueño</h4>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Sofocos / Bochornos"><div class="custom-checkbox"></div><span class="check-text">Sofocos o bochornos frecuentes</span></label>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Sudoración nocturna"><div class="custom-checkbox"></div><span class="check-text">Sudoración nocturna que te despierta</span></label>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Insomnio"><div class="custom-checkbox"></div><span class="check-text">Insomnio o dificultad para dormir</span></label>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Apnea: Fatiga diurna / Sueño agitado"><div class="custom-checkbox"></div><span class="check-text">Siento gran fatiga de día o mi sueño es intranquilo (Riesgo Apnea)</span></label>
+                    </div>
+
+                    <!-- Metabólico y Físico -->
+                    <div class="col check-group-container" style="background: var(--pc-gris-suave); padding: 15px; border-radius: 10px; border: 1px solid #ddd;">
+                        <h4 style="color: var(--pc-rosa-fuerte); margin-bottom: 10px; font-size: 1.1rem;">Físicos y Metabólicos</h4>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Dolor articular / muscular"><div class="custom-checkbox"></div><span class="check-text">Dolor en articulaciones o tendones</span></label>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Aumento grasa abdominal"><div class="custom-checkbox"></div><span class="check-text">Aumento rápido de grasa en el abdomen</span></label>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Pérdida de fuerza"><div class="custom-checkbox"></div><span class="check-text">Siento pérdida de fuerza o masa muscular</span></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Psicológico y Cognitivo -->
+                    <div class="col check-group-container" style="background: var(--pc-gris-suave); padding: 15px; border-radius: 10px; border: 1px solid #ddd;">
+                        <h4 style="color: #1565c0; margin-bottom: 10px; font-size: 1.1rem;">Mente, Emociones y Trabajo</h4>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Cambios de humor / Irritabilidad"><div class="custom-checkbox"></div><span class="check-text">Cambios bruscos de humor o irritabilidad</span></label>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Ansiedad / Tristeza"><div class="custom-checkbox"></div><span class="check-text">Siento ansiedad, angustia o tristeza frecuente</span></label>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Niebla Mental (Brain Fog)"><div class="custom-checkbox"></div><span class="check-text">"Niebla Mental": Olvido palabras o a qué iba</span></label>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Baja productividad laboral"><div class="custom-checkbox"></div><span class="check-text">El cansancio/niebla afectan mi rendimiento laboral</span></label>
+                    </div>
+
+                    <!-- Salud Íntima -->
+                    <div class="col check-group-container" style="background: var(--pc-gris-suave); padding: 15px; border-radius: 10px; border: 1px solid #ddd;">
+                        <h4 style="color: #6a1b9a; margin-bottom: 10px; font-size: 1.1rem;">Salud Íntima (Urogenital)</h4>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Sequedad, ardor o picor vaginal"><div class="custom-checkbox"></div><span class="check-text">Sequedad, ardor o picor vaginal</span></label>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Dolor en relaciones sexuales"><div class="custom-checkbox"></div><span class="check-text">Dolor o molestias en relaciones sexuales</span></label>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Infecciones Urinarias recurrentes"><div class="custom-checkbox"></div><span class="check-text">Infecciones de orina (Mal de orín) recurrentes</span></label>
+                        <label class="check-item"><input type="checkbox" name="sintoma" value="Baja del deseo sexual"><div class="custom-checkbox"></div><span class="check-text">Disminución importante del deseo sexual</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 5: SEÑALES DE ALERTA -->
+            <div class="form-section alert-section">
+                <h3 class="hand-drawn">🚨 5. Señales de Alerta Roja</h3>
+                <p style="margin-bottom: 15px; font-size: 0.9rem;">Marca si presentas alguna de estas situaciones (requieren atención médica inmediata):</p>
+                <div class="check-group-container">
+                    <label class="check-item"><input type="checkbox" name="alerta" value="Sangrado posmenopáusico"><div class="custom-checkbox"></div><span class="check-text" style="color: #c62828; font-weight:800;">He vuelto a sangrar/manchar después de 1 año sin regla</span></label>
+                    <label class="check-item"><input type="checkbox" name="alerta" value="Hemorragias abundantes / Coágulos"><div class="custom-checkbox"></div><span class="check-text" style="color: #c62828; font-weight:800;">Sangrados inusualmente abundantes o con grandes coágulos</span></label>
+                    <label class="check-item"><input type="checkbox" name="alerta" value="Dolor de huesos intenso / Fractura"><div class="custom-checkbox"></div><span class="check-text" style="color: #c62828; font-weight:800;">Dolor de huesos intenso o sufrí una fractura por un golpe leve</span></label>
+                    <label class="check-item"><input type="checkbox" name="alerta" value="Depresión profunda"><div class="custom-checkbox"></div><span class="check-text" style="color: #c62828; font-weight:800;">Siento una depresión profunda o ataques de pánico incontrolables</span></label>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 6: ESTILO DE VIDA -->
+            <div class="form-section">
+                <h3 class="hand-drawn">🥦 6. Estilo de Vida y Tratamientos Actuales</h3>
+                <div class="row">
+                    <div class="col form-group">
+                        <label>¿Realizas ejercicio actualmente?</label>
+                        <select id="e_ejercicio">
+                            <option value="">Selecciona...</option>
+                            <option value="Nada / Sedentaria">Nada / Sedentaria</option>
+                            <option value="Solo cardiovascular (caminar, bailar, zumba)">Solo cardiovascular (caminar, bailar, zumba)</option>
+                            <option value="Entrenamiento de Fuerza (Pesas, Ligas, Pilates)">Entrenamiento de Fuerza (Pesas, Ligas, Pilates)</option>
+                        </select>
+                    </div>
+                    <div class="col form-group">
+                        <label>¿Llevas una dieta alta en proteínas (1.5 - 2g por kg)?</label>
+                        <select id="e_proteina">
+                            <option value="">Selecciona...</option>
+                            <option value="Sí, mido mis porciones/proteína">Sí, mido mis porciones/proteína</option>
+                            <option value="No / Mi dieta es alta en carbohidratos">No / Mi dieta es alta en carbohidratos</option>
+                            <option value="No estoy segura">No estoy segura</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>¿Has tomado Terapia Hormonal o suplementos naturales (maca, isoflavonas) antes?</label>
+                    <textarea id="e_tratamiento_previo" rows="2" placeholder="Describe qué tomaste y si te funcionó..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>¿Qué medicamentos de uso diario tomas? (Presión, diabetes, tiroides, antidepresivos, etc.)</label>
+                    <textarea id="e_medicamentos" rows="2" placeholder="Escribe aquí tus medicamentos actuales..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>¿Tienes alguna duda específica sobre tu sexualidad, tratamientos o síntomas que quieras platicar en consulta?</label>
+                    <textarea id="e_dudas" rows="2" placeholder="Escribe aquí tus preguntas al Dr..."></textarea>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="actions-bar no-print">
+            <button onclick="imprimirBlanco()" class="btn btn-print-blank">🖨️ Imprimir en blanco (A mano)</button>
+            <button onclick="imprimirLleno()" class="btn btn-print-filled">📄 Imprimir contestado (Ecológico)</button>
+            <button onclick="generarWhatsApp()" class="btn btn-wa">📲 Enviar Resumen por WhatsApp</button>
+            <button onclick="generarCorreo()" class="btn btn-email">📧 Enviar por Correo</button>
+        </div>
+
+    </div>
+
+    <script>
+        function imprimirBlanco() {
+            // Se asume que el usuario quiere imprimirlo vacío
+            document.body.classList.add('print-blank');
+            document.body.classList.remove('print-filled');
+            window.print();
+            document.body.classList.remove('print-blank');
+        }
+
+        function imprimirLleno() {
+            // Ocultar los form-groups que estén vacíos para ahorrar espacio
+            document.querySelectorAll('.form-group').forEach(group => {
+                let inputs = group.querySelectorAll('input[type="text"], input[type="number"], textarea, select');
+                let hasValue = false;
+                inputs.forEach(inp => {
+                    if(inp.value && inp.value.trim() !== '') hasValue = true;
+                });
+                if(!hasValue && inputs.length > 0) {
+                    group.classList.add('hide-on-print-filled');
+                }
+            });
+
+            document.body.classList.add('print-filled');
+            document.body.classList.remove('print-blank');
+            window.print();
+            
+            // Restaurar vista
+            document.body.classList.remove('print-filled');
+            document.querySelectorAll('.hide-on-print-filled').forEach(el => el.classList.remove('hide-on-print-filled'));
+        }
+
+        function recolectarDatos() {
+            const d = document;
+            let data = {
+                nombre: d.getElementById('p_nombre').value || 'No especificado',
+                edad: d.getElementById('p_edad').value || '-',
+                tel: d.getElementById('p_telefono').value || '-',
+                peso: d.getElementById('p_peso').value || '-',
+                talla: d.getElementById('p_talla').value || '-',
+                motivo: d.getElementById('p_motivo').value || 'No especificado',
+                
+                menarca: d.getElementById('h_menarca').value || '-',
+                ultima_regla: d.getElementById('h_ultima_regla').value || 'No especificado',
+                papan: d.getElementById('h_papanicolaou').value || 'No especificado',
+                masto: d.getElementById('h_mastografia').value || 'No especificado',
+                anticonceptivo: d.getElementById('h_anticonceptivo').value || 'Ninguno',
+                
+                ejercicio: d.getElementById('e_ejercicio').value || 'No especificado',
+                proteina: d.getElementById('e_proteina').value || 'No especificado',
+                tratamiento: d.getElementById('e_tratamiento_previo').value || 'Ninguno',
+                medicamentos: d.getElementById('e_medicamentos').value || 'Ningunos',
+                dudas: d.getElementById('e_dudas').value || 'Ninguna'
+            };
+
+            const getChecked = (name) => Array.from(d.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value);
+            
+            data.cirugias = getChecked('cirugia');
+            data.antecedentes = getChecked('antecedente');
+            data.sintomas = getChecked('sintoma');
+            data.alertas = getChecked('alerta');
+
+            return data;
+        }
+
+        function formatearTexto(d) {
+            let txt = `*📋 EXPEDIENTE CLÍNICO: MENOPAUSIA*\n\n`;
+            txt += `👤 *DATOS DEL PACIENTE*\n`;
+            txt += `- Nombre: ${d.nombre}\n`;
+            txt += `- Edad: ${d.edad} años\n`;
+            txt += `- Peso: ${d.peso} kg | Talla: ${d.talla} cm\n`;
+            txt += `- Motivo principal: ${d.motivo}\n\n`;
+
+            txt += `🩸 *HISTORIA REPRODUCTIVA Y PREVENCIÓN*\n`;
+            txt += `- Menarca: a los ${d.menarca} años\n`;
+            txt += `- Última regla: ${d.ultima_regla}\n`;
+            txt += `- Anticonceptivo: ${d.anticonceptivo}\n`;
+            txt += `- Último Papanicolaou: ${d.papan}\n`;
+            txt += `- Última Mastografía: ${d.masto}\n`;
+            if (d.cirugias.length > 0) txt += `- Cirugías: ${d.cirugias.join(', ')}\n`;
+            txt += `\n`;
+
+            txt += `⚠️ *ANTECEDENTES (SEGURIDAD THM)*\n`;
+            txt += d.antecedentes.length > 0 ? `- ${d.antecedentes.join('\n- ')}\n\n` : `- Ninguno reportado\n\n`;
+
+            txt += `🔥 *EVALUACIÓN INTEGRAL DE SÍNTOMAS*\n`;
+            txt += d.sintomas.length > 0 ? `- ${d.sintomas.join('\n- ')}\n\n` : `- Ninguno reportado\n\n`;
+
+            if (d.alertas.length > 0) {
+                txt += `🚨 *SEÑALES DE ALERTA ROJA*\n`;
+                txt += `- ${d.alertas.join('\n- ')}\n\n`;
+            }
+
+            txt += `🥦 *ESTILO DE VIDA Y TRATAMIENTO*\n`;
+            txt += `- Ejercicio: ${d.ejercicio}\n`;
+            txt += `- Dieta alta en proteína: ${d.proteina}\n`;
+            txt += `- Tratamientos previos menopausia: ${d.tratamiento}\n`;
+            txt += `- Medicamentos actuales: ${d.medicamentos}\n\n`;
+            
+            if (d.dudas !== 'Ninguna') {
+                txt += `💬 *DUDAS PARA LA CONSULTA*\n- "${d.dudas}"\n`;
+            }
+
+            return txt;
+        }
+
+        function generarWhatsApp() {
+            if (!document.getElementById('p_nombre').value) {
+                alert('Por favor, ingresa tu nombre antes de enviar.');
+                document.getElementById('p_nombre').focus();
+                return;
+            }
+            const data = recolectarDatos();
+            const mensaje = formatearTexto(data);
+            const telefono = "526611044050"; 
+            window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
+        }
+
+        function generarCorreo() {
+            if (!document.getElementById('p_nombre').value) {
+                alert('Por favor, ingresa tu nombre antes de enviar.');
+                document.getElementById('p_nombre').focus();
+                return;
+            }
+            const data = recolectarDatos();
+            const mensaje = formatearTexto(data);
+            const asunto = `Expediente Menopausia - ${data.nombre}`;
+            window.location.href = `mailto:contacto@proyectocelene.org?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
+        }
+    </script>
+</body>
+</html>

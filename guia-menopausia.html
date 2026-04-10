@@ -631,6 +631,7 @@
             <button class="tab-btn" onclick="openTab('tab-sexualidad', this)">❤️ Sexualidad y Mente</button>
             <button class="tab-btn" onclick="openTab('tab-tratamientos', this)">💊 Tratamientos</button>
             <button class="tab-btn" onclick="openTab('tab-evidencia', this)">🔬 Noticias y Fuentes</button>
+            <button class="tab-btn" onclick="openTab('tab-preconsulta', this)">📋 Preconsulta</button>
         </div>
 
         <!-- TAB 1: INTRO Y MITOS -->
@@ -1253,6 +1254,45 @@
             </div>
         </div>
 
+        <!-- TAB 6: PRECONSULTA -->
+        <div id="tab-preconsulta" class="tab-content">
+            <div class="content-box" style="background: var(--pc-azul-suave); border-color: var(--pc-negro);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.4rem;">📋 Formulario de Preconsulta de Menopausia</h2>
+                <p style="text-align: center; font-weight: 600; margin-bottom: 30px;">Completa este formulario para que el Dr. Donato conozca tu historial completo antes de la consulta. Puedes llenarlo en línea, imprimirlo para llenar a mano o enviarlo directamente por WhatsApp.</p>
+                
+                <!-- Instrucciones -->
+                <div style="background: var(--pc-amarillo); border: 3px dashed var(--pc-negro); border-radius: 15px; padding: 20px; margin-bottom: 30px;">
+                    <h3 class="hand-drawn" style="color: var(--pc-negro); margin-bottom: 10px;">¿Cómo usar este formulario?</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
+                        <div style="flex: 1; min-width: 200px; background: white; border: 2px solid var(--pc-negro); border-radius: 10px; padding: 15px; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📱</div>
+                            <h4 style="color: var(--pc-rosa-fuerte);">Llenar en línea</h4>
+                            <p style="font-size: 0.9rem;">Completa todos los campos y envía directamente por WhatsApp al doctor.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 200px; background: white; border: 2px solid var(--pc-negro); border-radius: 10px; padding: 15px; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">🖨️</div>
+                            <h4 style="color: var(--pc-rosa-fuerte);">Imprimir para llenar a mano</h4>
+                            <p style="font-size: 0.9rem;">Genera una versión en blanco para imprimir y llevar a la consulta.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 200px; background: white; border: 2px solid var(--pc-negro); border-radius: 10px; padding: 15px; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📧</div>
+                            <h4 style="color: var(--pc-rosa-fuerte);">Enviar por correo</h4>
+                            <p style="font-size: 0.9rem;">Recibe un PDF con tus respuestas para enviar por correo electrónico.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 40px; padding: 20px; background: var(--pc-gris-suave); border-radius: 15px; border: 3px dashed var(--pc-negro);">
+                    <a href="cuestionario-menopausia.html" target="_blank" class="btn" style="background: var(--pc-rosa-fuerte); color: white; flex: 1; min-width: 300px; font-size: 1.2rem;">📝 Abrir Formulario Especializado</a>
+                </div>
+
+                <div style="margin-top: 30px; text-align: center; font-size: 0.9rem; color: #666;">
+                    <p>⚠️ <strong>Nota:</strong> Tus datos son confidenciales y solo se usarán para tu atención médica. No se almacenan en servidores externos.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- ACCIÓN FINAL GLOBAL -->
         <div id="action-container-menopausia" class="action-container fade-in" style="text-align: center; padding: 40px 20px; background: var(--pc-blanco); border: 4px solid var(--pc-negro); border-radius: 25px; box-shadow: 8px 8px 0 var(--pc-rosa-fuerte); margin-top: 40px;">
             <h2 class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 15px;">¿Lista para agendar tu cita?</h2>
@@ -1493,6 +1533,61 @@
 
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         });
+
+        // Funciones para la pestaña de preconsulta
+        function cargarFormularioCompleto() {
+            const formularioDiv = document.getElementById('formulario-preconsulta');
+            if (formularioDiv.innerHTML.trim() === '') {
+                formularioDiv.innerHTML = `
+                    <div style="text-align: center; margin: 20px 0;">
+                        <p style="font-weight: 600; color: #555;">Cargando formulario completo de menopausia...</p>
+                        <div style="width: 50px; height: 50px; border: 5px solid var(--pc-rosa-pastell); border-top: 5px solid var(--pc-rosa-fuerte); border-radius: 50%; margin: 20px auto; animation: spin 1s linear infinite;"></div>
+                    </div>
+                `;
+                // Simular carga asíncrona
+                setTimeout(() => {
+                    formularioDiv.innerHTML = `
+                        <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px;">
+                            <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">⚠️ Formulario completo en desarrollo</h3>
+                            <p>El formulario completo de preconsulta de menopausia está siendo desarrollado. Por ahora, puedes usar el <a href="cuestionario-pre-consulta.html" style="color: var(--pc-rosa-fuerte); font-weight: 800;">cuestionario general de preconsulta</a> que ya incluye una sección específica de menopausia.</p>
+                            <p style="margin-top: 15px;">O bien, puedes <strong>enviar directamente los resultados de los cuestionarios de esta guía</strong> usando el botón "Enviar mis Resultados por WhatsApp" que aparece al final de cada sección.</p>
+                            <button onclick="enviarPerfilMenopausiaWa()" class="btn btn-wa" style="margin-top: 20px;">📲 Enviar mis resultados actuales</button>
+                        </div>
+                    `;
+                }, 1000);
+            }
+        }
+
+        function imprimirFormulario(tipo) {
+            if (tipo === 'blanco') {
+                alert('Función de impresión en blanco en desarrollo. Próximamente podrás imprimir un formulario en blanco para llenar a mano.');
+            } else {
+                alert('Función de impresión con datos en desarrollo.');
+            }
+        }
+
+        function enviarPorWhatsApp() {
+            // Reutilizar la función existente que ya compila los datos de los cuestionarios
+            if (typeof enviarPerfilMenopausiaWa === 'function') {
+                enviarPerfilMenopausiaWa();
+            } else {
+                alert('Por favor, primero llena algunos de los cuestionarios de la guía para poder enviar información.');
+            }
+        }
+
+        function enviarPorCorreo() {
+            alert('Función de envío por correo en desarrollo. Próximamente podrás recibir un PDF con tus respuestas.');
+        }
+
+        // Estilo para spinner
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
     <script src="js/global.js"></script>
 
