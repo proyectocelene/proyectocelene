@@ -26,125 +26,125 @@
 <body class="text-slate-800 antialiased min-h-screen flex flex-col">
 
     <!-- Header Interno (Gris oscuro para diferenciarlo de la página pública) -->
-    <header class="bg-slate-900 text-white shadow-md border-b-4 border-blue-500">
+    <header class="bg-slate-900 text-white shadow-md border-b-4 border-blue-500" role="banner" aria-label="Cabecera del portal interno">
         <div class="max-w-6xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex justify-between items-center">
             <div>
                 <div class="flex items-center gap-3">
-                    <span class="bg-blue-600 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider shadow-sm">Staff</span>
+                    <span class="bg-blue-600 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider shadow-sm" aria-hidden="true">Staff</span>
                     <h1 class="text-2xl font-bold">Portal Interno Celene</h1>
                 </div>
                 <p class="mt-1 text-slate-400 text-sm">Herramientas y guías de uso clínico exclusivo.</p>
             </div>
-            <a href="../index.html" class="hidden sm:flex text-sm font-medium text-slate-300 hover:text-white transition-colors items-center gap-2 bg-slate-800 px-4 py-2 rounded-lg border border-slate-700 shadow-sm hover:bg-slate-700">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <a href="../index.html" class="hidden sm:flex text-sm font-medium text-slate-300 hover:text-white transition-colors items-center gap-2 bg-slate-800 px-4 py-2 rounded-lg border border-slate-700 shadow-sm hover:bg-slate-700" aria-label="Ir al sitio público de Proyecto Celene">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                 Ir al sitio público
             </a>
         </div>
     </header>
 
     <!-- Contenido Principal -->
-    <main class="flex-grow w-full max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8 fade-in">
+    <main class="flex-grow w-full max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8 fade-in" role="main" aria-label="Contenido principal del portal interno">
         
         <!-- Mensaje de seguridad -->
-        <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded-r-xl shadow-sm mb-8">
+        <section class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded-r-xl shadow-sm mb-8" aria-label="Mensaje de seguridad" role="region">
             <h2 class="text-lg font-bold text-blue-900 mb-1 flex items-center gap-2">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
                 Área Privada de Personal
             </h2>
             <p class="text-sm text-blue-800">Esta sección no está conectada a los menús públicos. Guarda este enlace <strong>(tusitio.com/personal/)</strong> en tus favoritos para acceder rápidamente a los recursos del consultorio.</p>
-        </div>
+        </section>
 
         <!-- Grid de Herramientas -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" aria-label="Herramientas del portal interno">
             
             <!-- Categoría 1: Algoritmos Clínicos -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+            <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow" aria-labelledby="algoritmos-title">
                 <div class="bg-slate-50 border-b border-slate-100 p-4">
-                    <h3 class="font-bold text-slate-800 text-lg flex items-center gap-2">
-                        <span class="text-2xl">🧠</span> Algoritmos Clínicos
+                    <h3 id="algoritmos-title" class="font-bold text-slate-800 text-lg flex items-center gap-2">
+                        <span class="text-2xl" aria-hidden="true">🧠</span> Algoritmos Clínicos
                     </h3>
                 </div>
                 <div class="p-5">
                     <p class="text-sm text-slate-500 mb-4">Guías de tratamiento interactivas y toma de decisiones paso a paso.</p>
-                    <ul class="space-y-3">
+                    <ul class="space-y-3" role="list">
                         <li>
-                            <a href="algoritmos/resfriado-comun.html" class="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-100 hover:border-blue-200 text-sm font-semibold text-slate-700 hover:text-blue-700 transition-colors group shadow-sm">
+                            <a href="algoritmos/resfriado-comun.html" class="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-100 hover:border-blue-200 text-sm font-semibold text-slate-700 hover:text-blue-700 transition-colors group shadow-sm" aria-label="Acceder al algoritmo de diagnóstico de resfriado común">
                                 <span class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                                    <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
                                     Dx: Resfriado Común
                                 </span>
-                                <span class="text-blue-400 group-hover:translate-x-1 transition-transform">➔</span>
+                                <span class="text-blue-400 group-hover:translate-x-1 transition-transform" aria-hidden="true">➔</span>
                             </a>
                         </li>
                         <li>
-                            <div class="flex items-center justify-center p-3 rounded-lg border-2 border-dashed border-slate-200 text-sm font-medium text-slate-400">
+                            <div class="flex items-center justify-center p-3 rounded-lg border-2 border-dashed border-slate-200 text-sm font-medium text-slate-400" aria-hidden="true">
                                 <span>+ Próximamente más guías</span>
                             </div>
                         </li>
                     </ul>
                 </div>
-            </div>
+            </article>
 
             <!-- Categoría 2: Herramientas de Gestión -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+            <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow" aria-labelledby="herramientas-title">
                 <div class="bg-slate-50 border-b border-slate-100 p-4">
-                    <h3 class="font-bold text-slate-800 text-lg flex items-center gap-2">
-                        <span class="text-2xl">⚙️</span> Herramientas Administrativas
+                    <h3 id="herramientas-title" class="font-bold text-slate-800 text-lg flex items-center gap-2">
+                        <span class="text-2xl" aria-hidden="true">⚙️</span> Herramientas Administrativas
                     </h3>
                 </div>
                 <div class="p-5">
                     <p class="text-sm text-slate-500 mb-4">Aplicaciones y calculadoras para la administración del consultorio y pacientes.</p>
-                    <ul class="space-y-3">
+                    <ul class="space-y-3" role="list">
                         <li>
-                            <a href="herramientas/generar-recibos.html" class="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-100 hover:border-blue-200 text-sm font-semibold text-slate-700 hover:text-blue-700 transition-colors group shadow-sm">
+                            <a href="herramientas/generar-recibos.html" class="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-100 hover:border-blue-200 text-sm font-semibold text-slate-700 hover:text-blue-700 transition-colors group shadow-sm" aria-label="Acceder al generador de recibos PWA">
                                 <span class="flex items-center gap-2">
                                     <!-- Icono Recibo -->
-                                    <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                    <svg class="w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                                     Generador de Recibos PWA
                                 </span>
-                                <span class="text-blue-400 group-hover:translate-x-1 transition-transform">➔</span>
+                                <span class="text-blue-400 group-hover:translate-x-1 transition-transform" aria-hidden="true">➔</span>
                             </a>
                         </li>
                     </ul>
                 </div>
-            </div>
+            </article>
 
             <!-- Categoría 3: Directorio (Para el futuro) -->
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+            <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow" aria-labelledby="directorio-title">
                 <div class="bg-slate-50 border-b border-slate-100 p-4">
-                    <h3 class="font-bold text-slate-800 text-lg flex items-center gap-2">
-                        <span class="text-2xl">📇</span> Directorio Médico
+                    <h3 id="directorio-title" class="font-bold text-slate-800 text-lg flex items-center gap-2">
+                        <span class="text-2xl" aria-hidden="true">📇</span> Directorio Médico
                     </h3>
                 </div>
                 <div class="p-5">
                     <p class="text-sm text-slate-500 mb-4">Contactos de laboratorios aliados, especialistas de derivación y farmacias.</p>
-                    <div class="flex items-center justify-center p-6 rounded-lg border-2 border-dashed border-slate-200 bg-slate-50">
+                    <div class="flex items-center justify-center p-6 rounded-lg border-2 border-dashed border-slate-200 bg-slate-50" aria-hidden="true">
                         <span class="text-sm font-medium text-slate-400">En construcción 🚧</span>
                     </div>
                 </div>
-            </div>
+            </article>
 
-        </div>
+        </section>
         
         <!-- Botón de volver para móviles -->
-        <div class="mt-8 sm:hidden">
-            <a href="../index.html" class="w-full flex justify-center text-sm font-bold text-slate-600 hover:text-slate-900 transition-colors items-center gap-2 bg-white px-4 py-3 rounded-xl border border-slate-200 shadow-sm">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        <div class="mt-8 sm:hidden" role="navigation" aria-label="Navegación móvil">
+            <a href="../index.html" class="w-full flex justify-center text-sm font-bold text-slate-600 hover:text-slate-900 transition-colors items-center gap-2 bg-white px-4 py-3 rounded-xl border border-slate-200 shadow-sm" aria-label="Volver al sitio público de Proyecto Celene">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                 Volver al sitio público
             </a>
         </div>
 
         <!-- Banner Instalación App PWA -->
-        <div id="pwa-install-card" class="hidden mt-8 bg-blue-600 rounded-2xl shadow-lg border border-blue-500 p-6 text-white flex-col sm:flex-row items-center justify-between gap-4">
+        <aside id="pwa-install-card" class="hidden mt-8 bg-blue-600 rounded-2xl shadow-lg border border-blue-500 p-6 text-white flex-col sm:flex-row items-center justify-between gap-4" aria-label="Opciones de instalación de aplicación PWA" role="complementary">
             <div class="flex items-center gap-4">
-                <div class="bg-white p-2 rounded-full shadow-sm"><img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Logo" class="w-10 h-10"></div>
+                <div class="bg-white p-2 rounded-full shadow-sm"><img src="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" alt="Logo de Proyecto Celene" class="w-10 h-10" loading="lazy"></div>
                 <div>
                     <h4 class="font-bold text-lg">Instalar Portal Celene</h4>
                     <p class="text-blue-100 text-sm">Añade este portal a tu pantalla de inicio para acceso rápido tipo App.</p>
                 </div>
             </div>
-            <button id="btn-instalar-pwa" class="bg-white text-blue-700 font-bold py-2 px-6 rounded-xl shadow-md hover:bg-blue-50 transition-colors w-full sm:w-auto">Instalar</button>
-        </div>
+            <button id="btn-instalar-pwa" class="bg-white text-blue-700 font-bold py-2 px-6 rounded-xl shadow-md hover:bg-blue-50 transition-colors w-full sm:w-auto" aria-label="Instalar aplicación PWA del Portal Celene">Instalar</button>
+        </aside>
 
     </main>
 

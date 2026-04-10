@@ -72,108 +72,109 @@
 </head>
 
 <body>
-    <div class="container">
-        <div id="navbar-container" class="main-nav no-print"></div>
+    <main class="container" role="main" aria-label="Cuestionarios de salud mental">
+        <nav id="navbar-container" class="main-nav no-print" role="navigation" aria-label="Navegación principal"></nav>
 
-        <div class="no-print" style="margin-bottom: 15px;">
-            <a href="saludmental/depresion.html" class="btn-action" style="background: white; color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; width: auto; display: inline-flex; box-shadow: 4px 4px 0 var(--pc-negro);">⬅️ Volver a Guía de Depresión</a>
+        <div class="no-print" style="margin-bottom: 15px;" role="navigation" aria-label="Navegación secundaria">
+            <a href="saludmental/depresion.html" class="btn-action" style="background: white; color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; width: auto; display: inline-flex; box-shadow: 4px 4px 0 var(--pc-negro);" aria-label="Volver a la guía de depresión">⬅️ Volver a Guía de Depresión</a>
         </div>
 
-        <header class="header no-print">
-            <h1 class="hand-drawn">Evalúa tu estado de ánimo 📊</h1>
+        <header class="header no-print" role="banner" aria-label="Encabezado de cuestionarios">
+            <h1 class="hand-drawn">Evalúa tu estado de ánimo <span aria-hidden="true">📊</span></h1>
             <p style="font-weight: 800; font-size: 1.15rem; color: #444;">Conocer cómo te sientes es el primer paso para mejorar. Monitorea tus emociones y observa tu progreso.</p>
         </header>
 
-        <div class="alert-box no-print">
-            <h3 style="color: #e65100; font-family: 'Handlee', cursive; font-size: 1.5rem; margin-bottom: 10px;">⚠️ Aviso Importante</h3>
+        <section class="alert-box no-print" role="alert" aria-label="Aviso importante sobre los cuestionarios">
+            <h3 style="color: #e65100; font-family: 'Handlee', cursive; font-size: 1.5rem; margin-bottom: 10px;"><span aria-hidden="true">⚠️</span> Aviso Importante</h3>
             <p style="font-weight: 600; color: #444; margin-bottom: 0;">Los resultados de estos cuestionarios te sirven como una <strong>guía personal</strong>, pero <strong>NO son un diagnóstico médico</strong>. Pueden ser imperfectos. Si tus resultados son altos, te animamos a enviar, imprimir o compartir esta página con tu médico o profesional de salud mental.</p>
-        </div>
+        </section>
 
         <!-- MENU DE TARJETAS -->
-        <div id="menu-view" class="no-print">
+        <section id="menu-view" class="no-print" aria-label="Menú de cuestionarios disponibles">
             <h2 class="hand-drawn" style="font-size: 2rem; color: var(--pc-negro); margin-bottom: 20px; text-align: center;">Elige el cuestionario para ti hoy:</h2>
             
-            <div class="grid-cards">
-                <div class="card-test" style="border-color: #118AB2;" onclick="showTest('phq9')">
-                    <h4 style="color: #118AB2;">Cuestionario PHQ-9</h4>
-                    <span style="font-size: 0.85rem; font-weight: 900; background: #e3f2fd; color: #118AB2; padding: 4px 10px; border-radius: 8px; display: inline-block; margin-bottom: 10px; border: 2px solid #118AB2;">⏱ 3 minutos</span>
+            <div class="grid-cards" role="list" aria-label="Lista de cuestionarios">
+                <article class="card-test" style="border-color: #118AB2;" onclick="showTest('phq9')" role="listitem" aria-labelledby="phq9-title" tabindex="0" onkeypress="if(event.key === 'Enter') showTest('phq9')">
+                    <h4 id="phq9-title" style="color: #118AB2;">Cuestionario PHQ-9</h4>
+                    <span style="font-size: 0.85rem; font-weight: 900; background: #e3f2fd; color: #118AB2; padding: 4px 10px; border-radius: 8px; display: inline-block; margin-bottom: 10px; border: 2px solid #118AB2;" aria-hidden="true">⏱ 3 minutos</span>
                     <p style="font-size: 0.95rem; font-weight: 600; color: #555; flex-grow: 1;"><strong>¿Para qué sirve?</strong> Es la herramienta mundial más usada. Te ayuda a medir la frecuencia de tus síntomas en las últimas 2 semanas. Excelente para una radiografía rápida.</p>
-                </div>
+                </article>
 
-                <div class="card-test" style="border-color: #d81b60;" onclick="showTest('bdi2')">
-                    <h4 style="color: #d81b60;">Inventario de Beck (BDI-II)</h4>
-                    <span style="font-size: 0.85rem; font-weight: 900; background: #fce4ec; color: #d81b60; padding: 4px 10px; border-radius: 8px; display: inline-block; margin-bottom: 10px; border: 2px solid #d81b60;">⏱ 5-10 minutos</span>
+                <article class="card-test" style="border-color: #d81b60;" onclick="showTest('bdi2')" role="listitem" aria-labelledby="bdi2-title" tabindex="0" onkeypress="if(event.key === 'Enter') showTest('bdi2')">
+                    <h4 id="bdi2-title" style="color: #d81b60;">Inventario de Beck (BDI-II)</h4>
+                    <span style="font-size: 0.85rem; font-weight: 900; background: #fce4ec; color: #d81b60; padding: 4px 10px; border-radius: 8px; display: inline-block; margin-bottom: 10px; border: 2px solid #d81b60;" aria-hidden="true">⏱ 5-10 minutos</span>
                     <p style="font-size: 0.95rem; font-weight: 600; color: #555; flex-grow: 1;"><strong>¿Para qué sirve?</strong> Escala detallada de 21 preguntas. Evalúa a profundidad la severidad física, mental y emocional. Ideal para llevarlo a tu terapeuta.</p>
-                </div>
+                </article>
 
-                <div class="card-test" style="border-color: #2e7d32;" onclick="showTest('rdq')">
-                    <h4 style="color: #2e7d32;">Cuestionario de Remisión (RDQ)</h4>
-                    <span style="font-size: 0.85rem; font-weight: 900; background: #e8f5e9; color: #2e7d32; padding: 4px 10px; border-radius: 8px; display: inline-block; margin-bottom: 10px; border: 2px solid #2e7d32;">⏱ 5 minutos</span>
+                <article class="card-test" style="border-color: #2e7d32;" onclick="showTest('rdq')" role="listitem" aria-labelledby="rdq-title" tabindex="0" onkeypress="if(event.key === 'Enter') showTest('rdq')">
+                    <h4 id="rdq-title" style="color: #2e7d32;">Cuestionario de Remisión (RDQ)</h4>
+                    <span style="font-size: 0.85rem; font-weight: 900; background: #e8f5e9; color: #2e7d32; padding: 4px 10px; border-radius: 8px; display: inline-block; margin-bottom: 10px; border: 2px solid #2e7d32;" aria-hidden="true">⏱ 5 minutos</span>
                     <p style="font-size: 0.95rem; font-weight: 600; color: #555; flex-grow: 1;"><strong>¿Para qué sirve?</strong> Se centra en lo positivo. Evalúa tu salud mental positiva, bienestar y cómo estás funcionando. Excelente si ya estás en tratamiento.</p>
-                </div>
+                </article>
 
-                <div class="card-test" style="border-color: #f57f17;" onclick="showTest('tools')">
-                    <h4 style="color: #f57f17;">Herramientas Prácticas</h4>
-                    <span style="font-size: 0.85rem; font-weight: 900; background: #fff9c4; color: #f57f17; padding: 4px 10px; border-radius: 8px; display: inline-block; margin-bottom: 10px; border: 2px solid #f57f17;">Herramienta Diaria</span>
+                <article class="card-test" style="border-color: #f57f17;" onclick="showTest('tools')" role="listitem" aria-labelledby="tools-title" tabindex="0" onkeypress="if(event.key === 'Enter') showTest('tools')">
+                    <h4 id="tools-title" style="color: #f57f17;">Herramientas Prácticas</h4>
+                    <span style="font-size: 0.85rem; font-weight: 900; background: #fff9c4; color: #f57f17; padding: 4px 10px; border-radius: 8px; display: inline-block; margin-bottom: 10px; border: 2px solid #f57f17;" aria-hidden="true">Herramienta Diaria</span>
                     <p style="font-size: 0.95rem; font-weight: 600; color: #555; flex-grow: 1;"><strong>¿Para qué sirve?</strong> Plantillas para activar conductas. Lista de afrontamiento del estrés y formato de Monitoreo Diario de Actividades.</p>
-                </div>
+                </article>
             </div>
-        </div>
+        </section>
 
         <!-- VISTA DE CUESTIONARIOS -->
-        <div id="test-container" class="test-view">
-            <button class="no-print" onclick="backToMenu()" style="background: none; border: none; font-weight: 800; font-size: 1.1rem; color: #666; cursor: pointer; margin-bottom: 20px; text-decoration: underline;">⬅ Volver al menú</button>
+        <section id="test-container" class="test-view" aria-label="Vista del cuestionario seleccionado" role="region">
+            <button class="no-print" onclick="backToMenu()" style="background: none; border: none; font-weight: 800; font-size: 1.1rem; color: #666; cursor: pointer; margin-bottom: 20px; text-decoration: underline;" aria-label="Volver al menú de cuestionarios">⬅ Volver al menú</button>
             
             <h2 id="test-title" class="hand-drawn" style="font-size: 2.2rem; color: var(--pc-negro); margin-bottom: 10px;">-</h2>
             <p id="test-desc" style="font-weight: 800; color: var(--pc-rosa-fuerte); margin-bottom: 25px; font-size: 1.1rem;">-</p>
 
-            <div id="questions-area"></div>
+            <div id="questions-area" role="form" aria-label="Formulario de preguntas del cuestionario"></div>
 
-            <button id="btn-evaluar" class="btn-action no-print" onclick="processTest()" style="background: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-rosa-pastell); margin-top: 30px;">Evaluar mis Resultados ➔</button>
-        </div>
+            <button id="btn-evaluar" class="btn-action no-print" onclick="processTest()" style="background: var(--pc-negro); box-shadow: 0 6px 0 var(--pc-rosa-pastell); margin-top: 30px;" aria-label="Evaluar mis resultados del cuestionario">Evaluar mis Resultados <span aria-hidden="true">➔</span></button>
+        </section>
 
         <!-- VISTA DE RESULTADOS -->
-        <div id="result-view" class="test-view">
+        <section id="result-view" class="test-view" aria-label="Vista de resultados del cuestionario" role="region" aria-live="polite">
             <h2 class="hand-drawn" style="font-size: 2.5rem; color: var(--pc-rosa-fuerte); text-align: center; margin-bottom: 10px;">Tus Resultados</h2>
-            <div style="background: var(--pc-amarillo); border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 25px; text-align: center; margin-bottom: 30px;">
+            <div style="background: var(--pc-amarillo); border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 25px; text-align: center; margin-bottom: 30px;" role="status" aria-live="polite">
                 <p style="font-size: 1.2rem; font-weight: 800; margin-bottom: 10px;">Puntuación Total:</p>
                 <p id="res-score" style="font-size: 3.5rem; font-weight: 900; line-height: 1; color: var(--pc-negro); margin-bottom: 10px;">-</p>
                 <p id="res-interp" style="font-size: 1.3rem; font-weight: 800; color: var(--pc-rosa-fuerte);">-</p>
             </div>
 
             <div class="chart-container">
-                <h4 style="text-align: center; font-weight: 800; margin-bottom: 10px;">Tu Progreso en el Tiempo 📈</h4>
-                <canvas id="scoreChart" width="400" height="200"></canvas>
+                <h4 style="text-align: center; font-weight: 800; margin-bottom: 10px;">Tu Progreso en el Tiempo <span aria-hidden="true">📈</span></h4>
+                <canvas id="scoreChart" width="400" height="200" aria-label="Gráfica de progreso de puntuaciones a lo largo del tiempo"></canvas>
                 <p style="text-align: center; font-size: 0.85rem; color: #666; margin-top: 10px;">(Los datos se guardan de forma local en tu navegador para tu privacidad)</p>
             </div>
 
-            <div class="no-print" style="background: var(--pc-gris-suave); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 25px; margin-top: 40px;">
+            <div class="no-print" style="background: var(--pc-gris-suave); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 25px; margin-top: 40px;" role="complementary" aria-label="Acciones posteriores a los resultados">
                 <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 15px;">¿Qué hacer con estos resultados?</h3>
                 <p style="font-weight: 600; color: #444; margin-bottom: 15px;">Nunca te quedes solo/a con un número. Da el siguiente paso hacia tu bienestar enviando tus resultados a Proyecto Celene para recibir orientación y agendar apoyo.</p>
                 
-                <input type="text" id="paciente-nombre" placeholder="Escribe tu nombre para el reporte..." style="width: 100%; padding: 15px; border: 3px solid var(--pc-negro); border-radius: 10px; font-weight: 800; font-family: 'Nunito', sans-serif; outline: none; margin-bottom: 15px; font-size: 1.1rem;">
+                <label for="paciente-nombre" class="sr-only">Nombre del paciente para el reporte</label>
+                <input type="text" id="paciente-nombre" placeholder="Escribe tu nombre para el reporte..." style="width: 100%; padding: 15px; border: 3px solid var(--pc-negro); border-radius: 10px; font-weight: 800; font-family: 'Nunito', sans-serif; outline: none; margin-bottom: 15px; font-size: 1.1rem;" aria-label="Nombre del paciente para el reporte">
                 
                 <div style="display: flex; flex-wrap: wrap; gap: 15px;">
-                    <button onclick="sendToWhatsApp()" class="btn-action" style="margin: 0; flex: 1; min-width: 250px;">Enviar a mi Médico 💬</button>
-                    <button onclick="window.print()" class="btn-action" style="background: white; color: var(--pc-negro); margin: 0; flex: 1; min-width: 250px;">Imprimir Resultados 🖨️</button>
+                    <button onclick="sendToWhatsApp()" class="btn-action" style="margin: 0; flex: 1; min-width: 250px;" aria-label="Enviar resultados a mi médico por WhatsApp">Enviar a mi Médico <span aria-hidden="true">💬</span></button>
+                    <button onclick="window.print()" class="btn-action" style="background: white; color: var(--pc-negro); margin: 0; flex: 1; min-width: 250px;" aria-label="Imprimir resultados del cuestionario">Imprimir Resultados <span aria-hidden="true">🖨️</span></button>
                 </div>
             </div>
-        </div>
+        </section>
 
-    </div>
+    </main>
 
     <!-- MODAL DE ALERTA DE SUICIDIO -->
-    <div id="suicide-modal" class="modal">
+    <div id="suicide-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="suicide-modal-title" aria-describedby="suicide-modal-desc">
         <div class="modal-content">
-            <h2 style="color: #c62828; font-size: 2.2rem; margin-bottom: 15px; font-family: 'Handlee', cursive;">🚨 ¡No estás sola/o!</h2>
-            <p style="font-size: 1.1rem; font-weight: 600; color: #444; margin-bottom: 20px;">Tus respuestas indican que podrías estar en un momento de profundo dolor emocional. La depresión puede hacerte sentir que no hay salida, pero es un síntoma tratable y temporal.</p>
+            <h2 id="suicide-modal-title" style="color: #c62828; font-size: 2.2rem; margin-bottom: 15px; font-family: 'Handlee', cursive;"><span aria-hidden="true">🚨</span> ¡No estás sola/o!</h2>
+            <p id="suicide-modal-desc" style="font-size: 1.1rem; font-weight: 600; color: #444; margin-bottom: 20px;">Tus respuestas indican que podrías estar en un momento de profundo dolor emocional. La depresión puede hacerte sentir que no hay salida, pero es un síntoma tratable y temporal.</p>
             <p style="font-weight: 800; color: #c62828; font-size: 1.1rem; margin-bottom: 20px;">Por favor, comunícate de inmediato, hay personas listas para escucharte y ayudarte 24/7:</p>
             
-            <a href="tel:075" class="btn-action" style="background: white; color: #c62828; border-color: #c62828; box-shadow: 0 4px 0 #c62828; margin: 0 0 10px 0;">📞 075 - Línea en Crisis (B.C.)</a>
-            <a href="tel:8009112000" class="btn-action" style="background: white; color: #c62828; border-color: #c62828; box-shadow: 0 4px 0 #c62828; margin: 0 0 10px 0;">📞 800 911 2000 - Línea de la Vida</a>
-            <a href="tel:911" class="btn-action" style="background: #c62828; color: white; border-color: #b71c1c; box-shadow: 0 4px 0 #7f0000; margin: 0 0 20px 0;">🚑 911 - Emergencias</a>
+            <a href="tel:075" class="btn-action" style="background: white; color: #c62828; border-color: #c62828; box-shadow: 0 4px 0 #c62828; margin: 0 0 10px 0;" aria-label="Llamar a la línea en crisis 075"><span aria-hidden="true">📞</span> 075 - Línea en Crisis (B.C.)</a>
+            <a href="tel:8009112000" class="btn-action" style="background: white; color: #c62828; border-color: #c62828; box-shadow: 0 4px 0 #c62828; margin: 0 0 10px 0;" aria-label="Llamar a la línea de la vida 800 911 2000"><span aria-hidden="true">📞</span> 800 911 2000 - Línea de la Vida</a>
+            <a href="tel:911" class="btn-action" style="background: #c62828; color: white; border-color: #b71c1c; box-shadow: 0 4px 0 #7f0000; margin: 0 0 20px 0;" aria-label="Llamar a emergencias 911"><span aria-hidden="true">🚑</span> 911 - Emergencias</a>
 
-            <button onclick="document.getElementById('suicide-modal').style.display='none'" style="background: none; border: none; text-decoration: underline; color: #666; cursor: pointer; font-weight: 800; font-family: 'Nunito', sans-serif;">Cerrar este aviso y continuar</button>
+            <button onclick="document.getElementById('suicide-modal').style.display='none'" style="background: none; border: none; text-decoration: underline; color: #666; cursor: pointer; font-weight: 800; font-family: 'Nunito', sans-serif;" aria-label="Cerrar este aviso y continuar">Cerrar este aviso y continuar</button>
         </div>
     </div>
 

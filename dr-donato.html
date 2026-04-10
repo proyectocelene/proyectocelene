@@ -473,39 +473,39 @@
 
 <body>
 
-    <div class="container">
-        <div id="navbar-container" class="main-nav">
-            <a href="index.html">Inicio</a>
-            <a href="quienes-somos.html">Nosotros</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="orientacion-medica-gratuita.html">Orientación Médica</a>
-            <a href="unete-a-nuestro-equipo.html">Únete</a>
-        </div>
+    <div class="container" role="main">
+        <nav id="navbar-container" class="main-nav" role="navigation" aria-label="Navegación principal">
+            <a href="index.html" aria-label="Ir a la página de inicio">Inicio</a>
+            <a href="quienes-somos.html" aria-label="Conoce más sobre nosotros">Nosotros</a>
+            <a href="servicios.html" aria-label="Ver nuestros servicios médicos">Servicios</a>
+            <a href="orientacion-medica-gratuita.html" aria-label="Acceder a orientación médica gratuita">Orientación Médica</a>
+            <a href="unete-a-nuestro-equipo.html" aria-label="Únete a nuestro equipo">Únete</a>
+        </nav>
 
         <!-- HERO -->
-        <header class="hero-profile">
+        <header class="hero-profile" aria-labelledby="hero-title" aria-describedby="hero-subtitle">
             <div class="hero-img-box">
-                <img src="https://i.ibb.co/mVfpLP0j/Photoroom-20260318-105111-2.jpg" alt="Dr. Carlos Donato" class="hero-img">
+                <img src="https://i.ibb.co/mVfpLP0j/Photoroom-20260318-105111-2.jpg" alt="Dr. Carlos Donato, médico con bata blanca sonriendo" class="hero-img" loading="lazy">
             </div>
             <div class="hero-text">
-                <h1 class="hand-drawn">Dr. Carlos Donato</h1>
-                <h2>Coordinador Médico y Operativo</h2>
+                <h1 class="hand-drawn" id="hero-title">Dr. Carlos Donato</h1>
+                <h2 id="hero-subtitle">Coordinador Médico y Operativo</h2>
 
-                <div class="quote-bubble">
+                <div class="quote-bubble" role="complementary" aria-label="Frase del Dr. Donato">
                     "Que recibir atención médica no sea un obstáculo. Mi visión es un sistema de salud que funcione para
                     el paciente; donde nadie tenga que perder un día de trabajo, sufrir largas listas de espera o
                     sobrevivir a la falta de insumos para ejercer su derecho a estar bien."
                 </div>
 
-                <a href="unete-a-nuestro-equipo.html" class="btn btn-rosa">Súmate a mi visión 🤝</a>
-                <a href="servicios.html" class="btn">Conoce nuestros programas 🩺</a>
+                <a href="unete-a-nuestro-equipo.html" class="btn btn-rosa" aria-label="Súmate a la visión del Dr. Donato">Súmate a mi visión 🤝</a>
+                <a href="servicios.html" class="btn" aria-label="Conoce los programas médicos">Conoce nuestros programas 🩺</a>
             </div>
         </header>
 
         <!-- BIOGRAFÍA -->
-        <section class="content-section">
-            <h3 class="hand-drawn">Raíces, Datos y Vocación</h3>
-            <p>Nací y vivo en Rosarito. Soy Médico General egresado de la Universidad Autónoma de Baja California (UABC)
+        <section class="content-section" aria-labelledby="biografia-title" aria-describedby="biografia-desc">
+            <h3 class="hand-drawn" id="biografia-title">Raíces, Datos y Vocación</h3>
+            <p id="biografia-desc">Nací y vivo en Rosarito. Soy Médico General egresado de la Universidad Autónoma de Baja California (UABC)
                 y, desde el primer día de mi práctica, mi mayor motor ha sido el trabajo comunitario y la actualización
                 científica constante para mi gente.</p>
             <p>Tengo una profunda pasión por la optimización de procesos, el análisis de datos y la estadística. A
@@ -515,9 +515,9 @@
         </section>
 
         <!-- LA REALIDAD -->
-        <section class="content-section dark">
-            <h3 class="hand-drawn">Nuestro Camino hacia la Gratuidad: Salud para Todos</h3>
-            <p>"Mi convicción como médico es clara: la salud es un derecho humano fundamental. Mi meta más grande, y por
+        <section class="content-section dark" aria-labelledby="realidad-title" aria-describedby="realidad-desc">
+            <h3 class="hand-drawn" id="realidad-title">Nuestro Camino hacia la Gratuidad: Salud para Todos</h3>
+            <p id="realidad-desc">"Mi convicción como médico es clara: la salud es un derecho humano fundamental. Mi meta más grande, y por
                 la que trabajo todos los días desde la coordinación operativa, es aperturar la clínica totalmente
                 gratuita de Proyecto Celene.</p>
 
@@ -610,9 +610,9 @@
                 <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-azul-suave);">
                     <h4 style="color: var(--pc-azul-profundo); font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;"><span>🚑</span> Urgencias y Clínica</h4>
                     
-                    <div class="cert-item" onclick="this.classList.toggle('active')">
-                        <div class="cert-header"><span>✔️ Cuidado avanzado de heridas</span> <span class="cert-icon">▼</span></div>
-                        <div class="cert-body">
+                    <div class="cert-item" onclick="this.classList.toggle('active')" role="button" tabindex="0" aria-expanded="false" aria-controls="cert1-body">
+                        <div class="cert-header"><span>✔️ Cuidado avanzado de heridas</span> <span class="cert-icon" aria-hidden="true">▼</span></div>
+                        <div class="cert-body" id="cert1-body" role="region">
                             <p><strong>Enfoque:</strong> Técnicas clínicas para prevención de infecciones, curación profunda y regeneración tisular en lesiones complejas.</p>
                             <span class="cert-acreditador">Aval: Gobierno de México e IMSS-BIENESTAR</span>
                         </div>
@@ -746,41 +746,41 @@
             <div class="carousel-container">
                 <div class="carousel-track">
                     <div class="carousel-slide">
-                        <img src="https://i.ibb.co/FbVj8xnV/DONATO-BRIAGADA-VIH.jpg" alt="Brigadas VIH">
+                        <img src="https://i.ibb.co/FbVj8xnV/DONATO-BRIAGADA-VIH.jpg" alt="Brigadas VIH" loading="lazy">
                         <p><strong>Brigadas de Prevención VIH</strong>Participación activa en jornadas de
                             concientización y aplicación de pruebas rápidas. La prevención es vida.</p>
                     </div>
                     <div class="carousel-slide">
                         <img src="https://i.ibb.co/4nRrvqrG/DONATO-PLATICA-EDUCACION-SEXUAL-INTEGRAL.jpg"
-                            alt="Educación Sexual">
+                            alt="Educación Sexual" loading="lazy">
                         <p><strong>Educación Sexual Integral</strong>Impartiendo pláticas basadas en evidencia y libres
                             de estigmas, capacitando a jóvenes y adultos sobre su cuerpo.</p>
                     </div>
                     <div class="carousel-slide">
                         <img src="https://i.ibb.co/hRnwQ3KC/DONATO-PLATICAS-NI-OS-HIGIENE-PERSONAL.jpg"
-                            alt="Pláticas Infantiles">
+                            alt="Pláticas Infantiles" loading="lazy">
                         <p><strong>Higiene desde la Infancia</strong>Enseñando a los niños sobre higiene personal de
                             forma didáctica, previniendo enfermedades desde la escuela.</p>
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://i.ibb.co/k2LCbnsF/tcarta-volante.png" alt="Programa Médico"
+                        <img src="https://i.ibb.co/k2LCbnsF/tcarta-volante.png" alt="Programa Médico" loading="lazy"
                             style="object-fit: contain; background: white;">
                         <p><strong>Desarrollo de Programas</strong>Diseñando e implementando programas médicos
                             integrales que sean 100% accesibles para nuestra comunidad.</p>
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://i.ibb.co/HLwK5MHk/DR-DONATO-ORGANIZANDO-MEDS.jpg" alt="Farmacia Solidaria">
+                        <img src="https://i.ibb.co/HLwK5MHk/DR-DONATO-ORGANIZANDO-MEDS.jpg" alt="Farmacia Solidaria" loading="lazy">
                         <p><strong>Farmacia Solidaria</strong>Optimizando y organizando inventarios para asegurar que el
                             abasto de medicina llegue a quienes más lo necesitan.</p>
                     </div>
                     <div class="carousel-slide">
                         <img src="https://i.ibb.co/FPwdkzs/DR-DONATO-DANDO-CONSULTA-EN-SANQUINTINN-COMUNIDAD-MARGINADA.jpg"
-                            alt="Consulta Comunitaria">
+                            alt="Consulta Comunitaria" loading="lazy">
                         <p><strong>Brigadas en Comunidades</strong>Llevando atención médica de calidad a las zonas
                             marginadas de San Quintín. ¡La salud no debe tener barreras!</p>
                     </div>
                     <div class="carousel-slide">
-                        <img src="https://i.ibb.co/gbWytScw/cuadrado-foto-carlos.jpg" alt="Consulta General">
+                        <img src="https://i.ibb.co/gbWytScw/cuadrado-foto-carlos.jpg" alt="Consulta General" loading="lazy">
                         <p><strong>Atención Clínica Diaria</strong>Brindando consulta general con un enfoque integral,
                             centrado en escuchar y entender las necesidades reales del paciente.</p>
                     </div>
@@ -805,7 +805,7 @@
                         style="padding: 12px; flex: 1; font-weight: 800; font-size: 1.1rem; color: var(--pc-azul-profundo); display: flex; align-items: center; justify-content: center; word-break: break-all;">
                         donato@proyectocelene.org
                     </div>
-                    <button onclick="copyData('donato@proyectocelene.org', 'btnEmail')" id="btnEmail"
+                    <button onclick="copyData('donato@proyectocelene.org', 'btnEmail')" id="btnEmail" aria-label="Copiar correo electrónico del Dr. Donato"
                         style="background: var(--pc-amarillo); border: none; border-left: 3px solid var(--pc-negro); padding: 10px 20px; font-weight: 900; cursor: pointer; transition: 0.2s; font-family: 'Nunito', sans-serif;">Copiar
                         📧</button>
                 </div>
@@ -817,12 +817,12 @@
                         style="padding: 12px; flex: 1; font-weight: 800; font-size: 1.1rem; color: var(--pc-azul-profundo); display: flex; align-items: center; justify-content: center;">
                         +52 661 286 5423
                     </div>
-                    <button onclick="copyData('+526612865423', 'btnPhone')" id="btnPhone"
+                    <button onclick="copyData('+526612865423', 'btnPhone')" id="btnPhone" aria-label="Copiar número de teléfono del Dr. Donato"
                         style="background: var(--pc-azul-suave); border: none; border-left: 3px solid var(--pc-negro); padding: 10px 20px; font-weight: 900; cursor: pointer; transition: 0.2s; font-family: 'Nunito', sans-serif;">Copiar
                         📞</button>
                 </div>
 
-                <button onclick="document.getElementById('modalDrDonato').style.display='flex'" class="btn btn-wa"
+                <button onclick="document.getElementById('modalDrDonato').style.display='flex'" class="btn btn-wa" aria-label="Abrir formulario para contactar al Dr. Donato por WhatsApp"
                     style="width: 100%; margin: 10px 0 0 0;">WhatsApp con el Dr. Donato <span>💬</span></button>
             </div>
         </div>
@@ -838,9 +838,9 @@
                 Dr. Donato</h3>
             <p style="margin-bottom:15px; font-weight: 600; color: #555;">Déjame tus datos para poder darte una atención
                 directa y más personalizada.</p>
-            <input type="text" id="dr_nombre" placeholder="Tu Nombre Completo">
-            <input type="number" id="dr_edad" placeholder="Tu Edad">
-            <textarea id="dr_duda" rows="3" placeholder="¿Cuál es tu duda, consulta médica o propuesta?"></textarea>
+            <input type="text" id="dr_nombre" placeholder="Tu Nombre Completo" title="Nombre completo" aria-label="Nombre completo">
+            <input type="number" id="dr_edad" placeholder="Tu Edad" title="Edad" aria-label="Edad">
+            <textarea id="dr_duda" rows="3" placeholder="¿Cuál es tu duda, consulta médica o propuesta?" title="Consulta o duda" aria-label="Consulta o duda"></textarea>
             <button onclick="sendDrDonatoWa()" class="btn btn-wa"
                 style="width:100%; border-color:#333; margin-top: 5px;">Enviar Mensaje 💬</button>
         </div>

@@ -411,44 +411,44 @@
 
 <body>
 
-    <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+    <div class="container" role="main">
+        <nav id="navbar-container" class="main-nav" role="navigation" aria-label="Navegación principal"></nav>
 
         <!-- HERO -->
-        <header class="hero-profile fade-in">
-            <div class="css-pixel p1"></div>
-            <div class="css-pixel p2"></div>
-            <div class="css-pixel p3"></div>
+        <header class="hero-profile fade-in" aria-labelledby="hero-title" aria-describedby="hero-subtitle">
+            <div class="css-pixel p1" aria-hidden="true"></div>
+            <div class="css-pixel p2" aria-hidden="true"></div>
+            <div class="css-pixel p3" aria-hidden="true"></div>
             
             <div class="hero-img-box">
-                <div class="live-badge">🔴 ON AIR</div>
-                <img src="https://i.ibb.co/Rp9ZpYJ3/dra-daniela-huerta-vertical.png" alt="Dra. Daniela Huerta" class="hero-img">
+                <div class="live-badge" aria-hidden="true">🔴 ON AIR</div>
+                <img src="https://i.ibb.co/Rp9ZpYJ3/dra-daniela-huerta-vertical.png" alt="Dra. Daniela Huerta, médica con bata blanca sonriendo" class="hero-img" loading="lazy">
             </div>
             <div class="hero-text">
-                <h1 class="hand-drawn">Dra. Daniela Huerta</h1>
-                <h2>Coordinadora del Programa de Telemedicina</h2>
+                <h1 class="hand-drawn" id="hero-title">Dra. Daniela Huerta</h1>
+                <h2 id="hero-subtitle">Coordinadora del Programa de Telemedicina</h2>
 
-                <div class="quote-bubble">
+                <div class="quote-bubble" role="complementary" aria-label="Frase de la Dra. Daniela Huerta">
                     "La medicina más efectiva es aquella que no solo cura el cuerpo, sino que escucha, conecta y dignifica a la persona. Mi misión es que el cuidado de la salud sea un espacio seguro, empático y accesible para todos, en cualquier plataforma."
                 </div>
 
-                <a href="unete-a-nuestro-equipo.html" class="btn btn-morado">Súmate a mi visión 🤝</a>
-                <a href="telemedicina.html" class="btn btn-cyan">Conoce Telemedicina 💻</a>
-                <a href="orientacion-medica-gratuita.html" class="btn" style="background: var(--pc-amarillo); box-shadow: inset -3px -3px 5px rgba(0,0,0,0.1), inset 3px 3px 5px rgba(255,255,255,0.5), 0 6px 0 var(--pc-negro);">Orientación Gratuita 💬</a>
+                <a href="unete-a-nuestro-equipo.html" class="btn btn-morado" aria-label="Súmate a la visión de la Dra. Daniela">Súmate a mi visión 🤝</a>
+                <a href="telemedicina.html" class="btn btn-cyan" aria-label="Conoce más sobre telemedicina">Conoce Telemedicina 💻</a>
+                <a href="orientacion-medica-gratuita.html" class="btn" style="background: var(--pc-amarillo); box-shadow: inset -3px -3px 5px rgba(0,0,0,0.1), inset 3px 3px 5px rgba(255,255,255,0.5), 0 6px 0 var(--pc-negro);" aria-label="Accede a orientación médica gratuita">Orientación Gratuita 💬</a>
             </div>
         </header>
 
         <!-- BIOGRAFÍA -->
-        <section class="content-section fade-in">
-            <h3 class="hand-drawn">Raíces, Datos y Vocación</h3>
-            <p>Soy Médico General egresada de la Universidad Autónoma de Baja California (UABC), Unidad Valle de las Palmas. Durante mi formación académica obtuve <strong>mención honorífica</strong>, lo que refleja mi compromiso inquebrantable con la excelencia médica y el bienestar de mis pacientes.</p>
+        <section class="content-section fade-in" aria-labelledby="biografia-title" aria-describedby="biografia-desc">
+            <h3 class="hand-drawn" id="biografia-title">Raíces, Datos y Vocación</h3>
+            <p id="biografia-desc">Soy Médico General egresada de la Universidad Autónoma de Baja California (UABC), Unidad Valle de las Palmas. Durante mi formación académica obtuve <strong>mención honorífica</strong>, lo que refleja mi compromiso inquebrantable con la excelencia médica y el bienestar de mis pacientes.</p>
             <p>Mi práctica clínica se caracteriza por la empatía, la ética profesional y, sobre todo, por un trato profundamente humanizado. He descubierto que mi verdadera vocación radica en proteger a las poblaciones vulnerables, desde el acompañamiento a mujeres sobrevivientes de violencia, el cuidado digno de adultos mayores, hasta la educación en salud de las nuevas generaciones.</p>
         </section>
 
         <!-- EL MODELO DIGITAL -->
-        <section class="content-section dark fade-in">
-            <h3 class="hand-drawn">Nuestro Camino: Salud a través de la Tecnología</h3>
-            <p>Como Coordinadora del Programa de Telemedicina, mi labor es materializar la visión de Proyecto Celene: derribar las paredes del consultorio tradicional. Entiendo que trasladarse a una clínica representa a veces un reto físico, económico o emocional.</p>
+        <section class="content-section dark fade-in" aria-labelledby="modelo-title" aria-describedby="modelo-desc">
+            <h3 class="hand-drawn" id="modelo-title">Nuestro Camino: Salud a través de la Tecnología</h3>
+            <p id="modelo-desc">Como Coordinadora del Programa de Telemedicina, mi labor es materializar la visión de Proyecto Celene: derribar las paredes del consultorio tradicional. Entiendo que trasladarse a una clínica representa a veces un reto físico, económico o emocional.</p>
             <p style="color: var(--dh-cyan);">Bajo la dirección médica, opero y gestiono los canales de orientación y seguimiento digital, asegurando que la atención de alta calidad llegue directamente a los hogares de nuestra comunidad. Trabajamos para consolidar un sistema de salud sin barreras, a solo un clic de distancia.</p>
         </section>
 
@@ -508,7 +508,7 @@
                 
                 <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
                     <a href="mailto:dra.danielahuerta@outlook.com" class="btn" style="width: 100%; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); font-size: 1rem;">📧 dra.danielahuerta@outlook.com</a>
-                    <a href="https://wa.me/526644377834" target="_blank" class="btn btn-morado" style="width: 100%; margin: 0; font-size: 1rem;">📞 WhatsApp: (664) 437-7834</a>
+                    <a href="https://wa.me/526644377834" target="_blank" rel="noopener" aria-label="Contactar a la Dra. Daniela Huerta por WhatsApp" class="btn btn-morado" style="width: 100%; margin: 0; font-size: 1rem;">📞 WhatsApp: (664) 437-7834</a>
                     <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3AHuerta%20Rivas%3BErika%20Daniela%3B%3BDra.%3B%0AFN%3ADra.%20Daniela%20Huerta%0ATITLE%3ACoordinadora%20de%20Telemedicina%20y%20M%C3%A9dica%20General%0AORG%3AProyecto%20Celene%20A.C.%0ATEL%3BTYPE%3DCELL%3A%2B526644377834%0AEMAIL%3Adra.danielahuerta%40outlook.com%0AURL%3Ahttps%3A%2F%2Fproyectocelene.org%2Fdra-daniela.html%0AEND%3AVCARD" download="Dra_Daniela_Huerta.vcf" class="btn btn-cyan" style="width: 100%; margin: 0; font-size: 1rem;">📇 Guardar Contacto</a>
                 </div>
             </section>

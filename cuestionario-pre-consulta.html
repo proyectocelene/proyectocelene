@@ -374,19 +374,19 @@
 
 <body>
     <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+        <nav id="navbar-container" class="main-nav" role="navigation" aria-label="Navegación principal"></nav>
 
-        <a href="consulta-general.html" class="btn btn-back fade-in">⬅️ Volver a Consulta General</a>
+        <a href="consulta-general.html" class="btn btn-back fade-in" aria-label="Volver a la página de Consulta General">⬅️ Volver a Consulta General</a>
 
         <header class="header fade-in">
-            <img src="https://i.ibb.co/Fk49CMjB/cuestionario-imagen.png" alt="Cuestionario Pre-Consulta" class="header-image-animated">
+            <img src="https://i.ibb.co/Fk49CMjB/cuestionario-imagen.png" alt="Cuestionario Pre-Consulta - Ilustración de formulario médico" class="header-image-animated" loading="lazy">
             <h1 class="hand-drawn">Historial Pre-Consulta</h1>
             <p style="font-weight:600; font-size:1.1rem; color: #444;">Ayúdanos a conocerte mejor. Llenar esto antes de tu consulta nos permite dedicar más tiempo a escucharte y menos a escribir.</p>
         </header>
 
-        <div class="content-box">
+        <main class="content-box">
             <h2 class="hand-drawn fade-in" style="color: var(--pc-negro); margin-bottom: 20px; font-size: 2rem; text-align: center;">¿Cómo funciona? 🚀</h2>
-            <div class="steps-container fade-in">
+            <section class="steps-container fade-in">
                 <div class="step-row" style="box-shadow: 4px 4px 0 var(--pc-amarillo);">
                     <div class="step-icon" style="background: var(--pc-rosa-fuerte);">1</div>
                     <div style="font-size: 1.05rem; color: #444;"><strong>Llena el cuestionario:</strong> Completa tus datos y antecedentes médicos aquí abajo.</div>
@@ -399,11 +399,11 @@
                     <div class="step-icon" style="background: #118AB2;">3</div>
                     <div style="font-size: 1.05rem; color: #444;"><strong>Agenda tu cita:</strong> En la misma página, usa el calendario al final para apartar tu lugar.</div>
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 1: DATOS -->
-            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-amarillo);">
-                <h2>👤 Datos de Identificación</h2>
+            <section class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-amarillo);">
+                <h2><span aria-hidden="true">👤</span> Datos de Identificación</h2>
                 
                 <div class="form-group">
                     <label>Nombre completo:</label>
@@ -413,7 +413,7 @@
                 <div style="display: flex; flex-wrap: wrap; gap: 15px;">
                     <div class="form-group" style="flex: 2; min-width: 200px;">
                         <label>Fecha de nacimiento:</label>
-                        <input type="date" id="cp_fecha_nac" class="form-control" onchange="calcularEdadAutomatica()">
+                        <input type="date" id="cp_fecha_nac" class="form-control" onchange="calcularEdadAutomatica()" title="Fecha de nacimiento" placeholder="YYYY-MM-DD">
                     </div>
                     <div class="form-group" style="flex: 1; min-width: 80px;">
                         <label>Edad (Auto):</label>
@@ -424,8 +424,8 @@
                 <div class="form-group">
                     <label>Sexo / Género:</label>
                     <div class="pill-group">
-                        <label class="pill-label" style="background: #fce4ec; color: var(--pc-negro);"><input type="radio" name="cp_sexo" value="Femenino" onchange="toggleGenderSections()"> 👩 Femenino</label>
-                        <label class="pill-label" style="background: #e3f2fd; color: var(--pc-negro);"><input type="radio" name="cp_sexo" value="Masculino" onchange="toggleGenderSections()"> 👨 Masculino</label>
+                        <label class="pill-label" style="background: #fce4ec; color: var(--pc-negro);"><input type="radio" name="cp_sexo" value="Femenino" onchange="toggleGenderSections()"> <span aria-hidden="true">👩</span> Femenino</label>
+                        <label class="pill-label" style="background: #e3f2fd; color: var(--pc-negro);"><input type="radio" name="cp_sexo" value="Masculino" onchange="toggleGenderSections()"> <span aria-hidden="true">👨</span> Masculino</label>
                     </div>
                 </div>
 
@@ -444,10 +444,10 @@
                         <input type="tel" id="cp_emerg_tel" class="form-control" placeholder="Ej. 661 987 6543">
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 2: MOTIVO -->
-            <div class="section-card fade-in">
+            <section class="section-card fade-in">
                 <h2>🩺 Historial Médico</h2>
                 <div class="form-group">
                     <label>¿Cuál es el motivo principal de tu consulta hoy?</label>
@@ -508,8 +508,8 @@
             </div>
 
             <!-- SECCIÓN 2.5: HISTORIAL FAMILIAR -->
-            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-azul-suave);">
-                <h2>👨‍👩‍👧‍👦 Antecedentes Familiares</h2>
+            <section class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-azul-suave);" aria-labelledby="historial-familiar-heading">
+                <h2 id="historial-familiar-heading">👨‍👩‍👧‍👦 Antecedentes Familiares</h2>
                 <p style="font-weight: 600; color: #555; margin-bottom: 15px; font-size: 0.95rem;">¿Alguien en tu familia directa (padres, abuelos, hermanos) padece o ha padecido alguna de estas enfermedades?</p>
                 
                 <div class="form-group">
@@ -529,8 +529,8 @@
             </div>
 
             <!-- SECCIÓN 3: PESO Y NUTRICION -->
-            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 #25d366;">
-                <h2>⚖️ Nutrición y Peso</h2>
+            <section class="section-card fade-in" style="box-shadow: 6px 6px 0 #25d366;" aria-labelledby="nutricion-peso-heading">
+                <h2 id="nutricion-peso-heading">⚖️ Nutrición y Peso</h2>
                 <p style="font-weight: 600; color: #555; margin-bottom: 15px; font-size: 0.95rem;">Si no los conoces con exactitud, pon un aproximado; en consulta te pesaremos y mediremos gratis.</p>
                 
                 <div style="display: flex; gap: 15px;">
@@ -564,8 +564,8 @@
             </div>
 
             <!-- SECCIÓN 4: FEMENINA (CONDICIONAL) -->
-            <div id="sec-mujer" class="section-card conditional-section" style="box-shadow: 6px 6px 0 var(--pc-rosa-pastell); border-color: var(--pc-rosa-fuerte);">
-                <h2>🌸 Salud Femenina</h2>
+            <section id="sec-mujer" class="section-card conditional-section" style="box-shadow: 6px 6px 0 var(--pc-rosa-pastell); border-color: var(--pc-rosa-fuerte);" aria-labelledby="salud-femenina-heading">
+                <h2 id="salud-femenina-heading">🌸 Salud Femenina</h2>
 
                 <div class="form-group" style="border-bottom: 2px dashed #eee; padding-bottom: 20px; margin-bottom: 20px;">
                     <h3 style="color: var(--pc-rosa-fuerte); font-family: 'Nunito', sans-serif; font-size: 1.3rem; margin-bottom: 10px; font-weight: 900;">🔬 Prevención del Cáncer</h3>
@@ -657,8 +657,8 @@
             </div>
 
             <!-- SECCIÓN 5: PROSTATA (CONDICIONAL) -->
-            <div id="sec-hombre" class="section-card conditional-section" style="box-shadow: 6px 6px 0 #118AB2; border-color: #118AB2;">
-                <h2 style="color: #118AB2;">🧔 Salud Prostática (Test IPSS)</h2>
+            <section id="sec-hombre" class="section-card conditional-section" style="box-shadow: 6px 6px 0 #118AB2; border-color: #118AB2;" aria-labelledby="salud-prostatica-heading">
+                <h2 id="salud-prostatica-heading" style="color: #118AB2;">🧔 Salud Prostática (Test IPSS)</h2>
                 <p style="font-weight: 600; color: #555; margin-bottom: 20px; font-size: 0.95rem;">Contesta las siguientes preguntas pensando en cómo ha sido tu forma de orinar <strong>en el último mes</strong>.</p>
                 
                 <style>
@@ -738,8 +738,8 @@
             </div>
 
             <!-- SECCIÓN 6: SALUD SEXUAL -->
-            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 #d50000; border-color: #d50000;">
-                <h2 style="color: #d50000;"><div class="css-heart"></div> Salud Sexual</h2>
+            <section class="section-card fade-in" style="box-shadow: 6px 6px 0 #d50000; border-color: #d50000;" aria-labelledby="salud-sexual-heading">
+                <h2 id="salud-sexual-heading" style="color: #d50000;"><span class="css-heart" aria-hidden="true"></span> Salud Sexual</h2>
                 
                 <div class="form-group">
                     <label>¿Te gustaría abordar temas de salud sexual o planificación en la consulta?</label>
@@ -792,8 +792,8 @@
             </div>
 
             <!-- SECCIÓN 7: SALUD DE LA PIEL -->
-            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 #fb8c00; border-color: #fb8c00;">
-                <h2 style="color: #ef6c00;">✨ Piel y Dermatología</h2>
+            <section class="section-card fade-in" style="box-shadow: 6px 6px 0 #fb8c00; border-color: #fb8c00;" aria-labelledby="piel-dermatologia-heading">
+                <h2 id="piel-dermatologia-heading" style="color: #ef6c00;"><span aria-hidden="true">✨</span> Piel y Dermatología</h2>
                 <div class="form-group">
                     <label>¿Te gustaría revisar algo de tu piel con el médico?</label>
                     <div class="pill-group">
@@ -814,8 +814,8 @@
             </div>
 
             <!-- SECCIÓN 8: SALUD EMOCIONAL -->
-            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 #8e24aa; border-color: #8e24aa;">
-                <h2 style="color: #8e24aa;">🧠 Salud Emocional</h2>
+            <section class="section-card fade-in" style="box-shadow: 6px 6px 0 #8e24aa; border-color: #8e24aa;" aria-labelledby="salud-emocional-heading">
+                <h2 id="salud-emocional-heading" style="color: #8e24aa;"><span aria-hidden="true">🧠</span> Salud Emocional</h2>
                 
                 <div class="form-group">
                     <label>Por favor, permítenos conocer tu estado de ánimo. Tu mente es tan importante como tu cuerpo y queremos apoyarte de forma integral.</label>
@@ -846,8 +846,8 @@
             </div>
 
             <!-- SECCIÓN 9: OTROS SERVICIOS -->
-            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-negro);">
-                <h2 style="color: var(--pc-negro);">🌟 Detección de Necesidades Extras</h2>
+            <section class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-negro);" aria-labelledby="otros-servicios-heading">
+                <h2 id="otros-servicios-heading" style="color: var(--pc-negro);"><span aria-hidden="true">🌟</span> Detección de Necesidades Extras</h2>
                 <p style="font-weight: 600; color: #555; margin-bottom: 15px; font-size: 0.95rem;">En Celene cuidamos de todo tu cuerpo. Marca si deseas información sobre:</p>
                 <div class="pill-group">
                     <label class="pill-label"><input type="checkbox" class="cp_otros" value="Podología"> 🦶 Clínica de Podología (Uñas, hongos)</label>
@@ -857,8 +857,8 @@
             </div>
 
             <!-- SECCIÓN 10: NOTAS GENERALES -->
-            <div class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-gris-suave);">
-                <h2 style="color: var(--pc-negro);">💬 Notas o Dudas Generales</h2>
+            <section class="section-card fade-in" style="box-shadow: 6px 6px 0 var(--pc-gris-suave);" aria-labelledby="notas-generales-heading">
+                <h2 id="notas-generales-heading" style="color: var(--pc-negro);"><span aria-hidden="true">💬</span> Notas o Dudas Generales</h2>
                 <div class="form-group" style="margin-bottom: 0;">
                     <label>¿Hay alguna duda, miedo o información extra que el doctor deba saber antes de tu consulta?</label>
                     <textarea id="cp_notas_generales" class="form-control" placeholder="Escribe aquí cualquier cosa que te preocupe... (Opcional)" style="min-height: 80px;"></textarea>
@@ -871,8 +871,8 @@
             </div>
 
             <div class="fade-in" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px;">
-                <button onclick="imprimirCuestionario()" class="btn btn-print" style="flex: 1; margin: 0;">Imprimir para llevar <span>🖨️</span></button>
-                <button onclick="enviarCuestionario()" class="btn" style="flex: 1; margin: 0;">Enviar por WhatsApp <span>💬</span></button>
+                <button onclick="imprimirCuestionario()" class="btn btn-print" style="flex: 1; margin: 0;" aria-label="Imprimir cuestionario para llevar">Imprimir para llevar <span>🖨️</span></button>
+                <button onclick="enviarCuestionario()" class="btn" style="flex: 1; margin: 0;" aria-label="Enviar cuestionario por WhatsApp">Enviar por WhatsApp <span>💬</span></button>
             </div>
 
             <div class="fade-in" style="margin-top: 45px; padding-top: 35px; border-top: 4px dashed var(--pc-negro); text-align: center;">

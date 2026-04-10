@@ -86,7 +86,7 @@
 </head>
 <body>
     <div class="container">
-        <div id="navbar-container" class="main-nav no-print"></div>
+        <div id="navbar-container" class="main-nav no-print" role="navigation" aria-label="Navegación principal"></div>
 
         <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
             <a href="salud-mental.html" class="btn-nav" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; border-radius: 50px; border: 3px solid var(--pc-negro); font-weight: 800; text-decoration: none;">
@@ -95,158 +95,161 @@
         </div>
         
         <!-- Navegación Superior -->
-        <div class="top-nav fade-in">
+        <div class="top-nav fade-in" role="navigation" aria-label="Navegación entre páginas">
             <a href="saludmental/funcionamiento-diario.html" class="btn-nav">⬅️ Volver a Funcionamiento Diario</a>
             <a href="salud-mental.html" class="btn-nav" style="background: var(--pc-lavanda-oscuro); color: white;">🏠 Volver a Salud Mental</a>
         </div>
 
-        <!-- Cabecera -->
-        <header class="header fade-in">
-            <div style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-negro)); margin-bottom: 10px;">🛋️</div>
-            <span class="author-badge">🧠 Intervenciones Psicosociales</span>
-            <h1 class="hand-drawn">Paso 4: Tratamientos Psicológicos</h1>
-            <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: #333;">La psicoterapia es una intervención estructurada diseñada para ayudarte a cambiar sentimientos, pensamientos y conductas.</p>
-        </header>
+        <main id="main-content">
+            <!-- Cabecera -->
+            <header class="header fade-in">
+                <div style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-negro)); margin-bottom: 10px;" aria-hidden="true">🛋️</div>
+                <span class="author-badge">🧠 Intervenciones Psicosociales</span>
+                <h1 class="hand-drawn">Paso 4: Tratamientos Psicológicos</h1>
+                <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: #333;">La psicoterapia es una intervención estructurada diseñada para ayudarte a cambiar sentimientos, pensamientos y conductas.</p>
+            </header>
 
-        <!-- Introducción -->
-        <div class="content-box fade-in">
-            <p class="intro-text">Si te han recomendado iniciar un tratamiento psicológico, es una excelente noticia. La psicoterapia es el tratamiento de primera elección para la depresión y ha demostrado ser altamente eficaz. Puede aplicarse sola en casos leves o moderados, o combinada con medicamentos antidepresivos si los síntomas son más graves.</p>
-            <p class="intro-text">La psicoterapia no es simplemente "ir a hablar". Es una intervención integral guiada por un profesional. A continuación, te explicamos cómo funciona, qué tipos existen y qué herramientas aprenderás.</p>
-            
-            <div class="highlight" style="margin-top: 25px;">
-                🟢 <strong>Tu rol en la terapia: El motor del cambio</strong><br>
-                En el modelo psicológico, <strong>tú no eres un receptor pasivo</strong>, sino un agente activo. El éxito depende de tu compromiso. El terapeuta es tu guía, pero la verdadera transformación ocurre en tu vida cotidiana mediante "tareas para casa" (registrar pensamientos, practicar habilidades, etc.).
-            </div>
-        </div>
-
-        <!-- Tipos de Terapia (Acordeón) -->
-        <div class="content-box fade-in">
-            <h2>🟢 Tipos de Terapia Psicológica</h2>
-            <p style="font-weight: 600; margin-bottom: 20px; color: #444;">Dependiendo de tu situación, tu terapeuta puede utilizar un enfoque o combinar varios. Haz clic en cada uno para conocer de qué tratan:</p>
-
-            <!-- TCC -->
-            <div class="accordion">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">🧠</span>
-                    <span>Terapia Cognitivo-Conductual (TCC)</span>
-                    <span class="arrow">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <p style="margin-top: 10px;">Es la terapia con mayor evidencia científica para la depresión. Se basa en la idea de que <strong>tus pensamientos, tus emociones y tus comportamientos están estrechamente conectados</strong>. La TCC te ayuda a:</p>
-                    <ul>
-                        <li>Identificar los <strong>pensamientos automáticos negativos</strong> y distorsionados (visión de túnel).</li>
-                        <li>Cuestionar esas creencias irracionales y sustituirlas por pensamientos más realistas.</li>
-                        <li>Modificar las conductas desadaptativas que mantienen tu malestar.</li>
-                    </ul>
+            <!-- Introducción -->
+            <section class="content-box fade-in" aria-labelledby="intro-heading">
+                <h2 id="intro-heading" class="sr-only">Introducción sobre tratamientos psicológicos</h2>
+                <p class="intro-text">Si te han recomendado iniciar un tratamiento psicológico, es una excelente noticia. La psicoterapia es el tratamiento de primera elección para la depresión y ha demostrado ser altamente eficaz. Puede aplicarse sola en casos leves o moderados, o combinada con medicamentos antidepresivos si los síntomas son más graves.</p>
+                <p class="intro-text">La psicoterapia no es simplemente "ir a hablar". Es una intervención integral guiada por un profesional. A continuación, te explicamos cómo funciona, qué tipos existen y qué herramientas aprenderás.</p>
+                
+                <div class="highlight" style="margin-top: 25px;">
+                    🟢 <strong>Tu rol en la terapia: El motor del cambio</strong><br>
+                    En el modelo psicológico, <strong>tú no eres un receptor pasivo</strong>, sino un agente activo. El éxito depende de tu compromiso. El terapeuta es tu guía, pero la verdadera transformación ocurre en tu vida cotidiana mediante "tareas para casa" (registrar pensamientos, practicar habilidades, etc.).
                 </div>
-            </div>
+            </section>
 
-            <!-- Activación Conductual -->
-            <div class="accordion">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">🏃‍♂️</span>
-                    <span>Terapia de Activación Conductual (AC)</span>
-                    <span class="arrow">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <p style="margin-top: 10px;">A menudo forma parte de la TCC o se usa sola. Se basa en un principio clave: <strong>la mejoría en el estado de ánimo no viene "de adentro hacia afuera", sino "de afuera hacia adentro"</strong>. No puedes esperar a "tener ganas" para hacer las cosas.</p>
-                    <ul>
-                        <li>El objetivo es que estés "en acción", sustituyendo la evitación por comportamientos orientados a metas.</li>
-                        <li>Aprenderás a reanudar gradualmente actividades importantes para ti a pesar del ánimo deprimido.</li>
-                    </ul>
+            <!-- Tipos de Terapia (Acordeón) -->
+            <section class="content-box fade-in" aria-labelledby="tipos-terapia-heading">
+                <h2 id="tipos-terapia-heading">🟢 Tipos de Terapia Psicológica</h2>
+                <p style="font-weight: 600; margin-bottom: 20px; color: #444;">Dependiendo de tu situación, tu terapeuta puede utilizar un enfoque o combinar varios. Haz clic en cada uno para conocer de qué tratan:</p>
+
+                <!-- TCC -->
+                <div class="accordion" role="region" aria-labelledby="tcc-heading">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="tcc-content">
+                        <span class="icon" aria-hidden="true">🧠</span>
+                        <span id="tcc-heading">Terapia Cognitivo-Conductual (TCC)</span>
+                        <span class="arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="tcc-content" role="region" aria-labelledby="tcc-heading">
+                        <p style="margin-top: 10px;">Es la terapia con mayor evidencia científica para la depresión. Se basa en la idea de que <strong>tus pensamientos, tus emociones y tus comportamientos están estrechamente conectados</strong>. La TCC te ayuda a:</p>
+                        <ul>
+                            <li>Identificar los <strong>pensamientos automáticos negativos</strong> y distorsionados (visión de túnel).</li>
+                            <li>Cuestionar esas creencias irracionales y sustituirlas por pensamientos más realistas.</li>
+                            <li>Modificar las conductas desadaptativas que mantienen tu malestar.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Terapia Interpersonal -->
-            <div class="accordion">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">🤝</span>
-                    <span>Terapia Interpersonal (TIP)</span>
-                    <span class="arrow">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <p style="margin-top: 10px;">Se centra en <strong>tus relaciones actuales y tu contexto social</strong>, entendiendo que los problemas relacionales pueden desencadenar la depresión. Es ideal si tu depresión conecta con:</p>
-                    <ul>
-                        <li>El duelo por la pérdida de un ser querido.</li>
-                        <li>Disputas o conflictos con familiares, pareja o amigos.</li>
-                        <li>Transiciones y cambios de rol (jubilación, maternidad, divorcio).</li>
-                        <li>Déficits interpersonales (aislamiento social).</li>
-                    </ul>
+                <!-- Activación Conductual -->
+                <div class="accordion" role="region" aria-labelledby="ac-heading">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="ac-content">
+                        <span class="icon" aria-hidden="true">🏃‍♂️</span>
+                        <span id="ac-heading">Terapia de Activación Conductual (AC)</span>
+                        <span class="arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="ac-content" role="region" aria-labelledby="ac-heading">
+                        <p style="margin-top: 10px;">A menudo forma parte de la TCC o se usa sola. Se basa en un principio clave: <strong>la mejoría en el estado de ánimo no viene "de adentro hacia afuera", sino "de afuera hacia adentro"</strong>. No puedes esperar a "tener ganas" para hacer las cosas.</p>
+                        <ul>
+                            <li>El objetivo es que estés "en acción", sustituyendo la evitación por comportamientos orientados a metas.</li>
+                            <li>Aprenderás a reanudar gradualmente actividades importantes para ti a pesar del ánimo deprimido.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Resolución de Problemas -->
-            <div class="accordion">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">🧩</span>
-                    <span>Terapia de Resolución de Problemas (TRP)</span>
-                    <span class="arrow">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <p style="margin-top: 10px;">A veces, los problemas nos abruman y detonan depresión. Esta terapia te entrena para usar técnicas sistemáticas. Aprenderás a identificar el problema, generar opciones (tormenta de ideas) y cambiar tu reacción ante el estrés.</p>
+                <!-- Terapia Interpersonal -->
+                <div class="accordion" role="region" aria-labelledby="tip-heading">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="tip-content">
+                        <span class="icon" aria-hidden="true">🤝</span>
+                        <span id="tip-heading">Terapia Interpersonal (TIP)</span>
+                        <span class="arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="tip-content" role="region" aria-labelledby="tip-heading">
+                        <p style="margin-top: 10px;">Se centra en <strong>tus relaciones actuales y tu contexto social</strong>, entendiendo que los problemas relacionales pueden desencadenar la depresión. Es ideal si tu depresión conecta con:</p>
+                        <ul>
+                            <li>El duelo por la pérdida de un ser querido.</li>
+                            <li>Disputas o conflictos con familiares, pareja o amigos.</li>
+                            <li>Transiciones y cambios de rol (jubilación, maternidad, divorcio).</li>
+                            <li>Déficits interpersonales (aislamiento social).</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <!-- ACT y Mindfulness -->
-            <div class="accordion">
-                <button class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">🧘‍♀️</span>
-                    <span>Terapia de Aceptación y Compromiso (ACT)</span>
-                    <span class="arrow">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <p style="margin-top: 10px;">Te enseña a <strong>relacionarte de forma diferente con tu malestar</strong>. En lugar de luchar constantemente para eliminar tus pensamientos negativos, aprenderás a aceptarlos sin juzgarlos (Mindfulness). Dirigirás tu energía hacia acciones comprometidas con tus <strong>valores personales</strong>, en lugar de evitar el dolor.</p>
+                <!-- Resolución de Problemas -->
+                <div class="accordion" role="region" aria-labelledby="trp-heading">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="trp-content">
+                        <span class="icon" aria-hidden="true">🧩</span>
+                        <span id="trp-heading">Terapia de Resolución de Problemas (TRP)</span>
+                        <span class="arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="trp-content" role="region" aria-labelledby="trp-heading">
+                        <p style="margin-top: 10px;">A veces, los problemas nos abruman y detonan depresión. Esta terapia te entrena para usar técnicas sistemáticas. Aprenderás a identificar el problema, generar opciones (tormenta de ideas) y cambiar tu reacción ante el estrés.</p>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Modalidades -->
-        <div class="content-box fade-in">
-            <h2>🟢 Modalidades de Terapia</h2>
-            <p style="font-weight: 600; color: #444;">No hay una sola forma de recibir tratamiento. Los servicios de salud pueden ofrecerte distintas opciones:</p>
-            
-            <div class="modality-grid">
-                <div class="modality-card">
-                    <h3>🗣️ Terapia Individual</h3>
-                    <p>Sesiones a solas con tu terapeuta. Puede ser presencial en un consultorio o a través de videollamada (telemedicina) para tu comodidad.</p>
+                <!-- ACT y Mindfulness -->
+                <div class="accordion" role="region" aria-labelledby="act-heading">
+                    <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="act-content">
+                        <span class="icon" aria-hidden="true">🧘‍♀️</span>
+                        <span id="act-heading">Terapia de Aceptación y Compromiso (ACT)</span>
+                        <span class="arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="accordion-content" id="act-content" role="region" aria-labelledby="act-heading">
+                        <p style="margin-top: 10px;">Te enseña a <strong>relacionarte de forma diferente con tu malestar</strong>. En lugar de luchar constantemente para eliminar tus pensamientos negativos, aprenderás a aceptarlos sin juzgarlos (Mindfulness). Dirigirás tu energía hacia acciones comprometidas con tus <strong>valores personales</strong>, en lugar de evitar el dolor.</p>
+                    </div>
                 </div>
-                <div class="modality-card">
-                    <h3>👥 Terapia Grupal</h3>
-                    <p>Compartirás el espacio con personas que sufren problemas similares. Ayuda a reducir el estigma, fomenta el apoyo mutuo y entrena habilidades sociales en vivo.</p>
+            </section>
+
+            <!-- Modalidades -->
+            <section class="content-box fade-in" aria-labelledby="modalidades-heading">
+                <h2 id="modalidades-heading">🟢 Modalidades de Terapia</h2>
+                <p style="font-weight: 600; color: #444;">No hay una sola forma de recibir tratamiento. Los servicios de salud pueden ofrecerte distintas opciones:</p>
+                
+                <div class="modality-grid">
+                    <article class="modality-card">
+                        <h3>🗣️ Terapia Individual</h3>
+                        <p>Sesiones a solas con tu terapeuta. Puede ser presencial en un consultorio o a través de videollamada (telemedicina) para tu comodidad.</p>
+                    </article>
+                    <article class="modality-card">
+                        <h3>👥 Terapia Grupal</h3>
+                        <p>Compartirás el espacio con personas que sufren problemas similares. Ayuda a reducir el estigma, fomenta el apoyo mutuo y entrena habilidades sociales en vivo.</p>
+                    </article>
+                    <article class="modality-card">
+                        <h3>📱 Autoayuda Guiada</h3>
+                        <p>Programas por internet o apps móviles (TCC online), donde avanzas a tu ritmo a través de módulos interactivos con el soporte ocasional de un profesional.</p>
+                    </article>
                 </div>
-                <div class="modality-card">
-                    <h3>📱 Autoayuda Guiada</h3>
-                    <p>Programas por internet o apps móviles (TCC online), donde avanzas a tu ritmo a través de módulos interactivos con el soporte ocasional de un profesional.</p>
-                </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- Caja de Herramientas (Descargas) -->
-        <div class="tools-box fade-in">
-            <h2 style="color: var(--pc-negro);">🛠️ Caja de Herramientas Prácticas</h2>
-            <p style="font-weight: 700; margin-bottom: 20px; color: var(--pc-negro);">Para ayudarte a tomar un rol activo en tu terapia, aquí tienes recursos en PDF que puedes descargar, imprimir y llevar a tus sesiones:</p>
+            <!-- Caja de Herramientas (Descargas) -->
+            <section class="tools-box fade-in" aria-labelledby="herramientas-heading">
+                <h2 id="herramientas-heading" style="color: var(--pc-negro);">🛠️ Caja de Herramientas Prácticas</h2>
+                <p style="font-weight: 700; margin-bottom: 20px; color: var(--pc-negro);">Para ayudarte a tomar un rol activo en tu terapia, aquí tienes recursos en PDF que puedes descargar, imprimir y llevar a tus sesiones:</p>
 
-            <!-- Herramienta 1 -->
-            <div class="download-card">
-                <a href="#" onclick="alert('Descargando PDF: Modelo ABC'); return false;" class="btn-download">📥 Descargar: Modelo ABC de las Emociones</a>
-                <p class="tool-desc"><strong>¿Para qué sirve?</strong> Herramienta clave de la TCC. Te ayuda a entender que no son las situaciones (A) las que te hacen sentir mal, sino tu forma de interpretarlas (B), lo cual genera la emoción (C). Úsalo para registrar tus pensamientos automáticos.</p>
-            </div>
+                <!-- Herramienta 1 -->
+                <article class="download-card">
+                    <a href="#" onclick="alert('Descargando PDF: Modelo ABC'); return false;" class="btn-download" aria-label="Descargar PDF: Modelo ABC de las Emociones">📥 Descargar: Modelo ABC de las Emociones</a>
+                    <p class="tool-desc"><strong>¿Para qué sirve?</strong> Herramienta clave de la TCC. Te ayuda a entender que no son las situaciones (A) las que te hacen sentir mal, sino tu forma de interpretarlas (B), lo cual genera la emoción (C). Úsalo para registrar tus pensamientos automáticos.</p>
+                </article>
 
-            <!-- Herramienta 2 -->
-            <div class="download-card">
-                <a href="#" onclick="alert('Descargando PDF: Resolución de Problemas'); return false;" class="btn-download">📥 Descargar: Guía de Resolución de Problemas</a>
-                <p class="tool-desc"><strong>¿Para qué sirve?</strong> Plantilla para dividir problemas abrumadores en partes. Pasos: 1) Definir. 2) Tormenta de ideas. 3) Elegir opción. 4) Hacer plan. 5) Evaluar resultados.</p>
-            </div>
+                <!-- Herramienta 2 -->
+                <article class="download-card">
+                    <a href="#" onclick="alert('Descargando PDF: Resolución de Problemas'); return false;" class="btn-download" aria-label="Descargar PDF: Guía de Resolución de Problemas">📥 Descargar: Guía de Resolución de Problemas</a>
+                    <p class="tool-desc"><strong>¿Para qué sirve?</strong> Plantilla para dividir problemas abrumadores en partes. Pasos: 1) Definir. 2) Tormenta de ideas. 3) Elegir opción. 4) Hacer plan. 5) Evaluar resultados.</p>
+                </article>
 
-            <!-- Herramienta 3 -->
-            <div class="download-card">
-                <a href="#" onclick="alert('Descargando PDF: Inventario de Valores'); return false;" class="btn-download">📥 Descargar: Inventario de Valores y Actividades</a>
-                <p class="tool-desc"><strong>¿Para qué sirve?</strong> Basado en ACT y Activación Conductual. Esquema para escribir qué áreas de tu vida son valiosas (Familia, Salud, Trabajo) y planificar acciones semanales concretas para acercarte a ellas.</p>
-            </div>
-        </div>
+                <!-- Herramienta 3 -->
+                <article class="download-card">
+                    <a href="#" onclick="alert('Descargando PDF: Inventario de Valores'); return false;" class="btn-download" aria-label="Descargar PDF: Inventario de Valores y Actividades">📥 Descargar: Inventario de Valores y Actividades</a>
+                    <p class="tool-desc"><strong>¿Para qué sirve?</strong> Basado en ACT y Activación Conductual. Esquema para escribir qué áreas de tu vida son valiosas (Familia, Salud, Trabajo) y planificar acciones semanales concretas para acercarte a ellas.</p>
+                </article>
+            </section>
+        </main>
 
         <!-- Navegación Inferior -->
-        <div class="top-nav fade-in">
+        <div class="top-nav fade-in" role="navigation" aria-label="Navegación inferior entre páginas">
             <a href="saludmental/funcionamiento-diario.html" class="btn-nav">⬅️ Volver a Funcionamiento Diario</a>
             <a href="salud-mental.html" class="btn-nav" style="background: var(--pc-lavanda-oscuro); color: white;">🏠 Volver a Salud Mental</a>
         </div>

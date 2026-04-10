@@ -357,7 +357,7 @@
 
 <body>
     <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+        <nav id="navbar-container" class="main-nav" role="navigation"></nav>
         <header class="header">
             <img src="https://i.ibb.co/whkTFwLf/MAMOGRAFIA.jpg" alt="Mastografía Gratuita">
             <h1 class="hand-drawn">Guía Paso a Paso 🎀</h1>
@@ -380,7 +380,7 @@
         </div>
 
         <!-- PASO 1 -->
-        <div id="paso1" class="step-card tab-content" style="display: block;">
+        <article id="paso1" class="step-card tab-content" style="display: block;">
             <div class="step-badge">Paso 1</div>
             <h3 class="hand-drawn"><span>📍</span> Ven por tu vale con nosotros</h3>
             <p>Primero, necesitamos darte el papelito oficial (el vale) que comprueba que tu estudio no tiene costo.</p>
@@ -394,13 +394,13 @@
                         agendar el día y la hora de tu estudio</strong> para que tú no batalles nada.</li>
             </ul>
             <div style="margin-top: 20px;">
-                <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn btn-map"><span>📍</span> Ver ubicación de Proyecto Celene</a>
+                <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" rel="noopener" class="btn btn-map"><span>📍</span> Ver ubicación de Proyecto Celene</a>
             </div>
             <button class="btn" style="background: var(--pc-negro); color: white; width: 100%; margin-top: 25px;" onclick="openTab('paso2', document.getElementById('btn-paso2'))">Ir al Paso 2: Prepárate ➔</button>
         </div>
 
         <!-- PASO 2 -->
-        <div id="paso2" class="step-card tab-content">
+        <article id="paso2" class="step-card tab-content">
             <div class="step-badge" style="background:var(--pc-azul-suave); color:var(--pc-negro);">Paso 2</div>
             <h3 class="hand-drawn">🚿 Prepárate en casa (Día del estudio)</h3>
             <p>Para que las fotos de tu pecho salgan perfectas y claritas, el día que te toque ir a tu cita debes hacer
@@ -418,7 +418,7 @@
         </div>
 
         <!-- PASO 3 -->
-        <div id="paso3" class="step-card tab-content">
+        <article id="paso3" class="step-card tab-content">
             <div class="step-badge" style="background:var(--pc-amarillo); color:var(--pc-negro);">Paso 3</div>
             <h3 class="hand-drawn">🏥 Ve a hacerte tu estudio</h3>
             <p>El estudio NO se hace en Proyecto Celene, se hace en una clínica especial para radiografías aliada con
@@ -434,13 +434,13 @@
                     son muy amables.</li>
             </ul>
             <div style="margin-top: 20px;">
-                <a href="https://maps.app.goo.gl/272juT5ARCiDdQz59" target="_blank" class="btn btn-map"><span>📍</span> Ver clínica Diagnóstico X Imagen</a>
+                <a href="https://maps.app.goo.gl/272juT5ARCiDdQz59" target="_blank" rel="noopener" class="btn btn-map"><span>📍</span> Ver clínica Diagnóstico X Imagen</a>
             </div>
             <button class="btn" style="background: var(--pc-negro); color: white; width: 100%; margin-top: 25px;" onclick="openTab('paso4', document.getElementById('btn-paso4'))">Ir al Paso 4: Resultados ➔</button>
         </div>
 
         <!-- PASO 4 -->
-        <div id="paso4" class="step-card tab-content">
+        <article id="paso4" class="step-card tab-content">
             <div class="step-badge" style="background: #25d366; color:white;">Paso 4</div>
             <h3 class="hand-drawn">📩 Tus Resultados</h3>
 
@@ -506,7 +506,7 @@
         </div>
 
         <!-- PLAN B / PREGUNTAS FRECUENTES -->
-        <div class="faq-section">
+        <section class="faq-section">
             <h2 class="hand-drawn"
                 style="text-align: center; color: var(--pc-negro); margin-bottom: 25px; font-size: 2.2rem;">Cuadro de
                 Dudas: ¿Qué pasa si...? 🤔</h2>
@@ -560,8 +560,8 @@
         </div>
 
         <!-- ACCIONES FINALES -->
-        <div class="final-actions">
-            <div class="action-box">
+        <section class="final-actions">
+            <article class="action-box">
                 <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;"><span>🩺</span> Revisión Clínica</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 15px;">¿Encontraste una bolita o sientes dolor? Agenda una
                     consulta general primero para que el médico te revise físicamente.</p>
@@ -569,11 +569,11 @@
                     style="background:var(--pc-amarillo); color:var(--pc-negro); width:100%; box-shadow:0 6px 0 var(--pc-negro);">Agendar
                     Consulta</a>
             </div>
-            <div class="action-box">
+            <article class="action-box">
                 <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;"><span>💬</span> Tengo más dudas</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 15px;">Si algo no te quedó claro sobre el programa o tus
                     requisitos, mándanos un mensaje y te ayudamos con gusto.</p>
-                <button onclick="openModal('modalDudas')" class="btn btn-wa" style="width:100%;">Preguntar por
+                <button onclick="openModal('modalDudas')" class="btn btn-wa" style="width:100%;" aria-label="Abrir modal de contacto por WhatsApp">Preguntar por
                     WhatsApp</button>
             </div>
         </div>
@@ -592,7 +592,7 @@
             <textarea id="duda_texto" rows="4"
                 placeholder="Ej. Hola, yo solo tengo 38 años pero mi mamá tuvo cáncer, ¿puedo aplicar para el vale gratis?"></textarea>
 
-            <button onclick="sendDudaWa()" class="btn btn-wa" style="width:100%;">Enviar Mensaje <span>💬</span></button>
+            <button onclick="sendDudaWa()" class="btn btn-wa" style="width:100%;" aria-label="Enviar mensaje de duda por WhatsApp">Enviar Mensaje <span>💬</span></button>
         </div>
     </div>
 

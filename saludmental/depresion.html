@@ -91,41 +91,41 @@
 </head>
 
 <body>
-    <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+    <main class="container" role="main" aria-label="Guía sobre la depresión">
+        <nav id="navbar-container" class="main-nav" role="navigation" aria-label="Navegación principal"></nav>
 
-        <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
-            <a href="salud-mental.html" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; border-radius: 50px; border: 3px solid var(--pc-negro); font-weight: 800; text-decoration: none;">
-                ⬅️ Volver a Salud Mental
+        <div style="margin-bottom: 15px; text-align: left;" class="fade-in" role="navigation" aria-label="Navegación secundaria">
+            <a href="salud-mental.html" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; border-radius: 50px; border: 3px solid var(--pc-negro); font-weight: 800; text-decoration: none;" aria-label="Volver a la página de salud mental">
+                <span aria-hidden="true">⬅️</span> Volver a Salud Mental
             </a>
         </div>
 
-        <header class="header fade-in">
-            <div style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-negro)); margin-bottom: 10px;">🌧️</div>
-            <span class="author-badge">🧠 Psicología | Proyecto Celene</span>
+        <header class="header fade-in" role="banner" aria-label="Encabezado de la guía de depresión">
+            <div style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-negro)); margin-bottom: 10px;" aria-hidden="true">🌧️</div>
+            <span class="author-badge" aria-hidden="true">🧠 Psicología | Proyecto Celene</span>
             <h1 class="hand-drawn">No estás solo/a.<br>La depresión tiene tratamiento y puedes recuperarte.</h1>
             <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: #444;">La depresión no es una debilidad de tu carácter, ni significa que seas perezoso o que estés exagerando. Es una enfermedad real y médica que afecta a millones de personas, y lo más importante: <strong>es tratable</strong>.</p>
-            <a href="#emergencia-box" class="btn-next" style="background: #c62828; border-color: #b71c1c; box-shadow: 0 6px 0 #880e4f; margin-top: 25px; display: inline-block;">🚨 Haz clic aquí si tienes pensamientos de hacerte daño</a>
+            <a href="#emergencia-box" class="btn-next" style="background: #c62828; border-color: #b71c1c; box-shadow: 0 6px 0 #880e4f; margin-top: 25px; display: inline-block;" aria-label="Haz clic aquí si tienes pensamientos de hacerte daño"><span aria-hidden="true">🚨</span> Haz clic aquí si tienes pensamientos de hacerte daño</a>
         </header>
 
-        <div class="tabs-wrapper fade-in">
-            <button class="tab-btn active" onclick="openTab('tab-intro', this)">📖 ¿Qué es?</button>
-            <button class="tab-btn" onclick="openTab('tab-sintomas', this)">⚠️ Síntomas</button>
-            <button class="tab-btn" onclick="openTab('tab-tratamiento', this)">🩹 Tratamiento</button>
-            <button class="tab-btn" onclick="openTab('tab-autocuidado', this)">🌱 Autocuidado</button>
-            <button class="tab-btn" onclick="openTab('tab-familia', this)">👥 Para Familiares</button>
-            <a href="saludmental/cuestionarios.html" class="tab-btn" style="text-decoration: none; display: inline-flex; align-items: center; background: var(--pc-amarillo);">📊 Cuestionarios</a>
-        </div>
+        <nav class="tabs-wrapper fade-in" role="tablist" aria-label="Secciones de la guía sobre depresión">
+            <button class="tab-btn active" onclick="openTab('tab-intro', this)" role="tab" aria-selected="true" aria-controls="tab-intro"><span aria-hidden="true">📖</span> ¿Qué es?</button>
+            <button class="tab-btn" onclick="openTab('tab-sintomas', this)" role="tab" aria-selected="false" aria-controls="tab-sintomas"><span aria-hidden="true">⚠️</span> Síntomas</button>
+            <button class="tab-btn" onclick="openTab('tab-tratamiento', this)" role="tab" aria-selected="false" aria-controls="tab-tratamiento"><span aria-hidden="true">🩹</span> Tratamiento</button>
+            <button class="tab-btn" onclick="openTab('tab-autocuidado', this)" role="tab" aria-selected="false" aria-controls="tab-autocuidado"><span aria-hidden="true">🌱</span> Autocuidado</button>
+            <button class="tab-btn" onclick="openTab('tab-familia', this)" role="tab" aria-selected="false" aria-controls="tab-familia"><span aria-hidden="true">👥</span> Para Familiares</button>
+            <a href="saludmental/cuestionarios.html" class="tab-btn" style="text-decoration: none; display: inline-flex; align-items: center; background: var(--pc-amarillo);" aria-label="Ir a cuestionarios de evaluación"><span aria-hidden="true">📊</span> Cuestionarios</a>
+        </nav>
 
         <!-- Tab 1: Qué es -->
-        <div id="tab-intro" class="tab-content" style="display: block;">
+        <section id="tab-intro" class="tab-content" style="display: block;" role="tabpanel" aria-labelledby="tab-intro-title">
             <div class="content-box">
-                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">¿Qué es la Depresión?</h2>
+                <h2 id="tab-intro-title" class="hand-drawn" style="text-align: center; font-size: 2.2rem;">¿Qué es la Depresión?</h2>
                 <p>La depresión va mucho más allá de sentirse triste por un par de días. Es un trastorno del estado de ánimo que afecta cómo te sientes, cómo piensas y cómo manejas las actividades diarias como dormir, comer o trabajar.</p>
                 <p>Físicamente, la depresión altera los químicos en el cerebro (neurotransmisores como la serotonina y la dopamina) que regulan el humor. A través de guías clínicas internacionales (como mhGAP), sabemos que <strong>la educación sobre la enfermedad es fundamental para el éxito de la recuperación</strong>.</p>
 
                 <div class="info-panel" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); margin-top: 20px;">
-                    <h4 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">¿Por qué a mí? (Causas) 🧩</h4>
+                    <h4 class="hand-drawn" style="color: var(--pc-rosa-fuerte);"><span aria-hidden="true">🧩</span> ¿Por qué a mí? (Causas)</h4>
                     <p style="font-weight: 600; color: #444; margin-bottom: 15px;">No es tu culpa. La depresión aparece por una mezcla de varios factores:</p>
                     <ul>
                         <li><strong>Biológicas:</strong> Cambios en la química del cerebro o genética (historial familiar).</li>
@@ -134,26 +134,26 @@
                     </ul>
                 </div>
                 
-                <h3 class="hand-drawn" style="color: var(--pc-negro); text-align: center; font-size: 1.8rem; margin-top: 30px;">Mitos vs. Verdades ⚖️</h3>
+                <h3 class="hand-drawn" style="color: var(--pc-negro); text-align: center; font-size: 1.8rem; margin-top: 30px;"><span aria-hidden="true">⚖️</span> Mitos vs. Verdades</h3>
                 <p style="text-align: center; font-weight: 600; margin-bottom: 20px;">Toca las tarjetas para descubrir la realidad:</p>
-                <div class="grid-cards" style="margin-top: 0;">
-                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="grid-cards" style="margin-top: 0;" role="list" aria-label="Tarjetas de mitos y verdades sobre la depresión">
+                    <article class="flip-card" onclick="this.classList.toggle('flipped')" role="listitem" tabindex="0" onkeypress="if(event.key === 'Enter') this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
-                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: "La depresión es solo pereza o debilidad de carácter."</div><div class="mt-2 text-xs opacity-70" style="font-size:0.85rem; font-weight:normal;">(Toca para ver)</div></div>
+                            <div class="flip-card-front" aria-hidden="true"><div style="width: 100%; margin-top: 10px;">Mito: "La depresión es solo pereza o debilidad de carácter."</div><div class="mt-2 text-xs opacity-70" style="font-size:0.85rem; font-weight:normal;">(Toca para ver)</div></div>
                             <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Verdad: Falso. Es una condición médica real con bases biológicas y psicológicas, no una elección personal.</div></div>
                         </div>
-                    </div>
-                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    </article>
+                    <article class="flip-card" onclick="this.classList.toggle('flipped')" role="listitem" tabindex="0" onkeypress="if(event.key === 'Enter') this.classList.toggle('flipped')">
                         <div class="flip-card-inner">
-                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: "Se cura solo con actitud y pensando positivo."</div><div class="mt-2 text-xs opacity-70" style="font-size:0.85rem; font-weight:normal;">(Toca para ver)</div></div>
+                            <div class="flip-card-front" aria-hidden="true"><div style="width: 100%; margin-top: 10px;">Mito: "Se cura solo con actitud y pensando positivo."</div><div class="mt-2 text-xs opacity-70" style="font-size:0.85rem; font-weight:normal;">(Toca para ver)</div></div>
                             <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Verdad: Falso. Como cualquier enfermedad, requiere tratamiento profesional (terapia y/o medicación) y autocuidado.</div></div>
                         </div>
-                    </div>
+                    </article>
                 </div>
 
-                <button class="btn-next" onclick="openTab('tab-sintomas', document.querySelectorAll('.tab-btn')[1])">Ver los Síntomas ➔</button>
+                <button class="btn-next" onclick="openTab('tab-sintomas', document.querySelectorAll('.tab-btn')[1])" aria-label="Ver los síntomas de la depresión">Ver los Síntomas <span aria-hidden="true">➔</span></button>
             </div>
-        </div>
+        </section>
 
         <!-- Tab 2: Síntomas -->
         <div id="tab-sintomas" class="tab-content">

@@ -499,7 +499,7 @@
 <body>
 
     <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+        <nav id="navbar-container" class="main-nav" role="navigation"></nav>
 
         <!-- HEADER CON IMAGEN JPG SOBRE FONDO BLANCO -->
         <header class="header">
@@ -512,7 +512,7 @@
         </header>
 
         <!-- INFO GRID -->
-        <div class="info-grid">
+        <section class="info-grid">
             <div class="info-card">
                 <h3 class="hand-drawn"><span>🤝</span> ¿Cómo funciona?</h3>
                 <p>Los medicamentos provienen de donaciones ciudadanas. No recibimos apoyo del gobierno. Si buscas algo,
@@ -528,12 +528,12 @@
                 <p>Para evitar la reventa, todos nuestros medicamentos llevan la leyenda: <em>"Precio Solidario - Apoyo
                         Comunitario Proyecto Celene"</em> asegurando el uso correcto.</p>
             </div>
-        </div>
+        </section>
 
-        <div class="alert-box">
+        <aside class="alert-box">
             ⚠️ IMPORTANTE: Por normatividad legal, es indispensable presentar RECETA MÉDICA para surtir tu medicina. Si
             no tienes una o requieres cambio de tratamiento, la consulta médica tiene una cuota de $150 m.n.
-        </div>
+        </aside>
 
         <!-- BOTÓN Y FORMULARIO: NECESITO MEDICAMENTO -->
         <button class="toggle-btn btn-req" onclick="toggleForm('formSolicitud', this)">
@@ -541,7 +541,7 @@
             <span class="toggle-icon">▼</span>
         </button>
 
-        <div id="formSolicitud" class="form-content">
+        <section id="formSolicitud" class="form-content">
             <div
                 style="background:#e3f2fd; padding:15px; border-radius:10px; margin-bottom:20px; font-size:0.9rem; border:2px dashed #2980b9;">
                 <strong>ℹ️ Información Confidencial:</strong> Este formulario nos ayuda a crear tu expediente, agilizar
@@ -711,7 +711,7 @@
 
             <button class="btn-submit" onclick="enviarSolicitudEx()">Enviar Solicitud Oficial a WhatsApp
                 <span>💬</span></button>
-        </div>
+        </section>
 
         <!-- BOTÓN Y FORMULARIO: QUIERO DONAR -->
         <button class="toggle-btn btn-don" onclick="toggleForm('formDonacion', this)">
@@ -719,7 +719,7 @@
             <span class="toggle-icon">▼</span>
         </button>
 
-        <div id="formDonacion" class="form-content">
+        <section id="formDonacion" class="form-content">
             <h2 class="hand-drawn" style="text-align:center; color:var(--pc-rosa-fuerte);">Héroe Comunitario</h2>
             <p style="text-align:center; color:#555; font-size:0.95rem; margin-bottom:20px;">Tu donativo puede salvar
                 una vida hoy. Solo aceptamos medicamento NO caducado y en buen estado.</p>
@@ -752,10 +752,10 @@
             </div>
 
             <button class="btn-submit" onclick="enviarDonacion()">Enviar Aviso de Donativo <span>💬</span></button>
-        </div>
+        </section>
 
         <!-- LISTA DE NECESIDADES -->
-        <div class="needed-list-container">
+        <section class="needed-list-container">
             <h3 class="hand-drawn">🚨 ¿Qué es lo que más nos piden?</h3>
             <p style="margin-bottom:15px; color:#555;">Si deseas comprar medicamento para donarlo o hacer una
                 cooperación voluntaria, estos son los tratamientos que nuestros pacientes necesitan con mayor urgencia
@@ -770,7 +770,7 @@
                 <span class="pill-tag">🎀 Medicamentos Oncológicos</span>
                 <span class="pill-tag">🩹 Material de Curación</span>
             </div>
-        </div>
+        </section>
 
     </div>
 

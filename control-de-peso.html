@@ -514,47 +514,50 @@
 
 <body>
     <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+        <nav id="navbar-container" class="main-nav" role="navigation" aria-label="Navegación principal"></nav>
 
         <header class="header fade-in">
-            <img src="https://i.ibb.co/BVbcyxJB/snoopy-control-de-peso.png" alt="Clínica de Control de Peso"
-                style="max-width:100%; width:450px; border-radius:15px; border:3px solid var(--pc-negro); margin-bottom:15px; background:white; object-fit:cover;">
-            <h1 class="hand-drawn">Clínica de Control de Peso <span>⚖️</span></h1>
+            <img src="https://i.ibb.co/BVbcyxJB/snoopy-control-de-peso.png" alt="Clínica de Control de Peso - Ilustración de Snoopy con una báscula"
+                style="max-width:100%; width:450px; border-radius:15px; border:3px solid var(--pc-negro); margin-bottom:15px; background:white; object-fit:cover;"
+                loading="lazy">
+            <h1 class="hand-drawn">Clínica de Control de Peso <span aria-hidden="true">⚖️</span></h1>
             <p style="font-weight:600; font-size:1.1rem; max-width: 700px; margin: 0 auto;">Tu salud no se mide solo en
                 tallas, se mide en bienestar integral. Logra tus metas con un acompañamiento médico y humano.</p>
         </header>
 
-        <div class="content-box fade-in">
+        <main class="content-box fade-in" id="main-content">
             <!-- SECCIÓN 1: INTRODUCCIÓN EMPÁTICA -->
-            <h2 class="hand-drawn">Hablemos de Sobrepeso sin Estigmas</h2>
-            <p>En <strong>Proyecto Celene</strong>, lo primero que queremos que sepas es que <strong>el peso no define
-                    tu valor ni tu salud por completo.</strong> Entendemos la frustración de haber "intentado de todo" y
-                de sentirte juzgado.</p>
-            <p>La conversación sobre el peso no debe ser sobre la culpa o la fuerza de voluntad. Debe ser sobre la
-                <strong>salud.</strong> El sobrepeso y la obesidad <strong>no son un fracaso personal; son condiciones
-                    médicas crónicas y complejas.</strong> Tienen causas profundas (metabólicas, hormonales, genéticas,
-                ambientales, emocionales) y, lo más importante, <strong>tienen tratamiento.</strong></p>
-            <p>La buena noticia es que una pérdida de peso modesta del 5% al 10% es suficiente para prevenir
-                enfermedades y mejorar drásticamente tu funcionalidad y calidad de vida.</p>
+            <section aria-labelledby="intro-heading">
+                <h2 id="intro-heading" class="hand-drawn">Hablemos de Sobrepeso sin Estigmas</h2>
+                <p>En <strong>Proyecto Celene</strong>, lo primero que queremos que sepas es que <strong>el peso no define
+                        tu valor ni tu salud por completo.</strong> Entendemos la frustración de haber "intentado de todo" y
+                    de sentirte juzgado.</p>
+                <p>La conversación sobre el peso no debe ser sobre la culpa o la fuerza de voluntad. Debe ser sobre la
+                    <strong>salud.</strong> El sobrepeso y la obesidad <strong>no son un fracaso personal; son condiciones
+                        médicas crónicas y complejas.</strong> Tienen causas profundas (metabólicas, hormonales, genéticas,
+                    ambientales, emocionales) y, lo más importante, <strong>tienen tratamiento.</strong></p>
+                <p>La buena noticia es que una pérdida de peso modesta del 5% al 10% es suficiente para prevenir
+                    enfermedades y mejorar drásticamente tu funcionalidad y calidad de vida.</p>
+            </section>
 
             <!-- CALCULADORA IMC -->
-            <div class="bmi-box fade-in">
-                <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 10px;">
+            <section class="bmi-box fade-in" aria-labelledby="bmi-heading">
+                <h3 id="bmi-heading" class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 10px;">
                     Calculadora de IMC y Salud</h3>
                 <p style="margin-bottom: 20px; font-weight: 600; color: #555;">Ingresa tus datos para conocer tu Índice
                     de Masa Corporal y tu rango de peso saludable estimado.</p>
 
                 <div class="bmi-inputs">
-                    <input type="number" id="calc-peso" placeholder="Tu peso (kg)">
-                    <input type="number" id="calc-altura" placeholder="Tu altura (cm)">
+                    <input type="number" id="calc-peso" placeholder="Tu peso (kg)" aria-label="Peso en kilogramos">
+                    <input type="number" id="calc-altura" placeholder="Tu altura (cm)" aria-label="Altura en centímetros">
                 </div>
 
                 <button onclick="calcularIMC()" class="btn"
-                    style="margin: 0; background: var(--pc-negro); box-shadow: 0 5px 0 #000; padding: 10px 25px;">Calcular
-                    <span>📏</span></button>
+                    style="margin: 0; background: var(--pc-negro); box-shadow: 0 5px 0 #000; padding: 10px 25px;" aria-label="Calcular Índice de Masa Corporal">
+                    Calcular <span aria-hidden="true">📏</span></button>
 
-                <div class="bmi-gauge-container">
-                    <div class="bmi-marker" id="bmi-marker"></div>
+                <div class="bmi-gauge-container" role="img" aria-label="Escala de colores del IMC: bajo peso, normal, sobrepeso, obesidad grado I, obesidad grado II o más">
+                    <div class="bmi-marker" id="bmi-marker" aria-hidden="true"></div>
                 </div>
                 <div class="bmi-labels">
                     <span>Bajo</span>
@@ -564,55 +567,59 @@
                     <span>Obesidad II+</span>
                 </div>
 
-                <div id="bmiResultText"></div>
-            </div>
+                <div id="bmiResultText" role="status" aria-live="polite"></div>
+            </section>
 
             <!-- SECCIÓN 2: PILARES -->
-            <h2 class="hand-drawn" style="margin-top:40px;">Tratamos Personas, No una Báscula</h2>
-            <p>Para nosotros, "bajar de peso" no es el objetivo final. El objetivo es que <strong>ganes salud, energía y
-                    bienestar.</strong> Sabemos que la estrategia de "simplemente come menos y muévete más" ignora la
-                raíz del problema. Nuestro enfoque integral incluye:</p>
+            <section aria-labelledby="pilares-heading">
+                <h2 id="pilares-heading" class="hand-drawn" style="margin-top:40px;">Tratamos Personas, No una Báscula</h2>
+                <p>Para nosotros, "bajar de peso" no es el objetivo final. El objetivo es que <strong>ganes salud, energía y
+                        bienestar.</strong> Sabemos que la estrategia de "simplemente come menos y muévete más" ignora la
+                    raíz del problema. Nuestro enfoque integral incluye:</p>
 
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="pillar-icon"><span>🩺</span></div>
-                    <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Médica</h4>
-                    <p style="font-size: 0.95rem;">Buscamos el "por qué". Valoramos tu metabolismo, descartamos
-                        problemas de tiroides, resistencia a la insulina y tratamos comorbilidades (presión alta,
-                        diabetes).</p>
+                <div class="pillars-grid">
+                    <article class="pillar-card">
+                        <div class="pillar-icon" aria-hidden="true"><span>🩺</span></div>
+                        <h3 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Médica</h3>
+                        <p style="font-size: 0.95rem;">Buscamos el "por qué". Valoramos tu metabolismo, descartamos
+                            problemas de tiroides, resistencia a la insulina y tratamos comorbilidades (presión alta,
+                            diabetes).</p>
+                    </article>
+                    <article class="pillar-card">
+                        <div class="pillar-icon" style="background: var(--pc-azul-suave);" aria-hidden="true"><span>🧠</span></div>
+                        <h3 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Emocional
+                        </h3>
+                        <p style="font-size: 0.95rem;">Nuestra mente y la comida están unidas. Ofrecemos espacio seguro con
+                            psicología para manejar la ansiedad, estrés, depresión y el "comer emocional".</p>
+                    </article>
+                    <article class="pillar-card">
+                        <div class="pillar-icon" style="background: #e8f5e9;" aria-hidden="true"><span>🍎</span></div>
+                        <h3 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Física</h3>
+                        <p style="font-size: 0.95rem;">Te guiamos para crear hábitos realistas, sin dietas extremas ni
+                            castigos, encontrando una forma de alimentarte y moverte que realmente disfrutes a largo plazo.
+                        </p>
+                    </article>
                 </div>
-                <div class="pillar-card">
-                    <div class="pillar-icon" style="background: var(--pc-azul-suave);"><span>🧠</span></div>
-                    <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Emocional
-                    </h4>
-                    <p style="font-size: 0.95rem;">Nuestra mente y la comida están unidas. Ofrecemos espacio seguro con
-                        psicología para manejar la ansiedad, estrés, depresión y el "comer emocional".</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="pillar-icon" style="background: #e8f5e9;"><span>🍎</span></div>
-                    <h4 style="color: var(--pc-rosa-fuerte); font-size: 1.2rem; margin-bottom: 10px;">Salud Física</h4>
-                    <p style="font-size: 0.95rem;">Te guiamos para crear hábitos realistas, sin dietas extremas ni
-                        castigos, encontrando una forma de alimentarte y moverte que realmente disfrutes a largo plazo.
-                    </p>
-                </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 3: MANEJO ESCALONADO Y MEDICAMENTOS -->
-            <div
-                style="background: var(--pc-rosa-pastell); border: 3px dashed var(--pc-negro); padding: 25px; border-radius: 15px; margin-bottom: 30px;">
-                <h3 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 10px;">¿Y los
+            <section
+                style="background: var(--pc-rosa-pastell); border: 3px dashed var(--pc-negro); padding: 25px; border-radius: 15px; margin-bottom: 30px;"
+                aria-labelledby="medicamentos-heading">
+                <h3 id="medicamentos-heading" class="hand-drawn" style="color: var(--pc-negro); font-size: 1.8rem; margin-bottom: 10px;">¿Y los
                     Medicamentos? Una Herramienta Poderosa</h3>
                 <p style="color: #444; font-weight: 600;">Queremos ser claros: usar medicamentos para bajar de peso
                     <strong>no es "hacer trampa" ni es la "vía fácil".</strong> Es usar la ciencia para tratar una
                     condición médica real. Ayudan a regular el apetito, apagar los antojos del cerebro y romper la
                     resistencia a la insulina.</p>
-            </div>
+            </section>
 
-            <h2 class="hand-drawn">Opciones de Tratamiento: Manejo Escalonado</h2>
-            <p>El control moderno del sobrepeso requiere un enfoque en equipo. Conoce las opciones médicas validadas
-                científicamente:</p>
+            <section aria-labelledby="tratamientos-heading">
+                <h2 id="tratamientos-heading" class="hand-drawn">Opciones de Tratamiento: Manejo Escalonado</h2>
+                <p>El control moderno del sobrepeso requiere un enfoque en equipo. Conoce las opciones médicas validadas
+                    científicamente:</p>
 
-            <div class="accordion" style="margin-top: 20px;">
+                <div class="accordion" style="margin-top: 20px;" role="region" aria-label="Acordeón de opciones de tratamiento">
                 <!-- Acordeon 1 -->
                 <div class="accordion-item"><button class="accordion-header">1. Terapia Conductual (La Base) 🥗</button>
                     <div class="accordion-content">
@@ -697,10 +704,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 4: QUIZ CANDIDATO -->
-            <div class="quiz-box fade-in">
+            <section class="quiz-box fade-in">
                 <h2 class="hand-drawn"
                     style="border: none; color: var(--pc-negro); margin-bottom: 5px; font-size: 2.2rem;">¿Eres candidato
                     a Medicamentos? 💊</h2>
@@ -753,9 +760,9 @@
                     Mi Resultado</button>
 
                 <div id="quizResult"></div>
-            </div>
+            </section>
 
-            <div class="info-panel">
+            <aside class="info-panel">
                 <h3 class="hand-drawn">Inversión en tu Salud</h3>
                 <p style="font-weight: 800; font-size: 1.1rem; color: var(--pc-rosa-fuerte);">Cuota de Consulta Médica: $200 m.n.</p>
                 <p style="font-size: 1rem;">Te recomendamos acudir mensualmente para darle seguimiento a tus avances,
@@ -771,7 +778,7 @@
                                 <span style="font-size: 1.1rem;">💵 <strong>Efectivo en Consultorio</strong></span><br>
                                 <small style="color: #666; font-size: 0.9rem;">Sin comisión: $200.00 MN</small>
                             </div>
-                            <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                            <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" rel="noopener" class="btn-direction" onclick="event.stopPropagation()" title="Ubicación de Proyecto Celene en Google Maps"><span>📍</span> Ver Mapa</a>
                         </label>
                     </div>
                     
@@ -797,9 +804,9 @@
 
                     <div id="instructionsTransferencia" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
                         <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a transferir: $200.00 MN</p>
-                        <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe" value="722969010854962949" readonly><button type="button" onclick="copyToClipboard('clabe', this)"><span>📋</span> Copiar</button></div>
-                        <div class="copy-box-modern"><span class="label">Titular</span><input type="text" id="benef" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef', this)"><span>📋</span> Copiar</button></div>
-                        <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco" value="Mercado Pago W" readonly><button type="button" onclick="copyToClipboard('banco', this)"><span>📋</span> Copiar</button></div>
+                        <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe" value="722969010854962949" readonly><button type="button" onclick="copyToClipboard('clabe', this)" aria-label="Copiar CLABE"><span>📋</span> Copiar</button></div>
+                        <div class="copy-box-modern"><span class="label">Titular</span><input type="text" id="benef" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef', this)" aria-label="Copiar nombre del titular"><span>📋</span> Copiar</button></div>
+                        <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco" value="Mercado Pago W" readonly><button type="button" onclick="copyToClipboard('banco', this)" aria-label="Copiar nombre del banco"><span>📋</span> Copiar</button></div>
                         <ul class="step-list">
                             <li>Realiza la transferencia (guarda tu comprobante).</li>
                             <li>Envíanos un mensaje por WhatsApp con tu comprobante para confirmar tu cita.</li>
@@ -808,19 +815,19 @@
 
                     <div id="instructionsMercadoPago" style="display: none; margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ccc;">
                         <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a pagar en línea: $213.28 MN</p>
-                        <div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal" value="213.28" readonly><button type="button" onclick="copyToClipboard('mpTotal', this)"><span>📋</span> Copiar</button></div>
+                        <div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal" value="213.28" readonly><button type="button" onclick="copyToClipboard('mpTotal', this)" aria-label="Copiar monto total"><span>📋</span> Copiar</button></div>
                         <p style="color: #e65100; font-size: 0.9rem; font-weight: 800; margin-bottom: 15px; text-align: center;">⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>
-                        <a href="https://mpago.la/2LNJkin" target="_blank" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 12px; font-size: 1.1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); text-decoration: none; font-weight: 800;">Pagar en Mercado Pago ➔</a>
+                        <a href="https://mpago.la/2LNJkin" target="_blank" rel="noopener" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 12px; font-size: 1.1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); text-decoration: none; font-weight: 800;">Pagar en Mercado Pago ➔</a>
                         <ul class="step-list">
                             <li>Realiza el pago en el enlace (guarda captura de pantalla).</li>
                             <li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </aside>
 
             <!-- ACCIÓN FINAL GLOBAL -->
-            <div class="fade-in" style="background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-top: 40px; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte); text-align: center;">
+            <section class="fade-in" style="background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-top: 40px; box-shadow: 6px 6px 0 var(--pc-rosa-fuerte); text-align: center;">
                 <h2 class="hand-drawn" style="color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 10px;">¡Toma el control de tu salud hoy! ⚖️</h2>
                 <p style="font-weight: 600; font-size: 1.1rem; color: #444; margin-bottom: 20px;">Da el primer paso hacia una vida más ligera y saludable con nuestro acompañamiento médico.</p>
                 
@@ -846,10 +853,10 @@
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <button onclick="document.getElementById('modalWaPeso').style.display='flex'" class="btn btn-wa" style="margin: 0; max-width: 350px;">Agendar o Dudas 💬</button>
+                    <button onclick="document.getElementById('modalWaPeso').style.display='flex'" class="btn btn-wa" style="margin: 0; max-width: 350px;" aria-label="Abrir modal de contacto por WhatsApp">Agendar o Dudas 💬</button>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
 
     <!-- MODAL WHATSAPP PESO -->

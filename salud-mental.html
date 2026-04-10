@@ -78,25 +78,26 @@
 
 <body>
     <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+        <nav id="navbar-container" class="main-nav" aria-label="Navegación principal"></nav>
 
         <header class="header">
-            <img src="https://i.ibb.co/QFznQLX2/salud-mental.png" alt="Salud Mental Comunitaria">
+            <img src="https://i.ibb.co/QFznQLX2/salud-mental.png" alt="Salud Mental Comunitaria" loading="lazy">
             <h1 class="hand-drawn">Módulo de Salud Mental Comunitaria</h1>
             <p>Tu espacio seguro para sanar, hablar y crecer. Porque cuidar de tu mente es igual de importante que cuidar de tu cuerpo.</p>
         </header>
 
-        <div class="tabs-wrapper">
-            <button class="tab-btn active" onclick="openTab(event, 'tab-estigmas')">🌻 Rompiendo Estigmas</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-enfoque')">🌐 Nuestro Enfoque</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-equipo')">👥 Nuestro Equipo</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-ruta')">🗺️ Ruta de Atención</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-crisis')">🚨 Apoyo en Crisis</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-salud-mental')">🧠 Salud Mental</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-psicosocial')">🛠️ Intervenciones Psicosociales</button>
-        </div>
+        <main>
+            <div class="tabs-wrapper" role="tablist" aria-label="Secciones de información sobre salud mental">
+                <button class="tab-btn active" onclick="openTab(event, 'tab-estigmas')" role="tab" aria-controls="tab-estigmas" aria-selected="true" id="tab-btn-estigmas">🌻 Rompiendo Estigmas</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-enfoque')" role="tab" aria-controls="tab-enfoque" aria-selected="false" id="tab-btn-enfoque">🌐 Nuestro Enfoque</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-equipo')" role="tab" aria-controls="tab-equipo" aria-selected="false" id="tab-btn-equipo">👥 Nuestro Equipo</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-ruta')" role="tab" aria-controls="tab-ruta" aria-selected="false" id="tab-btn-ruta">🗺️ Ruta de Atención</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-crisis')" role="tab" aria-controls="tab-crisis" aria-selected="false" id="tab-btn-crisis">🚨 Apoyo en Crisis</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-salud-mental')" role="tab" aria-controls="tab-salud-mental" aria-selected="false" id="tab-btn-salud-mental">🧠 Salud Mental</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-psicosocial')" role="tab" aria-controls="tab-psicosocial" aria-selected="false" id="tab-btn-psicosocial">🛠️ Intervenciones Psicosociales</button>
+            </div>
 
-        <div id="tab-estigmas" class="tab-content" style="display: block;">
+        <div id="tab-estigmas" class="tab-content" style="display: block;" role="tabpanel" aria-labelledby="tab-btn-estigmas" tabindex="0">
             <h2 class="hand-drawn">Rompiendo Estigmas 🌻</h2>
             <p>Ir a terapia no significa que estés "loco" o "roto". Significa que te amas lo suficiente como para buscar herramientas que te ayuden a manejar la ansiedad, la depresión, el duelo o los retos diarios de la vida.</p>
             <p>En Proyecto Celene, entendemos que la salud debe ser integral. Ofrecemos acompañamiento psicológico con profesionales capacitados y bajo una estricta política de empatía y confidencialidad.</p>
@@ -115,7 +116,7 @@
             </div>
         </div>
 
-        <div id="tab-enfoque" class="tab-content" style="box-shadow: 6px 6px 0 var(--pc-amarillo);">
+        <div id="tab-enfoque" class="tab-content" style="box-shadow: 6px 6px 0 var(--pc-amarillo);" role="tabpanel" aria-labelledby="tab-btn-enfoque" tabindex="0">
             <h2 class="hand-drawn">Nuestro Enfoque: El Protocolo mhGAP 🌐</h2>
             <p style="margin-top: 15px;">En Proyecto Celene sabemos que el acceso a la salud mental debe ser un derecho para todos, no un privilegio. Por eso, hemos implementado el programa <strong>mhGAP</strong> (Mental Health Gap Action Programme), diseñado y respaldado por la <strong>Organización Mundial de la Salud (OMS)</strong>.</p>
             <h3 style="color: var(--pc-negro); margin-top: 20px; margin-bottom: 10px; font-size: 1.3rem;">¿Qué es y por qué lo usamos?</h3>
@@ -123,12 +124,12 @@
             <p>Al implementar este protocolo en nuestra clínica, te garantizamos que tu primera evaluación no será improvisada. Estarás recibiendo atención médica basada en guías clínicas internacionales, diseñada para ser segura, empática y científicamente comprobada, todo dentro de tu propia comunidad.</p>
         </div>
 
-        <div id="tab-equipo" class="tab-content" style="box-shadow: 6px 6px 0 var(--pc-azul-suave); background: var(--pc-azul-suave);">
+        <div id="tab-equipo" class="tab-content" style="box-shadow: 6px 6px 0 var(--pc-azul-suave); background: var(--pc-azul-suave);" role="tabpanel" aria-labelledby="tab-btn-equipo" tabindex="0">
             <h2 class="hand-drawn" style="color: var(--pc-negro);">Conoce a Nuestro Equipo 👥</h2>
             <p style="text-align: center; font-weight: 600; margin-top: 15px; margin-bottom: 20px;">Para brindarte una atención verdaderamente integral, nuestro módulo funciona a través del trabajo en equipo entre el área médica y el área psicológica:</p>
             <div class="service-grid">
                 <div class="service-card" style="background: white;">
-                    <img src="https://i.ibb.co/gbWytScw/cuadrado-foto-carlos.jpg" alt="Dr. Donato" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--pc-negro); margin: 0 auto 10px; display: block; object-fit: cover;">
+                    <img src="https://i.ibb.co/gbWytScw/cuadrado-foto-carlos.jpg" alt="Dr. Carlos Donato, médico de primer contacto" loading="lazy" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--pc-negro); margin: 0 auto 10px; display: block; object-fit: cover;">
                     <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte);">Dr. Carlos Donato</h3>
                     <p style="font-size: 0.9rem; font-weight: 800; color: #118AB2; margin-bottom: 10px;">Médico de Primer Contacto</p>
                     <p style="font-size: 0.95rem; font-weight: 600; color: #555; text-align: left;">Como médico general y coordinador, cuenta con la certificación oficial en la guía de intervención mhGAP. Su objetivo es realizar tu primera evaluación, descartar cualquier enfermedad física que pueda estar afectando tu estado de ánimo (como problemas de tiroides o metabólicos) y establecer el plan de manejo inicial.</p>
@@ -142,7 +143,7 @@
             </div>
         </div>
 
-        <div id="tab-ruta" class="tab-content" style="box-shadow: 6px 6px 0 #25d366;">
+        <div id="tab-ruta" class="tab-content" style="box-shadow: 6px 6px 0 #25d366;" role="tabpanel" aria-labelledby="tab-btn-ruta" tabindex="0">
             <h2 class="hand-drawn" style="color: var(--pc-negro);">Tu Ruta de Atención 🗺️</h2>
             <p style="text-align: center; font-weight: 600; margin-top: 15px; margin-bottom: 25px;">Nuestro protocolo está estructurado en 4 pasos claros para asegurar que recibas el apoyo exacto que necesitas:</p>
             <div style="display: flex; flex-direction: column; gap: 15px;">
@@ -178,7 +179,7 @@
         </div>
 
         <!-- BLOQUE LÍNEAS DE CRISIS (ALERTA) -->
-        <div id="tab-crisis" class="tab-content" style="background: #ffebee; border-color: #c62828; box-shadow: 6px 6px 0 #ffcdd2; text-align: center;">
+        <div id="tab-crisis" class="tab-content" style="background: #ffebee; border-color: #c62828; box-shadow: 6px 6px 0 #ffcdd2; text-align: center;" role="tabpanel" aria-labelledby="tab-btn-crisis" tabindex="0">
             <h2 class="hand-drawn" style="color: #c62828; font-size: 2.2rem; margin-bottom: 10px;">Líneas de Apoyo en Crisis 🚨</h2>
             <p style="color: #b71c1c; font-weight: 800; font-size: 1.1rem; margin-bottom: 10px;">Nuestro módulo opera mediante consulta programada para brindar seguimiento a tu salud emocional. <strong>No somos un servicio de urgencias.</strong></p>
             <p style="color: #b71c1c; margin-bottom: 25px;">Si tú o un familiar se encuentran en una crisis emocional severa, sienten profunda desesperanza o están en riesgo, por favor comuníquense de inmediato a estas líneas gratuitas, confidenciales y disponibles las 24 horas del día:</p>
@@ -197,7 +198,7 @@
         </div>
 
         <!-- NUEVA TAB: SALUD MENTAL (TARJETAS/GUIAS) -->
-        <div id="tab-salud-mental" class="tab-content" style="box-shadow: 6px 6px 0 var(--pc-azul-suave);">
+        <div id="tab-salud-mental" class="tab-content" style="box-shadow: 6px 6px 0 var(--pc-azul-suave);" role="tabpanel" aria-labelledby="tab-btn-salud-mental" tabindex="0">
             <h2 class="hand-drawn" style="color: var(--pc-negro);">Salud Mental 🧠</h2>
             <p style="text-align: center; font-weight: 600; margin-top: 15px; margin-bottom: 20px;">Explora nuestros recursos educativos para comprender mejor tu salud mental y encontrar las herramientas para sanar.</p>
             <div class="service-grid">
@@ -210,7 +211,7 @@
             </div>
         </div>
 
-        <div id="tab-psicosocial" class="tab-content" style="box-shadow: 6px 6px 0 #ab47bc;">
+        <div id="tab-psicosocial" class="tab-content" style="box-shadow: 6px 6px 0 #ab47bc;" role="tabpanel" aria-labelledby="tab-btn-psicosocial" tabindex="0">
             <h2 class="hand-drawn" style="color: #8e24aa; text-align: center; margin-bottom: 20px;">Intervenciones Psicosociales</h2>
             <p style="text-align: center; font-weight: 600; margin-bottom: 30px;">Explora nuestras guías paso a paso basadas en el protocolo mhGAP para recuperar tu bienestar emocional.</p>
             
@@ -261,9 +262,10 @@
                 </div>
             </div>
         </div>
+    </main>
 
         <div style="text-align: center; margin-bottom: 40px;">
-            <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20agendar%20una%20cita%20para%20Atención%20Psicológica." target="_blank" class="btn" style="font-size: 1.3rem; padding: 20px 40px; width: 100%; max-width: 400px; margin-top: 0;">Agendar Cita por WhatsApp <span>💬</span></a>
+            <a href="https://wa.me/526611044050?text=Hola,%20me%20gustaría%20agendar%20una%20cita%20para%20Atención%20Psicológica." target="_blank" rel="noopener" class="btn" style="font-size: 1.3rem; padding: 20px 40px; width: 100%; max-width: 400px; margin-top: 0;" aria-label="Agendar cita por WhatsApp (se abrirá en una nueva ventana)">Agendar Cita por WhatsApp <span aria-hidden="true">💬</span></a>
         </div>
     </div>
 
@@ -275,7 +277,7 @@
             event.currentTarget.classList.add('active');
         }
     </script>
-    <script src="js/global.js"></script>
+    <script src="js/global.js" defer></script>
 </body>
 
 </html>

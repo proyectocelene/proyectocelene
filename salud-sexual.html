@@ -522,28 +522,29 @@
 
 <body>
     <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+        <nav id="navbar-container" class="main-nav" aria-label="Navegación principal"></nav>
 
         <header class="header">
-            <img src="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg" alt="Salud Sexual">
+            <img src="https://i.ibb.co/842xYCb3/SALUD-SEXUAL-ITS.jpg" alt="Salud Sexual" loading="lazy">
             <h1 class="hand-drawn" style="margin-bottom: 5px;">Clínica de Salud Sexual 🛡️</h1>
             <h2 style="font-size: 1.4rem; color: var(--pc-negro); font-weight: 800; margin-bottom: 15px;">Sin Miedos,
                 Sin Juicios, Solo Ciencia</h2>
             <p style="font-weight:600; font-size:1.1rem; color: var(--pc-rosa-fuerte);">Por el Dr. Carlos Donato</p>
         </header>
 
-        <div class="tabs-wrapper">
-            <button class="tab-btn" onclick="openTab(event, 'tab-inicio')">🏠 Inicio y Clínica</button>
-            <button class="tab-btn active" onclick="openTab(event, 'tab-prevencion')">🛡️ Prevención e ITS</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-planificacion')">💊 Planificación Familiar</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-prenatal')">🤰 Control Prenatal</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-ile')">⚖️ Interrupción Segura (ILE)</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-esi')">📄 ESI y Derechos</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-anatomia')">🧠 Tu Cuerpo</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-digital')">🌐 Era Digital</button>
-        </div>
+        <main>
+            <div class="tabs-wrapper" role="tablist" aria-label="Secciones de información sobre salud sexual">
+                <button class="tab-btn" onclick="openTab(event, 'tab-inicio')" role="tab" aria-controls="tab-inicio" aria-selected="false" id="tab-btn-inicio">🏠 Inicio y Clínica</button>
+                <button class="tab-btn active" onclick="openTab(event, 'tab-prevencion')" role="tab" aria-controls="tab-prevencion" aria-selected="true" id="tab-btn-prevencion">🛡️ Prevención e ITS</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-planificacion')" role="tab" aria-controls="tab-planificacion" aria-selected="false" id="tab-btn-planificacion">💊 Planificación Familiar</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-prenatal')" role="tab" aria-controls="tab-prenatal" aria-selected="false" id="tab-btn-prenatal">🤰 Control Prenatal</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-ile')" role="tab" aria-controls="tab-ile" aria-selected="false" id="tab-btn-ile">⚖️ Interrupción Segura (ILE)</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-esi')" role="tab" aria-controls="tab-esi" aria-selected="false" id="tab-btn-esi">📄 ESI y Derechos</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-anatomia')" role="tab" aria-controls="tab-anatomia" aria-selected="false" id="tab-btn-anatomia">🧠 Tu Cuerpo</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-digital')" role="tab" aria-controls="tab-digital" aria-selected="false" id="tab-btn-digital">🌐 Era Digital</button>
+            </div>
 
-        <div id="tab-prevencion" class="tab-content" style="display: block;">
+        <div id="tab-prevencion" class="tab-content" style="display: block;" role="tabpanel" aria-labelledby="tab-btn-prevencion" tabindex="0">
             <div style="background: var(--pc-rosa-fuerte); color: white; padding: 20px; border-radius: 15px; text-align: center; border: 4px solid var(--pc-negro); margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-negro); animation: pulse 2s infinite;">
                 <h2 class="hand-drawn" style="font-size: clamp(1.6rem, 5vw, 2.2rem); margin-bottom: 5px; line-height: 1.2;">🆓 ¡La Prueba de VIH es Totalmente Gratis!</h2>
                 <p style="font-size: 1.05rem; font-weight: 800; line-height: 1.4;">Conoce tu estado de salud en minutos de forma 100% confidencial y sin costo alguno en Proyecto Celene.</p>
@@ -704,7 +705,7 @@
             </div>
         </div>
 
-        <div id="tab-inicio" class="tab-content" style="display: none;">
+        <div id="tab-inicio" class="tab-content" style="display: none;" role="tabpanel" aria-labelledby="tab-btn-inicio" tabindex="0">
             <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 15px;">
                 ¡Bienvenid@! Hablemos sin tapujos</h2>
             <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch; margin-bottom: 30px;">
@@ -716,7 +717,7 @@
                     <div class="img-flip-card" onclick="this.classList.toggle('flipped')" style="width: 100%; aspect-ratio: 4/3; box-shadow: 6px 6px 0 var(--pc-azul-suave);">
                         <div class="img-flip-card-inner">
                             <div class="img-flip-front">
-                                <img src="https://i.ibb.co/yF7RFQGQ/dr-donato-impartiendo-platica-esi.jpg" alt="Dr. Donato impartiendo plática">
+                                <img src="https://i.ibb.co/yF7RFQGQ/dr-donato-impartiendo-platica-esi.jpg" alt="Dr. Donato impartiendo plática" loading="lazy">
                                 <div class="tap-hint" style="background: var(--pc-rosa-fuerte);">👆 Toca para girar</div>
                             </div>
                             <div class="img-flip-back" style="background: white;">
@@ -734,7 +735,7 @@
             <div class="img-flip-card" onclick="this.classList.toggle('flipped')" style="width: 100%; aspect-ratio: 1.4; max-height: 500px; box-shadow: 8px 8px 0 var(--pc-rosa-fuerte); margin-bottom: 40px;">
                 <div class="img-flip-card-inner">
                     <div class="img-flip-front" style="background: var(--pc-gris-suave);">
-                        <img src="https://i.ibb.co/Kx4mdVB3/certificado-donato-educador-sexual.jpg" alt="Certificado Educador Sexual" style="object-fit: contain; padding: 15px;">
+                        <img src="https://i.ibb.co/Kx4mdVB3/certificado-donato-educador-sexual.jpg" alt="Certificado Educador Sexual" loading="lazy" style="object-fit: contain; padding: 15px;">
                         <div class="tap-hint" style="background: var(--pc-negro);">👆 Toca para girar</div>
                     </div>
                     <div class="img-flip-back" style="background: var(--pc-amarillo);">
@@ -840,7 +841,7 @@
                     <iframe
                         src="https://www.facebook.com/plugins/video.php?height=350&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F990264640843547%2F&show_text=false&width=350&t=0"
                         width="350" height="350" style="border:none;overflow:hidden; width:100%; height:100%;"
-                        scrolling="no" frameborder="0" allowfullscreen="true"
+                        scrolling="no" frameborder="0" allowfullscreen="true" loading="lazy"
                         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
             </div>
@@ -864,7 +865,7 @@
         </div>
 
         <!-- NUEVA TAB: PLANIFICACION FAMILIAR -->
-        <div id="tab-planificacion" class="tab-content">
+        <div id="tab-planificacion" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-planificacion" tabindex="0">
             <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 15px;">En Proyecto Celene cuidarte es GRATIS 🎁</h2>
             
             <div style="background: var(--pc-amarillo); border: 4px dashed var(--pc-negro); padding: 25px; border-radius: 20px; margin-bottom: 30px;">
@@ -1056,7 +1057,7 @@
         </div>
 
         <!-- NUEVA TAB: CONTROL PRENATAL -->
-        <div id="tab-prenatal" class="tab-content">
+        <div id="tab-prenatal" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-prenatal" tabindex="0">
             <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 15px;">Control Prenatal Humanizado 🤰</h2>
             <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 15px;">En Proyecto Celene celebramos la vida. Un embarazo seguro requiere seguimiento mes a mes para proteger tu salud y la de tu bebé.</p>
             
@@ -1105,7 +1106,7 @@
         </div>
 
         <!-- NUEVA TAB: ILE -->
-        <div id="tab-ile" class="tab-content">
+        <div id="tab-ile" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-ile" tabindex="0">
             <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.5rem; margin-bottom: 15px;">Interrupción Legal y Segura (ILE) ⚖️</h2>
             
             <div style="background: white; border: 4px solid var(--pc-negro); padding: 25px; border-radius: 20px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-azul-suave);">
@@ -1134,7 +1135,7 @@
             </div>
         </div>
 
-        <div id="tab-esi" class="tab-content">
+        <div id="tab-esi" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-esi" tabindex="0">
             <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.2rem;">Educación Sexual Integral
                 (ESI)</h2>
 
@@ -1241,7 +1242,7 @@
                     <div class="img-flip-card" onclick="this.classList.toggle('flipped')" style="width: 100%; aspect-ratio: 4/3; box-shadow: 6px 6px 0 var(--pc-amarillo);">
                         <div class="img-flip-card-inner">
                             <div class="img-flip-front">
-                                <img src="https://i.ibb.co/GQgLFWW8/foto-grupo-platica-esi.jpg" alt="Grupo Plática ESI">
+                                <img src="https://i.ibb.co/GQgLFWW8/foto-grupo-platica-esi.jpg" alt="Grupo Plática ESI" loading="lazy">
                                 <div class="tap-hint" style="background: var(--pc-negro);">👆 Toca para girar</div>
                             </div>
                             <div class="img-flip-back" style="background: var(--pc-azul-suave);">
@@ -1256,7 +1257,7 @@
             </div>
         </div>
 
-        <div id="tab-anatomia" class="tab-content">
+        <div id="tab-anatomia" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-anatomia" tabindex="0">
             <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.2rem; margin-bottom: 15px;">Puntos
                 Ciegos y el Autoerotismo 🧠</h2>
 
@@ -1331,7 +1332,7 @@
             </div>
         </div>
 
-        <div id="tab-digital" class="tab-content">
+        <div id="tab-digital" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-digital" tabindex="0">
             <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 2.2rem; margin-bottom: 15px;">El
                 Algoritmo vs. La Realidad 📱</h2>
 
@@ -1398,6 +1399,7 @@
                 </script>
             </div>
         </div>
+    </main>
 
         <div class="banner-orientacion">
             <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom: 10px;">¿Tienes pena o no sabes
@@ -1415,8 +1417,8 @@
 
     <a href="javascript:void(0)" onclick="openModal('modalDrDonato')"
         style="position: fixed; bottom: 20px; right: 20px; background: var(--pc-rosa-fuerte); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 3px solid var(--pc-negro); box-shadow: 4px 4px 0 var(--pc-negro); z-index: 9999; text-decoration: none; transition: 0.2s;"
-        title="WhatsApp Dr. Donato" onmouseover="this.style.transform='translateY(-5px)'"
-        onmouseout="this.style.transform='translateY(0)'">👨‍⚕️</a>
+        title="WhatsApp Dr. Donato" aria-label="Abrir modal para consulta con Dr. Donato" onmouseover="this.style.transform='translateY(-5px)'"
+        onmouseout="this.style.transform='translateY(0)'"><span aria-hidden="true">👨‍⚕️</span></a>
 
     <div id="modalSaludSexual" class="modal" onclick="closeOnOutside(event, 'modalSaludSexual')">
         <div class="modal-content">
@@ -1578,7 +1580,7 @@
             document.querySelectorAll('.fill-anim').forEach(el => fillObserver.observe(el));
         });
     </script>
-    <script src="js/global.js"></script>
+    <script src="js/global.js" defer></script>
 </body>
 
 </html>

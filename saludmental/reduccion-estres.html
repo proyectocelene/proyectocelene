@@ -104,7 +104,7 @@
 </head>
 <body>
     <div class="container">
-        <div id="navbar-container" class="main-nav no-print"></div>
+        <div id="navbar-container" class="main-nav no-print" role="navigation" aria-label="Navegación principal"></div>
 
         <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
             <a href="salud-mental.html" class="btn-nav" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; border-radius: 50px; border: 3px solid var(--pc-negro); font-weight: 800; text-decoration: none;">
@@ -113,7 +113,7 @@
         </div>
         
         <!-- Sticky Nav -->
-        <nav class="sticky-menu fade-in">
+        <nav class="sticky-menu fade-in" aria-label="Navegación rápida por secciones">
             <a href="#intro">🌿 Estrés</a>
             <a href="#respiracion">🫁 Respiración</a>
             <a href="#relajacion">⏹️ Relajación</a>
@@ -123,141 +123,144 @@
         </nav>
 
         <!-- Navegación Superior -->
-        <div class="top-nav fade-in">
+        <div class="top-nav fade-in" role="navigation" aria-label="Navegación entre páginas">
             <a href="saludmental/depresion.html" class="btn-nav">⬅️ Volver a Diagnóstico</a>
             <a href="saludmental/funcionamiento-diario.html" class="btn-nav" style="background: var(--pc-dark-blue); color: white;">Siguiente: Rutina ➡️</a>
         </div>
 
-        <!-- Cabecera -->
-        <header id="intro" class="header fade-in">
-            <div style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-negro)); margin-bottom: 10px;">🌿</div>
-            <span class="author-badge">🧠 Intervenciones Psicosociales</span>
-            <h1 class="hand-drawn">Paso 2.2: Reduce el estrés y fortalece tu red de apoyo</h1>
-        </header>
+        <main id="main-content">
+            <!-- Cabecera -->
+            <header id="intro" class="header fade-in">
+                <div style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-negro)); margin-bottom: 10px;" aria-hidden="true">🌿</div>
+                <span class="author-badge">🧠 Intervenciones Psicosociales</span>
+                <h1 class="hand-drawn">Paso 2.2: Reduce el estrés y fortalece tu red de apoyo</h1>
+            </header>
 
-        <!-- Intro Text -->
-        <div class="content-box fade-in">
-            <p style="font-size: 1.1rem; font-weight: 600; color: #444;">Todos nos sentimos estresados en algún momento. Es una reacción normal de nuestro cuerpo ante un desafío. Sin embargo, cuando el estrés dura por un período prolongado (estrés crónico), nuestro cuerpo se mantiene en "alerta máxima" produciendo mucha hormona cortisol.</p>
-            <br>
-            <p style="font-size: 1.1rem; font-weight: 600; color: #444;">A la larga, esto debilita nuestro sistema inmunológico, aumenta la presión arterial y empeora los síntomas de la depresión y la ansiedad. No existe una vida sin estrés, por lo que no podemos evitarlo por completo, pero <strong>sí podemos aprender a manejarlo</strong>. En esta página encontrarás un "botiquín" de herramientas prácticas respaldadas por la ciencia.</p>
-        </div>
+            <!-- Intro Text -->
+            <section class="content-box fade-in" aria-labelledby="intro-heading">
+                <h2 id="intro-heading" class="sr-only">Introducción sobre el estrés</h2>
+                <p style="font-size: 1.1rem; font-weight: 600; color: #444;">Todos nos sentimos estresados en algún momento. Es una reacción normal de nuestro cuerpo ante un desafío. Sin embargo, cuando el estrés dura por un período prolongado (estrés crónico), nuestro cuerpo se mantiene en "alerta máxima" produciendo mucha hormona cortisol.</p>
+                <br>
+                <p style="font-size: 1.1rem; font-weight: 600; color: #444;">A la larga, esto debilita nuestro sistema inmunológico, aumenta la presión arterial y empeora los síntomas de la depresión y la ansiedad. No existe una vida sin estrés, por lo que no podemos evitarlo por completo, pero <strong>sí podemos aprender a manejarlo</strong>. En esta página encontrarás un "botiquín" de herramientas prácticas respaldadas por la ciencia.</p>
+            </section>
 
-        <!-- Herramienta 1: Respiración -->
-        <div id="respiracion" class="content-box lavender-shadow fade-in">
-            <h2>🫁 Herramienta 1: Técnicas de Respiración</h2>
-            <p style="font-weight: 600;">La respiración está directamente relacionada con nuestro sistema nervioso. Cambiar la forma en que respiramos es el <strong>"botón de apagado" más rápido para la alarma del estrés</strong>, ya que disminuye la frecuencia cardíaca y promueve la calma.</p>
-            
-            <ul style="margin: 20px 0 20px 20px; font-weight: 600; color: #444;">
-                <li style="margin-bottom: 10px;"><strong>Respiración Diafragmática:</strong> Pon una mano en el pecho y otra en el estómago. Inhala profundamente inflando tu estómago (como un globo) y exhala lentamente.</li>
-                <li style="margin-bottom: 10px;"><strong>Respiración Cuadrada (Box Breathing):</strong> Inhala 4s, mantén 4s, exhala 4s y quédate sin aire 4s. Ayuda a bajar el cortisol.</li>
-            </ul>
+            <!-- Herramienta 1: Respiración -->
+            <section id="respiracion" class="content-box lavender-shadow fade-in" aria-labelledby="respiracion-heading">
+                <h2 id="respiracion-heading">🫁 Herramienta 1: Técnicas de Respiración</h2>
+                <p style="font-weight: 600;">La respiración está directamente relacionada con nuestro sistema nervioso. Cambiar la forma en que respiramos es el <strong>"botón de apagado" más rápido para la alarma del estrés</strong>, ya que disminuye la frecuencia cardíaca y promueve la calma.</p>
+                
+                <ul style="margin: 20px 0 20px 20px; font-weight: 600; color: #444;">
+                    <li style="margin-bottom: 10px;"><strong>Respiración Diafragmática:</strong> Pon una mano en el pecho y otra en el estómago. Inhala profundamente inflando tu estómago (como un globo) y exhala lentamente.</li>
+                    <li style="margin-bottom: 10px;"><strong>Respiración Cuadrada (Box Breathing):</strong> Inhala 4s, mantén 4s, exhala 4s y quédate sin aire 4s. Ayuda a bajar el cortisol.</li>
+                </ul>
 
-            <div class="breathe-container">
-                <h4 style="font-family: 'Handlee', cursive; font-size: 1.4rem; margin-bottom: 10px; color: var(--pc-negro);">Técnica 4-7-8 (Sigue el círculo)</h4>
-                <p style="font-size: 0.9rem; margin-bottom: 20px; font-weight: 700; color: #666;">Inhala por la nariz (4s) • Retén (7s) • Exhala por la boca (8s)</p>
-                <div class="breathe-circle">
-                    Respirar
+                <div class="breathe-container">
+                    <h3 style="font-family: 'Handlee', cursive; font-size: 1.4rem; margin-bottom: 10px; color: var(--pc-negro);">Técnica 4-7-8 (Sigue el círculo)</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 20px; font-weight: 700; color: #666;">Inhala por la nariz (4s) • Retén (7s) • Exhala por la boca (8s)</p>
+                    <div class="breathe-circle" aria-hidden="true">
+                        Respirar
+                    </div>
+                    <p class="breathe-text">Sincroniza tu respiración con el tamaño del círculo.</p>
                 </div>
-                <p class="breathe-text">Sincroniza tu respiración con el tamaño del círculo.</p>
-            </div>
-        </div>
+            </section>
 
-        <!-- Herramienta 2: Relajación -->
-        <div id="relajacion" class="content-box earth-shadow fade-in">
-            <h2>⏹️ Herramienta 2: Relajación Muscular de Jacobson</h2>
-            <p style="font-weight: 600; margin-bottom: 15px;">Cuando tenemos ansiedad, nuestros músculos se tensan. Este método nos enseña a tensar fuertemente cada parte del cuerpo por unos segundos, y luego soltarla lentamente prestando atención al alivio.</p>
-            
-            <div style="background: var(--pc-earth); padding: 15px; border-radius: 15px; border: 2px dashed var(--pc-negro); margin-bottom: 20px; font-weight: 600; font-size: 0.95rem;">
-                <p>🤜 <strong>Manos y brazos:</strong> Cierra puños, siente tensión, abre y suelta.</p>
-                <p>😠 <strong>Cara y Cuello:</strong> Arruga la frente, aprieta ojos y mandíbula, relaja lentamente.</p>
-                <p>🫁 <strong>Tórax y Estómago:</strong> Toma aire, pon el estómago duro, exhala y libera.</p>
-                <p>🦶 <strong>Piernas y Pies:</strong> Estira las puntas hacia abajo, relaja gradualmente.</p>
-            </div>
-
-            <div class="audio-player-box">
-                <span style="font-size: 1.8rem;">🎧</span>
-                <div>
-                    <p style="font-weight: 800; font-size: 0.95rem; margin-bottom: 5px;">Guía de Relajación (15 min)</p>
-                    <audio controls>
-                        <!-- Enlace ficticio para la demo, cambiar por archivo real -->
-                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                        Tu navegador no soporta el reproductor.
-                    </audio>
+            <!-- Herramienta 2: Relajación -->
+            <section id="relajacion" class="content-box earth-shadow fade-in" aria-labelledby="relajacion-heading">
+                <h2 id="relajacion-heading">⏹️ Herramienta 2: Relajación Muscular de Jacobson</h2>
+                <p style="font-weight: 600; margin-bottom: 15px;">Cuando tenemos ansiedad, nuestros músculos se tensan. Este método nos enseña a tensar fuertemente cada parte del cuerpo por unos segundos, y luego soltarla lentamente prestando atención al alivio.</p>
+                
+                <div style="background: var(--pc-earth); padding: 15px; border-radius: 15px; border: 2px dashed var(--pc-negro); margin-bottom: 20px; font-weight: 600; font-size: 0.95rem;">
+                    <p>🤜 <strong>Manos y brazos:</strong> Cierra puños, siente tensión, abre y suelta.</p>
+                    <p>😠 <strong>Cara y Cuello:</strong> Arruga la frente, aprieta ojos y mandíbula, relaja lentamente.</p>
+                    <p>🫁 <strong>Tórax y Estómago:</strong> Toma aire, pon el estómago duro, exhala y libera.</p>
+                    <p>🦶 <strong>Piernas y Pies:</strong> Estira las puntas hacia abajo, relaja gradualmente.</p>
                 </div>
-            </div>
-        </div>
 
-        <!-- Herramienta 3: Nutrición -->
-        <div id="nutricion" class="content-box green-shadow fade-in">
-            <h2>🫐 Herramienta 3: Nutrición para bajar el Cortisol</h2>
-            <p style="font-weight: 600;">Evita aliviar el estrés con azúcares o exceso de cafeína, ya que disparan la ansiedad. En su lugar, incluye estos alimentos antiinflamatorios:</p>
-
-            <div class="grid-list">
-                <div class="food-card">
-                    <div style="font-size: 2.5rem;">🐟</div>
-                    <h4>Salmón</h4>
-                    <p style="font-size: 0.85rem; font-weight: 600;">Rico en omega-3, reduce la inflamación y tiene efecto antidepresivo.</p>
+                <div class="audio-player-box">
+                    <span style="font-size: 1.8rem;" aria-hidden="true">🎧</span>
+                    <div>
+                        <p style="font-weight: 800; font-size: 0.95rem; margin-bottom: 5px;">Guía de Relajación (15 min)</p>
+                        <audio controls aria-label="Reproductor de audio: Guía de Relajación de 15 minutos">
+                            <!-- Enlace ficticio para la demo, cambiar por archivo real -->
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el reproductor.
+                        </audio>
+                    </div>
                 </div>
-                <div class="food-card">
-                    <div style="font-size: 2.5rem;">🫐</div>
-                    <h4>Arándanos y Fresas</h4>
-                    <p style="font-size: 0.85rem; font-weight: 600;">Repletos de vitamina C y antioxidantes.</p>
-                </div>
-                <div class="food-card">
-                    <div style="font-size: 2.5rem;">🥝</div>
-                    <h4>Kiwis y Naranjas</h4>
-                    <p style="font-size: 0.85rem; font-weight: 600;">Combaten los radicales libres generados por el estrés.</p>
-                </div>
-                <div class="food-card">
-                    <div style="font-size: 2.5rem;">🥥</div>
-                    <h4>Fermentados (Yogur)</h4>
-                    <p style="font-size: 0.85rem; font-weight: 600;">Probióticos que mejoran el intestino y minimizan la ansiedad.</p>
-                </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- Herramienta 4: Mindfulness -->
-        <div id="mindfulness" class="content-box lavender-shadow fade-in">
-            <h2>📱 Herramienta 4: Mindfulness y Yoga</h2>
-            <p style="font-weight: 600; margin-bottom: 15px;">El Mindfulness es prestar atención al presente sin juzgar. Evita adelantarse al futuro (ansiedad) o estancarse en el pasado (tristeza). Te recomendamos usar la tecnología como aliada:</p>
-            <ul style="margin-left: 20px; font-weight: 600; color: #444;">
-                <li><strong>Insight Timer:</strong> Más de 120 meditaciones gratuitas en español.</li>
-                <li><strong>Intimind:</strong> Creada por expertos (meditaciones de solo 10 min).</li>
-                <li><strong>Pacífica:</strong> Ideal para seguir tu estado de ánimo diario.</li>
-            </ul>
-        </div>
+            <!-- Herramienta 3: Nutrición -->
+            <section id="nutricion" class="content-box green-shadow fade-in" aria-labelledby="nutricion-heading">
+                <h2 id="nutricion-heading">🫐 Herramienta 3: Nutrición para bajar el Cortisol</h2>
+                <p style="font-weight: 600;">Evita aliviar el estrés con azúcares o exceso de cafeína, ya que disparan la ansiedad. En su lugar, incluye estos alimentos antiinflamatorios:</p>
 
-        <!-- Pilar: Apoyo Social -->
-        <div id="apoyo" class="content-box earth-shadow fade-in">
-            <h2>🤝 Pilar Fundamental: Apoyo Social</h2>
-            <p style="font-weight: 600; margin-bottom: 15px;">Aislarse es muy común, pero el apoyo social es el protector más fuerte de tu salud mental.</p>
-            <ul style="margin-left: 20px; font-weight: 600; color: #444; line-height: 1.8;">
-                <li><strong>Habla de tus sentimientos:</strong> Confía en un amigo o familiar. Si no tienes a nadie, busca un profesional.</li>
-                <li><strong>Reconecta:</strong> Vuelve a actividades que disfrutabas (reuniones, iglesia, comunidad).</li>
-                <li><strong>Grupos de apoyo:</strong> Conocer a otros que pasan por lo mismo brinda comprensión libre de juicios.</li>
-                <li><strong>Aprende a decir "NO":</strong> Establece límites claros si tienes demasiadas tareas.</li>
-            </ul>
-        </div>
+                <div class="grid-list">
+                    <article class="food-card">
+                        <div style="font-size: 2.5rem;" aria-hidden="true">🐟</div>
+                        <h3>Salmón</h3>
+                        <p style="font-size: 0.85rem; font-weight: 600;">Rico en omega-3, reduce la inflamación y tiene efecto antidepresivo.</p>
+                    </article>
+                    <article class="food-card">
+                        <div style="font-size: 2.5rem;" aria-hidden="true">🫐</div>
+                        <h3>Arándanos y Fresas</h3>
+                        <p style="font-size: 0.85rem; font-weight: 600;">Repletos de vitamina C y antioxidantes.</p>
+                    </article>
+                    <article class="food-card">
+                        <div style="font-size: 2.5rem;" aria-hidden="true">🥝</div>
+                        <h3>Kiwis y Naranjas</h3>
+                        <p style="font-size: 0.85rem; font-weight: 600;">Combaten los radicales libres generados por el estrés.</p>
+                    </article>
+                    <article class="food-card">
+                        <div style="font-size: 2.5rem;" aria-hidden="true">🥥</div>
+                        <h3>Fermentados (Yogur)</h3>
+                        <p style="font-size: 0.85rem; font-weight: 600;">Probióticos que mejoran el intestino y minimizan la ansiedad.</p>
+                    </article>
+                </div>
+            </section>
 
-        <!-- Checklist Interactiva -->
-        <div class="content-box fade-in" style="background: var(--pc-calm-green);">
-            <h2>📋 Tu Plan de Acción Diario</h2>
-            <p style="font-weight: 600; margin-bottom: 15px; color: #444;">¿Qué estrategias usarás hoy? Marca al menos 3 casillas para tomar el control de tu bienestar:</p>
-            
-            <div class="checklist-container" id="stress-checklist">
-                <label class="check-item"><input type="checkbox" onchange="checkProgress()"><span class="checkmark"></span><span class="check-text">Realizar un ejercicio de respiración (ej. 4-7-8).</span></label>
-                <label class="check-item"><input type="checkbox" onchange="checkProgress()"><span class="checkmark"></span><span class="check-text">Hablar con un amigo, familiar o terapeuta.</span></label>
-                <label class="check-item"><input type="checkbox" onchange="checkProgress()"><span class="checkmark"></span><span class="check-text">Salir a caminar, hacer yoga o nadar 30 minutos.</span></label>
-                <label class="check-item"><input type="checkbox" onchange="checkProgress()"><span class="checkmark"></span><span class="check-text">Practicar la Relajación Muscular de Jacobson.</span></label>
-                <label class="check-item"><input type="checkbox" onchange="checkProgress()"><span class="checkmark"></span><span class="check-text">Dedicar tiempo a un pasatiempo que disfruto.</span></label>
-                <label class="check-item"><input type="checkbox" onchange="checkProgress()"><span class="checkmark"></span><span class="check-text">Escribir lo que siento en un diario.</span></label>
-                <label class="check-item"><input type="checkbox" onchange="checkProgress()"><span class="checkmark"></span><span class="check-text">Comer una porción de alimentos que reducen cortisol.</span></label>
-                <label class="check-item"><input type="checkbox" onchange="checkProgress()"><span class="checkmark"></span><span class="check-text">Reemplazar un pensamiento negativo por uno positivo.</span></label>
-            </div>
-        </div>
+            <!-- Herramienta 4: Mindfulness -->
+            <section id="mindfulness" class="content-box lavender-shadow fade-in" aria-labelledby="mindfulness-heading">
+                <h2 id="mindfulness-heading">📱 Herramienta 4: Mindfulness y Yoga</h2>
+                <p style="font-weight: 600; margin-bottom: 15px;">El Mindfulness es prestar atención al presente sin juzgar. Evita adelantarse al futuro (ansiedad) o estancarse en el pasado (tristeza). Te recomendamos usar la tecnología como aliada:</p>
+                <ul style="margin-left: 20px; font-weight: 600; color: #444;">
+                    <li><strong>Insight Timer:</strong> Más de 120 meditaciones gratuitas en español.</li>
+                    <li><strong>Intimind:</strong> Creada por expertos (meditaciones de solo 10 min).</li>
+                    <li><strong>Pacífica:</strong> Ideal para seguir tu estado de ánimo diario.</li>
+                </ul>
+            </section>
+
+            <!-- Pilar: Apoyo Social -->
+            <section id="apoyo" class="content-box earth-shadow fade-in" aria-labelledby="apoyo-heading">
+                <h2 id="apoyo-heading">🤝 Pilar Fundamental: Apoyo Social</h2>
+                <p style="font-weight: 600; margin-bottom: 15px;">Aislarse es muy común, pero el apoyo social es el protector más fuerte de tu salud mental.</p>
+                <ul style="margin-left: 20px; font-weight: 600; color: #444; line-height: 1.8;">
+                    <li><strong>Habla de tus sentimientos:</strong> Confía en un amigo o familiar. Si no tienes a nadie, busca un profesional.</li>
+                    <li><strong>Reconecta:</strong> Vuelve a actividades que disfrutabas (reuniones, iglesia, comunidad).</li>
+                    <li><strong>Grupos de apoyo:</strong> Conocer a otros que pasan por lo mismo brinda comprensión libre de juicios.</li>
+                    <li><strong>Aprende a decir "NO":</strong> Establece límites claros si tienes demasiadas tareas.</li>
+                </ul>
+            </section>
+
+            <!-- Checklist Interactiva -->
+            <section class="content-box fade-in" style="background: var(--pc-calm-green);" aria-labelledby="checklist-heading">
+                <h2 id="checklist-heading">📋 Tu Plan de Acción Diario</h2>
+                <p style="font-weight: 600; margin-bottom: 15px; color: #444;">¿Qué estrategias usarás hoy? Marca al menos 3 casillas para tomar el control de tu bienestar:</p>
+                
+                <div class="checklist-container" id="stress-checklist" role="group" aria-labelledby="checklist-heading">
+                    <label class="check-item"><input type="checkbox" onchange="checkProgress()" aria-label="Realizar un ejercicio de respiración (ej. 4-7-8)"><span class="checkmark"></span><span class="check-text">Realizar un ejercicio de respiración (ej. 4-7-8).</span></label>
+                    <label class="check-item"><input type="checkbox" onchange="checkProgress()" aria-label="Hablar con un amigo, familiar o terapeuta"><span class="checkmark"></span><span class="check-text">Hablar con un amigo, familiar o terapeuta.</span></label>
+                    <label class="check-item"><input type="checkbox" onchange="checkProgress()" aria-label="Salir a caminar, hacer yoga o nadar 30 minutos"><span class="checkmark"></span><span class="check-text">Salir a caminar, hacer yoga o nadar 30 minutos.</span></label>
+                    <label class="check-item"><input type="checkbox" onchange="checkProgress()" aria-label="Practicar la Relajación Muscular de Jacobson"><span class="checkmark"></span><span class="check-text">Practicar la Relajación Muscular de Jacobson.</span></label>
+                    <label class="check-item"><input type="checkbox" onchange="checkProgress()" aria-label="Dedicar tiempo a un pasatiempo que disfruto"><span class="checkmark"></span><span class="check-text">Dedicar tiempo a un pasatiempo que disfruto.</span></label>
+                    <label class="check-item"><input type="checkbox" onchange="checkProgress()" aria-label="Escribir lo que siento en un diario"><span class="checkmark"></span><span class="check-text">Escribir lo que siento en un diario.</span></label>
+                    <label class="check-item"><input type="checkbox" onchange="checkProgress()" aria-label="Comer una porción de alimentos que reducen cortisol"><span class="checkmark"></span><span class="check-text">Comer una porción de alimentos que reducen cortisol.</span></label>
+                    <label class="check-item"><input type="checkbox" onchange="checkProgress()" aria-label="Reemplazar un pensamiento negativo por uno positivo"><span class="checkmark"></span><span class="check-text">Reemplazar un pensamiento negativo por uno positivo.</span></label>
+                </div>
+            </section>
+        </main>
 
         <!-- Navegación Inferior -->
-        <div class="top-nav fade-in">
+        <div class="top-nav fade-in" role="navigation" aria-label="Navegación inferior entre páginas">
             <a href="saludmental/depresion.html" class="btn-nav">⬅️ Volver a Diagnóstico</a>
             <a href="saludmental/funcionamiento-diario.html" class="btn-nav" style="background: var(--pc-dark-blue); color: white;">Siguiente: Rutina ➡️</a>
         </div>

@@ -308,7 +308,7 @@
 
 <body>
     <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+        <nav id="navbar-container" class="main-nav" role="navigation"></nav>
         <header class="header">
             <h1 class="hand-drawn">Orientación Médica Gratuita <span>💬</span></h1>
             <p
@@ -317,7 +317,7 @@
             <p style="font-weight:600; font-size:1.1rem; margin-top: 15px;">Resuelve dudas rápidas, conoce a qué
                 especialista acudir o recibe información preventiva sin salir de casa.</p>
         </header>
-        <div class="content-box">
+        <section class="content-box">
             <h2 class="hand-drawn">¿Cómo funciona?</h2>
             <p>A veces solo necesitas que un profesional te escuche y te indique qué paso debes tomar. A través de este
                 servicio <strong>100% virtual gratuito</strong>, nuestro equipo médico evalúa tus síntomas iniciales
@@ -332,7 +332,7 @@
                         width="476" height="476" style="border:none;overflow:hidden; width: 100%; height: 100%;" scrolling="no"
                         frameborder="0" allowfullscreen="true"
                         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                        allowFullScreen="true"></iframe>
+                        allowFullScreen="true" title="Video explicativo del programa de orientación médica"></iframe>
                 </div>
             </div>
 
@@ -359,7 +359,7 @@
                 <li><span>✅</span> Asesoría en control de peso y educación en salud sexual (ITS).</li>
             </ul>
 
-            <div class="warning-box">
+            <div class="warning-box" role="note">
                 <h3 class="hand-drawn" style="color:#e65100; font-size: 1.5rem; margin-bottom: 10px;">Límites de la
                     Orientación Gratuita</h3>
                 <p>🚫 <strong>NO se emiten Recetas Médicas, NO hay orientación presencial gratis.</strong><br>
@@ -374,46 +374,46 @@
             </div>
 
             <!-- NUEVO: SELECCIÓN DE PROFESIONAL PARA ORIENTACIÓN -->
-            <div class="fade-in" style="margin-bottom: 40px; margin-top: 30px;">
+            <section class="fade-in" style="margin-bottom: 40px; margin-top: 30px;">
                 <h3 class="hand-drawn" style="text-align: center; color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 20px;">¿Con quién te gustaría orientarte? 👨‍⚕️👩‍⚕️</h3>
                 <p style="text-align: center; font-size: 1.1rem; font-weight: 600; margin-bottom: 25px;">Selecciona al profesional con el perfil ideal para resolver tus dudas de forma rápida y sin costo:</p>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
                     <!-- Dr Donato -->
-                    <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 6px 6px 0 var(--pc-azul-suave); display: flex; flex-direction: column;">
+                    <article style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 6px 6px 0 var(--pc-azul-suave); display: flex; flex-direction: column;">
                         <a href="dr-donato.html" style="display: inline-block; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                            <img src="https://i.ibb.co/gbWytScw/cuadrado-foto-carlos.jpg" alt="Dr. Donato" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--pc-negro); margin-bottom: 10px; object-fit: cover; margin-left: auto; margin-right: auto;">
+                            <img src="https://i.ibb.co/gbWytScw/cuadrado-foto-carlos.jpg" alt="Dr. Donato" loading="lazy" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--pc-negro); margin-bottom: 10px; object-fit: cover; margin-left: auto; margin-right: auto;">
                         </a>
                         <h4 style="font-family: 'Handlee', cursive; font-size: 1.4rem; color: var(--pc-negro);">Dr. Carlos Donato</h4>
                         <p style="font-weight: 800; font-size: 0.9rem; color: #118AB2; margin-bottom: 10px;">Director Médico</p>
                         <a href="dr-donato.html" style="font-size: 0.85rem; font-weight: 800; color: #118AB2; text-decoration: underline; margin-bottom: 10px; display: inline-block;">Ver perfil completo ➔</a>
                         <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Dudas sobre tratamientos, interpretación de laboratorios y síntomas generales.</p>
                         <button onclick="setOrientacionProf('Dr. Donato')" class="btn" style="padding: 10px 20px; font-size: 1rem; width: 100%; margin-top: auto;">Orientarme con Dr. Donato</button>
-                    </div>
+                    </article>
 
                     <!-- Dra Daniela -->
-                    <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 6px 6px 0 #fce4ec; display: flex; flex-direction: column;">
+                    <article style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 6px 6px 0 #fce4ec; display: flex; flex-direction: column;">
                         <a href="dra-daniela.html" style="display: inline-block; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                            <img src="https://i.ibb.co/Rp9ZpYJ3/dra-daniela-huerta-vertical.png" alt="Dra. Daniela" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--pc-negro); margin-bottom: 10px; object-fit: cover; object-position: top; margin-left: auto; margin-right: auto;">
+                            <img src="https://i.ibb.co/Rp9ZpYJ3/dra-daniela-huerta-vertical.png" alt="Dra. Daniela" loading="lazy" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--pc-negro); margin-bottom: 10px; object-fit: cover; object-position: top; margin-left: auto; margin-right: auto;">
                         </a>
                         <h4 style="font-family: 'Handlee', cursive; font-size: 1.4rem; color: var(--pc-negro);">Dra. Daniela Huerta</h4>
                         <p style="font-weight: 800; font-size: 0.9rem; color: #d81b60; margin-bottom: 10px;">Coord. Telemedicina</p>
                         <a href="dra-daniela.html" style="font-size: 0.85rem; font-weight: 800; color: #d81b60; text-decoration: underline; margin-bottom: 10px; display: inline-block;">Ver perfil completo ➔</a>
                         <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Dudas de primer contacto, bienestar femenino, alfabetización en salud y prevención.</p>
                         <button onclick="setOrientacionProf('Dra. Daniela')" class="btn" style="padding: 10px 20px; font-size: 1rem; width: 100%; background: #d81b60; margin-top: auto;">Orientarme con Dra. Daniela</button>
-                    </div>
+                    </article>
 
                     <!-- Sara -->
-                    <div style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 6px 6px 0 #e0f7fa; display: flex; flex-direction: column;">
+                    <article style="background: white; border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; text-align: center; box-shadow: 6px 6px 0 #e0f7fa; display: flex; flex-direction: column;">
                         <a href="perfil-sara.html" style="display: inline-block; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                            <img src="https://i.ibb.co/LdP2JJLM/sara-podologa-cuadrada.png" alt="Sara de la Rosa" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--pc-negro); margin-bottom: 10px; object-fit: cover; margin-left: auto; margin-right: auto;">
+                            <img src="https://i.ibb.co/LdP2JJLM/sara-podologa-cuadrada.png" alt="Sara de la Rosa" loading="lazy" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--pc-negro); margin-bottom: 10px; object-fit: cover; margin-left: auto; margin-right: auto;">
                         </a>
                         <h4 style="font-family: 'Handlee', cursive; font-size: 1.4rem; color: var(--pc-negro);">Sara de la Rosa</h4>
                         <p style="font-weight: 800; font-size: 0.9rem; color: #00bcd4; margin-bottom: 10px;">Trabajo Social / Podología</p>
                         <a href="perfil-sara.html" style="font-size: 0.85rem; font-weight: 800; color: #00bcd4; text-decoration: underline; margin-bottom: 10px; display: inline-block;">Ver perfil completo ➔</a>
                         <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Dudas sobre uñas encarnadas, pie diabético, hongos o cómo tramitar apoyos sociales.</p>
                         <button onclick="setOrientacionProf('Podóloga/TS Sara')" class="btn" style="padding: 10px 20px; font-size: 1rem; width: 100%; background: #00bcd4; margin-top: auto;">Orientarme con Sara</button>
-                    </div>
+                    </article>
                 </div>
             </div>
 
@@ -434,7 +434,7 @@
                 </a>
             </div>
 
-        </div>
+        </section>
     </div>
 
     <!-- MODAL DE ORIENTACIÓN -->

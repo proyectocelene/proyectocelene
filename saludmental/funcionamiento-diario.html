@@ -93,7 +93,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <main class="container" role="main" aria-label="Guía de funcionamiento diario">
         <div id="navbar-container" class="main-nav no-print"></div>
 
         <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
@@ -103,14 +103,14 @@
         </div>
         
         <!-- Navegación Superior -->
-        <div class="top-nav fade-in">
-            <a href="saludmental/reduccion-estres.html" class="btn-nav">⬅️ Volver a Reducir Estrés</a>
-            <a href="saludmental/tratamientos-psicologicos.html" class="btn-nav" style="background: var(--pc-naranja-vivo); color: white;">Siguiente: Terapias ➡️</a>
-        </div>
+        <nav class="top-nav fade-in" role="navigation" aria-label="Navegación entre secciones">
+            <a href="saludmental/reduccion-estres.html" class="btn-nav" aria-label="Volver a la sección de reducción de estrés">⬅️ Volver a Reducir Estrés</a>
+            <a href="saludmental/tratamientos-psicologicos.html" class="btn-nav" style="background: var(--pc-naranja-vivo); color: white;" aria-label="Ir a la siguiente sección: Terapias psicológicas">Siguiente: Terapias ➡️</a>
+        </nav>
 
         <!-- Cabecera -->
-        <header class="header fade-in">
-            <div style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-negro)); margin-bottom: 10px;">🏃‍♀️</div>
+        <header class="header fade-in" role="banner" aria-label="Encabezado de la guía de funcionamiento diario">
+            <div style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-negro)); margin-bottom: 10px;" aria-hidden="true">🏃‍♀️</div>
             <span class="author-badge">🧠 Intervenciones Psicosociales | Proyecto Celene</span>
             <h1 class="hand-drawn">Paso 2.3: Retoma tu vida y tu funcionamiento diario</h1>
             <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: #444;">Descubre cómo retomar tu rutina y actividades placenteras para enviar mensajes positivos a tu cerebro.</p>
@@ -130,8 +130,8 @@
             <h2>🟢 El Pilar Básico: Tus Hábitos Diarios</h2>
             <p style="font-weight: 600; margin-bottom: 20px;">Antes de planificar grandes metas, debemos asegurar los cimientos de tu salud. Intenta mantener estos tres hábitos, aunque al principio te cueste esfuerzo:</p>
 
-            <div class="habit-card">
-                <div class="habit-icon">🛌</div>
+            <article class="habit-card" role="article" aria-label="Hábito: Higiene del Sueño">
+                <div class="habit-icon" aria-hidden="true">🛌</div>
                 <div class="habit-text">
                     <h3>1. Higiene del Sueño</h3>
                     <p>Las alteraciones del sueño son muy comunes. Para combatirlas:</p>
@@ -141,18 +141,18 @@
                         <li><strong>Cuidado con dormir de más:</strong> Evita dormir más de 9 horas diarias; el exceso aumenta la fatiga.</li>
                     </ul>
                 </div>
-            </div>
+            </article>
 
-            <div class="habit-card">
-                <div class="habit-icon">🥗</div>
+            <article class="habit-card" role="article" aria-label="Hábito: Alimentación Regular">
+                <div class="habit-icon" aria-hidden="true">🥗</div>
                 <div class="habit-text">
                     <h3>2. Alimentación Regular</h3>
                     <p>La depresión puede hacer que pierdas el apetito o comas por impulso. Es vital que intentes <strong>comer a horas regulares</strong>. Una nutrición equilibrada ayuda a tu cerebro a recuperar las sustancias que necesita para sentirse bien.</p>
                 </div>
-            </div>
+            </article>
 
-            <div class="habit-card">
-                <div class="habit-icon">👟</div>
+            <article class="habit-card" role="article" aria-label="Hábito: Actividad Física">
+                <div class="habit-icon" aria-hidden="true">👟</div>
                 <div class="habit-text">
                     <h3>3. Actividad Física (Antidepresivo Natural)</h3>
                     <p>El ejercicio libera endorfinas, que actúan como antidepresivos naturales.</p>
@@ -161,7 +161,7 @@
                         <li><strong>El mejor momento:</strong> Por la mañana o a primera hora de la tarde. Evita hacerlo justo antes de dormir.</li>
                     </ul>
                 </div>
-            </div>
+            </article>
         </div>
 
         <!-- Herramienta Clave: Activación Conductual -->
@@ -192,34 +192,34 @@
             <h2>🎯 Tu Checklist Diario</h2>
             <p style="font-weight: 600; margin-bottom: 15px; color: #444;">¿Qué has logrado hoy? Marca las casillas. ¡Cada pequeño paso cuenta en tu recuperación!</p>
             
-            <div class="checklist-container">
-                <label class="check-item">
-                    <input type="checkbox" onchange="triggerCelebration(this)">
+            <div class="checklist-container" role="list" aria-label="Checklist diario de actividades">
+                <label class="check-item" role="listitem">
+                    <input type="checkbox" onchange="triggerCelebration(this)" aria-label="Me he levantado de la cama a mi hora habitual">
                     <span class="checkmark"></span>
                     <span class="check-text">Me he levantado de la cama a mi hora habitual.</span>
                 </label>
-                <label class="check-item">
-                    <input type="checkbox" onchange="triggerCelebration(this)">
+                <label class="check-item" role="listitem">
+                    <input type="checkbox" onchange="triggerCelebration(this)" aria-label="He desayunado o comido de forma saludable">
                     <span class="checkmark"></span>
                     <span class="check-text">He desayunado/comido de forma saludable.</span>
                 </label>
-                <label class="check-item">
-                    <input type="checkbox" onchange="triggerCelebration(this)">
+                <label class="check-item" role="listitem">
+                    <input type="checkbox" onchange="triggerCelebration(this)" aria-label="He realizado al menos 15-30 minutos de actividad física">
                     <span class="checkmark"></span>
                     <span class="check-text">He realizado al menos 15-30 minutos de actividad física (ej. un paseo).</span>
                 </label>
-                <label class="check-item">
-                    <input type="checkbox" onchange="triggerCelebration(this)">
+                <label class="check-item" role="listitem">
+                    <input type="checkbox" onchange="triggerCelebration(this)" aria-label="He hecho una actividad que antes me resultaba placentera">
                     <span class="checkmark"></span>
                     <span class="check-text">He hecho una actividad que antes me resultaba placentera.</span>
                 </label>
-                <label class="check-item">
-                    <input type="checkbox" onchange="triggerCelebration(this)">
+                <label class="check-item" role="listitem">
+                    <input type="checkbox" onchange="triggerCelebration(this)" aria-label="He hablado o me he reunido con un amigo o familiar">
                     <span class="checkmark"></span>
                     <span class="check-text">He hablado o me he reunido con un amigo o familiar.</span>
                 </label>
-                <label class="check-item">
-                    <input type="checkbox" onchange="triggerCelebration(this)">
+                <label class="check-item" role="listitem">
+                    <input type="checkbox" onchange="triggerCelebration(this)" aria-label="He evitado consumir alcohol o drogas para manejar mi tristeza">
                     <span class="checkmark"></span>
                     <span class="check-text">He evitado consumir alcohol o drogas para manejar mi tristeza.</span>
                 </label>
@@ -232,12 +232,12 @@
         </div>
 
         <!-- Navegación Inferior -->
-        <div class="top-nav fade-in">
-            <a href="saludmental/reduccion-estres.html" class="btn-nav">⬅️ Volver a Reducir Estrés</a>
-            <a href="saludmental/tratamientos-psicologicos.html" class="btn-nav" style="background: var(--pc-naranja-vivo); color: white;">Siguiente: Terapias ➡️</a>
-        </div>
+        <nav class="top-nav fade-in" role="navigation" aria-label="Navegación inferior entre secciones">
+            <a href="saludmental/reduccion-estres.html" class="btn-nav" aria-label="Volver a la sección de reducción de estrés">⬅️ Volver a Reducir Estrés</a>
+            <a href="saludmental/tratamientos-psicologicos.html" class="btn-nav" style="background: var(--pc-naranja-vivo); color: white;" aria-label="Ir a la siguiente sección: Terapias psicológicas">Siguiente: Terapias ➡️</a>
+        </nav>
 
-    </div>
+    </main>
 
     <!-- Toast Message Element -->
     <div id="celebration-msg">¡Excelente paso! 🎉 Sigue así.</div>

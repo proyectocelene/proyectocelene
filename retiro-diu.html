@@ -311,7 +311,7 @@
 <body>
 
     <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+        <nav id="navbar-container" class="main-nav" aria-label="Navegación principal"></nav>
 
         <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
             <a href="recursos-educativos.html" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px;">
@@ -327,12 +327,13 @@
                 entorno. <span>💝</span></p>
         </header>
 
-        <div style="background: white; border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 25px; margin-bottom: 40px; font-size: 1.15rem; font-weight: 600; text-align: center;"
-            class="fade-in">
-            ¡Hola! 👋 Entendemos perfectamente que los procedimientos ginecológicos pueden causar nervios. Por eso
-            preparamos esta guía súper transparente. Aquí <strong>tú tienes el control</strong> en cada paso de tu
-            visita a Proyecto Celene.
-        </div>
+        <main>
+            <div style="background: white; border: 4px dashed var(--pc-negro); border-radius: 20px; padding: 25px; margin-bottom: 40px; font-size: 1.15rem; font-weight: 600; text-align: center;"
+                class="fade-in">
+                ¡Hola! 👋 Entendemos perfectamente que los procedimientos ginecológicos pueden causar nervios. Por eso
+                preparamos esta guía súper transparente. Aquí <strong>tú tienes el control</strong> en cada paso de tu
+                visita a Proyecto Celene.
+            </div>
 
         <!-- FASE 1 -->
         <div class="phase-card fade-in">
@@ -460,7 +461,7 @@
                             <span style="font-size: 1.1rem;">💵 <strong>Efectivo en Consultorio</strong></span><br>
                             <small style="color: #666; font-size: 0.9rem;">Sin comisión: $450.00 MN</small>
                         </div>
-                        <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                        <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" rel="noopener" class="btn-direction" onclick="event.stopPropagation()"><span aria-hidden="true">📍</span> Ver Mapa</a>
                     </label>
                 </div>
                 
@@ -499,7 +500,7 @@
                     <p style="font-size: 1.1rem; font-weight:bold; margin-bottom: 15px; color: var(--pc-rosa-fuerte); text-align: center;">Total a pagar en línea: $473.83 MN</p>
                     <div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal" value="473.83" readonly><button type="button" onclick="copyToClipboard('mpTotal', this)"><span>📋</span> Copiar</button></div>
                     <p style="color: #e65100; font-size: 0.9rem; font-weight: 800; margin-bottom: 15px; text-align: center;">⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>
-                    <a href="https://mpago.la/1rySRcU" target="_blank" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 12px; font-size: 1.1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); text-decoration: none; font-weight: 800;">Pagar en Mercado Pago ➔</a>
+                    <a href="https://mpago.la/1rySRcU" target="_blank" rel="noopener" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 12px; font-size: 1.1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); text-decoration: none; font-weight: 800;">Pagar en Mercado Pago <span aria-hidden="true">➔</span></a>
                     <ul class="step-list">
                         <li>Realiza el pago en el enlace (guarda captura de pantalla).</li>
                         <li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li>
@@ -586,10 +587,11 @@
                 <a href="servicios.html" class="btn btn-back">Volver a Servicios <span>📋</span></a>
             </div>
         </div>
+    </main>
 
     </div>
 
-    <script src="js/global.js"></script>
+    <script src="js/global.js" defer></script>
 </body>
 
 </html>

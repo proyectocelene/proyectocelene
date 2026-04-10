@@ -141,27 +141,29 @@
     <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
-    <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+    <div class="container" role="main">
+        <nav id="navbar-container" class="main-nav" role="navigation" aria-label="Navegación principal"></nav>
 
-        <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
+        <nav style="margin-bottom: 15px; text-align: left;" class="fade-in" aria-label="Navegación secundaria">
             <a href="recursos-educativos.html" class="btn" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; width: auto;">
-                ⬅️ Volver a Recursos Educativos
+                <span aria-hidden="true">⬅️</span> Volver a Recursos Educativos
             </a>
-        </div>
+        </nav>
 
         <header class="header fade-in">
-            <div style="text-align: center; margin-bottom: 15px;"><span style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-rosa-fuerte));">📝</span></div>
+            <div style="text-align: center; margin-bottom: 15px;" role="img" aria-label="Icono de cuestionario">
+                <span style="font-size: 4.5rem; filter: drop-shadow(4px 4px 0px var(--pc-rosa-fuerte));" aria-hidden="true">📝</span>
+            </div>
             <h1 class="hand-drawn">Cuestionario de Salud Sexual Integral</h1>
-            <div style="background: var(--pc-blanco); border: 3px dashed var(--pc-rosa-fuerte); padding: 15px; border-radius: 15px; margin: 15px auto; max-width: 700px; box-shadow: 4px 4px 0 var(--pc-rosa-pastell);">
-                <p style="font-weight: 900; font-size: 1.2rem; color: var(--pc-rosa-fuerte); margin-bottom: 5px;">🎁 ¡Tienes derecho a Atención Médica Gratuita!</p>
+            <div role="note" aria-label="Información importante" style="background: var(--pc-blanco); border: 3px dashed var(--pc-rosa-fuerte); padding: 15px; border-radius: 15px; margin: 15px auto; max-width: 700px; box-shadow: 4px 4px 0 var(--pc-rosa-pastell);">
+                <p style="font-weight: 900; font-size: 1.2rem; color: var(--pc-rosa-fuerte); margin-bottom: 5px;"><span aria-hidden="true">🎁</span> ¡Tienes derecho a Atención Médica Gratuita!</p>
                 <p style="font-weight: 600; font-size: 1.05rem; color: var(--pc-negro);">Contesta este cuestionario para evaluar tu bienestar integral y recibe <strong>orientación médica profesional personalizada</strong> sin costo alguno.</p>
             </div>
             <p style="font-weight:800; font-size:1.1rem; max-width: 700px; margin: 0 auto; color: #444;">No te juzgaremos, toda tu información es 100% confidencial. Este es un espacio seguro para cuidar de tu salud física y emocional.</p>
         </header>
 
             <!-- SECCIÓN 1 -->
-            <div class="quiz-box fade-in">
+            <section class="quiz-box fade-in">
                 <div class="section-header-flex">
                     <div class="icon-anim float-anim">📚</div>
                     <h3>SECCIÓN 1: Perfil y Educación</h3>
@@ -236,10 +238,10 @@
                         <label class="pill-label" style="background: var(--pc-gris-suave);"><input type="checkbox" name="q5b" value="No consumo"> No consumo</label>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 2 -->
-            <div class="quiz-box fade-in">
+            <section class="quiz-box fade-in">
                 <div class="section-header-flex">
                     <div class="icon-anim wiggle-anim">🔍</div>
                     <h3>SECCIÓN 2: Anatomía y Salud Reproductiva</h3>
@@ -336,10 +338,10 @@
                     </div>
                     <div id="fb_q_derechos" style="display:none;"></div>
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 3 -->
-            <div class="quiz-box fade-in">
+            <section class="quiz-box fade-in">
                 <div class="section-header-flex">
                     <div class="icon-anim heartbeat-anim">🧠</div>
                     <h3>SECCIÓN 3: Bienestar y Salud Psicológica</h3>
@@ -429,10 +431,10 @@
                     </div>
                     <div id="fb_q_toxic6" style="display:none;"></div>
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 4 -->
-            <div class="quiz-box fade-in">
+            <section class="quiz-box fade-in">
                 <div class="section-header-flex">
                     <div class="icon-anim pulse-anim">🛡️</div>
                     <h3>SECCIÓN 4: Prácticas y Prevención</h3>
@@ -499,10 +501,10 @@
                     <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q14').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
                     <input type="text" id="comment_q14" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 5 NUEVA: HISTORIAL ITS -->
-            <div class="quiz-box fade-in">
+            <section class="quiz-box fade-in">
                 <div class="section-header-flex">
                     <div class="icon-anim float-anim">🔬</div>
                     <h3>SECCIÓN 5: Historial de Chequeos (ITS)</h3>
@@ -532,10 +534,10 @@
                     <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q16').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
                     <input type="text" id="comment_q16" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIONES 6 y 7 -->
-            <div class="quiz-box fade-in">
+            <section class="quiz-box fade-in">
                 <div class="section-header-flex">
                     <div class="icon-anim wiggle-anim">📱</div>
                     <h3>SECCIÓN 6 y 7: Consentimiento y Privacidad</h3>
@@ -586,10 +588,10 @@
                         <label class="pill-label"><input type="radio" name="q_toxic4" value="C: No"> No, me excita el placer mutuo y el respeto</label>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 8 -->
-            <div class="quiz-box fade-in">
+            <section class="quiz-box fade-in">
                 <div class="section-header-flex">
                     <div class="icon-anim pulse-anim">🚨</div>
                     <h3>SECCIÓN 8: Signos Físicos de Alerta</h3>
@@ -620,10 +622,10 @@
                     <div style="text-align: right;"><button type="button" class="add-comment-btn" onclick="document.getElementById('comment_q20').style.display='block'; this.style.display='none';">+ Agregar comentario / Otro</button></div>
                     <input type="text" id="comment_q20" class="form-control comment-input" placeholder="Especifica o agrega un comentario...">
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 9 -->
-            <div class="quiz-box fade-in">
+            <section class="quiz-box fade-in">
                 <div class="section-header-flex">
                     <div class="icon-anim float-anim">🌡️</div>
                     <h3>SECCIÓN 9: Empatía, Consentimiento y Placer</h3>
@@ -693,35 +695,35 @@
                 <div class="slider-group slider-row">
                     <div style="flex: 1;">
                         <label>Autodeterminación (Libertad de elegir sin presión): <span id="val_pm1">5</span></label>
-                        <input type="range" id="pm1" class="slider" min="1" max="10" value="5" oninput="updateFace('pm1', this.value)">
+                        <input type="range" id="pm1" class="slider" min="1" max="10" value="5" oninput="updateFace('pm1', this.value)" title="Autodeterminación (Libertad de elegir sin presión)">
                     </div>
                     <div id="face_pm1" class="face-emoji">😐</div>
                 </div>
                 <div class="slider-group slider-row">
                     <div style="flex: 1;">
                         <label>Comunicación (Expresar qué te gusta y qué no): <span id="val_pm2">5</span></label>
-                        <input type="range" id="pm2" class="slider" min="1" max="10" value="5" oninput="updateFace('pm2', this.value)">
+                        <input type="range" id="pm2" class="slider" min="1" max="10" value="5" oninput="updateFace('pm2', this.value)" title="Comunicación (Expresar qué te gusta y qué no)">
                     </div>
                     <div id="face_pm2" class="face-emoji">😐</div>
                 </div>
                 <div class="slider-group slider-row">
                     <div style="flex: 1;">
                         <label>Seguridad (Protección frente a ITS/Embarazo/Violencia): <span id="val_pm3">5</span></label>
-                        <input type="range" id="pm3" class="slider" min="1" max="10" value="5" oninput="updateFace('pm3', this.value)">
+                        <input type="range" id="pm3" class="slider" min="1" max="10" value="5" oninput="updateFace('pm3', this.value)" title="Seguridad (Protección frente a ITS/Embarazo/Violencia)">
                     </div>
                     <div id="face_pm3" class="face-emoji">😐</div>
                 </div>
                 <div class="slider-group slider-row">
                     <div style="flex: 1;">
                         <label>Satisfacción (Bienestar físico y emocional): <span id="val_pm4">5</span></label>
-                        <input type="range" id="pm4" class="slider" min="1" max="10" value="5" oninput="updateFace('pm4', this.value)">
+                        <input type="range" id="pm4" class="slider" min="1" max="10" value="5" oninput="updateFace('pm4', this.value)" title="Satisfacción (Bienestar físico y emocional)">
                     </div>
                     <div id="face_pm4" class="face-emoji">😐</div>
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 10 NUEVA: EL VIOLENTÓMETRO -->
-            <div class="quiz-box fade-in">
+            <section class="quiz-box fade-in">
                 <div class="section-header-flex">
                     <div class="icon-anim pulse-anim">📏</div>
                     <h3>SECCIÓN 10: El Violentómetro Detallado (Opcional)</h3>
@@ -788,10 +790,10 @@
                     <label class="v-item v-red"><input type="checkbox" name="v30" value="30" onchange="updateThermometer()"> 30. ASESINAR (Homicidio/Feminicidio)</label>
                 </div>
                 </div>
-            </div>
+            </section>
 
             <!-- SECCIÓN 11 -->
-            <div class="quiz-box fade-in" style="background: var(--pc-amarillo);">
+            <section class="quiz-box fade-in" style="background: var(--pc-amarillo);">
                 <div class="section-header-flex">
                     <div class="icon-anim heartbeat-anim">🩺</div>
                     <h3 style="color: var(--pc-negro);">SECCIÓN 11: Consejería Confidencial</h3>

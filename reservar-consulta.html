@@ -329,7 +329,7 @@
 
 <body>
     <div class="container">
-        <div id="navbar-container" class="main-nav"></div>
+        <nav id="navbar-container" class="main-nav" role="navigation"></nav>
 
         <header class="header fade-in">
             <h1 class="hand-drawn">Reserva tu Consulta <span>📅</span></h1>
@@ -338,24 +338,24 @@
         </header>
 
         <!-- NAVEGACIÓN RÁPIDA (TABS) -->
-        <div class="tabs-wrapper fade-in">
+        <nav class="tabs-wrapper fade-in" role="navigation">
             <a href="reservar-consulta.html" class="tab-btn active">🗓️ Agendar Aquí</a>
             <a href="consulta-general.html" class="tab-btn">🩺 Detalles de Consulta</a>
             <a href="servicios.html" class="tab-btn">📋 Todos los Servicios</a>
             <a href="dr-donato.html" class="tab-btn">👨‍⚕️ Perfil Dr. Donato</a>
-        </div>
+        </nav>
 
         <!-- GOOGLE CALENDAR IFRAME -->
-        <div class="calendar-wrapper fade-in">
+        <section class="calendar-wrapper fade-in">
             <!-- Google Calendar Appointment Scheduling begin -->
             <iframe
                 src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true"
-                style="border: 0" width="100%" height="650" frameborder="0"></iframe>
+                style="border: 0" width="100%" height="650" frameborder="0" title="Calendario de citas del Dr. Donato - Proyecto Celene" loading="lazy"></iframe>
             <!-- end Google Calendar Appointment Scheduling -->
-        </div>
+        </section>
 
         <!-- OPCIONES DE PAGO -->
-        <div class="payment-section fade-in">
+        <section class="payment-section fade-in">
             <h2 class="hand-drawn">Cuota y Opciones de Pago</h2>
             <p style="text-align: center; font-size: 1.1rem; font-weight: 600; margin-bottom: 25px; color: #555;">La
                 cuota de recuperación de la Consulta General es de <strong
@@ -375,7 +375,7 @@
                             <span style="font-size: 1.1rem;">💵 <strong>Efectivo en Consultorio</strong></span><br>
                             <small style="color: #666; font-size: 0.9rem;">Sin comisión: $150.00 MN</small>
                         </div>
-                        <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction"
+                        <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" rel="noopener" class="btn-direction"
                             onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
                     </label>
                 </div>
@@ -441,7 +441,7 @@
                     <p
                         style="color: #e65100; font-size: 0.9rem; font-weight: 800; margin-bottom: 15px; text-align: center;">
                         ⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>
-                    <a href="https://mpago.la/2RrwWdd" target="_blank"
+                    <a href="https://mpago.la/2RrwWdd" target="_blank" rel="noopener"
                         style="display: block; text-align: center; border-radius: 10px; padding: 12px; font-size: 1.1rem; width: 100%; border: 3px solid var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro); background: var(--pc-azul-suave); color: var(--pc-negro); text-decoration: none; font-weight: 800; margin-bottom: 15px;">Pagar
                         en Mercado Pago ➔</a>
                     <ul class="step-list">
@@ -453,7 +453,7 @@
                         Comprobante <span>💬</span></button>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
     <script>
