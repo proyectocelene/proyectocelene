@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (navbarContainer) {
         navbarContainer.innerHTML = `
             <a href="index.html">Inicio</a>
+            <a href="carrera.html" style="background: #ff2a85; border-color: #333333; color: white;">🏃‍♀️ Gran Carrera</a>
             <a href="quienes-somos.html">Nosotros</a>
             <a href="modulos1.html">Módulos</a>
             <a href="consultorio-comunitario.html">Consultorio</a>

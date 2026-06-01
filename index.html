@@ -721,6 +721,49 @@
             border-color: var(--pc-rosa-fuerte);
         }
 
+        /* BANNER DE LA GRAN CARRERA CON CAUSA */
+        .race-banner {
+            display: block;
+            background: var(--pc-rosa-fuerte);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            border: 4px solid var(--pc-negro);
+            box-shadow: 6px 6px 0px var(--pc-negro);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .race-banner:hover {
+            transform: translateY(-4px);
+            box-shadow: 10px 10px 0px var(--pc-amarillo);
+            color: white;
+        }
+
+        .race-banner-content {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .race-badge {
+            background: var(--pc-amarillo);
+            color: var(--pc-negro);
+            padding: 4px 12px;
+            font-weight: 900;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            border: 2px solid var(--pc-negro);
+            display: inline-block;
+            transform: rotate(-3deg);
+            box-shadow: 2px 2px 0 var(--pc-negro);
+        }
+
     </style>
     <link rel="stylesheet" href="css/global.css">
 </head>
@@ -730,6 +773,12 @@
     <div class="container">
 
         <nav id="navbar-container" class="main-nav" role="navigation"></nav>
+
+        <!-- BANNER DE LA GRAN CARRERA CON CAUSA -->
+        <a href="carrera.html" class="race-banner fade-in">
+            <span class="race-badge">¡PRÓXIMO GRAN EVENTO! 🏃‍♀️</span>
+            <span class="race-banner-content">13va. Gran Carrera con Causa - 17 de Octubre, 2026. ¡Inscríbete aquí! 🎗️</span>
+        </a>
 
         <!-- ================= SECCIÓN 1: BANNER PRINCIPAL ================= -->
         <header class="hero-section fade-in">
@@ -860,7 +909,7 @@
             <div
                 style="background: var(--pc-amarillo); border: 3px dashed var(--pc-negro); padding: 20px; border-radius: 15px; max-width: 800px; margin: 0 auto 30px; text-align: center; font-size: 1.15rem;">
                 <p><strong><span>🏥</span> ¿Prefieres venir directamente?</strong><br>
-                    Puedes acudir <strong>SIN CITA</strong> de Lunes a Domingo de 9:00 am a 4:00 pm.<br>
+                    Puedes acudir <strong>SIN CITA</strong> de Lunes a Sábado de 9:00 am a 4:00 pm.<br>
                     <small style="color: #555;">(Se atiende conforme van llegando por lista de espera).</small>
                 </p>
             </div>
@@ -973,8 +1022,8 @@
 
                     <p><span class="icon"><span>📍</span></span> <span>Calle Gral. Guadalupe Victoria, Col. Lienzo
                             Charro, Rosarito, B.C.<br><small>(Frente al restaurante Ortegas, detrás del restaurante El Roble)</small></span></p>
-                    <p><span class="icon"><span>⏰</span></span> <span><strong>Horario:</strong> Lunes a Domingo de 9:00
-                            AM a 5:00 PM.</span></p>
+                    <p><span class="icon"><span>⏰</span></span> <span><strong>Horario:</strong> Lunes a Sábado de 9:00
+                            AM a 4:00 PM.</span></p>
 
                     <p style="font-size: 0.95rem; line-height: 1.5; margin-top: 20px; font-weight: 600;">
                         <span>💬</span> Si te interesa platicarnos de tu caso, mándanos un WhatsApp al 661 104 4050 o
