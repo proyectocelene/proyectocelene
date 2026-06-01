@@ -17,7 +17,8 @@
     <meta property="og:title" content="13va. Gran Carrera con Causa - Proyecto Celene">
     <meta property="og:description"
         content="Únete a la 13va. Gran Carrera con Causa en Rosarito. Corre por amor a ellas, apoya en la detección oportuna del cáncer de mama. 17 de Octubre, 2026.">
-    <meta property="og:image" content="https://i.ibb.co/Y4pcSz5k/snoopy-18-an.png">
+    <meta property="og:image" content="https://i.ibb.co/q3tRY4DJ/carrera-13.png">
+    <meta property="twitter:image" content="https://i.ibb.co/q3tRY4DJ/carrera-13.png">
 
     <!-- Fuentes Deportivas y Modernas -->
     <link
@@ -1264,7 +1265,7 @@
             </div>
 
             <div class="hero-image-container">
-                <img src="imagenes/runner_pink_ribbon.png" alt="Corredora Proyecto Celene" class="hero-graphic">
+                <img src="https://i.ibb.co/q3tRY4DJ/carrera-13.png" alt="Corredora Proyecto Celene" class="hero-graphic">
             </div>
         </header>
 
@@ -1772,6 +1773,10 @@
                             <input type="number" id="part_age_${i}" class="form-input" placeholder="Ej. 34" min="3" max="99" required>
                         </div>
                         <div class="form-group">
+                            <label for="part_phone_${i}">Teléfono:</label>
+                            <input type="tel" id="part_phone_${i}" class="form-input" placeholder="Ej. 661 123 4567" required>
+                        </div>
+                        <div class="form-group">
                             <label for="part_modality_${i}">Modalidad:</label>
                             <select id="part_modality_${i}" class="form-select">
                                 <option value="Caminata 5K">Caminata 5K (Recreativa)</option>
@@ -1884,24 +1889,37 @@
         function processRegistration() {
             const count = parseInt(document.getElementById('num_participants').value);
             let runnerDetailsText = "";
+            let participantsData = [];
             
             // Recopilar información de cada participante
             for (let i = 1; i <= count; i++) {
                 const name = document.getElementById(`part_name_${i}`).value.trim();
                 const age = document.getElementById(`part_age_${i}`).value.trim();
+                const phone = document.getElementById(`part_phone_${i}`).value.trim();
                 const modality = document.getElementById(`part_modality_${i}`).value;
 
-                if (!name || !age) {
-                    alert(`Por favor llena el nombre y edad de la persona #${i}`);
+                if (!name || !age || !phone) {
+                    alert(`Por favor llena el nombre, edad y teléfono de la persona #${i}`);
                     return;
                 }
                 
                 const shirtCheck = document.getElementById(`part_shirt_check_${i}`);
                 const shirtSize = document.getElementById(`part_shirt_size_${i}`).value;
 
+                // Recopilar datos estructurados para la Base de Datos (Google Sheets)
+                participantsData.push({
+                    nombre: name,
+                    edad: age,
+                    telefono: phone,
+                    modalidad: modality,
+                    camisa_extra: (shirtCheck && shirtCheck.checked) ? "SÍ" : "NO",
+                    talla_camisa: (shirtCheck && shirtCheck.checked) ? shirtSize : "N/A"
+                });
+
                 runnerDetailsText += `🏃‍♀️ *Participante #${i}:*\n`;
                 runnerDetailsText += `• Nombre: ${name}\n`;
                 runnerDetailsText += `• Edad: ${age} años\n`;
+                runnerDetailsText += `• Teléfono: ${phone}\n`;
                 runnerDetailsText += `• Modalidad: ${modality}\n`;
                 if (shirtCheck && shirtCheck.checked) {
                     runnerDetailsText += `• 👕 Camiseta Extra: SÍ (Talla: ${shirtSize})\n`;
@@ -1948,7 +1966,37 @@
             const encodedText = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
 
-            window.open(whatsappUrl, '_blank');
+            // --- LÓGICA DE GUARDADO EN BASE DE DATOS (GOOGLE SHEETS) ---
+            const payload = {
+                metodoPago: paymentMethodText,
+                totalPago: total.toFixed(2),
+                participants: participantsData
+            };
+
+            const submitBtn = document.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = "Guardando Registro... ⏳";
+            submitBtn.disabled = true;
+
+            // REEMPLAZA ESTE ENLACE POR LA URL DE TU APLICACIÓN WEB DE GOOGLE:
+            const scriptURL = "https://script.google.com/macros/s/AKfycbxerpHfz9eNM3upzMq8Kz5uSxrm2R1fxGbECEoDB9QErJhedaRDIWp7Uewa8l2kxr5u/exec"; 
+
+            fetch(scriptURL, {
+                method: "POST",
+                body: JSON.stringify(payload),
+                headers: { "Content-Type": "text/plain;charset=utf-8" } // text/plain evita bloqueos de seguridad del navegador (CORS)
+            })
+            .then(response => {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                window.open(whatsappUrl, '_blank'); // Abre WhatsApp cuando la base de datos confirma el guardado
+            })
+            .catch(error => {
+                console.error("Error guardando en BD:", error);
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                window.open(whatsappUrl, '_blank'); // Abre WA como "Plan B" por si el internet de la persona falla
+            });
         }
     </script>
     
