@@ -17,8 +17,12 @@
     <meta property="og:title" content="13va. Gran Carrera con Causa - Proyecto Celene">
     <meta property="og:description"
         content="Únete a la 13va. Gran Carrera con Causa en Rosarito. Corre por amor a ellas, apoya en la detección oportuna del cáncer de mama. 17 de Octubre, 2026.">
-    <meta property="og:image" content="https://i.ibb.co/q3tRY4DJ/carrera-13.png">
-    <meta property="twitter:image" content="https://i.ibb.co/q3tRY4DJ/carrera-13.png">
+    <meta property="og:image" content="https://i.ibb.co/q3tRY4DJ/carrera-13.png?v=3">
+    <meta property="og:image:secure_url" content="https://i.ibb.co/q3tRY4DJ/carrera-13.png?v=3">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="twitter:image" content="https://i.ibb.co/q3tRY4DJ/carrera-13.png?v=3">
 
     <!-- Fuentes Deportivas y Modernas -->
     <link
@@ -48,8 +52,10 @@
             padding: 0;
         }
 
-        html {
+        html, body {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100%;
         }
 
         body {
@@ -58,7 +64,6 @@
             color: var(--carrera-negro);
             line-height: 1.6;
             padding-bottom: 50px;
-            overflow-x: hidden;
         }
 
         .container {
@@ -382,9 +387,15 @@
         /* TARJETAS LOGÍSTICAS */
         .logistics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 900px) {
+            .logistics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .logistic-card {
@@ -909,13 +920,9 @@
             gap: 15px;
         }
 
-        @media (min-width: 600px) {
-            .participant-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .participant-grid-full {
-                grid-column: span 2;
-            }
+        .participant-grid-full {
+            grid-column: 1 / -1;
+        }
 
         .shirt-addon-box {
             grid-column: 1 / -1; 
@@ -925,6 +932,14 @@
             border-radius: 12px; 
             margin-top: 10px;
         }
+
+        @media (min-width: 600px) {
+            .participant-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .participant-grid-full {
+                grid-column: span 2;
+            }
         }
 
         /* MÉTODOS DE PAGO WIDGET */
@@ -1087,6 +1102,133 @@
 
         .btn-heartbeat:hover {
             animation-play-state: paused;
+        }
+
+        /* ================= MOBILE OPTIMIZATIONS ================= */
+        @media (max-width: 600px) {
+            .hero-section {
+                padding: 35px 20px;
+                border-radius: 30px;
+                gap: 25px;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .hero-text h2 {
+                font-size: 1.4rem;
+            }
+            .hero-graphic {
+                max-width: 250px;
+            }
+            .countdown-box {
+                min-width: 65px;
+                padding: 8px 10px;
+            }
+            .countdown-num {
+                font-size: 1.6rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .logistics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .logistic-card {
+                padding: 15px 10px;
+            }
+            .logistic-card .card-icon {
+                font-size: 2rem;
+                margin-bottom: 5px;
+            }
+            .logistic-card h3 {
+                font-size: 0.85rem;
+                margin-bottom: 5px;
+            }
+            .logistic-card p {
+                font-size: 1.1rem;
+            }
+            .logistic-card .sub-detail {
+                font-size: 0.75rem;
+            }
+            .routes-section {
+                padding: 30px 15px;
+                border-radius: 20px;
+            }
+            .routes-tabs {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .tab-btn {
+                width: 100%;
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
+            .kit-card {
+                padding: 25px 15px;
+            }
+            .kit-card h4 {
+                font-size: 1.6rem;
+            }
+            .motivation-container {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+            .motivation-container h3 {
+                font-size: 1.8rem;
+            }
+            .registration-section {
+                padding: 30px 15px;
+                border-radius: 20px;
+            }
+            .form-header h3 {
+                font-size: 1.8rem;
+            }
+            .participant-card {
+                padding: 20px 15px;
+            }
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+            .total-box {
+                padding: 20px 15px;
+            }
+            .total-amount {
+                font-size: 2.2rem;
+            }
+            .btn-sports-primary, .btn-sports-secondary, .btn-love {
+                width: 100%;
+                font-size: 1.05rem;
+                padding: 14px 15px;
+            }
+            .marquee-content {
+                font-size: 1.1rem;
+            }
+            .main-footer .footer-brand {
+                font-size: 1.6rem;
+            }
+            .bank-details-box {
+                padding: 12px;
+            }
+            .detail-value {
+                font-size: 0.95rem;
+                word-break: break-all;
+            }
+            .btn-map {
+                font-size: 0.75rem;
+                padding: 4px 8px;
+            }
+            .shirt-addon-box {
+                padding: 15px 10px;
+            }
+            .shirt-addon-box label {
+                align-items: flex-start !important;
+                font-size: 0.95rem !important;
+            }
+            .shirt-addon-box input[type="checkbox"] {
+                margin-top: 4px;
+                flex-shrink: 0;
+            }
         }
 
         /* SECCIÓN PATROCINADORES */
@@ -1261,6 +1403,7 @@
                 <div class="hero-buttons">
                     <a href="#registro-carrera" class="btn-sports-primary">Registrarme Ahora <span>🏃‍♀️</span></a>
                     <a href="#rutas-carrera" class="btn-sports-secondary">Ver Rutas <span>🗺️</span></a>
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=13va.+Gran+Carrera+Celene&dates=20261017T070000/20261017T110000&ctz=America/Tijuana&details=Participa+en+la+13va+Gran+Carrera+con+Causa+de+Proyecto+Celene.+Registro+6:00+AM,+Salida+7:00+AM.&location=Pabellon+Rosarito" target="_blank" rel="noopener" class="btn-sports-secondary" style="background: white; border-color: var(--carrera-negro);">Agendar 🗓️</a>
                 </div>
             </div>
 
