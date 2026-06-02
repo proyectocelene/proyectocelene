@@ -1,0 +1,112 @@
+{
+  "metformina": {
+    "nombre": "Metformina",
+    "funcion": "Control de los niveles de azúcar (glucosa) en la sangre. Se utiliza principalmente en pacientes con diabetes tipo 2.",
+    "efectos_adversos": [
+      "Náuseas y vómitos",
+      "Diarrea o dolor de estómago",
+      "Pérdida de apetito",
+      "Sabor metálico en la boca"
+    ],
+    "interacciones": [
+      "Alcohol (incrementa significativamente el riesgo de acidosis láctica)",
+      "Medios de contraste yodados (usados en radiografías, pueden afectar la función renal)",
+      "Diuréticos (pueden alterar los niveles de azúcar y la función del riñón)"
+    ],
+    "recomendaciones": "Tómala con los alimentos (desayuno y/o cena) para reducir las molestias estomacales. Evita el consumo excesivo de alcohol durante el tratamiento."
+  },
+  "losartan": {
+    "nombre": "Losartán",
+    "funcion": "Tratamiento de la presión arterial alta (hipertensión) y protección de los riñones en pacientes diabéticos.",
+    "efectos_adversos": [
+      "Mareos o sensación de inestabilidad",
+      "Fatiga y cansancio",
+      "Nivel elevado de potasio en sangre",
+      "Congestión nasal o tos seca"
+    ],
+    "interacciones": [
+      "Suplementos de potasio o sustitutos de sal que contengan potasio (pueden elevar demasiado el potasio en sangre)",
+      "Antiinflamatorios como Ibuprofeno o Naproxeno (pueden reducir el efecto del Losartán y dañar los riñones)",
+      "Otros medicamentos para la presión alta (pueden causar presión excesivamente baja)"
+    ],
+    "recomendaciones": "Tómalo a la misma hora todos los días. Evita levantarte rápido de la cama o de una silla para prevenir mareos por bajas de presión."
+  },
+  "paracetamol": {
+    "nombre": "Paracetamol",
+    "funcion": "Alivio del dolor leve a moderado (cabeza, muscular, dental) y reducción de la fiebre.",
+    "efectos_adversos": [
+      "Poco comunes a dosis recomendadas",
+      "Erupción cutánea leve (raro)",
+      "Daño al hígado si se excede la dosis máxima indicada"
+    ],
+    "interacciones": [
+      "Alcohol (aumenta el riesgo de toxicidad y daño grave en el hígado)",
+      "Otros antigripales o analgésicos que contengan paracetamol (riesgo de sobredosis accidental)",
+      "Anticoagulantes como la Warfarina (el uso prolongado de paracetamol puede aumentar su efecto)"
+    ],
+    "recomendaciones": "No excedas nunca la dosis máxima de 4 gramos al día (4000 mg) en adultos. Deja pasar al menos 4 a 6 horas entre cada toma."
+  },
+  "ibuprofeno": {
+    "nombre": "Ibuprofeno",
+    "funcion": "Alivio del dolor, la inflamación y la fiebre (medicamento antiinflamatorio no esteroideo - AINE).",
+    "efectos_adversos": [
+      "Acidez estomacal, indigestión o náuseas",
+      "Dolor abdominal o flatulencias",
+      "Riesgo de úlceras o sangrado en el estómago con uso prolongado",
+      "Retención de líquidos o dolor de cabeza"
+    ],
+    "interacciones": [
+      "Anticoagulantes (aumenta el riesgo de sangrado estomacal)",
+      "Antihipertensivos como Losartán (disminuye su efecto para bajar la presión)",
+      "Otros AINEs como Aspirina, Naproxeno o Ketorolaco (multiplica el riesgo de daño gástrico)"
+    ],
+    "recomendaciones": "Tómalo siempre acompañado de leche o alimentos para proteger la mucosa del estómago. No lo uses por periodos prolongados sin indicación médica."
+  },
+  "amoxicilina": {
+    "nombre": "Amoxicilina",
+    "funcion": "Tratamiento de infecciones bacterianas en garganta, oído, vías urinarias y piel (antibiótico).",
+    "efectos_adversos": [
+      "Diarrea leve o heces blandas",
+      "Náuseas",
+      "Erupción en la piel o picazón",
+      "Infecciones por hongos (candidiasis vaginal u oral) por alteración de la flora"
+    ],
+    "interacciones": [
+      "Anticonceptivos orales (puede reducir levemente su efectividad)",
+      "Alopurinol (aumenta el riesgo de reacciones alérgicas en la piel)",
+      "Anticoagulantes (puede potenciar el riesgo de sangrado)"
+    ],
+    "recomendaciones": "Completa el tratamiento por los días exactos indicados por tu médico, incluso si te sientes mejor antes. Esto evita que las bacterias se vuelvan resistentes."
+  },
+  "omeprazol": {
+    "nombre": "Omeprazol",
+    "funcion": "Protección del estómago. Reduce la producción de ácido gástrico para tratar reflujo, gastritis y úlceras.",
+    "efectos_adversos": [
+      "Dolor de cabeza",
+      "Diarrea, estreñimiento o gases",
+      "Náuseas o mareos"
+    ],
+    "interacciones": [
+      "Clopidogrel (puede reducir la eficacia de este anticoagulante)",
+      "Ketoconazol e Itraconazol (reduce la absorción de estos antimicóticos)",
+      "Suplementos de Hierro y Vitamina B12 (el uso crónico reduce su absorción)"
+    ],
+    "recomendaciones": "Tómalo preferentemente por la mañana en ayunas, unos 30 minutos antes de consumir tu primer alimento."
+  },
+  "atorvastatina": {
+    "nombre": "Atorvastatina",
+    "funcion": "Reducción de los niveles de colesterol malo (LDL) y triglicéridos en sangre, previniendo infartos.",
+    "efectos_adversos": [
+      "Dolor o debilidad en los músculos",
+      "Dolor de cabeza o dificultad para dormir",
+      "Estreñimiento o indigestión leve",
+      "Elevación leve de las enzimas del hígado"
+    ],
+    "interacciones": [
+      "Jugo de toronja (aumenta de forma peligrosa la cantidad de medicamento en el cuerpo)",
+      "Otros medicamentos para el colesterol como el Gemfibrozilo (aumenta el riesgo de problemas musculares)",
+      "Ciertos antibióticos como la Eritromicina"
+    ],
+    "recomendaciones": "Evita consumir jugo de toronja mientras tomes este medicamento. Si sientes dolor, sensibilidad o debilidad muscular inexplicable, avisa a tu médico de inmediato."
+  }
+}

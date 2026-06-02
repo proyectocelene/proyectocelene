@@ -1,0 +1,22 @@
+{
+  "name": "Verificación de Recetas - Proyecto Celene",
+  "short_name": "Verificación Celene",
+  "description": "Verificación offline de recetas médicas de Proyecto Celene con base de datos de medicamentos e historial local.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fce4ec",
+  "theme_color": "#d81b60",
+  "icons": [
+    {
+      "src": "https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
