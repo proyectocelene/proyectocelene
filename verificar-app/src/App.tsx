@@ -3,7 +3,7 @@ import { verifyJWT, decodeJWT } from './jwt';
 import { getMedicamentoInfo } from './db';
 import type { MedicamentoInfo } from './db';
 
-// Llave pública RSA generada por el script de utilería
+// Llave pública RSA-2048 para verificación de firma
 const PUBLIC_KEY_PEM = `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtgqnXpZaAnQipb2xvDWL
 LZKhw+lyKDJmikpEWGJK212d6VpaVeu1C5aXzordKdT+IUYl/oYkRHvN71vReYk7
@@ -14,24 +14,29 @@ yNy6Vq4yBKghd4O7rTPKq1MZM+FQwGkMOz8Jd29Jgka+3+cUoTxAytDxJPFYdDXo
 fQIDAQAB
 -----END PUBLIC KEY-----`;
 
+interface MedicationItem {
+  nombre: string;
+  via_administracion: string;
+  frecuencia_horas: number;
+  duracion_dias: number;
+  indicaciones_extra: string;
+}
+
 interface PrescriptionPayload {
-  sub: string;
-  patient: string;
-  med: string;
-  dose: string;
-  freq: string;
-  dur: string;
-  doc: string;
-  iat: number;
-  exp: number;
+  doctor_id: number;
+  doctor_nombre: string;
+  doctor_cedula: string;
+  doctor_universidad: string;
+  fecha: string; // Formato YYYY-MM-DD HH:MM:SS
+  medicamentos: MedicationItem[];
+  exp?: number;
 }
 
 interface SavedPrescription {
   token: string;
-  patient: string;
-  med: string;
-  dose: string;
-  freq: string;
+  doctor_nombre: string;
+  medicamentos_summary: string;
+  fecha_emision: string;
   verifiedAt: number;
 }
 
@@ -40,7 +45,7 @@ export default function App() {
   const [isValid, setIsValid] = useState<boolean | null>(null);
   const [errorType, setErrorType] = useState<'none' | 'invalid_signature' | 'expired' | 'no_token'>('no_token');
   const [prescription, setPrescription] = useState<PrescriptionPayload | null>(null);
-  const [drugInfo, setDrugInfo] = useState<MedicamentoInfo | null>(null);
+  const [resolvedDrugs, setResolvedDrugs] = useState<{ [key: string]: MedicamentoInfo | null }>({});
   
   // Historial y Notificaciones
   const [history, setHistory] = useState<SavedPrescription[]>([]);
@@ -65,12 +70,11 @@ export default function App() {
         setIsValid(null);
         setErrorType('no_token');
         setPrescription(null);
-        setDrugInfo(null);
+        setResolvedDrugs({});
       }
     };
 
     window.addEventListener('popstate', handleUrlChange);
-    // Ejecución inicial
     handleUrlChange();
 
     return () => {
@@ -108,19 +112,18 @@ export default function App() {
       }
     }
     
-    // Evitar duplicados indexando por firma / token completo
     if (current.some(item => item.token === tok)) return;
 
+    const summary = payload.medicamentos.map(m => m.nombre).join(', ');
     const newItem: SavedPrescription = {
       token: tok,
-      patient: payload.patient,
-      med: payload.med,
-      dose: payload.dose,
-      freq: payload.freq,
+      doctor_nombre: payload.doctor_nombre,
+      medicamentos_summary: summary.length > 50 ? summary.substring(0, 47) + '...' : summary,
+      fecha_emision: payload.fecha,
       verifiedAt: Date.now()
     };
 
-    const updated = [newItem, ...current].slice(0, 10); // Límite de 10 recetas en historial
+    const updated = [newItem, ...current].slice(0, 10);
     localStorage.setItem('celene_recetas_historial', JSON.stringify(updated));
     setHistory(updated);
   };
@@ -136,7 +139,7 @@ export default function App() {
       setIsValid(false);
       setErrorType('invalid_signature');
       setPrescription(null);
-      setDrugInfo(null);
+      setResolvedDrugs({});
       setLoading(false);
       return;
     }
@@ -147,7 +150,7 @@ export default function App() {
       setIsValid(false);
       setErrorType('invalid_signature');
       setPrescription(null);
-      setDrugInfo(null);
+      setResolvedDrugs({});
       setLoading(false);
       return;
     }
@@ -155,26 +158,48 @@ export default function App() {
     setPrescription(decoded);
 
     // 3. Verificar expiración
-    const nowSeconds = Math.floor(Date.now() / 1000);
-    if (decoded.exp && nowSeconds > decoded.exp) {
-      setIsValid(true); // La firma sigue siendo válida estructuralmente
+    // Calculado a partir de fecha_emision + duración máxima de días de los medicamentos indicados
+    let isExpired = false;
+    try {
+      const issueDate = new Date(decoded.fecha.replace(' ', 'T'));
+      if (!isNaN(issueDate.getTime())) {
+        const maxDurationDays = Math.max(...decoded.medicamentos.map(m => m.duracion_dias || 30));
+        const expTimestamp = issueDate.getTime() + maxDurationDays * 24 * 60 * 60 * 1000;
+        if (Date.now() > expTimestamp) {
+          isExpired = true;
+        }
+      }
+    } catch (err) {
+      console.error("Error al calcular la expiración de la receta:", err);
+    }
+
+    if (isExpired) {
+      setIsValid(true);
       setErrorType('expired');
     } else {
       setIsValid(true);
       setErrorType('none');
-      // Guardar en el historial solo si es una receta válida y vigente
       saveToHistory(rawToken, decoded);
     }
 
-    // 4. Buscar detalles del medicamento en la base de datos estática
-    const info = await getMedicamentoInfo(decoded.med);
-    setDrugInfo(info);
+    // 4. Buscar detalles de CADA medicamento de la receta en paralelo en la BD
+    const drugMap: { [key: string]: MedicamentoInfo | null } = {};
+    try {
+      await Promise.all(
+        decoded.medicamentos.map(async (m) => {
+          const info = await getMedicamentoInfo(m.nombre);
+          drugMap[m.nombre] = info;
+        })
+      );
+    } catch (e) {
+      console.error("Error al buscar en medicamentos_db:", e);
+    }
+    setResolvedDrugs(drugMap);
     
     setLoading(false);
   };
 
   const selectHistoryItem = (savedToken: string) => {
-    // Cambiar URL de forma amigable y disparar la verificación
     const newUrl = `${window.location.pathname}?t=${savedToken}`;
     window.history.pushState({}, '', newUrl);
     verifyAndLoadRecipe(savedToken);
@@ -185,16 +210,14 @@ export default function App() {
     setIsValid(null);
     setErrorType('no_token');
     setPrescription(null);
-    setDrugInfo(null);
+    setResolvedDrugs({});
   };
 
-  // Solicitar permiso de notificaciones
   const requestNotificationPermission = async () => {
     if (!('Notification' in window)) {
       alert('Tu navegador no soporta notificaciones de escritorio.');
       return;
     }
-    
     try {
       const permission = await Notification.requestPermission();
       setNotifPermission(permission);
@@ -204,8 +227,7 @@ export default function App() {
     }
   };
 
-  // Habilitar/Deshabilitar recordatorios
-  const toggleReminder = async (medicationKey: string) => {
+  const toggleReminder = async (recipeId: string) => {
     let currentPermission = notifPermission;
     if (currentPermission !== 'granted') {
       const res = await requestNotificationPermission();
@@ -215,15 +237,15 @@ export default function App() {
     if (currentPermission === 'granted') {
       const updated = {
         ...remindersEnabled,
-        [medicationKey]: !remindersEnabled[medicationKey]
+        [recipeId]: !remindersEnabled[recipeId]
       };
       setRemindersEnabled(updated);
       localStorage.setItem('celene_recordatorios_activos', JSON.stringify(updated));
       
-      if (updated[medicationKey]) {
-        showStatusMessage("¡Recordatorio Activado! Recibirás avisos para este medicamento.");
+      if (updated[recipeId]) {
+        showStatusMessage("¡Recordatorios Activados! Recibirás avisos para los medicamentos de esta receta.");
       } else {
-        showStatusMessage("Recordatorio Desactivado.");
+        showStatusMessage("Recordatorios Desactivados.");
       }
     } else {
       alert("Es necesario otorgar permisos de notificación para habilitar esta función.");
@@ -237,135 +259,93 @@ export default function App() {
     }, 4000);
   };
 
-  // Disparar una notificación de prueba en 5 segundos
+  // Disparar notificaciones de prueba de todos los medicamentos de la receta, escalonados
   const triggerTestNotification = () => {
     if (notifPermission !== 'granted') {
       alert("Por favor, habilita primero los permisos de notificación.");
       return;
     }
 
-    showStatusMessage("Simulando recordatorio... Recibirás una notificación en 5 segundos.");
+    showStatusMessage("Simulando recordatorios... Recibirás las alertas en 5 segundos.");
     
     setTimeout(() => {
-      if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-        navigator.serviceWorker.ready.then((reg) => {
-          reg.showNotification(`⏰ Recordatorio de Receta - Celene`, {
-            body: `Es hora de tomar tu ${prescription?.med || 'Medicamento'} (${prescription?.dose || 'Dosis'}).\nReceta verificada de ${prescription?.patient}.`,
-            icon: 'https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png',
-            badge: 'https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png',
-            tag: 'receta-test-reminder',
-            vibrate: [200, 100, 200],
-            data: {
-              url: window.location.href
-            }
-          } as any);
-        });
-      } else {
-        // Fallback si no está el service worker activo
-        new Notification(`⏰ Recordatorio de Receta - Celene`, {
-          body: `Es hora de tomar tu ${prescription?.med || 'Medicamento'} (${prescription?.dose || 'Dosis'}).`,
-          icon: 'https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png'
-        });
-      }
+      if (!prescription) return;
+      
+      prescription.medicamentos.forEach((m, index) => {
+        setTimeout(() => {
+          if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+            navigator.serviceWorker.ready.then((reg) => {
+              reg.showNotification(`⏰ Recordatorio: Toma tu ${m.nombre}`, {
+                body: `Vía: ${m.via_administracion} (Cada ${m.frecuencia_horas} horas).\nInstrucciones: ${m.indicaciones_extra}.\nPrescrito por: ${prescription.doctor_nombre}.`,
+                icon: 'https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png',
+                badge: 'https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png',
+                tag: `receta-reminder-${index}`,
+                vibrate: [200, 100, 200]
+              } as any);
+            });
+          } else {
+            new Notification(`⏰ Recordatorio: Toma tu ${m.nombre}`, {
+              body: `Vía: ${m.via_administracion} (Cada ${m.frecuencia_horas} horas).\n${m.indicaciones_extra}`,
+              icon: 'https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png'
+            });
+          }
+        }, index * 1200); // Escalonado 1.2 segundos entre notificaciones
+      });
     }, 5000);
   };
 
-  const formatDate = (timestamp: number) => {
-    if (!timestamp) return '';
-    const date = new Date(timestamp * 1000);
-    return date.toLocaleDateString('es-MX', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    });
-  };
-
-  // Renderizado de iconos hand-drawn
+  // Iconos visuales dibujados a mano
   const SunIcon = () => (
-    <svg className="w-12 h-12 text-yellow-400 animate-float-subtle" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3v1m0 16v1M4.22 4.22l.7.7m12.16 12.16.7.7M1 12h1m20 0h1M4.22 19.78l.7-.7m12.16-12.16.7-.7" />
-      <path d="M12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z" fill="#fff9c4" />
+    <svg className="w-8 h-8 text-yellow-400 animate-float-subtle" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="4" fill="#fff9c4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
     </svg>
   );
 
   const MoonIcon = () => (
-    <svg className="w-10 h-10 text-indigo-400 animate-wave-subtle" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="w-7 h-7 text-indigo-400 animate-wave-subtle" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" fill="#e3f2fd" />
     </svg>
   );
 
-  const PillIcon = () => (
-    <svg className="w-8 h-8 text-pc-rosa-medio inline-block mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
-      <path d="m8.5 8.5 7 7" />
-    </svg>
-  );
-
-  // Lógica para mostrar Sol o Luna según la frecuencia
-  const renderScheduleIcons = (freq: string) => {
-    const normalized = freq.toLowerCase();
-    if (normalized.includes('12 horas') || normalized.includes('2 veces') || normalized.includes('dos veces')) {
+  const renderScheduleIcons = (freqHours: number) => {
+    if (freqHours === 12) {
       return (
-        <div className="flex items-center gap-4 bg-pc-gris-suave p-3 rounded-xl border-2 border-pc-negro border-dashed">
-          <div className="flex flex-col items-center">
-            <SunIcon />
-            <span className="text-xs font-bold mt-1">Mañana</span>
-          </div>
-          <span className="text-xl font-bold">+</span>
-          <div className="flex flex-col items-center">
-            <MoonIcon />
-            <span className="text-xs font-bold mt-1">Noche</span>
-          </div>
-        </div>
-      );
-    }
-    
-    if (normalized.includes('8 horas') || normalized.includes('3 veces') || normalized.includes('tres veces')) {
-      return (
-        <div className="flex items-center gap-3 bg-pc-gris-suave p-3 rounded-xl border-2 border-pc-negro border-dashed">
-          <div className="flex flex-col items-center">
-            <SunIcon />
-            <span className="text-xs font-bold mt-1">Mañana</span>
-          </div>
-          <span className="text-sm font-bold">+</span>
-          <div className="flex flex-col items-center">
-            <div className="w-10 h-10 flex items-center justify-center bg-orange-100 rounded-full border-2 border-pc-negro">
-              <span className="text-lg">☀️</span>
-            </div>
-            <span className="text-xs font-bold mt-2">Tarde</span>
-          </div>
-          <span className="text-sm font-bold">+</span>
-          <div className="flex flex-col items-center">
-            <MoonIcon />
-            <span className="text-xs font-bold mt-1">Noche</span>
-          </div>
-        </div>
-      );
-    }
-
-    if (normalized.includes('noche') || normalized.includes('acostarse')) {
-      return (
-        <div className="flex flex-col items-center bg-pc-gris-suave p-3 rounded-xl border-2 border-pc-negro border-dashed">
+        <div className="flex items-center gap-2 bg-pc-gris-suave p-2 rounded-xl border border-pc-negro border-dashed" title="Tomar en la mañana y en la noche">
+          <SunIcon />
           <MoonIcon />
-          <span className="text-xs font-bold mt-1">Noche</span>
         </div>
       );
     }
-
-    // Por defecto (ej. cada 24 horas mañana)
+    if (freqHours === 8) {
+      return (
+        <div className="flex items-center gap-1.5 bg-pc-gris-suave p-2 rounded-xl border border-pc-negro border-dashed" title="Tomar en la mañana, tarde y noche">
+          <SunIcon />
+          <div className="w-6 h-6 flex items-center justify-center bg-orange-100 rounded-full border border-pc-negro text-xs font-bold" title="Tarde">☀️</div>
+          <MoonIcon />
+        </div>
+      );
+    }
+    if (freqHours === 24) {
+      return (
+        <div className="flex flex-col items-center bg-pc-gris-suave p-2 rounded-xl border border-pc-negro border-dashed" title="Tomar una vez al día">
+          <SunIcon />
+        </div>
+      );
+    }
     return (
-      <div className="flex flex-col items-center bg-pc-gris-suave p-3 rounded-xl border-2 border-pc-negro border-dashed">
-        <SunIcon />
-        <span className="text-xs font-bold mt-1">Cada 24 horas</span>
+      <div className="text-xs bg-pc-gris-suave px-2.5 py-1.5 rounded-lg border border-pc-negro font-black">
+        Cada {freqHours}h
       </div>
     );
   };
 
-  // WhatsApp predefinido
+  // WhatsApp predefinido para consulta con recepción
   const getWhatsAppLink = () => {
     let text = "Hola,%20tengo%20una%20duda%20con%20recepción%20de%20Proyecto%20Celene.";
     if (prescription) {
-      text = `Hola,%20tengo%20una%20duda%20sobre%20la%20receta%20del%20medicamento%20*${encodeURIComponent(prescription.med)}*%20(${encodeURIComponent(prescription.dose)}%20-%20${encodeURIComponent(prescription.freq)})%20indicado%20por%20${encodeURIComponent(prescription.doc)}%20para%20el%20paciente%20${encodeURIComponent(prescription.patient)}.`;
+      const medList = prescription.medicamentos.map(m => `*${m.nombre}* (${m.via_administracion} - cada ${m.frecuencia_horas}h por ${m.duracion_dias} días)`).join(', ');
+      text = `Hola!%20Tengo%20una%20duda%20sobre%20la%20receta%20médica%20emitida%20por%20${encodeURIComponent(prescription.doctor_nombre)}%20el%20${encodeURIComponent(prescription.fecha)}.%20Medicamentos:%20${encodeURIComponent(medList)}.`;
     }
     return `https://wa.me/526611044050?text=${text}`;
   };
@@ -405,7 +385,7 @@ export default function App() {
             Verificación de Recetas
           </h2>
           <p className="text-xs text-gray-500 mt-2 font-bold">
-            Salud y Detección Oportuna del Cáncer de Mama
+            Fundación de Apoyo en la Lucha contra el Cáncer de Mama
           </p>
         </header>
 
@@ -421,13 +401,13 @@ export default function App() {
           <div className="text-center p-12 bg-white border-brutal rounded-hand-drawn-card shadow-brutal mb-8">
             <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-pc-rosa-fuerte mx-auto mb-4"></div>
             <p className="font-hand-drawn text-xl font-bold">Verificando firma digital...</p>
-            <p className="text-xs text-gray-400 mt-1">Consultando Web Crypto API localmente</p>
+            <p className="text-xs text-gray-400 mt-1">Verificación offline con Web Crypto API</p>
           </div>
         ) : isValid === true ? (
-          /* RECETA VERIFICADA (PUEDE ESTAR VIGENTE O EXPIRADA) */
+          /* RECETA VERIFICADA CON ÉXITO */
           <div className="space-y-6">
             
-            {/* CINTILLO / LISTÓN DE AUTENTICIDAD */}
+            {/* Listón de Autenticidad */}
             {errorType === 'expired' ? (
               <div className="bg-yellow-100 text-yellow-800 border-brutal p-4 rounded-xl text-center shadow-brutal animate-wave-subtle">
                 <span className="text-2xl mr-2">⚠️</span>
@@ -435,7 +415,7 @@ export default function App() {
                   Receta Auténtica pero Expirada
                 </span>
                 <p className="text-xs mt-1 text-yellow-900 font-bold">
-                  La firma es auténtica, pero el periodo de validez ha vencido.
+                  La firma es auténtica, pero el periodo de tratamiento ha culminado.
                 </p>
               </div>
             ) : (
@@ -445,89 +425,119 @@ export default function App() {
                   Receta Auténtica Verificada
                 </span>
                 <p className="text-xs mt-1 text-green-950 font-bold">
-                  Documento auténtico firmado digitalmente por Proyecto Celene.
+                  Firma criptográfica válida de Proyecto Celene.
                 </p>
               </div>
             )}
 
-            {/* DETALLES DE LA RECETA */}
+            {/* AVISO DE CONFIDENCIALIDAD / COTEJO VISUAL */}
+            <div className="bg-blue-50 border-2 border-pc-negro border-dashed p-4 rounded-xl text-left shadow-brutal-sm">
+              <h4 className="text-xs font-black text-blue-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                <span>🛡️</span> Cotejo Visual de Identidad
+              </h4>
+              <p className="text-xs font-bold text-blue-950 leading-relaxed">
+                Por motivos de privacidad de datos de salud, el nombre del paciente no se incluye en el código QR. El validador debe contrastar que los medicamentos aquí certificados coincidan con la receta física impresa y la identificación del paciente.
+              </p>
+            </div>
+
+            {/* DETALLES DE LA RECETA Y MÉDICO */}
             {prescription && (
               <div className="bg-white border-brutal rounded-hand-drawn-card p-6 shadow-brutal animate-pop-in space-y-6">
-                <div>
-                  <div className="flex items-center justify-between border-b-2 border-pc-negro pb-2 mb-4">
-                    <span className="text-xs font-bold text-gray-500">ID: {prescription.sub}</span>
-                    <span className="text-xs bg-pc-rosa-pastell text-pc-rosa-oscuro px-2 py-1 rounded font-black border-brutal-thin">
-                      Receta Médica
-                    </span>
-                  </div>
-
-                  <h3 className="font-hand-drawn text-2xl font-bold text-pc-rosa-fuerte flex items-center mb-4">
-                    <PillIcon />
-                    {prescription.med}
-                  </h3>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-semibold">
-                    <div className="space-y-1">
-                      <p className="text-gray-400 text-xs">PACIENTE</p>
-                      <p className="text-pc-negro text-base font-bold">{prescription.patient}</p>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-gray-400 text-xs">MEDICO EMISOR</p>
-                      <p className="text-pc-negro text-base font-bold">{prescription.doc}</p>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-gray-400 text-xs">DOSIS Y FRECUENCIA</p>
-                      <p className="text-pc-negro text-base font-bold">
-                        {prescription.dose} - {prescription.freq}
-                      </p>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-gray-400 text-xs">DURACIÓN</p>
-                      <p className="text-pc-negro text-base font-bold">{prescription.dur}</p>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-gray-400 text-xs">FECHA DE EMISIÓN</p>
-                      <p className="text-pc-negro">{formatDate(prescription.iat)}</p>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-gray-400 text-xs">VIGENCIA HASTA</p>
-                      <p className="text-pc-negro">{formatDate(prescription.exp)}</p>
-                    </div>
+                
+                {/* Datos del Médico */}
+                <div className="border-b-2 border-pc-negro pb-4">
+                  <p className="text-xs font-black text-gray-400 uppercase mb-2">Médico Emisor</p>
+                  <div className="space-y-1">
+                    <h3 className="text-lg font-black text-pc-rosa-fuerte">
+                      {prescription.doctor_nombre}
+                    </h3>
+                    <p className="text-xs font-bold text-gray-700">
+                      Cédula Profesional: <span className="font-black text-pc-negro">{prescription.doctor_cedula}</span>
+                    </p>
+                    <p className="text-xs font-bold text-gray-600">
+                      Universidad: {prescription.doctor_universidad}
+                    </p>
+                    <p className="text-[11px] text-gray-400 font-bold mt-1">
+                      Fecha Emisión: {prescription.fecha}
+                    </p>
                   </div>
                 </div>
 
-                {/* BOTÓN PROGRAMAR RECORDATORIOS (Solo vigente) */}
-                {errorType !== 'expired' && (
-                  <div className="border-t-2 border-pc-negro pt-4 space-y-3">
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-                      <div>
-                        <h4 className="font-bold text-sm">¿Deseas activar recordatorios?</h4>
-                        <p className="text-xs text-gray-500 font-semibold">
-                          Te enviaremos avisos en tu teléfono según la frecuencia.
-                        </p>
+                {/* Lista de Medicamentos */}
+                <div className="space-y-4">
+                  <p className="text-xs font-black text-gray-400 uppercase">Medicamentos Prescritos</p>
+                  
+                  {prescription.medicamentos.map((med, idx) => (
+                    <div key={idx} className="border-2 border-pc-negro p-4 rounded-xl bg-pc-gris-suave space-y-2 relative shadow-brutal-sm">
+                      <div className="flex justify-between items-start">
+                        <h4 className="text-base font-black text-pc-negro flex items-center">
+                          <span className="inline-block w-2.5 h-2.5 bg-pc-rosa-medio rounded-full mr-2"></span>
+                          {med.nombre}
+                        </h4>
+                        <span className="text-[10px] bg-pc-rosa-pastell text-pc-rosa-oscuro px-2 py-0.5 rounded font-black border border-pc-negro">
+                          Medicamento {idx + 1}
+                        </span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        {renderScheduleIcons(prescription.freq)}
-                        <button
-                          onClick={() => toggleReminder(prescription.sub)}
-                          className={`px-4 py-2 text-xs font-black border-brutal-thin rounded-xl btn-brutal-active ${
-                            remindersEnabled[prescription.sub] 
-                              ? 'bg-pc-rosa-medio text-white' 
-                              : 'bg-pc-amarillo text-pc-negro'
-                          }`}
-                        >
-                          {remindersEnabled[prescription.sub] ? '🔔 Activado' : '🔕 Desactivado'}
-                        </button>
+
+                      <div className="grid grid-cols-2 gap-2 text-xs font-bold text-gray-700 pt-1">
+                        <div>
+                          <span className="text-gray-400 text-[10px] block uppercase">Vía de Adm.</span>
+                          {med.via_administracion}
+                        </div>
+                        <div>
+                          <span className="text-gray-400 text-[10px] block uppercase">Duración</span>
+                          {med.duracion_dias} días
+                        </div>
+                        <div className="col-span-2">
+                          <span className="text-gray-400 text-[10px] block uppercase">Frecuencia de Toma</span>
+                          Cada {med.frecuencia_horas} horas
+                        </div>
+                      </div>
+
+                      {med.indicaciones_extra && (
+                        <div className="bg-white border border-pc-negro border-dashed p-2 rounded-lg text-xs font-bold text-pc-negro mt-2">
+                          💡 <span className="text-gray-500">Instrucción:</span> {med.indicaciones_extra}
+                        </div>
+                      )}
+
+                      {/* Iconos de horario indicados para este medicamento */}
+                      <div className="flex justify-end items-center gap-2 pt-2 border-t border-gray-200 mt-2">
+                        <span className="text-[10px] text-gray-400 font-bold">Horarios sugeridos:</span>
+                        {renderScheduleIcons(med.frecuencia_horas)}
                       </div>
                     </div>
+                  ))}
+                </div>
 
-                    {remindersEnabled[prescription.sub] && (
+                {/* BOTÓN PROGRAMAR RECORDATORIOS (Solo si no está expirado) */}
+                {errorType !== 'expired' && (
+                  <div className="border-t-2 border-pc-negro pt-4 space-y-3">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-pc-rosa-pastell/30 p-3 rounded-xl border border-pc-negro">
+                      <div>
+                        <h4 className="font-bold text-sm">¿Deseas activar recordatorios en tu celular?</h4>
+                        <p className="text-xs text-gray-500 font-semibold">
+                          Te enviaremos notificaciones según los horarios prescritos.
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => toggleReminder(String(prescription.doctor_id) + '-' + prescription.fecha)}
+                        className={`px-5 py-2.5 text-xs font-black border-brutal-thin rounded-xl btn-brutal-active shadow-brutal-sm ${
+                          remindersEnabled[String(prescription.doctor_id) + '-' + prescription.fecha] 
+                            ? 'bg-pc-rosa-medio text-white' 
+                            : 'bg-pc-amarillo text-pc-negro'
+                        }`}
+                      >
+                        {remindersEnabled[String(prescription.doctor_id) + '-' + prescription.fecha] ? '🔔 Activado' : '🔕 Desactivado'}
+                      </button>
+                    </div>
+
+                    {remindersEnabled[String(prescription.doctor_id) + '-' + prescription.fecha] && (
                       <div className="flex justify-end pt-1">
                         <button
                           onClick={triggerTestNotification}
                           className="bg-pc-azul-suave hover:bg-blue-100 border-brutal-thin px-3 py-1.5 rounded-lg text-xs font-extrabold text-blue-900 flex items-center gap-1 active:translate-y-[1px] transition-all"
                         >
-                          🧪 Probar Notificación (5 seg)
+                          🧪 Probar Notificaciones Staggered (5 seg)
                         </button>
                       </div>
                     )}
@@ -536,60 +546,61 @@ export default function App() {
               </div>
             )}
 
-            {/* DETALLES DE LA INTERACCIÓN DEL MEDICAMENTO */}
-            {drugInfo ? (
+            {/* DETALLES DE INTERACCIONES Y GUÍA DE SALUD */}
+            {prescription && (
               <div className="bg-white border-brutal rounded-hand-drawn-card p-6 shadow-brutal animate-pop-in space-y-4">
                 <h4 className="font-hand-drawn text-xl font-bold text-pc-rosa-oscuro border-b-2 border-pc-negro pb-2">
-                  Guía de Salud del Medicamento
+                  Guía de Salud del Consultorio
                 </h4>
                 
-                <div>
-                  <h5 className="text-xs font-black text-pc-rosa-fuerte uppercase tracking-wider mb-1">
-                    ¿Cuál es su función?
-                  </h5>
-                  <p className="text-sm font-semibold leading-relaxed text-gray-700">
-                    {drugInfo.funcion}
-                  </p>
+                <div className="space-y-4">
+                  {prescription.medicamentos.map((med, idx) => {
+                    const info = resolvedDrugs[med.nombre];
+                    if (!info) return null;
+                    return (
+                      <div key={idx} className="border border-pc-negro p-4 rounded-xl space-y-3">
+                        <h5 className="font-black text-sm text-pc-rosa-fuerte flex items-center">
+                          <span className="w-2 h-2 bg-pc-rosa-fuerte rounded-full mr-2"></span>
+                          Guía para {info.nombre}
+                        </h5>
+                        
+                        <div className="text-xs space-y-2 font-semibold">
+                          <div>
+                            <span className="text-gray-400 block text-[9px] uppercase font-black">Indicación Médica</span>
+                            <p className="text-gray-700 text-xs">{info.funcion}</p>
+                          </div>
+                          
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                            <div className="bg-red-50/50 p-2 rounded border border-red-200 text-red-900">
+                              <span className="block text-[9px] text-red-700 uppercase font-black mb-0.5">Efectos Secundarios</span>
+                              <ul className="list-disc list-inside space-y-0.5 text-[11px]">
+                                {info.efectos_adversos.map((ef, i) => <li key={i}>{ef}</li>)}
+                              </ul>
+                            </div>
+                            <div className="bg-orange-50/50 p-2 rounded border border-orange-200 text-orange-950">
+                              <span className="block text-[9px] text-orange-700 uppercase font-black mb-0.5">Interacciones Críticas</span>
+                              <ul className="list-disc list-inside space-y-0.5 text-[11px]">
+                                {info.interacciones.map((int, i) => <li key={i}>{int}</li>)}
+                              </ul>
+                            </div>
+                          </div>
+                          
+                          <div className="bg-pc-azul-suave p-2 rounded border border-blue-200 text-blue-950">
+                            <span className="block text-[9px] text-blue-800 uppercase font-black mb-0.5">Consejo del Médico</span>
+                            <p className="text-[11px] leading-relaxed">{info.recomendaciones}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                  
+                  {/* Si ninguno de los medicamentos tiene info estática */}
+                  {Object.values(resolvedDrugs).every(v => v === null) && (
+                    <p className="text-xs text-gray-500 font-bold text-center">
+                      No hay información adicional en la base de datos local para los fármacos recetados.
+                    </p>
+                  )}
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-red-50 border-brutal-thin p-3 rounded-lg">
-                    <h5 className="text-xs font-black text-red-700 uppercase tracking-wider mb-1">
-                      Efectos Adversos
-                    </h5>
-                    <ul className="text-xs font-bold text-red-900 list-disc list-inside space-y-1">
-                      {drugInfo.efectos_adversos.map((ef, idx) => (
-                        <li key={idx}>{ef}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="bg-orange-50 border-brutal-thin p-3 rounded-lg">
-                    <h5 className="text-xs font-black text-orange-700 uppercase tracking-wider mb-1">
-                      Interacciones de Riesgo
-                    </h5>
-                    <ul className="text-xs font-bold text-orange-950 list-disc list-inside space-y-1">
-                      {drugInfo.interacciones.map((int, idx) => (
-                        <li key={idx}>{int}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="bg-pc-azul-suave border-brutal-thin p-3 rounded-lg">
-                  <h5 className="text-xs font-black text-blue-900 uppercase tracking-wider mb-1">
-                    Recomendación del Consultorio
-                  </h5>
-                  <p className="text-xs font-bold text-blue-950 leading-relaxed">
-                    {drugInfo.recomendaciones}
-                  </p>
-                </div>
-              </div>
-            ) : prescription && (
-              <div className="bg-pc-gris-suave border-2 border-dashed border-pc-negro p-4 rounded-xl text-center">
-                <p className="text-xs font-bold text-gray-500">
-                  No se encontró información complementaria de "{prescription.med}" en la base de datos estática del consultorio.
-                </p>
               </div>
             )}
 
@@ -605,7 +616,7 @@ export default function App() {
 
           </div>
         ) : isValid === false ? (
-          /* RECETA CON FIRMA INCORRECTA (ERROR DE FALSIFICACIÓN) */
+          /* RECETA NO VÁLIDA / FALSIFICADA */
           <div className="bg-red-100 border-brutal rounded-hand-drawn-card p-6 shadow-brutal-lg animate-pop-in space-y-6 text-center">
             <div className="w-20 h-20 bg-red-200 border-brutal rounded-full flex items-center justify-center mx-auto animate-float-subtle">
               <span className="text-4xl text-red-600">🚨</span>
@@ -616,10 +627,10 @@ export default function App() {
                 Error de Falsificación
               </h3>
               <p className="text-sm font-bold text-red-950 max-w-md mx-auto leading-relaxed">
-                ¡Atención! La firma digital de esta receta médica es inválida o el contenido ha sido modificado maliciosamente.
+                ¡Atención! La firma digital de esta receta médica es inválida o el contenido de la prescripción ha sido modificado maliciosamente.
               </p>
               <p className="text-xs font-black text-red-800">
-                Esta receta no cuenta con el respaldo legal ni clínico de Proyecto Celene A.C.
+                Esta receta no cuenta con el aval criptográfico de Proyecto Celene A.C.
               </p>
             </div>
 
@@ -628,9 +639,9 @@ export default function App() {
                 href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-pc-verde-wa border-brutal-thin text-white font-black px-6 py-2 rounded-xl text-sm btn-brutal-active shadow-brutal-sm hover:shadow-brutal inline-block"
+                className="bg-pc-verde-wa border-brutal-thin text-white font-black px-6 py-2.5 rounded-xl text-sm btn-brutal-active shadow-brutal-sm hover:shadow-brutal inline-block"
               >
-                Reportar a Dirección Médica
+                Reportar Alerta a Dirección Médica
               </a>
               <button 
                 onClick={clearCurrentRecipe}
@@ -641,35 +652,35 @@ export default function App() {
             </div>
           </div>
         ) : (
-          /* PANTALLA PRINCIPAL: SIN RECETA ESCANEADA / HISTORIAL */
+          /* PANTALLA DE INICIO (SIN TOKEN / SCANNER INSTRUCTIONS) */
           <div className="space-y-6 animate-pop-in">
             
-            {/* BIENVENIDA E INSTRUCCIONES */}
+            {/* Bienvenida */}
             <div className="bg-pc-rosa-pastell border-brutal rounded-hand-drawn-card p-6 shadow-brutal space-y-4">
               <h3 className="font-hand-drawn text-2xl font-bold text-pc-rosa-oscuro">
                 Verificador de Recetas QR
               </h3>
               <p className="text-sm font-semibold leading-relaxed text-gray-700">
-                Esta aplicación web te permite verificar de forma segura e instantánea (incluso sin internet) las recetas emitidas por los médicos de nuestro consultorio comunitario.
+                Esta herramienta permite certificar que el contenido de los medicamentos y las firmas de los doctores son auténticos, previniendo alteraciones y falsificaciones en las recetas de Proyecto Celene.
               </p>
               
               <div className="border-t-2 border-pc-negro border-dashed pt-4">
                 <h4 className="text-xs font-black text-pc-rosa-fuerte uppercase tracking-wider mb-2">
-                  ¿Cómo funciona?
+                  Instrucciones de Uso
                 </h4>
                 <ol className="text-xs font-bold text-gray-600 text-left list-decimal list-inside space-y-2">
-                  <li>Escanea el código QR impreso en la parte inferior de tu receta física.</li>
-                  <li>El código QR abrirá automáticamente tu navegador en esta sección con un token de verificación.</li>
-                  <li>La aplicación validará la firma digital RS256 de manera 100% segura y offline.</li>
-                  <li>Podrás ver las contraindicaciones de tu medicamento y configurar tus recordatorios.</li>
+                  <li>Escanea el código QR en la receta física entregada por el médico.</li>
+                  <li>El sistema abrirá esta página web cargando las claves de firma del consultorio.</li>
+                  <li>La firma del JWT se verificará de manera local (RS256) garantizando que no haya sido modificada.</li>
+                  <li>El validador cotejará visualmente el nombre en papel del paciente.</li>
                 </ol>
               </div>
             </div>
 
-            {/* SECCIÓN DEL HISTORIAL LOCAL */}
+            {/* Historial Local */}
             <div className="bg-white border-brutal rounded-hand-drawn-card p-6 shadow-brutal space-y-4">
               <h3 className="font-hand-drawn text-xl font-bold text-pc-negro flex items-center justify-center">
-                📋 Recetas Guardadas en este Dispositivo
+                📋 Recetas Validadas en este Dispositivo
               </h3>
 
               {history.length > 0 ? (
@@ -682,13 +693,13 @@ export default function App() {
                     >
                       <div>
                         <p className="text-xs text-gray-400 font-bold">
-                          Paciente: {item.patient}
+                          Médico: {item.doctor_nombre}
                         </p>
                         <p className="text-sm font-black text-pc-rosa-fuerte">
-                          {item.med} <span className="text-xs font-semibold text-pc-negro">({item.dose})</span>
+                          {item.medicamentos_summary}
                         </p>
                         <p className="text-xs text-gray-500 font-semibold">
-                          Intervalo: {item.freq}
+                          Fecha Receta: {item.fecha_emision}
                         </p>
                       </div>
                       <div className="text-right">
@@ -705,7 +716,7 @@ export default function App() {
                   <div className="text-center pt-2">
                     <button 
                       onClick={() => {
-                        if (confirm("¿Estás seguro de que deseas borrar el historial de recetas de este teléfono?")) {
+                        if (confirm("¿Estás seguro de que deseas borrar el historial de recetas de este dispositivo?")) {
                           localStorage.removeItem('celene_recetas_historial');
                           setHistory([]);
                         }
@@ -719,21 +730,21 @@ export default function App() {
               ) : (
                 <div className="border-2 border-dashed border-pc-negro p-6 rounded-xl text-center">
                   <p className="text-sm font-bold text-gray-400">
-                    No tienes recetas guardadas en este dispositivo.
+                    No tienes recetas registradas en el historial local.
                   </p>
                   <p className="text-xs text-gray-400 mt-1">
-                    Las recetas que verifiques exitosamente aparecerán aquí para consultarlas offline en cualquier momento.
+                    Al escanear y validar una receta auténtica por primera vez, se guardará en este listado para consultas offline rápidas.
                   </p>
                 </div>
               )}
             </div>
 
-            {/* SECCIÓN SOBRE LA PWA */}
+            {/* PWA Badge */}
             <div className="bg-pc-azul-suave border-2 border-pc-negro p-4 rounded-xl text-center">
               <span className="text-lg">📲</span>
-              <h4 className="font-bold text-sm text-blue-900 inline ml-1">Puedes instalar esta aplicación</h4>
+              <h4 className="font-bold text-sm text-blue-900 inline ml-1">Aplicación Instalable</h4>
               <p className="text-xs text-blue-950 font-bold mt-1 max-w-sm mx-auto">
-                Presiona "Añadir a pantalla de inicio" en las opciones de tu navegador móvil para instalarla. Funciona completamente sin internet una vez guardada.
+                Instala esta aplicación en tu celular seleccionando "Añadir a pantalla de inicio" para verificar firmas y consultar interacciones médicas incluso sin internet.
               </p>
             </div>
 
@@ -743,8 +754,8 @@ export default function App() {
         {/* Footer del Consultorio */}
         <footer className="text-center mt-12 text-xs font-bold text-gray-400 space-y-1">
           <p>© {new Date().getFullYear()} Proyecto Celene A.C. Todos los derechos reservados.</p>
-          <p>Ubicación: Rosarito, Baja California, México.</p>
-          <p className="text-pc-rosa-medio">Lucha constante contra el cáncer de mama y servicios de salud comunitarios.</p>
+          <p>Ubicación: Playas de Rosarito, B.C., México.</p>
+          <p className="text-pc-rosa-medio">Prevenir el cáncer de mama es dar vida. 🎗️</p>
         </footer>
 
       </div>
