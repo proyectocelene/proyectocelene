@@ -3,8 +3,8 @@ import { verifyJWT, decodeJWT } from './jwt';
 import { getMedicamentoInfo } from './db';
 import type { MedicamentoInfo } from './db';
 
-// Llave pública RSA-2048 para verificación de firma
-const PUBLIC_KEY_PEM = `-----BEGIN PUBLIC KEY-----
+// Llave pública RSA-2048 por defecto (fallback)
+const DEFAULT_PUBLIC_KEY_PEM = `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtgqnXpZaAnQipb2xvDWL
 LZKhw+lyKDJmikpEWGJK212d6VpaVeu1C5aXzordKdT+IUYl/oYkRHvN71vReYk7
 6KMTfL73Z3sHrdjeMkL4PPWd1cm7mZ1xPhpwfV0nxG0JciCf4r7sBROvj1JFbbcP
@@ -22,14 +22,32 @@ interface MedicationItem {
   indicaciones_extra: string;
 }
 
-interface PrescriptionPayload {
+interface DoctorEmisor {
   doctor_id: number;
   doctor_nombre: string;
-  doctor_cedula: string;
-  doctor_universidad: string;
-  fecha: string; // Formato YYYY-MM-DD HH:MM:SS
-  medicamentos: MedicationItem[];
-  exp?: number;
+  cedula: string;
+  universidad: string;
+}
+
+interface PrescriptionPayload {
+  // Nueva estructura unificada
+  documento_tipo?: string; // receta_medica, certificado_medico, etc.
+  documento_id?: string;
+  fecha_emision?: string;
+  emisor?: DoctorEmisor;
+  contenido?: {
+    medicamentos?: MedicationItem[];
+    [key: string]: any;
+  };
+  
+  // Soporte retrocompatible
+  doctor_id?: number;
+  doctor_nombre?: string;
+  cedula?: string;
+  universidad?: string;
+  fecha?: string;
+  medicamentos?: MedicationItem[];
+  receta_id?: string;
 }
 
 interface SavedPrescription {
@@ -37,15 +55,17 @@ interface SavedPrescription {
   doctor_nombre: string;
   medicamentos_summary: string;
   fecha_emision: string;
+  documento_tipo: string;
   verifiedAt: number;
 }
 
 export default function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean | null>(null);
-  const [errorType, setErrorType] = useState<'none' | 'invalid_signature' | 'expired' | 'no_token'>('no_token');
+  const [errorType, setErrorType] = useState<'none' | 'invalid_signature' | 'expired' | 'no_token' | 'malformed'>('no_token');
   const [prescription, setPrescription] = useState<PrescriptionPayload | null>(null);
   const [resolvedDrugs, setResolvedDrugs] = useState<{ [key: string]: MedicamentoInfo | null }>({});
+  const [publicKeyPem, setPublicKeyPem] = useState<string>(DEFAULT_PUBLIC_KEY_PEM);
   
   // Historial y Notificaciones
   const [history, setHistory] = useState<SavedPrescription[]>([]);
@@ -53,9 +73,11 @@ export default function App() {
   const [remindersEnabled, setRemindersEnabled] = useState<{ [key: string]: boolean }>({});
   const [notifStatusMsg, setNotifStatusMsg] = useState<string | null>(null);
 
-  // Al cargar, obtener historial y permiso de notificaciones
+  // Al cargar, obtener historial, permiso de notificaciones y la llave pública dinámica
   useEffect(() => {
     loadHistory();
+    fetchDynamicPublicKey();
+    
     if ('Notification' in window) {
       setNotifPermission(Notification.permission);
     }
@@ -80,7 +102,22 @@ export default function App() {
     return () => {
       window.removeEventListener('popstate', handleUrlChange);
     };
-  }, []);
+  }, [publicKeyPem]); // Escuchar cambios de la llave pública
+
+  const fetchDynamicPublicKey = async () => {
+    try {
+      const res = await fetch('./public_key.pem');
+      if (res.ok) {
+        const text = await res.text();
+        if (text.includes("BEGIN PUBLIC KEY") && text !== publicKeyPem) {
+          setPublicKeyPem(text);
+          console.log("✅ Llave pública cargada dinámicamente desde public_key.pem");
+        }
+      }
+    } catch (e) {
+      console.warn("No se pudo cargar public_key.pem de forma dinámica. Usando llave embebida.");
+    }
+  };
 
   const loadHistory = () => {
     const raw = localStorage.getItem('celene_recetas_historial');
@@ -114,12 +151,27 @@ export default function App() {
     
     if (current.some(item => item.token === tok)) return;
 
-    const summary = payload.medicamentos.map(m => m.nombre).join(', ');
+    // Adaptación a la estructura dinámica
+    const doctorName = payload.emisor?.doctor_nombre || payload.doctor_nombre || "Médico Celene";
+    const fecha = payload.fecha_emision || payload.fecha || "";
+    const tipo = payload.documento_tipo || "receta_medica";
+    
+    // Resumen de contenido
+    let summary = "Documento Oficial";
+    const medicamentos = payload.contenido?.medicamentos || payload.medicamentos;
+    if (medicamentos && medicamentos.length > 0) {
+      const names = medicamentos.map(m => m.nombre).join(', ');
+      summary = names.length > 50 ? names.substring(0, 47) + '...' : names;
+    } else if (payload.contenido?.resumen) {
+      summary = payload.contenido.resumen;
+    }
+
     const newItem: SavedPrescription = {
       token: tok,
-      doctor_nombre: payload.doctor_nombre,
-      medicamentos_summary: summary.length > 50 ? summary.substring(0, 47) + '...' : summary,
-      fecha_emision: payload.fecha,
+      doctor_nombre: doctorName,
+      medicamentos_summary: summary,
+      fecha_emision: fecha,
+      documento_tipo: tipo,
       verifiedAt: Date.now()
     };
 
@@ -133,20 +185,20 @@ export default function App() {
     setIsValid(null);
     setErrorType('none');
     
-    // 1. Verificar firma RS256 offline
-    const signatureOk = await verifyJWT(rawToken, PUBLIC_KEY_PEM);
-    if (!signatureOk) {
+    // 1. Decodificación y validación de cabecera inicial (Rechazo inmediato si falla formato)
+    const decoded: PrescriptionPayload = decodeJWT(rawToken);
+    if (!decoded) {
       setIsValid(false);
-      setErrorType('invalid_signature');
+      setErrorType('malformed');
       setPrescription(null);
       setResolvedDrugs({});
       setLoading(false);
       return;
     }
 
-    // 2. Decodificar payload
-    const decoded: PrescriptionPayload = decodeJWT(rawToken);
-    if (!decoded) {
+    // 2. Verificar firma RS256 offline usando la llave pública cargada
+    const signatureOk = await verifyJWT(rawToken, publicKeyPem);
+    if (!signatureOk) {
       setIsValid(false);
       setErrorType('invalid_signature');
       setPrescription(null);
@@ -158,19 +210,28 @@ export default function App() {
     setPrescription(decoded);
 
     // 3. Verificar expiración
-    // Calculado a partir de fecha_emision + duración máxima de días de los medicamentos indicados
+    const fechaEmision = decoded.fecha_emision || decoded.fecha || "";
+    const medicamentos = decoded.contenido?.medicamentos || decoded.medicamentos;
+    
     let isExpired = false;
     try {
-      const issueDate = new Date(decoded.fecha.replace(' ', 'T'));
+      const issueDate = new Date(fechaEmision.replace(' ', 'T'));
       if (!isNaN(issueDate.getTime())) {
-        const maxDurationDays = Math.max(...decoded.medicamentos.map(m => m.duracion_dias || 30));
+        // Por defecto recetas expiran tras su duración de medicamentos; otros documentos en 180 días (o vigencia especificada)
+        let maxDurationDays = 180;
+        if (medicamentos && medicamentos.length > 0) {
+          maxDurationDays = Math.max(...medicamentos.map(m => m.duracion_dias || 30));
+        } else if (decoded.contenido?.vigencia_dias) {
+          maxDurationDays = Number(decoded.contenido.vigencia_dias);
+        }
+        
         const expTimestamp = issueDate.getTime() + maxDurationDays * 24 * 60 * 60 * 1000;
         if (Date.now() > expTimestamp) {
           isExpired = true;
         }
       }
     } catch (err) {
-      console.error("Error al calcular la expiración de la receta:", err);
+      console.error("Error al calcular la expiración:", err);
     }
 
     if (isExpired) {
@@ -182,17 +243,19 @@ export default function App() {
       saveToHistory(rawToken, decoded);
     }
 
-    // 4. Buscar detalles de CADA medicamento de la receta en paralelo en la BD
+    // 4. Buscar detalles de medicamentos en la base de datos local en paralelo
     const drugMap: { [key: string]: MedicamentoInfo | null } = {};
-    try {
-      await Promise.all(
-        decoded.medicamentos.map(async (m) => {
-          const info = await getMedicamentoInfo(m.nombre);
-          drugMap[m.nombre] = info;
-        })
-      );
-    } catch (e) {
-      console.error("Error al buscar en medicamentos_db:", e);
+    if (medicamentos && medicamentos.length > 0) {
+      try {
+        await Promise.all(
+          medicamentos.map(async (m) => {
+            const info = await getMedicamentoInfo(m.nombre);
+            drugMap[m.nombre] = info;
+          })
+        );
+      } catch (e) {
+        console.error("Error al consultar medicamentos_db:", e);
+      }
     }
     setResolvedDrugs(drugMap);
     
@@ -227,7 +290,7 @@ export default function App() {
     }
   };
 
-  const toggleReminder = async (recipeId: string) => {
+  const toggleReminder = async (docId: string) => {
     let currentPermission = notifPermission;
     if (currentPermission !== 'granted') {
       const res = await requestNotificationPermission();
@@ -237,13 +300,13 @@ export default function App() {
     if (currentPermission === 'granted') {
       const updated = {
         ...remindersEnabled,
-        [recipeId]: !remindersEnabled[recipeId]
+        [docId]: !remindersEnabled[docId]
       };
       setRemindersEnabled(updated);
       localStorage.setItem('celene_recordatorios_activos', JSON.stringify(updated));
       
-      if (updated[recipeId]) {
-        showStatusMessage("¡Recordatorios Activados! Recibirás avisos para los medicamentos de esta receta.");
+      if (updated[docId]) {
+        showStatusMessage("¡Recordatorios Activados! Notificaremos las tomas de medicamentos.");
       } else {
         showStatusMessage("Recordatorios Desactivados.");
       }
@@ -259,7 +322,7 @@ export default function App() {
     }, 4000);
   };
 
-  // Disparar notificaciones de prueba de todos los medicamentos de la receta, escalonados
+  // Disparar recordatorios nativos staggered
   const triggerTestNotification = () => {
     if (notifPermission !== 'granted') {
       alert("Por favor, habilita primero los permisos de notificación.");
@@ -270,13 +333,17 @@ export default function App() {
     
     setTimeout(() => {
       if (!prescription) return;
+      const medicamentos = prescription.contenido?.medicamentos || prescription.medicamentos;
+      if (!medicamentos) return;
       
-      prescription.medicamentos.forEach((m, index) => {
+      const docName = prescription.emisor?.doctor_nombre || prescription.doctor_nombre || "Médico Celene";
+
+      medicamentos.forEach((m, index) => {
         setTimeout(() => {
           if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
             navigator.serviceWorker.ready.then((reg) => {
               reg.showNotification(`⏰ Recordatorio: Toma tu ${m.nombre}`, {
-                body: `Vía: ${m.via_administracion} (Cada ${m.frecuencia_horas} horas).\nInstrucciones: ${m.indicaciones_extra}.\nPrescrito por: ${prescription.doctor_nombre}.`,
+                body: `Vía: ${m.via_administracion} (Cada ${m.frecuencia_horas} horas).\nIndicaciones: ${m.indicaciones_extra}.\nPrescrito por: ${docName}.`,
                 icon: 'https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png',
                 badge: 'https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png',
                 tag: `receta-reminder-${index}`,
@@ -289,12 +356,12 @@ export default function App() {
               icon: 'https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png'
             });
           }
-        }, index * 1200); // Escalonado 1.2 segundos entre notificaciones
+        }, index * 1200);
       });
     }, 5000);
   };
 
-  // Iconos visuales dibujados a mano
+  // Iconos dibujados a mano
   const SunIcon = () => (
     <svg className="w-8 h-8 text-yellow-400 animate-float-subtle" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="4" fill="#fff9c4" />
@@ -340,14 +407,48 @@ export default function App() {
     );
   };
 
-  // WhatsApp predefinido para consulta con recepción
   const getWhatsAppLink = () => {
     let text = "Hola,%20tengo%20una%20duda%20con%20recepción%20de%20Proyecto%20Celene.";
     if (prescription) {
-      const medList = prescription.medicamentos.map(m => `*${m.nombre}* (${m.via_administracion} - cada ${m.frecuencia_horas}h por ${m.duracion_dias} días)`).join(', ');
-      text = `Hola!%20Tengo%20una%20duda%20sobre%20la%20receta%20médica%20emitida%20por%20${encodeURIComponent(prescription.doctor_nombre)}%20el%20${encodeURIComponent(prescription.fecha)}.%20Medicamentos:%20${encodeURIComponent(medList)}.`;
+      const docName = prescription.emisor?.doctor_nombre || prescription.doctor_nombre || "Médico";
+      const fecha = prescription.fecha_emision || prescription.fecha || "";
+      const medicamentos = prescription.contenido?.medicamentos || prescription.medicamentos;
+      
+      let detailText = "";
+      if (medicamentos && medicamentos.length > 0) {
+        detailText = " que contiene: " + medicamentos.map(m => `*${m.nombre}*`).join(', ');
+      } else if (prescription.contenido?.resumen) {
+        detailText = ` (${prescription.contenido.resumen})`;
+      }
+      
+      text = `Hola!%20Tengo%20una%20duda%20sobre%20el%20documento%20oficial%20emitido%20por%20${encodeURIComponent(docName)}%20el%20${encodeURIComponent(fecha)}${encodeURIComponent(detailText)}.`;
     }
     return `https://wa.me/526611044050?text=${text}`;
+  };
+
+  // Mapeo visual de tipos de documentos
+  const getDocumentIcon = (type: string) => {
+    switch (type) {
+      case 'receta_medica': return '💊';
+      case 'certificado_medico': return '🩺';
+      case 'carta_medica': return '📝';
+      case 'constancia': return '📋';
+      case 'referencia': return '🔄';
+      case 'orden_laboratorio': return '🧪';
+      default: return '📄';
+    }
+  };
+
+  const getDocumentTypeName = (type: string) => {
+    switch (type) {
+      case 'receta_medica': return 'Receta Médica';
+      case 'certificado_medico': return 'Certificado Médico';
+      case 'carta_medica': return 'Carta Médica';
+      case 'constancia': return 'Constancia Médica';
+      case 'referencia': return 'Hoja de Referencia';
+      case 'orden_laboratorio': return 'Orden de Laboratorio';
+      default: return 'Documento Oficial';
+    }
   };
 
   return (
@@ -382,10 +483,10 @@ export default function App() {
             Proyecto Celene A.C.
           </h1>
           <h2 className="font-hand-drawn text-lg text-pc-negro tracking-wider font-semibold">
-            Verificación de Recetas
+            Verificación de Recetas y Documentos
           </h2>
           <p className="text-xs text-gray-500 mt-2 font-bold">
-            Fundación de Apoyo en la Lucha contra el Cáncer de Mama
+            Detección Oportuna del Cáncer de Mama y Salud Comunitaria
           </p>
         </header>
 
@@ -401,10 +502,10 @@ export default function App() {
           <div className="text-center p-12 bg-white border-brutal rounded-hand-drawn-card shadow-brutal mb-8">
             <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-pc-rosa-fuerte mx-auto mb-4"></div>
             <p className="font-hand-drawn text-xl font-bold">Verificando firma digital...</p>
-            <p className="text-xs text-gray-400 mt-1">Verificación offline con Web Crypto API</p>
+            <p className="text-xs text-gray-400 mt-1">Verificación offline por Web Crypto API</p>
           </div>
         ) : isValid === true ? (
-          /* RECETA VERIFICADA CON ÉXITO */
+          /* DOCUMENTO VERIFICADO CON ÉXITO */
           <div className="space-y-6">
             
             {/* Listón de Autenticidad */}
@@ -412,20 +513,20 @@ export default function App() {
               <div className="bg-yellow-100 text-yellow-800 border-brutal p-4 rounded-xl text-center shadow-brutal animate-wave-subtle">
                 <span className="text-2xl mr-2">⚠️</span>
                 <span className="font-hand-drawn text-lg font-black uppercase tracking-wide">
-                  Receta Auténtica pero Expirada
+                  Documento verificado por Proyecto Celene pero expirado
                 </span>
                 <p className="text-xs mt-1 text-yellow-900 font-bold">
-                  La firma es auténtica, pero el periodo de tratamiento ha culminado.
+                  La firma es auténtica, pero el periodo de validez ha vencido.
                 </p>
               </div>
             ) : (
               <div className="bg-[#a3e635] text-pc-negro border-brutal p-4 rounded-xl text-center shadow-brutal-lg animate-wave-subtle">
                 <span className="text-2xl mr-2">🎗️</span>
                 <span className="font-hand-drawn text-xl font-black uppercase tracking-wider">
-                  Receta Auténtica Verificada
+                  Documento verificado por Proyecto Celene
                 </span>
                 <p className="text-xs mt-1 text-green-950 font-bold">
-                  Firma criptográfica válida de Proyecto Celene.
+                  Documento auténtico firmado digitalmente.
                 </p>
               </div>
             )}
@@ -436,7 +537,7 @@ export default function App() {
                 <span>🛡️</span> Cotejo Visual de Identidad
               </h4>
               <p className="text-xs font-bold text-blue-950 leading-relaxed">
-                Por motivos de privacidad de datos de salud, el nombre del paciente no se incluye en el código QR. El validador debe contrastar que los medicamentos aquí certificados coincidan con la receta física impresa y la identificación del paciente.
+                Por políticas de confidencialidad y privacidad de datos de salud, el nombre del paciente se omite de esta página web. Verifique que los datos impresos en la receta física coincidan con la identificación del paciente.
               </p>
             </div>
 
@@ -444,94 +545,131 @@ export default function App() {
             {prescription && (
               <div className="bg-white border-brutal rounded-hand-drawn-card p-6 shadow-brutal animate-pop-in space-y-6">
                 
-                {/* Datos del Médico */}
-                <div className="border-b-2 border-pc-negro pb-4">
-                  <p className="text-xs font-black text-gray-400 uppercase mb-2">Médico Emisor</p>
+                {/* Datos del Emisor y Documento */}
+                <div className="border-b-2 border-pc-negro pb-4 flex flex-col md:flex-row justify-between gap-4">
                   <div className="space-y-1">
+                    <p className="text-xs font-black text-gray-400 uppercase">Médico Emisor</p>
                     <h3 className="text-lg font-black text-pc-rosa-fuerte">
-                      {prescription.doctor_nombre}
+                      {prescription.emisor?.doctor_nombre || prescription.doctor_nombre || "Médico Celene"}
                     </h3>
                     <p className="text-xs font-bold text-gray-700">
-                      Cédula Profesional: <span className="font-black text-pc-negro">{prescription.doctor_cedula}</span>
+                      Cédula Profesional: <span className="font-black text-pc-negro">{prescription.emisor?.cedula || prescription.cedula || "N/A"}</span>
                     </p>
                     <p className="text-xs font-bold text-gray-600">
-                      Universidad: {prescription.doctor_universidad}
+                      Universidad: {prescription.emisor?.universidad || prescription.universidad || "N/A"}
                     </p>
-                    <p className="text-[11px] text-gray-400 font-bold mt-1">
-                      Fecha Emisión: {prescription.fecha}
+                  </div>
+                  
+                  <div className="space-y-1 md:text-right md:self-end">
+                    <span className="inline-block text-xs bg-pc-rosa-pastell text-pc-rosa-oscuro px-2 py-0.5 rounded font-black border border-pc-negro">
+                      {getDocumentIcon(prescription.documento_tipo || "receta_medica")} {getDocumentTypeName(prescription.documento_tipo || "receta_medica")}
+                    </span>
+                    <p className="text-[10px] text-gray-400 font-bold">
+                      Folio: {prescription.documento_id || prescription.receta_id || "N/A"}
+                    </p>
+                    <p className="text-[11px] text-gray-400 font-bold">
+                      Emisión: {prescription.fecha_emision || prescription.fecha || "N/A"}
                     </p>
                   </div>
                 </div>
 
-                {/* Lista de Medicamentos */}
-                <div className="space-y-4">
-                  <p className="text-xs font-black text-gray-400 uppercase">Medicamentos Prescritos</p>
-                  
-                  {prescription.medicamentos.map((med, idx) => (
-                    <div key={idx} className="border-2 border-pc-negro p-4 rounded-xl bg-pc-gris-suave space-y-2 relative shadow-brutal-sm">
-                      <div className="flex justify-between items-start">
-                        <h4 className="text-base font-black text-pc-negro flex items-center">
-                          <span className="inline-block w-2.5 h-2.5 bg-pc-rosa-medio rounded-full mr-2"></span>
-                          {med.nombre}
-                        </h4>
-                        <span className="text-[10px] bg-pc-rosa-pastell text-pc-rosa-oscuro px-2 py-0.5 rounded font-black border border-pc-negro">
-                          Medicamento {idx + 1}
-                        </span>
-                      </div>
+                {/* Contenido Dinámico: Receta o Genérico */}
+                {(prescription.documento_tipo || "receta_medica") === "receta_medica" ? (
+                  /* RENDER RECETA */
+                  <div className="space-y-4">
+                    <p className="text-xs font-black text-gray-400 uppercase">Medicamentos Prescritos</p>
+                    
+                    {(prescription.contenido?.medicamentos || prescription.medicamentos)?.map((med, idx) => (
+                      <div key={idx} className="border-2 border-pc-negro p-4 rounded-xl bg-pc-gris-suave space-y-2 relative shadow-brutal-sm">
+                        <div className="flex justify-between items-start">
+                          <h4 className="text-base font-black text-pc-negro flex items-center">
+                            <span className="inline-block w-2.5 h-2.5 bg-pc-rosa-medio rounded-full mr-2"></span>
+                            {med.nombre}
+                          </h4>
+                        </div>
 
-                      <div className="grid grid-cols-2 gap-2 text-xs font-bold text-gray-700 pt-1">
-                        <div>
-                          <span className="text-gray-400 text-[10px] block uppercase">Vía de Adm.</span>
-                          {med.via_administracion}
+                        <div className="grid grid-cols-2 gap-2 text-xs font-bold text-gray-700 pt-1">
+                          <div>
+                            <span className="text-gray-400 text-[10px] block uppercase">Vía de Adm.</span>
+                            {med.via_administracion}
+                          </div>
+                          <div>
+                            <span className="text-gray-400 text-[10px] block uppercase">Duración</span>
+                            {med.duracion_dias} días
+                          </div>
+                          <div className="col-span-2">
+                            <span className="text-gray-400 text-[10px] block uppercase">Frecuencia de Toma</span>
+                            Cada {med.frecuencia_horas} horas
+                          </div>
                         </div>
-                        <div>
-                          <span className="text-gray-400 text-[10px] block uppercase">Duración</span>
-                          {med.duracion_dias} días
-                        </div>
-                        <div className="col-span-2">
-                          <span className="text-gray-400 text-[10px] block uppercase">Frecuencia de Toma</span>
-                          Cada {med.frecuencia_horas} horas
+
+                        {med.indicaciones_extra && (
+                          <div className="bg-white border border-pc-negro border-dashed p-2 rounded-lg text-xs font-bold text-pc-negro mt-2">
+                            💡 <span className="text-gray-500">Instrucción:</span> {med.indicaciones_extra}
+                          </div>
+                        )}
+
+                        <div className="flex justify-end items-center gap-2 pt-2 border-t border-gray-200 mt-2">
+                          <span className="text-[10px] text-gray-400 font-bold">Horarios sugeridos:</span>
+                          {renderScheduleIcons(med.frecuencia_horas)}
                         </div>
                       </div>
-
-                      {med.indicaciones_extra && (
-                        <div className="bg-white border border-pc-negro border-dashed p-2 rounded-lg text-xs font-bold text-pc-negro mt-2">
-                          💡 <span className="text-gray-500">Instrucción:</span> {med.indicaciones_extra}
-                        </div>
-                      )}
-
-                      {/* Iconos de horario indicados para este medicamento */}
-                      <div className="flex justify-end items-center gap-2 pt-2 border-t border-gray-200 mt-2">
-                        <span className="text-[10px] text-gray-400 font-bold">Horarios sugeridos:</span>
-                        {renderScheduleIcons(med.frecuencia_horas)}
-                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  /* RENDER OTRO DOCUMENTO (Certificados, etc) */
+                  <div className="space-y-4">
+                    <p className="text-xs font-black text-gray-400 uppercase">Detalles del Documento</p>
+                    <div className="border-2 border-pc-negro p-4 rounded-xl bg-pc-gris-suave space-y-3 shadow-brutal-sm">
+                      {Object.entries(prescription.contenido || {}).map(([key, val]) => {
+                        if (typeof val === 'object' || !val) return null;
+                        
+                        const friendlyLabels: { [key: string]: string } = {
+                          resumen: "Resumen / Concepto",
+                          observaciones: "Observaciones",
+                          motivo_consulta: "Motivo de Consulta",
+                          vigencia_dias: "Días de Vigencia",
+                          diagnostico_sintomas: "Síntomas Generales",
+                          indicaciones: "Indicaciones Especiales",
+                          tipo_examen: "Estudio Solicitado",
+                          referido_a: "Referido a Especialidad",
+                        };
+                        const label = friendlyLabels[key] || key.replace(/_/g, ' ').toUpperCase();
+                        
+                        return (
+                          <div key={key} className="text-xs font-semibold text-gray-700">
+                            <span className="text-gray-400 text-[10px] block uppercase font-black">{label}</span>
+                            <p className="text-pc-negro text-sm font-bold leading-relaxed">{String(val)}</p>
+                          </div>
+                        );
+                      })}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                )}
 
-                {/* BOTÓN PROGRAMAR RECORDATORIOS (Solo si no está expirado) */}
-                {errorType !== 'expired' && (
+                {/* BOTÓN RECORDATORIOS (Solo para recetas vigentes con medicamentos) */}
+                {errorType !== 'expired' && (prescription.contenido?.medicamentos || prescription.medicamentos) && (
                   <div className="border-t-2 border-pc-negro pt-4 space-y-3">
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-pc-rosa-pastell/30 p-3 rounded-xl border border-pc-negro">
                       <div>
                         <h4 className="font-bold text-sm">¿Deseas activar recordatorios en tu celular?</h4>
                         <p className="text-xs text-gray-500 font-semibold">
-                          Te enviaremos notificaciones según los horarios prescritos.
+                          Te enviaremos notificaciones locales según los horarios prescritos.
                         </p>
                       </div>
                       <button
-                        onClick={() => toggleReminder(String(prescription.doctor_id) + '-' + prescription.fecha)}
+                        onClick={() => toggleReminder(String(prescription.emisor?.doctor_id || prescription.doctor_id) + '-' + (prescription.fecha_emision || prescription.fecha))}
                         className={`px-5 py-2.5 text-xs font-black border-brutal-thin rounded-xl btn-brutal-active shadow-brutal-sm ${
-                          remindersEnabled[String(prescription.doctor_id) + '-' + prescription.fecha] 
+                          remindersEnabled[String(prescription.emisor?.doctor_id || prescription.doctor_id) + '-' + (prescription.fecha_emision || prescription.fecha)] 
                             ? 'bg-pc-rosa-medio text-white' 
                             : 'bg-pc-amarillo text-pc-negro'
                         }`}
                       >
-                        {remindersEnabled[String(prescription.doctor_id) + '-' + prescription.fecha] ? '🔔 Activado' : '🔕 Desactivado'}
+                        {remindersEnabled[String(prescription.emisor?.doctor_id || prescription.doctor_id) + '-' + (prescription.fecha_emision || prescription.fecha)] ? '🔔 Activado' : '🔕 Desactivado'}
                       </button>
                     </div>
 
-                    {remindersEnabled[String(prescription.doctor_id) + '-' + prescription.fecha] && (
+                    {remindersEnabled[String(prescription.emisor?.doctor_id || prescription.doctor_id) + '-' + (prescription.fecha_emision || prescription.fecha)] && (
                       <div className="flex justify-end pt-1">
                         <button
                           onClick={triggerTestNotification}
@@ -547,14 +685,14 @@ export default function App() {
             )}
 
             {/* DETALLES DE INTERACCIONES Y GUÍA DE SALUD */}
-            {prescription && (
+            {prescription && (prescription.contenido?.medicamentos || prescription.medicamentos) && (
               <div className="bg-white border-brutal rounded-hand-drawn-card p-6 shadow-brutal animate-pop-in space-y-4">
                 <h4 className="font-hand-drawn text-xl font-bold text-pc-rosa-oscuro border-b-2 border-pc-negro pb-2">
                   Guía de Salud del Consultorio
                 </h4>
                 
                 <div className="space-y-4">
-                  {prescription.medicamentos.map((med, idx) => {
+                  {(prescription.contenido?.medicamentos || prescription.medicamentos)?.map((med, idx) => {
                     const info = resolvedDrugs[med.nombre];
                     if (!info) return null;
                     return (
@@ -593,13 +731,6 @@ export default function App() {
                       </div>
                     );
                   })}
-                  
-                  {/* Si ninguno de los medicamentos tiene info estática */}
-                  {Object.values(resolvedDrugs).every(v => v === null) && (
-                    <p className="text-xs text-gray-500 font-bold text-center">
-                      No hay información adicional en la base de datos local para los fármacos recetados.
-                    </p>
-                  )}
                 </div>
               </div>
             )}
@@ -610,27 +741,31 @@ export default function App() {
                 onClick={clearCurrentRecipe}
                 className="bg-white border-brutal px-6 py-2.5 rounded-full font-black text-sm text-pc-negro shadow-brutal-sm hover:translate-y-[-2px] hover:shadow-brutal active:translate-y-[2px] active:shadow-none transition-all duration-75 btn-brutal-active"
               >
-                ← Salir / Consultar otra Receta
+                ← Salir / Consultar otro Documento
               </button>
             </div>
 
           </div>
         ) : isValid === false ? (
-          /* RECETA NO VÁLIDA / FALSIFICADA */
+          /* PANTALLAS DE ERROR (Firma no reconocida o formato inválido) */
           <div className="bg-red-100 border-brutal rounded-hand-drawn-card p-6 shadow-brutal-lg animate-pop-in space-y-6 text-center">
             <div className="w-20 h-20 bg-red-200 border-brutal rounded-full flex items-center justify-center mx-auto animate-float-subtle">
-              <span className="text-4xl text-red-600">🚨</span>
+              <span className="text-4xl text-red-600">
+                {errorType === 'malformed' ? '🚫' : '❌'}
+              </span>
             </div>
             
             <div className="space-y-2">
               <h3 className="font-hand-drawn text-2xl font-black text-red-700 uppercase">
-                Error de Falsificación
+                {errorType === 'malformed' ? 'Formato Incorrecto' : 'Firma No Reconocida'}
               </h3>
               <p className="text-sm font-bold text-red-950 max-w-md mx-auto leading-relaxed">
-                ¡Atención! La firma digital de esta receta médica es inválida o el contenido de la prescripción ha sido modificado maliciosamente.
+                {errorType === 'malformed' 
+                  ? 'El documento no tiene una estructura de token válida o no puede ser decodificado.' 
+                  : 'Documento no válido o firma no reconocida. La firma criptográfica no corresponde a Proyecto Celene o el contenido ha sido alterado.'}
               </p>
               <p className="text-xs font-black text-red-800">
-                Esta receta no cuenta con el aval criptográfico de Proyecto Celene A.C.
+                Este código QR no cuenta con el respaldo legal ni clínico de Proyecto Celene A.C.
               </p>
             </div>
 
@@ -641,7 +776,7 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="bg-pc-verde-wa border-brutal-thin text-white font-black px-6 py-2.5 rounded-xl text-sm btn-brutal-active shadow-brutal-sm hover:shadow-brutal inline-block"
               >
-                Reportar Alerta a Dirección Médica
+                Consultar Alerta con Dirección Médica
               </a>
               <button 
                 onClick={clearCurrentRecipe}
@@ -652,27 +787,27 @@ export default function App() {
             </div>
           </div>
         ) : (
-          /* PANTALLA DE INICIO (SIN TOKEN / SCANNER INSTRUCTIONS) */
+          /* PANTALLA DE INICIO (SCANNER GUIDE E HISTORIAL) */
           <div className="space-y-6 animate-pop-in">
             
-            {/* Bienvenida */}
+            {/* Guía de uso */}
             <div className="bg-pc-rosa-pastell border-brutal rounded-hand-drawn-card p-6 shadow-brutal space-y-4">
               <h3 className="font-hand-drawn text-2xl font-bold text-pc-rosa-oscuro">
-                Verificador de Recetas QR
+                Verificador de Documentación Oficial
               </h3>
               <p className="text-sm font-semibold leading-relaxed text-gray-700">
-                Esta herramienta permite certificar que el contenido de los medicamentos y las firmas de los doctores son auténticos, previniendo alteraciones y falsificaciones en las recetas de Proyecto Celene.
+                Esta herramienta permite certificar la autenticidad e integridad de recetas, cartas de referencia, certificados médicos y otros documentos oficiales emitidos por el personal médico de Proyecto Celene.
               </p>
               
               <div className="border-t-2 border-pc-negro border-dashed pt-4">
                 <h4 className="text-xs font-black text-pc-rosa-fuerte uppercase tracking-wider mb-2">
-                  Instrucciones de Uso
+                  Instrucciones para el Validador
                 </h4>
                 <ol className="text-xs font-bold text-gray-600 text-left list-decimal list-inside space-y-2">
-                  <li>Escanea el código QR en la receta física entregada por el médico.</li>
-                  <li>El sistema abrirá esta página web cargando las claves de firma del consultorio.</li>
-                  <li>La firma del JWT se verificará de manera local (RS256) garantizando que no haya sido modificada.</li>
-                  <li>El validador cotejará visualmente el nombre en papel del paciente.</li>
+                  <li>Escanea el código QR impreso en el documento oficial (receta, carta, certificado).</li>
+                  <li>El sistema verificará la firma digital en el navegador de manera local (RS256).</li>
+                  <li>Si la firma es verídica, verás los detalles en pantalla con un cintillo de verificación.</li>
+                  <li><strong>Cotejo de Identidad</strong>: Valida físicamente que el nombre impreso en el papel coincida con la identificación del paciente.</li>
                 </ol>
               </div>
             </div>
@@ -680,7 +815,7 @@ export default function App() {
             {/* Historial Local */}
             <div className="bg-white border-brutal rounded-hand-drawn-card p-6 shadow-brutal space-y-4">
               <h3 className="font-hand-drawn text-xl font-bold text-pc-negro flex items-center justify-center">
-                📋 Recetas Validadas en este Dispositivo
+                📋 Historial de Consultas en este Dispositivo
               </h3>
 
               {history.length > 0 ? (
@@ -696,10 +831,10 @@ export default function App() {
                           Médico: {item.doctor_nombre}
                         </p>
                         <p className="text-sm font-black text-pc-rosa-fuerte">
-                          {item.medicamentos_summary}
+                          {getDocumentIcon(item.documento_tipo)} {item.medicamentos_summary}
                         </p>
                         <p className="text-xs text-gray-500 font-semibold">
-                          Fecha Receta: {item.fecha_emision}
+                          Fecha Emisión: {item.fecha_emision}
                         </p>
                       </div>
                       <div className="text-right">
@@ -730,10 +865,10 @@ export default function App() {
               ) : (
                 <div className="border-2 border-dashed border-pc-negro p-6 rounded-xl text-center">
                   <p className="text-sm font-bold text-gray-400">
-                    No tienes recetas registradas en el historial local.
+                    No tienes documentos registrados en el historial local.
                   </p>
                   <p className="text-xs text-gray-400 mt-1">
-                    Al escanear y validar una receta auténtica por primera vez, se guardará en este listado para consultas offline rápidas.
+                    Al escanear y validar una firma de Proyecto Celene por primera vez, el documento aparecerá aquí para consultas offline inmediatas.
                   </p>
                 </div>
               )}
@@ -744,7 +879,7 @@ export default function App() {
               <span className="text-lg">📲</span>
               <h4 className="font-bold text-sm text-blue-900 inline ml-1">Aplicación Instalable</h4>
               <p className="text-xs text-blue-950 font-bold mt-1 max-w-sm mx-auto">
-                Instala esta aplicación en tu celular seleccionando "Añadir a pantalla de inicio" para verificar firmas y consultar interacciones médicas incluso sin internet.
+                Instala esta herramienta en tu pantalla de inicio desde tu navegador móvil. Funciona offline para verificar la autenticidad e integridad criptográfica.
               </p>
             </div>
 

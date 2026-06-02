@@ -1,8 +1,9 @@
-const CACHE_NAME = 'celene-verificar-v1.2'; // Incrementado a v1.2 para forzar actualización total
+const CACHE_NAME = 'celene-verificar-v1.3'; // Versión incrementada para forzar actualización
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
+  './public_key.pem',
   '../data/medicamentos_db.json'
 ];
 
@@ -37,8 +38,9 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
 
-  // 1. Estrategia Network-First para la base de datos de medicamentos.
-  if (url.pathname.includes('medicamentos_db.json')) {
+  // 1. Estrategia Network-First para la base de datos de medicamentos o la llave pública PEM.
+  // Evita que los usuarios vean información desactualizada si tienen internet.
+  if (url.pathname.includes('medicamentos_db.json') || url.pathname.includes('public_key.pem')) {
     event.respondWith(
       fetch(event.request)
         .then((networkResponse) => {

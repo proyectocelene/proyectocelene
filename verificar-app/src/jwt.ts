@@ -51,12 +51,37 @@ async function importPublicKey(pem: string): Promise<CryptoKey> {
 }
 
 /**
+ * Decodifica la cabecera (header) de un JWT.
+ */
+export function decodeJWTHeader(token: string): any {
+  try {
+    const parts = token.split('.');
+    if (parts.length !== 3) return null;
+    
+    const headerB64 = parts[0];
+    const bytes = base64UrlToUint8Array(headerB64);
+    const decoder = new TextDecoder();
+    return JSON.parse(decoder.decode(bytes));
+  } catch (error) {
+    console.error("Error al decodificar la cabecera del JWT:", error);
+    return null;
+  }
+}
+
+/**
  * Verifica la firma RS256 de un token JWT utilizando una llave pública PEM.
  */
 export async function verifyJWT(token: string, pemKey: string): Promise<boolean> {
   try {
     const parts = token.split('.');
     if (parts.length !== 3) return false;
+    
+    // 1. Validar algoritmo en la cabecera (debe ser RS256 obligatoriamente)
+    const header = decodeJWTHeader(token);
+    if (!header || header.alg !== 'RS256') {
+      console.warn("Algoritmo de firma no soportado o ausente:", header?.alg);
+      return false;
+    }
     
     const [headerB64, payloadB64, signatureB64] = parts;
     
