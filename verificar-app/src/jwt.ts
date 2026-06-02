@@ -42,8 +42,8 @@ async function importPublicKey(pem: string): Promise<CryptoKey> {
     "spki",
     spki as any,
     {
-      name: "RSASSA-PKCS1-v1_5",
-      hash: { name: "SHA-256" }
+      name: "ECDSA",
+      namedCurve: "P-256"
     },
     false, // No es extraíble
     ["verify"]
@@ -76,9 +76,9 @@ export async function verifyJWT(token: string, pemKey: string): Promise<boolean>
     const parts = token.split('.');
     if (parts.length !== 3) return false;
     
-    // 1. Validar algoritmo en la cabecera (debe ser RS256 obligatoriamente)
+    // 1. Validar algoritmo en la cabecera (debe ser ES256 obligatoriamente)
     const header = decodeJWTHeader(token);
-    if (!header || header.alg !== 'RS256') {
+    if (!header || header.alg !== 'ES256') {
       console.warn("Algoritmo de firma no soportado o ausente:", header?.alg);
       return false;
     }
@@ -97,7 +97,10 @@ export async function verifyJWT(token: string, pemKey: string): Promise<boolean>
     
     // Verificar firma
     return await window.crypto.subtle.verify(
-      "RSASSA-PKCS1-v1_5",
+      {
+        name: "ECDSA",
+        hash: { name: "SHA-256" }
+      },
       cryptoKey,
       signatureBytes as any,
       signedDataBytes as any

@@ -3,16 +3,50 @@ import { verifyJWT, decodeJWT } from './jwt';
 import { getMedicamentoInfo } from './db';
 import type { MedicamentoInfo } from './db';
 
-// Llave pública RSA-2048 por defecto (fallback)
+// Llave pública ECDSA P-256 por defecto (fallback)
 const DEFAULT_PUBLIC_KEY_PEM = `-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtgqnXpZaAnQipb2xvDWL
-LZKhw+lyKDJmikpEWGJK212d6VpaVeu1C5aXzordKdT+IUYl/oYkRHvN71vReYk7
-6KMTfL73Z3sHrdjeMkL4PPWd1cm7mZ1xPhpwfV0nxG0JciCf4r7sBROvj1JFbbcP
-/GmEoN1wcwg2NLpk7MOtpstCOYFWsuoJhdlA+Ep20BiDIZf9dfTno7FoFsBRaJVW
-N8a1XtWvGeQSFQ8akkCvKKIymkaQGwK+RxiLSOWrDFRiAeap5/TBmBOsSQleYZbl
-yNy6Vq4yBKghd4O7rTPKq1MZM+FQwGkMOz8Jd29Jgka+3+cUoTxAytDxJPFYdDXo
-fQIDAQAB
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEONvASPPsTmaEbxh/JqikHzwIUrqB
+rJn70fKGodBsi5y8amW5wLGctj+G5Y3vHbUzbx+03JUfqbfZaBz7KukXeQ==
 -----END PUBLIC KEY-----`;
+
+interface DoctorInfo {
+  doctor_id: number;
+  doctor_nombre: string;
+  cedula: string;
+  universidad: string;
+  especialidad?: string;
+}
+
+const DOCTORS_DB: { [key: number]: DoctorInfo } = {
+  1: {
+    doctor_id: 1,
+    doctor_nombre: "Dr. Carlos Donato Dueñas Prieto",
+    cedula: "15504256",
+    universidad: "Universidad Autónoma de Baja California",
+    especialidad: "Médico General"
+  },
+  2: {
+    doctor_id: 2,
+    doctor_nombre: "Dr. Mario Esteban Minor Sánchez",
+    cedula: "2378734",
+    universidad: "Universidad Autónoma de Baja California",
+    especialidad: "Médico General"
+  },
+  3: {
+    doctor_id: 3,
+    doctor_nombre: "Dr. Juan Pérez",
+    cedula: "12345678",
+    universidad: "N/A",
+    especialidad: "Pediatría"
+  },
+  4: {
+    doctor_id: 4,
+    doctor_nombre: "Dr. Juan Pérez",
+    cedula: "12345678",
+    universidad: "N/A",
+    especialidad: "Pediatría"
+  }
+};
 
 interface MedicationItem {
   nombre: string;
@@ -186,8 +220,8 @@ export default function App() {
     setErrorType('none');
     
     // 1. Decodificación y validación de cabecera inicial (Rechazo inmediato si falla formato)
-    const decoded: PrescriptionPayload = decodeJWT(rawToken);
-    if (!decoded) {
+    const decodedRaw = decodeJWT(rawToken);
+    if (!decodedRaw) {
       setIsValid(false);
       setErrorType('malformed');
       setPrescription(null);
@@ -196,7 +230,7 @@ export default function App() {
       return;
     }
 
-    // 2. Verificar firma RS256 offline usando la llave pública cargada
+    // 2. Verificar firma ES256 offline usando la llave pública cargada
     const signatureOk = await verifyJWT(rawToken, publicKeyPem);
     if (!signatureOk) {
       setIsValid(false);
@@ -205,6 +239,42 @@ export default function App() {
       setResolvedDrugs({});
       setLoading(false);
       return;
+    }
+
+    // Mapear el payload minificado de ES256 al formato de la UI
+    let decoded: PrescriptionPayload;
+    if (decodedRaw.rid || decodedRaw.d || decodedRaw.id) {
+      const docId = Number(decodedRaw.id || 0);
+      const doctor = DOCTORS_DB[docId] || {
+        doctor_id: docId,
+        doctor_nombre: `Médico ID: ${docId}`,
+        cedula: "N/A",
+        universidad: "N/A"
+      };
+
+      decoded = {
+        documento_tipo: "receta_medica",
+        documento_id: decodedRaw.rid,
+        fecha_emision: decodedRaw.d,
+        emisor: {
+          doctor_id: doctor.doctor_id,
+          doctor_nombre: doctor.doctor_nombre,
+          cedula: doctor.cedula,
+          universidad: doctor.universidad
+        },
+        contenido: {
+          medicamentos: (decodedRaw.m || []).map((med: any) => ({
+            nombre: med.n || "",
+            via_administracion: med.v || "",
+            frecuencia_horas: Number(med.f || 24),
+            duracion_dias: Number(med.t || 1),
+            indicaciones_extra: med.i || ""
+          }))
+        }
+      };
+    } else {
+      // Fallback por si viene en formato antiguo
+      decoded = decodedRaw;
     }
 
     setPrescription(decoded);
@@ -805,7 +875,7 @@ export default function App() {
                 </h4>
                 <ol className="text-xs font-bold text-gray-600 text-left list-decimal list-inside space-y-2">
                   <li>Escanea el código QR impreso en el documento oficial (receta, carta, certificado).</li>
-                  <li>El sistema verificará la firma digital en el navegador de manera local (RS256).</li>
+                  <li>El sistema verificará la firma digital en el navegador de manera local (ES256).</li>
                   <li>Si la firma es verídica, verás los detalles en pantalla con un cintillo de verificación.</li>
                   <li><strong>Cotejo de Identidad</strong>: Valida físicamente que el nombre impreso en el papel coincida con la identificación del paciente.</li>
                 </ol>
