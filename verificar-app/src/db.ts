@@ -15,6 +15,7 @@ export interface MedicamentosDb {
  * Por ejemplo: "Losartán" -> "losartan".
  */
 export function normalizeText(str: string): string {
+  if (!str) return "";
   return str
     .toLowerCase()
     .normalize("NFD")

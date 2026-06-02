@@ -1,4 +1,4 @@
-const CACHE_NAME = 'celene-verificar-v1.1'; // Versión incrementada para forzar actualización
+const CACHE_NAME = 'celene-verificar-v1.2'; // Incrementado a v1.2 para forzar actualización total
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -38,14 +38,15 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
   // 1. Estrategia Network-First para la base de datos de medicamentos.
-  // Evita que los usuarios vean información desactualizada de fármacos si tienen internet.
   if (url.pathname.includes('medicamentos_db.json')) {
     event.respondWith(
       fetch(event.request)
         .then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
+            // Clonar la respuesta de forma SÍNCRONA antes de que el navegador la consuma
+            const responseToCache = networkResponse.clone();
             caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, networkResponse.clone());
+              cache.put(event.request, responseToCache);
             });
           }
           return networkResponse;
@@ -65,8 +66,10 @@ self.addEventListener('fetch', (event) => {
         const fetchPromise = fetch(event.request)
           .then((networkResponse) => {
             if (networkResponse && networkResponse.status === 200) {
+              // Clonar la respuesta de forma SÍNCRONA antes de retornar
+              const responseToCache = networkResponse.clone();
               caches.open(CACHE_NAME).then((cache) => {
-                cache.put(event.request, networkResponse.clone());
+                cache.put(event.request, responseToCache);
               });
             }
             return networkResponse;
