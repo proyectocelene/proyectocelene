@@ -61,6 +61,7 @@ interface DoctorEmisor {
   doctor_nombre: string;
   cedula: string;
   universidad: string;
+  especialidad?: string;
 }
 
 interface PrescriptionPayload {
@@ -252,15 +253,21 @@ export default function App() {
         universidad: "N/A"
       };
 
+      const resolvedNombre = decodedRaw.dn || doctor.doctor_nombre || `Médico ID: ${docId}`;
+      const resolvedCedula = decodedRaw.dc || doctor.cedula || "N/A";
+      const resolvedUniversidad = decodedRaw.du || doctor.universidad || "N/A";
+      const resolvedEspecialidad = decodedRaw.de || doctor.especialidad || "Medicina General";
+
       decoded = {
         documento_tipo: "receta_medica",
         documento_id: decodedRaw.rid,
         fecha_emision: decodedRaw.d,
         emisor: {
-          doctor_id: doctor.doctor_id,
-          doctor_nombre: doctor.doctor_nombre,
-          cedula: doctor.cedula,
-          universidad: doctor.universidad
+          doctor_id: docId,
+          doctor_nombre: resolvedNombre,
+          cedula: resolvedCedula,
+          universidad: resolvedUniversidad,
+          especialidad: resolvedEspecialidad
         },
         contenido: {
           medicamentos: (decodedRaw.m || []).map((med: any) => ({
@@ -628,6 +635,11 @@ export default function App() {
                     <p className="text-xs font-bold text-gray-600">
                       Universidad: {prescription.emisor?.universidad || prescription.universidad || "N/A"}
                     </p>
+                    {prescription.emisor?.especialidad && (
+                      <p className="text-xs font-bold text-gray-600">
+                        Especialidad: {prescription.emisor?.especialidad}
+                      </p>
+                    )}
                   </div>
                   
                   <div className="space-y-1 md:text-right md:self-end">
