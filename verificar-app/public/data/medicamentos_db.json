@@ -108,5 +108,176 @@
       "Ciertos antibióticos como la Eritromicina"
     ],
     "recomendaciones": "Evita consumir jugo de toronja mientras tomes este medicamento. Si sientes dolor, sensibilidad o debilidad muscular inexplicable, avisa a tu médico de inmediato."
+  },
+  "amlodipino": {
+    "nombre": "Amlodipino",
+    "funcion": "Tratamiento de la presión arterial alta (hipertensión) y prevención de la angina de pecho (dolor en el pecho).",
+    "efectos_adversos": [
+      "Hinchazón de tobillos o pies (edema)",
+      "Dolor de cabeza o mareos",
+      "Sensación de calor o enrojecimiento del rostro",
+      "Cansancio o somnolencia"
+    ],
+    "interacciones": [
+      "Otros medicamentos antihipertensivos (pueden potenciar la baja de presión)",
+      "Jugo de toronja (puede incrementar la concentración de amlodipino en sangre)",
+      "Simvastatina (se debe limitar la dosis de esta estatina si se toma junto con amlodipino)"
+    ],
+    "recomendaciones": "Puedes tomarlo con o sin alimentos, preferentemente a la misma hora todos los días. Evita consumir toronja y reporta a tu médico si experimentas hinchazón severa en las piernas."
+  },
+  "ketorolaco": {
+    "nombre": "Ketorolaco",
+    "funcion": "Alivio a corto plazo del dolor moderado a severo (por ejemplo, dolor postoperatorio o dolor agudo intenso).",
+    "efectos_adversos": [
+      "Irritación gástrica, dolor de estómago o náuseas",
+      "Riesgo elevado de sangrado digestivo o úlceras con uso prolongado",
+      "Dolor de cabeza o mareos",
+      "Disminución de la función renal"
+    ],
+    "interacciones": [
+      "Otros antiinflamatorios como Aspirina, Ibuprofeno o Diclofenaco (aumentan críticamente el riesgo de úlceras)",
+      "Anticoagulantes (aumentan el riesgo de hemorragia)",
+      "Diuréticos (puede reducir su efecto y lesionar los riñones)"
+    ],
+    "recomendaciones": "El tratamiento por vía oral no debe exceder los 5 días debido a su toxicidad gastrointestinal y renal. Tómalo acompañado de alimentos y evita el alcohol."
+  },
+  "loratadina": {
+    "nombre": "Loratadina",
+    "funcion": "Alivio de los síntomas de alergia, como estornudos, secreción nasal, ojos llorosos y picazón en la nariz o garganta (antihistamínico).",
+    "efectos_adversos": [
+      "Somnolencia leve (menos común que con otros antihistamínicos)",
+      "Dolor de cabeza o fatiga",
+      "Boca seca",
+      "Mareos"
+    ],
+    "interacciones": [
+      "Alcohol u otros sedantes (pueden incrementar la somnolencia)",
+      "Medicamentos como la Eritromicina o el Ketoconazol (pueden aumentar la cantidad de Loratadina en sangre)"
+    ],
+    "recomendaciones": "Se toma una vez al día. Aunque causa menos sueño que otros antialérgicos, ten precaución al conducir si es la primera vez que lo tomas."
+  },
+  "naproxeno": {
+    "nombre": "Naproxeno",
+    "funcion": "Reducción del dolor, la inflamación y la rigidez causados por golpes, artritis, dolores menstruales u otros dolores musculares.",
+    "efectos_adversos": [
+      "Dolor abdominal, acidez o náuseas",
+      "Dolor de cabeza o zumbido en los oídos",
+      "Estreñimiento o flatulencias",
+      "Riesgo de úlceras estomacales con uso prolongado"
+    ],
+    "interacciones": [
+      "Anticoagulantes (incrementan el riesgo de sangrados)",
+      "Otros analgésicos AINEs (potencian el daño al estómago y riñones)",
+      "Medicamentos para la presión alta (Naproxeno disminuye su efecto para bajar la presión)"
+    ],
+    "recomendaciones": "Tómalo preferentemente con alimentos o leche para proteger el estómago. No se recomienda su uso continuo por periodos largos sin supervisión médica."
+  },
+  "salbutamol": {
+    "nombre": "Salbutamol",
+    "funcion": "Alivio rápido de la dificultad para respirar, sibilancias o tos causadas por asma, bronquitis o EPOC (broncodilatador).",
+    "efectos_adversos": [
+      "Temblores leves en las manos",
+      "Palpitaciones o aceleración del ritmo cardíaco (taquicardia)",
+      "Dolor de cabeza",
+      "Nerviosismo o intranquilidad"
+    ],
+    "interacciones": [
+      "Betabloqueadores como el Propranolol (bloquean el efecto del Salbutamol y pueden causar espasmo bronquial)",
+      "Otros broncodilatadores (pueden potenciar los efectos secundarios cardíacos)"
+    ],
+    "recomendaciones": "Úsalo exactamente como te indicó el médico. Enjuágate la boca con agua después de cada inhalación. Informa a tu médico si necesitas usarlo con más frecuencia de la habitual."
+  },
+  "diclofenaco": {
+    "nombre": "Diclofenaco",
+    "funcion": "Alivio del dolor agudo o crónico e inflamación en articulaciones, músculos y huesos (lesiones, contracturas, artritis).",
+    "efectos_adversos": [
+      "Dolor gástrico, náuseas o diarrea",
+      "Retención de líquidos o elevación de la presión arterial",
+      "Dolor de cabeza o mareos",
+      "Riesgo de úlceras o sangrado estomacal"
+    ],
+    "interacciones": [
+      "Anticoagulantes (aumentan el riesgo de hemorragia)",
+      "Otros antiinflamatorios AINEs (aumentan el riesgo de daño gastrointestinal y renal)",
+      "Medicamentos diuréticos y antihipertensivos (reduce su eficacia)"
+    ],
+    "recomendaciones": "Tómalo siempre con alimentos. Evita automedicarte con otros analgésicos de la misma familia al mismo tiempo para no dañar tu estómago y riñones."
+  },
+  "butilhioscina": {
+    "nombre": "Butilhioscina",
+    "funcion": "Alivio de espasmos y dolores tipo cólico en el estómago, intestinos, vías biliares y sistema urinario (antiespasmódico).",
+    "efectos_adversos": [
+      "Boca seca o disminución de la sudoración",
+      "Aceleración del ritmo cardíaco (taquicardia)",
+      "Estreñimiento",
+      "Visión borrosa transitoria"
+    ],
+    "interacciones": [
+      "Medicamentos antidepresivos o antihistamínicos (pueden potenciar los efectos de boca seca y estreñimiento)",
+      "Metoclopramida (pueden neutralizar mutuamente sus efectos sobre el movimiento intestinal)"
+    ],
+    "recomendaciones": "Tómala cuando sientas el espasmo o dolor tipo cólico. Evita realizar esfuerzos físicos excesivos bajo temperaturas altas debido al riesgo de retención de calor."
+  },
+  "ciprofloxacino": {
+    "nombre": "Ciprofloxacino",
+    "funcion": "Tratamiento de diversas infecciones bacterianas, especialmente del tracto urinario, respiratorio inferior y gastrointestinal (antibiótico).",
+    "efectos_adversos": [
+      "Náuseas o diarrea leve",
+      "Sensibilidad extrema a la luz solar (quemaduras fáciles)",
+      "Dolor o inflamación en tendones (tendinitis, muy raro)",
+      "Mareos o dolor de cabeza"
+    ],
+    "interacciones": [
+      "Antiacidos, calcio, hierro o multivitamínicos (reducen drásticamente la absorción; tomar con al menos 2 horas de diferencia)",
+      "Lácteos o jugos fortificados con calcio (no consumir juntos)",
+      "Cafeína (ciprofloxacino aumenta los efectos nerviosos de la cafeína)"
+    ],
+    "recomendaciones": "Tómalo con abundante agua y evita exponerte directamente al sol. Completa todo el esquema de tratamiento indicado aunque te sientas recuperado antes."
+  },
+  "levotiroxina": {
+    "nombre": "Levotiroxina",
+    "funcion": "Reemplazo de la hormona tiroidea en pacientes con tiroides poco activa (hipotiroidismo).",
+    "efectos_adversos": [
+      "Poco comunes si la dosis es correcta",
+      "Palpitaciones, sudoración o temblores (indican dosis demasiado alta)",
+      "Pérdida de peso o nerviosismo",
+      "Sensación excesiva de calor"
+    ],
+    "interacciones": [
+      "Suplementos de Calcio, Hierro o antiácidos (reducen significativamente su absorción; tomar con al menos 4 horas de diferencia)",
+      "Alimentos con fibra o soya (pueden interferir con la absorción)"
+    ],
+    "recomendaciones": "Es fundamental tomarla por la mañana en ayunas, al menos 30 a 60 minutos antes del desayuno, únicamente con agua simple. No cambies de marca sin consultar a tu médico."
+  },
+  "loperamida": {
+    "nombre": "Loperamida",
+    "funcion": "Control y alivio sintomático de la diarrea aguda no infecciosa.",
+    "efectos_adversos": [
+      "Estreñimiento",
+      "Dolor abdominal o cólicos",
+      "Sequedad de boca",
+      "Somnolencia o mareos"
+    ],
+    "interacciones": [
+      "Medicamentos que causen estreñimiento o disminuyan el movimiento intestinal (riesgo de estreñimiento grave o megacolon)",
+      "Otros sedantes (pueden potenciar la somnolencia)"
+    ],
+    "recomendaciones": "No la utilices si presentas fiebre alta o sangre en las evacuaciones (diarrea infecciosa). Suspende su uso en cuanto las deposiciones se normalicen."
+  },
+  "glibenclamida": {
+    "nombre": "Glibenclamida",
+    "funcion": "Control de los niveles de azúcar en sangre en personas con diabetes tipo 2 (estimula la liberación de insulina).",
+    "efectos_adversos": [
+      "Baja de azúcar excesiva (hipoglucemia: temblores, sudor frío, hambre, mareo)",
+      "Aumento de peso",
+      "Molestias estomacales leves",
+      "Erupción cutánea"
+    ],
+    "interacciones": [
+      "Alcohol (aumenta drásticamente el riesgo de hipoglucemia severa)",
+      "Medicamentos beta-bloqueadores (pueden ocultar los síntomas de alerta de una hipoglucemia)",
+      "Antiinflamatorios AINEs (pueden potenciar el efecto hipoglucemiante)"
+    ],
+    "recomendaciones": "Tómala inmediatamente antes o durante el desayuno. Siempre lleva contigo un dulce o fuente de azúcar en caso de experimentar síntomas de baja de azúcar."
   }
 }
