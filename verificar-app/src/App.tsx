@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { verifyJWT, decodeJWT, decodeRecipeToken, decodeRx1Token } from './jwt';
+import { verifyJWT, verifySignedMessage, decodeJWT, decodeRecipeToken, decodeRx1Token } from './jwt';
 import { getMedicamentoInfo } from './db';
 import type { MedicamentoInfo } from './db';
 
@@ -94,7 +94,31 @@ interface SavedPrescription {
   verifiedAt: number;
 }
 
-type VerificationSource = 'rx1' | 'simplified' | 'jwt' | null;
+type VerificationSource = 'hybrid' | 'rx1' | 'simplified' | 'jwt' | null;
+
+interface HybridVerificationRequest {
+  rid: string;
+  sig: string;
+}
+
+interface HybridApiPayload {
+  rid?: string;
+  fecha?: string;
+  fecha_consulta?: string;
+  doctor_id?: number | string;
+  doctor_nombre?: string;
+  cedula?: string;
+  universidad?: string;
+  especialidad?: string;
+  medicamentos?: any[];
+  contenido?: {
+    medicamentos?: any[];
+    [key: string]: any;
+  };
+  signature_input?: string;
+  signed_string?: string;
+  [key: string]: any;
+}
 
 function isRecipeTokenPayload(payload: any): boolean {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
@@ -121,6 +145,25 @@ function getTokenFromLocation(): string | null {
   return params.get('t') || params.get('token');
 }
 
+function getHybridRequestFromLocation(): HybridVerificationRequest | null {
+  const rawHash = window.location.hash ? window.location.hash.slice(1).trim() : '';
+  const rawQuery = new URLSearchParams(window.location.search);
+
+  const parseParams = (raw: string): URLSearchParams => new URLSearchParams(raw.replace(/^\?/, ''));
+
+  const candidates = [rawHash, rawQuery.toString()].filter(Boolean);
+  for (const candidate of candidates) {
+    const params = parseParams(candidate);
+    const rid = params.get('rid')?.trim();
+    const sig = params.get('sig')?.trim();
+    if (rid && sig) {
+      return { rid, sig };
+    }
+  }
+
+  return null;
+}
+
 function normalizeManualTokenInput(input: string): string {
   const trimmed = input.trim();
   if (!trimmed) return '';
@@ -130,6 +173,11 @@ function normalizeManualTokenInput(input: string): string {
     const hash = url.hash ? url.hash.slice(1).trim() : '';
     if (hash) {
       return decodeURIComponent(hash);
+    }
+    const rid = url.searchParams.get('rid');
+    const sig = url.searchParams.get('sig');
+    if (rid && sig) {
+      return `rid=${rid}&sig=${sig}`;
     }
     const token = url.searchParams.get('t') || url.searchParams.get('token');
     if (token) return token;
@@ -191,11 +239,110 @@ function validateRx1Payload(payload: any): { ok: boolean; errors: string[] } {
   return { ok: errors.length === 0, errors };
 }
 
+function normalizeTextForCompare(value: string | undefined | null): string {
+  return String(value ?? '').trim().toLowerCase();
+}
+
+function resolveDoctorFromRegistry(apiDoctorId: number, apiPayload: HybridApiPayload): { doctor: DoctorInfo | null; status: 'matched' | 'unregistered' | 'mismatch'; message?: string } {
+  const registryDoctor = DOCTORS_DB[apiDoctorId] || null;
+  if (!registryDoctor) {
+    return { doctor: null, status: 'unregistered' };
+  }
+
+  const apiDoctorNombre = normalizeTextForCompare(apiPayload.doctor_nombre);
+  const apiCedula = normalizeTextForCompare(apiPayload.cedula);
+  const apiUniversidad = normalizeTextForCompare(apiPayload.universidad);
+  const apiEspecialidad = normalizeTextForCompare(apiPayload.especialidad);
+
+  const mismatches: string[] = [];
+  if (apiDoctorNombre && apiDoctorNombre !== normalizeTextForCompare(registryDoctor.doctor_nombre)) {
+    mismatches.push('nombre');
+  }
+  if (apiCedula && apiCedula !== normalizeTextForCompare(registryDoctor.cedula)) {
+    mismatches.push('cédula');
+  }
+  if (apiUniversidad && apiUniversidad !== normalizeTextForCompare(registryDoctor.universidad)) {
+    mismatches.push('universidad');
+  }
+  if (apiEspecialidad && registryDoctor.especialidad && apiEspecialidad !== normalizeTextForCompare(registryDoctor.especialidad)) {
+    mismatches.push('especialidad');
+  }
+
+  if (mismatches.length > 0) {
+    return {
+      doctor: registryDoctor,
+      status: 'mismatch',
+      message: `Los campos del médico no coinciden con el registro local: ${mismatches.join(', ')}.`
+    };
+  }
+
+  return { doctor: registryDoctor, status: 'matched' };
+}
+
+function normalizeMedicationItem(item: any): MedicationItem {
+  return {
+    nombre: String(item?.nombre ?? item?.n ?? '').trim(),
+    via_administracion: String(item?.via_administracion ?? item?.v ?? '').trim(),
+    frecuencia_horas: Number(item?.frecuencia_horas ?? item?.f ?? 24),
+    duracion_dias: Number(item?.duracion_dias ?? item?.d ?? item?.t ?? 1),
+    indicaciones_extra: String(item?.indicaciones_extra ?? item?.i ?? '').trim()
+  };
+}
+
+function normalizeApiPayload(raw: HybridApiPayload, rid: string): { prescription: PrescriptionPayload; medications: MedicationItem[]; doctorStatus: 'matched' | 'unregistered' | 'mismatch'; doctorMessage?: string } {
+  const apiDoctorId = Number(raw.doctor_id || 0);
+  const doctorResolution = resolveDoctorFromRegistry(apiDoctorId, raw);
+  const registryDoctor = doctorResolution.doctor;
+
+  const fecha = raw.fecha_consulta || raw.fecha || '';
+  const rawMeds = raw.medicamentos || raw.contenido?.medicamentos || [];
+  const medications = Array.isArray(rawMeds) ? rawMeds.map(normalizeMedicationItem).filter(m => m.nombre) : [];
+
+  const doctorNombre = registryDoctor?.doctor_nombre || raw.doctor_nombre || 'Médico Celene';
+  const cedula = registryDoctor?.cedula || raw.cedula || 'N/A';
+  const universidad = registryDoctor?.universidad || raw.universidad || 'N/A';
+  const especialidad = registryDoctor?.especialidad || raw.especialidad || 'Medicina General';
+
+  const prescription: PrescriptionPayload = {
+    documento_tipo: 'receta_medica',
+    documento_id: rid,
+    fecha_emision: fecha,
+    emisor: {
+      doctor_id: apiDoctorId,
+      doctor_nombre: doctorNombre,
+      cedula,
+      universidad,
+      especialidad
+    },
+    contenido: {
+      ...raw.contenido,
+      medicamentos: medications
+    }
+  };
+
+  return {
+    prescription,
+    medications,
+    doctorStatus: doctorResolution.status,
+    doctorMessage: doctorResolution.message
+  };
+}
+
+function buildHybridSignatureString(raw: HybridApiPayload, rid: string): string {
+  const fixed = raw.signature_input || raw.signed_string;
+  if (fixed && fixed.trim()) return fixed.trim();
+
+  const fecha = raw.fecha_consulta || raw.fecha || '';
+  const doctorId = Number(raw.doctor_id || 0);
+  return `rid=${rid}|fecha=${fecha}|doctor_id=${doctorId}`;
+}
+
 export default function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean | null>(null);
   const [errorType, setErrorType] = useState<'none' | 'invalid_signature' | 'expired' | 'no_token' | 'malformed'>('no_token');
   const [verificationSource, setVerificationSource] = useState<VerificationSource>(null);
+  const [doctorValidationStatus, setDoctorValidationStatus] = useState<'matched' | 'unregistered' | null>(null);
   const [manualToken, setManualToken] = useState<string>('');
   const [prescription, setPrescription] = useState<PrescriptionPayload | null>(null);
   const [resolvedDrugs, setResolvedDrugs] = useState<{ [key: string]: MedicamentoInfo | null }>({});
@@ -218,6 +365,12 @@ export default function App() {
     
     // Escuchar cambios de URL (popstate)
     const handleUrlChange = () => {
+      const hybridRequest = getHybridRequestFromLocation();
+      if (hybridRequest) {
+        verifyAndLoadRecipe(`rid=${encodeURIComponent(hybridRequest.rid)}&sig=${encodeURIComponent(hybridRequest.sig)}`);
+        return;
+      }
+
       const incomingToken = getTokenFromLocation();
       if (incomingToken) {
         verifyAndLoadRecipe(incomingToken);
@@ -225,6 +378,7 @@ export default function App() {
         setIsValid(null);
         setErrorType('no_token');
         setVerificationSource(null);
+        setDoctorValidationStatus(null);
         setManualToken('');
         setPrescription(null);
         setResolvedDrugs({});
@@ -322,9 +476,65 @@ export default function App() {
     setLoading(true);
     setIsValid(null);
     setErrorType('none');
+    setDoctorValidationStatus(null);
     
     let decodedRaw: any = null;
     let detectedSource: VerificationSource = null;
+
+    const hybridParams = new URLSearchParams(token.replace(/^[#?]/, ''));
+    const hybridRid = hybridParams.get('rid');
+    const hybridSig = hybridParams.get('sig');
+
+    if (hybridRid && hybridSig) {
+      const rid = hybridRid.trim();
+      const sig = hybridSig.trim().replace(/\s+/g, '+');
+      setVerificationSource('hybrid');
+      try {
+        const apiUrl = `https://script.google.com/macros/s/AKfycbyRfJ1QfEUtW-i8igdnKN8qGhVQ8DZfFUQtHVlwZ0Ky0Md_Lz9KYIUdeF8Bfge4c-n5pg/exec?rid=${encodeURIComponent(rid)}`;
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error(`API respondió con estado ${response.status}`);
+        }
+
+        const apiRaw = await response.json() as HybridApiPayload;
+        const normalized = normalizeApiPayload(apiRaw, rid);
+        const signedString = buildHybridSignatureString(apiRaw, rid);
+        const signatureOk = await verifySignedMessage(signedString, sig, publicKeyPem);
+
+        if (!signatureOk) {
+          setIsValid(false);
+          setErrorType('invalid_signature');
+          setVerificationSource('hybrid');
+          setPrescription(null);
+          setResolvedDrugs({});
+          setLoading(false);
+          return;
+        }
+
+        if (normalized.doctorStatus === 'mismatch') {
+          setIsValid(false);
+          setErrorType('invalid_signature');
+          setVerificationSource('hybrid');
+          setPrescription(null);
+          setResolvedDrugs({});
+          setLoading(false);
+          return;
+        }
+
+        decodedRaw = normalized.prescription;
+        detectedSource = 'hybrid';
+        setDoctorValidationStatus(normalized.doctorStatus);
+      } catch (error) {
+        console.error('Error validando la receta híbrida:', error);
+        setIsValid(false);
+        setErrorType('malformed');
+        setVerificationSource('hybrid');
+        setPrescription(null);
+        setResolvedDrugs({});
+        setLoading(false);
+        return;
+      }
+    }
 
     // 1. Intentar decodificar como token RX1 (Base45 + zlib + JSON)
     if (/^RX1:/i.test(token)) {
@@ -341,6 +551,7 @@ export default function App() {
       }
       decodedRaw = rx1Decoded;
       detectedSource = 'rx1';
+      setDoctorValidationStatus('matched');
     }
 
     // 2. Si no es RX1, intentar como token simplificado (XOR / celene)
@@ -349,6 +560,7 @@ export default function App() {
       if (isRecipeTokenPayload(scrambledDecoded)) {
         decodedRaw = scrambledDecoded;
         detectedSource = 'simplified';
+        setDoctorValidationStatus('matched');
       }
     }
 
@@ -365,6 +577,7 @@ export default function App() {
       }
       decodedRaw = jwtDecoded;
       detectedSource = 'jwt';
+      setDoctorValidationStatus('matched');
 
       // Verificar firma ES256 offline usando la llave pública cargada
       const signatureOk = await verifyJWT(token, publicKeyPem);
@@ -524,6 +737,7 @@ export default function App() {
     setIsValid(null);
     setErrorType('no_token');
     setVerificationSource(null);
+    setDoctorValidationStatus(null);
     setManualToken('');
     setPrescription(null);
     setResolvedDrugs({});
@@ -754,9 +968,13 @@ export default function App() {
         {loading ? (
           <div className="text-center p-12 bg-white border-brutal rounded-hand-drawn-card shadow-brutal mb-8">
             <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-pc-rosa-fuerte mx-auto mb-4"></div>
-            <p className="font-hand-drawn text-xl font-bold">Verificando token QR...</p>
+            <p className="font-hand-drawn text-xl font-bold">
+              {verificationSource === 'hybrid' ? 'Consultando la receta en la nube...' : 'Verificando token QR...'}
+            </p>
             <p className="text-xs text-gray-400 mt-1">
-              {verificationSource === 'simplified'
+              {verificationSource === 'hybrid'
+                ? 'Descargando datos desde Sheets y validando la firma criptográfica.'
+                : verificationSource === 'simplified'
                 ? 'Decodificando localmente el token simplificado de Proyecto Celene.'
                 : 'Validación local del documento en el navegador.'}
             </p>
@@ -784,12 +1002,16 @@ export default function App() {
               <div className="bg-[#a3e635] text-pc-negro border-brutal p-4 rounded-xl text-center shadow-brutal-lg animate-wave-subtle">
                 <span className="text-2xl mr-2">🎗️</span>
                 <span className="font-hand-drawn text-xl font-black uppercase tracking-wider">
-                  {verificationSource === 'simplified'
+                  {verificationSource === 'hybrid'
+                    ? 'Receta autenticada por firma'
+                    : verificationSource === 'simplified'
                     ? 'Documento validado por Proyecto Celene'
                     : 'Documento verificado por Proyecto Celene'}
                 </span>
                 <p className="text-xs mt-1 text-green-950 font-bold">
-                  {verificationSource === 'simplified'
+                  {verificationSource === 'hybrid'
+                    ? 'La firma es válida y los datos fueron recuperados desde la nube.'
+                    : verificationSource === 'simplified'
                     ? 'Documento autenticado mediante token QR simplificado.'
                     : 'Documento auténtico firmado digitalmente.'}
                 </p>
@@ -805,6 +1027,19 @@ export default function App() {
                 Por políticas de confidencialidad y privacidad de datos de salud, el nombre del paciente se omite de esta página web. Verifique que los datos impresos en la receta física coincidan con la identificación del paciente.
               </p>
             </div>
+
+            {verificationSource === 'hybrid' && (
+              <div className={`border-2 ${doctorValidationStatus === 'matched' ? 'border-green-700 bg-green-50' : 'border-yellow-700 bg-yellow-50'} p-4 rounded-xl shadow-brutal-sm`}>
+                <h4 className={`text-xs font-black uppercase tracking-wider mb-1 ${doctorValidationStatus === 'matched' ? 'text-green-900' : 'text-yellow-900'}`}>
+                  Validación del Médico
+                </h4>
+                <p className="text-xs font-bold leading-relaxed text-gray-800">
+                  {doctorValidationStatus === 'matched'
+                    ? 'El médico coincide con el registro local y la firma criptográfica valida el folio, la fecha y el ID del médico.'
+                    : 'La firma valida el folio, la fecha y el ID del médico, pero ese médico no está en el registro local del visor.'}
+                </p>
+              </div>
+            )}
 
             {/* DETALLES DE LA RECETA Y MÉDICO */}
             {prescription && (
@@ -951,6 +1186,16 @@ export default function App() {
                     )}
                   </div>
                 )}
+
+                {/* CTA PWA */}
+                <div className="bg-pc-azul-suave border-2 border-pc-negro rounded-xl p-4 text-center shadow-brutal-sm space-y-2">
+                  <h4 className="font-black text-sm text-blue-900">
+                    Instala la PWA para recordatorios automáticos
+                  </h4>
+                  <p className="text-xs text-blue-950 font-semibold">
+                    Guarda esta app en tu celular para abrir recetas al instante y activar avisos locales de medicamento.
+                  </p>
+                </div>
               </div>
             )}
 
@@ -1027,12 +1272,12 @@ export default function App() {
             
             <div className="space-y-2">
               <h3 className="font-hand-drawn text-2xl font-black text-red-700 uppercase">
-                {errorType === 'malformed' ? 'QR Inválido' : 'Documento No Reconocido'}
+                {errorType === 'invalid_signature' ? 'Receta Alterada o Inválida' : 'QR Inválido'}
               </h3>
               <p className="text-sm font-bold text-red-950 max-w-md mx-auto leading-relaxed">
-                {errorType === 'malformed' 
-                  ? 'No se pudo decodificar el contenido del QR.' 
-                  : 'Documento no válido o token no reconocido. El contenido no corresponde a Proyecto Celene o fue alterado.'}
+                {errorType === 'invalid_signature'
+                  ? 'La firma no coincide con el contenido descargado desde la nube o el documento fue alterado.'
+                  : 'No se pudo decodificar el contenido del QR.'}
               </p>
               <p className="text-xs font-black text-red-800">
                 Este código QR no cuenta con el respaldo legal ni clínico de Proyecto Celene A.C.

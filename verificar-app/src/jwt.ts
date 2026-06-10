@@ -86,27 +86,7 @@ export async function verifyJWT(token: string, pemKey: string): Promise<boolean>
     }
     
     const [headerB64, payloadB64, signatureB64] = parts;
-    
-    // Firma en bytes
-    const signatureBytes = base64UrlToUint8Array(signatureB64);
-    
-    // Los datos firmados son la representación ASCII de "header.payload"
-    const encoder = new TextEncoder();
-    const signedDataBytes = encoder.encode(`${headerB64}.${payloadB64}`);
-    
-    // Importar la llave
-    const cryptoKey = await importPublicKey(pemKey);
-    
-    // Verificar firma
-    return await window.crypto.subtle.verify(
-      {
-        name: "ECDSA",
-        hash: { name: "SHA-256" }
-      },
-      cryptoKey,
-      signatureBytes as any,
-      signedDataBytes as any
-    );
+    return await verifySignedMessage(`${headerB64}.${payloadB64}`, signatureB64, pemKey);
   } catch (error) {
     console.error("Error al verificar la firma del JWT:", error);
     return false;
@@ -246,5 +226,136 @@ export function decodeRx1Token(rawToken: string): any {
   } catch (error) {
     console.error('Error al decodificar el token RX1:', error);
     return null;
+  }
+}
+
+function hexToUint8Array(hex: string): Uint8Array {
+  const cleanHex = hex.replace(/^0x/i, '').replace(/\s+/g, '');
+  if (cleanHex.length % 2 !== 0) {
+    throw new Error('Cadena hexadecimal inválida.');
+  }
+
+  const bytes = new Uint8Array(cleanHex.length / 2);
+  for (let i = 0; i < cleanHex.length; i += 2) {
+    bytes[i / 2] = Number.parseInt(cleanHex.slice(i, i + 2), 16);
+  }
+  return bytes;
+}
+
+function looksLikeHex(value: string): boolean {
+  return /^[0-9a-fA-F\s]+$/.test(value) && value.replace(/\s+/g, '').length >= 16;
+}
+
+function normalizeBase64Signature(value: string): string {
+  let normalized = value.replace(/\s+/g, '').replace(/-/g, '+').replace(/_/g, '/');
+  while (normalized.length % 4) {
+    normalized += '=';
+  }
+  return normalized;
+}
+
+function tryDecodeSignatureBytes(signatureInput: string): Uint8Array {
+  const trimmed = signatureInput.trim();
+
+  if (!trimmed) {
+    throw new Error('La firma está vacía.');
+  }
+
+  if (looksLikeHex(trimmed)) {
+    return hexToUint8Array(trimmed);
+  }
+
+  const base64Candidates = [
+    normalizeBase64Signature(trimmed),
+    (() => {
+      try {
+        return normalizeBase64Signature(decodeURIComponent(trimmed));
+      } catch {
+        return '';
+      }
+    })()
+  ].filter(Boolean);
+
+  for (const candidate of base64Candidates) {
+    try {
+      const binary = window.atob(candidate);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      return bytes;
+    } catch {
+      // Probar la siguiente variante.
+    }
+  }
+
+  throw new Error('No se pudo decodificar la firma.');
+}
+
+function rawEcdsaSignatureToDer(rawSignature: Uint8Array): Uint8Array {
+  if (rawSignature.length !== 64) {
+    return rawSignature;
+  }
+
+  const r = rawSignature.slice(0, 32);
+  const s = rawSignature.slice(32);
+
+  const trimLeadingZeros = (bytes: Uint8Array) => {
+    let start = 0;
+    while (start < bytes.length - 1 && bytes[start] === 0) {
+      start++;
+    }
+    return bytes.slice(start);
+  };
+
+  const prependZeroIfNeeded = (bytes: Uint8Array) => {
+    if (bytes[0] & 0x80) {
+      const prefixed = new Uint8Array(bytes.length + 1);
+      prefixed[0] = 0;
+      prefixed.set(bytes, 1);
+      return prefixed;
+    }
+    return bytes;
+  };
+
+  const encodeInteger = (bytes: Uint8Array) => {
+    const normalized = prependZeroIfNeeded(trimLeadingZeros(bytes));
+    return [0x02, normalized.length, ...normalized];
+  };
+
+  const rEncoded = encodeInteger(r);
+  const sEncoded = encodeInteger(s);
+  const sequenceLength = rEncoded.length + sEncoded.length;
+
+  return new Uint8Array([0x30, sequenceLength, ...rEncoded, ...sEncoded]);
+}
+
+/**
+ * Verifica una firma ECDSA sobre un string canónico usando la llave pública PEM.
+ * Acepta firma en hex, base64url/base64 o raw JOSE de 64 bytes.
+ */
+export async function verifySignedMessage(message: string, signatureInput: string, pemKey: string): Promise<boolean> {
+  try {
+    const signatureBytes = tryDecodeSignatureBytes(signatureInput);
+    const normalizedSignature = signatureBytes.length === 64
+      ? rawEcdsaSignatureToDer(signatureBytes)
+      : signatureBytes;
+
+    const encoder = new TextEncoder();
+    const signedDataBytes = encoder.encode(message);
+    const cryptoKey = await importPublicKey(pemKey);
+
+    return await window.crypto.subtle.verify(
+      {
+        name: "ECDSA",
+        hash: { name: "SHA-256" }
+      },
+      cryptoKey,
+      normalizedSignature as any,
+      signedDataBytes as any
+    );
+  } catch (error) {
+    console.error("Error al verificar la firma del mensaje:", error);
+    return false;
   }
 }
