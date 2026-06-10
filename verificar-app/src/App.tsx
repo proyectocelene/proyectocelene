@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { verifyJWT, decodeJWT } from './jwt';
+import { verifyJWT, decodeJWT, decodeRecipeToken } from './jwt';
 import { getMedicamentoInfo } from './db';
 import type { MedicamentoInfo } from './db';
 
@@ -94,10 +94,24 @@ interface SavedPrescription {
   verifiedAt: number;
 }
 
+type VerificationSource = 'simplified' | 'jwt' | null;
+
+function isRecipeTokenPayload(payload: any): boolean {
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+    return false;
+  }
+
+  const hasIdentity = payload.rid || payload.id || payload.d || payload.fecha_emision || payload.fecha;
+  const hasContent = Array.isArray(payload.m) || Array.isArray(payload.medicamentos) || !!payload.contenido?.medicamentos;
+
+  return Boolean(hasIdentity && hasContent);
+}
+
 export default function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean | null>(null);
   const [errorType, setErrorType] = useState<'none' | 'invalid_signature' | 'expired' | 'no_token' | 'malformed'>('no_token');
+  const [verificationSource, setVerificationSource] = useState<VerificationSource>(null);
   const [prescription, setPrescription] = useState<PrescriptionPayload | null>(null);
   const [resolvedDrugs, setResolvedDrugs] = useState<{ [key: string]: MedicamentoInfo | null }>({});
   const [publicKeyPem, setPublicKeyPem] = useState<string>(DEFAULT_PUBLIC_KEY_PEM);
@@ -126,6 +140,7 @@ export default function App() {
       } else {
         setIsValid(null);
         setErrorType('no_token');
+        setVerificationSource(null);
         setPrescription(null);
         setResolvedDrugs({});
       }
@@ -220,31 +235,47 @@ export default function App() {
     setIsValid(null);
     setErrorType('none');
     
-    // 1. Decodificación y validación de cabecera inicial (Rechazo inmediato si falla formato)
-    const decodedRaw = decodeJWT(rawToken);
+    let decodedRaw: any = null;
+    let detectedSource: VerificationSource = null;
+
+    // 1. Intentar decodificar como token simplificado (XOR / celene)
+    const scrambledDecoded = decodeRecipeToken(rawToken);
+    if (isRecipeTokenPayload(scrambledDecoded)) {
+      decodedRaw = scrambledDecoded;
+      detectedSource = 'simplified';
+    }
+
+    // 2. Si no es un token simplificado, intentar como JWT tradicional
     if (!decodedRaw) {
-      setIsValid(false);
-      setErrorType('malformed');
-      setPrescription(null);
-      setResolvedDrugs({});
-      setLoading(false);
-      return;
+      const jwtDecoded = decodeJWT(rawToken);
+      if (!jwtDecoded) {
+        setIsValid(false);
+        setErrorType('malformed');
+        setPrescription(null);
+        setResolvedDrugs({});
+        setLoading(false);
+        return;
+      }
+      decodedRaw = jwtDecoded;
+      detectedSource = 'jwt';
+
+      // Verificar firma ES256 offline usando la llave pública cargada
+      const signatureOk = await verifyJWT(rawToken, publicKeyPem);
+      if (!signatureOk) {
+        setIsValid(false);
+        setErrorType('invalid_signature');
+        setPrescription(null);
+        setResolvedDrugs({});
+        setLoading(false);
+        return;
+      }
     }
 
-    // 2. Verificar firma ES256 offline usando la llave pública cargada
-    const signatureOk = await verifyJWT(rawToken, publicKeyPem);
-    if (!signatureOk) {
-      setIsValid(false);
-      setErrorType('invalid_signature');
-      setPrescription(null);
-      setResolvedDrugs({});
-      setLoading(false);
-      return;
-    }
+    setVerificationSource(detectedSource);
 
-    // Mapear el payload minificado de ES256 al formato de la UI
+    // Mapear el payload minificado al formato de la UI
     let decoded: PrescriptionPayload;
-    if (decodedRaw.rid || decodedRaw.d || decodedRaw.id) {
+    if (detectedSource === 'simplified' || decodedRaw.rid || decodedRaw.d || decodedRaw.id) {
       const docId = Number(decodedRaw.id || 0);
       const doctor = DOCTORS_DB[docId] || {
         doctor_id: docId,
@@ -349,6 +380,7 @@ export default function App() {
     window.history.pushState({}, '', window.location.pathname);
     setIsValid(null);
     setErrorType('no_token');
+    setVerificationSource(null);
     setPrescription(null);
     setResolvedDrugs({});
   };
@@ -578,8 +610,12 @@ export default function App() {
         {loading ? (
           <div className="text-center p-12 bg-white border-brutal rounded-hand-drawn-card shadow-brutal mb-8">
             <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-pc-rosa-fuerte mx-auto mb-4"></div>
-            <p className="font-hand-drawn text-xl font-bold">Verificando firma digital...</p>
-            <p className="text-xs text-gray-400 mt-1">Verificación offline por Web Crypto API</p>
+            <p className="font-hand-drawn text-xl font-bold">Verificando token QR...</p>
+            <p className="text-xs text-gray-400 mt-1">
+              {verificationSource === 'simplified'
+                ? 'Decodificando localmente el token simplificado de Proyecto Celene.'
+                : 'Validación local del documento en el navegador.'}
+            </p>
           </div>
         ) : isValid === true ? (
           /* DOCUMENTO VERIFICADO CON ÉXITO */
@@ -590,20 +626,28 @@ export default function App() {
               <div className="bg-yellow-100 text-yellow-800 border-brutal p-4 rounded-xl text-center shadow-brutal animate-wave-subtle">
                 <span className="text-2xl mr-2">⚠️</span>
                 <span className="font-hand-drawn text-lg font-black uppercase tracking-wide">
-                  Documento verificado por Proyecto Celene pero expirado
+                  {verificationSource === 'simplified'
+                    ? 'Documento validado por Proyecto Celene pero expirado'
+                    : 'Documento verificado por Proyecto Celene pero expirado'}
                 </span>
                 <p className="text-xs mt-1 text-yellow-900 font-bold">
-                  La firma es auténtica, pero el periodo de validez ha vencido.
+                  {verificationSource === 'simplified'
+                    ? 'El token es auténtico, pero el periodo de validez ha vencido.'
+                    : 'La firma es auténtica, pero el periodo de validez ha vencido.'}
                 </p>
               </div>
             ) : (
               <div className="bg-[#a3e635] text-pc-negro border-brutal p-4 rounded-xl text-center shadow-brutal-lg animate-wave-subtle">
                 <span className="text-2xl mr-2">🎗️</span>
                 <span className="font-hand-drawn text-xl font-black uppercase tracking-wider">
-                  Documento verificado por Proyecto Celene
+                  {verificationSource === 'simplified'
+                    ? 'Documento validado por Proyecto Celene'
+                    : 'Documento verificado por Proyecto Celene'}
                 </span>
                 <p className="text-xs mt-1 text-green-950 font-bold">
-                  Documento auténtico firmado digitalmente.
+                  {verificationSource === 'simplified'
+                    ? 'Documento autenticado mediante token QR simplificado.'
+                    : 'Documento auténtico firmado digitalmente.'}
                 </p>
               </div>
             )}
@@ -839,12 +883,12 @@ export default function App() {
             
             <div className="space-y-2">
               <h3 className="font-hand-drawn text-2xl font-black text-red-700 uppercase">
-                {errorType === 'malformed' ? 'Formato Incorrecto' : 'Firma No Reconocida'}
+                {errorType === 'malformed' ? 'Formato Incorrecto' : 'Documento No Reconocido'}
               </h3>
               <p className="text-sm font-bold text-red-950 max-w-md mx-auto leading-relaxed">
                 {errorType === 'malformed' 
                   ? 'El documento no tiene una estructura de token válida o no puede ser decodificado.' 
-                  : 'Documento no válido o firma no reconocida. La firma criptográfica no corresponde a Proyecto Celene o el contenido ha sido alterado.'}
+                  : 'Documento no válido o token no reconocido. El contenido no corresponde a Proyecto Celene o fue alterado.'}
               </p>
               <p className="text-xs font-black text-red-800">
                 Este código QR no cuenta con el respaldo legal ni clínico de Proyecto Celene A.C.
@@ -878,7 +922,7 @@ export default function App() {
                 Verificador de Documentación Oficial
               </h3>
               <p className="text-sm font-semibold leading-relaxed text-gray-700">
-                Esta herramienta permite certificar la autenticidad e integridad de recetas, cartas de referencia, certificados médicos y otros documentos oficiales emitidos por el personal médico de Proyecto Celene.
+                Esta herramienta permite validar la autenticidad de recetas, cartas de referencia, certificados médicos y otros documentos oficiales emitidos por el personal médico de Proyecto Celene.
               </p>
               
               <div className="border-t-2 border-pc-negro border-dashed pt-4">
@@ -887,8 +931,8 @@ export default function App() {
                 </h4>
                 <ol className="text-xs font-bold text-gray-600 text-left list-decimal list-inside space-y-2">
                   <li>Escanea el código QR impreso en el documento oficial (receta, carta, certificado).</li>
-                  <li>El sistema verificará la firma digital en el navegador de manera local (ES256).</li>
-                  <li>Si la firma es verídica, verás los detalles en pantalla con un cintillo de verificación.</li>
+                  <li>El sistema validará el token localmente en el navegador, sin depender de internet.</li>
+                  <li>Si el token es válido, verás los detalles en pantalla con un cintillo de verificación.</li>
                   <li><strong>Cotejo de Identidad</strong>: Valida físicamente que el nombre impreso en el papel coincida con la identificación del paciente.</li>
                 </ol>
               </div>
@@ -950,7 +994,7 @@ export default function App() {
                     No tienes documentos registrados en el historial local.
                   </p>
                   <p className="text-xs text-gray-400 mt-1">
-                    Al escanear y validar una firma de Proyecto Celene por primera vez, el documento aparecerá aquí para consultas offline inmediatas.
+                    Al escanear y validar un documento de Proyecto Celene por primera vez, el registro aparecerá aquí para consultas offline inmediatas.
                   </p>
                 </div>
               )}
@@ -961,7 +1005,7 @@ export default function App() {
               <span className="text-lg">📲</span>
               <h4 className="font-bold text-sm text-blue-900 inline ml-1">Aplicación Instalable</h4>
               <p className="text-xs text-blue-950 font-bold mt-1 max-w-sm mx-auto">
-                Instala esta herramienta en tu pantalla de inicio desde tu navegador móvil. Funciona offline para verificar la autenticidad e integridad criptográfica.
+                Instala esta herramienta en tu pantalla de inicio desde tu navegador móvil. Funciona offline para validar los documentos de Proyecto Celene.
               </p>
             </div>
 

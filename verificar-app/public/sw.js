@@ -1,4 +1,4 @@
-const CACHE_NAME = 'celene-verificar-v1.9'; // Versión incrementada para forzar actualización
+const CACHE_NAME = 'celene-verificar-v2.0'; // Versión incrementada para forzar actualización
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

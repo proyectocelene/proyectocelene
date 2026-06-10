@@ -1,6 +1,6 @@
 /**
- * Utilería para verificar firmas de JWT firmados con RS256 de forma offline
- * utilizando la Web Crypto API nativa del navegador.
+ * Utilería de compatibilidad para verificar JWT firmados con ES256 de forma offline
+ * y para decodificar el token simplificado de Proyecto Celene.
  */
 
 // Convierte un string Base64URL a un Uint8Array binario
@@ -69,7 +69,7 @@ export function decodeJWTHeader(token: string): any {
 }
 
 /**
- * Verifica la firma RS256 de un token JWT utilizando una llave pública PEM.
+ * Verifica la firma ES256 de un token JWT utilizando una llave pública PEM.
  */
 export async function verifyJWT(token: string, pemKey: string): Promise<boolean> {
   try {
@@ -129,6 +129,43 @@ export function decodeJWT(token: string): any {
     return JSON.parse(jsonStr);
   } catch (error) {
     console.error("Error al decodificar la carga útil del JWT:", error);
+    return null;
+  }
+}
+
+/**
+ * Decodifica el token simplificado de la receta usando mezcla XOR y Base64.
+ * @param scrambledToken - El token 't' de la URL.
+ * @param key - Clave de mezcla (por defecto "celene").
+ * @returns El objeto de la receta decodificada.
+ */
+export function decodeRecipeToken(scrambledToken: string, key: string = "celene"): any {
+  try {
+    // 1. Restaurar formato Base64 estándar
+    let base64Str = scrambledToken.replace(/-/g, '+').replace(/_/g, '/');
+    while (base64Str.length % 4) {
+      base64Str += '=';
+    }
+    
+    // 2. Decodificar Base64 a string binario
+    const binary = window.atob(base64Str);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) {
+      bytes[i] = binary.charCodeAt(i);
+    }
+    
+    // 3. Aplicar XOR inverso para obtener los caracteres originales
+    const keyBytes = new TextEncoder().encode(key);
+    const decryptedBytes = new Uint8Array(bytes.length);
+    for (let i = 0; i < bytes.length; i++) {
+      decryptedBytes[i] = bytes[i] ^ keyBytes[i % keyBytes.length];
+    }
+    
+    // 4. Decodificar bytes UTF-8 a string JSON y parsear
+    const jsonStr = new TextDecoder().decode(decryptedBytes);
+    return JSON.parse(jsonStr);
+  } catch (e) {
+    console.error("Error decodificando el token simplificado:", e);
     return null;
   }
 }
