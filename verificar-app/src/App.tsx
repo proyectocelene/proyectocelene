@@ -5,8 +5,8 @@ import type { MedicamentoInfo } from './db';
 
 // Llave pública ECDSA P-256 por defecto (fallback)
 const DEFAULT_PUBLIC_KEY_PEM = `-----BEGIN PUBLIC KEY-----
-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEONvASPPsTmaEbxh/JqikHzwIUrqB
-rJn70fKGodBsi5y8amW5wLGctj+G5Y3vHbUzbx+03JUfqbfZaBz7KukXeQ==
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEAtzKlx8qJNCb2/GOTsWZJpB27sRu
+HxO3fUff+RAUGKkuPpENovCaRCzm3bSU6CHZf3KiN5eq+F2Yjju2xItuEg==
 -----END PUBLIC KEY-----`;
 
 interface DoctorInfo {
@@ -347,6 +347,7 @@ export default function App() {
   const [prescription, setPrescription] = useState<PrescriptionPayload | null>(null);
   const [resolvedDrugs, setResolvedDrugs] = useState<{ [key: string]: MedicamentoInfo | null }>({});
   const [publicKeyPem, setPublicKeyPem] = useState<string>(DEFAULT_PUBLIC_KEY_PEM);
+  const [debugInfo, setDebugInfo] = useState<Record<string, any> | null>(null);
   
   // Historial y Notificaciones
   const [history, setHistory] = useState<SavedPrescription[]>([]);
@@ -382,6 +383,7 @@ export default function App() {
         setManualToken('');
         setPrescription(null);
         setResolvedDrugs({});
+        setDebugInfo(null);
       }
     };
 
@@ -477,9 +479,11 @@ export default function App() {
     setIsValid(null);
     setErrorType('none');
     setDoctorValidationStatus(null);
+    setDebugInfo(null);
     
     let decodedRaw: any = null;
     let detectedSource: VerificationSource = null;
+    let hybridContext: { rid?: string; sig?: string; apiUrl?: string } = {};
 
     const hybridParams = new URLSearchParams(token.replace(/^[#?]/, ''));
     const hybridRid = hybridParams.get('rid');
@@ -488,18 +492,35 @@ export default function App() {
     if (hybridRid && hybridSig) {
       const rid = hybridRid.trim();
       const sig = hybridSig.trim().replace(/\s+/g, '+');
+      hybridContext = { rid, sig };
       setVerificationSource('hybrid');
       try {
         const apiUrl = `https://script.google.com/macros/s/AKfycbyRfJ1QfEUtW-i8igdnKN8qGhVQ8DZfFUQtHVlwZ0Ky0Md_Lz9KYIUdeF8Bfge4c-n5pg/exec?rid=${encodeURIComponent(rid)}`;
+        hybridContext.apiUrl = apiUrl;
         const response = await fetch(apiUrl);
         if (!response.ok) {
-          throw new Error(`API respondió con estado ${response.status}`);
+          const err = new Error(`La API respondió con estado ${response.status}`);
+          (err as any).stage = 'fetch_api';
+          (err as any).apiUrl = apiUrl;
+          (err as any).status = response.status;
+          throw err;
         }
 
         const apiRaw = await response.json() as HybridApiPayload;
         const normalized = normalizeApiPayload(apiRaw, rid);
         const signedString = buildHybridSignatureString(apiRaw, rid);
         const signatureOk = await verifySignedMessage(signedString, sig, publicKeyPem);
+
+        setDebugInfo({
+          stage: signatureOk ? 'verified' : 'invalid_signature',
+          apiUrl,
+          rid,
+          sig,
+          signedString,
+          apiRaw,
+          normalizedDoctorStatus: normalized.doctorStatus,
+          publicKeyLoaded: publicKeyPem !== DEFAULT_PUBLIC_KEY_PEM,
+        });
 
         if (!signatureOk) {
           setIsValid(false);
@@ -518,6 +539,15 @@ export default function App() {
           setPrescription(null);
           setResolvedDrugs({});
           setLoading(false);
+          setDebugInfo({
+            stage: 'doctor_mismatch',
+            apiUrl,
+            rid,
+            sig,
+            signedString,
+            apiRaw,
+            doctorMessage: normalized.doctorMessage,
+          });
           return;
         }
 
@@ -527,10 +557,18 @@ export default function App() {
       } catch (error) {
         console.error('Error validando la receta híbrida:', error);
         setIsValid(false);
-        setErrorType('malformed');
+        setErrorType((error as any)?.stage === 'fetch_api' ? 'malformed' : 'invalid_signature');
         setVerificationSource('hybrid');
         setPrescription(null);
         setResolvedDrugs({});
+        setDebugInfo({
+          stage: (error as any)?.stage || 'hybrid_error',
+          message: (error as any)?.message || String(error),
+          apiUrl: (error as any)?.apiUrl,
+          status: (error as any)?.status,
+          publicKeyLoaded: publicKeyPem !== DEFAULT_PUBLIC_KEY_PEM,
+          token: hybridContext.rid && hybridContext.sig ? `rid=${hybridContext.rid}&sig=${hybridContext.sig}` : token,
+        });
         setLoading(false);
         return;
       }
@@ -741,6 +779,7 @@ export default function App() {
     setManualToken('');
     setPrescription(null);
     setResolvedDrugs({});
+    setDebugInfo(null);
   };
 
   const requestNotificationPermission = async () => {
@@ -1279,6 +1318,14 @@ export default function App() {
                   ? 'La firma no coincide con el contenido descargado desde la nube o el documento fue alterado.'
                   : 'No se pudo decodificar el contenido del QR.'}
               </p>
+              {debugInfo && (
+                <details className="text-left max-w-2xl mx-auto bg-white/60 border border-red-200 rounded-xl p-3">
+                  <summary className="cursor-pointer text-xs font-black text-red-800 uppercase tracking-wider">Ver diagnóstico técnico</summary>
+                  <pre className="mt-3 text-[11px] leading-relaxed whitespace-pre-wrap break-words overflow-x-auto text-red-950">
+                    {JSON.stringify(debugInfo, null, 2)}
+                  </pre>
+                </details>
+              )}
               <p className="text-xs font-black text-red-800">
                 Este código QR no cuenta con el respaldo legal ni clínico de Proyecto Celene A.C.
               </p>
@@ -1320,7 +1367,7 @@ export default function App() {
                 </h4>
                 <ol className="text-xs font-bold text-gray-600 text-left list-decimal list-inside space-y-2">
                   <li>Abre la URL pública de verificación o escanea el código QR impreso en el documento.</li>
-                  <li>Si el enlace contiene <strong>#RX1:...</strong>, el sistema lo leerá desde el hash.</li>
+                  <li>Si el enlace contiene <strong>#rid=...&amp;sig=...</strong>, el sistema lo leerá desde el hash.</li>
                   <li>El sistema validará el token localmente en el navegador, sin depender de internet.</li>
                   <li>Si el token es válido, verás los detalles en pantalla con un cintillo de verificación.</li>
                   <li><strong>Cotejo de Identidad</strong>: Valida físicamente que el nombre impreso en el papel coincida con la identificación del paciente.</li>
@@ -1335,7 +1382,7 @@ export default function App() {
                   Pegar token manualmente
                 </h3>
                 <p className="text-xs font-semibold text-gray-600">
-                  Funciona con enlaces públicos tipo <span className="font-black">https://proyectocelene.org/verificar/#RX1:...</span> o con el token completo copiado desde el QR.
+                  Funciona con enlaces públicos tipo <span className="font-black">https://proyectocelene.org/verificar/#rid=...&amp;sig=...</span> o con el token completo copiado desde el QR.
                 </p>
               </div>
               <textarea
@@ -1346,7 +1393,7 @@ export default function App() {
               />
               <div className="flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
                 <p className="text-[11px] font-bold text-gray-500">
-                  Si el token empieza con <span className="font-black">RX1:</span>, la página lo decodifica con Base45 + zlib y valida la estructura.
+                  Si el token trae <span className="font-black">rid</span> y <span className="font-black">sig</span>, la página consulta la API y valida la firma ECDSA.
                 </p>
                 <button
                   onClick={handleManualTokenSubmit}
