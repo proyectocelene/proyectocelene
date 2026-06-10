@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { verifyJWT, decodeJWT, decodeRecipeToken } from './jwt';
+import { verifyJWT, decodeJWT, decodeRecipeToken, decodeRx1Token } from './jwt';
 import { getMedicamentoInfo } from './db';
 import type { MedicamentoInfo } from './db';
 
@@ -94,7 +94,7 @@ interface SavedPrescription {
   verifiedAt: number;
 }
 
-type VerificationSource = 'simplified' | 'jwt' | null;
+type VerificationSource = 'rx1' | 'simplified' | 'jwt' | null;
 
 function isRecipeTokenPayload(payload: any): boolean {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
@@ -107,11 +107,96 @@ function isRecipeTokenPayload(payload: any): boolean {
   return Boolean(hasIdentity && hasContent);
 }
 
+function getTokenFromLocation(): string | null {
+  const hash = window.location.hash ? window.location.hash.slice(1).trim() : '';
+  if (hash) {
+    try {
+      return decodeURIComponent(hash);
+    } catch {
+      return hash;
+    }
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  return params.get('t') || params.get('token');
+}
+
+function normalizeManualTokenInput(input: string): string {
+  const trimmed = input.trim();
+  if (!trimmed) return '';
+
+  try {
+    const url = new URL(trimmed);
+    const hash = url.hash ? url.hash.slice(1).trim() : '';
+    if (hash) {
+      return decodeURIComponent(hash);
+    }
+    const token = url.searchParams.get('t') || url.searchParams.get('token');
+    if (token) return token;
+  } catch {
+    // No es una URL completa, seguimos con el texto directo.
+  }
+
+  if (trimmed.startsWith('#')) {
+    const raw = trimmed.slice(1).trim();
+    try {
+      return decodeURIComponent(raw);
+    } catch {
+      return raw;
+    }
+  }
+
+  try {
+    return decodeURIComponent(trimmed);
+  } catch {
+    return trimmed;
+  }
+}
+
+function validateRx1Payload(payload: any): { ok: boolean; errors: string[] } {
+  const errors: string[] = [];
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+    return { ok: false, errors: ['El payload no es un objeto válido.'] };
+  }
+
+  if (typeof payload.rid !== 'string' || !payload.rid.trim()) {
+    errors.push('Falta el folio `rid`.');
+  }
+  if (typeof payload.d !== 'string' || !payload.d.trim()) {
+    errors.push('Falta la fecha `d`.');
+  }
+  if (!Array.isArray(payload.m) || payload.m.length === 0) {
+    errors.push('Falta la lista de medicamentos `m`.');
+  } else {
+    payload.m.forEach((med: any, index: number) => {
+      if (!med || typeof med !== 'object' || Array.isArray(med)) {
+        errors.push(`Medicamento ${index + 1} inválido.`);
+        return;
+      }
+      if (typeof med.n !== 'string' || !med.n.trim()) {
+        errors.push(`Medicamento ${index + 1} sin nombre \`n\`.`);
+      }
+      if (typeof med.v !== 'string' || !med.v.trim()) {
+        errors.push(`Medicamento ${index + 1} sin vía \`v\`.`);
+      }
+      if (typeof med.f !== 'number' || Number.isNaN(med.f)) {
+        errors.push(`Medicamento ${index + 1} sin frecuencia \`f\`.`);
+      }
+      if (typeof med.d !== 'number' || Number.isNaN(med.d)) {
+        errors.push(`Medicamento ${index + 1} sin duración \`d\`.`);
+      }
+    });
+  }
+
+  return { ok: errors.length === 0, errors };
+}
+
 export default function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean | null>(null);
   const [errorType, setErrorType] = useState<'none' | 'invalid_signature' | 'expired' | 'no_token' | 'malformed'>('no_token');
   const [verificationSource, setVerificationSource] = useState<VerificationSource>(null);
+  const [manualToken, setManualToken] = useState<string>('');
   const [prescription, setPrescription] = useState<PrescriptionPayload | null>(null);
   const [resolvedDrugs, setResolvedDrugs] = useState<{ [key: string]: MedicamentoInfo | null }>({});
   const [publicKeyPem, setPublicKeyPem] = useState<string>(DEFAULT_PUBLIC_KEY_PEM);
@@ -133,24 +218,26 @@ export default function App() {
     
     // Escuchar cambios de URL (popstate)
     const handleUrlChange = () => {
-      const params = new URLSearchParams(window.location.search);
-      const tParam = params.get('t');
-      if (tParam) {
-        verifyAndLoadRecipe(tParam);
+      const incomingToken = getTokenFromLocation();
+      if (incomingToken) {
+        verifyAndLoadRecipe(incomingToken);
       } else {
         setIsValid(null);
         setErrorType('no_token');
         setVerificationSource(null);
+        setManualToken('');
         setPrescription(null);
         setResolvedDrugs({});
       }
     };
 
     window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('hashchange', handleUrlChange);
     handleUrlChange();
 
     return () => {
       window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('hashchange', handleUrlChange);
     };
   }, [publicKeyPem]); // Escuchar cambios de la llave pública
 
@@ -231,6 +318,7 @@ export default function App() {
   };
 
   const verifyAndLoadRecipe = async (rawToken: string) => {
+    const token = normalizeManualTokenInput(rawToken);
     setLoading(true);
     setIsValid(null);
     setErrorType('none');
@@ -238,16 +326,35 @@ export default function App() {
     let decodedRaw: any = null;
     let detectedSource: VerificationSource = null;
 
-    // 1. Intentar decodificar como token simplificado (XOR / celene)
-    const scrambledDecoded = decodeRecipeToken(rawToken);
-    if (isRecipeTokenPayload(scrambledDecoded)) {
-      decodedRaw = scrambledDecoded;
-      detectedSource = 'simplified';
+    // 1. Intentar decodificar como token RX1 (Base45 + zlib + JSON)
+    if (/^RX1:/i.test(token)) {
+      const rx1Decoded = decodeRx1Token(token);
+      const rx1Validation = validateRx1Payload(rx1Decoded);
+      if (!rx1Decoded || !rx1Validation.ok) {
+        setIsValid(false);
+        setErrorType('malformed');
+        setVerificationSource('rx1');
+        setPrescription(null);
+        setResolvedDrugs({});
+        setLoading(false);
+        return;
+      }
+      decodedRaw = rx1Decoded;
+      detectedSource = 'rx1';
     }
 
-    // 2. Si no es un token simplificado, intentar como JWT tradicional
+    // 2. Si no es RX1, intentar como token simplificado (XOR / celene)
     if (!decodedRaw) {
-      const jwtDecoded = decodeJWT(rawToken);
+      const scrambledDecoded = decodeRecipeToken(token);
+      if (isRecipeTokenPayload(scrambledDecoded)) {
+        decodedRaw = scrambledDecoded;
+        detectedSource = 'simplified';
+      }
+    }
+
+    // 3. Si no es un token simplificado, intentar como JWT tradicional
+    if (!decodedRaw) {
+      const jwtDecoded = decodeJWT(token);
       if (!jwtDecoded) {
         setIsValid(false);
         setErrorType('malformed');
@@ -260,7 +367,7 @@ export default function App() {
       detectedSource = 'jwt';
 
       // Verificar firma ES256 offline usando la llave pública cargada
-      const signatureOk = await verifyJWT(rawToken, publicKeyPem);
+      const signatureOk = await verifyJWT(token, publicKeyPem);
       if (!signatureOk) {
         setIsValid(false);
         setErrorType('invalid_signature');
@@ -273,9 +380,31 @@ export default function App() {
 
     setVerificationSource(detectedSource);
 
-    // Mapear el payload minificado al formato de la UI
+    // Mapear el payload al formato de la UI
     let decoded: PrescriptionPayload;
-    if (detectedSource === 'simplified' || decodedRaw.rid || decodedRaw.d || decodedRaw.id) {
+    if (detectedSource === 'rx1') {
+      decoded = {
+        documento_tipo: 'receta_medica',
+        documento_id: String(decodedRaw.rid),
+        fecha_emision: decodedRaw.d,
+        emisor: {
+          doctor_id: Number(decodedRaw.id || 0),
+          doctor_nombre: decodedRaw.dn || 'Médico Celene',
+          cedula: decodedRaw.dc || 'N/A',
+          universidad: decodedRaw.du || 'N/A',
+          especialidad: decodedRaw.de || 'Medicina General'
+        },
+        contenido: {
+          medicamentos: (decodedRaw.m || []).map((med: any) => ({
+            nombre: med.n || '',
+            via_administracion: med.v || '',
+            frecuencia_horas: Number(med.f || 24),
+            duracion_dias: Number(med.d || 1),
+            indicaciones_extra: med.i || ''
+          }))
+        }
+      };
+    } else if (detectedSource === 'simplified' || decodedRaw.rid || decodedRaw.d || decodedRaw.id) {
       const docId = Number(decodedRaw.id || 0);
       const doctor = DOCTORS_DB[docId] || {
         doctor_id: docId,
@@ -305,7 +434,7 @@ export default function App() {
             nombre: med.n || "",
             via_administracion: med.v || "",
             frecuencia_horas: Number(med.f || 24),
-            duracion_dias: Number(med.t || 1),
+            duracion_dias: Number(med.d || med.t || 1),
             indicaciones_extra: med.i || ""
           }))
         }
@@ -348,7 +477,7 @@ export default function App() {
     } else {
       setIsValid(true);
       setErrorType('none');
-      saveToHistory(rawToken, decoded);
+      saveToHistory(token, decoded);
     }
 
     // 4. Buscar detalles de medicamentos en la base de datos local en paralelo
@@ -371,9 +500,23 @@ export default function App() {
   };
 
   const selectHistoryItem = (savedToken: string) => {
-    const newUrl = `${window.location.pathname}?t=${savedToken}`;
+    const normalized = normalizeManualTokenInput(savedToken);
+    const newUrl = `${window.location.pathname}${normalized.startsWith('RX1:') ? `#${encodeURIComponent(normalized)}` : `?t=${encodeURIComponent(normalized)}`}`;
     window.history.pushState({}, '', newUrl);
-    verifyAndLoadRecipe(savedToken);
+    verifyAndLoadRecipe(normalized);
+  };
+
+  const handleManualTokenSubmit = () => {
+    const normalized = normalizeManualTokenInput(manualToken);
+    if (!normalized) {
+      setIsValid(false);
+      setErrorType('malformed');
+      return;
+    }
+
+    const newUrl = `${window.location.pathname}${normalized.startsWith('RX1:') ? `#${encodeURIComponent(normalized)}` : `?t=${encodeURIComponent(normalized)}`}`;
+    window.history.pushState({}, '', newUrl);
+    verifyAndLoadRecipe(normalized);
   };
 
   const clearCurrentRecipe = () => {
@@ -381,6 +524,7 @@ export default function App() {
     setIsValid(null);
     setErrorType('no_token');
     setVerificationSource(null);
+    setManualToken('');
     setPrescription(null);
     setResolvedDrugs({});
   };
@@ -883,11 +1027,11 @@ export default function App() {
             
             <div className="space-y-2">
               <h3 className="font-hand-drawn text-2xl font-black text-red-700 uppercase">
-                {errorType === 'malformed' ? 'Formato Incorrecto' : 'Documento No Reconocido'}
+                {errorType === 'malformed' ? 'QR Inválido' : 'Documento No Reconocido'}
               </h3>
               <p className="text-sm font-bold text-red-950 max-w-md mx-auto leading-relaxed">
                 {errorType === 'malformed' 
-                  ? 'El documento no tiene una estructura de token válida o no puede ser decodificado.' 
+                  ? 'No se pudo decodificar el contenido del QR.' 
                   : 'Documento no válido o token no reconocido. El contenido no corresponde a Proyecto Celene o fue alterado.'}
               </p>
               <p className="text-xs font-black text-red-800">
@@ -930,11 +1074,41 @@ export default function App() {
                   Instrucciones para el Validador
                 </h4>
                 <ol className="text-xs font-bold text-gray-600 text-left list-decimal list-inside space-y-2">
-                  <li>Escanea el código QR impreso en el documento oficial (receta, carta, certificado).</li>
+                  <li>Abre la URL pública de verificación o escanea el código QR impreso en el documento.</li>
+                  <li>Si el enlace contiene <strong>#RX1:...</strong>, el sistema lo leerá desde el hash.</li>
                   <li>El sistema validará el token localmente en el navegador, sin depender de internet.</li>
                   <li>Si el token es válido, verás los detalles en pantalla con un cintillo de verificación.</li>
                   <li><strong>Cotejo de Identidad</strong>: Valida físicamente que el nombre impreso en el papel coincida con la identificación del paciente.</li>
                 </ol>
+              </div>
+            </div>
+
+            {/* Verificación manual */}
+            <div className="bg-white border-brutal rounded-hand-drawn-card p-6 shadow-brutal space-y-4">
+              <div className="space-y-1">
+                <h3 className="font-hand-drawn text-xl font-bold text-pc-negro">
+                  Pegar token manualmente
+                </h3>
+                <p className="text-xs font-semibold text-gray-600">
+                  Funciona con enlaces públicos tipo <span className="font-black">https://proyectocelene.org/verificar/#RX1:...</span> o con el token completo copiado desde el QR.
+                </p>
+              </div>
+              <textarea
+                value={manualToken}
+                onChange={(e) => setManualToken(e.target.value)}
+                className="w-full min-h-28 border-brutal-thin rounded-xl p-3 text-sm font-mono text-pc-negro bg-pc-gris-suave outline-none focus:ring-2 focus:ring-pc-rosa-medio"
+                placeholder="Pega aquí el enlace completo, el token RX1 o el valor de #"
+              />
+              <div className="flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
+                <p className="text-[11px] font-bold text-gray-500">
+                  Si el token empieza con <span className="font-black">RX1:</span>, la página lo decodifica con Base45 + zlib y valida la estructura.
+                </p>
+                <button
+                  onClick={handleManualTokenSubmit}
+                  className="bg-pc-rosa-fuerte text-white border-brutal-thin px-5 py-2.5 rounded-xl text-sm font-black shadow-brutal-sm hover:shadow-brutal active:translate-y-[1px] transition-all"
+                >
+                  Verificar token
+                </button>
               </div>
             </div>
 
