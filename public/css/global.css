@@ -79,6 +79,9 @@ body {
     width: 100%;
     max-width: 350px;
     margin-bottom: 15px;
+    background: var(--pc-gris-suave);
+    color: var(--pc-negro);
+    box-shadow: 0 6px 0 var(--pc-negro);
 }
 
 .btn:active {
