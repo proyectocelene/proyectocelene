@@ -1,0 +1,1392 @@
+---
+// servicios.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Servicios - Proyecto Celene" description="Catálogo de servicios médicos de Proyecto Celene. Ofrecemos mastografías, consultas, papanicolaou, salud sexual, laboratorios y más con cuotas de recuperación accesibles.">
+    <link rel="stylesheet" href="/css/servicios.css" />
+
+        <div id="navbar-container" class="main-nav"></div>
+        <header class="header">
+            <svg class="snoopy-float" viewBox="0 0 100 100">
+                <path d="M20 50 Q 50 10, 80 50 Q 50 90, 20 50" stroke="black" stroke-width="4" fill="#fce4ec" />
+                <circle cx="40" cy="45" r="3" fill="black" />
+                <circle cx="60" cy="45" r="3" fill="black" />
+                <path d="M45 60 Q 50 65, 55 60" stroke="black" stroke-width="2" fill="none" />
+            </svg>
+            <h1 class="hand-drawn">Catálogo de Salud Celene</h1>
+            <p class="header-info">Ofrecemos servicios médicos de alta calidad, empáticos e integrales, con
+                <strong>cuotas de recuperación accesibles</strong>. Proyecto Celene no tiene fines de lucro; tu
+                aportación nos ayuda a mantener operaciones y seguir salvando vidas en nuestra comunidad.
+                <span>🌸</span>
+            </p>
+
+            <div class="search-container">
+                <input type="text" id="serviceSearch"
+                    placeholder="Busca un servicio (ej. diabetes, diu, embarazo, consulta)..."
+                    onkeyup="searchServices()">
+            </div>
+        </header>
+
+        <nav class="filter-container">
+            <button class="filter-btn active" onclick="filterCategory('all')">Todos</button>
+            <button class="filter-btn" onclick="filterCategory('mujer')">Mujer</button>
+            <button class="filter-btn" onclick="filterCategory('hombre')">Hombre</button>
+            <button class="filter-btn" onclick="filterCategory('paquete')">Combos</button>
+            <button class="filter-btn" onclick="filterCategory('consulta')">Consultas</button>
+            <button class="filter-btn" onclick="filterCategory('sexual')">Salud Sexual</button>
+            <button class="filter-btn" onclick="filterCategory('lab')">Laboratorios</button>
+            <button class="filter-btn" onclick="filterCategory('psico')">Psicología</button>
+            <button class="filter-btn" onclick="filterCategory('fisio')">Fisioterapia</button>
+            <button class="filter-btn" onclick="filterCategory('podologia')">Podología</button>
+            <button class="filter-btn" onclick="filterCategory('proc')">Procedimientos</button>
+        </nav>
+
+        <!-- BANNER LABORATORIOS (SOLO VISIBLE EN TAB LAB) -->
+        <div id="labPromoBanner" class="promo-banner" style="display: none;">
+            <h2 class="hand-drawn" style="color: var(--pc-rosa-fuerte); margin-bottom:10px;">¡Beneficio Exclusivo en
+                Laboratorios! <span>🔬</span></h2>
+            <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">Al pagar tus laboratorios en
+                <strong>Proyecto Celene</strong> recibes <strong>hasta 70% de descuento</strong> (dependiendo del
+                analito) con Laboratorios Oropeza. <br><br>Y lo mejor: ¡Al hacerte los estudios tienes una
+                <strong>tele-lectura de laboratorios GRATIS</strong> con nuestros médicos! <small
+                    style="display:block; margin-top:10px; color:#666;">*Aplican términos y condiciones.</small>
+            </p>
+        </div>
+
+        <!-- BANNER SALUD SEXUAL (SOLO VISIBLE EN TAB SEXUAL) -->
+        <div id="sexPromoBanner" class="banner-sex" style="display: none; grid-column: 1 / -1;">
+            <h2 class="hand-drawn" style="color: var(--pc-amarillo);">🛡️ Clínica de Salud Sexual</h2>
+            <p style="font-weight: 600; font-size: 1.1rem;">Tu salud íntima es importante. Espacio seguro, confidencial
+                y sin juicios.</p>
+            <a href="salud-sexual.html">Visitar Clínica Especializada ➔</a>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+
+            <!-- ==============================
+             ANCLAS (MASTOGRAFIA Y CONSULTA)
+        =============================== -->
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="mastografia mama cancer gratis requisitos mujer preventiva">
+                <span class="cat-tag">Mujer</span>
+                <h3 class="service-title">Mastografía Gratis <span>🎗</span></h3>
+                <p class="service-preview">La detección temprana salva 9 de cada 10 vidas. Este estudio clave encuentra
+                    anomalías antes de que sean palpables. No dejes que el costo sea una barrera, ¡estamos para
+                    cuidarte!</p>
+                <div class="price-highlight">GRATIS</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('mastografia')">Más Info</button>
+                    <a href="mastografia-gratuita.html" class="btn btn-wa">Ver Guía y Agendar</a>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="consulta"
+                data-keywords="consulta medica general medicina doctor empatico integral tratamiento">
+                <span class="cat-tag">Consultas</span>
+                <h3 class="service-title">Consulta Médica General <span>🩺</span></h3>
+                <p class="service-preview">Nuestra diferencia es que te escuchamos de verdad. Recibe un diagnóstico
+                    preciso, tratamiento integral y el trato humano que mereces para cuidar tu bienestar completo.</p>
+                <div class="price-text">Cuota: $150 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('consulta_gen')">Más Info</button>
+                    <button onclick="openInfo('consulta_gen')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="consulta"
+                data-keywords="control peso obesidad adelgazar nutricion dieta">
+                <span class="cat-tag">Consultas</span>
+                <h3 class="service-title">Control de Peso <span>⚖️</span></h3>
+                <p class="service-preview">Logra tu peso ideal de forma saludable, previniendo enfermedades crónicas y
+                    con un acompañamiento médico integral.</p>
+                <div class="price-text">Consulta: $200 m.n.</div>
+                <div class="btn-group">
+                    <a href="control-de-peso.html" class="btn btn-more"
+                        style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver
+                        Programa</a>
+                    <button onclick="openInfo('control_peso')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <!-- ==============================
+             MUJER INDIVIDUALES
+        =============================== -->
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="papanicolaou citologia cancer cervicouterino matriz">
+                <span class="cat-tag">Mujer</span>
+                <h3 class="service-title">Toma de Papanicolaou</h3>
+                <p class="service-preview">Cuidarte es el acto de amor más grande. Detecta a tiempo cualquier cambio
+                    celular con un estudio rápido y seguro. ¡Protege tu futuro hoy mismo!</p>
+                <div class="price-text">Cuota: $150 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('papa')">Detalles</button>
+                    <button onclick="openInfo('papa')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer proc"
+                data-keywords="ivaa acido acetico vinagre colposcopia cacu cancer cervicouterino mujer">
+                <span class="cat-tag">Procedimientos / Mujer</span>
+                <h3 class="service-title">Inspección Visual (IVAA) 🔬</h3>
+                <p class="service-preview">Prueba rápida para detectar lesiones precancerosas en el cuello uterino
+                    usando ácido acético. Permite un diagnóstico y tratamiento en la misma visita.</p>
+                <div class="price-text">Cuota: $150 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('ivaa')">Más Info</button>
+                    <a href="guia-ivaa.html" class="btn btn-wa"
+                        style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Guía Completa</a>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="implante subdermico colocacion brazo anticonceptivo">
+                <span class="cat-tag">Planificación Familiar</span>
+                <h3 class="service-title">Colocación de Implante Subdérmico</h3>
+                <p class="service-preview">Disfruta de tu sexualidad con tranquilidad. Método seguro, discreto y de
+                    larga duración (3 a 5 años), colocado por manos expertas.</p>
+                <div class="price-text">Cuota: $400 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('implante_col')">Detalles</button>
+                    <button onclick="openInfo('implante_col')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="diu colocacion t de cobre dispositivo anticonceptivo">
+                <span class="cat-tag">Planificación Familiar</span>
+                <h3 class="service-title">Colocación de DIU</h3>
+                <p class="service-preview">Protección altamente eficaz y sin necesidad de recordar pastillas. Te
+                    asesoramos y lo colocamos con el mayor cuidado clínico.</p>
+                <div class="price-text">Cuota: $450 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('diu_col')">Detalles</button>
+                    <button onclick="openInfo('diu_col')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer" data-keywords="diu retiro sacar dispositivo">
+                <span class="cat-tag">Planificación Familiar</span>
+                <h3 class="service-title">Retiro de DIU</h3>
+                <p class="service-preview">Extracción rápida y sin dolor en el consultorio. Te orientamos sobre tu
+                    siguiente paso en salud reproductiva.</p>
+                <div class="price-text">Cuota: $450 m.n.</div>
+                <div class="btn-group">
+                    <a href="retiro-diu.html" class="btn btn-more"
+                        style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver
+                        Guía Completa</a>
+                    <button onclick="openInfo('diu_ret')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="isd implante subdermico brazo retiro sacar dispositivo">
+                <span class="cat-tag">Planificación Familiar</span>
+                <h3 class="service-title">Retiro de Implante (ISD)</h3>
+                <p class="service-preview">Extracción segura con anestesia local. Hacemos que sea un procedimiento
+                    amigable y sin dolor.</p>
+                <div class="price-text">Cuota: $400 m.n.</div>
+                <div class="btn-group">
+                    <a href="retiro-isd.html" class="btn btn-more"
+                        style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver
+                        Guía Completa</a>
+                    <button onclick="openInfo('isd_ret')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="inyeccion anticonceptiva mensual trimestral planificacion">
+                <span class="cat-tag">Planificación Familiar</span>
+                <h3 class="service-title">Inyección Anticonceptiva</h3>
+                <p class="service-preview">Aplicación profesional y segura de tu método hormonal, ya sea de uso mensual
+                    o trimestral.</p>
+                <div class="price-text">Cuota: $50 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('inyeccion')">Detalles</button>
+                    <button onclick="openInfo('inyeccion')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="dismenorrea dolor menstrual colicos fuertes">
+                <span class="cat-tag">Salud Femenina</span>
+                <h3 class="service-title">Control del Dolor Menstrual (Dismenorrea)</h3>
+                <p class="service-preview">Sentir dolor que te incapacite no es normal. Evaluamos la causa raíz y te
+                    damos tratamiento real para que recuperes tu vida.</p>
+                <div class="price-text">Consulta Médica</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('dismenorrea')">Detalles</button>
+                    <button onclick="openInfo('dismenorrea')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="ile aborto interrupcion legal embarazo segura pastillas misoprostol mifepristona derechos reproductivos">
+                <span class="cat-tag">Derechos Reproductivos</span>
+                <h3 class="service-title">Orientación ILE (Aborto Seguro) ⚖️</h3>
+                <p class="service-preview">Acompañamiento empático, legal y seguro para la Interrupción Legal del Embarazo. Te orientamos y canalizamos sin juicios morales ni estigmas.</p>
+                <div class="price-text">Consulta Confidencial</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('ile')">Detalles</button>
+                    <button onclick="openInfo('ile')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="pastilla dia siguiente anticoncepcion emergencia">
+                <span class="cat-tag">Apoyo Inmediato</span>
+                <h3 class="service-title">Anticoncepción de Emergencia <span>💊</span></h3>
+                <p class="service-preview">Atención sin juicios, confidencial y empática. Te guiamos para protegerte a
+                    tiempo, porque es tu derecho decidir.</p>
+                <div class="price-text">Consulta Confidencial</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('emergencia')">Detalles</button>
+                    <button onclick="openInfo('emergencia')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="anticonceptivos gratis condones pastillas">
+                <span class="cat-tag">Apoyo Social</span>
+                <h3 class="service-title">Métodos Anticonceptivos Sin Costo</h3>
+                <p class="service-preview">Gracias a donativos, contamos con opciones para apoyarte. Sujetos a
+                    disponibilidad en nuestro inventario solidario.</p>
+                <div class="price-highlight">GRATIS</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('anticon_gratis')">Ver opciones</button>
+                    <button onclick="openInfo('anticon_gratis')" class="btn btn-wa">Preguntar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="menopausia climaterio bochornos calor">
+                <span class="cat-tag">Salud Femenina</span>
+                <h3 class="service-title">Manejo de Menopausia</h3>
+                <p class="service-preview">No tienes que sufrir los bochornos ni los cambios de humor. Te acompañamos
+                    clínicamente para que vivas esta etapa en plenitud.</p>
+                <div class="price-text">Consulta Médica</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('menopausia')">Detalles</button>
+                    <a href="guia-menopausia.html" class="btn btn-wa"
+                        style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver
+                        Guía y Agendar</a>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer" data-keywords="embarazo prenatal bebe vitaminas">
+                <span class="cat-tag">Salud Femenina</span>
+                <h3 class="service-title">Control Prenatal</h3>
+                <p class="service-preview">Cuidamos de ti y de tu bebé. Seguimiento integral mes a mes para asegurar un
+                    desarrollo fuerte y un embarazo sin riesgos.</p>
+                <div class="price-text">Consulta Médica</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('prenatal')">Detalles</button>
+                    <button onclick="openInfo('prenatal')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="infeccion urinaria vaginal ardor comezon flujo">
+                <span class="cat-tag">Salud Femenina</span>
+                <h3 class="service-title">Infecciones Urinarias / Vaginales</h3>
+                <p class="service-preview">Alivia el ardor, comezón o molestias rápidamente con un diagnóstico certero y
+                    el tratamiento adecuado que mereces.</p>
+                <div class="price-text">Consulta Médica</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('infecciones_fem')">Detalles</button>
+                    <button onclick="openInfo('infecciones_fem')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="mujer"
+                data-keywords="referencia ginecologia ginecologo especialista">
+                <span class="cat-tag">Red Médica</span>
+                <h3 class="service-title">Referencia a Ginecología</h3>
+                <p class="service-preview">Si tu caso requiere cirugía o un especialista avanzado, te canalizamos con
+                    nuestra red médica de confianza. Nunca estarás a la deriva.</p>
+                <div class="price-text">Parte de tu consulta</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('ref_gineco')">Detalles</button>
+                    <button onclick="openInfo('ref_gineco')" class="btn btn-wa">WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- ==============================
+             HOMBRES INDIVIDUALES
+        =============================== -->
+            <div class="service-card category-card" data-cat="hombre"
+                data-keywords="hiperplasia prostatica agrandamiento orinar">
+                <span class="cat-tag">Salud Masculina</span>
+                <h3 class="service-title">Hiperplasia Prostática</h3>
+                <p class="service-preview">¿Problemas al orinar o levantarte mucho de noche? Evaluamos y tratamos el
+                    agrandamiento de próstata para que recuperes tu descanso.</p>
+                <div class="price-text">Consulta Médica</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('hiperplasia')">Detalles</button>
+                    <button onclick="openInfo('hiperplasia')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="hombre"
+                data-keywords="disfuncion erectil impotencia ereccion">
+                <span class="cat-tag">Salud Masculina</span>
+                <h3 class="service-title">Disfunción Eréctil</h3>
+                <p class="service-preview">Es un problema muy común y tratable. Recibe atención confidencial y
+                    profesional para volver a disfrutar de una vida plena.</p>
+                <div class="price-text">Consulta Médica</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('disfuncion')">Detalles</button>
+                    <button onclick="openInfo('disfuncion')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="hombre" data-keywords="eyaculacion precoz sexual hombre">
+                <span class="cat-tag">Salud Masculina</span>
+                <h3 class="service-title">Eyaculación Precoz</h3>
+                <p class="service-preview">Tratamos la ansiedad de desempeño y las causas físicas con un abordaje médico
+                    respetuoso. Mejora tu calidad de vida hoy.</p>
+                <div class="price-text">Consulta Médica</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('eyaculacion')">Detalles</button>
+                    <button onclick="openInfo('eyaculacion')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="hombre"
+                data-keywords="cuestionario sintomas prostaticos test">
+                <span class="cat-tag">Salud Masculina</span>
+                <h3 class="service-title">Test de Síntomas Prostáticos</h3>
+                <p class="service-preview">Mediante un cuestionario clínico en consulta, evaluamos con precisión la
+                    gravedad de tus síntomas para darte el tratamiento exacto.</p>
+                <div class="price-text">Parte de tu consulta</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('cuestionario_prost')">Detalles</button>
+                    <button onclick="openInfo('cuestionario_prost')" class="btn btn-wa">WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="hombre"
+                data-keywords="referencia urologia especialista urologo">
+                <span class="cat-tag">Red Médica</span>
+                <h3 class="service-title">Referencia a Urología</h3>
+                <p class="service-preview">Si detectamos alertas en tus estudios, no perdemos tiempo. Te canalizamos de
+                    inmediato con un urólogo especialista de nuestra red.</p>
+                <div class="price-text">Parte de tu consulta</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('ref_uro')">Detalles</button>
+                    <button onclick="openInfo('ref_uro')" class="btn btn-wa">WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- ==============================
+             COMBOS DE VIDA
+        =============================== -->
+            <div class="service-card category-card" data-cat="paquete mujer"
+                data-keywords="paquete mujer integral saludable completo combo">
+                <span class="cat-tag">Combo Preventivo</span>
+                <h3 class="service-title">Mujer Saludable Integral <span>🌸</span></h3>
+                <p class="service-preview">El escudo protector definitivo. Cubrimos todas tus necesidades preventivas
+                    anuales en una sola visita, porque tu salud lo vale.</p>
+                <div class="price-combo">$500 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('paquete_mujer_int')">¿Qué incluye?</button>
+                    <button onclick="openInfo('paquete_mujer_int')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="paquete mujer"
+                data-keywords="paquete mujer basico saludable combo">
+                <span class="cat-tag">Combo Preventivo</span>
+                <h3 class="service-title">Mujer Saludable Básico</h3>
+                <p class="service-preview">Lo esencial para tu revisión anual si cuentas con menos tiempo. Papanicolaou,
+                    Consulta, Mastografía y VIH en un solo lugar.</p>
+                <div class="price-combo">$300 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('paquete_mujer_bas')">¿Qué incluye?</button>
+                    <button onclick="openInfo('paquete_mujer_bas')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="paquete hombre"
+                data-keywords="mantenimiento hombre paquete anual motor">
+                <span class="cat-tag">Combo Preventivo</span>
+                <h3 class="service-title">Mantenimiento Anual Masculino <span>🚙</span></h3>
+                <p class="service-preview">Un chequeo preventivo a tiempo hace la diferencia. Protege tu próstata y
+                    previene la diabetes con este panel enfocado en el hombre.</p>
+                <div class="price-combo">$300 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('mant_hombre')">Detalles</button>
+                    <button onclick="openInfo('mant_hombre')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <!-- ==============================
+             SALUD SEXUAL (ITS Y PAQUETES)
+        =============================== -->
+            <div class="service-card category-card" data-cat="sexual lab"
+                data-keywords="vih gratis sexual sida prueba rápida">
+                <span class="cat-tag">Salud Sexual</span>
+                <h3 class="service-title">Prueba Rápida de VIH</h3>
+                <p class="service-preview">Conoce tu estado de salud en minutos con total confidencialidad. Detectar a
+                    tiempo garantiza una vida plena. ¡Hazte la prueba sin costo!</p>
+                <div class="price-highlight">GRATIS</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('vih')">Más Info</button>
+                    <button onclick="openInfo('vih')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="sexual"
+                data-keywords="condones masculinos preservativos gratis proteccion">
+                <span class="cat-tag">Prevención</span>
+                <h3 class="service-title">Condones Masculinos Gratis</h3>
+                <p class="service-preview">Protégete y protege a quienes amas. Pasa a nuestra recepción por
+                    preservativos de calidad. Es seguro, gratis y sin penas.</p>
+                <div class="price-highlight">GRATIS</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('condones')">Detalles</button>
+                    <button onclick="openInfo('condones')" class="btn btn-wa">WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="sexual"
+                data-keywords="orientacion planificacion familiar metodos">
+                <span class="cat-tag">Consejería</span>
+                <h3 class="service-title">Orientación en Planificación Familiar</h3>
+                <p class="service-preview">Cada cuerpo es diferente. Plática confidencial para decidir qué método
+                    anticonceptivo se adapta mejor a tu estilo de vida.</p>
+                <div class="price-text">Sin Costo</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('orientacion_sexual')">Detalles</button>
+                    <button onclick="openInfo('orientacion_sexual')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <!-- PAQUETES ITS -->
+            <div class="service-card category-card" data-cat="sexual"
+                data-keywords="basico seguro its vih sifilis hepatitis">
+                <span class="cat-tag">Paquete ITS</span>
+                <h3 class="service-title">Básico Seguro</h3>
+                <p class="service-preview">Ideal para check-ups de rutina al iniciar con una nueva pareja. Evalúa VIH,
+                    Sífilis, Hepatitis B y C rápidamente.</p>
+                <div class="price-text">Cuota: $400 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('basico_seguro')">Detalles</button>
+                    <button onclick="openInfo('basico_seguro')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="sexual"
+                data-keywords="pareja atenta its gonorrea clamidia silenciosas">
+                <span class="cat-tag">Paquete ITS</span>
+                <h3 class="service-title">Pareja Atenta</h3>
+                <p class="service-preview">Enfocado en bacterias silenciosas (Gonorrea y Clamidia) que, de no tratarse,
+                    pueden afectar seriamente tu fertilidad a futuro.</p>
+                <div class="price-text">Cuota: $350 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('pareja_atenta')">Detalles</button>
+                    <button onclick="openInfo('pareja_atenta')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="sexual"
+                data-keywords="completo tranquilo its todas las pruebas integral">
+                <span class="cat-tag">Paquete ITS</span>
+                <h3 class="service-title">Completo Tranquilo</h3>
+                <p class="service-preview">Paz mental absoluta. El panel definitivo que cubre las infecciones curables y
+                    controlables más comunes. Tu salud es primero.</p>
+                <div class="price-text">Cuota: $600 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('completo_tranquilo')">Detalles</button>
+                    <button onclick="openInfo('completo_tranquilo')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="sexual"
+                data-keywords="juntos es mejor pareja descuento amigos vecino">
+                <span class="cat-tag">Paquete ITS</span>
+                <h3 class="service-title">Juntos es Mejor <span>👩‍❤️‍👨</span></h3>
+                <p class="service-preview">Cuidarse mutuamente es una muestra de responsabilidad. Panel completo para
+                    dos personas con un excelente descuento.</p>
+                <div class="price-combo">$1,000 m.n. (x2 personas)</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('juntos_mejor')">Detalles</button>
+                    <button onclick="openInfo('juntos_mejor')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <!-- ==============================
+             LABORATORIOS (Restantes)
+        =============================== -->
+            <div class="service-card category-card" data-cat="lab" data-keywords="embarazo orina prueba rapida">
+                <span class="cat-tag">Laboratorio</span>
+                <h3 class="service-title">Prueba Embarazo (Orina)</h3>
+                <p class="service-preview">Rápida y económica. Ideal si presentas varios días de retraso y buscas una
+                    respuesta inmediata en el consultorio.</p>
+                <div class="price-text">Cuota: $50 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('embarazo_orina')">Detalles</button>
+                    <button onclick="openInfo('embarazo_orina')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="lab mujer" data-keywords="embarazo sangre prueba hcg">
+                <span class="cat-tag">Laboratorio / Mujer</span>
+                <h3 class="service-title">Prueba Embarazo (Sangre) <span>🩸</span></h3>
+                <p class="service-preview">Sal de dudas hoy mismo. La prueba más precisa y confiable con resultados en
+                    solo 10 minutos. Te acompañamos en cada paso.</p>
+                <div class="price-text">Cuota: $150 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('embarazo_sangre')">Detalles</button>
+                    <button onclick="openInfo('embarazo_sangre')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="lab" data-keywords="covid prueba rapida sars cov 2">
+                <span class="cat-tag">Laboratorio</span>
+                <h3 class="service-title">Prueba Rápida COVID-19</h3>
+                <p class="service-preview">Ante síntomas respiratorios, protege a tu familia (en especial adultos
+                    mayores) confirmando o descartando el virus rápidamente.</p>
+                <div class="price-text">Cuota: $150 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('covid')">Detalles</button>
+                    <button onclick="openInfo('covid')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="lab" data-keywords="glucosa azucar capilar dedo">
+                <span class="cat-tag">Laboratorio</span>
+                <h3 class="service-title">Glucosa Capilar</h3>
+                <p class="service-preview">Con un pequeño piquete en el dedo, conoce tu nivel de azúcar al instante.
+                    Ideal para mareos o chequeos rápidos.</p>
+                <div class="price-text">Cuota: $30 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('glucosa')">Detalles</button>
+                    <button onclick="openInfo('glucosa')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="lab"
+                data-keywords="hba1c hemoglobina glucosilada diabetes 3 meses">
+                <span class="cat-tag">Laboratorio</span>
+                <h3 class="service-title">Hemoglobina Glucosilada</h3>
+                <p class="service-preview">Descubre el promedio real de tu azúcar de los últimos 3 meses. El primer paso
+                    para ganarle a la diabetes es la información exacta.</p>
+                <div class="price-text">Cuota: $150 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('hba1c')">Detalles</button>
+                    <button onclick="openInfo('hba1c')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="lab" data-keywords="examen general orina ego infeccion">
+                <span class="cat-tag">Laboratorio</span>
+                <h3 class="service-title">Examen General de Orina</h3>
+                <p class="service-preview">Detecta de manera oportuna infecciones urinarias, problemas renales o signos
+                    de deshidratación silenciosa.</p>
+                <div class="price-text">Cuota: $50 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('orina')">Detalles</button>
+                    <button onclick="openInfo('orina')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="hombre lab"
+                data-keywords="psa prostata hombre cancer caballero antígeno">
+                <span class="cat-tag">Hombre / Laboratorio</span>
+                <h3 class="service-title">Antígeno Prostático (PSA) <span>🚙</span></h3>
+                <p class="service-preview">El cáncer de próstata es silencioso pero 100% curable a tiempo. Una prueba de
+                    sangre basta para proteger tu vida, ¡agenda tu chequeo!</p>
+                <div class="price-text">Cuota: $150 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('psa')">Más Info</button>
+                    <button onclick="openInfo('psa')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <!-- ==============================
+             PSICOLOGIA
+        =============================== -->
+            <div class="full-width-box category-card" data-cat="psico">
+                <h2 class="hand-drawn" style="text-align: center; color: var(--pc-rosa-fuerte);">Psicología Celene
+                    <span>🧠</span>
+                </h2>
+                <h3 style="text-align: center; margin-bottom: 20px;">Hablar con un profesional hace toda la diferencia.
+                </h3>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 20px;">El estrés, la enfermedad y la vida
+                    diaria pueden abrumarnos. No tienes que cargar con todo tú sola(o). Encuentra un espacio seguro,
+                    confidencial y sin juicios para sanar tus emociones y recuperar tu paz mental.</p>
+
+                <div class="its-grid">
+                    <div class="its-item">
+                        <h4>Acompañamiento Oncológico</h4>
+                        <p>Atención para el paciente diagnosticado y su familia. Fortalece la resiliencia y transforma
+                            el miedo en esperanza.</p>
+                    </div>
+                    <div class="its-item">
+                        <h4>Manejo de Duelo</h4>
+                        <p>Un espacio seguro y cálido para transitar la pérdida de un ser querido, a tu propio ritmo y
+                            con profunda empatía.</p>
+                    </div>
+                    <div class="its-item">
+                        <h4>Ansiedad y Depresión</h4>
+                        <p>Herramientas clínicas comprobadas para combatir ataques de pánico y recuperar la motivación
+                            en tu día a día.</p>
+                    </div>
+                    <div class="its-item">
+                        <h4>Terapia de Pareja/Familiar</h4>
+                        <p>Mejora la comunicación y resuelve conflictos con la guía objetiva de un experto mediador.</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 25px;">
+                    <button onclick="openInfo('psicologia')" class="btn btn-wa"
+                        style="display:inline-block; padding:12px 30px; font-size:1.1rem;">Agendar Sesión de
+                        Psicología</button>
+                </div>
+            </div>
+
+            <!-- ==============================
+             FISIOTERAPIA Y SOBADOR
+        =============================== -->
+            <div class="service-card category-card" data-cat="fisio"
+                data-keywords="sobador masaje tiron empacho huesos tony primotapia tradicional">
+                <span class="cat-tag">Medicina Tradicional</span>
+                <h3 class="service-title">Sobador Tony de Primo Tapia</h3>
+                <p class="service-preview">Atención tradicional para torceduras, empacho, tensión muscular y ajuste.
+                    Lunes a Sábado de 9:00 am a 5:00 pm en Proyecto Celene. (Atención a domicilio disponible).</p>
+                <div class="price-text">Contactar para costos</div>
+                <div class="btn-group" style="flex-wrap: wrap; gap: 8px;">
+                    <a href="sobador-tony.html" class="btn btn-more" style="width: 100%;">Leer Más Detalles ➔</a>
+                    <a href="tel:6611232010" class="btn"
+                        style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);"><span>📞</span>
+                        Llamar</a>
+                    <a href="https://wa.me/526611232010" class="btn btn-wa" target="_blank"><span>💬</span> WhatsApp</a>
+                    <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ATony%3BSobador%0AFN%3ASobador%20Tony%0ATEL%3BTYPE%3DCELL%3A6611232010%0AEND%3AVCARD"
+                        download="Sobador_Tony.vcf" class="btn"
+                        style="background:var(--pc-amarillo); border-color:var(--pc-negro); color:var(--pc-negro); width: 100%;">📇
+                        Guardar Contacto</a>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="fisio"
+                data-keywords="fisioterapia rehabilitacion fisica lupita enfermera dolor lesion terapia">
+                <span class="cat-tag">Fisioterapia</span>
+                <h3 class="service-title">Fisioterapeuta Lupita, Enf.</h3>
+                <p class="service-preview">Rehabilitación física, lesiones crónicas y manejo del dolor con atención
+                    clínica, profesional y calidez humana.</p>
+                <div class="price-text">Contactar para costos</div>
+                <div class="btn-group" style="flex-wrap: wrap; gap: 8px;">
+                    <a href="fisioterapeuta-lupita.html" class="btn btn-more" style="width: 100%;">Leer Más Detalles
+                        ➔</a>
+                    <a href="tel:6611232826" class="btn"
+                        style="background:#e3f2fd; border-color:var(--pc-negro); color:var(--pc-negro);"><span>📞</span>
+                        Llamar</a>
+                    <a href="https://wa.me/526611232826" class="btn btn-wa" target="_blank"><span>💬</span> WhatsApp</a>
+                    <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ALupita%3BFisioterapeuta%0AFN%3AFisioterapeuta%20Lupita%0ATEL%3BTYPE%3DCELL%3A6611232826%0AEND%3AVCARD"
+                        download="Fisioterapeuta_Lupita.vcf" class="btn"
+                        style="background:var(--pc-amarillo); border-color:var(--pc-negro); color:var(--pc-negro); width: 100%;">📇
+                        Guardar Contacto</a>
+                </div>
+            </div>
+
+            <!-- ==============================
+             PODOLOGÍA
+        =============================== -->
+            <div class="service-card category-card" data-cat="podologia" data-keywords="podologo uñas corte clinico limpieza pies">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Corte Clínico de Uñas <span>✂️</span></h3>
+                <p class="service-preview">Corte preventivo profesional con instrumental estéril, ideal para evitar encarnaciones o para personas mayores que no pueden alcanzar sus pies con seguridad.</p>
+                <div class="price-text">Cuota: $380 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_corte')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia proc" data-keywords="uña encarnada dolor extraccion sacar uña podologo">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Extracción de Uña Encarnada</h3>
+                <p class="service-preview">Retiro clínico y seguro del fragmento de uña que está causando dolor, inflamación e infección (onicocriptosis) en el borde de tu dedo.</p>
+                <div class="price-text">Cuota: $350 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_extraccion')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia proc" data-keywords="uña encarnada oxido nitrico cauterizar raiz podologo">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Uña Encarnada (Óxido Nítrico)</h3>
+                <p class="service-preview">Tratamiento especializado que utiliza óxido nítrico para evitar que la uña vuelva a encarnarse de forma repetitiva en el mismo borde.</p>
+                <div class="price-text">Cuota: $400 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_nitrico')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia" data-keywords="deslaminacion hiperqueratosis durezas talones agrietados">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Deslaminación / Hiperqueratosis</h3>
+                <p class="service-preview">Retiro profundo y clínico de durezas severas en la planta o talón del pie para devolver la suavidad y prevenir grietas dolorosas y profundas.</p>
+                <div class="price-text">Cuota: $350 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_hiper')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia" data-keywords="callos callosidades dolor pie roce zapato">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Tratamiento de Callosidades</h3>
+                <p class="service-preview">Eliminación segura y sin dolor de callos (helomas) causados por la fricción o presión constante del calzado, recuperando tu comodidad al caminar.</p>
+                <div class="price-text">Cuota: $350 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_callos')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia" data-keywords="hongos uñas onicomicosis amarillas gruesas pie atleta descamacion podologo">
+                <span class="cat-tag">Podología</span>
+                <h3 class="service-title">Hongos y Pie de Atleta <span>🍄</span></h3>
+                <p class="service-preview">Tratamiento, limpieza y fresado para infecciones por hongos en las uñas (onicomicosis) y en la piel (pie de atleta), aliviando la descamación, mal olor y picor.</p>
+                <div class="price-text">Cuota: $350 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_hongos')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia" data-keywords="pie diabetico diabetes prevencion neuropatia podologo">
+                <span class="cat-tag">Podología Especializada</span>
+                <h3 class="service-title">Pie Diabético (1ra Consulta) <span>🩸</span></h3>
+                <p class="service-preview">Valoración vital para pacientes con diabetes: revisión de sensibilidad, pulsos, corte preventivo y educación para evitar complicaciones graves o úlceras.</p>
+                <div class="price-text">Cuota: $400 m.n.</div>
+                <div class="btn-group">
+                    <a href="podologia.html" class="btn btn-more">Ver Clínica</a>
+                    <button onclick="openInfo('podo_diabetico')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia fisio" data-keywords="reflexologia masaje pies relajacion estres podologo">
+                <span class="cat-tag">Terapias Complementarias</span>
+                <h3 class="service-title">Reflexología Podal</h3>
+                <p class="service-preview">Terapia de masaje y presión en puntos específicos del pie que conectan con tu sistema nervioso, ideal para aliviar la tensión extrema y promover el bienestar.</p>
+                <div class="price-text">Cuota: $450 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('podo_reflexologia')">Más Info</button>
+                    <button onclick="openInfo('podo_reflexologia')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="podologia fisio" data-keywords="ventosas cupping descompresion muscular terapia">
+                <span class="cat-tag">Terapias Complementarias</span>
+                <h3 class="service-title">Terapia con Ventosas</h3>
+                <p class="service-preview">Aplicación de ventosas para generar succión y descompresión tisular, favoreciendo el flujo sanguíneo y la relajación muscular profunda.</p>
+                <div class="price-text">Cuota: $300 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('podo_ventosas')">Más Info</button>
+                    <button onclick="openInfo('podo_ventosas')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <!-- ==============================
+             PROCEDIMIENTOS Y OTROS (CLÍNICA)
+        =============================== -->
+            <div class="service-card category-card" data-cat="consulta"
+                data-keywords="consulta virtual videollamada medico linea">
+                <span class="cat-tag">Consultas</span>
+                <h3 class="service-title">Consulta Médica Virtual</h3>
+                <p class="service-preview">Aclara tus dudas, revisa resultados o recibe seguimiento desde la comodidad y
+                    seguridad de tu hogar.</p>
+                <div class="price-text">Cuota: $150 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('virtual')">Detalles</button>
+                    <button onclick="openInfo('virtual')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="consulta"
+                data-keywords="certificado medico escolar trabajo">
+                <span class="cat-tag">Trámites Médicos</span>
+                <h3 class="service-title">Certificado Médico</h3>
+                <p class="service-preview">Documento oficial avalado por médico titular. Indispensable para trámites
+                    escolares, laborales o deportivos.</p>
+                <div class="price-text">Cuota: $100 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('certificado')">Detalles</button>
+                    <button onclick="openInfo('certificado')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="consulta proc"
+                data-keywords="presion arterial peso talla signos vitales">
+                <span class="cat-tag">Enfermería</span>
+                <h3 class="service-title">Toma de Signos Vitales</h3>
+                <p class="service-preview">Mantén un monitoreo constante de tu cuerpo. Ofrecemos Toma de Presión
+                    Arterial ($15) y Toma de Peso/Talla ($15).</p>
+                <div class="price-text">Desde: $15 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('signos')">Detalles</button>
+                    <button onclick="openInfo('signos')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="proc"
+                data-keywords="inyecciones aplicacion inyectar medicina">
+                <span class="cat-tag">Enfermería</span>
+                <h3 class="service-title">Aplicación de Inyecciones</h3>
+                <p class="service-preview">Evita riesgos al inyectarte. Aplicación higiénica y segura por nuestras
+                    enfermeras capacitadas. (Traer medicamento y receta).</p>
+                <div class="price-text">Cuota: $40 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('inyeccion_med')">Detalles</button>
+                    <button onclick="openInfo('inyeccion_med')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="proc"
+                data-keywords="nudos dolor muscular espalda cuello gatillo trigger points inyeccion alivio tpi">
+                <span class="cat-tag">Procedimientos</span>
+                <h3 class="service-title">Inyección de Puntos Gatillo</h3>
+                <p class="service-preview">Dile adiós a los molestos "nudos" en la espalda y cuello. Alivio casi
+                    instantáneo del dolor muscular severo y tensional.</p>
+                <div class="price-text">Cuota: $300 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('puntos_gatillo')">Detalles</button>
+                    <a href="puntos-gatillo.html" class="btn btn-wa">Ver Guía y Agendar</a>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="proc" data-keywords="curacion heridas limpiar herida">
+                <span class="cat-tag">Procedimientos</span>
+                <h3 class="service-title">Curación de Heridas</h3>
+                <p class="service-preview">Un aseo médico profundo previene infecciones graves. Limpiamos y
+                    desinfectamos cuidando tu comodidad y salud.</p>
+                <div class="price-text">Aprox: $250 m.n. (Varía)</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('curacion')">Detalles</button>
+                    <button onclick="openInfo('curacion')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="proc" data-keywords="sutura heridas coser puntos">
+                <span class="cat-tag">Procedimientos</span>
+                <h3 class="service-title">Sutura de Heridas</h3>
+                <p class="service-preview">Atención inmediata para cortes. Realizamos el cierre (sutura) con anestesia
+                    local y material estéril para una óptima cicatrización.</p>
+                <div class="price-text">Cuota: $350 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('sutura')">Detalles</button>
+                    <button onclick="openInfo('sutura')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="proc" data-keywords="retiro puntos quitar suturas">
+                <span class="cat-tag">Procedimientos</span>
+                <h3 class="service-title">Retiro de Puntos (Suturas)</h3>
+                <p class="service-preview">Una vez que tu herida sana, es fundamental retirar los hilos clínicamente
+                    para evitar que se encarnen o infecten.</p>
+                <div class="price-text">Cuota: $150 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('retiro_puntos')">Detalles</button>
+                    <button onclick="openInfo('retiro_puntos')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="proc" data-keywords="lavado oidos tapon cera agua">
+                <span class="cat-tag">Procedimientos</span>
+                <h3 class="service-title">Lavado de Oídos</h3>
+                <p class="service-preview">Los cotonetes son peligrosos; nuestra irrigación cálida es segura y libera
+                    bloqueos para que vuelvas a escuchar claramente.</p>
+                <div class="price-text">Cuota: $250 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('oidos')">Detalles</button>
+                    <button onclick="openInfo('oidos')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="proc"
+                data-keywords="drenaje absceso pus infeccion nacido">
+                <span class="cat-tag">Procedimientos</span>
+                <h3 class="service-title">Drenaje de Absceso</h3>
+                <p class="service-preview">Liberamos de forma clínica bolsas de infección (pus) bajo anestesia local
+                    para calmar el dolor y sanar la zona.</p>
+                <div class="price-text">Cuota: $400 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('absceso')">Detalles</button>
+                    <button onclick="openInfo('absceso')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+            <div class="service-card category-card" data-cat="proc"
+                data-keywords="eliminacion verrugas acrocordones cauterizacion quemar">
+                <span class="cat-tag">Procedimientos</span>
+                <h3 class="service-title">Eliminación de Verrugas</h3>
+                <p class="service-preview">Tratamiento estético y seguro para retirar molestas verruguitas o
+                    acrocordones en el consultorio, previa valoración médica.</p>
+                <div class="price-text">Cuota: $350 m.n.</div>
+                <div class="btn-group">
+                    <button class="btn btn-more" onclick="openInfo('verrugas')">Detalles</button>
+                    <button onclick="openInfo('verrugas')" class="btn btn-wa">Agendar</button>
+                </div>
+            </div>
+
+        </div> <!-- END GRID -->
+
+        <!-- ==============================
+         MODULO EXCLUSIVO SALUD SEXUAL (ITS EDUCATIVO Y QUIZ)
+         (Se ancla al final del contenedor, solo visible cuando Tab = Sexual)
+    =============================== -->
+        <div id="sexualEducationalModule" class="full-width-box" style="display: none; margin-top: 40px;">
+            <!-- QUIZ INTERACTIVO EXPANDIBLE -->
+            <div
+                style="background: white; padding: 25px; border-radius: 15px; border: 3px solid var(--pc-negro); margin-bottom: 30px;">
+                <button class="quiz-toggle-btn" onclick="toggleQuiz()">¿Necesito una prueba de ITS? Haz el test privado
+                    <span>🔍</span></button>
+
+                <div id="quizContent"
+                    style="display: none; margin-top: 25px; padding-top: 15px; border-top: 2px dashed #ccc;">
+                    <p style="margin-bottom: 15px; font-size:1.05rem; color:#555;">Marca las casillas que apliquen a tu
+                        caso (tu información es 100% confidencial y no se guarda):</p>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Tuviste relaciones sin
+                            condón</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Más de una pareja sexual en
+                            los últimos 12 meses</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> No sabes si tu pareja se ha
+                            hecho pruebas</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Tienes síntomas como ardor,
+                            comezón o secreción</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Alguna vez pensaste: "No creo
+                            que me pase a mí"</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Lo hiciste "nomás tantito"
+                            sin protección</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Usaste o compartiste agujas o
+                            jeringas</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Te hiciste tatuajes sin
+                            medidas higiénicas</label>
+                        <label class="quiz-label"><input type="checkbox" class="its-quiz"> Contacto con sangre u otros
+                            fluidos en el trabajo</label>
+                    </div>
+                    <button class="btn btn-more"
+                        style="width: 100%; max-width: 300px; display: block; margin: 0 auto; padding: 15px; font-size:1.1rem;"
+                        onclick="calculateQuiz()">Ver mi resultado</button>
+                    <div id="quizResult"
+                        style="display:none; margin-top: 25px; padding: 20px; border-radius: 10px; border-left: 5px solid var(--pc-rosa-fuerte); background: var(--pc-rosa-pastell); font-size: 1.15rem; line-height: 1.5;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCION ITS EDUCATIVA -->
+            <h2 class="hand-drawn" style="text-align: center; color: var(--pc-rosa-fuerte);">PROTÉGETE Y CHÉCATE 🛡️
+            </h2>
+            <p style="text-align: center; color:#555; font-size: 1.1rem; margin-bottom: 20px;">No sentir nada
+                <strong>NO</strong> significa estar sano. Conoce la verdad detrás del enemigo invisible:
+            </p>
+            <div class="its-grid">
+                <div class="its-item">
+                    <h4>VIH</h4>
+                    <p>Virus que debilita el sistema inmunológico. Hasta 40% no presenta síntomas. Detectarlo a tiempo
+                        permite acceder a tratamiento y llevar una vida larga, saludable y plena.</p>
+                </div>
+                <div class="its-item">
+                    <h4>Sífilis</h4>
+                    <p>Infección bacteriana que puede causar úlceras o erupciones. 1 de cada 3 personas no tiene
+                        síntomas iniciales. Es 100% curable si se detecta a tiempo.</p>
+                </div>
+                <div class="its-item">
+                    <h4>Hepatitis B y C</h4>
+                    <p>Virus que inflaman el hígado y pueden causar daños serios. La Hepatitis B se previene con vacuna;
+                        la Hepatitis C hoy en día es curable. A menudo asintomáticas.</p>
+                </div>
+                <div class="its-item">
+                    <h4>Clamidia</h4>
+                    <p>Bacteria que causa problemas reproductivos. Increíblemente silenciosa: hasta 75% de las mujeres y
+                        50% de los hombres no sienten nada. Fácil de tratar.</p>
+                </div>
+                <div class="its-item">
+                    <h4>Gonorrea</h4>
+                    <p>Causa ardor al orinar o secreciones, pero en mujeres suele pasar desapercibida. Puede generar
+                        complicaciones severas si no se da el antibiótico adecuado.</p>
+                </div>
+                <div class="its-item">
+                    <h4>Herpes Genital</h4>
+                    <p>Virus que provoca ampollas o llagas. Aunque no tiene cura definitiva, el tratamiento controla los
+                        síntomas maravillosamente, devolviéndote la paz.</p>
+                </div>
+                <div class="its-item">
+                    <h4>VPH</h4>
+                    <p>El virus más común. Causa verrugas y es factor de riesgo para cáncer cervicouterino. El
+                        Papanicolaou y la vacuna son tus mejores defensas.</p>
+                </div>
+                <div class="its-item">
+                    <h4>Tricomoniasis</h4>
+                    <p>Parásito tratable que genera irritación o flujo. Si se ignora, puede afectar la fertilidad.
+                        Tratarlo es rápido y seguro.</p>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- FINAL DEL CONTAINER -->
+
+    <!-- MODAL GLOBAL DE INFORMACION -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">✕</span>
+            <div id="modalHeader"></div>
+            <div id="modalBody" class="modal-body"></div>
+
+            <div class="mini-form-container">
+                <h3 class="hand-drawn" style="color:var(--pc-rosa-fuerte); margin-bottom: 10px;">💬 Tengo más dudas</h3>
+                <p style="font-weight: 600; color: #555; margin-bottom: 15px;">Si algo no te quedó claro sobre el
+                    programa o tus requisitos, mándanos un mensaje y te ayudamos con gusto.</p>
+                <input type="text" id="sm_nombre" placeholder="Tu Nombre Completo">
+                <input type="number" id="sm_edad" placeholder="Tu Edad">
+
+                <!-- CAMPOS DINAMICOS PAPANICOLAOU -->
+                <div id="papa_extra_fields"
+                    style="display:none; background: #fff; padding: 15px; border: 2px solid var(--pc-rosa-fuerte); border-radius: 10px; margin-bottom: 10px;">
+                    <label
+                        style="font-size: 0.9rem; font-weight:800; color:var(--pc-rosa-fuerte); display:block; margin-bottom:5px;">Datos
+                        Clínicos (Confidencial):</label>
+                    <input type="text" id="sm_papa_motivo"
+                        placeholder="Motivo del estudio (ej. Chequeo anual, dolor, infección...)">
+                    <select id="sm_papa_menstrua"
+                        onchange="document.getElementById('papa_climaterio').style.display = this.value === 'No' ? 'block' : 'none'">
+                        <option value="">¿Sigues menstruando regularmente?</option>
+                        <option value="Si">Sí</option>
+                        <option value="No">No (Menopausia / Histerectomía)</option>
+                    </select>
+                    <div id="papa_climaterio" style="display:none;">
+                        <textarea id="sm_papa_sintomas" rows="2"
+                            placeholder="¿Presentas síntomas genitourinarios? (Bochornos, resequedad vaginal, dolor al orinar)"></textarea>
+                    </div>
+                    <label style="font-size: 0.85rem; color:#555;">Última fecha aproximada que te lo realizaste:</label>
+                    <input type="date" id="sm_papa_fecha">
+                </div>
+
+                <textarea id="sm_duda" rows="2"
+                    placeholder="¿Tienes alguna duda o quieres agendar directamente?"></textarea>
+                <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                    <button onclick="sendServiceWa(false)" class="btn btn-wa"
+                        style="flex: 1; border-color:var(--pc-negro); margin: 0;">Cita en Clínica <span>🏥</span></button>
+                    <button id="btn_domicilio" onclick="sendServiceWa(true)" class="btn"
+                        style="flex: 1; background: #00bcd4; color: white; border-color:var(--pc-negro); margin: 0; display: none;">Cita a Domicilio <span>🏡</span></button>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 25px; font-weight: 800; color: #555;">Puedes acudir directamente
+                sin cita de Lunes a Domingo (9am - 4pm) o asegurar tu espacio:</p>
+
+            <div style="text-align: center; margin-top: 15px; display: flex; justify-content: center;">
+                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                <script is:inline>
+                    (function () {
+                        var target = document.currentScript;
+                        window.addEventListener('load', function () {
+                            calendar.schedulingButton.load({
+                                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Cl0EQ1_4WR76R8WC_ndVJ-OTJ7IR2g_5FuBAOIkO7eCFfU0wRomWYUY4rExTrPar93Y5yG0TZ?gv=true',
+                                color: '#d81b60',
+                                label: '🗓️ Consultar horarios y Agendar',
+                                target,
+                            });
+                        });
+                    })();
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <script is:inline>
+        /* =========================================
+           BASE DE DATOS COMPLETA DE SERVICIOS
+        ========================================= */
+        let currentServiceWaMsg = "";
+        let currentServiceId = "";
+
+        let servicesInfo = {};
+
+        // Cargar información de servicios dinámicamente
+        fetch('data/servicios.json')
+            .then(response => response.json())
+            .then(data => {
+                servicesInfo = data;
+            })
+            .catch(error => console.error('Error al cargar la información de servicios:', error));
+
+        /* =========================================
+           FUNCIONES DE FILTRADO Y BUSQUEDA
+        ========================================= */
+        function removeAccents(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function applyFilters() {
+            let input = removeAccents(document.getElementById('serviceSearch').value.toLowerCase());
+            let activeBtn = document.querySelector('.filter-btn.active');
+            let cat = activeBtn ? activeBtn.getAttribute('onclick').match(/'([^']+)'/)[1] : 'all';
+
+            let cards = document.querySelectorAll('.category-card');
+
+            for (let card of cards) {
+                let tags = card.getAttribute('data-cat') || "";
+                let keywords = removeAccents((card.getAttribute('data-keywords') || "").toLowerCase());
+
+                let titleEl = card.querySelector('.service-title') || card.querySelector('h2') || card.querySelector('h3');
+                let title = titleEl ? removeAccents(titleEl.innerText.toLowerCase()) : "";
+
+                let matchesSearch = input === "" || keywords.includes(input) || title.includes(input);
+                let matchesCat = cat === 'all' || tags.includes(cat);
+
+                let isBanner = (card.id === 'labPromoBanner' || card.id === 'sexualEducationalModule' || card.id === 'sexPromoBanner');
+
+                if (isBanner) {
+                    if (input === "") {
+                        if (card.id === 'labPromoBanner' && cat === 'lab') card.style.display = "block";
+                        else if (card.id === 'sexualEducationalModule' && cat === 'sexual') card.style.display = "block";
+                        else if (card.id === 'sexPromoBanner' && cat === 'sexual') card.style.display = "block";
+                        else card.style.display = "none";
+                    } else {
+                        card.style.display = "none";
+                    }
+                } else {
+                    if (matchesSearch && matchesCat) {
+                        card.style.display = "";
+                    } else {
+                        card.style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function searchServices() {
+            let input = document.getElementById('serviceSearch').value;
+            if (input.length > 0) {
+                let btns = document.querySelectorAll('.filter-btn');
+                btns.forEach(btn => btn.classList.remove('active'));
+                let allBtn = Array.from(btns).find(btn => btn.getAttribute('onclick').includes(`'all'`));
+                if (allBtn) allBtn.classList.add('active');
+            }
+            applyFilters();
+        }
+
+        function filterCategory(cat) {
+            let btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+
+            let targetBtn = Array.from(btns).find(btn => btn.getAttribute('onclick').includes(`'${cat}'`));
+            if (targetBtn) targetBtn.classList.add('active');
+
+            document.getElementById('serviceSearch').value = ""; // Limpiar busqueda al cambiar categoría
+            applyFilters();
+        }
+
+        /* =========================================
+           FUNCIONES DEL QUIZ DE ITS
+        ========================================= */
+        function toggleQuiz() {
+            let content = document.getElementById('quizContent');
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+
+        function calculateQuiz() {
+            let checkboxes = document.querySelectorAll('.its-quiz:checked');
+            let resultDiv = document.getElementById('quizResult');
+            let score = checkboxes.length;
+
+            let html = "";
+            if (score <= 1) {
+                html = "<strong>0–1 puntos → BAJO RIESGO:</strong><br> Vas bien, pero no te confíes. Sigue protegiéndote con condón. ¡Prevenir es amarte!";
+                resultDiv.style.borderLeftColor = "#25d366";
+                resultDiv.style.background = "#e8f5e9";
+            } else if (score <= 4) {
+                html = "<strong>2–4 puntos → RIESGO MODERADO:</strong><br> Más vale checar que lamentar. Te invitamos con total confianza a agendar nuestro <strong>Paquete Básico o Pareja</strong>. ¡Cuidamos de ti sin juzgarte!";
+                resultDiv.style.borderLeftColor = "#f0ad4e";
+                resultDiv.style.background = "#fff3e0";
+            } else {
+                html = "<strong>5 o más puntos → RIESGO ALTO:</strong><br> Necesitas una prueba... ¡y pronto! Agenda nuestro <strong>Paquete Completo Tranquilo</strong> hoy mismo. Deja de vivir con la duda, estamos aquí para apoyarte y guiarte con amor y absoluta discreción.";
+                resultDiv.style.borderLeftColor = "#d81b60";
+                resultDiv.style.background = "#fce4ec";
+            }
+
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = "block";
+        }
+
+        /* =========================================
+           FUNCIONES DEL MODAL
+        ========================================= */
+        function copyToClipboard(inputId, btn) {
+            var copyText = document.getElementById(inputId);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value).then(() => {
+                let originalHTML = btn.innerHTML;
+                btn.innerHTML = "¡Copiado! ✅";
+                btn.style.background = "var(--pc-rosa-fuerte)";
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.background = "";
+                }, 2000);
+            });
+        }
+
+        function togglePaymentInstructions(id) {
+            let paymentMethodElement = document.querySelector(`input[name="paymentMethod_${id}"]:checked`);
+            let paymentMethod = paymentMethodElement ? paymentMethodElement.value : 'efectivo';
+
+            document.getElementById(`instructionsEfectivo_${id}`).style.display = paymentMethod === 'efectivo' ? 'block' : 'none';
+            document.getElementById(`instructionsTransferencia_${id}`).style.display = paymentMethod === 'transferencia' ? 'block' : 'none';
+            document.getElementById(`instructionsMercadoPago_${id}`).style.display = paymentMethod === 'mercadopago' ? 'block' : 'none';
+        }
+
+        function openInfo(id) {
+            const info = servicesInfo[id];
+            if (!info) return;
+
+            document.getElementById('modalHeader').innerHTML = `<h2 class="hand-drawn" style="color:var(--pc-rosa-fuerte); font-size:1.8rem; line-height:1.1;">${info.title}</h2>`;
+
+            let bodyHtml = `<p style="font-size:1.05rem; font-weight:600; margin-bottom:15px; color:#333;">${info.desc}</p>`;
+            bodyHtml += `<h4 style="color:var(--pc-rosa-fuerte);">¿Por qué es importante?</h4><p style="font-size:0.95rem; margin-bottom:15px; color:#444;">${info.why}</p>`;
+
+            bodyHtml += `<h4 style="color:var(--pc-rosa-fuerte);">¿Qué te ofrecemos?</h4><ul style="color:#444;">`;
+            info.include.forEach(item => bodyHtml += `<li style="font-size:0.95rem;">${item}</li>`);
+            bodyHtml += `</ul>`;
+
+            bodyHtml += `<h4 style="margin-top:20px; color:var(--pc-rosa-fuerte);">Inversión en tu Salud</h4><p style="font-size:1.05rem; font-weight:800; color:var(--pc-negro); background:var(--pc-amarillo); padding:10px; border-radius:10px; border:2px dashed var(--pc-negro); text-align:center;">${info.reqs}</p>`;
+
+            if (info.price && info.price > 0) {
+                let precioOriginal = info.price;
+                let precioOnline = (precioOriginal * 1.0422) + 4.84;
+                let mpLink = info.mpLink || "https://link.mercadopago.com.mx/drdonato";
+
+                bodyHtml += `
+                    <div class="payment-methods">
+                        <h4 style="margin-bottom: 10px; font-size: 1.1rem; text-align: center; color: var(--pc-rosa-fuerte);">Opciones de Pago</h4>
+                        
+                        <div class="payment-option" onclick="document.getElementById('payEfectivo_${id}').click()">
+                            <input type="radio" name="paymentMethod_${id}" id="payEfectivo_${id}" value="efectivo" checked onchange="togglePaymentInstructions('${id}')">
+                            <label for="payEfectivo_${id}" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px;">
+                                <span>💵 <strong>Efectivo en Consultorio</strong><br><small style="color: #666;">(Sin comisión: $${precioOriginal.toFixed(2)} MN)</small></span>
+                                <a href="https://maps.app.goo.gl/2gaWMVxqsge2TLr99" target="_blank" class="btn-direction" style="margin: 0;" onclick="event.stopPropagation()"><span>📍</span> Ver Mapa</a>
+                            </label>
+                        </div>
+                        
+                        <div class="payment-option" onclick="document.getElementById('payTransferencia_${id}').click()">
+                            <input type="radio" name="paymentMethod_${id}" id="payTransferencia_${id}" value="transferencia" onchange="togglePaymentInstructions('${id}')">
+                            <label for="payTransferencia_${id}">
+                                🏦 <strong>Transferencia SPEI / CLABE</strong><br><small style="color: #666;">(Sin comisión: $${precioOriginal.toFixed(2)} MN)</small>
+                            </label>
+                        </div>
+                        
+                        <div class="payment-option" onclick="document.getElementById('payMercadoPago_${id}').click()">
+                            <input type="radio" name="paymentMethod_${id}" id="payMercadoPago_${id}" value="mercadopago" onchange="togglePaymentInstructions('${id}')">
+                            <label for="payMercadoPago_${id}">
+                                💳 <strong>Pago en línea (Mercado Pago)</strong> <br>
+                                <span style="font-size: 0.85rem; font-weight: 600; color: #555;">(Incluye comisión de plataforma: $${precioOnline.toFixed(2)} MN)</span>
+                            </label>
+                        </div>
+
+                        <div id="instructionsEfectivo_${id}" style="display: block; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                            <p style="font-size: 0.95rem;"><strong>1.</strong> Envíanos un mensaje por WhatsApp para agendar tu cita y menciona que pagarás en efectivo en el consultorio.</p>
+                        </div>
+
+                        <div id="instructionsTransferencia_${id}" style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                            <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">Total a transferir: $${precioOriginal.toFixed(2)} MN</p>
+                            <div class="copy-box-modern"><span class="label">CLABE</span><input type="text" id="clabe_${id}" value="722969010854962949" readonly><button type="button" onclick="copyToClipboard('clabe_${id}', this)"><span>📋</span> Copiar</button></div>
+                            <div class="copy-box-modern"><span class="label">Beneficiario</span><input type="text" id="benef_${id}" value="Carlos Donato Dueñas Prieto" readonly><button type="button" onclick="copyToClipboard('benef_${id}', this)"><span>📋</span> Copiar</button></div>
+                            <div class="copy-box-modern"><span class="label">Banco</span><input type="text" id="banco_${id}" value="Mercado Pago W" readonly><button type="button" onclick="copyToClipboard('banco_${id}', this)"><span>📋</span> Copiar</button></div>
+                            <ul class="step-list" style="margin-top: 10px;"><li>Realiza la transferencia (guarda tu comprobante).</li><li>Envíanos un mensaje por WhatsApp con tu comprobante para confirmar tu cita.</li></ul>
+                        </div>
+
+                        <div id="instructionsMercadoPago_${id}" style="display: none; margin-top: 15px; padding-top: 10px; border-top: 2px dashed #ccc;">
+                            <p style="font-size: 0.95rem; font-weight:bold; margin-bottom: 10px; color: var(--pc-rosa-fuerte);">Total a pagar en línea: $${precioOnline.toFixed(2)} MN</p>
+                            ${!info.mpLink ? `<div class="copy-box-modern"><span class="label">Total $</span><input type="text" id="mpTotal_${id}" value="${precioOnline.toFixed(2).replace('.', ',')}" readonly><button type="button" onclick="copyToClipboard('mpTotal_${id}', this)"><span>📋</span> Copiar</button></div><p style="color: #e65100; font-size: 0.85rem; font-weight: 800; margin-bottom: 10px;">⚠️ Copia la cantidad exacta con decimales antes de ir al enlace.</p>` : ''}
+                            <a href="${mpLink}" target="_blank" class="btn-wa" style="display: block; text-align: center; border-radius: 10px; padding: 10px; font-size: 1rem; width: 100%; border-color: var(--pc-negro); box-shadow: 3px 3px 0 var(--pc-negro);">Pagar en Mercado Pago ➔</a>
+                            <ul class="step-list" style="margin-top: 15px;"><li>Realiza el pago en el enlace (guarda captura de pantalla).</li><li>Envíanos tu comprobante por WhatsApp para confirmar tu cita.</li></ul>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Agregar botón de guía educativa si el servicio lo tiene configurado
+            if (info.eduLink) {
+                bodyHtml += `<div style="text-align: center; margin-top: 20px;"><a href="${info.eduLink}" class="btn" style="background: var(--pc-azul-suave); border-color: var(--pc-negro); width: 100%; box-shadow: 0 4px 0 var(--pc-negro); display: block;"><span>📖</span> Leer Guía Educativa</a>`;
+            }
+
+            if (id === 'papa') {
+                document.getElementById('papa_extra_fields').style.display = 'block';
+            } else {
+                document.getElementById('papa_extra_fields').style.display = 'none';
+            }
+
+            if (id.startsWith('podo_')) {
+                document.getElementById('btn_domicilio').style.display = 'block';
+            } else {
+                document.getElementById('btn_domicilio').style.display = 'none';
+            }
+
+            document.getElementById('modalBody').innerHTML = bodyHtml;
+            currentServiceWaMsg = info.waMsg;
+            currentServiceId = id;
+
+            document.getElementById('serviceModal').style.display = "flex";
+        }
+
+        function closeModal() { document.getElementById('serviceModal').style.display = "none"; }
+
+        function sendServiceWa(isDomicilio = false) {
+            let nombre = document.getElementById('sm_nombre').value.trim() || "No especificado";
+            let edad = document.getElementById('sm_edad').value.trim() || "-";
+            let duda = document.getElementById('sm_duda').value.trim();
+            let msg = isDomicilio ? `Hola Podóloga Sara 🦶.\nSoy *${nombre}* (${edad} años).\nMe interesa el servicio: *${currentServiceWaMsg}*.` : `Hola Proyecto Celene 🌸.\nSoy *${nombre}* (${edad} años).\nMe interesa agendar/información sobre: *${currentServiceWaMsg}*.`;
+
+            if (currentServiceWaMsg === 'Papanicolaou') {
+                let mtv = document.getElementById('sm_papa_motivo').value.trim() || "No especificó";
+                let menst = document.getElementById('sm_papa_menstrua').value || "No especificó";
+                let sinto = document.getElementById('sm_papa_sintomas').value.trim() || "No especificó";
+                let fecha = document.getElementById('sm_papa_fecha').value || "No recuerda";
+
+                msg += `\n\n*Datos Clínicos Papanicolaou:*\n- Motivo: ${mtv}\n- Menstrua: ${menst}\n- Síntomas Menopausia: ${sinto}\n- Último estudio: ${fecha}`;
+            }
+
+            if (duda) {
+                msg += `\n\nMi comentario/duda es: "${duda}"`;
+            }
+
+            let paymentMethodElement = document.querySelector(`input[name="paymentMethod_${currentServiceId}"]:checked`);
+            if (paymentMethodElement) {
+                let paymentText = "";
+                if (paymentMethodElement.value === 'efectivo') paymentText = "Efectivo en Consultorio";
+                if (paymentMethodElement.value === 'transferencia') paymentText = "Transferencia Bancaria";
+                if (paymentMethodElement.value === 'mercadopago') paymentText = "Pago en Línea (Mercado Pago)";
+                msg += `\n\n*Método de Pago seleccionado:* ${paymentText}`;
+            }
+
+            if (isDomicilio) {
+                msg += `\n\n*Modalidad:* Atención a Domicilio 🏡`;
+                window.open(`https://wa.me/525521300344?text=${encodeURIComponent(msg)}`, '_blank');
+            } else {
+                if (currentServiceId.startsWith('podo_')) msg += `\n\n*Modalidad:* En Clínica Celene 🏥`;
+                window.open(`https://wa.me/526611044050?text=${encodeURIComponent(msg)}`, '_blank');
+            }
+            
+            closeModal();
+        }
+        window.onclick = function (event) { if (event.target == document.getElementById('serviceModal')) closeModal(); }
+
+        // Iniciar con la vista de "Todos" activa y sin banners basura
+        filterCategory('all');
+    </script>
+
+    
+</Layout>

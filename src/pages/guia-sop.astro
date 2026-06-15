@@ -1,0 +1,335 @@
+---
+// guia-sop.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Guía de Ovario Poliquístico (SOP) | Proyecto Celene" description="Guía interactiva sobre el Síndrome de Ovario Poliquístico (SOP) y la Resistencia a la Insulina. Causas, síntomas y tratamientos.">
+    <link rel="stylesheet" href="/css/global.css" />
+
+        
+
+        <div style="margin-bottom: 15px; text-align: left;" class="fade-in">
+            <a href="recursos-educativos.html" style="background: var(--pc-blanco); color: var(--pc-negro); padding: 10px 20px; font-size: 1rem; margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); display: inline-flex; align-items: center; gap: 8px; border: 3px solid var(--pc-negro); border-radius: 50px; font-weight: 800; text-decoration: none;">
+                ⬅️ Volver a Recursos Educativos
+            </a>
+        </div>
+
+        <header class="header fade-in">
+            <span class="author-badge">🩺 Educación Médica | Proyecto Celene</span>
+            <h1 class="hand-drawn">Ovario Poliquístico (SOP) 🌸</h1>
+            <p style="font-weight:800; font-size:1.15rem; max-width: 750px; margin: 0 auto; color: var(--pc-negro);">Entiende la relación entre el peso, el acné, los ciclos irregulares y la resistencia a la insulina. ¡Descubre cómo tomar el control!</p>
+        </header>
+
+        <!-- NAVEGACIÓN TABS -->
+        <div class="tabs-wrapper fade-in">
+            <button id="btn-tab-intro" class="tab-btn active" onclick="openTab('tab-intro', this)">📖 ¿Qué es?</button>
+            <button id="btn-tab-sintomas" class="tab-btn" onclick="openTab('tab-sintomas', this)">⚠️ Síntomas</button>
+            <button id="btn-tab-insulina" class="tab-btn" onclick="openTab('tab-insulina', this)">🩸 Resistencia a la Insulina</button>
+            <button id="btn-tab-tratamientos" class="tab-btn" onclick="openTab('tab-tratamientos', this)">💊 Tratamientos</button>
+            <button id="btn-tab-mitos" class="tab-btn" onclick="openTab('tab-mitos', this)">🚫 Mitos</button>
+        </div>
+
+        <!-- TAB 1: ¿QUÉ ES? -->
+        <div id="tab-intro" class="tab-content" style="display: block;">
+            <div class="content-box">
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <span class="floating-emoji">🥚</span>
+                </div>
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem;">¿Qué es el SOP?</h2>
+                <p>El Síndrome de Ovario Poliquístico (SOP) es un <strong>desequilibrio hormonal</strong> muy común que afecta a las mujeres en edad reproductiva.</p>
+                <p>A pesar de su nombre, no siempre hay "quistes" reales. Lo que sucede es que los ovarios no logran liberar un óvulo maduro cada mes de forma regular. En su lugar, los folículos (las bolsitas que contienen los óvulos) se quedan a medio camino y se acumulan, viéndose como pequeños "quistes" en el ultrasonido.</p>
+                
+                <div class="info-panel" style="background: var(--pc-amarillo); border-color: var(--pc-negro); margin-top: 30px;">
+                    <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.5rem;">El Problema Principal: Los Andrógenos 📈</h4>
+                    <p style="font-weight: 600; color: #444; font-size: 1rem; margin-bottom: 0;">En el SOP, los ovarios producen niveles más altos de lo normal de <strong>andrógenos</strong> (las llamadas "hormonas masculinas", aunque todas las mujeres las tienen). Este exceso es el culpable de la mayoría de los síntomas molestos, como el acné o el vello no deseado, y es lo que interfiere con la ovulación.</p>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-sintomas', document.getElementById('btn-tab-sintomas'))">Conoce los Síntomas ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 2: SÍNTOMAS -->
+        <div id="tab-sintomas" class="tab-content">
+            <div class="content-box" style="background: var(--pc-gris-suave);">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem; color: var(--pc-negro);">Las Señales de Alerta ⚠️</h2>
+                <p style="text-align: center;">El SOP no es igual en todas las mujeres. Para que un médico te diagnostique, generalmente debes presentar al menos 2 de los siguientes 3 criterios (Criterios de Rotterdam):</p>
+
+                <div class="grid-cards">
+                    <div class="card info" style="border-color: #1565c0; box-shadow: 4px 4px 0 #bbdefb;">
+                        <h4 style="color: #1565c0; font-size: 1.2rem; font-family: 'Handlee', cursive;">📅 Ciclos Irregulares</h4>
+                        <p style="font-size: 0.95rem;">Tener menos de 8 periodos al año, o ciclos que duran más de 35 días. Es el signo de que la ovulación no está ocurriendo regularmente.</p>
+                    </div>
+
+                    <div class="card warning" style="border-color: #f57f17; box-shadow: 4px 4px 0 #fff9c4;">
+                        <h4 style="color: #f57f17; font-size: 1.2rem; font-family: 'Handlee', cursive;">🧔 Exceso de Andrógenos</h4>
+                        <p style="font-size: 0.95rem;">Se puede notar en análisis de sangre, o físicamente con: <strong>Acné</strong> (especialmente en mandíbula/cuello), <strong>Hirsutismo</strong> (vello grueso en cara, pecho o abdomen), o caída de cabello (tipo patrón masculino).</p>
+                    </div>
+                    
+                    <div class="card" style="border-color: #7b1fa2; box-shadow: 4px 4px 0 #e1bee7;">
+                        <h4 style="color: #7b1fa2; font-size: 1.2rem; font-family: 'Handlee', cursive;">🔬 Ovarios "Poliquísticos"</h4>
+                        <p style="font-size: 0.95rem;">Vistos en un ultrasonido. Los ovarios se ven más grandes y con muchos folículos pequeños alrededor del borde (como un collar de perlas).</p>
+                    </div>
+                </div>
+
+                <div class="info-panel" style="background: white; border-color: var(--pc-negro); margin-top: 30px;">
+                    <h4 style="color: var(--pc-negro); font-size: 1.4rem; font-family: 'Handlee', cursive;">Otros síntomas muy comunes:</h4>
+                    <ul style="font-size: 0.95rem; font-weight: 600; color: #444; margin-left: 20px;">
+                        <li><strong>Dificultad extrema para perder peso</strong> (o aumento de peso rápido, sobre todo alrededor del abdomen).</li>
+                        <li><strong>Acantosis Nigricans:</strong> Manchas oscuras y piel engrosada en pliegues (cuello, axilas, ingles). ¡Es una señal de alarma de insulina alta!</li>
+                        <li>Fatiga constante y antojos incontrolables de carbohidratos o dulces.</li>
+                    </ul>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-insulina', document.getElementById('btn-tab-insulina'))">Descubre el papel de la Insulina ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 3: RESISTENCIA A LA INSULINA -->
+        <div id="tab-insulina" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem; color: var(--pc-negro);">El Vínculo: Resistencia a la Insulina 🩸</h2>
+                <p style="text-align: center; margin-bottom: 20px;">Hasta el 70-80% de las mujeres con SOP tienen Resistencia a la Insulina, sin importar si tienen sobrepeso o son delgadas. Es el motor principal del problema.</p>
+
+                <div style="background: var(--pc-rosa-pastell); border: 3px dashed var(--pc-rosa-fuerte); padding: 25px; border-radius: 15px; margin-bottom: 30px;">
+                    <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.6rem; margin-bottom: 10px;">¿Qué es la Resistencia a la Insulina?</h3>
+                    <p style="font-weight: 600; color: #444; margin-bottom: 10px;">La insulina es la hormona que abre las células para que entre la glucosa (azúcar) y nos dé energía.</p>
+                    <p style="font-weight: 600; color: #444; margin-bottom: 10px;">Cuando hay "resistencia", las células no escuchan bien a la insulina. El cuerpo, en pánico porque el azúcar se queda en la sangre, produce <strong>aún más insulina</strong> para intentar forzar la puerta.</p>
+                </div>
+
+                <div class="info-panel" style="background: var(--pc-amarillo); border-color: var(--pc-negro);">
+                    <h4 class="hand-drawn" style="color: var(--pc-negro); font-size: 1.6rem;">El Círculo Vicioso del SOP 🔄</h4>
+                    <p style="font-size: 1rem; color: #444; font-weight: 600; margin-bottom: 10px;">El exceso de insulina en la sangre tiene un efecto directo en tus ovarios:</p>
+                    <ol style="margin-left: 20px; font-weight: 800; color: var(--pc-negro);">
+                        <li style="margin-bottom: 8px;">La insulina alta <strong>estimula a los ovarios</strong> a producir más andrógenos (testosterona).</li>
+                        <li style="margin-bottom: 8px;">La insulina alta disminuye una proteína (SHBG) que normalmente atrapa la testosterona, dejándola libre para causar estragos (acné, vello).</li>
+                        <li>Más andrógenos alteran la ovulación y promueven ganar peso en el abdomen... lo que empeora la resistencia a la insulina.</li>
+                    </ol>
+                    <p style="margin-top: 15px; text-align: center; font-weight: 900; color: var(--pc-rosa-fuerte); font-size: 1.2rem;">¡Por eso el tratamiento DEBE enfocarse en bajar la insulina!</p>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-tratamientos', document.getElementById('btn-tab-tratamientos'))">Ver Opciones de Tratamiento ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 4: TRATAMIENTOS -->
+        <div id="tab-tratamientos" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem; color: var(--pc-negro);">Opciones de Control 💊🥗</h2>
+                <p style="text-align: center; margin-bottom: 30px;">El SOP no tiene cura, pero <strong>se controla maravillosamente bien</strong>. El tratamiento debe ser personalizado según tu objetivo principal (regular regla, quitar acné, bajar de peso o embarazarte).</p>
+
+                <div class="grid-cards">
+                    <div class="card pro" style="border-color: #2e7d32; box-shadow: 4px 4px 0 #c8e6c9;">
+                        <h4 style="color: #2e7d32; font-size: 1.2rem; font-family: 'Handlee', cursive;">🥦 Estilo de Vida (El #1)</h4>
+                        <p style="font-size: 0.9rem;">Es la intervención más potente. Bajar solo el 5-10% del peso corporal puede restaurar la ovulación.<br><br><strong>Dieta:</strong> Baja en azúcares y harinas refinadas. Alta en proteína y fibra.<br><strong>Ejercicio:</strong> El entrenamiento de fuerza (pesas) es vital, ¡el músculo se come la glucosa y baja la insulina!</p>
+                    </div>
+                    
+                    <div class="card info" style="border-color: #1565c0; box-shadow: 4px 4px 0 #bbdefb;">
+                        <h4 style="color: #1565c0; font-size: 1.2rem; font-family: 'Handlee', cursive;">💊 Metformina</h4>
+                        <p style="font-size: 0.9rem;">El medicamento estrella para la resistencia a la insulina. Hace que tus células vuelvan a escuchar a la insulina, bajando sus niveles en sangre. Esto reduce los andrógenos y ayuda a que los ovarios vuelvan a funcionar solos.</p>
+                    </div>
+                    
+                    <div class="card warning" style="border-color: #d81b60; box-shadow: 4px 4px 0 #fce4ec;">
+                        <h4 style="color: #d81b60; font-size: 1.2rem; font-family: 'Handlee', cursive;">🌸 Anticonceptivos</h4>
+                        <p style="font-size: 0.9rem;">Si no buscas embarazo, son excelentes. <strong>Ojo: no "curan" el SOP</strong>, pero regulan el sangrado (protegiendo tu matriz), bajan los andrógenos rápidamente y limpian la piel de acné y vello en unos meses.</p>
+                    </div>
+
+                    <div class="card" style="border-color: #f57f17; box-shadow: 4px 4px 0 #fff9c4;">
+                        <h4 style="color: #f57f17; font-size: 1.2rem; font-family: 'Handlee', cursive;">✨ Inositol (Suplemento)</h4>
+                        <p style="font-size: 0.9rem;">El Myo-inositol y D-Chiro inositol son suplementos con gran evidencia científica. Ayudan a que la señal de la insulina funcione mejor dentro de la célula, mejorando la calidad de los óvulos y los ciclos.</p>
+                    </div>
+                </div>
+
+                <div style="background: var(--pc-gris-suave); border: 3px dashed var(--pc-negro); border-radius: 15px; padding: 25px; margin-top: 30px; text-align: center;">
+                    <h3 class="hand-drawn" style="color: var(--pc-rosa-fuerte); font-size: 1.8rem; margin-bottom: 10px;">¡Consulta con un experto!</h3>
+                    <p style="font-weight: 600; color: #444; margin-bottom: 20px;">No te automediques. El manejo ideal suele ser una combinación de dieta, ejercicio y el medicamento correcto para ti.</p>
+                    <a href="control-de-peso.html" class="btn-action btn-wa" style="margin: 0; text-decoration: none;">⚖️ Clínica de Control Metabólico ➔</a>
+                </div>
+
+                <button class="btn-next" onclick="openTab('tab-mitos', document.getElementById('btn-tab-mitos'))">Desmintiendo Mitos ➔</button>
+            </div>
+        </div>
+
+        <!-- TAB 5: MITOS -->
+        <div id="tab-mitos" class="tab-content">
+            <div class="content-box">
+                <h2 class="hand-drawn" style="text-align: center; font-size: 2.2rem; color: var(--pc-negro);">Verdades y Mitos ⚖️</h2>
+                <p style="text-align: center; margin-bottom: 30px; font-weight: 600;">Desmintamos los miedos más comunes sobre el SOP:</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                    
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: "Tener SOP significa que soy infértil y nunca podré tener hijos."</div><div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.7;">(Toca para ver)</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Realidad: ¡Falso! El SOP es una de las causas más comunes de infertilidad <strong>tratable</strong>. Con control metabólico, metformina o inductores de ovulación, la gran mayoría logran un embarazo sano.</div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: "Me tienen que operar para quitarme los quistes del ovario."</div><div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.7;">(Toca para ver)</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Realidad: ¡Falso! Los "quistes" del SOP son en realidad folículos inmaduros, no tumores de agua gigantes. Se deshacen solos al controlar las hormonas. La cirugía ovárica para SOP ya casi nunca se hace.</div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><div style="width: 100%; margin-top: 10px;">Mito: "Solo las mujeres con sobrepeso tienen SOP."</div><div style="margin-top: 8px; font-size: 0.8rem; opacity: 0.7;">(Toca para ver)</div></div>
+                            <div class="flip-card-back"><div style="width: 100%; margin-top: 10px;">Realidad: Falso. Existe el "SOP Delgado". Aunque es menos común (20%), mujeres en su peso normal pueden tener resistencia a la insulina, exceso de andrógenos y falta de ovulación.</div></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOQUE DE AGENDA (SIEMPRE VISIBLE AL FINAL) -->
+        <div class="fade-in" style="background: white; border: 4px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-top: 40px; box-shadow: 6px 6px 0 var(--pc-azul-suave); text-align: center;">
+            <h2 class="hand-drawn" style="color: var(--pc-negro); font-size: 2.2rem; margin-bottom: 10px;">Toma el control hoy 🗓️</h2>
+            <p style="font-weight: 600; font-size: 1.1rem; color: #444; margin-bottom: 20px;">No te acostumbres a los ciclos irregulares ni a la dificultad para bajar de peso. Podemos ayudarte a recuperar tu balance hormonal.</p>
+            
+            <div style="text-align: center; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+                <a href="control-de-peso.html" class="btn-action btn-wa" style="margin: 0; box-shadow: 4px 4px 0 var(--pc-negro); text-decoration: none;">
+                    ⚖️ Clínica de Control Metabólico
+                </a>
+            </div>
+        </div>
+
+     <!-- FIN CONTAINER -->
+
+    <script is:inline>
+        // Animaciones Iniciales Fade-In
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            // Manejo de URL Hash
+            if (window.location.hash) {
+                const tabId = window.location.hash.substring(1);
+                const validTabs = ['tab-intro', 'tab-sintomas', 'tab-insulina', 'tab-tratamientos', 'tab-mitos'];
+                if (validTabs.includes(tabId)) {
+                    history.replaceState({ tabId: tabId }, null, '#' + tabId);
+                    openTab(tabId, null, false);
+                } else {
+                    history.replaceState({ tabId: 'tab-intro' }, null, window.location.pathname + window.location.search);
+                }
+            } else {
+                history.replaceState({ tabId: 'tab-intro' }, null, window.location.pathname + window.location.search);
+            }
+        });
+
+        // Funciones de Pestañas (Tabs)
+        function openTab(tabId, btnElement, updateUrl = true) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) targetTab.style.display = 'block';
+            
+            if (!btnElement) btnElement = document.getElementById('btn-' + tabId);
+            if (btnElement) btnElement.classList.add('active');
+
+            if (updateUrl) {
+                history.pushState({ tabId: tabId }, null, '#' + tabId);
+                window.scrollTo({ top: document.querySelector('.tabs-wrapper').offsetTop - 20, behavior: 'smooth' });
+            }
+        }
+
+        // Evento para botón de retroceso
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.tabId) {
+                openTab(event.state.tabId, null, false);
+            } else if (window.location.hash) {
+                openTab(window.location.hash.substring(1), null, false);
+            } else {
+                openTab('tab-intro', null, false);
+            }
+        });
+    </script>
+    
+    
+</Layout>
+
+<style is:global>
+:root {
+        --pc-verde: #25d366;
+    }
+
+.container { max-width: 900px; margin: 0 auto; padding: 15px; }
+
+.header { text-align: center; padding: 40px 20px; background: var(--pc-rosa-pastell); border: 4px solid var(--pc-negro); border-radius: 20px; margin-bottom: 30px; box-shadow: 8px 8px 0 var(--pc-negro); position: relative; overflow: hidden; }
+
+.header h1 { font-size: 2.8rem; color: var(--pc-rosa-fuerte); margin-bottom: 10px; line-height: 1.1; }
+
+.author-badge { display: inline-block; background: var(--pc-negro); color: var(--pc-blanco); padding: 5px 15px; border-radius: 50px; font-weight: 900; font-size: 0.9rem; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+
+.tabs-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+
+.tab-btn { background: var(--pc-blanco); border: 3px solid var(--pc-negro); padding: 12px 20px; border-radius: 50px; font-weight: 800; cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 1rem; color: var(--pc-negro); box-shadow: 0 4px 0 var(--pc-negro); transition: 0.2s; white-space: normal; word-wrap: break-word; }
+
+.tab-btn:hover { background: var(--pc-amarillo); transform: translateY(-2px); box-shadow: 0 6px 0 var(--pc-negro); }
+
+.tab-btn.active { background: var(--pc-rosa-fuerte); color: white; box-shadow: 0 0px 0 var(--pc-negro); transform: translateY(4px); }
+
+.tab-content { display: none; animation: fadeInTab 0.4s ease-out; }
+
+@keyframes fadeInTab { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+.content-box { background: white; border: 3px solid var(--pc-negro); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 6px 6px 0 var(--pc-azul-suave); position: relative; overflow: hidden; transition: 0.3s; }
+
+.content-box h2 { color: var(--pc-rosa-fuerte); margin-bottom: 15px; font-size: 1.8rem; }
+
+.content-box p { margin-bottom: 15px; font-size: 1.05rem; color: #444; font-weight: 600; }
+
+.content-box ul { margin-left: 20px; margin-bottom: 15px; font-weight: 600; color: #444; font-size: 1.05rem; }
+
+.content-box li { margin-bottom: 8px; }
+
+.info-panel { padding: 20px; border-radius: 15px; border: 3px dashed var(--pc-negro); margin-bottom: 20px; }
+
+.info-panel h4 { font-size: 1.3rem; color: var(--pc-negro); margin-bottom: 10px; font-family: 'Handlee', cursive; }
+
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+
+.card { background: var(--pc-blanco); border: 3px solid var(--pc-negro); border-radius: 15px; padding: 20px; box-shadow: 4px 4px 0 var(--pc-gris-suave); transition: transform 0.2s; }
+
+.card:hover { transform: translateY(-5px); box-shadow: 6px 6px 0 var(--pc-negro); }
+
+.card.pro { border-color: #2e7d32; box-shadow: 4px 4px 0 #c8e6c9; }
+
+.card.con { border-color: #c62828; box-shadow: 4px 4px 0 #ffcdd2; }
+
+.card.info { border-color: #1565c0; box-shadow: 4px 4px 0 #bbdefb; }
+
+.btn-action { display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 15px 30px; border-radius: 50px; border: 4px solid var(--pc-negro); font-weight: 800; font-size: 1.1rem; background: var(--pc-negro); color: white; box-shadow: 0 6px 0 #000; cursor: pointer; font-family: 'Nunito', sans-serif; transition: 0.1s; text-decoration: none; width: 100%; max-width: 400px; margin: 10px auto; }
+
+.btn-action:active { transform: translateY(6px); box-shadow: 0 0 0 transparent; }
+
+.btn-next { display: block; width: 100%; max-width: 400px; margin: 30px auto 0; text-align: center; background: var(--pc-rosa-fuerte); color: white; border: 3px solid var(--pc-negro); padding: 15px 25px; border-radius: 50px; font-weight: 900; font-size: 1.2rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: 0 6px 0 var(--pc-negro); font-family: 'Nunito', sans-serif; text-decoration: none; }
+
+.btn-next:hover { transform: scale(1.03) translateY(-3px); box-shadow: 0 9px 0 var(--pc-negro); }
+
+.btn-next:active { transform: translateY(6px); box-shadow: 0 0px 0 var(--pc-negro); }
+
+.floating-emoji { font-size: 4.5rem; display: inline-block; animation: floatEmoji 3s ease-in-out infinite; filter: drop-shadow(4px 4px 0px var(--pc-amarillo)); }
+
+@keyframes floatEmoji { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+.flip-card { background-color: transparent; width: 100%; height: 220px; perspective: 1000px; margin-bottom: 20px; }
+
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer; }
+
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; border: 3px solid var(--pc-negro); border-radius: 15px; font-weight: 800; font-size: 0.95rem; }
+
+.flip-card-front { background-color: var(--pc-amarillo); color: var(--pc-negro); box-shadow: 6px 6px 0 var(--pc-rosa-pastell); }
+
+.flip-card-back { background-color: var(--pc-azul-suave); color: var(--pc-negro); transform: rotateY(180deg); box-shadow: -6px 6px 0 var(--pc-negro); }
+</style>

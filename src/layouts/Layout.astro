@@ -1,0 +1,47 @@
+---
+// Layout.astro
+import '../styles/global.css';
+import '../styles/global-original.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  showFooter?: boolean;
+  bodyClass?: string;
+}
+
+const { 
+  title = "Proyecto Celene", 
+  description = "Proyecto Celene A.C. - Ayuda médica y social en Rosarito, B.C.",
+  showFooter = true,
+  bodyClass = ""
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="https://i.ibb.co/3mwFFhL6/logo-pc-circulo.png" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class={bodyClass}>
+    <div class="container">
+        <Navbar />
+        
+        <slot />
+        
+        {showFooter && <Footer />}
+    </div>
+    
+    <!-- Script global de interactividad (WhatsApp flotante, píldora volver arriba, etc.) -->
+    <script is:inline src="js/global.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+---
+// Footer.astro
+---
+<footer class="footer-wrapper fade-in" role="contentinfo">
+    <div class="contact-grid">
+        <div class="contact-info">
+            <h2 class="hand-drawn">Proyecto Celene A.C.</h2>
+            <h3>Playas de Rosarito, Baja California</h3>
+            <p class="slogan">Únete a la lucha contra el cáncer de mama <span>🎗️</span></p>
+
+            <p><span class="icon"><span>📍</span></span> <span>Calle Gral. Guadalupe Victoria, Col. Lienzo
+                    Charro, Rosarito, B.C.<br><small>(Frente al restaurante Ortegas, detrás del restaurante El Roble)</small></span></p>
+            <p><span class="icon"><span>⏰</span></span> <span><strong>Horario:</strong> Lunes a Sábado de 9:00
+                    AM a 4:00 PM.</span></p>
+
+            <p style="font-size: 0.95rem; line-height: 1.5; margin-top: 20px; font-weight: 600;">
+                <span>💬</span> Si te interesa platicarnos de tu caso, mándanos un WhatsApp al 661 104 4050 o
+                llámanos a la línea telefónica. ¡Estamos para servirte!
+            </p>
+
+            <div class="social-links">
+                <a href="tel:6611044050" class="btn btn-llamar" style="margin-bottom:0;">Llamar
+                    <span>📞</span></a>
+                <button onclick="typeof openGlobalWaModal === 'function' ? openGlobalWaModal() : document.getElementById('globalWaModal').style.display='flex'"
+                    class="btn btn-wa" style="margin-bottom:0;" aria-label="Abrir modal de contacto por WhatsApp">WhatsApp <span>💬</span></button>
+            </div>
+
+            <div class="social-links" style="margin-top: 15px;">
+                <a href="https://www.facebook.com/proyectocelene.rosarito/" class="btn btn-social"
+                    target="_blank" rel="noopener"><span>👍</span> Facebook</a>
+                <a href="https://www.instagram.com/proyectocelene" class="btn btn-social"
+                    target="_blank" rel="noopener"><span>📸</span> Instagram</a>
+            </div>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="map-container">
+            <iframe
+                src="https://maps.google.com/maps?q=Proyecto%20Celene%20Rosarito&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación de Proyecto Celene en Google Maps">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Reseñas de Google al final -->
+    <div class="reviews-box">
+        <h4 class="hand-drawn">¿Te hemos ayudado?</h4>
+        <div class="stars">★★★★★</div>
+        <p style="font-size: 1rem; margin-bottom: 20px; font-weight: 600;">Proporciona a las pacientes un
+            vínculo de confianza dejando tu opinión en Google.</p>
+        <a href="https://g.page/r/CSyqpg-XraHKEBM/review" class="btn btn-primario" target="_blank"
+            rel="noopener" style="margin-bottom:0; font-size:1.2rem;">Dejar una Reseña <span>🌟</span></a>
+    </div>
+</footer>
+
+<style>
+.footer-wrapper {
+    background: var(--pc-rosa-oscuro);
+    color: white;
+    border-radius: 25px;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    border: 4px solid var(--pc-negro);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    text-align: center;
+}
+
+.contact-info h2 {
+    font-size: 2.8rem;
+    color: white;
+    margin-bottom: 5px;
+    line-height: 1.1;
+}
+
+.contact-info h3 {
+    font-size: 1.4rem;
+    color: var(--pc-rosa-pastell);
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.contact-info .slogan {
+    font-size: 1.2rem;
+    font-weight: 800;
+    font-style: italic;
+    margin-bottom: 25px;
+    color: var(--pc-amarillo);
+}
+
+.contact-info p {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    justify-content: center;
+    text-align: left;
+    max-width: 400px;
+    margin-inline: auto;
+}
+
+.contact-info .icon {
+    font-size: 1.3rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.map-container {
+    width: 100%;
+    height: 350px;
+    border: 4px solid white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.reviews-box {
+    background: white;
+    border: 4px solid var(--pc-negro);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    color: var(--pc-negro);
+    margin-top: 30px;
+    box-shadow: 6px 6px 0 var(--pc-amarillo);
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+.reviews-box h4 {
+    font-size: 1.8rem;
+    color: var(--pc-rosa-fuerte);
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: #f39c12;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    letter-spacing: 5px;
+}
+
+@media (min-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .contact-info {
+        text-align: left;
+    }
+
+    .contact-info p {
+        justify-content: flex-start;
+        margin-inline: 0;
+    }
+
+    .social-links {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-info h2 {
+        font-size: 2.2rem;
+    }
+}
+</style>
